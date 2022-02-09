@@ -122,6 +122,10 @@ p {
 }
 /*  global classes */
 
+#page-container {
+  min-height: calc(100vh - 5rem - 9rem);
+}
+
 .btn {
   text-transform: uppercase;
   background: var(--clr-primary-3);
@@ -142,6 +146,11 @@ p {
   color: var(--clr-primary-1);
   background: var(--clr-primary-8);
 }
+.btn:disabled {
+  color: var(--clr-primary-10);
+  background: var(--clr-grey-4);
+}
+
 .center-btn {
   display: block;
   width: 12rem;
@@ -830,6 +839,9 @@ Footer
   text-align: center;
   display: grid;
   place-items: center;
+  margin-top: 20px;
+  bottom: 0;
+  width: 100%;
 }
 .footer p {
   margin-top: 0.5rem;
