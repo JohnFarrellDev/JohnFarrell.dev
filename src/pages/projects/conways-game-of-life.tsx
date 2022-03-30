@@ -23,7 +23,7 @@ const ConwaysGameOfLife = () => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [steps, setSteps] = useState(0)
   const [history, setHistory] = useState<boolean[][]>([])
-  const [speed, setSpeed] = useState(5);
+  const [speed, setSpeed] = useState(5)
 
   useEffect(() => {
     setGrid(Array(columns * rows).fill(false))
@@ -72,9 +72,9 @@ const ConwaysGameOfLife = () => {
 
   const compareGridsForEquality = (arr1: boolean[], arr2: boolean[]) => {
     for (let i = 0; i < arr1.length; i++) {
-      if (arr1[i] !== arr2[i]) return false;
+      if (arr1[i] !== arr2[i]) return false
     }
-    return true;
+    return true
   }
 
   const gameTick = () => {
@@ -105,7 +105,7 @@ const ConwaysGameOfLife = () => {
 
   const playGameOfLife = () => {
     if (isPlaying) {
-      gameTick();
+      gameTick()
     }
   }
 
@@ -153,7 +153,7 @@ const ConwaysGameOfLife = () => {
         <GameContainer>
           <div>
             <Controls>
-              <button onClick={() => setIsPlaying(currPlayValue => !currPlayValue)} type="button">
+              <button onClick={() => setIsPlaying((currPlayValue) => !currPlayValue)} type="button">
                 {isPlaying ? <FaStopCircle /> : <FaPlay />}
               </button>
               {/* <button onClick={stepBackward} type="button">
