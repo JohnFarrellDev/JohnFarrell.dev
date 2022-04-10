@@ -6,17 +6,17 @@ export interface State {
 }
 
 export interface PotentialPrime {
-  isPrime?: boolean
-  isNotPrime?: boolean
+  isPrime: boolean
   value: number
+  isHighlighted: boolean
 }
 
 export interface CellI {
-  isPrime: boolean | undefined
-  isNotPrime: boolean | undefined
+  isPrime: boolean
+  isHighlighted: boolean
 }
 
-export type Operation = OperationSetPrimes | OperationSetPrime | OperationSetNotPrime | OperationSetMessage
+export type Operation = OperationSetPrimes | OperationSetPrime | OperationSetNotPrime | OperationSetMessage | OperationHighlightCell
 
 interface OperationSetPrimes {
   action: PrimeAction.SetPrimes
@@ -42,9 +42,16 @@ interface OperationSetMessage {
   message: string
 }
 
+interface OperationHighlightCell {
+  action: PrimeAction.HighlightCell
+  intervalMs: number
+  index: number
+}
+
 export enum PrimeAction {
   SetMessage,
   SetPrimes,
   SetPrime,
-  SetNotPrime
+  SetNotPrime,
+  HighlightCell
 }

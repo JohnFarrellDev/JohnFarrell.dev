@@ -13,7 +13,8 @@ export const Cell = styled.div`
   border: solid 2px black;
   place-items: center;
   display: grid;
-  background-color: ${(props: CellI) => (props.isPrime ? '#99e6b3' : props.isNotPrime ? '#e66771' : '#ffffff')};
+  background-color: ${(props: CellI) => (props.isPrime ? '#99e6b3' : '#e66771')};
+  outline: ${(props: CellI) => (props.isHighlighted ? '2px solid yellow' : '')};
 `
 
 export const PrimeValue = styled.div`

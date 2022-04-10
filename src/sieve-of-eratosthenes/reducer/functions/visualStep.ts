@@ -5,6 +5,7 @@ export const visualStep = (state: State, action: Action) => {
   if (action.type !== 'VisualStep') return state
 
   const visualStep = state.visualSteps.pop()
+  console.log('🚀 ~ file: visualStep.ts ~ line 8 ~ visualStep ~ visualStep', visualStep)
   if (!visualStep) return state
 
   switch (visualStep.action) {
@@ -30,41 +31,12 @@ export const visualStep = (state: State, action: Action) => {
         ...state,
         message: visualStep.message
       }
+    case PrimeAction.HighlightCell:
+      state.potentialPrimes[visualStep.index].isHighlighted = true
+      return {
+        ...state
+      }
     default:
       return state
   }
 }
-
-// if (operations.length) {
-//   setTimeout(() => {
-//     const operation = operations.pop()
-//     const updatedCells = [...cells]
-
-//     switch (operation.action) {
-//       case Action.SetMessage:
-//         setMessage(operation.message)
-//         break
-//       case Action.SetPrime:
-//         updatedCells[operation.index] = {
-//           ...updatedCells[operation.index],
-//           isPrime: true
-//         }
-//         setCells(updatedCells)
-//         break
-//       case Action.SetNotPrime:
-//         updatedCells[operation.index] = {
-//           ...updatedCells[operation.index],
-//           isNotPrime: true,
-//           isPrime: false
-//         }
-//         setCells(updatedCells)
-//         break
-//       default:
-//         break
-//     }
-//   }, operation.interval)
-
-//   if (!operation.length && isCalculating) {
-//     setIsCalculating(false)
-//   }
-// }

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useReducer } from 'react'
+import { useEffect, useReducer } from 'react'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import Title from '../components/Title'
@@ -11,7 +11,9 @@ import { State } from './types'
 const initialSieveState: State = {
   potentialPrimes: new Array(INITIAL_NUMBER_OF_PRIMES).fill(null).map((_, i) => {
     return {
-      value: i
+      value: i,
+      isHighlighted: false,
+      isPrime: false
     }
   }),
   calculating: false,
@@ -64,12 +66,7 @@ export const SieveOfEratosthenesC = () => {
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <p>{sieveState.potentialPrimes.length.toLocaleString()}</p>
         </div>
-        <button
-          onClick={() => calculatePrimes()}
-          className="btn center-btn"
-          style={{ margin: '1rem auto' }}
-          disabled={sieveState.calculating}
-        >
+        <button onClick={calculatePrimes} className="btn center-btn" style={{ margin: '1rem auto' }} disabled={sieveState.calculating}>
           Calculate primes
         </button>
         <TypeWriter message={sieveState.message} />
@@ -77,7 +74,7 @@ export const SieveOfEratosthenesC = () => {
           <GridContainer>
             {sieveState.potentialPrimes.map((cell, index) => {
               return (
-                <Cell key={index} isNotPrime={cell.isNotPrime} isPrime={cell.isPrime}>
+                <Cell key={index} isPrime={cell.isPrime} isHighlighted={cell.isHighlighted}>
                   <PrimeValue>{index + 1}</PrimeValue>
                 </Cell>
               )
