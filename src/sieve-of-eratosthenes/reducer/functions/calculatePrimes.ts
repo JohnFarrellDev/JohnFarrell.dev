@@ -36,7 +36,7 @@ const generateSieveOperations = (potentialPrimes: PotentialPrime[]): Operation[]
   }
 
   potentialPrimes.forEach((prime) => {
-    prime.isPrime = false
+    prime.isPrime = true
   })
   splitShuffledPotentialPrimes.forEach((primeSection) => {
     operations.push({
