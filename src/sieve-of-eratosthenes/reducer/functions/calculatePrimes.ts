@@ -42,7 +42,7 @@ const generateSieveOperations = (potentialPrimes: PotentialPrime[]): Operation[]
     operations.push({
       action: PrimeAction.SetPrimes,
       indexes: primeSection.map((e) => e.value),
-      intervalMs: 250
+      intervalMs: 251
     })
   })
 
