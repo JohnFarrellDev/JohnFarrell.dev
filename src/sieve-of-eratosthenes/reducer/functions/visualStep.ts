@@ -5,7 +5,6 @@ export const visualStep = (state: State, action: Action) => {
   if (action.type !== 'VisualStep') return state
 
   const visualStep = state.visualSteps.pop()
-  console.log('🚀 ~ file: visualStep.ts ~ line 8 ~ visualStep ~ visualStep', visualStep)
   if (!visualStep) return state
 
   switch (visualStep.action) {
@@ -23,6 +22,7 @@ export const visualStep = (state: State, action: Action) => {
         ...state
       }
     case PrimeAction.SetNotPrime:
+      state.potentialPrimes[visualStep.index].isPrime = false
       return {
         ...state
       }
@@ -33,6 +33,26 @@ export const visualStep = (state: State, action: Action) => {
       }
     case PrimeAction.HighlightCell:
       state.potentialPrimes[visualStep.index].isHighlighted = true
+      return {
+        ...state
+      }
+    case PrimeAction.HighlightCellNotPrime:
+      state.potentialPrimes[visualStep.index].isHighlightedNotPrime = true
+      return {
+        ...state
+      }
+    case PrimeAction.SetNotPrimeMultiple:
+      visualStep.indexes.forEach((index) => {
+        state.potentialPrimes[index].isPrime = false
+      })
+      return {
+        ...state
+      }
+    case PrimeAction.RemoveHighlights:
+      state.potentialPrimes.forEach((potentialPrime) => {
+        potentialPrime.isHighlighted = false
+        potentialPrime.isHighlightedNotPrime = false
+      })
       return {
         ...state
       }

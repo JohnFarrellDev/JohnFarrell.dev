@@ -12,5 +12,9 @@ export const TypeWriter = ({ message }: TypeWriterI) => {
   //   x.innerHTML = 'test'
   // }
 
-  return <p id="typewriter"></p>
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <p id="typewriter">{message}</p>
+    </div>
+  )
 }

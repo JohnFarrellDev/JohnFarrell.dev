@@ -9,16 +9,26 @@ export interface PotentialPrime {
   isPrime: boolean
   value: number
   isHighlighted: boolean
+  isHighlightedNotPrime: boolean
 }
 
 export interface CellI {
   isPrime: boolean
   isHighlighted: boolean
+  isHighlightedNotPrime: boolean
 }
 
-export type Operation = OperationSetPrimes | OperationSetPrime | OperationSetNotPrime | OperationSetMessage | OperationHighlightCell
+export type Operation =
+  | OperationSetPrimes
+  | OperationSetPrime
+  | OperationSetNotPrime
+  | OperationSetMultipleNotPrime
+  | OperationSetMessage
+  | OperationHighlightCell
+  | OperationHighlightCellNotPrime
+  | OperationRemoveHighlights
 
-interface OperationSetPrimes {
+export interface OperationSetPrimes {
   action: PrimeAction.SetPrimes
   intervalMs: number
   indexes: number[]
@@ -36,6 +46,12 @@ interface OperationSetNotPrime {
   index: number
 }
 
+interface OperationSetMultipleNotPrime {
+  action: PrimeAction.SetNotPrimeMultiple
+  intervalMs: number
+  indexes: number[]
+}
+
 interface OperationSetMessage {
   action: PrimeAction.SetMessage
   intervalMs: number
@@ -48,10 +64,24 @@ interface OperationHighlightCell {
   index: number
 }
 
+interface OperationHighlightCellNotPrime {
+  action: PrimeAction.HighlightCellNotPrime
+  intervalMs: number
+  index: number
+}
+
+interface OperationRemoveHighlights {
+  action: PrimeAction.RemoveHighlights
+  intervalMs: number
+}
+
 export enum PrimeAction {
   SetMessage,
   SetPrimes,
   SetPrime,
   SetNotPrime,
-  HighlightCell
+  SetNotPrimeMultiple,
+  HighlightCell,
+  HighlightCellNotPrime,
+  RemoveHighlights
 }

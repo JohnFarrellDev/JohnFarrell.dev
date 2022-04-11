@@ -16,7 +16,7 @@ export const shufflePrimes = (primes: PotentialPrime[], operations: Operation[])
     operations.push({
       action: PrimeAction.SetPrimes,
       indexes: primeSection.map((e) => e.value),
-      intervalMs: 251
+      intervalMs: 250
     })
   })
 }

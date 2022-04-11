@@ -13,6 +13,7 @@ const initialSieveState: State = {
     return {
       value: i,
       isHighlighted: false,
+      isHighlightedNotPrime: false,
       isPrime: false
     }
   }),
@@ -74,8 +75,13 @@ export const SieveOfEratosthenesC = () => {
           <GridContainer>
             {sieveState.potentialPrimes.map((cell, index) => {
               return (
-                <Cell key={index} isPrime={cell.isPrime} isHighlighted={cell.isHighlighted}>
-                  <PrimeValue>{index + 1}</PrimeValue>
+                <Cell
+                  key={index}
+                  isPrime={cell.isPrime}
+                  isHighlighted={cell.isHighlighted}
+                  isHighlightedNotPrime={cell.isHighlightedNotPrime}
+                >
+                  <PrimeValue>{index}</PrimeValue>
                 </Cell>
               )
             })}
