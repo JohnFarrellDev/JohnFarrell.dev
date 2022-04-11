@@ -1,7 +1,6 @@
-import { Action } from '..'
-import { shuffle } from '../../../utils/shuffle'
-import { NUMBER_OF_PRIME_SHUFFLE_VISUAL_STEPS } from '../../constants'
-import { Operation, PotentialPrime, PrimeAction, State } from '../../types'
+import { Action } from '../..'
+import { Operation, PotentialPrime, PrimeAction, State } from '../../../types'
+import { shufflePrimes } from './shufflePrimes'
 
 export const calculatePrimes = (state: State, action: Action): State => {
   if (action.type !== 'CalculatePrimes') return state
@@ -29,22 +28,7 @@ const generateSieveOperations = (potentialPrimes: PotentialPrime[]): Operation[]
     intervalMs: 10
   })
 
-  const shuffledPotentialPrimes = shuffle(Array.from(potentialPrimes))
-  const splitShuffledPotentialPrimes: PotentialPrime[][] = []
-  while (shuffledPotentialPrimes.length > 0) {
-    splitShuffledPotentialPrimes.push(shuffledPotentialPrimes.splice(0, potentialPrimes.length / NUMBER_OF_PRIME_SHUFFLE_VISUAL_STEPS))
-  }
-
-  potentialPrimes.forEach((prime) => {
-    prime.isPrime = true
-  })
-  splitShuffledPotentialPrimes.forEach((primeSection) => {
-    operations.push({
-      action: PrimeAction.SetPrimes,
-      indexes: primeSection.map((e) => e.value),
-      intervalMs: 251
-    })
-  })
+  shufflePrimes(potentialPrimes, operations)
 
   potentialPrimes[0] = { ...potentialPrimes[0], isPrime: false }
   // operations.push({
