@@ -15,11 +15,6 @@ export const loopPrimes = (potentialPrimes: PotentialPrime[], operations: Operat
   })
 
   for (let i = 2; i < Math.ceil(Math.sqrt(potentialPrimes.length)); i++) {
-    operations.push({
-      action: PrimeAction.RemoveHighlights,
-      intervalMs: 500
-    })
-
     if (potentialPrimes[i].isPrime) {
       operations.push({
         action: PrimeAction.HighlightCell,
@@ -41,6 +36,10 @@ export const loopPrimes = (potentialPrimes: PotentialPrime[], operations: Operat
         action: PrimeAction.SetNotPrimeMultiple,
         intervalMs: 1000,
         indexes: potentialPrimes.filter((x) => !x.isPrime).map((x) => x.value)
+      })
+      operations.push({
+        action: PrimeAction.RemoveHighlights,
+        intervalMs: 500
       })
     }
   }

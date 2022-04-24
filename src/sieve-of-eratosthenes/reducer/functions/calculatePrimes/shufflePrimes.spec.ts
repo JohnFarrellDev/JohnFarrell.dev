@@ -12,6 +12,7 @@ describe('shufflePrimes', () => {
       return {
         value: i,
         isHighlighted: false,
+        isHighlightedNotPrime: false,
         isPrime: false
       }
     })
