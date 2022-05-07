@@ -12,7 +12,7 @@ export const Hero = () => {
             <div className={styles.underline} />
             <h1>Hello, I'm John</h1>
             <h2>I'm a software developer with a focus on the web</h2>
-            <button className="btn">
+            <button className={styles.btn}>
               <Link href="/contact">Contact Me</Link>
             </button>
             <SocialLinks isFooter={false} />
