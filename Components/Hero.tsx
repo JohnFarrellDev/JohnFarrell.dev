@@ -3,7 +3,7 @@ import { SocialLinks } from './SocialLinks'
 import { Robot } from './Robot'
 import styles from '../styles/Hero.module.css'
 
-const Hero = () => {
+export const Hero = () => {
   return (
     <header className={styles.hero}>
       <div className={`section-center ${styles.heroCenter}`}>
@@ -15,7 +15,7 @@ const Hero = () => {
             <button className="btn">
               <Link href="/contact">Contact Me</Link>
             </button>
-            <SocialLinks />
+            <SocialLinks isFooter={false} />
           </div>
         </article>
         <Robot />
@@ -23,5 +23,3 @@ const Hero = () => {
     </header>
   )
 }
-
-export default Hero
