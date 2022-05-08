@@ -1,0 +1,26 @@
+.contactPage {
+  display: grid;
+  place-items: center;
+  padding: 5rem 0;
+  background: var(--clr-grey-10);
+  min-height: calc(100vh - 5rem - 9rem);
+}
+
+.contactForm {
+  background: var(--clr-white);
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: var(--light-shadow);
+  transition: var(--transition);
+  width: 90vw;
+  max-width: 35rem;
+}
+
+.contactForm:hover {
+  box-shadow: var(--dark-shadow);
+}
+
+.contactForm h3 {
+  padding-top: 1.25rem;
+  color: var(--clr-grey-5);
+}

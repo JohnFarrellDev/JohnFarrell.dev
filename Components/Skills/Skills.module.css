@@ -1,0 +1,53 @@
+.skillIcon {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.skill {
+  background: var(--clr-white);
+  padding: 2rem 1.5rem 0.5rem 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: var(--radius);
+  text-align: center;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+.skill .underline {
+  width: 3rem;
+  height: 0.12rem;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+.skill p {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+.skill:hover {
+  background: var(--clr-primary-5);
+  color: var(--clr-primary-9);
+}
+.skill:hover p {
+  color: var(--clr-primary-9);
+}
+.skill:hover .underline {
+  background: var(--clr-primary-9);
+}
+@media screen and (min-width: 676px) {
+  .skillsCenter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    -webkit-column-gap: 2rem;
+    -moz-column-gap: 2rem;
+    column-gap: 2rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .skillsCenter {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.underline {
+  margin-left: auto;
+  margin-right: auto;
+}

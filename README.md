@@ -3,6 +3,12 @@
 Personal website of John Farrell.
 Built to demo projects and write about stuff.
 
-## ❤️ Credits
+## Running Locally
 
-Built with [Gatsby](https://www.gatsbyjs.org/) - the blazing-fast static site generator for [React](https://facebook.github.io/react/).
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

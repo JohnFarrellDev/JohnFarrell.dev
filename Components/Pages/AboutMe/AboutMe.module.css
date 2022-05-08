@@ -1,0 +1,76 @@
+.aboutPage {
+  padding: 7rem 0;
+  background: var(--clr-grey-10);
+  min-height: calc(100vh - 5rem - 9rem);
+}
+
+.aboutImg {
+  margin-bottom: 2rem;
+  height: 25rem;
+}
+
+.aboutTextSectionTitle {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.underline {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.aboutText p {
+  line-height: 2;
+}
+
+.stackContainer {
+  width: 30rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 0.5rem;
+}
+
+.stackContainer span {
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  letter-spacing: 1px;
+  color: var(--clr-grey-4);
+}
+
+.stackIcon {
+  color: var(--clr-primary-5);
+  margin-right: 0.25rem;
+  font-size: 1rem;
+}
+
+.aboutStack span {
+  display: inline-block;
+  background: var(--clr-grey-9);
+  color: var(--clr-grey-3);
+  margin-right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+@media screen and (min-width: 992px) {
+  .aboutCenter {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    column-gap: 4rem;
+  }
+
+  .aboutImg {
+    grid-column: 1 / span 5;
+    margin-bottom: 0;
+  }
+
+  .aboutText {
+    grid-column: 6 / -1;
+  }
+}

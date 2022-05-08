@@ -1,0 +1,16 @@
+.socialLinks {
+  margin-top: 2rem;
+  width: 8rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.socialLink {
+  font-size: 1.75rem;
+  color: var(--clr-grey-1);
+  transition: var(--transition);
+}
+
+.socialLink:hover {
+  color: var(--clr-primary-5);
+}
