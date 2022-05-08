@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button } from '../../Utilities/Button'
+import { Button } from '../../../Utilities/Button'
 import styles from './ContactForm.module.css'
 
 enum Status {
@@ -35,8 +35,8 @@ export const ContactForm = () => {
       method="POST"
       onSubmit={submitForm}
     >
-      <div className="form-group">
-        <label htmlFor="form-name" className="sr-only">
+      <div className={styles.formGroup}>
+        <label htmlFor="form-name" className={styles.srOnly}>
           Name:
         </label>
         <input
@@ -44,9 +44,9 @@ export const ContactForm = () => {
           name="name"
           id="form-name"
           placeholder="name"
-          className="form-control"
+          className={styles.formControl}
         />
-        <label htmlFor="form-email" className="sr-only">
+        <label htmlFor="form-email" className={styles.srOnly}>
           Email:
         </label>
         <input
@@ -54,9 +54,9 @@ export const ContactForm = () => {
           name="email"
           placeholder="email"
           id="form-email"
-          className="form-control"
+          className={styles.formControl}
         />
-        <label htmlFor="form-message" className="sr-only">
+        <label htmlFor="form-message" className={styles.srOnly}>
           Message:
         </label>
         <textarea
@@ -64,7 +64,7 @@ export const ContactForm = () => {
           rows={5}
           placeholder="message"
           id="form-message"
-          className="form-control"
+          className={styles.formControl}
         />
       </div>
 
