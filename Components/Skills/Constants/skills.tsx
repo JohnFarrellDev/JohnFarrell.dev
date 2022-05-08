@@ -3,7 +3,7 @@ import {
   SiJavascript,
   SiTypescript,
   SiReact,
-  SiNodeDotJs,
+  SiNodedotjs,
   SiCsharp,
 } from 'react-icons/si'
 import { AiFillGithub } from 'react-icons/ai'
@@ -42,7 +42,7 @@ export const skills = [
   },
   {
     id: 5,
-    icon: <SiNodeDotJs className={styles.skillIcon} />,
+    icon: <SiNodedotjs className={styles.skillIcon} />,
     title: 'Node',
     description:
       "I'm a big fan of the node ecosystem/community. Being able to use one language across the full web stack for a project is very advantageous. I find with node I can get a " +
