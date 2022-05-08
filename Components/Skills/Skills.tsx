@@ -3,6 +3,7 @@ import { Title } from '../Utilities/Title'
 import { skills } from './Constants/skills'
 import styles from './Skills.module.css'
 import { Button } from '../Utilities/Button'
+import { Underline } from '../Utilities/Underline'
 
 export const Skills = () => {
   return (
@@ -15,7 +16,7 @@ export const Skills = () => {
             <article key={id} className={styles.skill}>
               {icon}
               <h3>{title}</h3>
-              <div className="underline" />
+              <Underline extraStyles={styles.underline} />
               <p>{description}</p>
               {link && (
                 <a href={link.url}>

@@ -46,3 +46,8 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+.underline {
+  margin-left: auto;
+  margin-right: auto;
+}
