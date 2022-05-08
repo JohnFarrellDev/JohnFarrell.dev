@@ -45,11 +45,11 @@ export const Experience = () => {
           })}
         </article>
       </div>
-      <Link href="/about-me">
-        <Button extraStyles={styles.centreButton}>
+      <Button extraStyles={styles.centreButton}>
+        <Link href="/about-me">
           <span>more info about me</span>
-        </Button>
-      </Link>
+        </Link>
+      </Button>
     </section>
   )
 }

@@ -317,20 +317,6 @@ Projects
   margin-bottom: 1rem;
 }
 .project-stack span,
-.about-stack span {
-  display: inline-block;
-  background: var(--clr-grey-9);
-  color: var(--clr-grey-3);
-  margin-right: 0.5rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: var(--radius);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.85rem;
-}
-.about-stack span {
-  margin-top: 0.5rem;
-}
 .project-icon {
   color: var(--clr-primary-5);
   font-size: 1.25rem;
@@ -466,7 +452,6 @@ Pages
 .projects-page,
 .blog-page,
 .error-page,
-.about-page,
 .contact-page {
   background: var(--clr-grey-10);
   min-height: calc(100vh - 5rem - 9rem);
@@ -495,9 +480,6 @@ Blog Page
 About Page
 ===============
 */
-.about-page {
-  padding: 7rem 0;
-}
 .about-img {
   margin-bottom: 2rem;
   height: 25rem;
