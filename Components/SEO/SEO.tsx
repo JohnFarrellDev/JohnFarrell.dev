@@ -30,19 +30,9 @@ export const SEO = ({ title, description }: SEOProps) => {
       />
       {/* <meta name="twitter:image" content={`${siteUrl}${image}`} /> */}
 
-      <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon.ico" />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/static/favicon.ico"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="/static/favicon.ico"
-      />
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#ffffff" />
