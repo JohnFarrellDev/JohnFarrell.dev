@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import React from 'react'
-import { siteMetadata } from '../Constants/siteMetadata'
+import { siteMetadata } from '../../Constants/siteMetadata'
 
 interface SEOProps {
   title?: string

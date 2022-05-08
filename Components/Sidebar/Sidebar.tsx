@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaTimes } from 'react-icons/fa'
-import Links from './Links'
-import { SocialLinks } from './SocialLinks'
+import { Links } from '../Links'
+import { SocialLinks } from '../SocialLinks'
 
 interface SidebarProps {
   isOpen: boolean
@@ -21,10 +21,7 @@ export const Sidebar = ({ isOpen, toggleSidebar }: SidebarProps) => {
       </button>
       <div className="side-container">
         <Links styleClass={`${isOpen ? 'sidebar-links' : ''}`} />
-        <SocialLinks
-          styleClass={`${isOpen ? 'sidebar-icons' : ''}`}
-          isFooter={false}
-        />
+        <SocialLinks styleClass={`${isOpen ? 'sidebar-icons' : ''}`} />
       </div>
     </aside>
   )

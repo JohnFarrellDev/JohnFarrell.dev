@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaAlignRight } from 'react-icons/fa'
-import Links from './Links'
-import styles from '../styles/Navbar.module.css'
+import { Links } from '../Links'
+import styles from './Navbar.module.css'
 
 interface NavbarProps {
   toggleSidebar: () => void
@@ -9,18 +9,18 @@ interface NavbarProps {
 
 export const Navbar = ({ toggleSidebar }: NavbarProps) => {
   return (
-    <nav className="navbar">
-      <div className="nav-center">
-        <div className="nav-header">
+    <nav className={styles.navbar}>
+      <div className={styles.navCenter}>
+        <div className={styles.navHeader}>
           <button
             type="button"
-            className="toggle-btn"
+            className={styles.toggleBtn}
             aria-label="open sidebar"
           >
             <FaAlignRight onClick={toggleSidebar} />
           </button>
         </div>
-        <Links styleClass="nav-links" />
+        <Links styleClass={styles.navLinks} />
       </div>
     </nav>
   )

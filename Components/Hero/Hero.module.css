@@ -12,14 +12,6 @@
   align-items: center;
 }
 
-.underline {
-  margin-bottom: 0.5rem;
-  margin-left: 0;
-  width: 5rem;
-  height: 0.25rem;
-  background: var(--clr-primary-5);
-}
-
 .btn {
   text-transform: uppercase;
   background: var(--clr-primary-3);
@@ -51,9 +43,7 @@
 .heroInfo {
   background: var(--clr-primary-10);
 }
-.heroImg {
-  display: none;
-}
+
 .heroInfo h2 {
   color: var(--clr-grey-3);
 }

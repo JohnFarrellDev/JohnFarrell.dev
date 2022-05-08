@@ -1,12 +1,15 @@
 import React from 'react'
-import { SocialLinks } from './SocialLinks'
-import styles from '../styles/Footer.module.css'
+import { SocialLinks } from '../SocialLinks/SocialLinks'
+import styles from './Footer.module.css'
 
 export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div>
-        <SocialLinks styleClass={`${styles.footerLinks}`} isFooter={true} />
+        <SocialLinks
+          styleClass={`${styles.footerLinks}`}
+          styleLinks={styles.footerSocialLink}
+        />
         <p>
           copyright&copy;2020-{new Date().getFullYear()}
           <span>John Farrell</span> all rights reserved

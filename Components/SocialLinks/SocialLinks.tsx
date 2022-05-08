@@ -1,6 +1,5 @@
 import { FaGithubSquare, FaLinkedin, FaTwitterSquare } from 'react-icons/fa'
-import styles from '../styles/SocialLinks.module.css'
-import footerStyles from '../styles/Footer.module.css'
+import styles from './SocialLinks.module.css'
 
 const data = [
   {
@@ -21,10 +20,10 @@ const data = [
 ]
 
 interface LinksProps {
-  isFooter: boolean
+  styleLinks?: string
 }
 
-const Links = ({ isFooter }: LinksProps) => {
+const Links = ({ styleLinks }: LinksProps) => {
   return (
     <>
       {data.map((link) => {
@@ -32,9 +31,11 @@ const Links = ({ isFooter }: LinksProps) => {
           <li key={link.id}>
             <a
               href={link.url}
-              className={`${styles.socialLink} ${
-                isFooter ? footerStyles.footerSocialLink : ''
-              }`}
+              className={
+                styleLinks
+                  ? `${styles.socialLink} ${styleLinks}`
+                  : styles.socialLink
+              }
             >
               {link.icon}
             </a>
@@ -47,13 +48,13 @@ const Links = ({ isFooter }: LinksProps) => {
 
 interface SocialLinksProps {
   styleClass?: string
-  isFooter: boolean
+  styleLinks?: string
 }
 
-export const SocialLinks = ({ styleClass, isFooter }: SocialLinksProps) => {
+export const SocialLinks = ({ styleClass, styleLinks }: SocialLinksProps) => {
   return (
     <ul className={`${styles.socialLinks} ${styleClass || ''}`}>
-      <Links isFooter={isFooter} />
+      <Links styleLinks={styleLinks} />
     </ul>
   )
 }

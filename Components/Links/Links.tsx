@@ -41,8 +41,6 @@ interface LinksProps {
   styleClass?: string
 }
 
-const Links = ({ styleClass }: LinksProps) => {
-  return <ul className={`page-links ${styleClass || ''}`}>{tempLinks}</ul>
+export const Links = ({ styleClass }: LinksProps) => {
+  return <ul className={`${styleClass || ''}`}>{tempLinks}</ul>
 }
-
-export default Links
