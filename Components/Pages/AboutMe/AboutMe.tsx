@@ -73,7 +73,7 @@ export const AboutMe = () => {
               development and joined a consultancy called{' '}
               <Link href="https://www.caci-iig.co.uk/">CACI IIG</Link> where I
               worked on several web app projects. I then joined the{' '}
-              <Link href="https://www.madetech.com/">Made Tech team</Link> which
+              <Link href="https://www.madetech.com/">Made Tech</Link> team which
               is also a consultancy and continued with a focus on developing web
               apps.
             </p>
