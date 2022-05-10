@@ -15,7 +15,7 @@ export const jobs = [
       {
         id: 2,
         description:
-          'Worked on Homes for Ukraine with DLUHC to build forms that allowed the UK to express interest in offering any spare bedrooms to Ukrainian refugees',
+          'Worked on Homes for Ukraine with DLUHC to build forms that allowed UK residents to express their interest in offering any spare bedrooms to Ukrainian refugees',
         technology: ['Ruby', 'Ruby on Rails'],
       },
       {

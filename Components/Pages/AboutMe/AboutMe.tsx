@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import { Layout } from '../../Layout'
 import { SEO } from '../../SEO'
@@ -9,7 +10,8 @@ const info =
   'Python following the completion of my BSc in Biomedical Science. It became my ambition to become a software engineer so I enrolled ' +
   'in a masters degree in Computer Science at the University of Kent. After graduating I worked at Tata Consultancy Services ' +
   'where I had the opportunity to be involved in a large scale cloud industrilisation project. I then became interested in web ' +
-  'development and joined CACI IIG where I have worked since developing web applications for our customers.'
+  'development and joined CACI IIG where I worked on several web app projects as consultant. I then continued working at consultancies by joining Made Tech  ' +
+  'still with a focus on developing web apps.'
 
 const stack = [
   {
@@ -42,7 +44,11 @@ const stack = [
   },
   {
     id: 8,
-    title: 'ASP.net',
+    title: '.NET',
+  },
+  {
+    id: 9,
+    title: 'AWS',
   },
 ]
 
@@ -54,7 +60,23 @@ export const AboutMe = () => {
         <div className={`section-center ${styles.aboutCenter}`}>
           <article className={styles.aboutText}>
             <Title title="About Me" />
-            <p>{info}</p>
+            <p className={styles.paragraph}>
+              Hi, I'm John Farrell, a professional software developer. I started
+              programming in 2016 by teaching myself a little bit of coding
+              following the completion of my BSc in Biomedical Science. It
+              became my ambition to become a software engineer, so I enrolled in
+              a master's degree in Computer Science at the University of Kent.
+              After graduating, I worked at{' '}
+              <Link href="https://www.tcs.com/">Tata Consultancy Services</Link>
+              , where I had the opportunity to be involved in a large scale
+              cloud industrialisation project. I then became interested in web
+              development and joined a consultancy called{' '}
+              <Link href="https://www.caci-iig.co.uk/">CACI IIG</Link> where I
+              worked on several web app projects. I then joined the{' '}
+              <Link href="https://www.madetech.com/">Made Tech team</Link> which
+              is also a consultancy and continued with a focus on developing web
+              apps.
+            </p>
             <div className={styles.aboutStack}>
               {stack.map((item) => {
                 return <span key={item.id}>{item.title}</span>

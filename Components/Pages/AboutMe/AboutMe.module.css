@@ -4,6 +4,10 @@
   min-height: calc(100vh - 5rem - 9rem);
 }
 
+.paragraph a {
+  text-decoration: underline;
+}
+
 .aboutImg {
   margin-bottom: 2rem;
   height: 25rem;
