@@ -57,9 +57,6 @@ interface ContentsProps {
 }
 
 const Contents = ({ content, hierarchy = '1', extraStyles }: ContentsProps) => {
-  console.error = () => {
-    return
-  }
   return (
     <>
       {content.map((data, index) => {
