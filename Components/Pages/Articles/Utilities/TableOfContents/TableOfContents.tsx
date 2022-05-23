@@ -57,6 +57,9 @@ interface ContentsProps {
 }
 
 const Contents = ({ content, hierarchy = '1', extraStyles }: ContentsProps) => {
+  console.error = () => {
+    return
+  }
   return (
     <>
       {content.map((data, index) => {
@@ -73,11 +76,8 @@ const Contents = ({ content, hierarchy = '1', extraStyles }: ContentsProps) => {
               <Contents
                 content={data.nestedContent}
                 hierarchy={addLastDigit(incrementLastDigit(hierarchy, index))}
-                key={
-                  addLastDigit(incrementLastDigit(hierarchy, index)) +
-                  '-contents'
-                }
                 extraStyles={styles.padContent}
+                key={incrementLastDigit(hierarchy, index)}
               />
             </>
           )
@@ -85,7 +85,7 @@ const Contents = ({ content, hierarchy = '1', extraStyles }: ContentsProps) => {
 
         return (
           <Display
-            key={incrementLastDigit(hierarchy, index) + '-display-not-nested'}
+            key={incrementLastDigit(hierarchy, index)}
             data={data}
             hierarchy={hierarchy}
             index={index}
