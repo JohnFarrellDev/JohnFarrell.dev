@@ -22,7 +22,11 @@ export const TableOfContents = ({ content }: TableOfContentsProps) => {
         showContents={showContents}
         setShowContents={setShowContents}
       />
-      {showContents && <Contents content={content} />}
+      {showContents && (
+        <ul>
+          <Contents content={content} />
+        </ul>
+      )}
     </div>
   )
 }
@@ -54,7 +58,7 @@ interface ContentsProps {
 
 const Contents = ({ content, hierarchy = '1', extraStyles }: ContentsProps) => {
   return (
-    <ul className={extraStyles ? extraStyles : ''}>
+    <>
       {content.map((data, index) => {
         if (data.nestedContent) {
           return (
@@ -63,6 +67,7 @@ const Contents = ({ content, hierarchy = '1', extraStyles }: ContentsProps) => {
                 data={data}
                 hierarchy={hierarchy}
                 index={index}
+                extraStyles={extraStyles}
                 key={incrementLastDigit(hierarchy, index) + '-display-nested'}
               />
               <Contents
@@ -84,10 +89,11 @@ const Contents = ({ content, hierarchy = '1', extraStyles }: ContentsProps) => {
             data={data}
             hierarchy={hierarchy}
             index={index}
+            extraStyles={extraStyles}
           />
         )
       })}
-    </ul>
+    </>
   )
 }
 
@@ -95,11 +101,12 @@ interface DisplayProps {
   data: displayContent
   hierarchy: string
   index: number
+  extraStyles?: string
 }
 
-const Display = ({ data, hierarchy, index }: DisplayProps) => {
+const Display = ({ data, hierarchy, index, extraStyles }: DisplayProps) => {
   return (
-    <li>
+    <li className={extraStyles && extraStyles}>
       <Link href={data.url} passHref={true}>
         <a>
           <span>{incrementLastDigit(hierarchy?.toString(), index)}</span>

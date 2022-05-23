@@ -3,7 +3,6 @@ import { Layout } from '../../../Layout'
 import { SEO } from '../../../SEO'
 import { Title } from '../../../Utilities/Title'
 import { ArticleTimeStamps } from '../Utilities/ArticleTimeStamps'
-import { SectionTitle } from '../Utilities/SectionTitle'
 import styles from './UdemyUserscript.module.css'
 
 import { Introduction } from './Sections/Introduction'
@@ -18,7 +17,6 @@ export const UdemyUserscript = () => {
   return (
     <Layout>
       <SEO />
-
       <section className="blog-page">
         <section className="section">
           <Title
@@ -30,7 +28,6 @@ export const UdemyUserscript = () => {
               createdAt="2022-05-23T16:08:03.698Z"
               lastUpdated="2022-05-23T16:08:03.698Z"
             />
-
             <Introduction />
             <TableOfContentsUdemyUserScript />
             <Goal />
