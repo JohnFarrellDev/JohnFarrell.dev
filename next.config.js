@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     domains: ['imgs.xkcd.com'],
   },
+  productionBrowserSourceMaps: true,
 }
 
 module.exports = nextConfig
