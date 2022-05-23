@@ -1,6 +1,6 @@
 import React from 'react'
 import { SectionTitle } from '../../../Utilities/SectionTitle'
-import { SubSectionTitle } from '../../../Utilities/SubSectionTitle/SubSectionTitle'
+import { SubSectionTitle } from '../../../Utilities/SubSectionTitle'
 import { CodeBlock } from '../../../Utilities/CodeBlock'
 
 export const Code = () => {

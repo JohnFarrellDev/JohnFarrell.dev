@@ -1,7 +1,7 @@
 import React from 'react'
 import { VideoContainer } from '../../../../../Utilities/VideoContainer'
 import { SectionTitle } from '../../../Utilities/SectionTitle'
-import { SubSectionTitle } from '../../../Utilities/SubSectionTitle/SubSectionTitle'
+import { SubSectionTitle } from '../../../Utilities/SubSectionTitle'
 
 export const VideoDemo = () => {
   return (
