@@ -12,21 +12,30 @@ export const VideoDemo = () => {
         Copy from Practice Test
       </SubSectionTitle>
       <VideoContainer>
-        <iframe src="https://www.youtube.com/embed/iNQTm9M3rbE" />
+        <iframe
+          src="https://www.youtube.com/embed/iNQTm9M3rbE"
+          title="Copy from Practice Test"
+        />
       </VideoContainer>
 
       <SubSectionTitle id="video-demo-copy-from-end-of-section-quiz">
         Copy from End of Section Quiz
       </SubSectionTitle>
       <VideoContainer>
-        <iframe src="https://www.youtube.com/embed/dTyebX77JPU" />
+        <iframe
+          src="https://www.youtube.com/embed/dTyebX77JPU"
+          title="Copy from End of Section Quiz"
+        />
       </VideoContainer>
 
       <SubSectionTitle id="end-result-in-zorbi">
         End result in Zorbi
       </SubSectionTitle>
       <VideoContainer>
-        <iframe src="https://www.youtube.com/embed/7WWEwf86RvE" />
+        <iframe
+          src="https://www.youtube.com/embed/7WWEwf86RvE"
+          title="Zorbi demo"
+        />
       </VideoContainer>
     </>
   )
