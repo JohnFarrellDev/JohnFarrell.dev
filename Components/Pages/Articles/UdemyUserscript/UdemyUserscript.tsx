@@ -16,7 +16,10 @@ import { PotentialProblems } from './Sections/PotentialProblems'
 export const UdemyUserscript = () => {
   return (
     <Layout>
-      <SEO />
+      <SEO
+        title="UserScripts for Fun and Profit | John Farrell | Professional Software Engineer"
+        description="Article explaining how I utilised UserScripts to enhance my Udemy experience by easily allowing me to copy questions/answers from exams."
+      />
       <section className="blog-page">
         <section className="section">
           <Title
