@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import { Layout } from '../../Layout'
 import { SEO } from '../../SEO'
@@ -12,11 +13,15 @@ export const Articles = () => {
       />
       <section className="blog-page">
         <section className="section">
-          <Title title="Articles (coming soon)" />
+          <Title title="Articles" />
           <div className="section-center blogs-center">
-            {/* {blogs.map(blog => {
-          return <Blog key={blog.id} {...blog} />
-        })} */}
+            <ul>
+              <li>
+                <Link href="/articles/userscript-udemy-copy-out-quizzes">
+                  UserScripts to copy Quiz Questions and Answers from Udemy
+                </Link>
+              </li>
+            </ul>
           </div>
         </section>
       </section>
