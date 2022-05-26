@@ -17,8 +17,9 @@ export const UdemyUserscript = () => {
   return (
     <Layout>
       <SEO
-        title="UserScripts for Fun and Profit | John Farrell | Professional Software Engineer"
-        description="Article explaining how I utilised UserScripts to enhance my Udemy experience by easily allowing me to copy questions/answers from exams."
+        title="UserScripts for Fun and Profit | John Farrell"
+        description="How I utilised UserScripts to enhance my Udemy experience"
+        image="https://i.imgur.com/aGGVHyQ.jpg"
       />
       <section className="blog-page">
         <section className="section">
