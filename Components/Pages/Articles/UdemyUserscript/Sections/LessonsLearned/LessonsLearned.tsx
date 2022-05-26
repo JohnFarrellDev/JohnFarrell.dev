@@ -43,7 +43,7 @@ export const LessonsLearned = () => {
         <Image
           src="https://imgs.xkcd.com/comics/is_it_worth_the_time.png"
           alt="Is It Worth the Time?"
-          width={600}
+          width={738}
           height={600}
         />
       </div>
