@@ -34,10 +34,10 @@ export const LessonsLearned = () => {
         you'll cause infinite recursion and crash your browser :p
       </Paragraph>
       <Paragraph>
-        When doing something like this I often think about the classic XKCD for
-        time saved vs time spent. I think it is important to also value the
-        learning experience, if I ever need to do something like this again I
-        could now do it very quickly.
+        When doing something like this I often think about the classic{' '}
+        <Link href="https://xkcd.com/">XKCD</Link> for time saved vs time spent.
+        I think it is important to also value the learning experience, if I ever
+        need to do something like this again I could now do it very quickly.
       </Paragraph>
       <div className={styles.imageContainer}>
         <Image
