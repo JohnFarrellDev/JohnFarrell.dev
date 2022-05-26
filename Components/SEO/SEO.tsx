@@ -12,30 +12,24 @@ export const SEO = ({ title, description }: SEOProps) => {
     <Head>
       <title>{title || siteMetadata.title}</title>
       <meta
-        property="og:title"
-        content={title || siteMetadata.title}
-        key="title"
-      />
-      <meta
         name="description"
         content={description || siteMetadata.description}
       />
-      <meta name="image" content="/assets/flying-robot.png" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content={siteMetadata.twitterUsername} />
-      <meta name="twitter:title" content={title || siteMetadata.title} />
-      <meta
-        name="twitter:description"
-        content={description || siteMetadata.description}
-      />
-      <meta name="twitter:image" content="/assets/flying-robot.png" />
 
-      <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
-      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-      <meta name="msapplication-TileColor" content="#da532c" />
-      <meta name="theme-color" content="#ffffff" />
+      <meta property="og:title" content={title || siteMetadata.title} />
+      <meta property="og:url" content="https://john-farrell.dev/" />
+      <meta property="og:type" content="website" />
+      <meta
+        property="og:description"
+        content="John Farrell's website for sharing of software projects and articles."
+      />
+      <meta
+        property="og:image"
+        content="https://cdn.sanity.io/images/o0o2tn5x/production/19481241cf39bd91ac94c0eb18013256613018df-1200x652.png"
+      />
+
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:creator" content={siteMetadata.twitterUsername} />
     </Head>
   )
 }
