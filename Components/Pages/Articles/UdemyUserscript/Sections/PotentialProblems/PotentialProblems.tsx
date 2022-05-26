@@ -11,9 +11,9 @@ export const PotentialProblems = () => {
         handle future possible variations.
       </p>
       <p>
-        The code is quite fragile and if Udemy change the HTML structure of
-        their website or update CSS class names my scripts will break. Most
-        likely it would only take a few minutes to update the code.
+        The code is quite fragile, if Udemy change the HTML structure of their
+        website or update CSS class names my scripts will break. Most likely it
+        would only take a few minutes to update the code.
       </p>
       <p>
         There are no automated tests for any of the code in the UserScripts. It

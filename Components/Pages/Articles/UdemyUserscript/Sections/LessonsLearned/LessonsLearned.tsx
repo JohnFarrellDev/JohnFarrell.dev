@@ -10,11 +10,11 @@ export const LessonsLearned = () => {
       <SectionTitle id="lessons-learned">Lessons learned</SectionTitle>
       <p>
         By the time I got into web development the rise of the frameworks
-        (Angular, Vue, React) had occurred, I missed out on working with jQuery
-        and vanilla JS. The frameworks are great but it is good to understand
-        APIs offered by the browser and how to write vanilla JS to interact with
-        the DOM (display object model). Working with UserScripts gives me some
-        insight into web development without frameworks.
+        (Angular, Vue, React) had occurred, and I missed out on working with
+        jQuery and vanilla JS. The frameworks are great but it is good to
+        understand APIs offered by the browser and how to write vanilla JS to
+        interact with the DOM (display object model). Working with UserScripts
+        gives me some insight into web development without frameworks.
       </p>
       <p>
         An example from the code I wrote in these two scripts is that I utilised
@@ -22,7 +22,7 @@ export const LessonsLearned = () => {
         <Link href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver">
           Mutation Observer
         </Link>{' '}
-        class for the first time. Initially when I first wrote this code I was
+        class for the first time. Initially, when I first wrote this code I was
         utilising setTimeout and setInterval which felt hacky, I am far happier
         with the Mutation Observer implementation and it was a good tool to
         learn about.
@@ -34,9 +34,9 @@ export const LessonsLearned = () => {
       </p>
       <p>
         When doing something like this I often think about the classic XKCD for
-        time saved vs time spent. Personally I think it is important to also
-        value the learning experience, if I ever need to do something like this
-        again I could now do it very quickly.
+        time saved vs time spent. I think it is important to also value the
+        learning experience, if I ever need to do something like this again I
+        could now do it very quickly.
       </p>
       <div className={styles.imageContainer}>
         <Image
