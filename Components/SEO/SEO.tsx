@@ -5,9 +5,10 @@ import { siteMetadata } from '../../Constants/siteMetadata'
 interface SEOProps {
   title?: string
   description?: string
+  image?: string
 }
 
-export const SEO = ({ title, description }: SEOProps) => {
+export const SEO = ({ title, description, image }: SEOProps) => {
   return (
     <Head>
       <title>{title || siteMetadata.title}</title>
@@ -23,12 +24,9 @@ export const SEO = ({ title, description }: SEOProps) => {
         property="og:description"
         content="John Farrell's website for sharing of software projects and articles."
       />
-      <meta
-        property="og:image"
-        content="https://cdn.sanity.io/images/o0o2tn5x/production/19481241cf39bd91ac94c0eb18013256613018df-1200x652.png"
-      />
+      <meta property="og:image" content={image || siteMetadata.image} />
 
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content={siteMetadata.twitterUsername} />
     </Head>
   )
