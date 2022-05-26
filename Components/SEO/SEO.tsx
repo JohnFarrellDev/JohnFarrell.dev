@@ -20,7 +20,7 @@ export const SEO = ({ title, description }: SEOProps) => {
         name="description"
         content={description || siteMetadata.description}
       />
-      {/* <meta name="image" content={image} /> */}
+      <meta name="image" content="/assets/flying-robot.svg" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content={siteMetadata.twitterUsername} />
       <meta name="twitter:title" content={title || siteMetadata.title} />
@@ -28,7 +28,7 @@ export const SEO = ({ title, description }: SEOProps) => {
         name="twitter:description"
         content={description || siteMetadata.description}
       />
-      {/* <meta name="twitter:image" content={`${siteUrl}${image}`} /> */}
+      <meta name="twitter:image" content="/assets/flying-robot.svg" />
 
       <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
