@@ -3,5 +3,5 @@ export const siteMetadata = {
   description:
     "John Farrell's website for sharing of software projects and articles.",
   twitterUsername: 'JohnFarrellDev',
-  image: 'https://imgur.com/a/mGDMMVP',
+  image: 'https://i.imgur.com/ApkQdnk.png',
 }
