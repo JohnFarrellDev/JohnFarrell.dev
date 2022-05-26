@@ -22,7 +22,7 @@ export const SEO = ({ title, description, image }: SEOProps) => {
       <meta property="og:type" content="website" />
       <meta
         property="og:description"
-        content="John Farrell's website for sharing of software projects and articles."
+        content={description || siteMetadata.description}
       />
       <meta property="og:image" content={image || siteMetadata.image} />
 
