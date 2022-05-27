@@ -5,37 +5,29 @@ import { siteMetadata } from '../../Constants/siteMetadata'
 interface SEOProps {
   title?: string
   description?: string
+  image?: string
 }
 
-export const SEO = ({ title, description }: SEOProps) => {
+export const SEO = ({ title, description, image }: SEOProps) => {
   return (
     <Head>
       <title>{title || siteMetadata.title}</title>
       <meta
-        property="og:title"
-        content={title || siteMetadata.title}
-        key="title"
-      />
-      <meta
         name="description"
         content={description || siteMetadata.description}
       />
-      {/* <meta name="image" content={image} /> */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content={siteMetadata.twitterUsername} />
-      <meta name="twitter:title" content={title || siteMetadata.title} />
+
+      <meta property="og:title" content={title || siteMetadata.title} />
+      <meta property="og:url" content="https://john-farrell.dev/" />
+      <meta property="og:type" content="website" />
       <meta
-        name="twitter:description"
+        property="og:description"
         content={description || siteMetadata.description}
       />
-      {/* <meta name="twitter:image" content={`${siteUrl}${image}`} /> */}
+      <meta property="og:image" content={image || siteMetadata.image} />
 
-      <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
-      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-      <meta name="msapplication-TileColor" content="#da532c" />
-      <meta name="theme-color" content="#ffffff" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:creator" content={siteMetadata.twitterUsername} />
     </Head>
   )
 }
