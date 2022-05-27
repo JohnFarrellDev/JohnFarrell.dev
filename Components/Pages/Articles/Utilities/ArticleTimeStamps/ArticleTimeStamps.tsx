@@ -2,26 +2,24 @@ import React from 'react'
 import styles from './ArticleTimeStamps.module.css'
 
 interface ArticleTimeStampsProps {
-  createdAt: string
-  lastUpdated: string
+  createdAt: Date
+  lastUpdated: Date
 }
 
 export const ArticleTimeStamps = ({
   createdAt,
   lastUpdated,
 }: ArticleTimeStampsProps) => {
-  const displayCreatedAt = `${new Date(
-    createdAt
-  ).toLocaleDateString()} ${new Date(createdAt).toLocaleTimeString()}`
-
-  const displayLastUpdated = `${new Date(
-    lastUpdated
-  ).toLocaleDateString()} ${new Date(lastUpdated).toLocaleTimeString()}`
-
   return (
     <div className={styles.container}>
-      <span>Created at: {displayCreatedAt}</span>{' '}
-      <span>Last Updated: {displayLastUpdated}</span>
+      <span>
+        Created at:{' '}
+        {`${createdAt.toLocaleDateString()} ${createdAt.toLocaleTimeString()}`}
+      </span>{' '}
+      <span>
+        Last Updated:{' '}
+        {`${lastUpdated.toLocaleDateString()} ${lastUpdated.toLocaleTimeString()}`}
+      </span>
     </div>
   )
 }
