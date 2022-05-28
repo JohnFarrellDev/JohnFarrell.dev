@@ -92,8 +92,8 @@ export const RecruiterChallenge = () => {
             </div>
 
             <ArticleTimeStamps
-              createdAt={new Date('2022-05-28T00:02:53.395Z')}
-              lastUpdated={new Date('2022-05-28T00:02:53.395Z')}
+              createdAt={new Date('2022-05-28T10:55:29.629Z')}
+              lastUpdated={new Date('2022-05-28T10:55:29.629Z')}
             />
           </div>
         </section>
