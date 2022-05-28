@@ -84,6 +84,7 @@
 
   .money {
     font-size: 4rem;
+    -webkit-text-stroke: 1px yellow;
   }
 
   .moneyFace {
