@@ -79,12 +79,12 @@
 @media only screen and (max-width: 600px) {
   .dearRecruiters {
     font-size: 3rem;
-    -webkit-text-stroke: 1px purple;
+    -webkit-text-stroke: none;
   }
 
   .money {
     font-size: 4rem;
-    -webkit-text-stroke: 1px yellow;
+    -webkit-text-stroke: none;
   }
 
   .moneyFace {
