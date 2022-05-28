@@ -26,6 +26,12 @@ export const SEO = ({ title, description, image }: SEOProps) => {
       />
       <meta property="og:image" content={image || siteMetadata.image} />
 
+      <meta property="twitter:title" content={title || siteMetadata.title} />
+      <meta
+        property="twitter:description"
+        content={description || siteMetadata.description}
+      />
+      <meta property="twitter:image" content={image || siteMetadata.image} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content={siteMetadata.twitterUsername} />
     </Head>
