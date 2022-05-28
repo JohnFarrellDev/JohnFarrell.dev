@@ -7,7 +7,7 @@ export const Projects = () => {
   return (
     <Layout>
       <SEO
-        title="Projects"
+        title="Projects | John Farrell"
         description="Software engineering projects created by John Farrell"
       />
       <section className="section projects">

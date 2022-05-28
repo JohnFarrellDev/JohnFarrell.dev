@@ -9,7 +9,7 @@ export const Articles = () => {
   return (
     <Layout>
       <SEO
-        title="Articles"
+        title="Articles | John Farrell"
         description="Articles (mostly about software engineering) written by John Farrell"
       />
       <section className="blog-page">

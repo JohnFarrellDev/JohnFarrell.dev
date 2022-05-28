@@ -55,13 +55,16 @@ const stack = [
 export const AboutMe = () => {
   return (
     <Layout>
-      <SEO title="About Me" description="Information about John Farrell" />
+      <SEO
+        title="About Me | John Farrell"
+        description="Information about John Farrell"
+      />
       <section className={styles.aboutPage}>
         <div className={`section-center ${styles.aboutCenter}`}>
           <article className={styles.aboutText}>
             <Title title="About Me" />
             <p className={styles.paragraph}>
-              Hi, I'm John Farrell, a professional software developer. I started
+              Hi, I'm John Farrell, a professional software engineer. I started
               programming in 2016 by teaching myself a little bit of coding
               following the completion of my BSc in Biomedical Science. It
               became my ambition to become a software engineer, so I enrolled in

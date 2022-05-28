@@ -7,7 +7,10 @@ import styles from './Contact.module.css'
 export const Contact = () => {
   return (
     <Layout>
-      <SEO title="Contact Me" description="Form for contacting John Farrell" />
+      <SEO
+        title="Contact Me | John Farrell"
+        description="Form for contacting John Farrell"
+      />
       <section className={styles.contactPage}>
         <article className={styles.contactForm}>
           <h3>get in touch</h3>

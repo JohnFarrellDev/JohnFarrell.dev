@@ -11,7 +11,7 @@ export const RecruiterChallenge = () => {
   return (
     <Layout>
       <SEO
-        title="A fun challenge for recruiters"
+        title="A fun challenge for recruiters | John Farrell"
         description="Win £250 by providing proof of a common stat shared on LinkedIn by recruiters"
         image="https://i.imgur.com/WOpYcG8.jpeg"
       />
