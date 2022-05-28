@@ -5,9 +5,9 @@ interface BlockQuoteProps extends HTMLAttributes<HTMLQuoteElement> {
   children: React.ReactChild | React.ReactChild[]
 }
 
-export const BlockQuote = ({ children }: BlockQuoteProps) => {
+export const BlockQuote = ({ children, ...htmlProps }: BlockQuoteProps) => {
   return (
-    <blockquote className={styles.blockquote}>
+    <blockquote className={styles.blockquote} {...htmlProps}>
       <p>{children}</p>
     </blockquote>
   )
