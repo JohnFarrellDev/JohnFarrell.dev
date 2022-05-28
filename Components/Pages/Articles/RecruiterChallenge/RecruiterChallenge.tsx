@@ -51,12 +51,12 @@ export const RecruiterChallenge = () => {
             </BlockQuote>
 
             <p className={styles.centerLine}>
-              Your reward will be: <span className={styles.money}>£250 </span>{' '}
+              Your reward will be <span className={styles.money}>£250 </span>{' '}
               <span className={styles.moneyFace}>🤑</span>
             </p>
 
             <p className={styles.centerLine}>
-              Number of recruiters challenged so far:{' '}
+              Number of recruiters challenged so far{' '}
               <span className={styles.recruiterChallengeCount}>1</span>
             </p>
 
@@ -92,8 +92,8 @@ export const RecruiterChallenge = () => {
             </div>
 
             <ArticleTimeStamps
-              createdAt={new Date('2022-05-28T10:55:29.629Z')}
-              lastUpdated={new Date('2022-05-28T10:55:29.629Z')}
+              createdAt={new Date('2022-05-28T11:08:29.975Z')}
+              lastUpdated={new Date('2022-05-28T11:08:29.975Z')}
             />
           </div>
         </section>
