@@ -19,6 +19,11 @@ export const Articles = () => {
             <h2 className={styles.year}>2022</h2>
             <ul>
               <li>
+                <Link href="/articles/recruiter-challenge">
+                  Recruiter Challenge (£250 up for grabs)
+                </Link>
+              </li>
+              <li>
                 <Link href="/articles/userscript-udemy-copy-out-quizzes">
                   UserScripts to copy Quiz Questions and Answers from Udemy
                 </Link>
