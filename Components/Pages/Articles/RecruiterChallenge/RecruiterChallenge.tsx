@@ -64,7 +64,7 @@ export const RecruiterChallenge = () => {
               * The study must share its data and methodology (any standard
               published trustworthy study is fine). Your source can't be an
               article that makes the claim without providing a source (that's
-              how we got here). There can only be one winner, who ever provides
+              how we got here). There can only be one winner, whoever provides
               proof first wins.
             </Paragraph>
 
@@ -92,8 +92,8 @@ export const RecruiterChallenge = () => {
             </div>
 
             <ArticleTimeStamps
-              createdAt={new Date('2022-05-28T11:08:29.975Z')}
-              lastUpdated={new Date('2022-05-28T11:08:29.975Z')}
+              createdAt={new Date('2022-05-28T11:10:19.558Z')}
+              lastUpdated={new Date('2022-05-28T11:10:19.558Z')}
             />
           </div>
         </section>
