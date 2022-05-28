@@ -59,7 +59,7 @@
   color: purple;
   -webkit-text-stroke: 5px yellow;
   margin-left: 20px;
-  transform: rotate(30deg);
+  transform: rotate(-30deg);
 }
 
 .chillContainer {
