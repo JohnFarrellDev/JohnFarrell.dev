@@ -6,7 +6,6 @@ export default {
   component: Title,
 } as ComponentMeta<typeof Title>
 
-const Template: ComponentStory<typeof Title> = (args) => <Title {...args} />
-
-export const Default = Template.bind({})
-Default.args = { title: 'template title' }
+export const Default: ComponentStory<typeof Title> = () => (
+  <Title title="template title" />
+)
