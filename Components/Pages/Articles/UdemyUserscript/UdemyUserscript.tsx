@@ -30,7 +30,6 @@ export const UdemyUserscript = () => {
           <div className="section-center">
             <ArticleTimeStamps
               createdAt={new Date('2022-05-27T11:16:06.761Z')}
-              lastUpdated={new Date('2022-05-27T11:16:06.761Z')}
             />
             <Introduction />
             <TableOfContentsUdemyUserScript />

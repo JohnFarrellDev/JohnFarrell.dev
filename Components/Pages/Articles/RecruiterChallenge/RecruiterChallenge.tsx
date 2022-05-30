@@ -93,7 +93,6 @@ export const RecruiterChallenge = () => {
 
             <ArticleTimeStamps
               createdAt={new Date('2022-05-28T11:10:19.558Z')}
-              lastUpdated={new Date('2022-05-28T11:10:19.558Z')}
             />
           </div>
         </section>
