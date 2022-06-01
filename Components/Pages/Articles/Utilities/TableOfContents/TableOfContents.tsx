@@ -61,19 +61,13 @@ const Contents = ({ content, hierarchy = '1' }: ContentsProps) => {
       {content.map((data, index) => {
         if (data.nestedContent) {
           return (
-            <>
-              <Display
-                data={data}
-                hierarchy={hierarchy}
-                index={index}
-                key={incrementLastDigit(hierarchy, index) + '-display-nested'}
-              />
+            <span key={incrementLastDigit(hierarchy, index)}>
+              <Display data={data} hierarchy={hierarchy} index={index} />
               <Contents
                 content={data.nestedContent}
                 hierarchy={addLastDigit(incrementLastDigit(hierarchy, index))}
-                key={incrementLastDigit(hierarchy, index)}
               />
-            </>
+            </span>
           )
         }
 
