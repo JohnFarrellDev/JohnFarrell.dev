@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaAlignRight } from 'react-icons/fa'
-import { Links } from '../../Links'
+import { Links } from '../Links'
 import styles from './Navbar.module.css'
 
 interface NavbarProps {

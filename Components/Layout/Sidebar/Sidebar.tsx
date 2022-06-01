@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaTimes } from 'react-icons/fa'
-import { Links } from '../../Links'
+import { Links } from '../Links'
 import { SocialLinks } from '../../SocialLinks'
 
 interface SidebarProps {
