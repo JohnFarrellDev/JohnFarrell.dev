@@ -9,18 +9,27 @@ interface Article {
   URI: string
   name: string
   createdAt: Date
+  tags: string[]
 }
 
 const articles: Article[] = [
   {
+    URI: '/articles/preferred-react-project-structure',
+    name: 'My Preferred React Project Structure',
+    createdAt: new Date('2022-05-30T21:00:18.579Z'),
+    tags: [],
+  },
+  {
     URI: '/articles/recruiter-challenge',
     name: 'Recruiter Challenge (£250 up for grabs)',
     createdAt: new Date('2022-05-28T11:10:19.558Z'),
+    tags: [],
   },
   {
     URI: '/articles/userscript-udemy-copy-out-quizzes',
     name: 'UserScripts to copy Quiz Questions and Answers from Udemy',
     createdAt: new Date('2022-05-27T11:16:06.761Z'),
+    tags: [],
   },
 ]
 
