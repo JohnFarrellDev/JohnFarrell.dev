@@ -2,6 +2,8 @@ import React from 'react'
 import { SectionTitle } from '../../../Utilities/SectionTitle'
 import { SubSectionTitle } from '../../../Utilities/SubSectionTitle'
 import { CodeBlock } from '../../../Utilities/CodeBlock'
+import { Paragraph } from '../../../Utilities/Paragraph'
+import Link from 'next/link'
 
 export const Code = () => {
   return (
@@ -27,6 +29,27 @@ export const Code = () => {
       >
         {codeCopyFromEndOfSectionQuiz}
       </CodeBlock>
+
+      <SubSectionTitle id="greasy-fork-publish">
+        Published on Greasy Fork
+      </SubSectionTitle>
+
+      <Paragraph>
+        I have published both of these scripts to{' '}
+        <Link href="https://greasyfork.org">Greasy Fork</Link>. The benefit of
+        this is ease of installation and any changes I push to GitHub should be
+        automatically picked up by Greasy Fork.
+        <div>
+          <Link href="https://greasyfork.org/en/scripts/446004-udemy-copy-from-section-quiz">
+            Greasy Fork - Udemy Copy From Section Quiz
+          </Link>
+        </div>
+        <div>
+          <Link href="https://greasyfork.org/en/scripts/446005-udemy-copy-from-practice-test">
+            Greasy Fork - Udemy Copy From Practice Test
+          </Link>
+        </div>
+      </Paragraph>
     </>
   )
 }

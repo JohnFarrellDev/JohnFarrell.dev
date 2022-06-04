@@ -36,6 +36,10 @@ export const TableOfContentsUdemyUserScript = () => {
               display: 'Copy from end of section quiz',
               url: '#copy-from-end-of-section-quiz',
             },
+            {
+              display: 'Published on Greasy Fork',
+              url: '#greasy-fork-publish',
+            },
           ],
         },
         {
