@@ -97,34 +97,29 @@ export const ReactProjectStructure = () => {
                       ],
                     },
                     {
-                      folderName: 'Pages/',
+                      folderName: 'Articles/',
                       content: [
                         {
-                          folderName: 'Articles/',
+                          folderName: 'Utilities/',
                           content: [
                             {
-                              folderName: 'Utilities/',
+                              folderName: 'ArticleTimeStamps/',
                               content: [
-                                {
-                                  folderName: 'ArticleTimeStamps/',
-                                  content: [
-                                    'ArticleTimeStamps.module.css',
-                                    'ArticleTimeStamps.stories.tsx',
-                                    'ArticleTimeStamps.test.tsx',
-                                    'ArticleTimeStamps.tsx',
-                                    'index.ts',
-                                  ],
-                                },
-                              ],
-                            },
-                            {
-                              folderName: 'ReactProjectStructure/',
-                              content: [
+                                'ArticleTimeStamps.module.css',
+                                'ArticleTimeStamps.stories.tsx',
+                                'ArticleTimeStamps.test.tsx',
+                                'ArticleTimeStamps.tsx',
                                 'index.ts',
-                                'ReactProjectStructure.module.css',
-                                'ReactProjectStructure.tsx',
                               ],
                             },
+                          ],
+                        },
+                        {
+                          folderName: 'ReactProjectStructure/',
+                          content: [
+                            'index.ts',
+                            'ReactProjectStructure.module.css',
+                            'ReactProjectStructure.tsx',
                           ],
                         },
                       ],
