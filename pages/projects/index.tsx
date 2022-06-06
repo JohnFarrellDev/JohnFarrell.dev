@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { Projects as ProjectsC } from '../../Components/Pages/Projects'
+import { Projects as ProjectsC } from '../../Components/Projects'
 
 const Projects: NextPage = () => {
   return <ProjectsC />

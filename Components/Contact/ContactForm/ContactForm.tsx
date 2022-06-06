@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button } from '../../../Utilities/Button'
+import { Button } from '../../Utilities/Button'
 import styles from './ContactForm.module.css'
 
 enum Status {

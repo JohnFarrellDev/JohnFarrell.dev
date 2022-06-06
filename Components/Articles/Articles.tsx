@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
-import { Layout } from '../../Layout'
-import { SEO } from '../../SEO'
-import { Title } from '../../Utilities/Title'
+import { Layout } from '../Layout'
+import { SEO } from '../SEO'
+import { Title } from '../Utilities/Title'
 import styles from './Articles.module.css'
 
 interface Article {
