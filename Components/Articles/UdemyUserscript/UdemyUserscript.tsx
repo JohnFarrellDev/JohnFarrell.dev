@@ -1,7 +1,7 @@
 import React from 'react'
-import { Layout } from '../../../Layout'
-import { SEO } from '../../../SEO'
-import { Title } from '../../../Utilities/Title'
+import { Layout } from '../../Layout'
+import { SEO } from '../../SEO'
+import { Title } from '../../Utilities/Title'
 import { ArticleTimeStamps } from '../Utilities/ArticleTimeStamps'
 import styles from './UdemyUserscript.module.css'
 

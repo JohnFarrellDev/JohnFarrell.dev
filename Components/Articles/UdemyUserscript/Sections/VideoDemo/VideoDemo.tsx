@@ -1,5 +1,5 @@
 import React from 'react'
-import { VideoContainer } from '../../../../../Utilities/VideoContainer'
+import { VideoContainer } from '../../../../Utilities/VideoContainer'
 import { SectionTitle } from '../../../Utilities/SectionTitle'
 import { SubSectionTitle } from '../../../Utilities/SubSectionTitle'
 

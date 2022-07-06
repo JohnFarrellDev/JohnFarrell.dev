@@ -1,6 +1,6 @@
 import React from 'react'
-import { Layout } from '../../../Layout'
-import { SEO } from '../../../SEO'
+import { Layout } from '../../Layout'
+import { SEO } from '../../SEO'
 import { Paragraph } from '../Utilities/Paragraph'
 import styles from './RecruiterChallenge.module.css'
 import { ArticleTimeStamps } from '../Utilities/ArticleTimeStamps'

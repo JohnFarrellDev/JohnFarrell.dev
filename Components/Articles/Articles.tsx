@@ -14,9 +14,9 @@ interface Article {
 
 const articles: Article[] = [
   {
-    URI: '/articles/preferred-react-project-structure',
+    URI: '/articles/react-project-structure',
     name: 'My Preferred React Project Structure',
-    createdAt: new Date('2022-05-30T21:00:18.579Z'),
+    createdAt: new Date('2022-07-06T17:20:36.102Z'),
     tags: [],
   },
   {
