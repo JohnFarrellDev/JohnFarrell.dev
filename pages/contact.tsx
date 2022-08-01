@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { Contact as ContactC } from '../Components/Pages/Contact'
+import { Contact as ContactC } from '../Components/Contact'
 
 const Contact: NextPage = () => {
   return <ContactC />

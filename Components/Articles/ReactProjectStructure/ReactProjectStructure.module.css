@@ -1,0 +1,18 @@
+.title {
+  margin-bottom: 2rem;
+}
+
+.fileStructure {
+  border-radius: 5px;
+  background-color: var(--clr-grey-3);
+  display: inline-block;
+  padding-right: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.fileStructure p {
+  margin: 0px;
+  color: white;
+}
