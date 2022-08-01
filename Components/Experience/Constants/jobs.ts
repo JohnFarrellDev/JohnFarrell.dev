@@ -3,7 +3,7 @@ export const jobs = [
     id: 3,
     companyName: 'Made Tech',
     startDate: 'February 2021',
-    endDate: 'present',
+    endDate: 'July 2022',
     position: 'Senior software engineer',
     responsibilities: [
       {

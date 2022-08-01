@@ -46,7 +46,7 @@ export const Experience = () => {
         </article>
       </div>
       <Button extraStyles={styles.centreButton}>
-        <Link href="/about-me">
+        <Link href="/about-me" passHref={true}>
           <span>more info about me</span>
         </Link>
       </Button>
