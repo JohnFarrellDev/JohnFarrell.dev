@@ -11,6 +11,7 @@ import { SubSectionTitle } from '../Utilities/SubSectionTitle'
 import { TableOfContents } from '../Utilities/TableOfContents'
 import styles from './ReactProjectStructure.module.css'
 import { CodeBlock } from '../Utilities/CodeBlock'
+import { ArticleTimeStamps } from '../Utilities/ArticleTimeStamps'
 
 export const ReactProjectStructure = () => {
   return (
@@ -24,13 +25,18 @@ export const ReactProjectStructure = () => {
               extraStyles={styles.title}
             />
 
+            <ArticleTimeStamps
+              createdAt={new Date('2022-08-01T14:15:28.433Z')}
+            />
+
             <Paragraph>
               React is an un-opinionated library which leaves a lot of choice to
               the developer. I believe this has benefited the React ecosystem
               but it also means there are many ways to achieve the same goal.
               One choice up to developers is how to structure your codebase. I
-              have my personal opinion written down here but am also open to
-              different ways of organising a React codebase.
+              have my personal opinion written down here but I am also open to
+              different ways of organising a React codebase. (if you disagree
+              with me I can still work for you 🤣)
             </Paragraph>
 
             <Paragraph>
@@ -43,7 +49,28 @@ export const ReactProjectStructure = () => {
 
             <TableOfContents
               content={[
-                { display: 'How I like to do it', url: '#how-i-like-to-do-it' },
+                {
+                  display: 'How I like to do it',
+                  url: '#how-i-like-to-do-it',
+                  nestedContent: [
+                    {
+                      display: 'Folder Structure',
+                      url: '#folder-structure',
+                    },
+                    {
+                      display: 'Feature Based Organisation',
+                      url: '#feature-based-organisation',
+                    },
+                    {
+                      display: 'Utility Components',
+                      url: '#utility-components',
+                    },
+                    {
+                      display: 'File Co-location',
+                      url: '#file-co-location',
+                    },
+                  ],
+                },
                 {
                   display: 'Why the index.ts file?',
                   url: '#index-ts',
@@ -141,10 +168,13 @@ export const ReactProjectStructure = () => {
               ]}
             />
 
-            <SubSectionTitle>Folder Structure</SubSectionTitle>
+            <SubSectionTitle id="folder-structure">
+              Folder Structure
+            </SubSectionTitle>
+
             <Paragraph>
-              The layout of the folders use a hybrid of page based organisation
-              and feature based for my components.
+              The layout of the folders uses a hybrid of page based and feature
+              based organisation for my components.
             </Paragraph>
 
             <Paragraph>
@@ -153,36 +183,69 @@ export const ReactProjectStructure = () => {
             </Paragraph>
 
             <Paragraph>
-              I consider a component to be a utility components when it is used
-              in many places AND is customisable. For example the Layout
-              component is used on every page of this website, however it always
-              looks and behaves the same, for this reason it is not a utility
-              component. The Button component however has a default styling
-              applied but the text displayed is passed in as a child prop and
-              the styling can be overridden via props too.
+              The structure of the folders matches the routes of the website,
+              for example, Components/Articles/ReactProjectStructure. The
+              ReactProjectStructure.tsx file then has all the code found on this
+              page. This is page based organisation, any React developer should
+              be able to look at the page route and in turn, find the relevant
+              component quickly.
             </Paragraph>
 
-            <SubSectionTitle>File Co-location</SubSectionTitle>
+            <SubSectionTitle id="feature-based-organisation">
+              Feature Based Organisation
+            </SubSectionTitle>
+
+            <Paragraph>
+              [When I have a good example if this on my website I'll update here
+              to write about it]
+            </Paragraph>
+
+            <SubSectionTitle id="utility-components">
+              Utility Components
+            </SubSectionTitle>
+
+            <Paragraph>
+              Even though all the code for this page exists in the
+              ReactProjectStructure component there are a couple of reusable
+              components implemented within the page. These are the FileExplorer
+              component and the TableOfContents component. As both of these
+              components are used in multiple places it doesn't make sense for
+              them to be located in Components/Articles/ReactProjectStructure.
+            </Paragraph>
+
+            <Paragraph>
+              For this reason, these components are stored within a Utilities
+              folder, to avoid having a single Utilities folder that grows
+              massive components are put in the earliest possible parental
+              utilities folder. Or to be clearer in this case the
+              TableOfContents is only used within Articles, therefore, the code
+              is found at Components/Articles/Utilities. Something like the
+              Button component which is used everywhere is found in
+              Components/Utilities.
+            </Paragraph>
+
+            <SubSectionTitle id="file-co-location">
+              File Co-location
+            </SubSectionTitle>
+
             <Paragraph>
               Co-location of files is important to me. When I am looking at a
               component I want to be able see its associated styling (CSS),
-              tests and storybook fils next to it. This makes it quicker to find
-              associated files when working on a component. Going to a separate
-              Tests/ folder with an identical tree structure is fairly annoying.
+              tests and storybook files next to it. This makes it quicker to
+              find associated files when working on a component.
             </Paragraph>
+
             <Paragraph>
-              I also find that by co-locating the tests with the component it
-              makes it very obvious when a component is untested. This can help
-              ensure good testing habits are implemented within a team.
+              I also find that co-locating the tests with the component makes it
+              very obvious when a component is untested. This can help ensure
+              good testing habits are implemented within a team. Some people
+              still like to think in a clear "separation of concerns" model and
+              have a separate mirrored folder structure for tests and CSS etc.
+              This is also commonly seen in Java and C# projects by default. I
+              dislike this way of organising the code. When working on a
+              component I want everything relevant to that component right next
+              to it, for me, this is a much better developer experience.
             </Paragraph>
-
-            <SubSectionTitle>
-              Alternative Option - Group by File Type
-            </SubSectionTitle>
-
-            <SubSectionTitle>
-              Alternative Option - Group by Route
-            </SubSectionTitle>
 
             <SectionTitle id="index-ts">
               What is that index.ts file about?
@@ -193,7 +256,7 @@ export const ReactProjectStructure = () => {
             </SubSectionTitle>
 
             <Paragraph>
-              The index.ts file is incredibly simple, all it does it import the
+              The index.ts file is incredibly simple, all it does is import the
               relevant component and then export it again.
             </Paragraph>
 
@@ -205,10 +268,10 @@ export const ReactProjectStructure = () => {
             </CodeBlock>
 
             <Paragraph>
-              So if it is not really doing anything why do I have it? The
-              index.ts file allows my imports to look "clean". Without the
-              index.ts file importing the TableOfContents component would have
-              to look like.
+              So if it is not doing anything why do I have it? The index.ts file
+              allows my imports to look "clean". Without the index.ts file
+              importing the TableOfContents component would have to look like
+              this.
             </Paragraph>
 
             <CodeBlock canHide={false}>
@@ -241,8 +304,8 @@ export const ReactProjectStructure = () => {
             <Paragraph>
               My issue with this approach is that you end up with hundreds of
               components that are not accurately represented by their filename,
-              worse they all share the exact same filename index.tsx. This can
-              make searching by file name a less smooth experience.
+              worse they all share the same filename index.tsx. This can make
+              searching by file name a less smooth experience.
             </Paragraph>
 
             <Paragraph>
@@ -264,12 +327,12 @@ export const ReactProjectStructure = () => {
 
             <Paragraph>
               As projects grow larger your IDE will find many potential files
-              all called index.tsx. I personally want to be able type the
-              component name, hit enter and the code is there, I don't want to
-              be scanning through the file list, looking at the whole path to
-              figure out which one is correct. The screenshot below shows that
-              when the file name represents the actual component it is the first
-              choice shown to the user.
+              all called index.tsx. I want to be able to type the component
+              name, hit enter and the code is there, I don't want to be scanning
+              through the file list, looking at the whole path to figure out
+              which one is correct. The screenshot below shows that when the
+              file name represents the actual component it is the first choice
+              shown to the user.
             </Paragraph>
 
             <Image

@@ -16,7 +16,7 @@ const articles: Article[] = [
   {
     URI: '/articles/react-project-structure',
     name: 'My Preferred React Project Structure',
-    createdAt: new Date('2022-07-06T17:20:36.102Z'),
+    createdAt: new Date('2022-08-01T14:15:28.433Z'),
     tags: [],
   },
   {
