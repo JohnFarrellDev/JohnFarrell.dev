@@ -16,7 +16,11 @@ import { ArticleTimeStamps } from '../Utilities/ArticleTimeStamps'
 export const ReactProjectStructure = () => {
   return (
     <Layout>
-      <SEO title="React Project Structure | John Farrell" />
+      <SEO
+        title="React Project Structure | John Farrell"
+        description="How I like to set up a React project for the best developer experience."
+        image="https://i.imgur.com/3fy0xbC.png"
+      />
       <section className="blog-page">
         <section className="section">
           <div className="section-center">
