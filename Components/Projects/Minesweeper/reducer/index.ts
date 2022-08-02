@@ -5,7 +5,7 @@ export interface State {
   rows: number
   columns: number
   numberOfBombs: number
-  board: Cell[]
+  board: Cell[][]
   isPlaying: boolean
   isDead: boolean
   isWinner: boolean

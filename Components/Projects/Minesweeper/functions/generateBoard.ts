@@ -3,10 +3,9 @@ import { Cell } from '../types'
 export const generateBoard = (
   rows: number,
   columns: number
-): { board: Cell[] } => {
-  const board: Cell[] = new Array(rows * columns)
-    .fill(undefined)
-    .map((_, index) => ({
+): { board: Cell[][] } => {
+  const board: Cell[][] = new Array(rows).fill(
+    new Array(columns).fill(undefined).map((_, index) => ({
       id: index,
       isCovered: true,
       isBomb: false,
@@ -14,6 +13,7 @@ export const generateBoard = (
       neighbors: [],
       neighborBombs: 0,
     }))
+  )
 
   return { board }
 }
