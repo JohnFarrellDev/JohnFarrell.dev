@@ -14,6 +14,12 @@ interface Article {
 
 const articles: Article[] = [
   {
+    URI: '/articles/minesweeper',
+    name: 'Creating Visualisation Algorithms for Minesweeper',
+    createdAt: new Date('2022-08-01T14:15:28.433Z'),
+    tags: [],
+  },
+  {
     URI: '/articles/react-project-structure',
     name: 'My Preferred React Project Structure',
     createdAt: new Date('2022-08-01T14:15:28.433Z'),
