@@ -5,6 +5,7 @@ import { Title } from '../../Utilities/Title'
 import styles from './Minesweeper.module.css'
 import { ArticleTimeStamps } from '../Utilities/ArticleTimeStamps'
 import { Paragraph } from '../Utilities/Paragraph'
+import { Game } from '../../Projects/Minesweeper/Components/Game'
 
 export const Minesweeper = () => {
   return (
@@ -28,36 +29,56 @@ export const Minesweeper = () => {
 
             <Paragraph>
               The purpose of this accompanying article is to provide further
-              context and to allow to test individual features easily.
+              context and to allow to showcase individual features easily.
             </Paragraph>
 
             <h3>Todo</h3>
             <ul>
-              <li>Create default game board</li>
-              <li>Implement placing bombs randomly</li>
-              <li>Add visualization for placing bombs</li>
-              <li>Add click to reveal cell</li>
-              <li>Add lose if click on a bomb</li>
-              <li>Add win if all cells non bomb cells cleared</li>
-              <li>Add testing for calculating cell neighbors</li>
+              <li>Create customisable game board</li>
+
+              <Game
+                columns={5}
+                rows={5}
+                numberOfBombs={0}
+                hasCustomControls={true}
+              />
+
               <li>
-                Add testing for calculating number of bombs surrounding a cell
+                Implement placing bombs randomly (can't be placed on player's
+                first clicked cell)
+              </li>
+              <li>Add visualization for placing bombs</li>
+              <li>Add concept of game state, isAlive, isDead, isPlaying</li>
+              <li>
+                Add click to reveal cell - if not a bomb reveal how many
+                neighbouring cells are a bomb
               </li>
               <li>
-                Implement borderless board mode, no longer have an edge on
+                Add lose if click on a bomb, set gameState to isDead, clicking
+                again resets the game
+              </li>
+              <li>Add win if all cells non bomb cells cleared</li>
+              <li>
+                Implement borderless game mode, no longer have an edge on
                 gameboard, top of board is neighbor to bottom
               </li>
               <li>Implement click to reveal cell game is active</li>
-              <li>
-                Implement ability to lose if clicking cell that is covering a
-                bomb
-              </li>
               <li>Implement showing surrounding cells bomb count</li>
               <li>
                 Implement ability to win by revealing all cells that do not
                 contain a bomb
               </li>
-              <li>Implement recursive reveal</li>
+              <li>Implement recursive reveal (with visualisation)</li>
+              <li>Implement auto flagging of bombs (with visualisation)</li>
+              <li>
+                Implement auto revealing of cells that cannot be bombs (with
+                visualisation)
+              </li>
+              <li>
+                Implement solving for common patterns (with visualisation)
+              </li>
+              <li>Implement probabilistic auto solve (with visualisation)</li>
+              <li>Implement scoreboard</li>
             </ul>
           </div>
         </section>

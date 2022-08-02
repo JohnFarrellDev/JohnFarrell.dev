@@ -1,0 +1,14 @@
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.gameContainer {
+  border: 2px solid red;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  border: 2px solid blue;
+}
