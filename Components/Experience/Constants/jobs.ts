@@ -1,5 +1,13 @@
 export const jobs = [
   {
+    id: 4,
+    companyName: 'DAZN',
+    startDate: 'February 2021',
+    endDate: 'Present',
+    position: 'Software engineer',
+    responsibilities: [],
+  },
+  {
     id: 3,
     companyName: 'Made Tech',
     startDate: 'February 2021',
