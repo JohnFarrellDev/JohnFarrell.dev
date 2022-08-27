@@ -74,32 +74,38 @@ export const Game = ({
     <>
       {hasCustomControls && (
         <div className={styles.controls}>
-          <label>Number of columns</label>
-          <input
-            type="number"
-            value={gameState.columns}
-            onChange={(event) => changeNumberOfColumns(event.target.value)}
-            min={3}
-            max={50}
-          />
+          <div className={styles.controlItem}>
+            <label >Number of columns</label>
+            <input
+              type="number"
+              value={gameState.columns}
+              onChange={(event) => changeNumberOfColumns(event.target.value)}
+              min={3}
+              max={50}
+            />
+          </div>
+          
+          <div className={styles.controlItem}>
+            <label>Number of Rows</label>
+            <input
+              type="number"
+              value={gameState.rows}
+              onChange={(event) => changeNumberOfRows(event.target.value)}
+              min={3}
+              max={30}
+            />
+          </div>
 
-          <label>Number of Rows</label>
-          <input
-            type="number"
-            value={gameState.rows}
-            onChange={(event) => changeNumberOfRows(event.target.value)}
-            min={3}
-            max={30}
-          />
-
-          <label>Number of Bombs</label>
-          <input
-            type="number"
-            value={gameState.numberOfBombs}
-            onChange={(event) => changeNumberOfBombs(event.target.value)}
-            min={1}
-            max={gameState.columns * gameState.rows}
-          />
+          <div className={styles.controlItem}>
+            <label>Number of Bombs</label>
+            <input
+              type="number"
+              value={gameState.numberOfBombs}
+              onChange={(event) => changeNumberOfBombs(event.target.value)}
+              min={1}
+              max={gameState.columns * gameState.rows}
+            />
+          </div>    
         </div>
       )}
 

@@ -19,7 +19,7 @@ export type Action =
   | { type: 'ClickCell'; cellIndex: number }
   | { type: 'ChangeNumberOfColumns'; newNumberOfColumns: number }
   | { type: 'ChangeNumberOfRows'; newNumberOfRows: number }
-  | { type: 'ChangeNumberOfBombs'; numberOfBombs: number }
+  | { type: 'ChangeNumberOfBombs'; newNumberOfBombs: number }
 
 export const minesweeperReducer = (state: State, action: Action): State => {
   switch (action.type) {

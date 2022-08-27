@@ -5,6 +5,6 @@ export const changeNumberOfBombs = (state: State, action: Action): State => {
 
   return {
     ...state,
-    numberOfBombs: action.numberOfBombs,
+    numberOfBombs: action.newNumberOfBombs,
   }
 }

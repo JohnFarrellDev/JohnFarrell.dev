@@ -39,7 +39,7 @@ export const Minesweeper = () => {
               <Game
                 columns={5}
                 rows={5}
-                numberOfBombs={0}
+                numberOfBombs={5}
                 hasCustomControls={true}
               />
 
