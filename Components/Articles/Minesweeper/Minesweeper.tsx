@@ -41,6 +41,7 @@ export const Minesweeper = () => {
                 rows={5}
                 numberOfBombs={5}
                 hasCustomControls={true}
+                transparentSideView={false}
               />
 
               <li>

@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useReducer } from 'react'
 import { minesweeperReducer } from '../../reducer'
 import { GameCell } from '../GameCell'
+import { GameSettings } from '../GameSettings'
 import styles from './Game.module.css'
 
 interface GameProps {
@@ -8,6 +9,8 @@ interface GameProps {
   rows: number
   numberOfBombs: number
   hasCustomControls: boolean
+
+  transparentSideView: boolean
 }
 
 export const Game = ({
@@ -15,7 +18,9 @@ export const Game = ({
   rows,
   numberOfBombs,
   hasCustomControls,
+  transparentSideView,
 }: GameProps) => {
+
   const [gameState, dispatch] = useReducer(minesweeperReducer, {
     columns,
     rows,
@@ -25,7 +30,6 @@ export const Game = ({
     isDead: false,
     isWinner: false,
   })
-  console.log('🚀 ~ file: Game.tsx ~ line 28 ~ columns', columns)
 
   useEffect(() => {
     dispatch({
@@ -72,59 +76,56 @@ export const Game = ({
 
   return (
     <>
-      {hasCustomControls && (
-        <div className={styles.controls}>
-          <div className={styles.controlItem}>
-            <label >Number of columns</label>
-            <input
-              type="number"
-              value={gameState.columns}
-              onChange={(event) => changeNumberOfColumns(event.target.value)}
-              min={3}
-              max={50}
-            />
-          </div>
-          
-          <div className={styles.controlItem}>
-            <label>Number of Rows</label>
-            <input
-              type="number"
-              value={gameState.rows}
-              onChange={(event) => changeNumberOfRows(event.target.value)}
-              min={3}
-              max={30}
-            />
-          </div>
+      {hasCustomControls && <GameSettings 
+        columns={gameState.columns}
+        changeNumberOfColumns={changeNumberOfColumns}
+        rows={gameState.rows}
+        changeNumberOfRows={changeNumberOfRows}
+        numberOfBombs={gameState.numberOfBombs}
+        changeNumberOfBombs={changeNumberOfBombs}
+      />}
 
-          <div className={styles.controlItem}>
-            <label>Number of Bombs</label>
-            <input
-              type="number"
-              value={gameState.numberOfBombs}
-              onChange={(event) => changeNumberOfBombs(event.target.value)}
-              min={1}
-              max={gameState.columns * gameState.rows}
-            />
-          </div>    
-        </div>
-      )}
-
-      {gameState.board.map((row, index) => (
-        <div className={styles.row} key={index}>
-          {row.map((cell) => (
-            <GameCell
-              key={cell.id}
-              id={cell.id}
-              isCovered={cell.isCovered}
-              isBomb={cell.isBomb}
-              isFlagged={cell.isFlagged}
-              isWinner={false}
-              neighborBombs={cell.neighborBombs}
-              leftClick={leftClickCell}
-            />
+      <div style={{display: 'flex', justifyContent: 'center'}}>
+        <div style={{margin: '5px'}}>
+          {gameState.board.map((row, index) => (
+            <div className={styles.row} key={index}>
+              {row.map((cell) => (
+                <GameCell
+                  key={cell.id}
+                  id={cell.id}
+                  isCovered={cell.isCovered}
+                  isBomb={cell.isBomb}
+                  isFlagged={cell.isFlagged}
+                  isWinner={false}
+                  neighborBombs={cell.neighborBombs}
+                  leftClick={leftClickCell}
+                />
+              ))}
+            </div>
           ))}
         </div>
-      ))}
+
+        {transparentSideView && (
+          <div style={{margin: '5px'}}>
+            {gameState.board.map((row, index) => (
+              <div className={styles.row} key={index}>
+                {row.map((cell) => (
+                  <GameCell
+                    key={cell.id}
+                    id={cell.id}
+                    isCovered={cell.isCovered}
+                    isBomb={cell.isBomb}
+                    isFlagged={cell.isFlagged}
+                    isWinner={false}
+                    neighborBombs={cell.neighborBombs}
+                    leftClick={leftClickCell}
+                  />
+                ))}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </>
   )
 }
