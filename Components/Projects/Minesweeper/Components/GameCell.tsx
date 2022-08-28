@@ -2,18 +2,20 @@ import { useCallback } from 'react'
 import styled from 'styled-components'
 
 interface GameCellI {
-  id: number
+  rowIndex: number
+  columnIndex: number
   isCovered: boolean
   isBomb: boolean
   isFlagged: boolean
   isWinner: boolean
   neighborBombs: number
   color?: string
-  leftClick: (cellIndex: number) => void
+  leftClick: (rowIndex: number, columnIndex: number) => void
 }
 
 export const GameCell = ({
-  id,
+  rowIndex,
+  columnIndex,
   isCovered,
   isBomb,
   isFlagged,
@@ -22,8 +24,8 @@ export const GameCell = ({
   leftClick,
 }: GameCellI) => {
   const leftClickCell = useCallback(() => {
-    leftClick(id)
-  }, [id, leftClick])
+    leftClick(rowIndex, columnIndex)
+  }, [rowIndex, columnIndex,leftClick])
 
   return (
     <CellContainer isCovered={true} isBomb={false} onClick={leftClickCell}>

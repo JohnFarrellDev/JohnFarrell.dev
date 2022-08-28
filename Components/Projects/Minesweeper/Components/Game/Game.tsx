@@ -9,7 +9,6 @@ interface GameProps {
   rows: number
   numberOfBombs: number
   hasCustomControls: boolean
-
   transparentSideView: boolean
 }
 
@@ -20,7 +19,6 @@ export const Game = ({
   hasCustomControls,
   transparentSideView,
 }: GameProps) => {
-
   const [gameState, dispatch] = useReducer(minesweeperReducer, {
     columns,
     rows,
@@ -37,8 +35,8 @@ export const Game = ({
     })
   }, [])
 
-  const leftClickCell = useCallback((cellIndex: number) => {
-    dispatch({ type: 'ClickCell', cellIndex })
+  const leftClickCell = useCallback((rowIndex: number, columnIndex: number) => {
+    dispatch({ type: 'ClickCell', rowIndex, columnIndex })
   }, [])
 
   const changeNumberOfColumns = useCallback((newNumberOfColumns: string) => {
@@ -76,23 +74,26 @@ export const Game = ({
 
   return (
     <>
-      {hasCustomControls && <GameSettings 
-        columns={gameState.columns}
-        changeNumberOfColumns={changeNumberOfColumns}
-        rows={gameState.rows}
-        changeNumberOfRows={changeNumberOfRows}
-        numberOfBombs={gameState.numberOfBombs}
-        changeNumberOfBombs={changeNumberOfBombs}
-      />}
+      {hasCustomControls && (
+        <GameSettings
+          columns={gameState.columns}
+          changeNumberOfColumns={changeNumberOfColumns}
+          rows={gameState.rows}
+          changeNumberOfRows={changeNumberOfRows}
+          numberOfBombs={gameState.numberOfBombs}
+          changeNumberOfBombs={changeNumberOfBombs}
+        />
+      )}
 
-      <div style={{display: 'flex', justifyContent: 'center'}}>
-        <div style={{margin: '5px'}}>
-          {gameState.board.map((row, index) => (
-            <div className={styles.row} key={index}>
-              {row.map((cell) => (
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div style={{ margin: '5px' }}>
+          {gameState.board.map((row, rowIndex) => (
+            <div className={styles.row} key={rowIndex}>
+              {row.map((cell, columnIndex) => (
                 <GameCell
-                  key={cell.id}
-                  id={cell.id}
+                  key={`${rowIndex}, ${columnIndex}`}
+                  rowIndex={rowIndex}
+                  columnIndex={columnIndex}
                   isCovered={cell.isCovered}
                   isBomb={cell.isBomb}
                   isFlagged={cell.isFlagged}
@@ -106,14 +107,15 @@ export const Game = ({
         </div>
 
         {transparentSideView && (
-          <div style={{margin: '5px'}}>
-            {gameState.board.map((row, index) => (
-              <div className={styles.row} key={index}>
-                {row.map((cell) => (
+          <div style={{ margin: '5px' }}>
+            {gameState.board.map((row, rowIndex) => (
+              <div className={styles.row} key={rowIndex}>
+                {row.map((cell, columnIndex) => (
                   <GameCell
-                    key={cell.id}
-                    id={cell.id}
-                    isCovered={cell.isCovered}
+                    key={`${rowIndex}, ${columnIndex}`}
+                    rowIndex={rowIndex}
+                    columnIndex={columnIndex}
+                    isCovered={false}
                     isBomb={cell.isBomb}
                     isFlagged={cell.isFlagged}
                     isWinner={false}
