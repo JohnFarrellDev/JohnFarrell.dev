@@ -2,6 +2,7 @@ import { Cell } from '../types'
 import { changeNumberOfBombs } from './functions/changeNumberOfBombs'
 import { changeNumberOfColumns } from './functions/changeNumberOfColumns'
 import { changeNumberOfRows } from './functions/changeNumberOfRows'
+import { clickCell } from './functions/clickCell/clickCell'
 import { init } from './functions/init'
 
 export interface State {
@@ -16,7 +17,7 @@ export interface State {
 
 export type Action =
   | { type: 'Init' }
-  | { type: 'ClickCell'; cellIndex: number }
+  | { type: 'ClickCell'; rowIndex: number, columnIndex: number }
   | { type: 'ChangeNumberOfColumns'; newNumberOfColumns: number }
   | { type: 'ChangeNumberOfRows'; newNumberOfRows: number }
   | { type: 'ChangeNumberOfBombs'; newNumberOfBombs: number }
@@ -26,7 +27,7 @@ export const minesweeperReducer = (state: State, action: Action): State => {
     case 'Init':
       return init(state)
     case 'ClickCell':
-      return state
+      return clickCell(state, action)
     case 'ChangeNumberOfColumns':
       return changeNumberOfColumns(state, action)
     case 'ChangeNumberOfRows':

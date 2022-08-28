@@ -48,6 +48,15 @@ export const Minesweeper = () => {
                 Implement placing bombs randomly (can't be placed on player's
                 first clicked cell)
               </li>
+
+              <Game
+                columns={5}
+                rows={5}
+                numberOfBombs={5}
+                hasCustomControls={true}
+                transparentSideView={true}
+              />
+
               <li>Add visualization for placing bombs</li>
               <li>Add concept of game state, isAlive, isDead, isPlaying</li>
               <li>
