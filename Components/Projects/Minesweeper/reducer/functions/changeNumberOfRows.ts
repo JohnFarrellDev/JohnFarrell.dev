@@ -10,5 +10,6 @@ export const changeNumberOfRows = (state: State, action: Action): State => {
     ...state,
     board,
     rows: action.newNumberOfRows,
+    numberOfBombs: state.numberOfBombs >= state.columns * action.newNumberOfRows ? state.columns * action.newNumberOfRows - 1 : state.numberOfBombs
   }
 }

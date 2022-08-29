@@ -61,16 +61,20 @@ export const Game = ({
     })
   }, [])
 
-  const changeNumberOfBombs = useCallback((newNumberOfBombs: string) => {
-    const numberOfBombs = Number(newNumberOfBombs)
+  const changeNumberOfBombs = useCallback(
+    (newNumberOfBombs: string) => {
+      const numberOfBombs = Number(newNumberOfBombs)
 
-    if (!(numberOfBombs >= 3 && numberOfBombs <= 30)) return
+      if (!(numberOfBombs >= 3 && numberOfBombs <= 30)) return
+      if (numberOfBombs >= gameState.rows * gameState.columns) return
 
-    dispatch({
-      type: 'ChangeNumberOfBombs',
-      newNumberOfBombs: numberOfBombs,
-    })
-  }, [])
+      dispatch({
+        type: 'ChangeNumberOfBombs',
+        newNumberOfBombs: numberOfBombs,
+      })
+    },
+    [gameState.rows, gameState.columns]
+  )
 
   return (
     <>
