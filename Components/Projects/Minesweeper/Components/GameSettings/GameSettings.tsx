@@ -1,4 +1,5 @@
 import React from 'react'
+import { AiOutlineArrowDown } from 'react-icons/ai'
 import styles from './GameSettings.module.css'
 
 interface GameSettingsI {
@@ -53,6 +54,23 @@ export const GameSettings = ({
           min={1}
           max={columns * rows}
         />
+      </div>
+
+      <div className={styles.controlItem}>
+        <div className={styles.dropdown}>
+          <span>Animation Controls <AiOutlineArrowDown /></span>
+          <div className={styles.selectedAnimationControlBox}></div>
+          <div className={styles.dropdownContent}>
+            <div className={styles.dropdownItem}>
+              <input type={'checkbox'} />{' '}
+              <span>All</span>
+            </div>
+            <div className={styles.dropdownItem}>
+              <input type={'checkbox'} />{' '}
+              <span>Place Bombs</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
