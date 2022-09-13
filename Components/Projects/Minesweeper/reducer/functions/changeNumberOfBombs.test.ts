@@ -19,9 +19,10 @@ describe('change number of bombs', () => {
   }
 
   it('should make no change if the action is not ChangeNumberOfBombs', () => {
+    const newNumberOfBombs = 10;
     const state = changeNumberOfBombs(gameState, {
-      ...action,
       type: 'invalid-action-type' as 'ChangeNumberOfBombs',
+      newNumberOfBombs
     })
 
     expect(state.numberOfBombs).toBe(gameState.numberOfBombs)
