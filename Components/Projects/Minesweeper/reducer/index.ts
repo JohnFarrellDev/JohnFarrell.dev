@@ -5,6 +5,15 @@ import { changeNumberOfRows } from './functions/changeNumberOfRows'
 import { clickCell } from './functions/clickCell/clickCell'
 import { init } from './functions/init'
 
+interface Animation {
+  type: string
+}
+
+interface AnimationStep {
+  time: number
+  animations: Animation[]
+}
+
 export interface State {
   rows: number
   columns: number
@@ -13,6 +22,7 @@ export interface State {
   isPlaying: boolean
   isDead: boolean
   isWinner: boolean
+  animations: AnimationStep[]
 }
 
 export type Action =

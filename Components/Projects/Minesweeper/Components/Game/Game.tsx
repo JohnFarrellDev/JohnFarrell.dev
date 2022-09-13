@@ -27,6 +27,7 @@ export const Game = ({
     isPlaying: false,
     isDead: false,
     isWinner: false,
+    animations: []
   })
 
   useEffect(() => {
@@ -63,17 +64,12 @@ export const Game = ({
 
   const changeNumberOfBombs = useCallback(
     (newNumberOfBombs: string) => {
-      const numberOfBombs = Number(newNumberOfBombs)
-
-      if (!(numberOfBombs >= 3 && numberOfBombs <= 30)) return
-      if (numberOfBombs >= gameState.rows * gameState.columns) return
-
       dispatch({
         type: 'ChangeNumberOfBombs',
-        newNumberOfBombs: numberOfBombs,
+        newNumberOfBombs: Number(newNumberOfBombs),
       })
     },
-    [gameState.rows, gameState.columns]
+    []
   )
 
   return (
