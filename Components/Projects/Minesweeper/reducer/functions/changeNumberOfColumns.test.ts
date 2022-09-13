@@ -1,5 +1,3 @@
-import { pointerAction } from '@testing-library/user-event/dist/types/pointer/pointerAction'
-import { attachClipboardStubToView } from '@testing-library/user-event/dist/types/utils'
 import { State, Action } from '..'
 import { changeNumberOfColumns } from './changeNumberOfColumns'
 
