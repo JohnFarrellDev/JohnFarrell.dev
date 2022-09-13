@@ -27,7 +27,7 @@ export const Game = ({
     isPlaying: false,
     isDead: false,
     isWinner: false,
-    animations: []
+    animations: [],
   })
 
   useEffect(() => {
@@ -41,36 +41,25 @@ export const Game = ({
   }, [])
 
   const changeNumberOfColumns = useCallback((newNumberOfColumns: string) => {
-    const numberOfColumns = Number(newNumberOfColumns)
-
-    if (!(numberOfColumns >= 3 && numberOfColumns <= 50)) return
-
     dispatch({
       type: 'ChangeNumberOfColumns',
-      newNumberOfColumns: numberOfColumns,
+      newNumberOfColumns: Number(newNumberOfColumns),
     })
   }, [])
 
   const changeNumberOfRows = useCallback((newNumberOfRows: string) => {
-    const numberOfRows = Number(newNumberOfRows)
-
-    if (!(numberOfRows >= 3 && numberOfRows <= 30)) return
-
     dispatch({
       type: 'ChangeNumberOfRows',
-      newNumberOfRows: numberOfRows,
+      newNumberOfRows: Number(newNumberOfRows),
     })
   }, [])
 
-  const changeNumberOfBombs = useCallback(
-    (newNumberOfBombs: string) => {
-      dispatch({
-        type: 'ChangeNumberOfBombs',
-        newNumberOfBombs: Number(newNumberOfBombs),
-      })
-    },
-    []
-  )
+  const changeNumberOfBombs = useCallback((newNumberOfBombs: string) => {
+    dispatch({
+      type: 'ChangeNumberOfBombs',
+      newNumberOfBombs: Number(newNumberOfBombs),
+    })
+  }, [])
 
   return (
     <>
