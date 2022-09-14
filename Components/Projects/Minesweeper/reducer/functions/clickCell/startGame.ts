@@ -1,10 +1,8 @@
 import { State } from '../..'
-import { generateBoard } from '../../../functions/generateBoard'
 import { placeBombs } from './placeBombs';
 
 export const startGame = (state: State, action: { type: 'ClickCell'; rowIndex: number, columnIndex: number }) => {
-  const { board: boardAfterGenerate } = generateBoard(state.rows, state.columns)
-  const { board: boardAfterPlacingBombs } = placeBombs(state, boardAfterGenerate, action)
+  const { board: boardAfterPlacingBombs } = placeBombs(state, state.board, action)
 
   return {
     ...state,
