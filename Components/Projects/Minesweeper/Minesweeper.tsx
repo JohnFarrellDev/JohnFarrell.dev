@@ -30,6 +30,7 @@ export const Minesweeper = () => {
             numberOfBombs={10}
             hasCustomControls={true}
             transparentSideView={false}
+            customAnimations={new Map()}
           />
         </div>
       </main>

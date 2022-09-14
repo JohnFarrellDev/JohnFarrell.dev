@@ -42,6 +42,7 @@ export const Minesweeper = () => {
                 numberOfBombs={5}
                 hasCustomControls={true}
                 transparentSideView={false}
+                customAnimations={new Map()}
               />
 
               <li>
@@ -55,6 +56,7 @@ export const Minesweeper = () => {
                 numberOfBombs={5}
                 hasCustomControls={true}
                 transparentSideView={true}
+                customAnimations={new Map([["PlaceBombs", true]])}
               />
 
               <li>Add visualization for placing bombs</li>
