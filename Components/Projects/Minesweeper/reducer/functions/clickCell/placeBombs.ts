@@ -1,5 +1,6 @@
 import { State } from '../..'
-import { fisherYatesShuffle } from '../../../../../../UtilityFunctions';
+import { fisherYatesShuffle } from '../../../../../../UtilityFunctions'
+import { deepCopy } from '../../../../../../UtilityFunctions/deepCopy'
 import { Cell } from '../../../types'
 
 export const placeBombs = (
@@ -7,6 +8,8 @@ export const placeBombs = (
   board: Cell[][],
   action: { type: 'ClickCell'; rowIndex: number; columnIndex: number }
 ) => {
+  const boardWithBombs = deepCopy(board)
+
   const possibleBombLocations: number[] = []
 
   for (let rIndex = 0; rIndex < state.rows; rIndex++) {
@@ -15,9 +18,8 @@ export const placeBombs = (
       possibleBombLocations.push(cIndex + rIndex * state.rows)
     }
   }
-  
+
   fisherYatesShuffle(possibleBombLocations)
-  
 
   let bombsLeft = state.numberOfBombs
   while (bombsLeft > 0) {
@@ -25,8 +27,8 @@ export const placeBombs = (
     const randomBombLocationColumn = randomBombLocation % state.columns
     const randomBombLocationRow = Math.floor(randomBombLocation / state.columns)
 
-    board[randomBombLocationRow][randomBombLocationColumn] = {
-      ...board[randomBombLocationRow][randomBombLocationColumn],
+    boardWithBombs[randomBombLocationRow][randomBombLocationColumn] = {
+      ...boardWithBombs[randomBombLocationRow][randomBombLocationColumn],
       isBomb: true,
     }
 
@@ -34,6 +36,6 @@ export const placeBombs = (
   }
 
   return {
-    board,
+    board: boardWithBombs,
   }
 }
