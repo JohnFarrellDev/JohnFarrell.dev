@@ -47,10 +47,10 @@ describe('generate board', () => {
     })
 
     board.forEach((row) => {
-        row.forEach((cell) => {
-          expect(cell.neighborBombs).toBe(0)
-        })
+      row.forEach((cell) => {
+        expect(cell.neighborBombs).toBe(0)
       })
+    })
   })
 
   it('should assign an incremental unique id to each cell', () => {
