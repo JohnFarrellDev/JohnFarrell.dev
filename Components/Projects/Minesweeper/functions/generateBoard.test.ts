@@ -52,4 +52,12 @@ describe('generate board', () => {
         })
       })
   })
+
+  it('should assign an incremental unique id to each cell', () => {
+    expect(board[0][0].id).toBe(0)
+    expect(board[0][9].id).toBe(9)
+    expect(board[1][0].id).toBe(10)
+    expect(board[3][7].id).toBe(37)
+    expect(board[4][9].id).toBe(49)
+  })
 })
