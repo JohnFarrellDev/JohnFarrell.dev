@@ -4,12 +4,15 @@ import { GameCell } from '../GameCell'
 import { GameSettings } from '../GameSettings'
 import styles from './Game.module.css'
 
+export type CustomAnimations = 'PlaceBombs'
+
 interface GameProps {
   columns: number
   rows: number
   numberOfBombs: number
   hasCustomControls: boolean
   transparentSideView: boolean
+  customAnimations: Map<CustomAnimations, boolean>
 }
 
 export const Game = ({
@@ -18,17 +21,30 @@ export const Game = ({
   numberOfBombs,
   hasCustomControls,
   transparentSideView,
+  customAnimations,
 }: GameProps) => {
   const [gameState, dispatch] = useReducer(minesweeperReducer, {
     columns,
     rows,
     numberOfBombs,
+    customAnimations,
     board: [],
     isPlaying: false,
     isDead: false,
     isWinner: false,
     animations: [],
   })
+
+  useEffect(() => {
+    if (gameState.animations.length > 0) {
+      // timeout might be incorrect due to off by one error!
+      setTimeout(() => {
+        dispatch({
+          type: 'Animation',
+        })
+      }, gameState.animations[gameState.animations.length - 1].time)
+    }
+  }, [gameState.animations.length, gameState.animations])
 
   useEffect(() => {
     dispatch({
@@ -76,9 +92,9 @@ export const Game = ({
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div style={{ margin: '5px' }}>
-          {gameState.board.map((row, rowIndex) => (
-            <div className={styles.row} key={rowIndex}>
-              {row.map((cell, columnIndex) => (
+          {gameState.board.map((column, columnIndex) => (
+            <div className={styles.row} key={columnIndex}>
+              {column.map((cell, rowIndex) => (
                 <GameCell
                   key={`${rowIndex}, ${columnIndex}`}
                   rowIndex={rowIndex}
@@ -89,6 +105,7 @@ export const Game = ({
                   isWinner={false}
                   neighborBombs={cell.neighborBombs}
                   leftClick={leftClickCell}
+                  color={cell.color}
                 />
               ))}
             </div>
@@ -97,9 +114,9 @@ export const Game = ({
 
         {transparentSideView && (
           <div style={{ margin: '5px' }}>
-            {gameState.board.map((row, rowIndex) => (
-              <div className={styles.row} key={rowIndex}>
-                {row.map((cell, columnIndex) => (
+            {gameState.board.map((column, columnIndex) => (
+              <div className={styles.row} key={columnIndex}>
+                {column.map((cell, rowIndex) => (
                   <GameCell
                     key={`${rowIndex}, ${columnIndex}`}
                     rowIndex={rowIndex}
