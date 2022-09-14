@@ -1,5 +1,7 @@
 import { useCallback } from 'react'
 import styled from 'styled-components'
+import { AnimationColorsRecord } from '../reducer'
+import { CustomAnimations } from './Game/Game'
 
 interface GameCellI {
   rowIndex: number
@@ -9,7 +11,7 @@ interface GameCellI {
   isFlagged: boolean
   isWinner: boolean
   neighborBombs: number
-  color?: string
+  color?: AnimationColorsRecord extends Map<CustomAnimations, infer I> ? I : never;
   leftClick: (rowIndex: number, columnIndex: number) => void
 }
 
@@ -21,6 +23,7 @@ export const GameCell = ({
   isFlagged,
   isWinner,
   neighborBombs,
+  color,
   leftClick,
 }: GameCellI) => {
   const leftClickCell = useCallback(() => {
@@ -28,7 +31,7 @@ export const GameCell = ({
   }, [rowIndex, columnIndex,leftClick])
 
   return (
-    <CellContainer isCovered={true} isBomb={false} onClick={leftClickCell}>
+    <CellContainer isCovered={true} isBomb={false} onClick={leftClickCell} color={color}>
       <CellDisplay neighborBombs={neighborBombs}>
         {isFlagged && '🚩'}
         {!isCovered && !isFlagged && !isWinner && isBomb && '💣'}
