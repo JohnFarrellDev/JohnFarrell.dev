@@ -5,7 +5,7 @@ import { Layout } from '../Layout'
 import { SEO } from '../SEO'
 import { Skills } from '../Skills'
 
-export const Index = () => {
+export const Home = () => {
   return (
     <Layout>
       <SEO />
