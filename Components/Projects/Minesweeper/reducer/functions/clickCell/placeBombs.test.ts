@@ -8,6 +8,7 @@ describe('place bombs', () => {
     board: generateBoard(10, 10).board,
     columns: 10,
     rows: 10,
+    customAnimations: new Map(),
     isDead: false,
     isPlaying: false,
     isWinner: false,

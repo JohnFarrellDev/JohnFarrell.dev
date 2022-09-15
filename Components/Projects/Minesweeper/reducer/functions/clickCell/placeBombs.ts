@@ -19,7 +19,24 @@ export const placeBombs = (
     }
   }
 
+  if (state.customAnimations.get('PlaceBombs')) {
+    for (let i = 0; i < state.numberOfBombs; i++) {
+      const animationLocation =
+        possibleBombLocations[possibleBombLocations.length - 1 - i]
+
+        const animationLocationColumn = animationLocation % state.columns
+        const animationLocationRow = Math.floor(animationLocation / state.columns)
+
+      state.animations.push({
+        time: 500,
+        animations: [{ columnIndex: animationLocationRow, rowIndex: animationLocationColumn, color: 'red' }],
+      })
+    }
+  }
+
   fisherYatesShuffle(possibleBombLocations)
+
+  
 
   let bombsLeft = state.numberOfBombs
   while (bombsLeft > 0) {
