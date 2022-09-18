@@ -21,35 +21,62 @@ export const placeBombs = (
 
   if (state.customAnimations.get('PlaceBombs')) {
     for (let i = 0; i < state.numberOfBombs; i++) {
-      const animationLocation =
-        possibleBombLocations[possibleBombLocations.length - 1 - i]
+      const animationLocation = state.columns * state.rows - 1 - i
 
-        const animationLocationColumn = animationLocation % state.columns
-        const animationLocationRow = Math.floor(animationLocation / state.columns)
+      const animationLocationColumn = animationLocation % state.columns
+      const animationLocationRow = Math.floor(animationLocation / state.columns)
 
-      state.animations.push({
+      state.animationToApply.push({
         time: 500,
-        animations: [{ columnIndex: animationLocationRow, rowIndex: animationLocationColumn, color: 'red' }],
+        animations: [
+          {
+            columnIndex: animationLocationRow,
+            rowIndex: animationLocationColumn,
+            color: '#eca1a6',
+          },
+        ],
       })
     }
   }
 
   fisherYatesShuffle(possibleBombLocations)
 
-  
-
-  let bombsLeft = state.numberOfBombs
-  while (bombsLeft > 0) {
+  for (let i = 0; i < state.numberOfBombs; i++) {
     const randomBombLocation = possibleBombLocations.pop() as number
     const randomBombLocationColumn = randomBombLocation % state.columns
     const randomBombLocationRow = Math.floor(randomBombLocation / state.columns)
+
+    const switchHasBomb = boardWithBombs[randomBombLocationRow][randomBombLocationColumn].isBomb
 
     boardWithBombs[randomBombLocationRow][randomBombLocationColumn] = {
       ...boardWithBombs[randomBombLocationRow][randomBombLocationColumn],
       isBomb: true,
     }
 
-    bombsLeft--
+    if (state.customAnimations.get('PlaceBombs')) {
+
+      const animationLocation = state.columns * state.rows - 1 - i
+      const animationLocationColumn = animationLocation % state.columns
+      const animationLocationRow = Math.floor(animationLocation / state.columns)
+
+      // overwriting it when we make 0th element red but then later element makes it undefined
+      state.animationToApply.push({
+        time: 500,
+        animations: [
+          {
+            columnIndex: animationLocationRow,
+            rowIndex: animationLocationColumn,
+            color: switchHasBomb ? '#eca1a6' : undefined,
+          },
+          {
+            columnIndex: randomBombLocationRow,
+            rowIndex: randomBombLocationColumn,
+            color: '#eca1a6',
+          }
+        ],
+      })
+    }
+
   }
 
   return {

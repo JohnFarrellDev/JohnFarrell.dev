@@ -1,16 +1,17 @@
-import { State, Animation } from "..";
+import { State, AnimationStep } from "..";
 
 export const applyAnimation = (state: State): State => {
 
-    if(state.animations.length === 0) return state
+    if(state.animationToApply.length === 0) return state
 
-    const animations = state.animations.pop()?.animations as Animation[]
+    const animationStep = state.animationToApply.pop() as AnimationStep
 
-    animations.forEach(animation => {
+    animationStep.animations.forEach(animation => {
         state.board[animation.columnIndex][animation.rowIndex].color = animation.color 
     })
 
     return {
-        ...state
+        ...state,
+        animationTime: animationStep.time
     }
 }

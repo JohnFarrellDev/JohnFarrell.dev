@@ -4,7 +4,8 @@ import { placeBombs } from './placeBombs'
 
 describe('place bombs', () => {
   const state: State = {
-    animations: [],
+    animationToApply: [],
+    animationTime: 0,
     board: generateBoard(10, 10).board,
     columns: 10,
     rows: 10,
@@ -12,7 +13,7 @@ describe('place bombs', () => {
     isDead: false,
     isPlaying: false,
     isWinner: false,
-    numberOfBombs: 10,
+    numberOfBombs: 10
   }
 
   const action: Action = {
@@ -75,4 +76,8 @@ describe('place bombs', () => {
       })
     }
   })
+
+  // it.todo('should apply animation affects', () => {
+
+  // })
 })

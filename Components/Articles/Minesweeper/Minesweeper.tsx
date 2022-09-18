@@ -56,10 +56,20 @@ export const Minesweeper = () => {
                 numberOfBombs={5}
                 hasCustomControls={true}
                 transparentSideView={true}
-                customAnimations={new Map([["PlaceBombs", true]])}
+                customAnimations={new Map()}
               />
 
               <li>Add visualization for placing bombs</li>
+
+              <Game
+                columns={5}
+                rows={5}
+                numberOfBombs={5}
+                hasCustomControls={true}
+                transparentSideView={true}
+                customAnimations={new Map([["PlaceBombs", true]])}
+              />
+
               <li>Add concept of game state, isAlive, isDead, isPlaying</li>
               <li>
                 Add click to reveal cell - if not a bomb reveal how many

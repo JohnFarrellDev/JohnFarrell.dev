@@ -10,5 +10,6 @@ export const clickCell = (state: State, action: Action): State => {
 
   return {
     ...state,
+    animationTime: 0
   }
 }

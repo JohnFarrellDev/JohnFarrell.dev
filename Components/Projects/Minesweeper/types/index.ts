@@ -1,5 +1,4 @@
-import { CustomAnimations } from "../Components/Game/Game"
-import { AnimationColorsRecord } from "../reducer"
+import { CellColor } from "../reducer"
 
 export interface Cell {
   id: number
@@ -8,5 +7,5 @@ export interface Cell {
   isFlagged: boolean
   neighbors: number[]
   neighborBombs: number
-  color?: AnimationColorsRecord extends Map<CustomAnimations, infer I> ? I : never;
+  color?: CellColor
 }

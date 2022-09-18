@@ -32,19 +32,19 @@ export const Game = ({
     isPlaying: false,
     isDead: false,
     isWinner: false,
-    animations: [],
+    animationToApply: [],
+    animationTime: 0
   })
 
   useEffect(() => {
-    if (gameState.animations.length > 0) {
-      // timeout might be incorrect due to off by one error!
+    if (gameState.animationToApply.length > 0) {
       setTimeout(() => {
         dispatch({
           type: 'Animation',
         })
-      }, gameState.animations[gameState.animations.length - 1].time)
+      }, gameState.animationTime)
     }
-  }, [gameState.animations.length, gameState.animations])
+  }, [gameState.animationToApply.length, gameState.animationToApply, gameState.animationTime])
 
   useEffect(() => {
     dispatch({
@@ -92,11 +92,11 @@ export const Game = ({
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div style={{ margin: '5px' }}>
-          {gameState.board.map((column, columnIndex) => (
-            <div className={styles.row} key={columnIndex}>
-              {column.map((cell, rowIndex) => (
+          {gameState.board.map((column, rowIndex) => (
+            <div className={styles.row} key={rowIndex}>
+              {column.map((cell, columnIndex) => (
                 <GameCell
-                  key={`${rowIndex}, ${columnIndex}`}
+                  key={`${columnIndex}, ${rowIndex}`}
                   rowIndex={rowIndex}
                   columnIndex={columnIndex}
                   isCovered={cell.isCovered}
@@ -114,11 +114,11 @@ export const Game = ({
 
         {transparentSideView && (
           <div style={{ margin: '5px' }}>
-            {gameState.board.map((column, columnIndex) => (
-              <div className={styles.row} key={columnIndex}>
-                {column.map((cell, rowIndex) => (
+            {gameState.board.map((column, rowIndex) => (
+              <div className={styles.row} key={rowIndex}>
+                {column.map((cell, columnIndex) => (
                   <GameCell
-                    key={`${rowIndex}, ${columnIndex}`}
+                    key={`${columnIndex}, ${rowIndex}`}
                     rowIndex={rowIndex}
                     columnIndex={columnIndex}
                     isCovered={false}

@@ -7,11 +7,14 @@ import { changeNumberOfRows } from './functions/changeNumberOfRows'
 import { clickCell } from './functions/clickCell/clickCell'
 import { init } from './functions/init'
 
-type PlaceBombColor = "red"
+type PlaceBombColor = "#eca1a6"
+type NoColor = undefined
 
-export type AnimationColorsRecord = Map<CustomAnimations, PlaceBombColor>
+export type CellColor = PlaceBombColor | NoColor
 
-export const ANIMATION_COLORS: AnimationColorsRecord = new Map([["PlaceBombs", "red"]])
+export type AnimationColorsRecord = Map<CustomAnimations, CellColor>
+
+export const ANIMATION_COLORS: AnimationColorsRecord = new Map([["PlaceBombs", '#eca1a6']])
 
 export interface Animation {
   columnIndex: number
@@ -19,7 +22,7 @@ export interface Animation {
   color: AnimationColorsRecord extends Map<CustomAnimations, infer I> ? I : never;
 }
 
-interface AnimationStep {
+export interface AnimationStep {
   time: number
   animations: Animation[]
 }
@@ -33,7 +36,8 @@ export interface State {
   isPlaying: boolean
   isDead: boolean
   isWinner: boolean
-  animations: AnimationStep[]
+  animationToApply: AnimationStep[]
+  animationTime: number
 }
 
 export type Action =

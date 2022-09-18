@@ -3,7 +3,8 @@ import { changeNumberOfRows } from './changeNumberOfRows'
 
 describe('change number of rows', () => {
   const gameState: State = {
-    animations: [],
+    animationToApply: [],
+    animationTime: 0,
     columns: 5,
     rows: 5,
     isDead: false,
@@ -11,6 +12,7 @@ describe('change number of rows', () => {
     isWinner: false,
     numberOfBombs: 5,
     board: [],
+    customAnimations: new Map()
   }
 
   const newNumberOfRows = 10

@@ -3,7 +3,8 @@ import { changeNumberOfBombs } from './changeNumberOfBombs'
 
 describe('change number of bombs', () => {
   const gameState: State = {
-    animations: [],
+    animationToApply: [],
+    animationTime: 0,
     columns: 5,
     rows: 5,
     isDead: false,
@@ -11,6 +12,7 @@ describe('change number of bombs', () => {
     isWinner: false,
     numberOfBombs: 5,
     board: [],
+    customAnimations: new Map()
   }
 
   const newNumberOfBombs = 10;

@@ -3,7 +3,8 @@ import { changeNumberOfColumns } from './changeNumberOfColumns'
 
 describe('change number of columns', () => {
   const gameState: State = {
-    animations: [],
+    animationToApply: [],
+    animationTime: 0,
     columns: 5,
     rows: 5,
     isDead: false,
@@ -11,6 +12,7 @@ describe('change number of columns', () => {
     isWinner: false,
     numberOfBombs: 5,
     board: [],
+    customAnimations: new Map()
   }
 
   const newNumberOfColumns = 10
