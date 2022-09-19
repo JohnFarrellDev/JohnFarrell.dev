@@ -5,7 +5,14 @@ export const jobs = [
     startDate: 'August 2022',
     endDate: 'Present',
     position: 'Software engineer',
-    responsibilities: ["Content Discovery Team - Developed APIs to deliver a personalised content feed to users"],
+    responsibilities: [
+      {
+        id: 1,
+        description:
+          'Content Discovery Team - Developed APIs to deliver a personalised content feed to users',
+        technology: ['TypeScript', 'Node', 'AWS'],
+      },
+    ],
   },
   {
     id: 3,
