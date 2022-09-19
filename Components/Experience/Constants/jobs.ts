@@ -2,10 +2,10 @@ export const jobs = [
   {
     id: 4,
     companyName: 'DAZN',
-    startDate: 'A 2022',
+    startDate: 'August 2022',
     endDate: 'Present',
     position: 'Software engineer',
-    responsibilities: [],
+    responsibilities: ["Content Discovery Team - Developed APIs to deliver a personalised content feed to users"],
   },
   {
     id: 3,
