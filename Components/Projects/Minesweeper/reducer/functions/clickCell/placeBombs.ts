@@ -10,21 +10,17 @@ export const placeBombs = (
 ) => {
   const boardWithBombs = deepCopy(board)
 
-  const possibleBombLocations: number[] = []
-
-  for (let rIndex = 0; rIndex < state.rows; rIndex++) {
-    for (let cIndex = 0; cIndex < state.columns; cIndex++) {
-      if (rIndex === action.rowIndex && cIndex === action.columnIndex) continue
-      possibleBombLocations.push(cIndex + rIndex * state.rows)
-    }
-  }
-
   if (state.customAnimations.get('PlaceBombs')) {
     for (let i = 0; i < state.numberOfBombs; i++) {
       const animationLocation = state.columns * state.rows - 1 - i
 
       const animationLocationColumn = animationLocation % state.columns
       const animationLocationRow = Math.floor(animationLocation / state.columns)
+
+      boardWithBombs[animationLocationRow][animationLocationColumn] = {
+        ...boardWithBombs[animationLocationRow][animationLocationColumn],
+        isBomb: true,
+      }
 
       state.animationToApply.push({
         time: 500,
@@ -36,6 +32,16 @@ export const placeBombs = (
           },
         ],
       })
+    }
+  }
+
+
+  const possibleBombLocations: number[] = []
+
+  for (let rIndex = 0; rIndex < state.rows; rIndex++) {
+    for (let cIndex = 0; cIndex < state.columns; cIndex++) {
+      if (rIndex === action.rowIndex && cIndex === action.columnIndex) continue
+      possibleBombLocations.push(cIndex + rIndex * state.rows)
     }
   }
 
@@ -59,7 +65,11 @@ export const placeBombs = (
       const animationLocationColumn = animationLocation % state.columns
       const animationLocationRow = Math.floor(animationLocation / state.columns)
 
-      // overwriting it when we make 0th element red but then later element makes it undefined
+      boardWithBombs[animationLocationRow][animationLocationColumn] = {
+        ...boardWithBombs[animationLocationRow][animationLocationColumn],
+        isBomb: switchHasBomb,
+      }
+
       state.animationToApply.push({
         time: 500,
         animations: [
@@ -75,8 +85,7 @@ export const placeBombs = (
           }
         ],
       })
-    }
-
+    } 
   }
 
   return {

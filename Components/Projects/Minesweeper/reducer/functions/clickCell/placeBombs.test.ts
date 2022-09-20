@@ -77,7 +77,18 @@ describe('place bombs', () => {
     }
   })
 
-  // it.todo('should apply animation affects', () => {
+  it('should apply animation affects', () => {
+    const innerState: State = {
+      ...state,
+      columns: 5,
+      rows: 5,
+      board: generateBoard(5, 5).board,
+      numberOfBombs: 5,
+      customAnimations: new Map([['PlaceBombs', true]]),
+    }
 
-  // })
+    placeBombs(innerState, innerState.board, action)
+
+    expect(innerState.animationToApply.length).toBe(10)
+  })
 })
