@@ -10,7 +10,7 @@ describe('place bombs', () => {
     columns: 10,
     rows: 10,
     customAnimations: new Map(),
-    allowedOperations: new Map(),
+    allowedOperations: new Map([["PlaceBombs", true]]),
     isDead: false,
     isPlaying: false,
     isWinner: false,
@@ -91,5 +91,24 @@ describe('place bombs', () => {
     placeBombs(innerState, innerState.board, action)
 
     expect(innerState.animationToApply.length).toBe(10)
+  })
+
+  it('should do nothing if PlaceBombs is not an allowed operation and return the passed in board', () => {
+    const { board } = placeBombs(
+      { ...state, allowedOperations: new Map() },
+      state.board,
+      action
+    )
+
+    let bombCount = 0
+
+    board.forEach((row) => {
+      row.forEach((cell) => {
+        if (cell.isBomb) bombCount++
+      })
+    })
+
+    expect(bombCount).toBe(0)
+    expect(state.board).toBe(board)
   })
 })

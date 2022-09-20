@@ -7,7 +7,10 @@ export const placeBombs = (
   state: State,
   board: Cell[][],
   action: { type: 'ClickCell'; rowIndex: number; columnIndex: number }
-) => {
+): {board: Cell[][]} => {
+
+  if(!(Boolean(state.allowedOperations.get("PlaceBombs")))) return {board}
+
   const boardWithBombs = deepCopy(board)
 
   if (state.customAnimations.get('PlaceBombs')) {

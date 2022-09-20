@@ -39,6 +39,8 @@ export const calculateNeighborInformation = (state: State, board: Cell[][]) => {
     })
   })
 
+  state.isPlaying = false;
+
   return {
     board,
   }

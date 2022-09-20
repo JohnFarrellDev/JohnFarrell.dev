@@ -42,7 +42,7 @@ export const Minesweeper = () => {
                 numberOfBombs={5}
                 hasCustomControls={true}
                 transparentSideView={false}
-                customAnimations={new Map()}
+                customAnimations={new Map([["PlaceBombs", false]])}
                 allowedOperations={new Map()}
               />
 

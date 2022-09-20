@@ -5,7 +5,8 @@ export const changeAnimations = (state: State, action: Action): State => {
     if (action.type !== 'ChangeAnimations') return state
     
     if(action.animationOption === "All") {
-        const allSetToTrue = !Array.from(state.customAnimations.values()).includes(false)
+        const allSetToTrue = !Array.from(state.customAnimations.values()).includes(false) && Array.from(state.customAnimations.values()).length !== 0
+        console.log("🚀 ~ file: changeAnimations.ts ~ line 9 ~ changeAnimations ~ allSetToTrue", allSetToTrue)
 
         Array.from(state.customAnimations.keys()).forEach(animationKey => {
             state.customAnimations.set(animationKey, !allSetToTrue)
