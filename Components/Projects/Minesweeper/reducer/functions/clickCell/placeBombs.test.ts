@@ -10,6 +10,7 @@ describe('place bombs', () => {
     columns: 10,
     rows: 10,
     customAnimations: new Map(),
+    allowedOperations: new Map(),
     isDead: false,
     isPlaying: false,
     isWinner: false,

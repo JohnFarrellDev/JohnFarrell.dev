@@ -5,7 +5,7 @@ export interface Cell {
   isBomb: boolean
   isCovered: boolean
   isFlagged: boolean
-  neighbors: number[]
+  neighbors: Cell[]
   neighborBombs: number
   color?: CellColor
 }

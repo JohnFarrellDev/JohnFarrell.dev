@@ -31,6 +31,12 @@ export const Minesweeper = () => {
             hasCustomControls={true}
             transparentSideView={false}
             customAnimations={new Map()}
+            allowedOperations={
+              new Map([
+                ['PlaceBombs', true],
+                ['CalculateNeighbors', true],
+              ])
+            }
           />
         </div>
       </main>

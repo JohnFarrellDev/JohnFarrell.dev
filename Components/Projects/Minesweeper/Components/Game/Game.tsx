@@ -5,6 +5,7 @@ import { GameSettings } from '../GameSettings'
 import styles from './Game.module.css'
 
 export type CustomAnimations = 'PlaceBombs'
+export type Operations = 'PlaceBombs' | 'CalculateNeighbors'
 
 interface GameProps {
   columns: number
@@ -13,6 +14,7 @@ interface GameProps {
   hasCustomControls: boolean
   transparentSideView: boolean
   customAnimations: Map<CustomAnimations, boolean>
+  allowedOperations: Map<Operations, boolean>
 }
 
 export const Game = ({
@@ -22,12 +24,14 @@ export const Game = ({
   hasCustomControls,
   transparentSideView,
   customAnimations,
+  allowedOperations
 }: GameProps) => {
   const [gameState, dispatch] = useReducer(minesweeperReducer, {
     columns,
     rows,
     numberOfBombs,
     customAnimations,
+    allowedOperations,
     board: [],
     isPlaying: false,
     isDead: false,
@@ -77,6 +81,13 @@ export const Game = ({
     })
   }, [])
 
+  const changeCustomAnimations = useCallback((animationOption: CustomAnimations | "All") => {
+    dispatch({
+      type: "ChangeAnimations",
+      animationOption
+    })
+  }, [])
+
   return (
     <>
       {hasCustomControls && (
@@ -87,6 +98,8 @@ export const Game = ({
           changeNumberOfRows={changeNumberOfRows}
           numberOfBombs={gameState.numberOfBombs}
           changeNumberOfBombs={changeNumberOfBombs}
+          customAnimations={customAnimations}
+          changeCustomAnimations={changeCustomAnimations}
         />
       )}
 

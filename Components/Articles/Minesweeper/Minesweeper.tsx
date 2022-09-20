@@ -34,7 +34,7 @@ export const Minesweeper = () => {
 
             <h3>Todo</h3>
             <ul>
-              <li>Create customisable game board</li>
+              <li>Create a customisable game board</li>
 
               <Game
                 columns={5}
@@ -43,6 +43,7 @@ export const Minesweeper = () => {
                 hasCustomControls={true}
                 transparentSideView={false}
                 customAnimations={new Map()}
+                allowedOperations={new Map()}
               />
 
               <li>
@@ -54,9 +55,10 @@ export const Minesweeper = () => {
                 columns={5}
                 rows={5}
                 numberOfBombs={5}
-                hasCustomControls={true}
+                hasCustomControls={false}
                 transparentSideView={true}
                 customAnimations={new Map()}
+                allowedOperations={new Map([['PlaceBombs', true]])}
               />
 
               <li>Add visualization for placing bombs</li>
@@ -65,25 +67,42 @@ export const Minesweeper = () => {
                 columns={5}
                 rows={5}
                 numberOfBombs={5}
-                hasCustomControls={true}
+                hasCustomControls={false}
                 transparentSideView={true}
-                customAnimations={new Map([["PlaceBombs", true]])}
+                customAnimations={new Map([['PlaceBombs', true]])}
+                allowedOperations={new Map([['PlaceBombs', true]])}
               />
 
-              <li>Add concept of game state, isAlive, isDead, isPlaying</li>
+              <li>Calculate neighbor cell positions and calculate number of bombs in neighbor cells</li>
+
+              <Game
+                columns={5}
+                rows={5}
+                numberOfBombs={5}
+                hasCustomControls={false}
+                transparentSideView={true}
+                customAnimations={new Map()}
+                allowedOperations={new Map([['PlaceBombs', true], ["CalculateNeighbors", true]])}
+              />
+
+              <li>Add animation showing neighbor cell positions and bomb placements</li>
+
+              <li>
+                Implement borderless game mode, no longer have an edge on
+                gameboard, top of board is neighbor to bottom
+              </li>
+
               <li>
                 Add click to reveal cell - if not a bomb reveal how many
                 neighbouring cells are a bomb
               </li>
+
               <li>
                 Add lose if click on a bomb, set gameState to isDead, clicking
                 again resets the game
               </li>
               <li>Add win if all cells non bomb cells cleared</li>
-              <li>
-                Implement borderless game mode, no longer have an edge on
-                gameboard, top of board is neighbor to bottom
-              </li>
+              
               <li>Implement click to reveal cell game is active</li>
               <li>Implement showing surrounding cells bomb count</li>
               <li>
