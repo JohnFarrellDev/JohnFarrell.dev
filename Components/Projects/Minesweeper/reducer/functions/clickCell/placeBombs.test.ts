@@ -90,7 +90,7 @@ describe('place bombs', () => {
 
     placeBombs(innerState, innerState.board, action)
 
-    expect(innerState.animationToApply.length).toBe(10)
+    expect(innerState.animationToApply.length).toBe(32)
   })
 
   it('should do nothing if PlaceBombs is not an allowed operation and return the passed in board', () => {

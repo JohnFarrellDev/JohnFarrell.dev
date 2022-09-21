@@ -9,12 +9,18 @@ export const startGame = (state: State, action: { type: 'ClickCell'; rowIndex: n
 
   const {board: boardAfterCalculatingNeighborInformation } = calculateNeighborInformation(state, boardAfterPlacingBombs)
 
+  const animationToApply = [...state.animationToApply].reverse()
+
+  for(let i = animationToApply.length - 1; i >= 0; i--) {
+    animationToApply[i].time = animationToApply[i-1]?.time || 0;
+  }
+
   return {
     ...state,
     board: boardAfterCalculatingNeighborInformation,
     isPlaying: Boolean(state.allowedOperations.get("RevealCell")),
     isDead: false,
     isWinner: false,
-    animationToApply: [...state.animationToApply].reverse()
+    animationToApply
   }
 }

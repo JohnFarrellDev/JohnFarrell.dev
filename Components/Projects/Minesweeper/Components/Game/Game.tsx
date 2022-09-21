@@ -4,7 +4,7 @@ import { GameCell } from '../GameCell'
 import { GameSettings } from '../GameSettings'
 import styles from './Game.module.css'
 
-export type CustomAnimations = 'PlaceBombs'
+export type CustomAnimations = 'PlaceBombs' | 'CalculateNeighbors'
 export type Operations = 'PlaceBombs' | 'CalculateNeighbors' | 'RevealCell'
 
 interface GameProps {

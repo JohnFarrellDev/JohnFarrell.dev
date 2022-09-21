@@ -6,9 +6,19 @@ export const applyAnimation = (state: State): State => {
 
     const animationStep = state.animationToApply.pop() as AnimationStep
 
-    animationStep.animations.forEach(animation => {
-        state.board[animation.columnIndex][animation.rowIndex].color = animation.color 
-    })
+    if(animationStep.animations === "WIPE") {
+        state.board.forEach((row) => {
+            row.forEach((cell) => {
+              cell.color = undefined
+            })
+          })
+    } else {
+        animationStep.animations.forEach(animation => {
+            state.board[animation.rowIndex][animation.columnIndex].color = animation.color 
+        })
+    }
+
+    
 
     return {
         ...state,

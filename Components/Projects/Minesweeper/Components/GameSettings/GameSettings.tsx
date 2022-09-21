@@ -34,7 +34,6 @@ export const GameSettings = ({
     },
     [] as string[]
   )
-  console.log("🚀 ~ file: GameSettings.tsx ~ line 37 ~ animationsSelected", animationsSelected)
 
   return (
     <div className={styles.controls}>

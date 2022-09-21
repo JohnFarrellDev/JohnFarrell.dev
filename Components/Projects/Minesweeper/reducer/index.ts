@@ -9,9 +9,11 @@ import { clickCell } from './functions/clickCell/clickCell'
 import { init } from './functions/init'
 
 type PlaceBombColor = '#eca1a6'
+type SelectedCell = '#6699ff'
+type SelectedNeighborCell = '#ff3399'
 type NoColor = undefined
 
-export type CellColor = PlaceBombColor | NoColor
+export type CellColor = PlaceBombColor | SelectedCell | SelectedNeighborCell | NoColor
 
 export type AnimationColorsRecord = Map<CustomAnimations, CellColor>
 
@@ -29,7 +31,7 @@ export interface Animation {
 
 export interface AnimationStep {
   time: number
-  animations: Animation[]
+  animations: Animation[] | "WIPE"
 }
 
 export interface State {

@@ -87,6 +87,16 @@ export const Minesweeper = () => {
 
               <li>Add animation showing neighbor cell positions and bomb placements</li>
 
+              <Game
+                columns={5}
+                rows={5}
+                numberOfBombs={5}
+                hasCustomControls={false}
+                transparentSideView={true}
+                customAnimations={new Map([["CalculateNeighbors", true]])}
+                allowedOperations={new Map([['PlaceBombs', true], ["CalculateNeighbors", true]])}
+              />
+
               <li>
                 Implement borderless game mode, no longer have an edge on
                 gameboard, top of board is neighbor to bottom

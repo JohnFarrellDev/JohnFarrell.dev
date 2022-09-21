@@ -29,8 +29,8 @@ export const placeBombs = (
         time: 500,
         animations: [
           {
-            columnIndex: animationLocationRow,
-            rowIndex: animationLocationColumn,
+            columnIndex: animationLocationColumn,
+            rowIndex: animationLocationRow,
             color: '#eca1a6',
           },
         ],
@@ -77,19 +77,24 @@ export const placeBombs = (
         time: 500,
         animations: [
           {
-            columnIndex: animationLocationRow,
-            rowIndex: animationLocationColumn,
+            columnIndex: animationLocationColumn,
+            rowIndex: animationLocationRow,
             color: switchHasBomb ? '#eca1a6' : undefined,
           },
           {
-            columnIndex: randomBombLocationRow,
-            rowIndex: randomBombLocationColumn,
+            columnIndex: randomBombLocationColumn,
+            rowIndex: randomBombLocationRow,
             color: '#eca1a6',
           }
         ],
       })
     } 
   }
+
+  state.animationToApply.push({
+    time: 500,
+    animations: "WIPE"
+  });
 
   return {
     board: boardWithBombs,
