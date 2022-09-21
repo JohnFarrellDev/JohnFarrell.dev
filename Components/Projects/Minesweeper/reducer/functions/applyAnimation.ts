@@ -18,10 +18,9 @@ export const applyAnimation = (state: State): State => {
         })
     }
 
-    
+    state.animationTime = animationStep.time
 
     return {
-        ...state,
-        animationTime: animationStep.time
+        ...state
     }
 }
