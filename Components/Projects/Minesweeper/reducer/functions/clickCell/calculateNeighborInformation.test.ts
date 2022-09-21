@@ -1,4 +1,5 @@
 import { State } from '../..'
+import { CustomAnimations } from '../../../Components/Game/Game'
 import { generateBoard } from '../../../functions/generateBoard'
 import { calculateNeighborInformation } from './calculateNeighborInformation'
 
@@ -88,5 +89,25 @@ describe('calculate neighbor information', () => {
     expect(board[4][2].neighbors[2].id).toBe(18)
     expect(board[4][2].neighbors[3].id).toBe(21)
     expect(board[4][2].neighbors[4].id).toBe(23)
+  })
+
+  it('should return animation steps if custom animations is selected for CalculateNeighbors', () => {
+    const innerState = {...state, customAnimations: new Map([["CalculateNeighbors", true]]) as Map<CustomAnimations, boolean>}
+    calculateNeighborInformation(innerState, state.board)
+
+    expect(state.animationToApply.length).toBe(75)
+
+    expect(state.animationToApply[0].time).toBe(400)
+    expect(state.animationToApply[0].animations.length).toBe(1)
+    expect(state.animationToApply[0].animations[0]).toEqual({columnIndex: 0, rowIndex: 0, color: '#6699ff'})
+
+    expect(state.animationToApply[1].time).toBe(400)
+    expect(state.animationToApply[1].animations.length).toBe(3)
+    expect(state.animationToApply[1].animations[0]).toEqual({columnIndex: 1, rowIndex: 0, color: '#ff3399'})
+    expect(state.animationToApply[1].animations[1]).toEqual({columnIndex: 0, rowIndex: 1, color: '#ff3399'})
+    expect(state.animationToApply[1].animations[2]).toEqual({columnIndex: 1, rowIndex: 1, color: '#ff3399'})
+
+    expect(state.animationToApply[2].time).toBe(400)
+    expect(state.animationToApply[2].animations).toBe("WIPE")
   })
 })
