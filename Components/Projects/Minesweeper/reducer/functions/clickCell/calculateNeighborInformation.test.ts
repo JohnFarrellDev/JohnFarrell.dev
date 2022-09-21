@@ -1,5 +1,4 @@
 import { State } from '../..'
-import { CustomAnimations } from '../../../Components/Game/Game'
 import { generateBoard } from '../../../functions/generateBoard'
 import { calculateNeighborInformation } from './calculateNeighborInformation'
 
@@ -9,7 +8,7 @@ const startingState: State = {
   board: generateBoard(5, 5).board,
   columns: 5,
   rows: 5,
-  customAnimations: new Map(),
+  customAnimations: new Map([["CalculateNeighbors", true]]),
   allowedOperations: new Map([['CalculateNeighbors', true]]),
   isDead: false,
   isPlaying: false,
@@ -21,7 +20,7 @@ let state = { ...startingState }
 
 describe('calculate neighbor information', () => {
   beforeEach(() => {
-    state = { ...startingState }
+    state = { ...startingState, animationToApply: [] }
   })
 
   it('should do nothing if the operation CalculateNeighbors is not provided', () => {
@@ -92,8 +91,7 @@ describe('calculate neighbor information', () => {
   })
 
   it('should return animation steps if custom animations is selected for CalculateNeighbors', () => {
-    const innerState = {...state, customAnimations: new Map([["CalculateNeighbors", true]]) as Map<CustomAnimations, boolean>}
-    calculateNeighborInformation(innerState, state.board)
+    calculateNeighborInformation(state, state.board)
 
     expect(state.animationToApply.length).toBe(75)
 
