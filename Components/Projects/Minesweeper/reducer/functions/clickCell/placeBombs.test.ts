@@ -14,7 +14,8 @@ describe('place bombs', () => {
     isDead: false,
     isPlaying: false,
     isWinner: false,
-    numberOfBombs: 10
+    numberOfBombs: 10,
+    borderlessMode: false
   }
 
   const action: Action = {

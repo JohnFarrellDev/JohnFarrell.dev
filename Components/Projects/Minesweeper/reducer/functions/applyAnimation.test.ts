@@ -14,6 +14,7 @@ const startingState: State = {
   isPlaying: false,
   isWinner: false,
   numberOfBombs: 5,
+  borderlessMode: false
 }
 
 let state = { ...startingState }

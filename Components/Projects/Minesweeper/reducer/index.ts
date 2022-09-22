@@ -38,6 +38,7 @@ export interface State {
   rows: number
   columns: number
   numberOfBombs: number
+  borderlessMode: boolean
   customAnimations: Map<CustomAnimations, boolean>
   allowedOperations: Map<Operations, boolean>,
   board: Cell[][]

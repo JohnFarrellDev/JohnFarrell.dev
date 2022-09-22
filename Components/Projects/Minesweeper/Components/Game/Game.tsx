@@ -15,6 +15,7 @@ interface GameProps {
   transparentSideView: boolean
   customAnimations: Map<CustomAnimations, boolean>
   allowedOperations: Map<Operations, boolean>
+  borderlessMode: boolean
 }
 
 export const Game = ({
@@ -24,7 +25,8 @@ export const Game = ({
   hasCustomControls,
   transparentSideView,
   customAnimations,
-  allowedOperations
+  allowedOperations,
+  borderlessMode
 }: GameProps) => {
   const [gameState, dispatch] = useReducer(minesweeperReducer, {
     columns,
@@ -37,7 +39,8 @@ export const Game = ({
     isDead: false,
     isWinner: false,
     animationToApply: [],
-    animationTime: 0
+    animationTime: 0,
+    borderlessMode
   })
 
   useEffect(() => {

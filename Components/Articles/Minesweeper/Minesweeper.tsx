@@ -42,8 +42,9 @@ export const Minesweeper = () => {
                 numberOfBombs={5}
                 hasCustomControls={true}
                 transparentSideView={false}
-                customAnimations={new Map([["PlaceBombs", false]])}
+                customAnimations={new Map([['PlaceBombs', false]])}
                 allowedOperations={new Map()}
+                borderlessMode={false}
               />
 
               <li>
@@ -59,6 +60,7 @@ export const Minesweeper = () => {
                 transparentSideView={true}
                 customAnimations={new Map()}
                 allowedOperations={new Map([['PlaceBombs', true]])}
+                borderlessMode={false}
               />
 
               <li>Add visualization for placing bombs</li>
@@ -71,9 +73,13 @@ export const Minesweeper = () => {
                 transparentSideView={true}
                 customAnimations={new Map([['PlaceBombs', true]])}
                 allowedOperations={new Map([['PlaceBombs', true]])}
+                borderlessMode={false}
               />
 
-              <li>Calculate neighbor cell positions and calculate number of bombs in neighbor cells</li>
+              <li>
+                Calculate neighbor cell positions and calculate number of bombs
+                in neighbor cells
+              </li>
 
               <Game
                 columns={5}
@@ -82,10 +88,19 @@ export const Minesweeper = () => {
                 hasCustomControls={false}
                 transparentSideView={true}
                 customAnimations={new Map()}
-                allowedOperations={new Map([['PlaceBombs', true], ["CalculateNeighbors", true]])}
+                allowedOperations={
+                  new Map([
+                    ['PlaceBombs', true],
+                    ['CalculateNeighbors', true],
+                  ])
+                }
+                borderlessMode={false}
               />
 
-              <li>Add animation showing neighbor cell positions and bomb placements</li>
+              <li>
+                Add animation for calculating number of bombs in neighboring
+                cells
+              </li>
 
               <Game
                 columns={5}
@@ -93,14 +108,59 @@ export const Minesweeper = () => {
                 numberOfBombs={5}
                 hasCustomControls={false}
                 transparentSideView={true}
-                customAnimations={new Map([["CalculateNeighbors", true]])}
-                allowedOperations={new Map([['PlaceBombs', true], ["CalculateNeighbors", true]])}
+                customAnimations={new Map([['CalculateNeighbors', true]])}
+                allowedOperations={
+                  new Map([
+                    ['PlaceBombs', true],
+                    ['CalculateNeighbors', true],
+                  ])
+                }
+                borderlessMode={false}
               />
 
               <li>
-                Implement borderless game mode, no longer have an edge on
-                gameboard, top of board is neighbor to bottom
+                Implement borderless game mode, no longer have an edge on the
+                game board, top of board is neighbor to bottom etc.
               </li>
+
+              <Game
+                columns={5}
+                rows={5}
+                numberOfBombs={5}
+                hasCustomControls={false}
+                transparentSideView={true}
+                customAnimations={new Map()}
+                allowedOperations={
+                  new Map([
+                    ['PlaceBombs', true],
+                    ['CalculateNeighbors', true],
+                  ])
+                }
+                borderlessMode={true}
+              />
+
+              <li>
+                Add animation for calculating number of bombs in neighboring
+                cells in the borderless game mode
+              </li>
+
+              <Game
+                columns={5}
+                rows={5}
+                numberOfBombs={5}
+                hasCustomControls={false}
+                transparentSideView={true}
+                customAnimations={new Map([['CalculateNeighbors', true]])}
+                allowedOperations={
+                  new Map([
+                    ['PlaceBombs', true],
+                    ['CalculateNeighbors', true],
+                  ])
+                }
+                borderlessMode={true}
+              />
+
+              <li>Add allowing user to flag a cell they think is a bomb</li>
 
               <li>
                 Add click to reveal cell - if not a bomb reveal how many
@@ -112,9 +172,9 @@ export const Minesweeper = () => {
                 again resets the game
               </li>
               <li>Add win if all cells non bomb cells cleared</li>
-              
+
               <li>Implement click to reveal cell game is active</li>
-              <li>Implement showing surrounding cells bomb count</li>
+
               <li>
                 Implement ability to win by revealing all cells that do not
                 contain a bomb

@@ -14,6 +14,7 @@ describe('change animations', () => {
     board: [],
     customAnimations: new Map([["PlaceBombs", false]]),
     allowedOperations: new Map(),
+    borderlessMode: false
   }
 
   const action: Action = {

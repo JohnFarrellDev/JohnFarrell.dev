@@ -37,6 +37,7 @@ export const Minesweeper = () => {
                 ['CalculateNeighbors', true],
               ])
             }
+            borderlessMode={false}
           />
         </div>
       </main>
