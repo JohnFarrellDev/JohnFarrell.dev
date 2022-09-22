@@ -63,6 +63,40 @@ describe('place bombs', () => {
       rows: 3,
       numberOfBombs: 8,
       allowedOperations: new Map([['PlaceBombs', true]]),
+      customAnimations: new Map()
+    }
+    const localTestAction = {
+      ...action,
+      columnIndex: 1,
+      rowIndex: 1,
+    }
+
+    const { board } = placeBombs(
+      localTestState,
+      localTestState.board,
+      localTestAction
+    )
+
+    board.forEach((row, rowIndex) => {
+      row.forEach((cell, columnIndex) => {
+        if (rowIndex === 1 && columnIndex === 1) {
+          expect(cell.isBomb).toBe(false)
+        } else {
+          expect(cell.isBomb).toBe(true)
+        }
+      })
+    })
+  })
+
+  it('should never place a bomb in the rowIndex and columnIndex provided when animations are turned on', () => {
+    const localTestState: State = {
+      ...state,
+      board: generateBoard(3, 3).board,
+      columns: 3,
+      rows: 3,
+      numberOfBombs: 8,
+      allowedOperations: new Map([['PlaceBombs', true]]),
+      customAnimations: new Map([['PlaceBombs', true]])
     }
     const localTestAction = {
       ...action,

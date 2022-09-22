@@ -14,7 +14,9 @@ export const placeBombs = (
 
   if (state.customAnimations.get('PlaceBombs')) {
     for (let i = 0; i < state.numberOfBombs; i++) {
-      const animationLocation = state.columns * state.rows - 1 - i
+      let animationLocation = state.columns * state.rows - 1 - i
+
+      if(animationLocation <= state.columns * action.rowIndex + action.columnIndex) animationLocation--
 
       const animationLocationColumn = animationLocation % state.columns
       const animationLocationRow = Math.floor(animationLocation / state.columns)
@@ -62,7 +64,10 @@ export const placeBombs = (
     }
 
     if (state.customAnimations.get('PlaceBombs')) {
-      const animationLocation = state.columns * state.rows - 1 - i
+      let animationLocation = state.columns * state.rows - 1 - i
+
+      if(animationLocation <= state.columns * action.rowIndex + action.columnIndex) animationLocation--
+
       const animationLocationColumn = animationLocation % state.columns
       const animationLocationRow = Math.floor(animationLocation / state.columns)
 
