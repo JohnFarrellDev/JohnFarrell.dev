@@ -37,65 +37,7 @@ describe('calculate neighbor information', () => {
     expect(board[0][0].neighbors).toEqual([])
   })
 
-  it('should correctly know each neighbor cell in the corners on bordered mode', () => {
-    const { board } = calculateNeighborInformation(state, state.board)
-
-    expect(board[0][0].neighbors.length).toBe(3)
-    expect(board[0][4].neighbors.length).toBe(3)
-    expect(board[4][4].neighbors.length).toBe(3)
-    expect(board[4][0].neighbors.length).toBe(3)
-
-    expect(board[0][0].neighbors[0].id).toBe(1)
-    expect(board[0][0].neighbors[1].id).toBe(5)
-    expect(board[0][0].neighbors[2].id).toBe(6)
-
-    expect(board[0][4].neighbors[0].id).toBe(3)
-    expect(board[0][4].neighbors[1].id).toBe(8)
-    expect(board[0][4].neighbors[2].id).toBe(9)
-
-    expect(board[4][0].neighbors[0].id).toBe(15)
-    expect(board[4][0].neighbors[1].id).toBe(16)
-    expect(board[4][0].neighbors[2].id).toBe(21)
-
-    expect(board[4][4].neighbors[0].id).toBe(18)
-    expect(board[4][4].neighbors[1].id).toBe(19)
-    expect(board[4][4].neighbors[2].id).toBe(23)
-  })
-
-  it('should correctly now each border neighbor cell on bordered mode', () => {
-    const { board } = calculateNeighborInformation(state, state.board)
-
-    expect(board[0][2].neighbors.length).toBe(5)
-    expect(board[2][0].neighbors.length).toBe(5)
-    expect(board[2][4].neighbors.length).toBe(5)
-    expect(board[4][2].neighbors.length).toBe(5)
-
-    expect(board[0][2].neighbors[0].id).toBe(1)
-    expect(board[0][2].neighbors[1].id).toBe(3)
-    expect(board[0][2].neighbors[2].id).toBe(6)
-    expect(board[0][2].neighbors[3].id).toBe(7)
-    expect(board[0][2].neighbors[4].id).toBe(8)
-
-    expect(board[2][0].neighbors[0].id).toBe(5)
-    expect(board[2][0].neighbors[1].id).toBe(6)
-    expect(board[2][0].neighbors[2].id).toBe(11)
-    expect(board[2][0].neighbors[3].id).toBe(15)
-    expect(board[2][0].neighbors[4].id).toBe(16)
-
-    expect(board[2][4].neighbors[0].id).toBe(8)
-    expect(board[2][4].neighbors[1].id).toBe(9)
-    expect(board[2][4].neighbors[2].id).toBe(13)
-    expect(board[2][4].neighbors[3].id).toBe(18)
-    expect(board[2][4].neighbors[4].id).toBe(19)
-
-    expect(board[4][2].neighbors[0].id).toBe(16)
-    expect(board[4][2].neighbors[1].id).toBe(17)
-    expect(board[4][2].neighbors[2].id).toBe(18)
-    expect(board[4][2].neighbors[3].id).toBe(21)
-    expect(board[4][2].neighbors[4].id).toBe(23)
-  })
-
-  it('should return animation steps if custom animations is selected for CalculateNeighbors', () => {
+  it('should return animation steps if custom animations is selected for CalculateNeighbors - bordered mode', () => {
     calculateNeighborInformation(state, state.board)
 
     expect(state.animationToApply.length).toBe(75)
