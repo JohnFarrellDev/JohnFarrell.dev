@@ -130,7 +130,7 @@ describe('calculate neighbor information', () => {
     expect(state.animationToApply[2].animations).toBe('WIPE')
   })
 
-  test.each`
+  it.each`
     testedCell | testedArea               | expectedBombs | borderlessMode | bombsToPlace
     ${[0, 0]}  | ${'top left corner'}     | ${3}          | ${false}       | ${[[0, 1], [0, 4], [1, 0], [1, 1], [1, 4], [4, 0], [4, 1], [4, 4]]}
     ${[0, 0]}  | ${'top left corner'}     | ${8}          | ${true}        | ${[[0, 1], [0, 4], [1, 0], [1, 1], [1, 4], [4, 0], [4, 1], [4, 4]]}
