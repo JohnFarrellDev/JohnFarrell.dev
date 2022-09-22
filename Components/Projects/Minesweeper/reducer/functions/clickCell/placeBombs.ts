@@ -7,9 +7,8 @@ export const placeBombs = (
   state: State,
   board: Cell[][],
   action: { type: 'ClickCell'; rowIndex: number; columnIndex: number }
-): {board: Cell[][]} => {
-
-  if(!(Boolean(state.allowedOperations.get("PlaceBombs")))) return {board}
+): { board: Cell[][] } => {
+  if (!Boolean(state.allowedOperations.get('PlaceBombs'))) return { board }
 
   const boardWithBombs = deepCopy(board)
 
@@ -38,13 +37,12 @@ export const placeBombs = (
     }
   }
 
-
   const possibleBombLocations: number[] = []
 
   for (let rIndex = 0; rIndex < state.rows; rIndex++) {
     for (let cIndex = 0; cIndex < state.columns; cIndex++) {
       if (rIndex === action.rowIndex && cIndex === action.columnIndex) continue
-      possibleBombLocations.push(cIndex + rIndex * state.rows)
+      possibleBombLocations.push(cIndex + rIndex * state.columns)
     }
   }
 
@@ -55,7 +53,8 @@ export const placeBombs = (
     const randomBombLocationColumn = randomBombLocation % state.columns
     const randomBombLocationRow = Math.floor(randomBombLocation / state.columns)
 
-    const switchHasBomb = boardWithBombs[randomBombLocationRow][randomBombLocationColumn].isBomb
+    const switchHasBomb =
+      boardWithBombs[randomBombLocationRow][randomBombLocationColumn].isBomb
 
     boardWithBombs[randomBombLocationRow][randomBombLocationColumn] = {
       ...boardWithBombs[randomBombLocationRow][randomBombLocationColumn],
@@ -63,7 +62,6 @@ export const placeBombs = (
     }
 
     if (state.customAnimations.get('PlaceBombs')) {
-
       const animationLocation = state.columns * state.rows - 1 - i
       const animationLocationColumn = animationLocation % state.columns
       const animationLocationRow = Math.floor(animationLocation / state.columns)
@@ -85,16 +83,18 @@ export const placeBombs = (
             columnIndex: randomBombLocationColumn,
             rowIndex: randomBombLocationRow,
             color: '#eca1a6',
-          }
+          },
         ],
       })
-    } 
+    }
   }
 
-  state.animationToApply.push({
-    time: 500,
-    animations: "WIPE"
-  });
+  if (state.customAnimations.get('PlaceBombs')) {
+    state.animationToApply.push({
+      time: 500,
+      animations: 'WIPE',
+    })
+  }
 
   return {
     board: boardWithBombs,
