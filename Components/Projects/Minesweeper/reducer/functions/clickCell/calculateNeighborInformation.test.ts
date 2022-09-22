@@ -25,6 +25,7 @@ describe('calculate neighbor information', () => {
       ...startingState,
       animationToApply: [],
       board: generateBoard(5, 5).board,
+      customAnimations: new Map([['CalculateNeighbors', true]]),
     }
   })
 
@@ -35,6 +36,14 @@ describe('calculate neighbor information', () => {
     )
 
     expect(board[0][0].neighbors).toEqual([])
+  })
+
+  it('should have no animation steps if customAnimations of CalculateNeighbors is not provided', () => {
+    state.customAnimations = new Map()
+
+    calculateNeighborInformation(state, state.board)
+
+    expect(state.animationToApply.length).toBe(0)
   })
 
   it('should return animation steps if custom animations is selected for CalculateNeighbors - bordered mode', () => {
