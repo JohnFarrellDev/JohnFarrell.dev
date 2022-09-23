@@ -7,6 +7,7 @@ import { changeNumberOfColumns } from './functions/changeNumberOfColumns'
 import { changeNumberOfRows } from './functions/changeNumberOfRows'
 import { clickCell } from './functions/clickCell/clickCell'
 import { init } from './functions/init'
+import { rightClickCell } from './functions/rightClickCell'
 
 type PlaceBombColor = '#eca1a6'
 type SelectedCell = '#6699ff'
@@ -55,8 +56,9 @@ export type Action =
   | { type: 'ChangeNumberOfColumns'; newNumberOfColumns: number }
   | { type: 'ChangeNumberOfRows'; newNumberOfRows: number }
   | { type: 'ChangeNumberOfBombs'; newNumberOfBombs: number }
-  | { type: 'Animation' }
+  | { type: 'Animation'; }
   | { type: 'ChangeAnimations'; animationOption: CustomAnimations | "All" }
+  | { type: 'RightClickCell'; rowIndex: number; columnIndex: number }
 
 export const minesweeperReducer = (state: State, action: Action): State => {
   switch (action.type) {
@@ -64,6 +66,8 @@ export const minesweeperReducer = (state: State, action: Action): State => {
       return init(state)
     case 'ClickCell':
       return clickCell(state, action)
+    case 'RightClickCell':
+        return rightClickCell(state, action);
     case 'ChangeNumberOfColumns':
       return changeNumberOfColumns(state, action)
     case 'ChangeNumberOfRows':

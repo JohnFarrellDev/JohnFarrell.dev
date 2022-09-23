@@ -5,7 +5,7 @@ import { GameSettings } from '../GameSettings'
 import styles from './Game.module.css'
 
 export type CustomAnimations = 'PlaceBombs' | 'CalculateNeighbors'
-export type Operations = 'PlaceBombs' | 'CalculateNeighbors' | 'RevealCell'
+export type Operations = 'PlaceBombs' | 'CalculateNeighbors' | 'RevealCell' | 'FlagCell'
 
 interface GameProps {
   columns: number
