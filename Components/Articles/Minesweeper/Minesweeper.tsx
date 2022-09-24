@@ -162,6 +162,23 @@ export const Minesweeper = () => {
 
               <li>Add allowing user to flag a cell they think is a bomb</li>
 
+              <Game
+                columns={5}
+                rows={5}
+                numberOfBombs={5}
+                hasCustomControls={false}
+                transparentSideView={true}
+                customAnimations={new Map()}
+                allowedOperations={
+                  new Map([
+                    ['PlaceBombs', true],
+                    ['CalculateNeighbors', true],
+                    ['FlagCell', true],
+                  ])
+                }
+                borderlessMode={false}
+              />
+
               <li>
                 Add click to reveal cell - if not a bomb reveal how many
                 neighbouring cells are a bomb

@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { MouseEvent, useCallback } from 'react'
 import styled from 'styled-components'
 import { AnimationColorsRecord } from '../reducer'
 import { CustomAnimations } from './Game/Game'
@@ -11,8 +11,11 @@ interface GameCellI {
   isFlagged: boolean
   isWinner: boolean
   neighborBombs: number
-  color?: AnimationColorsRecord extends Map<CustomAnimations, infer I> ? I : never;
+  color?: AnimationColorsRecord extends Map<CustomAnimations, infer I>
+    ? I
+    : never
   leftClick: (rowIndex: number, columnIndex: number) => void
+  rightClick: (rowIndex: number, columnIndex: number) => void
 }
 
 export const GameCell = ({
@@ -25,13 +28,30 @@ export const GameCell = ({
   neighborBombs,
   color,
   leftClick,
+  rightClick,
 }: GameCellI) => {
-  const leftClickCell = useCallback(() => {
-    leftClick(rowIndex, columnIndex)
-  }, [rowIndex, columnIndex,leftClick])
+  const clickCell = useCallback(
+    () => {
+
+        leftClick(rowIndex, columnIndex)
+
+    },
+    [rowIndex, columnIndex, leftClick]
+  )
+
+  const rightClickCell = useCallback((event: MouseEvent<HTMLDivElement>) => {
+    event.preventDefault()
+    rightClick(rowIndex, columnIndex)
+  }, [rightClick, columnIndex, rowIndex])
 
   return (
-    <CellContainer isCovered={true} isBomb={false} onClick={leftClickCell} color={color}>
+    <CellContainer
+      isCovered={true}
+      isBomb={false}
+      onClick={clickCell}
+      onContextMenuCapture={(e) => rightClickCell(e)}
+      color={color}
+    >
       <CellDisplay neighborBombs={neighborBombs}>
         {isFlagged && '🚩'}
         {!isCovered && !isFlagged && !isWinner && isBomb && '💣'}
@@ -75,6 +95,11 @@ const CellContainer = styled.div`
     background-color: ${(props: CellContainerI) =>
       props.isCovered ? '#5C5C5C' : props.isBomb ? '#FF6666' : '#C2C2C2'};
   }
+  -webkit-user-select: none; /* Chrome all / Safari all */
+  -moz-user-select: none; /* Firefox all */
+  -ms-user-select: none; /* IE 10+ */
+  -o-user-select: none;
+  user-select: none;
 `
 
 interface CellDisplayI {

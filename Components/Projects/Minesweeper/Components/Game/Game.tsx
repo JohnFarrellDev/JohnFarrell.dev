@@ -5,7 +5,11 @@ import { GameSettings } from '../GameSettings'
 import styles from './Game.module.css'
 
 export type CustomAnimations = 'PlaceBombs' | 'CalculateNeighbors'
-export type Operations = 'PlaceBombs' | 'CalculateNeighbors' | 'RevealCell' | 'FlagCell'
+export type Operations =
+  | 'PlaceBombs'
+  | 'CalculateNeighbors'
+  | 'RevealCell'
+  | 'FlagCell'
 
 interface GameProps {
   columns: number
@@ -26,7 +30,7 @@ export const Game = ({
   transparentSideView,
   customAnimations,
   allowedOperations,
-  borderlessMode
+  borderlessMode,
 }: GameProps) => {
   const [gameState, dispatch] = useReducer(minesweeperReducer, {
     columns,
@@ -40,7 +44,7 @@ export const Game = ({
     isWinner: false,
     animationToApply: [],
     animationTime: 0,
-    borderlessMode
+    borderlessMode,
   })
 
   useEffect(() => {
@@ -51,7 +55,11 @@ export const Game = ({
         })
       }, gameState.animationTime)
     }
-  }, [gameState.animationToApply.length, gameState.animationToApply, gameState.animationTime])
+  }, [
+    gameState.animationToApply.length,
+    gameState.animationToApply,
+    gameState.animationTime,
+  ])
 
   useEffect(() => {
     dispatch({
@@ -84,12 +92,22 @@ export const Game = ({
     })
   }, [])
 
-  const changeCustomAnimations = useCallback((animationOption: CustomAnimations | "All") => {
-    dispatch({
-      type: "ChangeAnimations",
-      animationOption
-    })
-  }, [])
+  const changeCustomAnimations = useCallback(
+    (animationOption: CustomAnimations | 'All') => {
+      dispatch({
+        type: 'ChangeAnimations',
+        animationOption,
+      })
+    },
+    []
+  )
+
+  const rightClickCell = useCallback(
+    (rowIndex: number, columnIndex: number) => {
+      dispatch({ type: 'RightClickCell', rowIndex, columnIndex })
+    },
+    []
+  )
 
   return (
     <>
@@ -121,6 +139,7 @@ export const Game = ({
                   isWinner={false}
                   neighborBombs={cell.neighborBombs}
                   leftClick={leftClickCell}
+                  rightClick={rightClickCell}
                   color={cell.color}
                 />
               ))}
@@ -143,6 +162,7 @@ export const Game = ({
                     isWinner={false}
                     neighborBombs={cell.neighborBombs}
                     leftClick={leftClickCell}
+                    rightClick={rightClickCell}
                   />
                 ))}
               </div>

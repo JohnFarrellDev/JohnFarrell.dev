@@ -18,7 +18,7 @@ export const startGame = (state: State, action: { type: 'ClickCell'; rowIndex: n
   return {
     ...state,
     board: boardAfterCalculatingNeighborInformation,
-    isPlaying: Boolean(state.allowedOperations.get("RevealCell")),
+    isPlaying: true,
     isDead: false,
     isWinner: false,
     animationToApply
