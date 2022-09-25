@@ -1,8 +1,7 @@
-import { Action, State } from '../..'
+import { ClickCellAction, State } from '../..'
 import { extractRowAndColumnFromId } from '../../../functions/extractRowAndColumnFromId'
 
-export const revealCell = (state: State, action: Action) => {
-  if (action.type !== 'ClickCell') return
+export const revealCell = (state: State, action: ClickCellAction) => {
   if(!state.allowedOperations.RevealCell) return
 
   state.board[action.rowIndex][action.columnIndex].isCovered = false

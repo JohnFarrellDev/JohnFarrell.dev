@@ -1,10 +1,11 @@
-import { State } from '../..'
+import { ClickCellAction, State } from '../..'
 import { generateBoard } from '../../../functions/generateBoard';
 import { calculateNeighborInformation } from './calculateNeighborInformation';
 import { placeBombs } from './placeBombs';
 import { revealCell } from './revealCell';
 
-export const startGame = (state: State, action: { type: 'ClickCell'; rowIndex: number, columnIndex: number }) => {
+export const startGame = (state: State, action: ClickCellAction) => {
+  state.isPlaying = true;
   generateBoard(state)
   placeBombs(state, action)
   calculateNeighborInformation(state)
@@ -16,8 +17,5 @@ export const startGame = (state: State, action: { type: 'ClickCell'; rowIndex: n
     animationToApply[i].time = animationToApply[i-1]?.time || 0;
   }
 
-  state.isPlaying = true;
-  state.isDead = false;
-  state.isWinner = false;
   state.animationToApply = animationToApply
 }
