@@ -1,3 +1,4 @@
+import { deepCopy } from '../../../../UtilityFunctions/deepCopy'
 import { CustomAnimations, Operations } from '../Components/Game/Game'
 import { Cell } from '../types'
 import { applyAnimation } from './functions/applyAnimation'
@@ -69,7 +70,8 @@ export const minesweeperReducer = (state: State, action: Action): State => {
     case 'RightClickCell':
         return rightClickCell(state, action);
     case 'ChangeNumberOfColumns':
-      return changeNumberOfColumns(state, action)
+      changeNumberOfColumns(state, action)
+      break;
     case 'ChangeNumberOfRows':
       return changeNumberOfRows(state, action)
     case 'ChangeNumberOfBombs':
@@ -82,4 +84,6 @@ export const minesweeperReducer = (state: State, action: Action): State => {
     default:
       return state
   }
+
+  return deepCopy(state)
 }
