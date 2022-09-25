@@ -82,6 +82,6 @@ const mapActionToFunction = {
 }
 
 export const minesweeperReducer = (state: State, action: Action): State => {
-  mapActionToFunction[action.type]?.(state, action)
+  mapActionToFunction[action.type](state, action)
   return cloneDeep(state)
 }
