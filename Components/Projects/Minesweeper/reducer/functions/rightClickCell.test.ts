@@ -1,4 +1,4 @@
-import { Action, State } from '..'
+import { RightClickCellAction, State } from '..'
 import { generateBoard } from '../../functions/generateBoard'
 import { rightClickCell } from './rightClickCell'
 
@@ -25,78 +25,85 @@ const startingState: State = {
   borderlessMode: false,
 }
 
-let state = { ...startingState }
+const startingAction: RightClickCellAction = {
+  type: 'RightClickCell',
+  rowIndex: 0,
+  columnIndex: 0,
+}
 
 describe('right click cell', () => {
+  let state = { ...startingState }
+  let action = { ...startingAction }
+
   beforeEach(() => {
     state = {
       ...startingState,
       animationToApply: [],
       allowedOperations: {
-        FlagCell: true,
-        CalculateNeighbors: false,
-        PlaceBombs: true,
-        RevealCell: true,
+        ...startingState.allowedOperations,
+      },
+      customAnimations: {
+        ...startingState.customAnimations,
       },
     }
     generateBoard(state)
+    action = { ...startingAction }
   })
 
-  const action: Action = {
-    type: 'RightClickCell',
-    rowIndex: 0,
-    columnIndex: 0,
-  }
-
   it('should do nothing if the action type is not RightClickCell', () => {
-    const returnedState = rightClickCell(state, {
-      ...action,
-      type: 'Invalid Type' as 'RightClickCell',
-    })
+    action.type = 'Invalid Type' as 'RightClickCell'
 
-    expect(returnedState).toBe(state)
+    rightClickCell(state, action)
+
+    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
   })
 
   it('should do nothing if the state isPlaying is not true', () => {
     state.isPlaying = false
-    const returnedState = rightClickCell(state, action)
 
-    expect(returnedState).toBe(state)
+    rightClickCell(state, action)
+
+    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
   })
 
   it('should do nothing if the state isDead is true', () => {
     state.isDead = true
-    const returnedState = rightClickCell(state, action)
 
-    expect(returnedState).toBe(state)
+    rightClickCell(state, action)
+
+    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
   })
 
   it('should do nothing if the state isWinner is true', () => {
     state.isWinner = true
-    const returnedState = rightClickCell(state, action)
 
-    expect(returnedState).toBe(state)
+    rightClickCell(state, action)
+
+    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
   })
 
   it('should do nothing if the state operation for FlagCell is not true', () => {
-    state.allowedOperations.FlagCell = false;
-    const returnedState = rightClickCell(state, action)
+    state.allowedOperations.FlagCell = false
 
-    expect(returnedState).toBe(state)
+    rightClickCell(state, action)
+
+    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
   })
 
   it('should do nothing if the cell is already uncovered', () => {
     state.board[0][0].isCovered = false
 
-    const returnedState = rightClickCell(state, action)
-    expect(returnedState).toBe(state)
+    rightClickCell(state, action)
+
+    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
   })
 
   it('should do nothing if there are animations to apply', () => {
     state.animationToApply.push({ time: 0, animations: 'WIPE' })
-    const returnedState = rightClickCell(state, action)
 
-    expect(returnedState).toBe(state)
+    rightClickCell(state, action)
+
+    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
   })
 
   it('should be able to flag a cell', () => {
