@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useReducer } from 'react'
 import { minesweeperReducer } from '../../reducer'
 import { GameCell } from '../GameCell'
 import { GameSettings } from '../GameSettings'
+import { GameTracking } from '../GameTracking'
 import styles from './Game.module.css'
 
 export type CustomAnimations = 'PlaceBombs' | 'CalculateNeighbors'
@@ -111,6 +112,14 @@ export const Game = ({
           changeNumberOfBombs={changeNumberOfBombs}
         />
       )}
+
+      <GameTracking 
+        isDead={gameState.isDead}
+        isHoldingDown={false}
+        faceType={1}
+        isPlaying={gameState.isPlaying}
+        isWinner={gameState.isWinner}
+      />
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div style={{ margin: '5px' }}>

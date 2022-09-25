@@ -6,6 +6,8 @@ import { revealCell } from './revealCell';
 
 export const startGame = (state: State, action: ClickCellAction) => {
   state.isPlaying = true;
+  state.isDead = false;
+  state.isWinner = false;
   generateBoard(state)
   placeBombs(state, action)
   calculateNeighborInformation(state)

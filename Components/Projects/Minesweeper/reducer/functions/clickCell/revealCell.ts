@@ -35,5 +35,4 @@ export const revealCell = (state: State, action: ClickCellAction) => {
     })
   })
   state.isWinner = hasWon;
-  state.isPlaying = state.isPlaying && !state.isDead && !state.isWinner;
 }
