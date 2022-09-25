@@ -1,5 +1,6 @@
 import cloneDeep from 'lodash.clonedeep'
 import { State } from '..'
+import { FaceType } from '../../Components/GameTracking/GameTracking'
 import { generateBoard } from '../../functions/generateBoard'
 import { applyAnimation } from './applyAnimation'
 
@@ -24,7 +25,8 @@ const startingState: State = {
   isWinner: false,
   numberOfBombs: 5,
   borderlessMode: false,
-  isHoldingDown: false
+  isHoldingDown: false,
+  faceType: FaceType.Human
 }
 generateBoard(startingState)
 

@@ -1,6 +1,6 @@
 import styles from './GameTracking.module.css'
 
-enum FaceType {
+export enum FaceType {
   Human,
   Cat,
 }

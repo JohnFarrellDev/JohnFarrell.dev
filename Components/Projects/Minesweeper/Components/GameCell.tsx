@@ -16,8 +16,8 @@ interface GameCellI {
     : never
   leftClick: (rowIndex: number, columnIndex: number) => void
   rightClick: (rowIndex: number, columnIndex: number) => void
-  leftDown: () => void
-  leftUp: () => void
+  leftDown: (event: MouseEvent<HTMLDivElement>) => void
+  leftUp: (event: MouseEvent<HTMLDivElement>) => void
 }
 
 export const GameCell = ({

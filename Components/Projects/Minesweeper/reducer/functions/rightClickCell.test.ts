@@ -1,4 +1,5 @@
 import { RightClickCellAction, State } from '..'
+import { FaceType } from '../../Components/GameTracking/GameTracking'
 import { generateBoard } from '../../functions/generateBoard'
 import { rightClickCell } from './rightClickCell'
 
@@ -24,6 +25,7 @@ const startingState: State = {
   isHoldingDown: false,
   numberOfBombs: 5,
   borderlessMode: false,
+  faceType: FaceType.Human
 }
 
 const startingAction: RightClickCellAction = {

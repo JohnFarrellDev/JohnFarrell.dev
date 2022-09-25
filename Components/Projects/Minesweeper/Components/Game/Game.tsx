@@ -3,6 +3,7 @@ import { minesweeperReducer } from '../../reducer'
 import { GameCell } from '../GameCell'
 import { GameSettings } from '../GameSettings'
 import { GameTracking } from '../GameTracking'
+import { FaceType } from '../GameTracking/GameTracking'
 import styles from './Game.module.css'
 
 export type CustomAnimations = 'PlaceBombs' | 'CalculateNeighbors'
@@ -47,6 +48,7 @@ export const Game = ({
     animationTime: 0,
     borderlessMode,
     isHoldingDown: false,
+    faceType: FaceType.Human
   })
 
   useEffect(() => {

@@ -1,4 +1,5 @@
 import { ClickCellAction, State } from '../..'
+import { FaceType } from '../../../Components/GameTracking/GameTracking'
 import { generateBoard } from '../../../functions/generateBoard'
 import { placeBombs } from './placeBombs'
 
@@ -23,7 +24,8 @@ const startingState: State = {
   isWinner: false,
   numberOfBombs: 10,
   borderlessMode: false,
-  isHoldingDown: false
+  isHoldingDown: false,
+  faceType: FaceType.Human
 }
 
 const startingAction: ClickCellAction = {

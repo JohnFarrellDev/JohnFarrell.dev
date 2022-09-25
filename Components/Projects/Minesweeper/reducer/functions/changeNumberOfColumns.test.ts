@@ -1,6 +1,7 @@
 import { State, ChangeNumberOfColumnsAction } from '..'
 import { changeNumberOfColumns } from './changeNumberOfColumns'
 import { generateBoard } from '../../functions/generateBoard'
+import { FaceType } from '../../Components/GameTracking/GameTracking'
 
 const startingState: State = {
   animationToApply: [],
@@ -23,7 +24,8 @@ const startingState: State = {
   numberOfBombs: 10,
   borderlessMode: false,
   board: [],
-  isHoldingDown: false
+  isHoldingDown: false,
+  faceType: FaceType.Human
 }
 generateBoard(startingState)
 

@@ -1,4 +1,5 @@
 import { State } from '../..'
+import { FaceType } from '../../../Components/GameTracking/GameTracking'
 import { generateBoard } from '../../../functions/generateBoard'
 import { calculateNeighborInformation } from './calculateNeighborInformation'
 
@@ -23,7 +24,8 @@ const startingState: State = {
   numberOfBombs: 5,
   borderlessMode: false,
   board: [],
-  isHoldingDown: false
+  isHoldingDown: false,
+  faceType: FaceType.Human
 }
 
 

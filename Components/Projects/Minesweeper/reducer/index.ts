@@ -1,5 +1,6 @@
 import cloneDeep from 'lodash.clonedeep'
 import { CustomAnimations, Operations } from '../Components/Game/Game'
+import { FaceType } from '../Components/GameTracking/GameTracking'
 import { Cell } from '../types'
 import { applyAnimation } from './functions/applyAnimation'
 import { changeNumberOfBombs } from './functions/changeNumberOfBombs'
@@ -55,6 +56,7 @@ export interface State {
   isHoldingDown: boolean
   animationToApply: AnimationStep[]
   animationTime: number
+  faceType: FaceType
 }
 
 export type InitAction = { type: 'Init' }

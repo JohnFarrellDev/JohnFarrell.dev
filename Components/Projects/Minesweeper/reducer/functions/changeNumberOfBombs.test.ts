@@ -1,4 +1,5 @@
 import { ChangeNumberOfBombsAction, State } from '..'
+import { FaceType } from '../../Components/GameTracking/GameTracking'
 import { changeNumberOfBombs } from './changeNumberOfBombs'
 
 const startingState: State = {
@@ -22,7 +23,8 @@ const startingState: State = {
   numberOfBombs: 5,
   borderlessMode: false,
   board: [],
-  isHoldingDown: false
+  isHoldingDown: false,
+  faceType: FaceType.Human
 }
 
 const startingAction: ChangeNumberOfBombsAction = {
