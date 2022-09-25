@@ -28,7 +28,7 @@ generateBoard(startingState)
 
 const startingAction: ChangeNumberOfColumnsAction = {
   type: 'ChangeNumberOfColumns',
-  newNumberOfColumns: 10,
+  newNumberOfColumns: 5,
 }
 
 describe('change number of columns', () => {
@@ -38,14 +38,6 @@ describe('change number of columns', () => {
   beforeEach(() => {
     state = { ...startingState }
     action = { ...startingAction }
-  })
-
-  it('should make no change if the action is not ChangeNumberOfColumns', () => {
-    action.type = 'invalid-action-type' as 'ChangeNumberOfColumns'
-
-    changeNumberOfColumns(state, action)
-
-    expect(state).toEqual(startingState)
   })
 
   it('should not allow less than 3 columns', () => {

@@ -6,8 +6,16 @@ const startingState: State = {
   animationTime: 0,
   columns: 10,
   rows: 10,
-  customAnimations: new Map([]),
-  allowedOperations: new Map([]),
+  customAnimations: {
+    CalculateNeighbors: false,
+    PlaceBombs: false
+  },
+  allowedOperations: {
+    CalculateNeighbors: false,
+    FlagCell: false,
+    PlaceBombs: false,
+    RevealCell: false
+  },
   isDead: false,
   isPlaying: false,
   isWinner: false,

@@ -55,11 +55,28 @@ export interface State {
 }
 
 export type InitAction = { type: 'Init' }
-export type ClickCellAction = { type: 'ClickCell'; rowIndex: number; columnIndex: number }
-export type RightClickCellAction = { type: 'RightClickCell'; rowIndex: number; columnIndex: number }
-export type ChangeNumberOfColumnsAction = { type: 'ChangeNumberOfColumns'; newNumberOfColumns: number }
-export type ChangeNumberOfRowsAction = { type: 'ChangeNumberOfRows'; newNumberOfRows: number }
-export type ChangeNumberOfBombsAction = { type: 'ChangeNumberOfBombs'; newNumberOfBombs: number }
+export type ClickCellAction = {
+  type: 'ClickCell'
+  rowIndex: number
+  columnIndex: number
+}
+export type RightClickCellAction = {
+  type: 'RightClickCell'
+  rowIndex: number
+  columnIndex: number
+}
+export type ChangeNumberOfColumnsAction = {
+  type: 'ChangeNumberOfColumns'
+  newNumberOfColumns: number
+}
+export type ChangeNumberOfRowsAction = {
+  type: 'ChangeNumberOfRows'
+  newNumberOfRows: number
+}
+export type ChangeNumberOfBombsAction = {
+  type: 'ChangeNumberOfBombs'
+  newNumberOfBombs: number
+}
 export type ApplyAnimationAction = { type: 'ApplyAnimation' }
 
 export type Action =
@@ -71,17 +88,26 @@ export type Action =
   | ApplyAnimationAction
   | RightClickCellAction
 
-const mapActionToFunction = {
-  'Init': init,
-  'ClickCell': clickCell,
-  'RightClickCell': rightClickCell,
-  'ChangeNumberOfColumns': changeNumberOfColumns,
-  'ChangeNumberOfRows': changeNumberOfRows,
-  'ChangeNumberOfBombs': changeNumberOfBombs,
-  'ApplyAnimation': applyAnimation,
+const mapActionToFunction: Record<
+  | 'Init'
+  | 'ClickCell'
+  | 'RightClickCell'
+  | 'ChangeNumberOfColumns'
+  | 'ChangeNumberOfRows'
+  | 'ChangeNumberOfBombs'
+  | 'ApplyAnimation',
+  (state: State, action: any) => void
+> = {
+  Init: init,
+  ClickCell: clickCell,
+  RightClickCell: rightClickCell,
+  ChangeNumberOfColumns: changeNumberOfColumns,
+  ChangeNumberOfRows: changeNumberOfRows,
+  ChangeNumberOfBombs: changeNumberOfBombs,
+  ApplyAnimation: applyAnimation,
 }
 
 export const minesweeperReducer = (state: State, action: Action): State => {
-  mapActionToFunction[action.type](state, action)
+  mapActionToFunction[action.type](state, action as Action)
   return cloneDeep(state)
 }

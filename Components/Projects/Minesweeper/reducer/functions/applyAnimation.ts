@@ -1,8 +1,7 @@
 import { State, AnimationStep } from "..";
 
 export const applyAnimation = (state: State) => {
-
-    if(state.animationToApply.length === 0) return state
+    if(state.animationToApply.length === 0) return
 
     const animationStep = state.animationToApply.pop() as AnimationStep
 

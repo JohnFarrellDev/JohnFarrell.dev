@@ -1,8 +1,7 @@
-import { Action, State } from '..'
+import { ChangeNumberOfColumnsAction, State } from '..'
 import { generateBoard } from '../../functions/generateBoard'
 
-export const changeNumberOfColumns = (state: State, action: Action) => {
-  if (action.type !== 'ChangeNumberOfColumns') return
+export const changeNumberOfColumns = (state: State, action: ChangeNumberOfColumnsAction) => {
   if (state.isPlaying) return
   if (
     action.newNumberOfColumns > 50 ||

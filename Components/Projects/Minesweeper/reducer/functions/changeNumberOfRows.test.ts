@@ -43,14 +43,6 @@ describe('change number of rows', () => {
     action = { ...startingAction }
   })
 
-  it('should make no change if the action is not ChangeNumberOfRows', () => {
-    action.type = 'invalid-action-type' as 'ChangeNumberOfRows'
-
-    changeNumberOfRows(state, action)
-
-    expect(state).toEqual(startingState)
-  })
-
   it('should not allow less than 3 rows', () => {
     action.newNumberOfRows = 2
 

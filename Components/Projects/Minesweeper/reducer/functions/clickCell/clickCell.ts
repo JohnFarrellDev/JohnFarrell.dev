@@ -1,10 +1,9 @@
-import { Action, State } from '../..'
+import { ClickCellAction, State } from '../..'
 import { revealCell } from './revealCell'
 import { startGame } from './startGame'
 
-export const clickCell = (state: State, action: Action) => {
-  if (action.type !== 'ClickCell') return state
-  if(state.animationToApply.length > 0) return state
+export const clickCell = (state: State, action: ClickCellAction) => {
+  if(state.animationToApply.length > 0) return
 
   if (!state.isPlaying || state.isDead || state.isWinner) return startGame(state, action)
 

@@ -41,15 +41,6 @@ describe('change number of bombs', () => {
     action = { ...startingAction }
   })
 
-  it('should make no change if the action is not ChangeNumberOfBombs', () => {
-    changeNumberOfBombs(state, {
-      ...action,
-      type: 'invalid-action-type' as 'ChangeNumberOfBombs',
-    })
-
-    expect(state.numberOfBombs).toBe(startingState.numberOfBombs)
-  })
-
   it('should make no change if the number of bombs is equal to the number of game cells', () => {
     changeNumberOfBombs(state, {
       ...action,

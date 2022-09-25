@@ -50,14 +50,6 @@ describe('right click cell', () => {
     action = { ...startingAction }
   })
 
-  it('should do nothing if the action type is not RightClickCell', () => {
-    action.type = 'Invalid Type' as 'RightClickCell'
-
-    rightClickCell(state, action)
-
-    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
-  })
-
   it('should do nothing if the state isPlaying is not true', () => {
     state.isPlaying = false
 
