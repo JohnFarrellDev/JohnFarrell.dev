@@ -23,6 +23,7 @@ const startingState: State = {
   isWinner: false,
   numberOfBombs: 10,
   borderlessMode: false,
+  isHoldingDown: false
 }
 
 const startingAction: ClickCellAction = {

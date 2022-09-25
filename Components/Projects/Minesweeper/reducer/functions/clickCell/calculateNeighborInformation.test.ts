@@ -23,6 +23,7 @@ const startingState: State = {
   numberOfBombs: 5,
   borderlessMode: false,
   board: [],
+  isHoldingDown: false
 }
 
 
@@ -92,7 +93,7 @@ describe('calculate neighbor information', () => {
 
   it('should return animation steps if custom animations is selected for CalculateNeighbors - borderless mode', () => {
     state.borderlessMode = true
-    
+
     calculateNeighborInformation(state)
 
     expect(state.animationToApply.length).toBe(75)

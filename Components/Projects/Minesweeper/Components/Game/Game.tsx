@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useReducer } from 'react'
+import React, { useCallback, useEffect, useReducer, MouseEvent } from 'react'
 import { minesweeperReducer } from '../../reducer'
 import { GameCell } from '../GameCell'
 import { GameSettings } from '../GameSettings'
@@ -46,6 +46,7 @@ export const Game = ({
     animationToApply: [],
     animationTime: 0,
     borderlessMode,
+    isHoldingDown: false,
   })
 
   useEffect(() => {
@@ -100,6 +101,15 @@ export const Game = ({
     []
   )
 
+  const mouseDownCell = useCallback((event: MouseEvent<HTMLDivElement>) => {
+    if(event.nativeEvent.button === 2) return
+    dispatch({ type: 'MouseDownCell' })
+  }, [])
+
+  const mouseUpCell = useCallback(() => {
+    dispatch({ type: 'MouseUpCell' })
+  }, [])
+
   return (
     <>
       {hasCustomControls && (
@@ -113,10 +123,10 @@ export const Game = ({
         />
       )}
 
-      <GameTracking 
+      <GameTracking
         isDead={gameState.isDead}
-        isHoldingDown={false}
-        faceType={1}
+        isHoldingDown={gameState.isHoldingDown}
+        faceType={0}
         isPlaying={gameState.isPlaying}
         isWinner={gameState.isWinner}
       />
@@ -138,6 +148,8 @@ export const Game = ({
                   leftClick={leftClickCell}
                   rightClick={rightClickCell}
                   color={cell.color}
+                  leftDown={mouseDownCell}
+                  leftUp={mouseUpCell}
                 />
               ))}
             </div>
@@ -160,6 +172,8 @@ export const Game = ({
                     neighborBombs={cell.neighborBombs}
                     leftClick={leftClickCell}
                     rightClick={rightClickCell}
+                    leftDown={mouseDownCell}
+                    leftUp={mouseUpCell}
                   />
                 ))}
               </div>

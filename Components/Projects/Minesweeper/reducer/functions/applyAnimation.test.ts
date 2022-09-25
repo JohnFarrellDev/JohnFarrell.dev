@@ -23,7 +23,8 @@ const startingState: State = {
   isPlaying: false,
   isWinner: false,
   numberOfBombs: 5,
-  borderlessMode: false
+  borderlessMode: false,
+  isHoldingDown: false
 }
 generateBoard(startingState)
 
@@ -58,7 +59,7 @@ describe('apply animations', () => {
     expect(state.animationToApply.length).toBe(1)
 
     applyAnimation(state)
-    
+
     expect(state.animationToApply.length).toBe(0)
     expect(state.board[0][0].color).toBe('#6699ff')
 

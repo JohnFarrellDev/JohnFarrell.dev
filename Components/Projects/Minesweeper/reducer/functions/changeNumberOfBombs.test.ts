@@ -22,6 +22,7 @@ const startingState: State = {
   numberOfBombs: 5,
   borderlessMode: false,
   board: [],
+  isHoldingDown: false
 }
 
 const startingAction: ChangeNumberOfBombsAction = {

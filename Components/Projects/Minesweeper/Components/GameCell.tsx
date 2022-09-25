@@ -16,6 +16,8 @@ interface GameCellI {
     : never
   leftClick: (rowIndex: number, columnIndex: number) => void
   rightClick: (rowIndex: number, columnIndex: number) => void
+  leftDown: () => void
+  leftUp: () => void
 }
 
 export const GameCell = ({
@@ -29,6 +31,8 @@ export const GameCell = ({
   color,
   leftClick,
   rightClick,
+  leftDown,
+  leftUp
 }: GameCellI) => {
   const clickCell = useCallback(() => {
     leftClick(rowIndex, columnIndex)
@@ -49,6 +53,8 @@ export const GameCell = ({
       onClick={clickCell}
       onContextMenuCapture={(e) => rightClickCell(e)}
       color={color}
+      onMouseDown={leftDown}
+      onMouseUp={leftUp}
     >
       <CellDisplay neighborBombs={neighborBombs}>
         {isFlagged && '🚩'}

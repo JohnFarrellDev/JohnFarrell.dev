@@ -6,6 +6,8 @@ import { changeNumberOfBombs } from './functions/changeNumberOfBombs'
 import { changeNumberOfColumns } from './functions/changeNumberOfColumns'
 import { changeNumberOfRows } from './functions/changeNumberOfRows'
 import { clickCell } from './functions/clickCell/clickCell'
+import { mouseDownCell } from './functions/clickCell/mouseDownCell'
+import { mouseUpCell } from './functions/clickCell/mouseUpCell'
 import { init } from './functions/init'
 import { rightClickCell } from './functions/rightClickCell'
 
@@ -50,6 +52,7 @@ export interface State {
   isPlaying: boolean
   isDead: boolean
   isWinner: boolean
+  isHoldingDown: boolean
   animationToApply: AnimationStep[]
   animationTime: number
 }
@@ -78,6 +81,8 @@ export type ChangeNumberOfBombsAction = {
   newNumberOfBombs: number
 }
 export type ApplyAnimationAction = { type: 'ApplyAnimation' }
+export type MouseDownCell = { type: 'MouseDownCell'}
+export type MouseUpCell = { type: 'MouseUpCell'}
 
 export type Action =
   | InitAction
@@ -87,6 +92,8 @@ export type Action =
   | ChangeNumberOfBombsAction
   | ApplyAnimationAction
   | RightClickCellAction
+  | MouseDownCell
+  | MouseUpCell
 
 const mapActionToFunction: Record<
   | 'Init'
@@ -95,7 +102,9 @@ const mapActionToFunction: Record<
   | 'ChangeNumberOfColumns'
   | 'ChangeNumberOfRows'
   | 'ChangeNumberOfBombs'
-  | 'ApplyAnimation',
+  | 'ApplyAnimation'
+  | 'MouseDownCell'
+  | 'MouseUpCell',
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (state: State, action: any) => void
 > = {
@@ -106,6 +115,8 @@ const mapActionToFunction: Record<
   ChangeNumberOfRows: changeNumberOfRows,
   ChangeNumberOfBombs: changeNumberOfBombs,
   ApplyAnimation: applyAnimation,
+  MouseDownCell: mouseDownCell,
+  MouseUpCell: mouseUpCell
 }
 
 export const minesweeperReducer = (state: State, action: Action): State => {

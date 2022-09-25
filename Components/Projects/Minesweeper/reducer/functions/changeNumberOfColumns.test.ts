@@ -23,6 +23,7 @@ const startingState: State = {
   numberOfBombs: 10,
   borderlessMode: false,
   board: [],
+  isHoldingDown: false
 }
 generateBoard(startingState)
 

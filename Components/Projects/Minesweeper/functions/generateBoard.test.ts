@@ -21,7 +21,8 @@ const startingState: State = {
   isWinner: false,
   numberOfBombs: 5,
   borderlessMode: false,
-  board:[]
+  board:[],
+  isHoldingDown: false
 }
 
 describe('generate board', () => {

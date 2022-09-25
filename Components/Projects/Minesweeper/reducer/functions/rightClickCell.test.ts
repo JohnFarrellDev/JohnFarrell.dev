@@ -21,6 +21,7 @@ const startingState: State = {
   isDead: false,
   isPlaying: true,
   isWinner: false,
+  isHoldingDown: false,
   numberOfBombs: 5,
   borderlessMode: false,
 }

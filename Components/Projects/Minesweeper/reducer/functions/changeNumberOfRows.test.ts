@@ -22,6 +22,7 @@ const startingState: State = {
     PlaceBombs: false,
     RevealCell: false,
   },
+  isHoldingDown: false,
   borderlessMode: false,
 }
 generateBoard(startingState)
