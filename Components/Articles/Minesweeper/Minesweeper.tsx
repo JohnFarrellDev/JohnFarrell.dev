@@ -42,8 +42,16 @@ export const Minesweeper = () => {
                 numberOfBombs={5}
                 hasCustomControls={true}
                 transparentSideView={false}
-                customAnimations={new Map([['PlaceBombs', false]])}
-                allowedOperations={new Map()}
+                customAnimations={{
+                  CalculateNeighbors: false,
+                  PlaceBombs: false
+                }}
+                allowedOperations={{
+                  CalculateNeighbors: false,
+                  FlagCell: false,
+                  PlaceBombs: false,
+                  RevealCell: false
+                }}
                 borderlessMode={false}
               />
 
@@ -58,8 +66,16 @@ export const Minesweeper = () => {
                 numberOfBombs={24}
                 hasCustomControls={false}
                 transparentSideView={true}
-                customAnimations={new Map()}
-                allowedOperations={new Map([['PlaceBombs', true]])}
+                customAnimations={{
+                  CalculateNeighbors: false,
+                  PlaceBombs: false
+                }}
+                allowedOperations={{
+                  CalculateNeighbors: false,
+                  FlagCell: false,
+                  PlaceBombs: true,
+                  RevealCell: false
+                }}
                 borderlessMode={false}
               />
 
@@ -71,8 +87,16 @@ export const Minesweeper = () => {
                 numberOfBombs={5}
                 hasCustomControls={false}
                 transparentSideView={true}
-                customAnimations={new Map([['PlaceBombs', true]])}
-                allowedOperations={new Map([['PlaceBombs', true]])}
+                customAnimations={{
+                  CalculateNeighbors: false,
+                  PlaceBombs: true
+                }}
+                allowedOperations={{
+                  CalculateNeighbors: false,
+                  FlagCell: false,
+                  PlaceBombs: true,
+                  RevealCell: false
+                }}
                 borderlessMode={false}
               />
 
@@ -87,13 +111,16 @@ export const Minesweeper = () => {
                 numberOfBombs={5}
                 hasCustomControls={false}
                 transparentSideView={true}
-                customAnimations={new Map()}
-                allowedOperations={
-                  new Map([
-                    ['PlaceBombs', true],
-                    ['CalculateNeighbors', true],
-                  ])
-                }
+                customAnimations={{
+                  CalculateNeighbors: false,
+                  PlaceBombs: false
+                }}
+                allowedOperations={{
+                  CalculateNeighbors: true,
+                  FlagCell: false,
+                  PlaceBombs: true,
+                  RevealCell: false
+                }}
                 borderlessMode={false}
               />
 
@@ -108,13 +135,16 @@ export const Minesweeper = () => {
                 numberOfBombs={5}
                 hasCustomControls={false}
                 transparentSideView={true}
-                customAnimations={new Map([['CalculateNeighbors', true]])}
-                allowedOperations={
-                  new Map([
-                    ['PlaceBombs', true],
-                    ['CalculateNeighbors', true],
-                  ])
-                }
+                customAnimations={{
+                  CalculateNeighbors: true,
+                  PlaceBombs: false
+                }}
+                allowedOperations={{
+                  CalculateNeighbors: true,
+                  FlagCell: false,
+                  PlaceBombs: true,
+                  RevealCell: false
+                }}
                 borderlessMode={false}
               />
 
@@ -129,13 +159,16 @@ export const Minesweeper = () => {
                 numberOfBombs={5}
                 hasCustomControls={false}
                 transparentSideView={true}
-                customAnimations={new Map()}
-                allowedOperations={
-                  new Map([
-                    ['PlaceBombs', true],
-                    ['CalculateNeighbors', true],
-                  ])
-                }
+                customAnimations={{
+                  CalculateNeighbors: false,
+                  PlaceBombs: false
+                }}
+                allowedOperations={{
+                  CalculateNeighbors: true,
+                  FlagCell: false,
+                  PlaceBombs: true,
+                  RevealCell: false
+                }}
                 borderlessMode={true}
               />
 
@@ -150,13 +183,16 @@ export const Minesweeper = () => {
                 numberOfBombs={5}
                 hasCustomControls={false}
                 transparentSideView={true}
-                customAnimations={new Map([['CalculateNeighbors', true]])}
-                allowedOperations={
-                  new Map([
-                    ['PlaceBombs', true],
-                    ['CalculateNeighbors', true],
-                  ])
-                }
+                customAnimations={{
+                  CalculateNeighbors: true,
+                  PlaceBombs: false
+                }}
+                allowedOperations={{
+                  CalculateNeighbors: true,
+                  FlagCell: false,
+                  PlaceBombs: true,
+                  RevealCell: false
+                }}
                 borderlessMode={true}
               />
 
@@ -171,14 +207,16 @@ export const Minesweeper = () => {
                 numberOfBombs={5}
                 hasCustomControls={false}
                 transparentSideView={true}
-                customAnimations={new Map()}
-                allowedOperations={
-                  new Map([
-                    ['PlaceBombs', true],
-                    ['CalculateNeighbors', true],
-                    ['RevealCell', true],
-                  ])
-                }
+                customAnimations={{
+                  CalculateNeighbors: false,
+                  PlaceBombs: false
+                }}
+                allowedOperations={{
+                  CalculateNeighbors: true,
+                  FlagCell: false,
+                  PlaceBombs: true,
+                  RevealCell: true
+                }}
                 borderlessMode={false}
               />
 
@@ -190,14 +228,16 @@ export const Minesweeper = () => {
                 numberOfBombs={5}
                 hasCustomControls={false}
                 transparentSideView={true}
-                customAnimations={new Map()}
-                allowedOperations={
-                  new Map([
-                    ['PlaceBombs', true],
-                    ['CalculateNeighbors', true],
-                    ['FlagCell', true],
-                  ])
-                }
+                customAnimations={{
+                  CalculateNeighbors: false,
+                  PlaceBombs: false
+                }}
+                allowedOperations={{
+                  CalculateNeighbors: true,
+                  FlagCell: true,
+                  PlaceBombs: true,
+                  RevealCell: false
+                }}
                 borderlessMode={false}
               />
 
