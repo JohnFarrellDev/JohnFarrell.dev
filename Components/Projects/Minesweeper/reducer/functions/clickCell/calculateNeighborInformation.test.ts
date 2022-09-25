@@ -25,9 +25,10 @@ const startingState: State = {
   board: [],
 }
 
-let state = { ...startingState }
 
 describe('calculate neighbor information', () => {
+  let state = { ...startingState }
+
   beforeEach(() => {
     state = {
       ...startingState,
@@ -40,21 +41,22 @@ describe('calculate neighbor information', () => {
 
   it('should do nothing if the operation CalculateNeighbors is not provided', () => {
     state.allowedOperations.CalculateNeighbors = false
-    const { board } = calculateNeighborInformation(state, state.board)
 
-    expect(board[0][0].neighbors).toEqual([])
+    calculateNeighborInformation(state)
+
+    expect(state.board[0][0].neighbors).toEqual([])
   })
 
   it('should have no animation steps if customAnimations of CalculateNeighbors is not provided', () => {
     state.customAnimations.CalculateNeighbors = false
 
-    calculateNeighborInformation(state, state.board)
+    calculateNeighborInformation(state)
 
     expect(state.animationToApply.length).toBe(0)
   })
 
   it('should return animation steps if custom animations is selected for CalculateNeighbors - bordered mode', () => {
-    calculateNeighborInformation(state, state.board)
+    calculateNeighborInformation(state)
 
     expect(state.animationToApply.length).toBe(75)
 
@@ -90,7 +92,8 @@ describe('calculate neighbor information', () => {
 
   it('should return animation steps if custom animations is selected for CalculateNeighbors - borderless mode', () => {
     state.borderlessMode = true
-    calculateNeighborInformation(state, state.board)
+    
+    calculateNeighborInformation(state)
 
     expect(state.animationToApply.length).toBe(75)
 
@@ -189,9 +192,9 @@ describe('calculate neighbor information', () => {
       })
       state.borderlessMode = borderlessMode
 
-      const { board } = calculateNeighborInformation(state, state.board)
+      calculateNeighborInformation(state)
 
-      expect(board[testedCell[0]][testedCell[1]].neighborBombs).toBe(
+      expect(state.board[testedCell[0]][testedCell[1]].neighborBombs).toBe(
         expectedBombs
       )
     }

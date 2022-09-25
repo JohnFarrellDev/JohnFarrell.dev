@@ -13,14 +13,13 @@ const neighborIndexes = [
   [1, 1],
 ]
 
-export const calculateNeighborInformation = (state: State, board: Cell[][]) => {
-  if (!state.allowedOperations['CalculateNeighbors']) return { board }
-
-  board.forEach((row, rowIndex) => {
+export const calculateNeighborInformation = (state: State) => {
+  if (!state.allowedOperations.CalculateNeighbors) return
+  state.board.forEach((row, rowIndex) => {
     row.forEach((cell, columnIndex) => {
       const cellNeighbors: Cell[] = []
 
-      if (state.customAnimations['CalculateNeighbors']) {
+      if (state.customAnimations.CalculateNeighbors) {
         state.animationToApply.push({
           time: 400,
           animations: [{ columnIndex, rowIndex, color: '#6699ff' }],
@@ -61,7 +60,7 @@ export const calculateNeighborInformation = (state: State, board: Cell[][]) => {
               ? 0
               : columnIndex + neighborIndex[1]
 
-          cellNeighbors.push(board[nRowIndex][nColumnIndex])
+          cellNeighbors.push(state.board[nRowIndex][nColumnIndex])
           neighborCellsAnimation.push({
             rowIndex: nRowIndex,
             columnIndex: nColumnIndex,
@@ -71,10 +70,10 @@ export const calculateNeighborInformation = (state: State, board: Cell[][]) => {
       } else {
         neighborIndexes.forEach((neighborIndex) => {
           if (
-            board[rowIndex + neighborIndex[0]]?.[columnIndex + neighborIndex[1]]
+            state.board[rowIndex + neighborIndex[0]]?.[columnIndex + neighborIndex[1]]
           ) {
             cellNeighbors.push(
-              board[rowIndex + neighborIndex[0]][columnIndex + neighborIndex[1]]
+              state.board[rowIndex + neighborIndex[0]][columnIndex + neighborIndex[1]]
             )
             neighborCellsAnimation.push({
               rowIndex: rowIndex + neighborIndex[0],
@@ -105,8 +104,4 @@ export const calculateNeighborInformation = (state: State, board: Cell[][]) => {
       )
     })
   })
-
-  return {
-    board,
-  }
 }
