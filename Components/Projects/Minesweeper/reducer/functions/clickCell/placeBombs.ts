@@ -8,11 +8,11 @@ export const placeBombs = (
   board: Cell[][],
   action: { type: 'ClickCell'; rowIndex: number; columnIndex: number }
 ): { board: Cell[][] } => {
-  if (!Boolean(state.allowedOperations.get('PlaceBombs'))) return { board }
+  if (!state.allowedOperations['PlaceBombs']) return { board }
 
   const boardWithBombs = deepCopy(board)
 
-  if (state.customAnimations.get('PlaceBombs')) {
+  if (state.customAnimations['PlaceBombs']) {
     for (let i = 0; i < state.numberOfBombs; i++) {
       let animationLocation = state.columns * state.rows - 1 - i
 
@@ -63,7 +63,7 @@ export const placeBombs = (
       isBomb: true,
     }
 
-    if (state.customAnimations.get('PlaceBombs')) {
+    if (state.customAnimations['PlaceBombs']) {
       let animationLocation = state.columns * state.rows - 1 - i
 
       if(animationLocation <= state.columns * action.rowIndex + action.columnIndex) animationLocation--
@@ -94,7 +94,7 @@ export const placeBombs = (
     }
   }
 
-  if (state.customAnimations.get('PlaceBombs')) {
+  if (state.customAnimations['PlaceBombs']) {
     state.animationToApply.push({
       time: 500,
       animations: 'WIPE',

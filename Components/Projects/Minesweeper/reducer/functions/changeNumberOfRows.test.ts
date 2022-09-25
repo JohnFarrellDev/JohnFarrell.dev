@@ -13,8 +13,16 @@ describe('change number of rows', () => {
     isWinner: false,
     numberOfBombs: 5,
     board: [],
-    customAnimations: new Map(),
-    allowedOperations: new Map(),
+    customAnimations: {
+      CalculateNeighbors: false,
+      PlaceBombs: false
+    },
+    allowedOperations: {
+      CalculateNeighbors: false,
+      FlagCell: false,
+      PlaceBombs: false,
+      RevealCell: false
+    },
     borderlessMode: false,
   }
 

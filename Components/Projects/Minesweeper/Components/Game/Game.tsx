@@ -17,8 +17,8 @@ interface GameProps {
   numberOfBombs: number
   hasCustomControls: boolean
   transparentSideView: boolean
-  customAnimations: Map<CustomAnimations, boolean>
-  allowedOperations: Map<Operations, boolean>
+  customAnimations: Record<CustomAnimations, boolean>
+  allowedOperations: Record<Operations, boolean>
   borderlessMode: boolean
 }
 
@@ -119,8 +119,6 @@ export const Game = ({
           changeNumberOfRows={changeNumberOfRows}
           numberOfBombs={gameState.numberOfBombs}
           changeNumberOfBombs={changeNumberOfBombs}
-          customAnimations={customAnimations}
-          changeCustomAnimations={changeCustomAnimations}
         />
       )}
 

@@ -9,8 +9,16 @@ const startingState: State = {
   board: [],
   columns: 5,
   rows: 5,
-  customAnimations: new Map(),
-  allowedOperations: new Map(),
+  customAnimations: {
+    CalculateNeighbors: false,
+    PlaceBombs: false
+  },
+  allowedOperations: {
+    CalculateNeighbors: false,
+    FlagCell: false,
+    PlaceBombs: false,
+    RevealCell: false
+  },
   isDead: false,
   isPlaying: false,
   isWinner: false,

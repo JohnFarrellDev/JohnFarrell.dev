@@ -9,7 +9,7 @@ export const rightClickCell = (state: State, action: Action): State => {
 
   if (!state.board[action.rowIndex][action.columnIndex].isCovered) return state
 
-  if (!state.allowedOperations.get('FlagCell')) return state
+  if (!state.allowedOperations.FlagCell) return state
 
   state.board[action.rowIndex][action.columnIndex].isFlagged =
     !state.board[action.rowIndex][action.columnIndex].isFlagged

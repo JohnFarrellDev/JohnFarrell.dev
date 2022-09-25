@@ -1,6 +1,4 @@
 import React from 'react'
-import { AiOutlineArrowDown } from 'react-icons/ai'
-import { CustomAnimations } from '../Game/Game'
 import styles from './GameSettings.module.css'
 
 interface GameSettingsI {
@@ -12,9 +10,6 @@ interface GameSettingsI {
 
   numberOfBombs: number
   changeNumberOfBombs: (newNumberOfBombs: string) => void
-
-  customAnimations: Map<CustomAnimations, boolean>
-  changeCustomAnimations: (animationOption: CustomAnimations | 'All') => void
 }
 
 export const GameSettings = ({
@@ -24,16 +19,8 @@ export const GameSettings = ({
   changeNumberOfRows,
   numberOfBombs,
   changeNumberOfBombs,
-  customAnimations,
-  changeCustomAnimations,
 }: GameSettingsI) => {
-  const animationsSelected = Array.from(customAnimations.keys()).reduce(
-    (previousValue, currentValue) => {
-      previousValue.push(currentValue)
-      return previousValue
-    },
-    [] as string[]
-  )
+
 
   return (
     <div className={styles.controls}>
@@ -68,35 +55,6 @@ export const GameSettings = ({
           min={1}
           max={columns * rows}
         />
-      </div>
-
-      <div className={styles.controlItem}>
-        <div className={styles.dropdown}>
-          <span>
-            Animation Controls <AiOutlineArrowDown />
-          </span>
-          <div className={styles.selectedAnimationControlBox}>
-            {animationsSelected.join(', ')}
-          </div>
-          <div className={styles.dropdownContent}>
-            <div className={styles.dropdownItem}>
-              <input
-                type={'checkbox'}
-                checked={customAnimations.get('PlaceBombs') || false}
-                onChange={() => changeCustomAnimations('All')}
-              />{' '}
-              <span>All</span>
-            </div>
-            <div className={styles.dropdownItem}>
-              <input
-                type={'checkbox'}
-                checked={customAnimations.get('PlaceBombs') || false}
-                onChange={() => changeCustomAnimations('PlaceBombs')}
-              />{' '}
-              <span>Place Bombs</span>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   )

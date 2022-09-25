@@ -14,13 +14,13 @@ const neighborIndexes = [
 ]
 
 export const calculateNeighborInformation = (state: State, board: Cell[][]) => {
-  if (!state.allowedOperations.get('CalculateNeighbors')) return { board }
+  if (!state.allowedOperations['CalculateNeighbors']) return { board }
 
   board.forEach((row, rowIndex) => {
     row.forEach((cell, columnIndex) => {
       const cellNeighbors: Cell[] = []
 
-      if (state.customAnimations.get('CalculateNeighbors')) {
+      if (state.customAnimations['CalculateNeighbors']) {
         state.animationToApply.push({
           time: 400,
           animations: [{ columnIndex, rowIndex, color: '#6699ff' }],
@@ -85,7 +85,7 @@ export const calculateNeighborInformation = (state: State, board: Cell[][]) => {
         })
       }
 
-      if (state.customAnimations.get('CalculateNeighbors')) {
+      if (state.customAnimations['CalculateNeighbors']) {
         state.animationToApply.push({
           time: 400,
           animations: neighborCellsAnimation,

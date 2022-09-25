@@ -8,8 +8,16 @@ const startingState: State = {
   board: [],
   columns: 10,
   rows: 10,
-  customAnimations: new Map(),
-  allowedOperations: new Map([['PlaceBombs', true]]),
+  customAnimations: {
+    CalculateNeighbors: false,
+    PlaceBombs: false
+  },
+  allowedOperations: {
+    FlagCell: true,
+    CalculateNeighbors: false,
+    PlaceBombs: false,
+    RevealCell: false
+  },
   isDead: false,
   isPlaying: false,
   isWinner: false,
@@ -30,8 +38,8 @@ describe('place bombs', () => {
     state = {
       ...startingState,
       animationToApply: [],
-      customAnimations: new Map([['PlaceBombs', true]]),
-      allowedOperations: new Map([['PlaceBombs', true]]),
+      customAnimations: {...startingState.customAnimations},
+      allowedOperations: {...startingState.allowedOperations},
     }
     generateBoard(state)
   })

@@ -7,14 +7,22 @@ const startingState: State = {
   animationTime: 0,
   columns: 5,
   rows: 5,
-  customAnimations: new Map([['CalculateNeighbors', true]]),
-  allowedOperations: new Map([['CalculateNeighbors', true]]),
+  customAnimations: {
+    CalculateNeighbors: true,
+    PlaceBombs: false,
+  },
+  allowedOperations: {
+    CalculateNeighbors: true,
+    FlagCell: false,
+    PlaceBombs: false,
+    RevealCell: false,
+  },
   isDead: false,
   isPlaying: false,
   isWinner: false,
   numberOfBombs: 5,
   borderlessMode: false,
-  board:[]
+  board: [],
 }
 
 let state = { ...startingState }
@@ -24,22 +32,21 @@ describe('calculate neighbor information', () => {
     state = {
       ...startingState,
       animationToApply: [],
-      customAnimations: new Map([['CalculateNeighbors', true]]),
+      customAnimations: { ...startingState.customAnimations },
+      allowedOperations: { ...startingState.allowedOperations }
     }
     generateBoard(state)
   })
 
   it('should do nothing if the operation CalculateNeighbors is not provided', () => {
-    const { board } = calculateNeighborInformation(
-      { ...state, allowedOperations: new Map() },
-      state.board
-    )
+    state.allowedOperations.CalculateNeighbors = false
+    const { board } = calculateNeighborInformation(state, state.board)
 
     expect(board[0][0].neighbors).toEqual([])
   })
 
   it('should have no animation steps if customAnimations of CalculateNeighbors is not provided', () => {
-    state.customAnimations = new Map()
+    state.customAnimations.CalculateNeighbors = false
 
     calculateNeighborInformation(state, state.board)
 

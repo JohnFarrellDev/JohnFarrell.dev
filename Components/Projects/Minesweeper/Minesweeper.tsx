@@ -30,14 +30,16 @@ export const Minesweeper = () => {
             numberOfBombs={10}
             hasCustomControls={true}
             transparentSideView={false}
-            customAnimations={new Map()}
-            allowedOperations={
-              new Map([
-                ['PlaceBombs', true],
-                ['CalculateNeighbors', true],
-                ['FlagCell', true]
-              ])
-            }
+            customAnimations={{
+              CalculateNeighbors: false,
+              PlaceBombs: false
+            }}
+            allowedOperations={{
+              PlaceBombs: true,
+              CalculateNeighbors: true,
+              FlagCell: true,
+              RevealCell: true
+            }}
             borderlessMode={false}
           />
         </div>

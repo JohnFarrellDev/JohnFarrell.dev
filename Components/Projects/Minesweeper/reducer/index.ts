@@ -45,8 +45,8 @@ export interface State {
   columns: number
   numberOfBombs: number
   borderlessMode: boolean
-  customAnimations: Map<CustomAnimations, boolean>
-  allowedOperations: Map<Operations, boolean>
+  customAnimations: Record<CustomAnimations, boolean>
+  allowedOperations: Record<Operations, boolean>
   board: Cell[][]
   isPlaying: boolean
   isDead: boolean
