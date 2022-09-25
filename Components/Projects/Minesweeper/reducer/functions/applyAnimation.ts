@@ -1,6 +1,6 @@
 import { State, AnimationStep } from "..";
 
-export const applyAnimation = (state: State): State => {
+export const applyAnimation = (state: State) => {
 
     if(state.animationToApply.length === 0) return state
 
@@ -19,8 +19,4 @@ export const applyAnimation = (state: State): State => {
     }
 
     state.animationTime = animationStep.time
-
-    return {
-        ...state
-    }
 }

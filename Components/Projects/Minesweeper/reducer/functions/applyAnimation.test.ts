@@ -25,25 +25,26 @@ const startingState: State = {
   numberOfBombs: 5,
   borderlessMode: false
 }
-
-let state = { ...startingState }
+generateBoard(startingState)
 
 describe('apply animations', () => {
+
+  let state = { ...startingState }
+
   beforeEach(() => {
     state = {
       ...startingState,
       animationToApply: [],
+      board: cloneDeep(startingState.board)
     }
-    generateBoard(state)
   })
 
   it('should do nothing if the animations to apply has a length of 0', () => {
-    const testState = cloneDeep(state)
-    expect(testState.animationToApply.length).toBe(0)
+    expect(state.animationToApply.length).toBe(0)
 
-    applyAnimation(testState)
+    applyAnimation(state)
 
-    expect(state).toEqual(testState)
+    expect(state.board).toEqual(startingState.board)
   })
 
   it('should remove all color if the animation step is WIPE', () => {
@@ -57,6 +58,7 @@ describe('apply animations', () => {
     expect(state.animationToApply.length).toBe(1)
 
     applyAnimation(state)
+    
     expect(state.animationToApply.length).toBe(0)
     expect(state.board[0][0].color).toBe('#6699ff')
 
