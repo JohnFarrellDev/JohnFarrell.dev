@@ -160,6 +160,28 @@ export const Minesweeper = () => {
                 borderlessMode={true}
               />
 
+              <li>
+                Add click to reveal cell - if not a bomb reveal how many
+                neighboring cells are a bomb, if a bomb you've lost, if you clear every cell that isn't a bomb you win
+              </li>
+
+              <Game
+                columns={5}
+                rows={5}
+                numberOfBombs={5}
+                hasCustomControls={false}
+                transparentSideView={true}
+                customAnimations={new Map()}
+                allowedOperations={
+                  new Map([
+                    ['PlaceBombs', true],
+                    ['CalculateNeighbors', true],
+                    ['RevealCell', true],
+                  ])
+                }
+                borderlessMode={false}
+              />
+
               <li>Add allowing user to flag a cell they think is a bomb</li>
 
               <Game
@@ -178,11 +200,6 @@ export const Minesweeper = () => {
                 }
                 borderlessMode={false}
               />
-
-              <li>
-                Add click to reveal cell - if not a bomb reveal how many
-                neighbouring cells are a bomb
-              </li>
 
               <li>
                 Add lose if click on a bomb, set gameState to isDead, clicking

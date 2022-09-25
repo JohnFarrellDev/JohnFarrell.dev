@@ -35,6 +35,7 @@ export const Minesweeper = () => {
               new Map([
                 ['PlaceBombs', true],
                 ['CalculateNeighbors', true],
+                ['FlagCell', true]
               ])
             }
             borderlessMode={false}

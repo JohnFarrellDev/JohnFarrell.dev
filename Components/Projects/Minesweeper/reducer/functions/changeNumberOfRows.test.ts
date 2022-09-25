@@ -12,7 +12,9 @@ describe('change number of rows', () => {
     isWinner: false,
     numberOfBombs: 5,
     board: [],
-    customAnimations: new Map()
+    customAnimations: new Map(),
+    allowedOperations: new Map(),
+    borderlessMode: false
   }
 
   const newNumberOfRows = 10

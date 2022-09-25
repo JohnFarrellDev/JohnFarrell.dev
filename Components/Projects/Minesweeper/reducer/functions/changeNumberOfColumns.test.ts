@@ -14,6 +14,7 @@ describe('change number of columns', () => {
     board: [],
     customAnimations: new Map(),
     allowedOperations: new Map(),
+    borderlessMode: false
   }
 
   const newNumberOfColumns = 10

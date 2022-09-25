@@ -5,7 +5,6 @@ import { calculateNeighborInformation } from './calculateNeighborInformation'
 const startingState: State = {
   animationToApply: [],
   animationTime: 0,
-  board: generateBoard(5, 5).board,
   columns: 5,
   rows: 5,
   customAnimations: new Map([['CalculateNeighbors', true]]),
@@ -15,6 +14,7 @@ const startingState: State = {
   isWinner: false,
   numberOfBombs: 5,
   borderlessMode: false,
+  board:[]
 }
 
 let state = { ...startingState }
@@ -24,9 +24,9 @@ describe('calculate neighbor information', () => {
     state = {
       ...startingState,
       animationToApply: [],
-      board: generateBoard(5, 5).board,
       customAnimations: new Map([['CalculateNeighbors', true]]),
     }
+    generateBoard(state)
   })
 
   it('should do nothing if the operation CalculateNeighbors is not provided', () => {

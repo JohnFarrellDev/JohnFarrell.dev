@@ -2,12 +2,15 @@ import { State } from '../..'
 import { generateBoard } from '../../../functions/generateBoard';
 import { calculateNeighborInformation } from './calculateNeighborInformation';
 import { placeBombs } from './placeBombs';
+import { revealCell } from './revealCell';
 
 export const startGame = (state: State, action: { type: 'ClickCell'; rowIndex: number, columnIndex: number }): State => {
-  state.board = generateBoard(state.rows, state.columns).board
+  generateBoard(state)
   const { board: boardAfterPlacingBombs } = placeBombs(state, state.board, action)
 
   const {board: boardAfterCalculatingNeighborInformation } = calculateNeighborInformation(state, boardAfterPlacingBombs)
+
+  // revealCell()
 
   const animationToApply = [...state.animationToApply].reverse()
 

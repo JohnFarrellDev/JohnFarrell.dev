@@ -1,3 +1,4 @@
+import cloneDeep from 'lodash.clonedeep'
 import { State } from '..'
 import { generateBoard } from '../../functions/generateBoard'
 import { applyAnimation } from './applyAnimation'
@@ -5,7 +6,7 @@ import { applyAnimation } from './applyAnimation'
 const startingState: State = {
   animationToApply: [],
   animationTime: 0,
-  board: generateBoard(5, 5).board,
+  board: [],
   columns: 5,
   rows: 5,
   customAnimations: new Map(),
@@ -23,17 +24,18 @@ describe('apply animations', () => {
   beforeEach(() => {
     state = {
       ...startingState,
-      board: generateBoard(5, 5).board,
       animationToApply: [],
     }
+    generateBoard(state)
   })
 
   it('should do nothing if the animations to apply has a length of 0', () => {
-    expect(state.animationToApply.length).toBe(0)
+    const testState = cloneDeep(state)
+    expect(testState.animationToApply.length).toBe(0)
 
-    applyAnimation(state)
+    applyAnimation(testState)
 
-    expect(state).toEqual(startingState)
+    expect(state).toEqual(testState)
   })
 
   it('should remove all color if the animation step is WIPE', () => {

@@ -5,7 +5,7 @@ import { rightClickCell }  from "./rightClickCell";
 const startingState: State = {
     animationToApply: [],
     animationTime: 0,
-    board: generateBoard(5, 5).board,
+    board: [],
     columns: 5,
     rows: 5,
     customAnimations: new Map(),
@@ -25,9 +25,9 @@ describe("right click cell", () => {
         state = {
           ...startingState,
           animationToApply: [],
-          board: generateBoard(5, 5).board,
           allowedOperations: new Map([['FlagCell', true]]),
         }
+        generateBoard(state)
       })
 
       const action: Action = {

@@ -1,15 +1,13 @@
+import { State } from '../reducer'
 import { Cell } from '../types'
 
-export const generateBoard = (
-  rows: number,
-  columns: number
-): { board: Cell[][] } => {
+export const generateBoard = (state: State) => {
   const board: Cell[][] = []
-  for (let i = 0; i < rows; i++) {
+  for (let i = 0; i < state.rows; i++) {
     const row: Cell[] = []
-    for (let j = 0; j < columns; j++) {
+    for (let j = 0; j < state.columns; j++) {
       row.push({
-        id: j + i * columns,
+        id: j + i * state.columns,
         isCovered: true,
         isBomb: false,
         isFlagged: false,
@@ -21,5 +19,5 @@ export const generateBoard = (
     board.push(row)
   }
 
-  return { board }
+    state.board = board
 }

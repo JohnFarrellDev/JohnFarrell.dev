@@ -5,7 +5,7 @@ import { placeBombs } from './placeBombs'
 const startingState: State = {
   animationToApply: [],
   animationTime: 0,
-  board: generateBoard(10, 10).board,
+  board: [],
   columns: 10,
   rows: 10,
   customAnimations: new Map(),
@@ -30,10 +30,10 @@ describe('place bombs', () => {
     state = {
       ...startingState,
       animationToApply: [],
-      board: generateBoard(10, 10).board,
       customAnimations: new Map([['PlaceBombs', true]]),
       allowedOperations: new Map([['PlaceBombs', true]]),
     }
+    generateBoard(state)
   })
 
   it('should place as many bombs as the state parameter expects', () => {
@@ -58,13 +58,14 @@ describe('place bombs', () => {
   it('should never place a bomb in the rowIndex and columnIndex provided', () => {
     const localTestState: State = {
       ...state,
-      board: generateBoard(3, 3).board,
       columns: 3,
       rows: 3,
       numberOfBombs: 8,
       allowedOperations: new Map([['PlaceBombs', true]]),
       customAnimations: new Map()
     }
+    generateBoard(localTestState)
+
     const localTestAction = {
       ...action,
       columnIndex: 1,
@@ -91,13 +92,14 @@ describe('place bombs', () => {
   it('should never place a bomb in the rowIndex and columnIndex provided when animations are turned on', () => {
     const localTestState: State = {
       ...state,
-      board: generateBoard(3, 3).board,
       columns: 3,
       rows: 3,
       numberOfBombs: 8,
       allowedOperations: new Map([['PlaceBombs', true]]),
       customAnimations: new Map([['PlaceBombs', true]])
     }
+    generateBoard(localTestState)
+
     const localTestAction = {
       ...action,
       columnIndex: 1,
@@ -126,10 +128,10 @@ describe('place bombs', () => {
       ...state,
       columns: 5,
       rows: 5,
-      board: generateBoard(5, 5).board,
       numberOfBombs: 5,
       customAnimations: new Map([['PlaceBombs', true]]),
     }
+    generateBoard(state)
 
     placeBombs(innerState, innerState.board, action)
 
@@ -141,10 +143,10 @@ describe('place bombs', () => {
       ...state,
       columns: 5,
       rows: 5,
-      board: generateBoard(5, 5).board,
       numberOfBombs: 5,
       customAnimations: new Map(),
     }
+    generateBoard(state)
 
     placeBombs(innerState, innerState.board, action)
 

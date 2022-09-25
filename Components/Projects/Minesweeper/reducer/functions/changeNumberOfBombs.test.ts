@@ -14,6 +14,7 @@ describe('change number of bombs', () => {
     board: [],
     customAnimations: new Map(),
     allowedOperations: new Map(),
+    borderlessMode: false
   }
 
   const newNumberOfBombs = 10;

@@ -30,24 +30,22 @@ export const GameCell = ({
   leftClick,
   rightClick,
 }: GameCellI) => {
-  const clickCell = useCallback(
-    () => {
+  const clickCell = useCallback(() => {
+    leftClick(rowIndex, columnIndex)
+  }, [rowIndex, columnIndex, leftClick])
 
-        leftClick(rowIndex, columnIndex)
-
+  const rightClickCell = useCallback(
+    (event: MouseEvent<HTMLDivElement>) => {
+      event.preventDefault()
+      rightClick(rowIndex, columnIndex)
     },
-    [rowIndex, columnIndex, leftClick]
+    [rightClick, columnIndex, rowIndex]
   )
-
-  const rightClickCell = useCallback((event: MouseEvent<HTMLDivElement>) => {
-    event.preventDefault()
-    rightClick(rowIndex, columnIndex)
-  }, [rightClick, columnIndex, rowIndex])
 
   return (
     <CellContainer
-      isCovered={true}
-      isBomb={false}
+      isCovered={isCovered}
+      isBomb={isBomb}
       onClick={clickCell}
       onContextMenuCapture={(e) => rightClickCell(e)}
       color={color}
@@ -87,19 +85,14 @@ const CellContainer = styled.div`
       : props.isBomb
       ? '#FF6666'
       : '#C2C2C2'};
-  display: flex;
-  justify-content: center;
-  cursor: pointer;
-  line-height: 30px;
   :hover {
     background-color: ${(props: CellContainerI) =>
       props.isCovered ? '#5C5C5C' : props.isBomb ? '#FF6666' : '#C2C2C2'};
   }
-  -webkit-user-select: none; /* Chrome all / Safari all */
-  -moz-user-select: none; /* Firefox all */
-  -ms-user-select: none; /* IE 10+ */
-  -o-user-select: none;
-  user-select: none;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  line-height: 30px;
 `
 
 interface CellDisplayI {
