@@ -4,13 +4,11 @@ import { calculateNeighborInformation } from './calculateNeighborInformation';
 import { placeBombs } from './placeBombs';
 import { revealCell } from './revealCell';
 
-export const startGame = (state: State, action: { type: 'ClickCell'; rowIndex: number, columnIndex: number }): State => {
+export const startGame = (state: State, action: { type: 'ClickCell'; rowIndex: number, columnIndex: number }) => {
   generateBoard(state)
-  const { board: boardAfterPlacingBombs } = placeBombs(state, state.board, action)
-
-  const {board: boardAfterCalculatingNeighborInformation } = calculateNeighborInformation(state, boardAfterPlacingBombs)
-
-  // revealCell()
+  placeBombs(state, action)
+  calculateNeighborInformation(state)
+  revealCell(state, action)
 
   const animationToApply = [...state.animationToApply].reverse()
 
@@ -18,12 +16,8 @@ export const startGame = (state: State, action: { type: 'ClickCell'; rowIndex: n
     animationToApply[i].time = animationToApply[i-1]?.time || 0;
   }
 
-  return {
-    ...state,
-    board: boardAfterCalculatingNeighborInformation,
-    isPlaying: true,
-    isDead: false,
-    isWinner: false,
-    animationToApply
-  }
+  state.isPlaying = true;
+  state.isDead = false;
+  state.isWinner = false;
+  state.animationToApply = animationToApply
 }
