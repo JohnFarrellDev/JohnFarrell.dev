@@ -1,3 +1,4 @@
+import { FaceType } from '../Components/GameTracking/GameTracking'
 import { State } from '../reducer'
 import { generateBoard } from './generateBoard'
 
@@ -22,7 +23,8 @@ const startingState: State = {
   numberOfBombs: 5,
   borderlessMode: false,
   board:[],
-  isHoldingDown: false
+  isHoldingDown: false,
+  faceType: FaceType.Human
 }
 
 describe('generate board', () => {

@@ -112,6 +112,10 @@ export const Game = ({
     dispatch({ type: 'MouseUpCell' })
   }, [])
 
+  const switchFaceType = useCallback(() => {
+    dispatch({type: 'SwitchFaceType'})
+  }, [])
+
   return (
     <>
       {hasCustomControls && (
@@ -128,9 +132,10 @@ export const Game = ({
       <GameTracking
         isDead={gameState.isDead}
         isHoldingDown={gameState.isHoldingDown}
-        faceType={0}
+        faceType={gameState.faceType}
         isPlaying={gameState.isPlaying}
         isWinner={gameState.isWinner}
+        switchFaceType={switchFaceType}
       />
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>

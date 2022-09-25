@@ -11,6 +11,7 @@ import { mouseDownCell } from './functions/clickCell/mouseDownCell'
 import { mouseUpCell } from './functions/clickCell/mouseUpCell'
 import { init } from './functions/init'
 import { rightClickCell } from './functions/rightClickCell'
+import { switchFaceType } from './functions/switchFaceType'
 
 type PlaceBombColor = '#eca1a6'
 type SelectedCell = '#6699ff'
@@ -85,6 +86,7 @@ export type ChangeNumberOfBombsAction = {
 export type ApplyAnimationAction = { type: 'ApplyAnimation' }
 export type MouseDownCell = { type: 'MouseDownCell'}
 export type MouseUpCell = { type: 'MouseUpCell'}
+export type SwitchFaceType = { type: 'SwitchFaceType'}
 
 export type Action =
   | InitAction
@@ -96,6 +98,7 @@ export type Action =
   | RightClickCellAction
   | MouseDownCell
   | MouseUpCell
+  | SwitchFaceType
 
 const mapActionToFunction: Record<
   | 'Init'
@@ -106,7 +109,8 @@ const mapActionToFunction: Record<
   | 'ChangeNumberOfBombs'
   | 'ApplyAnimation'
   | 'MouseDownCell'
-  | 'MouseUpCell',
+  | 'MouseUpCell'
+  | 'SwitchFaceType',
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (state: State, action: any) => void
 > = {
@@ -118,7 +122,8 @@ const mapActionToFunction: Record<
   ChangeNumberOfBombs: changeNumberOfBombs,
   ApplyAnimation: applyAnimation,
   MouseDownCell: mouseDownCell,
-  MouseUpCell: mouseUpCell
+  MouseUpCell: mouseUpCell,
+  SwitchFaceType: switchFaceType
 }
 
 export const minesweeperReducer = (state: State, action: Action): State => {
