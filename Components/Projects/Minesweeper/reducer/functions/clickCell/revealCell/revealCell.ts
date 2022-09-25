@@ -1,5 +1,5 @@
-import { ClickCellAction, State } from '../..'
-import { extractRowAndColumnFromId } from '../../../functions/extractRowAndColumnFromId'
+import { ClickCellAction, State } from '../../..'
+import { extractRowAndColumnFromId } from '../../../../functions/extractRowAndColumnFromId'
 
 export const revealCell = (state: State, action: ClickCellAction) => {
   if(!state.allowedOperations.RevealCell) return

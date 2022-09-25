@@ -2,7 +2,7 @@ import { ClickCellAction, State } from '../..'
 import { generateBoard } from '../../../functions/generateBoard';
 import { calculateNeighborInformation } from './calculateNeighborInformation';
 import { placeBombs } from './placeBombs';
-import { revealCell } from './revealCell';
+import { revealCell } from './revealCell/revealCell';
 
 export const startGame = (state: State, action: ClickCellAction) => {
   state.isPlaying = true;

@@ -1,5 +1,5 @@
 import { ClickCellAction, State } from '../..'
-import { revealCell } from './revealCell'
+import { revealCell } from './revealCell/revealCell'
 import { startGame } from './startGame'
 
 export const clickCell = (state: State, action: ClickCellAction) => {
