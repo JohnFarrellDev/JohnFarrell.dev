@@ -1,10 +1,6 @@
 import { State } from '..'
 import { generateBoard } from '../../functions/generateBoard'
 
-export const init = (state: State): State => {
+export const init = (state: State) => {
   generateBoard(state)
-
-  return {
-    ...state,
-  }
 }

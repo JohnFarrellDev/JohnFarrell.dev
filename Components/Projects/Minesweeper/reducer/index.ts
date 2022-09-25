@@ -15,7 +15,11 @@ type SelectedCell = '#6699ff'
 type SelectedNeighborCell = '#ff3399'
 type NoColor = undefined
 
-export type CellColor = PlaceBombColor | SelectedCell | SelectedNeighborCell | NoColor
+export type CellColor =
+  | PlaceBombColor
+  | SelectedCell
+  | SelectedNeighborCell
+  | NoColor
 
 export type AnimationColorsRecord = Map<CustomAnimations, CellColor>
 
@@ -33,7 +37,7 @@ export interface Animation {
 
 export interface AnimationStep {
   time: number
-  animations: Animation[] | "WIPE"
+  animations: Animation[] | 'WIPE'
 }
 
 export interface State {
@@ -42,7 +46,7 @@ export interface State {
   numberOfBombs: number
   borderlessMode: boolean
   customAnimations: Map<CustomAnimations, boolean>
-  allowedOperations: Map<Operations, boolean>,
+  allowedOperations: Map<Operations, boolean>
   board: Cell[][]
   isPlaying: boolean
   isDead: boolean
@@ -51,32 +55,43 @@ export interface State {
   animationTime: number
 }
 
+export type ChangeNumberOfBombsAction = { type: 'ChangeNumberOfBombs'; newNumberOfBombs: number }
+
 export type Action =
   | { type: 'Init' }
   | { type: 'ClickCell'; rowIndex: number; columnIndex: number }
   | { type: 'ChangeNumberOfColumns'; newNumberOfColumns: number }
   | { type: 'ChangeNumberOfRows'; newNumberOfRows: number }
-  | { type: 'ChangeNumberOfBombs'; newNumberOfBombs: number }
-  | { type: 'Animation'; }
-  | { type: 'ChangeAnimations'; animationOption: CustomAnimations | "All" }
+  | ChangeNumberOfBombsAction
+  | { type: 'Animation' }
+  | { type: 'ChangeAnimations'; animationOption: CustomAnimations | 'All' }
   | { type: 'RightClickCell'; rowIndex: number; columnIndex: number }
+
+const mapActionToFunction = new Map([
+  ['Init', init],
+  ['ChangeNumberOfColumns', changeNumberOfColumns],
+  ['ChangeNumberOfRows', changeNumberOfRows],
+  ['ChangeNumberOfBombs', changeNumberOfBombs],
+])
 
 export const minesweeperReducer = (state: State, action: Action): State => {
   switch (action.type) {
     case 'Init':
-      return init(state)
+      mapActionToFunction.get(action.type)?.(state, action)
+      return deepCopy(state)
+    case 'ChangeNumberOfColumns':
+      mapActionToFunction.get(action.type)?.(state, action)
+      return deepCopy(state)
+    case 'ChangeNumberOfRows':
+      mapActionToFunction.get(action.type)?.(state, action)
+      return deepCopy(state)
+    case 'ChangeNumberOfBombs':
+      mapActionToFunction.get(action.type)?.(state, action)
+      return deepCopy(state)
     case 'ClickCell':
       return clickCell(state, action)
     case 'RightClickCell':
-        return rightClickCell(state, action);
-    case 'ChangeNumberOfColumns':
-      changeNumberOfColumns(state, action)
-      break;
-    case 'ChangeNumberOfRows':
-      changeNumberOfRows(state, action)
-      break;
-    case 'ChangeNumberOfBombs':
-      return changeNumberOfBombs(state, action)
+      return rightClickCell(state, action)
     case 'ChangeAnimations':
       return changeAnimations(state, action)
     case 'Animation':

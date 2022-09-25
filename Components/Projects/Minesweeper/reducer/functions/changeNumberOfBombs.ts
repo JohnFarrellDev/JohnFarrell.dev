@@ -1,12 +1,9 @@
 import { Action, State } from '..'
 
-export const changeNumberOfBombs = (state: State, action: Action): State => {
-  if (action.type !== 'ChangeNumberOfBombs') return state
-  if(action.newNumberOfBombs <= 0 || action.newNumberOfBombs >= state.rows * state.columns || Number.isNaN(action.newNumberOfBombs)) return state;
-  if(state.isPlaying) return state;
+export const changeNumberOfBombs = (state: State, action: Action) => {
+  if (action.type !== 'ChangeNumberOfBombs') return
+  if(action.newNumberOfBombs <= 0 || action.newNumberOfBombs >= state.rows * state.columns || Number.isNaN(action.newNumberOfBombs)) return;
+  if(state.isPlaying) return;
 
-  return {
-    ...state,
-    numberOfBombs: action.newNumberOfBombs,
-  }
+  state.numberOfBombs = action.newNumberOfBombs
 }

@@ -1,118 +1,122 @@
-import { Action, State } from '..'
+import { ChangeNumberOfBombsAction, State } from '..'
 import { changeNumberOfBombs } from './changeNumberOfBombs'
 
+const startingState: State = {
+  animationToApply: [],
+  animationTime: 0,
+  columns: 10,
+  rows: 10,
+  customAnimations: new Map([]),
+  allowedOperations: new Map([]),
+  isDead: false,
+  isPlaying: false,
+  isWinner: false,
+  numberOfBombs: 5,
+  borderlessMode: false,
+  board: [],
+}
+
+const startingAction: ChangeNumberOfBombsAction = {
+  type: 'ChangeNumberOfBombs',
+  newNumberOfBombs: 10,
+}
+
 describe('change number of bombs', () => {
-  const gameState: State = {
-    animationToApply: [],
-    animationTime: 0,
-    columns: 5,
-    rows: 5,
-    isDead: false,
-    isPlaying: false,
-    isWinner: false,
-    numberOfBombs: 5,
-    board: [],
-    customAnimations: new Map(),
-    allowedOperations: new Map(),
-    borderlessMode: false
+  let action: ChangeNumberOfBombsAction = {
+    ...startingAction,
   }
 
-  const newNumberOfBombs = 10;
-  const action: Action = {
-    type: 'ChangeNumberOfBombs',
-    newNumberOfBombs
-  }
+  let state = { ...startingState }
+
+  beforeEach(() => {
+    state = { ...startingState }
+    action = { ...startingAction }
+  })
 
   it('should make no change if the action is not ChangeNumberOfBombs', () => {
-    const state = changeNumberOfBombs(gameState, {
-        ...action,
+    changeNumberOfBombs(state, {
+      ...action,
       type: 'invalid-action-type' as 'ChangeNumberOfBombs',
-
     })
 
-    expect(state.numberOfBombs).toBe(gameState.numberOfBombs)
+    expect(state.numberOfBombs).toBe(startingState.numberOfBombs)
   })
 
   it('should make no change if the number of bombs is equal to the number of game cells', () => {
-    const state = changeNumberOfBombs(gameState, {
+    changeNumberOfBombs(state, {
       ...action,
-      newNumberOfBombs: gameState.rows * gameState.columns
+      newNumberOfBombs: state.rows * state.columns,
     })
 
-    expect(state.numberOfBombs).toBe(gameState.numberOfBombs)
+    expect(state.numberOfBombs).toBe(startingState.numberOfBombs)
   })
 
   it('should make no change if the number of bombs is greater than the number of game cells', () => {
-    const state = changeNumberOfBombs(gameState, {
+    changeNumberOfBombs(state, {
       ...action,
-      newNumberOfBombs: gameState.rows * gameState.columns + 20
+      newNumberOfBombs: state.rows * state.columns + 20,
     })
 
-    expect(state.numberOfBombs).toBe(gameState.numberOfBombs)
+    expect(state.numberOfBombs).toBe(startingState.numberOfBombs)
   })
 
   it('should make no change if the number of bombs is 0', () => {
-    const state = changeNumberOfBombs(gameState, {
+    changeNumberOfBombs(state, {
       ...action,
       newNumberOfBombs: 0,
     })
 
-    expect(state.numberOfBombs).toBe(gameState.numberOfBombs)
+    expect(state.numberOfBombs).toBe(startingState.numberOfBombs)
   })
 
   it('should make no change if the number of bombs is less than 0', () => {
-    const state = changeNumberOfBombs(gameState, {
+    changeNumberOfBombs(state, {
       ...action,
-      newNumberOfBombs: -1
+      newNumberOfBombs: -1,
     })
 
-    expect(state.numberOfBombs).toBe(gameState.numberOfBombs)
+    expect(state.numberOfBombs).toBe(startingState.numberOfBombs)
   })
 
   it('should make no change if NaN is passed in for number of bombs', () => {
-    const state = changeNumberOfBombs(gameState, {
+    changeNumberOfBombs(state, {
       ...action,
-      newNumberOfBombs: NaN
+      newNumberOfBombs: NaN,
     })
 
-    expect(state.numberOfBombs).toBe(gameState.numberOfBombs)
+    expect(state.numberOfBombs).toBe(startingState.numberOfBombs)
   })
 
   it('should not allow a change to number of bombs if current game state isPlaying', () => {
-    const state = changeNumberOfBombs({...gameState, isPlaying: true}, action)
-  
-      expect(state.numberOfBombs).toBe(gameState.numberOfBombs)
+    state.isPlaying = true
+    changeNumberOfBombs(state, action)
+
+    expect(state.numberOfBombs).toBe(startingState.numberOfBombs)
   })
 
   it('should update the number of bombs based on the passed in action param', () => {
-    expect(gameState.numberOfBombs).toBe(5)
+    expect(state.numberOfBombs).toBe(5)
 
-    const state = changeNumberOfBombs(gameState, action)
+    changeNumberOfBombs(state, action)
 
-    expect(state.numberOfBombs).toBe(newNumberOfBombs)
+    expect(state.numberOfBombs).toBe(action.newNumberOfBombs)
   })
 
   it('should allow one bomb as a minimum', () => {
-    expect(gameState.numberOfBombs).toBe(5)
+    expect(state.numberOfBombs).toBe(5)
+    action.newNumberOfBombs = 10
 
-    const newNumberOfBombs = 1
-    const state = changeNumberOfBombs(gameState, {
-      ...action,
-      newNumberOfBombs
-    })
+    changeNumberOfBombs(state, action)
 
-    expect(state.numberOfBombs).toBe(newNumberOfBombs)
+    expect(state.numberOfBombs).toBe(action.newNumberOfBombs)
   })
 
   it('should allow one less bomb than number of cells as a maximum', () => {
-    expect(gameState.numberOfBombs).toBe(5)
+    expect(state.numberOfBombs).toBe(5)
+    action.newNumberOfBombs = state.rows * state.columns - 1
 
-    const newNumberOfBombs = gameState.rows * gameState.columns - 1
-    const state = changeNumberOfBombs(gameState, {
-      ...action,
-      newNumberOfBombs
-    })
+    changeNumberOfBombs(state, action)
 
-    expect(state.numberOfBombs).toBe(newNumberOfBombs)
+    expect(state.numberOfBombs).toBe(action.newNumberOfBombs)
   })
 })
