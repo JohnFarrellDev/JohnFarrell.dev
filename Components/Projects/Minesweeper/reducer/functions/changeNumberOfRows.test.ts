@@ -1,5 +1,6 @@
 import { State, Action } from '..'
 import { changeNumberOfRows } from './changeNumberOfRows'
+import { generateBoard } from '../../functions/generateBoard'
 
 describe('change number of rows', () => {
   const gameState: State = {
@@ -14,7 +15,7 @@ describe('change number of rows', () => {
     board: [],
     customAnimations: new Map(),
     allowedOperations: new Map(),
-    borderlessMode: false
+    borderlessMode: false,
   }
 
   const newNumberOfRows = 10
@@ -23,8 +24,15 @@ describe('change number of rows', () => {
     newNumberOfRows,
   }
 
+  let state = { ...gameState }
+
+  beforeEach(() => {
+    state = { ...gameState }
+    generateBoard(state)
+  })
+
   it('should make no change if the action is not ChangeNumberOfRows', () => {
-    const state = changeNumberOfRows(gameState, {
+    changeNumberOfRows(state, {
       ...action,
       type: 'invalid-action-type' as 'ChangeNumberOfRows',
     })
@@ -33,7 +41,7 @@ describe('change number of rows', () => {
   })
 
   it('should not allow less than 3 rows', () => {
-    const state = changeNumberOfRows(gameState, {
+    changeNumberOfRows(state, {
       ...action,
       newNumberOfRows: 2,
     })
@@ -42,7 +50,7 @@ describe('change number of rows', () => {
   })
 
   it('should not allow more than 30 rows', () => {
-    const state = changeNumberOfRows(gameState, {
+    changeNumberOfRows(state, {
       ...action,
       newNumberOfRows: 51,
     })
@@ -51,7 +59,7 @@ describe('change number of rows', () => {
   })
 
   it('should not allow number of rows to be set to NaN', () => {
-    const state = changeNumberOfRows(gameState, {
+    changeNumberOfRows(state, {
       ...action,
       newNumberOfRows: NaN,
     })
@@ -60,19 +68,17 @@ describe('change number of rows', () => {
   })
 
   it('should not allow number of rows to change if isPlaying is true', () => {
-    const state = changeNumberOfRows(
-      { ...gameState, isPlaying: true },
-      action
-    )
+    state.isPlaying = true
+    changeNumberOfRows(state, action)
 
     expect(state.rows).toBe(gameState.rows)
   })
 
   it('should allow 3 rows as a minimum', () => {
-    expect(gameState.rows).toBe(5)
+    expect(state.rows).toBe(5)
 
     const newNumberOfRows = 3
-    const state = changeNumberOfRows(gameState, {
+    changeNumberOfRows(state, {
       ...action,
       newNumberOfRows,
     })
@@ -81,10 +87,10 @@ describe('change number of rows', () => {
   })
 
   it('should allow 30 rows as a maximum', () => {
-    expect(gameState.rows).toBe(5)
-
+    expect(state.rows).toBe(5)
     const newNumberOfRows = 30
-    const state = changeNumberOfRows(gameState, {
+
+    changeNumberOfRows(state, {
       ...action,
       newNumberOfRows,
     })
@@ -93,22 +99,26 @@ describe('change number of rows', () => {
   })
 
   it('should reduce the number of bombs to total game cells minus one if shrinking the board meant number of bombs greater than total cell count', () => {
-    const testGameStartingState = {...gameState, numberOfBombs: 22}
-    const testAction = {...action, newNumberOfRows: 3}
+    state.numberOfBombs = 22
+    state.columns = 5
+    const newNumberOfRows = 3
+    const testAction = { ...action, newNumberOfRows }
 
-    const state = changeNumberOfRows(testGameStartingState, testAction)
+    changeNumberOfRows(state, testAction)
 
-    expect(state.rows).toBe(testAction.newNumberOfRows)
-    expect(state.numberOfBombs).toBe((state.columns * testAction.newNumberOfRows) - 1)
+    expect(state.rows).toBe(newNumberOfRows)
+    expect(state.numberOfBombs).toBe(
+      state.columns * newNumberOfRows - 1
+    )
   })
 
   it('should not change the number of bombs when the new total cell count is not equal to or less than number of bombs', () => {
-    const testGameStartingState = {...gameState, numberOfBombs: 10}
-    const testAction = {...action, newNumberOfRows: 3}
+    state.numberOfBombs = 14;
+    const testAction = { ...action, newNumberOfRows: 3 }
 
-    const state = changeNumberOfRows(testGameStartingState, testAction)
+    changeNumberOfRows(state, testAction)
 
     expect(state.rows).toBe(testAction.newNumberOfRows)
-    expect(state.numberOfBombs).toBe(testGameStartingState.numberOfBombs)
+    expect(state.numberOfBombs).toBe(14)
   })
 })

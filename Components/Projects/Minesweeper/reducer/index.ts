@@ -73,7 +73,8 @@ export const minesweeperReducer = (state: State, action: Action): State => {
       changeNumberOfColumns(state, action)
       break;
     case 'ChangeNumberOfRows':
-      return changeNumberOfRows(state, action)
+      changeNumberOfRows(state, action)
+      break;
     case 'ChangeNumberOfBombs':
       return changeNumberOfBombs(state, action)
     case 'ChangeAnimations':
