@@ -51,7 +51,7 @@ export const Game = ({
     if (gameState.animationToApply.length > 0) {
       setTimeout(() => {
         dispatch({
-          type: 'Animation',
+          type: 'ApplyAnimation',
         })
       }, gameState.animationTime)
     }
@@ -91,16 +91,6 @@ export const Game = ({
       newNumberOfBombs: Number(newNumberOfBombs),
     })
   }, [])
-
-  const changeCustomAnimations = useCallback(
-    (animationOption: CustomAnimations | 'All') => {
-      dispatch({
-        type: 'ChangeAnimations',
-        animationOption,
-      })
-    },
-    []
-  )
 
   const rightClickCell = useCallback(
     (rowIndex: number, columnIndex: number) => {
