@@ -1,132 +1,124 @@
-import { State, Action } from '..'
+import { State, ChangeNumberOfRowsAction } from '..'
 import { changeNumberOfRows } from './changeNumberOfRows'
 import { generateBoard } from '../../functions/generateBoard'
 
+const startingState: State = {
+  animationToApply: [],
+  animationTime: 0,
+  columns: 5,
+  rows: 5,
+  isDead: false,
+  isPlaying: false,
+  isWinner: false,
+  numberOfBombs: 5,
+  board: [],
+  customAnimations: {
+    CalculateNeighbors: false,
+    PlaceBombs: false,
+  },
+  allowedOperations: {
+    CalculateNeighbors: false,
+    FlagCell: false,
+    PlaceBombs: false,
+    RevealCell: false,
+  },
+  borderlessMode: false,
+}
+generateBoard(startingState)
+
+const startingAction: ChangeNumberOfRowsAction = {
+  type: 'ChangeNumberOfRows',
+  newNumberOfRows: 10,
+}
+
 describe('change number of rows', () => {
-  const gameState: State = {
-    animationToApply: [],
-    animationTime: 0,
-    columns: 5,
-    rows: 5,
-    isDead: false,
-    isPlaying: false,
-    isWinner: false,
-    numberOfBombs: 5,
-    board: [],
-    customAnimations: {
-      CalculateNeighbors: false,
-      PlaceBombs: false
-    },
-    allowedOperations: {
-      CalculateNeighbors: false,
-      FlagCell: false,
-      PlaceBombs: false,
-      RevealCell: false
-    },
-    borderlessMode: false,
+  let state = {
+    ...startingState,
   }
-
-  const newNumberOfRows = 10
-  const action: Action = {
-    type: 'ChangeNumberOfRows',
-    newNumberOfRows,
-  }
-
-  let state = { ...gameState }
+  let action = { ...startingAction }
 
   beforeEach(() => {
-    state = { ...gameState }
+    state = { ...startingState }
     generateBoard(state)
+    action = { ...startingAction }
   })
 
   it('should make no change if the action is not ChangeNumberOfRows', () => {
-    changeNumberOfRows(state, {
-      ...action,
-      type: 'invalid-action-type' as 'ChangeNumberOfRows',
-    })
+    action.type = 'invalid-action-type' as 'ChangeNumberOfRows'
 
-    expect(state.numberOfBombs).toBe(gameState.numberOfBombs)
+    changeNumberOfRows(state, action)
+
+    expect(state).toEqual(startingState)
   })
 
   it('should not allow less than 3 rows', () => {
-    changeNumberOfRows(state, {
-      ...action,
-      newNumberOfRows: 2,
-    })
+    action.newNumberOfRows = 2
 
-    expect(state.rows).toBe(gameState.rows)
+    changeNumberOfRows(state, action)
+
+    expect(state).toEqual(startingState)
   })
 
   it('should not allow more than 30 rows', () => {
-    changeNumberOfRows(state, {
-      ...action,
-      newNumberOfRows: 51,
-    })
+    action.newNumberOfRows = 51
 
-    expect(state.rows).toBe(gameState.rows)
+    changeNumberOfRows(state, action)
+
+    expect(state).toEqual(startingState)
   })
 
   it('should not allow number of rows to be set to NaN', () => {
-    changeNumberOfRows(state, {
-      ...action,
-      newNumberOfRows: NaN,
-    })
+    action.newNumberOfRows = NaN
 
-    expect(state.rows).toBe(gameState.rows)
+    changeNumberOfRows(state, action)
+
+    expect(state).toEqual(startingState)
   })
 
   it('should not allow number of rows to change if isPlaying is true', () => {
     state.isPlaying = true
     changeNumberOfRows(state, action)
 
-    expect(state.rows).toBe(gameState.rows)
+    expect(state.board).toEqual(startingState.board)
   })
 
   it('should allow 3 rows as a minimum', () => {
     expect(state.rows).toBe(5)
 
-    const newNumberOfRows = 3
-    changeNumberOfRows(state, {
-      ...action,
-      newNumberOfRows,
-    })
+    action.newNumberOfRows = 3
+    changeNumberOfRows(state, action)
 
-    expect(state.rows).toBe(newNumberOfRows)
+    expect(state.rows).toBe(action.newNumberOfRows)
   })
 
   it('should allow 30 rows as a maximum', () => {
     expect(state.rows).toBe(5)
-    const newNumberOfRows = 30
 
-    changeNumberOfRows(state, {
-      ...action,
-      newNumberOfRows,
-    })
+    action.newNumberOfRows = 30
 
-    expect(state.rows).toBe(newNumberOfRows)
+    changeNumberOfRows(state, action)
+
+    expect(state.rows).toBe(action.newNumberOfRows)
   })
 
   it('should reduce the number of bombs to total game cells minus one if shrinking the board meant number of bombs greater than total cell count', () => {
     state.numberOfBombs = 22
     state.columns = 5
-    const newNumberOfRows = 3
-    const testAction = { ...action, newNumberOfRows }
+    action.newNumberOfRows = 3
 
-    changeNumberOfRows(state, testAction)
+    changeNumberOfRows(state, action)
 
-    expect(state.rows).toBe(newNumberOfRows)
-    expect(state.numberOfBombs).toBe(
-      state.columns * newNumberOfRows - 1
-    )
+    expect(state.rows).toBe(action.newNumberOfRows)
+    expect(state.numberOfBombs).toBe(state.columns * action.newNumberOfRows - 1)
   })
 
   it('should not change the number of bombs when the new total cell count is not equal to or less than number of bombs', () => {
-    state.numberOfBombs = 14;
-    const testAction = { ...action, newNumberOfRows: 3 }
+    state.numberOfBombs = 14
+    action.newNumberOfRows = 3
 
-    changeNumberOfRows(state, testAction)
+    changeNumberOfRows(state, action)
 
-    expect(state.rows).toBe(testAction.newNumberOfRows)
+    expect(state.rows).toBe(action.newNumberOfRows)
     expect(state.numberOfBombs).toBe(14)
   })
 })
