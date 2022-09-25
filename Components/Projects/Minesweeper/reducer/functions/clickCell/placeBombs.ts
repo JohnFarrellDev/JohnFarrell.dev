@@ -1,18 +1,13 @@
-import { State } from '../..'
+import { ClickCellAction, State } from '../..'
 import { fisherYatesShuffle } from '../../../../../../UtilityFunctions'
-import { deepCopy } from '../../../../../../UtilityFunctions/deepCopy'
-import { Cell } from '../../../types'
 
 export const placeBombs = (
   state: State,
-  board: Cell[][],
-  action: { type: 'ClickCell'; rowIndex: number; columnIndex: number }
-): { board: Cell[][] } => {
-  if (!state.allowedOperations['PlaceBombs']) return { board }
+  action: ClickCellAction
+) => {
+  if (!state.allowedOperations.PlaceBombs) return
 
-  const boardWithBombs = deepCopy(board)
-
-  if (state.customAnimations['PlaceBombs']) {
+  if (state.customAnimations.PlaceBombs) {
     for (let i = 0; i < state.numberOfBombs; i++) {
       let animationLocation = state.columns * state.rows - 1 - i
 
@@ -21,8 +16,8 @@ export const placeBombs = (
       const animationLocationColumn = animationLocation % state.columns
       const animationLocationRow = Math.floor(animationLocation / state.columns)
 
-      boardWithBombs[animationLocationRow][animationLocationColumn] = {
-        ...boardWithBombs[animationLocationRow][animationLocationColumn],
+      state.board[animationLocationRow][animationLocationColumn] = {
+        ...state.board[animationLocationRow][animationLocationColumn],
         isBomb: true,
       }
 
@@ -56,14 +51,11 @@ export const placeBombs = (
     const randomBombLocationRow = Math.floor(randomBombLocation / state.columns)
 
     const switchHasBomb =
-      boardWithBombs[randomBombLocationRow][randomBombLocationColumn].isBomb
+      state.board[randomBombLocationRow][randomBombLocationColumn].isBomb
 
-    boardWithBombs[randomBombLocationRow][randomBombLocationColumn] = {
-      ...boardWithBombs[randomBombLocationRow][randomBombLocationColumn],
-      isBomb: true,
-    }
+      state.board[randomBombLocationRow][randomBombLocationColumn].isBomb = true;
 
-    if (state.customAnimations['PlaceBombs']) {
+    if (state.customAnimations.PlaceBombs) {
       let animationLocation = state.columns * state.rows - 1 - i
 
       if(animationLocation <= state.columns * action.rowIndex + action.columnIndex) animationLocation--
@@ -71,8 +63,8 @@ export const placeBombs = (
       const animationLocationColumn = animationLocation % state.columns
       const animationLocationRow = Math.floor(animationLocation / state.columns)
 
-      boardWithBombs[animationLocationRow][animationLocationColumn] = {
-        ...boardWithBombs[animationLocationRow][animationLocationColumn],
+      state.board[animationLocationRow][animationLocationColumn] = {
+        ...state.board[animationLocationRow][animationLocationColumn],
         isBomb: switchHasBomb,
       }
 
@@ -94,14 +86,10 @@ export const placeBombs = (
     }
   }
 
-  if (state.customAnimations['PlaceBombs']) {
+  if (state.customAnimations.PlaceBombs) {
     state.animationToApply.push({
       time: 500,
       animations: 'WIPE',
     })
-  }
-
-  return {
-    board: boardWithBombs,
   }
 }

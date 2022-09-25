@@ -1,4 +1,4 @@
-import { Action, State } from '../..'
+import { ClickCellAction, State } from '../..'
 import { generateBoard } from '../../../functions/generateBoard'
 import { placeBombs } from './placeBombs'
 
@@ -10,13 +10,13 @@ const startingState: State = {
   rows: 10,
   customAnimations: {
     CalculateNeighbors: false,
-    PlaceBombs: false
+    PlaceBombs: false,
   },
   allowedOperations: {
     FlagCell: true,
     CalculateNeighbors: false,
-    PlaceBombs: false,
-    RevealCell: false
+    PlaceBombs: true,
+    RevealCell: false,
   },
   isDead: false,
   isPlaying: false,
@@ -25,68 +25,53 @@ const startingState: State = {
   borderlessMode: false,
 }
 
-const action: Action = {
+const startingAction: ClickCellAction = {
   type: 'ClickCell',
   columnIndex: 5,
   rowIndex: 5,
 }
 
-let state = { ...startingState }
-
 describe('place bombs', () => {
+  let state = { ...startingState }
+  let action = { ...startingAction }
+
   beforeEach(() => {
     state = {
       ...startingState,
       animationToApply: [],
-      customAnimations: {...startingState.customAnimations},
-      allowedOperations: {...startingState.allowedOperations},
+      customAnimations: { ...startingState.customAnimations },
+      allowedOperations: { ...startingState.allowedOperations },
     }
     generateBoard(state)
+    action = { ...startingAction }
   })
 
   it('should place as many bombs as the state parameter expects', () => {
-    const expectedNumberOfBombs = 10
-    const { board } = placeBombs(
-      { ...state, numberOfBombs: expectedNumberOfBombs },
-      state.board,
-      action
-    )
+    placeBombs(state, action)
 
     let bombCount = 0
 
-    board.forEach((row) => {
+    state.board.forEach((row) => {
       row.forEach((cell) => {
         if (cell.isBomb) bombCount++
       })
     })
 
-    expect(bombCount).toBe(expectedNumberOfBombs)
+    expect(bombCount).toBe(state.numberOfBombs)
   })
 
   it('should never place a bomb in the rowIndex and columnIndex provided', () => {
-    const localTestState: State = {
-      ...state,
-      columns: 3,
-      rows: 3,
-      numberOfBombs: 8,
-      allowedOperations: new Map([['PlaceBombs', true]]),
-      customAnimations: new Map()
-    }
-    generateBoard(localTestState)
+    state.columns = 3
+    state.rows = 3
+    state.numberOfBombs = 8
+    generateBoard(state)
 
-    const localTestAction = {
-      ...action,
-      columnIndex: 1,
-      rowIndex: 1,
-    }
+    action.columnIndex = 1
+    action.rowIndex = 1
 
-    const { board } = placeBombs(
-      localTestState,
-      localTestState.board,
-      localTestAction
-    )
+    placeBombs(state, action)
 
-    board.forEach((row, rowIndex) => {
+    state.board.forEach((row, rowIndex) => {
       row.forEach((cell, columnIndex) => {
         if (rowIndex === 1 && columnIndex === 1) {
           expect(cell.isBomb).toBe(false)
@@ -98,29 +83,18 @@ describe('place bombs', () => {
   })
 
   it('should never place a bomb in the rowIndex and columnIndex provided when animations are turned on', () => {
-    const localTestState: State = {
-      ...state,
-      columns: 3,
-      rows: 3,
-      numberOfBombs: 8,
-      allowedOperations: new Map([['PlaceBombs', true]]),
-      customAnimations: new Map([['PlaceBombs', true]])
-    }
-    generateBoard(localTestState)
+    state.columns = 3
+    state.rows = 3
+    state.numberOfBombs = 8
+    state.customAnimations.PlaceBombs = true
+    generateBoard(state)
 
-    const localTestAction = {
-      ...action,
-      columnIndex: 1,
-      rowIndex: 1,
-    }
+    action.columnIndex = 1
+    action.rowIndex = 1
 
-    const { board } = placeBombs(
-      localTestState,
-      localTestState.board,
-      localTestAction
-    )
+    placeBombs(state, action)
 
-    board.forEach((row, rowIndex) => {
+    state.board.forEach((row, rowIndex) => {
       row.forEach((cell, columnIndex) => {
         if (rowIndex === 1 && columnIndex === 1) {
           expect(cell.isBomb).toBe(false)
@@ -132,51 +106,38 @@ describe('place bombs', () => {
   })
 
   it('should apply animation affects', () => {
-    const innerState: State = {
-      ...state,
-      columns: 5,
-      rows: 5,
-      numberOfBombs: 5,
-      customAnimations: new Map([['PlaceBombs', true]]),
-    }
-    generateBoard(state)
+    state.customAnimations.PlaceBombs = true;
 
-    placeBombs(innerState, innerState.board, action)
+    placeBombs(state, action)
 
-    expect(innerState.animationToApply.length).toBe(11)
+    expect(state.animationToApply.length).toBe(21)
   })
 
   it('should add no animation when customAnimation of PlaceBombs is not provided', () => {
-    const innerState: State = {
-      ...state,
-      columns: 5,
-      rows: 5,
-      numberOfBombs: 5,
-      customAnimations: new Map(),
-    }
     generateBoard(state)
 
-    placeBombs(innerState, innerState.board, action)
+    placeBombs(state, action)
 
-    expect(innerState.animationToApply.length).toBe(0)
+    expect(state.animationToApply.length).toBe(0)
   })
 
   it('should do nothing if PlaceBombs is not an allowed operation and return the passed in board', () => {
-    const { board } = placeBombs(
-      { ...state, allowedOperations: new Map() },
-      state.board,
+    state.allowedOperations.PlaceBombs = false
+    state.customAnimations.PlaceBombs = true
+    placeBombs(
+      state,
       action
     )
 
     let bombCount = 0
 
-    board.forEach((row) => {
+    state.board.forEach((row) => {
       row.forEach((cell) => {
         if (cell.isBomb) bombCount++
       })
     })
 
     expect(bombCount).toBe(0)
-    expect(state.board).toBe(board)
+    expect(state.animationToApply.length).toBe(0)
   })
 })
