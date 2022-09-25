@@ -1,8 +1,7 @@
-import { deepCopy } from '../../../../UtilityFunctions/deepCopy'
+import cloneDeep from 'lodash.clonedeep'
 import { CustomAnimations, Operations } from '../Components/Game/Game'
 import { Cell } from '../types'
 import { applyAnimation } from './functions/applyAnimation'
-import { changeAnimations } from './functions/changeAnimations'
 import { changeNumberOfBombs } from './functions/changeNumberOfBombs'
 import { changeNumberOfColumns } from './functions/changeNumberOfColumns'
 import { changeNumberOfRows } from './functions/changeNumberOfRows'
@@ -55,51 +54,34 @@ export interface State {
   animationTime: number
 }
 
+export type InitAction = { type: 'Init' }
+export type ClickCellAction = { type: 'ClickCell'; rowIndex: number; columnIndex: number }
+export type RightClickCellAction = { type: 'RightClickCell'; rowIndex: number; columnIndex: number }
+export type ChangeNumberOfColumnsAction = { type: 'ChangeNumberOfColumns'; newNumberOfColumns: number }
+export type ChangeNumberOfRowsAction = { type: 'ChangeNumberOfRows'; newNumberOfRows: number }
 export type ChangeNumberOfBombsAction = { type: 'ChangeNumberOfBombs'; newNumberOfBombs: number }
+export type ApplyAnimationAction = { type: 'ApplyAnimation' }
 
 export type Action =
-  | { type: 'Init' }
-  | { type: 'ClickCell'; rowIndex: number; columnIndex: number }
-  | { type: 'ChangeNumberOfColumns'; newNumberOfColumns: number }
-  | { type: 'ChangeNumberOfRows'; newNumberOfRows: number }
+  | InitAction
+  | ClickCellAction
+  | ChangeNumberOfColumnsAction
+  | ChangeNumberOfRowsAction
   | ChangeNumberOfBombsAction
-  | { type: 'Animation' }
-  | { type: 'ChangeAnimations'; animationOption: CustomAnimations | 'All' }
-  | { type: 'RightClickCell'; rowIndex: number; columnIndex: number }
+  | ApplyAnimationAction
+  | RightClickCellAction
 
-const mapActionToFunction = new Map([
-  ['Init', init],
-  ['ChangeNumberOfColumns', changeNumberOfColumns],
-  ['ChangeNumberOfRows', changeNumberOfRows],
-  ['ChangeNumberOfBombs', changeNumberOfBombs],
-])
+const mapActionToFunction = {
+  'Init': init,
+  'ClickCell': clickCell,
+  'RightClickCell': rightClickCell,
+  'ChangeNumberOfColumns': changeNumberOfColumns,
+  'ChangeNumberOfRows': changeNumberOfRows,
+  'ChangeNumberOfBombs': changeNumberOfBombs,
+  'ApplyAnimation': applyAnimation,
+}
 
 export const minesweeperReducer = (state: State, action: Action): State => {
-  switch (action.type) {
-    case 'Init':
-      mapActionToFunction.get(action.type)?.(state, action)
-      return deepCopy(state)
-    case 'ChangeNumberOfColumns':
-      mapActionToFunction.get(action.type)?.(state, action)
-      return deepCopy(state)
-    case 'ChangeNumberOfRows':
-      mapActionToFunction.get(action.type)?.(state, action)
-      return deepCopy(state)
-    case 'ChangeNumberOfBombs':
-      mapActionToFunction.get(action.type)?.(state, action)
-      return deepCopy(state)
-    case 'ClickCell':
-      return clickCell(state, action)
-    case 'RightClickCell':
-      return rightClickCell(state, action)
-    case 'ChangeAnimations':
-      return changeAnimations(state, action)
-    case 'Animation':
-      return applyAnimation(state)
-
-    default:
-      return state
-  }
-
-  return deepCopy(state)
+  mapActionToFunction[action.type]?.(state, action)
+  return cloneDeep(state)
 }
