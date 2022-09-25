@@ -1,5 +1,6 @@
 import { ClickCellAction, State } from '../..'
 import { fisherYatesShuffle } from '../../../../../../UtilityFunctions'
+import { extractRowAndColumnFromId } from '../../../functions/extractRowAndColumnFromId'
 
 export const placeBombs = (
   state: State,
@@ -13,8 +14,7 @@ export const placeBombs = (
 
       if(animationLocation <= state.columns * action.rowIndex + action.columnIndex) animationLocation--
 
-      const animationLocationColumn = animationLocation % state.columns
-      const animationLocationRow = Math.floor(animationLocation / state.columns)
+      const [animationLocationRow, animationLocationColumn] = extractRowAndColumnFromId(animationLocation, state.columns)
 
       state.board[animationLocationRow][animationLocationColumn] = {
         ...state.board[animationLocationRow][animationLocationColumn],
@@ -47,8 +47,8 @@ export const placeBombs = (
 
   for (let i = 0; i < state.numberOfBombs; i++) {
     const randomBombLocation = possibleBombLocations.pop() as number
-    const randomBombLocationColumn = randomBombLocation % state.columns
-    const randomBombLocationRow = Math.floor(randomBombLocation / state.columns)
+
+    const [randomBombLocationRow, randomBombLocationColumn] = extractRowAndColumnFromId(randomBombLocation, state.columns)
 
     const switchHasBomb =
       state.board[randomBombLocationRow][randomBombLocationColumn].isBomb
@@ -60,8 +60,7 @@ export const placeBombs = (
 
       if(animationLocation <= state.columns * action.rowIndex + action.columnIndex) animationLocation--
 
-      const animationLocationColumn = animationLocation % state.columns
-      const animationLocationRow = Math.floor(animationLocation / state.columns)
+      const [animationLocationRow, animationLocationColumn] = extractRowAndColumnFromId(animationLocation, state.columns)
 
       state.board[animationLocationRow][animationLocationColumn] = {
         ...state.board[animationLocationRow][animationLocationColumn],
