@@ -49,7 +49,8 @@ export const Game = ({
     animationTime: 0,
     borderlessMode,
     isHoldingDown: false,
-    faceType: FaceType.Human
+    faceType: FaceType.Human,
+    flagsPlaced: 0
   })
 
   useEffect(() => {
@@ -137,6 +138,8 @@ export const Game = ({
         isPlaying={gameState.isPlaying}
         isWinner={gameState.isWinner}
         switchFaceType={switchFaceType}
+        totalBombs={gameState.numberOfBombs}
+        flagsPlaced={gameState.flagsPlaced}
       />
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>

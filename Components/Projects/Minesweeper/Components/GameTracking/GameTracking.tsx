@@ -12,6 +12,8 @@ interface GameTrackingI {
   isHoldingDown: boolean
   faceType: FaceType
   switchFaceType: () => void
+  flagsPlaced: number
+  totalBombs: number
 }
 
 const faces = [
@@ -28,10 +30,13 @@ export const GameTracking = ({
   isPlaying,
   isHoldingDown,
   faceType,
+  flagsPlaced,
+  totalBombs,
   switchFaceType
 }: GameTrackingI) => {
   return (
     <div className={styles.container}>
+      <p>{`💣 ${totalBombs-flagsPlaced}/${totalBombs}`}</p>
       <p onClick={switchFaceType}>
         {!isPlaying
           ? faces[0][faceType]

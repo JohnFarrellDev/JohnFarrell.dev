@@ -39,6 +39,8 @@ describe('game tracking', () => {
           isHoldingDown={isHoldingDown}
           faceType={faceType}
           switchFaceType={jest.fn()}
+          totalBombs={0}
+          flagsPlaced={0}
         />
       )
 
