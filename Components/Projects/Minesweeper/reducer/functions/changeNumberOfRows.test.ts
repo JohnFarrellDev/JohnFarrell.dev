@@ -22,6 +22,7 @@ const startingState: State = {
     FlagCell: false,
     PlaceBombs: false,
     RevealCell: false,
+    RecursiveReveal: false
   },
   isHoldingDown: false,
   borderlessMode: false,

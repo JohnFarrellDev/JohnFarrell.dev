@@ -38,7 +38,8 @@ export const Minesweeper = () => {
               PlaceBombs: true,
               CalculateNeighbors: true,
               FlagCell: true,
-              RevealCell: true
+              RevealCell: true,
+              RecursiveReveal: true
             }}
             borderlessMode={false}
           />

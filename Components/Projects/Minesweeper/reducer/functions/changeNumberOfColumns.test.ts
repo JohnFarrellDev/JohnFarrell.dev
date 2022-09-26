@@ -17,6 +17,7 @@ const startingState: State = {
     FlagCell: false,
     PlaceBombs: false,
     RevealCell: false,
+    RecursiveReveal: false
   },
   isDead: false,
   isPlaying: false,

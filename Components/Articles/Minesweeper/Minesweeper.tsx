@@ -44,13 +44,14 @@ export const Minesweeper = () => {
                 transparentSideView={false}
                 customAnimations={{
                   CalculateNeighbors: false,
-                  PlaceBombs: false
+                  PlaceBombs: false,
                 }}
                 allowedOperations={{
                   CalculateNeighbors: false,
                   FlagCell: false,
                   PlaceBombs: false,
-                  RevealCell: false
+                  RevealCell: false,
+                  RecursiveReveal: false,
                 }}
                 borderlessMode={false}
               />
@@ -68,13 +69,14 @@ export const Minesweeper = () => {
                 transparentSideView={true}
                 customAnimations={{
                   CalculateNeighbors: false,
-                  PlaceBombs: false
+                  PlaceBombs: false,
                 }}
                 allowedOperations={{
                   CalculateNeighbors: false,
                   FlagCell: false,
                   PlaceBombs: true,
-                  RevealCell: false
+                  RevealCell: false,
+                  RecursiveReveal: false,
                 }}
                 borderlessMode={false}
               />
@@ -89,13 +91,14 @@ export const Minesweeper = () => {
                 transparentSideView={true}
                 customAnimations={{
                   CalculateNeighbors: false,
-                  PlaceBombs: true
+                  PlaceBombs: true,
                 }}
                 allowedOperations={{
                   CalculateNeighbors: false,
                   FlagCell: false,
                   PlaceBombs: true,
-                  RevealCell: false
+                  RevealCell: false,
+                  RecursiveReveal: false,
                 }}
                 borderlessMode={false}
               />
@@ -113,13 +116,14 @@ export const Minesweeper = () => {
                 transparentSideView={true}
                 customAnimations={{
                   CalculateNeighbors: false,
-                  PlaceBombs: false
+                  PlaceBombs: false,
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
                   FlagCell: false,
                   PlaceBombs: true,
-                  RevealCell: false
+                  RevealCell: false,
+                  RecursiveReveal: false,
                 }}
                 borderlessMode={false}
               />
@@ -137,13 +141,14 @@ export const Minesweeper = () => {
                 transparentSideView={true}
                 customAnimations={{
                   CalculateNeighbors: true,
-                  PlaceBombs: false
+                  PlaceBombs: false,
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
                   FlagCell: false,
                   PlaceBombs: true,
-                  RevealCell: false
+                  RevealCell: false,
+                  RecursiveReveal: false,
                 }}
                 borderlessMode={false}
               />
@@ -161,13 +166,14 @@ export const Minesweeper = () => {
                 transparentSideView={true}
                 customAnimations={{
                   CalculateNeighbors: false,
-                  PlaceBombs: false
+                  PlaceBombs: false,
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
                   FlagCell: false,
                   PlaceBombs: true,
-                  RevealCell: false
+                  RevealCell: false,
+                  RecursiveReveal: false,
                 }}
                 borderlessMode={true}
               />
@@ -185,20 +191,22 @@ export const Minesweeper = () => {
                 transparentSideView={true}
                 customAnimations={{
                   CalculateNeighbors: true,
-                  PlaceBombs: false
+                  PlaceBombs: false,
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
                   FlagCell: false,
                   PlaceBombs: true,
-                  RevealCell: false
+                  RevealCell: false,
+                  RecursiveReveal: false,
                 }}
                 borderlessMode={true}
               />
 
               <li>
-                Add click to reveal cell - if not a bomb reveal how many
-                neighboring cells are a bomb, if a bomb you've lost, if you clear every cell that isn't a bomb you win
+                Add click to reveal cell - if the cell is not a bomb reveal how
+                many neighboring cells are a bomb, if the cell is a bomb you've
+                lost, if every non bomb cell has been uncovered you win
               </li>
 
               <Game
@@ -209,13 +217,14 @@ export const Minesweeper = () => {
                 transparentSideView={true}
                 customAnimations={{
                   CalculateNeighbors: false,
-                  PlaceBombs: false
+                  PlaceBombs: false,
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
                   FlagCell: false,
                   PlaceBombs: true,
-                  RevealCell: true
+                  RevealCell: true,
+                  RecursiveReveal: false,
                 }}
                 borderlessMode={false}
               />
@@ -230,30 +239,51 @@ export const Minesweeper = () => {
                 transparentSideView={true}
                 customAnimations={{
                   CalculateNeighbors: false,
-                  PlaceBombs: false
+                  PlaceBombs: false,
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
                   FlagCell: true,
                   PlaceBombs: true,
-                  RevealCell: false
+                  RevealCell: true,
+                  RecursiveReveal: false,
                 }}
                 borderlessMode={false}
               />
 
               <li>
-                Add lose if click on a bomb, set gameState to isDead, clicking
-                again resets the game
+                Implement "recursive reveal" - if a cell is clicked that has no
+                bombs in it's neighboring cell reveal the surrounding cells, if
+                a surrounding cell also does not have any neighbors with bombs
+                repeat the process
               </li>
-              <li>Add win if all cells non bomb cells cleared</li>
 
-              <li>Implement click to reveal cell game is active</li>
+              <Game
+                columns={5}
+                rows={5}
+                numberOfBombs={5}
+                hasCustomControls={false}
+                transparentSideView={true}
+                customAnimations={{
+                  CalculateNeighbors: false,
+                  PlaceBombs: false,
+                }}
+                allowedOperations={{
+                  CalculateNeighbors: true,
+                  FlagCell: true,
+                  PlaceBombs: true,
+                  RevealCell: true,
+                  RecursiveReveal: true,
+                }}
+                borderlessMode={false}
+              />
+
+              <li>Implement animation for recursive reveal (bordered mode)</li>
 
               <li>
-                Implement ability to win by revealing all cells that do not
-                contain a bomb
+                Implement animation for recursive reveal (borderless mode)
               </li>
-              <li>Implement recursive reveal (with visualisation)</li>
+
               <li>Implement auto flagging of bombs (with visualisation)</li>
               <li>
                 Implement auto revealing of cells that cannot be bombs (with

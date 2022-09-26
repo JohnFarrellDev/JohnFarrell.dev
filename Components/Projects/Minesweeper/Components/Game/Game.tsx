@@ -11,6 +11,7 @@ export type Operations =
   | 'PlaceBombs'
   | 'CalculateNeighbors'
   | 'RevealCell'
+  | 'RecursiveReveal'
   | 'FlagCell'
 
 interface GameProps {

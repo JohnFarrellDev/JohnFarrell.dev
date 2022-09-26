@@ -18,7 +18,8 @@ const startingState: State = {
     CalculateNeighbors: false,
     FlagCell: false,
     PlaceBombs: false,
-    RevealCell: false
+    RevealCell: false,
+    RecursiveReveal: false
   },
   isDead: false,
   isPlaying: false,
