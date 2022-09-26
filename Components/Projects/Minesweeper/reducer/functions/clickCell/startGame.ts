@@ -8,6 +8,7 @@ export const startGame = (state: State, action: ClickCellAction) => {
   state.isPlaying = true;
   state.isDead = false;
   state.isWinner = false;
+  state.flagsPlaced = 0;
   generateBoard(state)
   placeBombs(state, action)
   calculateNeighborInformation(state)
