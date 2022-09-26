@@ -27,7 +27,8 @@ const startingState: State = {
   numberOfBombs: 5,
   borderlessMode: false,
   isHoldingDown: false,
-  faceType: FaceType.Human
+  faceType: FaceType.Human,
+  flagsPlaced: 0
 }
 generateBoard(startingState)
 

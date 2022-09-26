@@ -58,6 +58,7 @@ export interface State {
   animationToApply: AnimationStep[]
   animationTime: number
   faceType: FaceType
+  flagsPlaced: number
 }
 
 export type InitAction = { type: 'Init' }

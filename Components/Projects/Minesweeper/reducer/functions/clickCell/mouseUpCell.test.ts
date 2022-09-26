@@ -27,6 +27,7 @@ const startingState: State = {
   board: [],
   isHoldingDown: true,
   faceType: FaceType.Human,
+  flagsPlaced: 0
 }
 
 describe('mouse up cell', () => {

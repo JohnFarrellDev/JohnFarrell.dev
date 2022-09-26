@@ -25,7 +25,8 @@ const startingState: State = {
   borderlessMode: false,
   board: [],
   isHoldingDown: false,
-  faceType: FaceType.Human
+  faceType: FaceType.Human,
+  flagsPlaced: 0
 }
 
 const startingAction: ChangeNumberOfBombsAction = {

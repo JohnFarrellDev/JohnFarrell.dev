@@ -26,7 +26,8 @@ const startingState: State = {
   isHoldingDown: false,
   numberOfBombs: 5,
   borderlessMode: false,
-  faceType: FaceType.Human
+  faceType: FaceType.Human,
+  flagsPlaced: 0
 }
 
 const startingAction: RightClickCellAction = {

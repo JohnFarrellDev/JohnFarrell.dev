@@ -27,6 +27,7 @@ const state: State = {
   board: [],
   isHoldingDown: true,
   faceType: FaceType.Human,
+  flagsPlaced: 0
 }
 
 jest.mock('../../functions/generateBoard')
