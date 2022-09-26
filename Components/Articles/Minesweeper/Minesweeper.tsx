@@ -293,6 +293,7 @@ export const Minesweeper = () => {
                 Implement solving for common patterns (with visualisation)
               </li>
               <li>Implement probabilistic auto solve (with visualisation)</li>
+              <li>Implement optional sound effects</li>
               <li>Implement scoreboard</li>
             </ul>
           </div>
