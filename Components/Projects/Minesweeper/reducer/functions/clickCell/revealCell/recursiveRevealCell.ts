@@ -2,7 +2,7 @@ import { ClickCellAction, State } from "../../..";
 import { extractRowAndColumnFromId } from "../../../../functions/extractRowAndColumnFromId";
 
 export const recursiveRevealCell = (state: State, action: ClickCellAction) => {
-    if(state.isDead || !state.allowedOperations.RecursiveReveal) return
+    if(!state.allowedOperations.RecursiveReveal) return
     const cellsAllReadySelected = new Set([
         state.board[action.rowIndex][action.columnIndex].id,
       ])
