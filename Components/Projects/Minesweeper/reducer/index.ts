@@ -10,7 +10,7 @@ import { clickCell } from './functions/clickCell/clickCell'
 import { mouseDownCell } from './functions/clickCell/mouseDownCell'
 import { mouseUpCell } from './functions/clickCell/mouseUpCell'
 import { init } from './functions/init'
-import { rightClickCell } from './functions/rightClickCell'
+import { flagCell } from './functions/flagCell'
 import { switchFaceType } from './functions/switchFaceType'
 
 type PlaceBombColor = '#eca1a6'
@@ -117,7 +117,7 @@ const mapActionToFunction: Record<
 > = {
   Init: init,
   ClickCell: clickCell,
-  RightClickCell: rightClickCell,
+  RightClickCell: flagCell,
   ChangeNumberOfColumns: changeNumberOfColumns,
   ChangeNumberOfRows: changeNumberOfRows,
   ChangeNumberOfBombs: changeNumberOfBombs,

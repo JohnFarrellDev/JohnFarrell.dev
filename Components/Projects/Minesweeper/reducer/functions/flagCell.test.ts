@@ -1,7 +1,7 @@
 import { RightClickCellAction, State } from '..'
 import { FaceType } from '../../Components/GameTracking/GameTracking'
 import { generateBoard } from '../../functions/generateBoard'
-import { rightClickCell } from './rightClickCell'
+import { flagCell } from './flagCell'
 
 const startingState: State = {
   animationToApply: [],
@@ -58,7 +58,7 @@ describe('right click cell', () => {
   it('should do nothing if the state isPlaying is not true', () => {
     state.isPlaying = false
 
-    rightClickCell(state, action)
+    flagCell(state, action)
 
     expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
   })
@@ -66,7 +66,7 @@ describe('right click cell', () => {
   it('should do nothing if the state isDead is true', () => {
     state.isDead = true
 
-    rightClickCell(state, action)
+    flagCell(state, action)
 
     expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
   })
@@ -74,7 +74,7 @@ describe('right click cell', () => {
   it('should do nothing if the state isWinner is true', () => {
     state.isWinner = true
 
-    rightClickCell(state, action)
+    flagCell(state, action)
 
     expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
   })
@@ -82,7 +82,7 @@ describe('right click cell', () => {
   it('should do nothing if the state operation for FlagCell is not true', () => {
     state.allowedOperations.FlagCell = false
 
-    rightClickCell(state, action)
+    flagCell(state, action)
 
     expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
   })
@@ -90,7 +90,7 @@ describe('right click cell', () => {
   it('should do nothing if the cell is already uncovered', () => {
     state.board[0][0].isCovered = false
 
-    rightClickCell(state, action)
+    flagCell(state, action)
 
     expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
   })
@@ -98,7 +98,7 @@ describe('right click cell', () => {
   it('should do nothing if there are animations to apply', () => {
     state.animationToApply.push({ time: 0, animations: 'WIPE' })
 
-    rightClickCell(state, action)
+    flagCell(state, action)
 
     expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
   })
@@ -106,7 +106,7 @@ describe('right click cell', () => {
   it('should be able to flag a cell', () => {
     expect(state.board[0][0].isFlagged).toBe(false)
 
-    rightClickCell(state, action)
+    flagCell(state, action)
 
     expect(state.board[0][0].isFlagged).toBe(true)
   })
@@ -116,7 +116,7 @@ describe('right click cell', () => {
     state.board[0][0].isFlagged = true
     expect(state.board[0][0].isFlagged).toBe(true)
 
-    rightClickCell(state, action)
+    flagCell(state, action)
 
     expect(state.board[0][0].isFlagged).toBe(false)
   })
