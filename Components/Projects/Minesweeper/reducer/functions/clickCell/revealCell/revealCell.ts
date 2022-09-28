@@ -1,4 +1,6 @@
 import { ClickCellAction, State } from '../../..'
+import { autoFlagCells } from './autoFlagCells'
+import { autoRevealCells } from './autoRevealCells'
 import { determineHasWon } from './determineHasWon'
 import { recursiveRevealCell } from './recursiveRevealCell'
 
@@ -14,5 +16,10 @@ export const revealCell = (state: State, action: ClickCellAction) => {
   }
 
   recursiveRevealCell(state, action)
+  let keepRevealing = true;
+  while(keepRevealing) {
+    autoFlagCells(state)
+    keepRevealing = autoRevealCells(state)
+  }
   determineHasWon(state)
 }
