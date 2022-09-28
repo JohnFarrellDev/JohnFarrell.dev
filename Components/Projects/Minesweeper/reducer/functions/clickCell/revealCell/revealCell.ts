@@ -16,10 +16,7 @@ export const revealCell = (state: State, action: ClickCellAction) => {
   }
 
   recursiveRevealCell(state, action)
-  let keepRevealing = true;
-  while(keepRevealing) {
-    autoFlagCells(state)
-    keepRevealing = autoRevealCells(state)
-  }
+  autoFlagCells(state)
+  autoRevealCells(state)
   determineHasWon(state)
 }
