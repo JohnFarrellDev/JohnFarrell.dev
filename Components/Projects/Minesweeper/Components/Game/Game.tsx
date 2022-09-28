@@ -6,7 +6,7 @@ import { GameTracking } from '../GameTracking'
 import { FaceType } from '../GameTracking/GameTracking'
 import styles from './Game.module.css'
 
-export type CustomAnimations = 'PlaceBombs' | 'CalculateNeighbors'
+export type CustomAnimations = 'PlaceBombs' | 'CalculateNeighbors' | 'RecursiveReveal'
 export type Operations =
   | 'PlaceBombs'
   | 'CalculateNeighbors'

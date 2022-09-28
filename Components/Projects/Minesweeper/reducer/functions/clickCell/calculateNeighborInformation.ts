@@ -1,4 +1,4 @@
-import { State } from '../..'
+import { AnimationColor, State } from '../..'
 import { Cell } from '../../../types'
 import { Animation } from '../../'
 
@@ -22,7 +22,7 @@ export const calculateNeighborInformation = (state: State) => {
       if (state.customAnimations.CalculateNeighbors) {
         state.animationToApply.push({
           time: 400,
-          animations: [{ columnIndex, rowIndex, color: '#6699ff' }],
+          animations: [{ columnIndex, rowIndex, color: AnimationColor.SelectedCell }],
         })
       }
 
@@ -64,7 +64,7 @@ export const calculateNeighborInformation = (state: State) => {
           neighborCellsAnimation.push({
             rowIndex: nRowIndex,
             columnIndex: nColumnIndex,
-            color: '#ff3399',
+            color: AnimationColor.SelectedNeighborCell,
           })
         })
       } else {
@@ -78,7 +78,7 @@ export const calculateNeighborInformation = (state: State) => {
             neighborCellsAnimation.push({
               rowIndex: rowIndex + neighborIndex[0],
               columnIndex: columnIndex + neighborIndex[1],
-              color: '#ff3399',
+              color: AnimationColor.SelectedNeighborCell,
             })
           }
         })

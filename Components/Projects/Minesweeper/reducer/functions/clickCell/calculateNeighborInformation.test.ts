@@ -1,4 +1,4 @@
-import { State } from '../..'
+import { AnimationColor, State } from '../..'
 import { FaceType } from '../../../Components/GameTracking/GameTracking'
 import { generateBoard } from '../../../functions/generateBoard'
 import { calculateNeighborInformation } from './calculateNeighborInformation'
@@ -11,6 +11,7 @@ const startingState: State = {
   customAnimations: {
     CalculateNeighbors: true,
     PlaceBombs: false,
+    RecursiveReveal: false
   },
   allowedOperations: {
     CalculateNeighbors: true,
@@ -70,7 +71,7 @@ describe('calculate neighbor information', () => {
     expect(state.animationToApply[0].animations[0]).toEqual({
       columnIndex: 0,
       rowIndex: 0,
-      color: '#6699ff',
+      color: AnimationColor.SelectedCell,
     })
 
     expect(state.animationToApply[1].time).toBe(400)
@@ -78,17 +79,17 @@ describe('calculate neighbor information', () => {
     expect(state.animationToApply[1].animations[0]).toEqual({
       columnIndex: 1,
       rowIndex: 0,
-      color: '#ff3399',
+      color: AnimationColor.SelectedNeighborCell,
     })
     expect(state.animationToApply[1].animations[1]).toEqual({
       columnIndex: 0,
       rowIndex: 1,
-      color: '#ff3399',
+      color: AnimationColor.SelectedNeighborCell,
     })
     expect(state.animationToApply[1].animations[2]).toEqual({
       columnIndex: 1,
       rowIndex: 1,
-      color: '#ff3399',
+      color: AnimationColor.SelectedNeighborCell,
     })
 
     expect(state.animationToApply[2].time).toBe(400)
@@ -107,7 +108,7 @@ describe('calculate neighbor information', () => {
     expect(state.animationToApply[0].animations[0]).toEqual({
       columnIndex: 0,
       rowIndex: 0,
-      color: '#6699ff',
+      color: AnimationColor.SelectedCell,
     })
 
     expect(state.animationToApply[1].time).toBe(400)
@@ -116,42 +117,42 @@ describe('calculate neighbor information', () => {
     expect(state.animationToApply[1].animations[0]).toEqual({
       columnIndex: 4,
       rowIndex: 4,
-      color: '#ff3399',
+      color: AnimationColor.SelectedNeighborCell,
     })
     expect(state.animationToApply[1].animations[1]).toEqual({
       columnIndex: 0,
       rowIndex: 4,
-      color: '#ff3399',
+      color: AnimationColor.SelectedNeighborCell,
     })
     expect(state.animationToApply[1].animations[2]).toEqual({
       columnIndex: 1,
       rowIndex: 4,
-      color: '#ff3399',
+      color: AnimationColor.SelectedNeighborCell,
     })
     expect(state.animationToApply[1].animations[3]).toEqual({
       columnIndex: 4,
       rowIndex: 0,
-      color: '#ff3399',
+      color: AnimationColor.SelectedNeighborCell,
     })
     expect(state.animationToApply[1].animations[4]).toEqual({
       columnIndex: 1,
       rowIndex: 0,
-      color: '#ff3399',
+      color: AnimationColor.SelectedNeighborCell,
     })
     expect(state.animationToApply[1].animations[5]).toEqual({
       columnIndex: 4,
       rowIndex: 1,
-      color: '#ff3399',
+      color: AnimationColor.SelectedNeighborCell,
     })
     expect(state.animationToApply[1].animations[6]).toEqual({
       columnIndex: 0,
       rowIndex: 1,
-      color: '#ff3399',
+      color: AnimationColor.SelectedNeighborCell,
     })
     expect(state.animationToApply[1].animations[7]).toEqual({
       columnIndex: 1,
       rowIndex: 1,
-      color: '#ff3399',
+      color: AnimationColor.SelectedNeighborCell,
     })
 
     expect(state.animationToApply[2].time).toBe(400)

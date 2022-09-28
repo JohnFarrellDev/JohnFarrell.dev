@@ -14,15 +14,24 @@ import { flagCell } from './functions/flagCell'
 import { switchFaceType } from './functions/switchFaceType'
 
 type PlaceBombColor = '#eca1a6'
-type SelectedCell = '#6699ff'
-type SelectedNeighborCell = '#ff3399'
+type SelectedCell = '#90EE90'
+type SelectedNeighborCell = '#FF3399'
+type RecursiveRevealColor = '#00CED1'
 type NoColor = undefined
 
 export type CellColor =
   | PlaceBombColor
   | SelectedCell
   | SelectedNeighborCell
+  | RecursiveRevealColor
   | NoColor
+
+export const AnimationColor: Record<string, CellColor> = {
+  SelectedCell: '#90EE90',
+  RecursiveRevealColor: '#00CED1',
+  SelectedNeighborCell: '#FF3399',
+  NoColor: undefined,
+}
 
 export type AnimationColorsRecord = Map<CustomAnimations, CellColor>
 
@@ -85,9 +94,9 @@ export type ChangeNumberOfBombsAction = {
   newNumberOfBombs: number
 }
 export type ApplyAnimationAction = { type: 'ApplyAnimation' }
-export type MouseDownCell = { type: 'MouseDownCell'}
-export type MouseUpCell = { type: 'MouseUpCell'}
-export type SwitchFaceType = { type: 'SwitchFaceType'}
+export type MouseDownCell = { type: 'MouseDownCell' }
+export type MouseUpCell = { type: 'MouseUpCell' }
+export type SwitchFaceType = { type: 'SwitchFaceType' }
 
 export type Action =
   | InitAction
@@ -124,7 +133,7 @@ const mapActionToFunction: Record<
   ApplyAnimation: applyAnimation,
   MouseDownCell: mouseDownCell,
   MouseUpCell: mouseUpCell,
-  SwitchFaceType: switchFaceType
+  SwitchFaceType: switchFaceType,
 }
 
 export const minesweeperReducer = (state: State, action: Action): State => {

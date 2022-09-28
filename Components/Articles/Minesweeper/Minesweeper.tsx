@@ -45,6 +45,7 @@ export const Minesweeper = () => {
                 customAnimations={{
                   CalculateNeighbors: false,
                   PlaceBombs: false,
+                  RecursiveReveal: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: false,
@@ -70,6 +71,7 @@ export const Minesweeper = () => {
                 customAnimations={{
                   CalculateNeighbors: false,
                   PlaceBombs: false,
+                  RecursiveReveal: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: false,
@@ -92,6 +94,7 @@ export const Minesweeper = () => {
                 customAnimations={{
                   CalculateNeighbors: false,
                   PlaceBombs: true,
+                  RecursiveReveal: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: false,
@@ -117,6 +120,7 @@ export const Minesweeper = () => {
                 customAnimations={{
                   CalculateNeighbors: false,
                   PlaceBombs: false,
+                  RecursiveReveal: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
@@ -142,6 +146,7 @@ export const Minesweeper = () => {
                 customAnimations={{
                   CalculateNeighbors: true,
                   PlaceBombs: false,
+                  RecursiveReveal: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
@@ -167,6 +172,7 @@ export const Minesweeper = () => {
                 customAnimations={{
                   CalculateNeighbors: false,
                   PlaceBombs: false,
+                  RecursiveReveal: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
@@ -192,6 +198,7 @@ export const Minesweeper = () => {
                 customAnimations={{
                   CalculateNeighbors: true,
                   PlaceBombs: false,
+                  RecursiveReveal: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
@@ -218,6 +225,7 @@ export const Minesweeper = () => {
                 customAnimations={{
                   CalculateNeighbors: false,
                   PlaceBombs: false,
+                  RecursiveReveal: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
@@ -240,6 +248,7 @@ export const Minesweeper = () => {
                 customAnimations={{
                   CalculateNeighbors: false,
                   PlaceBombs: false,
+                  RecursiveReveal: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
@@ -267,6 +276,7 @@ export const Minesweeper = () => {
                 customAnimations={{
                   CalculateNeighbors: false,
                   PlaceBombs: false,
+                  RecursiveReveal: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
@@ -278,11 +288,28 @@ export const Minesweeper = () => {
                 borderlessMode={false}
               />
 
-              <li>Implement animation for recursive reveal (bordered mode)</li>
+              <li>Implement animation for recursive reveal</li>
 
-              <li>
-                Implement animation for recursive reveal (borderless mode)
-              </li>
+              <Game
+                columns={10}
+                rows={10}
+                numberOfBombs={1}
+                hasCustomControls={false}
+                transparentSideView={false}
+                customAnimations={{
+                  CalculateNeighbors: false,
+                  PlaceBombs: false,
+                  RecursiveReveal: true
+                }}
+                allowedOperations={{
+                  CalculateNeighbors: true,
+                  FlagCell: true,
+                  PlaceBombs: true,
+                  RevealCell: true,
+                  RecursiveReveal: true,
+                }}
+                borderlessMode={true}
+              />
 
               <li>Implement auto flagging of bombs (with visualisation)</li>
               <li>
