@@ -9,11 +9,11 @@ const startingState: State = {
     columns: 5,
     rows: 5,
     customAnimations: {
-      CalculateNeighbors: true,
+      CalculateNeighbors: false,
       PlaceBombs: false,
     },
     allowedOperations: {
-      CalculateNeighbors: true,
+      CalculateNeighbors: false,
       FlagCell: false,
       PlaceBombs: false,
       RevealCell: false,
