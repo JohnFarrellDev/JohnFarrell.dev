@@ -54,46 +54,32 @@ const startingState: State = {
 }
 generateBoard(startingState)
 
-const startingAction: Action = {
-  type: 'ChangeNumberOfRows',
-  newNumberOfRows: 10,
-}
-
 describe('minesweeper reducer', () => {
-  let state = {
+  const state = {
     ...startingState,
   }
-  let action = { ...startingAction }
-
-  beforeEach(() => {
-    state = { ...startingState }
-    generateBoard(state)
-    action = { ...startingAction }
-    jest.resetAllMocks()
-  })
-
+  
   it.each`
-    actionType                 | passedFunction
-    ${'ApplyAnimation'}        | ${applyAnimation}
-    ${'ChangeNumberOfBombs'}   | ${changeNumberOfBombs}
-    ${'ChangeNumberOfColumns'} | ${changeNumberOfColumns}
-    ${'ChangeNumberOfRows'}    | ${changeNumberOfRows}
-    ${'ClickCell'}             | ${clickCell}
-    ${'MouseDownCell'}         | ${mouseDownCell}
-    ${'MouseUpCell'}           | ${mouseUpCell}
-    ${'Init'}                  | ${init}
-    ${'RightClickCell'}        | ${flagCell}
-    ${'SwitchFaceType'}        | ${switchFaceType}
+    action                               | passedFunction
+    ${{ type: 'ApplyAnimation' }}        | ${applyAnimation}
+    ${{ type: 'ChangeNumberOfBombs' }}   | ${changeNumberOfBombs}
+    ${{ type: 'ChangeNumberOfColumns' }} | ${changeNumberOfColumns}
+    ${{ type: 'ChangeNumberOfRows' }}    | ${changeNumberOfRows}
+    ${{ type: 'ClickCell' }}             | ${clickCell}
+    ${{ type: 'MouseDownCell' }}         | ${mouseDownCell}
+    ${{ type: 'MouseUpCell' }}           | ${mouseUpCell}
+    ${{ type: 'Init' }}                  | ${init}
+    ${{ type: 'RightClickCell' }}        | ${flagCell}
+    ${{ type: 'SwitchFaceType' }}        | ${switchFaceType}
   `(
     'should call the correct function with the expected params when action type is $actionType',
     ({
-      actionType,
+      action,
       passedFunction,
     }: {
-      actionType: string
+      action: Action
       passedFunction: (state: State, action: Action) => void
     }) => {
-      action.type = actionType as any
       minesweeperReducer(state, action)
 
       expect(passedFunction).toBeCalledTimes(1)
