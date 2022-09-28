@@ -93,7 +93,7 @@ const CellContainer = styled.div`
       : '#C2C2C2'};
   :hover {
     background-color: ${(props: CellContainerI) =>
-      props.isCovered ? '#5C5C5C' : props.isBomb ? '#FF6666' : '#C2C2C2'};
+      props.color ? props.color : props.isCovered ? '#5C5C5C' : props.isBomb ? '#FF6666' : '#C2C2C2'};
   }
   display: flex;
   justify-content: center;
