@@ -78,6 +78,24 @@ describe('change number of columns', () => {
     expect(state.board).toEqual(startingState.board)
   })
 
+  it('should allow number of columns to change if isPlaying is true but isWinner is also true', () => {
+    state.isPlaying = true
+    state.isWinner = true
+
+    changeNumberOfColumns(state, action)
+
+    expect(state.columns).toEqual(action.newNumberOfColumns)
+  })
+
+  it('should allow number of columns to change if isPlaying is true but isDead is also true', () => {
+    state.isPlaying = true
+    state.isDead = true
+
+    changeNumberOfColumns(state, action)
+
+    expect(state.columns).toEqual(action.newNumberOfColumns)
+  })
+
   it('should allow 3 columns as a minimum', () => {
     expect(state.columns).toBe(10)
 

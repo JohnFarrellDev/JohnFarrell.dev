@@ -32,7 +32,8 @@ export const Minesweeper = () => {
             transparentSideView={false}
             customAnimations={{
               CalculateNeighbors: false,
-              PlaceBombs: false
+              PlaceBombs: false,
+              RecursiveReveal: false
             }}
             allowedOperations={{
               PlaceBombs: true,

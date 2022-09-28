@@ -75,9 +75,28 @@ describe('change number of rows', () => {
 
   it('should not allow number of rows to change if isPlaying is true', () => {
     state.isPlaying = true
+
     changeNumberOfRows(state, action)
 
     expect(state.board).toEqual(startingState.board)
+  })
+
+  it('should allow number of rows to change if isPlaying is true but isWinner is also true', () => {
+    state.isPlaying = true
+    state.isWinner = true
+
+    changeNumberOfRows(state, action)
+
+    expect(state.rows).toEqual(action.newNumberOfRows)
+  })
+
+  it('should allow number of rows to change if isPlaying is true but isDead is also true', () => {
+    state.isPlaying = true
+    state.isDead = true
+
+    changeNumberOfRows(state, action)
+
+    expect(state.rows).toEqual(action.newNumberOfRows)
   })
 
   it('should allow 3 rows as a minimum', () => {

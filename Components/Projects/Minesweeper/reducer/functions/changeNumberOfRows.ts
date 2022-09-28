@@ -2,7 +2,7 @@ import { ChangeNumberOfRowsAction, State } from '..'
 import { generateBoard } from '../../functions/generateBoard'
 
 export const changeNumberOfRows = (state: State, action: ChangeNumberOfRowsAction) => {
-  if(state.isPlaying) return
+  if(state.isPlaying && !(state.isWinner || state.isDead)) return;
   if(action.newNumberOfRows > 30 || action.newNumberOfRows < 3 || Number.isNaN(action.newNumberOfRows)) return;
 
   state.rows = action.newNumberOfRows

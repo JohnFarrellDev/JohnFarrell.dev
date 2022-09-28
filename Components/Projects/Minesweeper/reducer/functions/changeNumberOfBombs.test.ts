@@ -99,6 +99,24 @@ describe('change number of bombs', () => {
     expect(state.numberOfBombs).toBe(startingState.numberOfBombs)
   })
 
+  it('should allow number of bombs to change if isPlaying is true but isWinner is also true', () => {
+    state.isPlaying = true
+    state.isWinner = true
+
+    changeNumberOfBombs(state, action)
+
+    expect(state.numberOfBombs).toEqual(action.newNumberOfBombs)
+  })
+
+  it('should allow number of bombs to change if isPlaying is true but isDead is also true', () => {
+    state.isPlaying = true
+    state.isDead = true
+
+    changeNumberOfBombs(state, action)
+
+    expect(state.numberOfBombs).toEqual(action.newNumberOfBombs)
+  })
+
   it('should update the number of bombs based on the passed in action param', () => {
     expect(state.numberOfBombs).toBe(5)
 

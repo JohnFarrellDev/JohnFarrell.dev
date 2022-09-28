@@ -2,7 +2,7 @@ import { ChangeNumberOfColumnsAction, State } from '..'
 import { generateBoard } from '../../functions/generateBoard'
 
 export const changeNumberOfColumns = (state: State, action: ChangeNumberOfColumnsAction) => {
-  if (state.isPlaying) return
+  if(state.isPlaying && !(state.isWinner || state.isDead)) return;
   if (
     action.newNumberOfColumns > 50 ||
     action.newNumberOfColumns < 3 ||
