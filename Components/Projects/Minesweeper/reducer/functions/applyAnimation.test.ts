@@ -1,5 +1,5 @@
 import cloneDeep from 'lodash.clonedeep'
-import { State } from '..'
+import { AnimationColor, State } from '..'
 import { FaceType } from '../../Components/GameTracking/GameTracking'
 import { generateBoard } from '../../functions/generateBoard'
 import { applyAnimation } from './applyAnimation'
@@ -12,7 +12,8 @@ const startingState: State = {
   rows: 5,
   customAnimations: {
     CalculateNeighbors: false,
-    PlaceBombs: false
+    PlaceBombs: false,
+    RecursiveReveal: false
   },
   allowedOperations: {
     CalculateNeighbors: false,
@@ -57,7 +58,7 @@ describe('apply animations', () => {
     expect(state.board[0][0].color).toBeUndefined()
 
     state.animationToApply.push({
-      animations: [{ rowIndex: 0, columnIndex: 0, color: '#6699ff' }],
+      animations: [{ rowIndex: 0, columnIndex: 0, color: AnimationColor.SelectedCell }],
       time: 0,
     })
     expect(state.animationToApply.length).toBe(1)
@@ -65,7 +66,7 @@ describe('apply animations', () => {
     applyAnimation(state)
 
     expect(state.animationToApply.length).toBe(0)
-    expect(state.board[0][0].color).toBe('#6699ff')
+    expect(state.board[0][0].color).toBe(AnimationColor.SelectedCell)
 
     state.animationToApply.push({ animations: 'WIPE', time: 0 })
     applyAnimation(state)
@@ -77,14 +78,14 @@ describe('apply animations', () => {
     expect(state.animationTime).toBe(0)
 
     state.animationToApply.push({
-      animations: [{ rowIndex: 0, columnIndex: 0, color: '#6699ff' }],
+      animations: [{ rowIndex: 0, columnIndex: 0, color: AnimationColor.SelectedCell }],
       time: EXPECTED_ANIMATION_TIME,
     })
     applyAnimation(state)
     expect(state.animationTime).toBe(EXPECTED_ANIMATION_TIME)
 
     state.animationToApply.push({
-      animations: [{ rowIndex: 0, columnIndex: 0, color: '#6699ff' }],
+      animations: [{ rowIndex: 0, columnIndex: 0, color: AnimationColor.SelectedCell }],
       time: 0,
     })
     applyAnimation(state)
@@ -99,19 +100,19 @@ describe('apply animations', () => {
 
     state.animationToApply.push({
       animations: [
-        { rowIndex: 0, columnIndex: 0, color: '#6699ff' },
-        { rowIndex: 0, columnIndex: 1, color: '#6699ff' },
-        { rowIndex: 1, columnIndex: 0, color: '#6699ff' },
-        { rowIndex: 1, columnIndex: 1, color: '#6699ff' },
+        { rowIndex: 0, columnIndex: 0, color: AnimationColor.SelectedCell },
+        { rowIndex: 0, columnIndex: 1, color: AnimationColor.SelectedCell },
+        { rowIndex: 1, columnIndex: 0, color: AnimationColor.SelectedCell },
+        { rowIndex: 1, columnIndex: 1, color: AnimationColor.SelectedCell },
       ],
       time: 0,
     })
 
     applyAnimation(state)
 
-    expect(state.board[0][0].color).toBe('#6699ff')
-    expect(state.board[0][1].color).toBe('#6699ff')
-    expect(state.board[1][0].color).toBe('#6699ff')
-    expect(state.board[1][1].color).toBe('#6699ff')
+    expect(state.board[0][0].color).toBe(AnimationColor.SelectedCell)
+    expect(state.board[0][1].color).toBe(AnimationColor.SelectedCell)
+    expect(state.board[1][0].color).toBe(AnimationColor.SelectedCell)
+    expect(state.board[1][1].color).toBe(AnimationColor.SelectedCell)
   })
 })

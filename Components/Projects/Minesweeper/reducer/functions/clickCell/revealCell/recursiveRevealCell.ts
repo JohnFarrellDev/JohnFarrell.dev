@@ -53,4 +53,11 @@ export const recursiveRevealCell = (state: State, action: ClickCellAction) => {
       })
     }
   }
+
+  if (state.customAnimations.RecursiveReveal) {
+    state.animationToApply.push({
+      animations: "WIPE",
+      time: 2000,
+    })
+  }
 }

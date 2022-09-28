@@ -9,7 +9,8 @@ const startingState: State = {
   rows: 10,
   customAnimations: {
     CalculateNeighbors: false,
-    PlaceBombs: false
+    PlaceBombs: false,
+    RecursiveReveal: false
   },
   allowedOperations: {
     CalculateNeighbors: false,

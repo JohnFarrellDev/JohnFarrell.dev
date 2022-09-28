@@ -11,6 +11,7 @@ const startingState: State = {
     customAnimations: {
       CalculateNeighbors: false,
       PlaceBombs: false,
+      RecursiveReveal: false
     },
     allowedOperations: {
       CalculateNeighbors: false,
