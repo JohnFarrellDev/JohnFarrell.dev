@@ -16,9 +16,5 @@ export const startGame = (state: State, action: ClickCellAction) => {
 
   const animationToApply = [...state.animationToApply].reverse()
 
-  for(let i = animationToApply.length - 1; i >= 0; i--) {
-    animationToApply[i].time = animationToApply[i-1]?.time || 0;
-  }
-
   state.animationToApply = animationToApply
 }
