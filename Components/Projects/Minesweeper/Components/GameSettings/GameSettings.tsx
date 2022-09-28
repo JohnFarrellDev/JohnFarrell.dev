@@ -20,8 +20,6 @@ export const GameSettings = ({
   numberOfBombs,
   changeNumberOfBombs,
 }: GameSettingsI) => {
-
-
   return (
     <div className={styles.controls}>
       <div className={styles.controlItem}>
