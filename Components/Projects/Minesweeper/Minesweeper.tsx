@@ -41,8 +41,8 @@ export const Minesweeper = () => {
               FlagCell: true,
               RevealCell: true,
               RecursiveReveal: true,
-              AutoFlag: false,
-              BasicAutoClick: false
+              AutoFlag: true,
+              BasicAutoClick: true
             }}
             borderlessMode={false}
           />

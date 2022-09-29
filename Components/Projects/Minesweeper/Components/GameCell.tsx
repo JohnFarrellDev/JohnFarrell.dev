@@ -51,7 +51,7 @@ export const GameCell = ({
       isCovered={isCovered}
       isBomb={isBomb}
       onClick={clickCell}
-      onContextMenuCapture={(e) => rightClickCell(e)}
+      onContextMenuCapture={rightClickCell}
       color={color}
       onMouseDown={leftDown}
       onMouseUp={leftUp}
