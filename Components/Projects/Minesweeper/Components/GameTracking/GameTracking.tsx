@@ -36,7 +36,7 @@ export const GameTracking = ({
 }: GameTrackingI) => {
   return (
     <div className={styles.container}>
-      <p>{`💣 ${totalBombs-flagsPlaced}/${totalBombs}`}</p>
+      {/* <p>{`💣 ${totalBombs-flagsPlaced}/${totalBombs}`}</p> */}
       <p onClick={switchFaceType}>
         {!isPlaying
           ? faces[0][faceType]
@@ -48,7 +48,7 @@ export const GameTracking = ({
           ? faces[4][faceType]
           : faces[3][faceType]}
       </p>
-      <p>⏰</p>
+      {/* <p>⏰</p> */}
     </div>
   )
 }
