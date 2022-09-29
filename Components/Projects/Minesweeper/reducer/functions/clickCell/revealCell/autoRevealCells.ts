@@ -1,13 +1,14 @@
 import { State } from '../../..'
 import { Cell } from '../../../../types'
-import { revealCell } from './revealCell'
 
 const numberOfFlaggedNeighborCells = (cell: Cell): number =>
   cell.neighbors.reduce((prev, curr) => prev + Number(curr.isFlagged), 0)
 
-export const autoRevealCells = (state: State) => {
+export const autoRevealCells = (state: State): boolean => {
   const rows = state.rows
   const columns = state.columns
+
+  let scanAgain = false
 
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < columns; c++) {
@@ -23,14 +24,13 @@ export const autoRevealCells = (state: State) => {
             !neighborCell.isFlagged &&
             !neighborCell.isBomb
           ) {
-            revealCell(state, {
-                type: "ClickCell",
-                rowIndex: r,
-                columnIndex: c
-            })
+            neighborCell.isCovered = false;
+            scanAgain = true;
           }
         })
       }
     }
   }
+
+  return scanAgain;
 }

@@ -16,7 +16,12 @@ export const revealCell = (state: State, action: ClickCellAction) => {
   }
 
   recursiveRevealCell(state, action)
-  autoFlagCells(state)
-  autoRevealCells(state)
+
+  let scanBoardAgain = true;
+
+  while(scanBoardAgain) {
+    autoFlagCells(state)
+    scanBoardAgain = autoRevealCells(state)
+  }
   determineHasWon(state)
 }
