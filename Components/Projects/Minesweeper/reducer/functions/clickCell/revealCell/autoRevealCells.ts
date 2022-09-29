@@ -6,20 +6,17 @@ const numberOfFlaggedNeighborCells = (cell: Cell): number =>
 
 export const autoRevealCells = (state: State): boolean => {
   if(!state.allowedOperations.BasicAutoClick) return false
-  const rows = state.rows
-  const columns = state.columns
 
   let scanAgain = false
 
-  for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < columns; c++) {
-      const cell = state.board[r][c]
-      if (cell.isCovered || cell.isFlagged) continue
+  for (let r = 0; r < state.rows; r++) {
+    for (let c = 0; c < state.columns; c++) {
+      if (state.board[r][c].isCovered || state.board[r][c].isFlagged) continue
 
-      const flaggedNeighbors = numberOfFlaggedNeighborCells(cell)
+      const flaggedNeighbors = numberOfFlaggedNeighborCells(state.board[r][c])
 
-      if (cell.neighborBombs <= flaggedNeighbors) {
-        cell.neighbors.forEach((neighborCell) => {
+      if (state.board[r][c].neighborBombs <= flaggedNeighbors) {
+        state.board[r][c].neighbors.forEach((neighborCell) => {
           if (
             neighborCell.isCovered &&
             !neighborCell.isFlagged &&
