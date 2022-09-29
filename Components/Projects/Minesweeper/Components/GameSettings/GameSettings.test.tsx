@@ -1,6 +1,5 @@
 import {
   fireEvent,
-  getByDisplayValue,
   render,
   screen,
 } from '@testing-library/react'
