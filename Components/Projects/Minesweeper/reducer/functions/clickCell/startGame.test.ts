@@ -28,6 +28,8 @@ const startingState: State = {
     PlaceBombs: false,
     RevealCell: false,
     RecursiveReveal: false,
+    AutoFlag: false,
+    BasicAutoClick: false
   },
   isDead: false,
   isPlaying: false,

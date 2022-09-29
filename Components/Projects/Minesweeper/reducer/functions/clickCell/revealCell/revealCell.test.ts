@@ -21,6 +21,8 @@ const startingState: State = {
     PlaceBombs: false,
     RevealCell: true,
     RecursiveReveal: false,
+    AutoFlag: false,
+    BasicAutoClick: false
   },
   isDead: false,
   isPlaying: false,

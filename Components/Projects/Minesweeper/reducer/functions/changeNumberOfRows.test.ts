@@ -23,7 +23,9 @@ const startingState: State = {
     FlagCell: false,
     PlaceBombs: false,
     RevealCell: false,
-    RecursiveReveal: false
+    RecursiveReveal: false,
+    AutoFlag: false,
+    BasicAutoClick: false
   },
   isHoldingDown: false,
   borderlessMode: false,

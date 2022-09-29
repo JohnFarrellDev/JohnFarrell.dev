@@ -40,7 +40,9 @@ export const Minesweeper = () => {
               CalculateNeighbors: true,
               FlagCell: true,
               RevealCell: true,
-              RecursiveReveal: true
+              RecursiveReveal: true,
+              AutoFlag: false,
+              BasicAutoClick: false
             }}
             borderlessMode={false}
           />

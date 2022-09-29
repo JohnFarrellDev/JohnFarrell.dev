@@ -18,7 +18,9 @@ const state: State = {
     FlagCell: false,
     PlaceBombs: false,
     RevealCell: false,
-    RecursiveReveal: false
+    RecursiveReveal: false,
+    AutoFlag: false,
+    BasicAutoClick: false
   },
   isDead: false,
   isPlaying: true,

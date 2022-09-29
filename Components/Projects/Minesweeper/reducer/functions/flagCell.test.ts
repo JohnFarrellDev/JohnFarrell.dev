@@ -19,7 +19,9 @@ const startingState: State = {
     CalculateNeighbors: false,
     PlaceBombs: true,
     RevealCell: true,
-    RecursiveReveal: false
+    RecursiveReveal: false,
+    AutoFlag: false,
+    BasicAutoClick: false
   },
   isDead: false,
   isPlaying: true,

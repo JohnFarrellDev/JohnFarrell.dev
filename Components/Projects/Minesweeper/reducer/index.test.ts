@@ -46,6 +46,8 @@ const startingState: State = {
     PlaceBombs: false,
     RevealCell: false,
     RecursiveReveal: false,
+    AutoFlag: false,
+    BasicAutoClick: false
   },
   isHoldingDown: false,
   borderlessMode: false,

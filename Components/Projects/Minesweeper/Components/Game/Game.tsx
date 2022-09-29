@@ -13,6 +13,8 @@ export type Operations =
   | 'RevealCell'
   | 'RecursiveReveal'
   | 'FlagCell'
+  | 'AutoFlag'
+  | 'BasicAutoClick'
 
 interface GameProps {
   columns: number
