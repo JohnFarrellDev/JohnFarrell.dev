@@ -1,37 +1,17 @@
 import { ClickCellAction, State } from '../..'
-import { FaceType } from '../../../Components/GameTracking/GameTracking'
+import { minesweeperStateFactory } from '../../../../../../factories/minesweeperState'
 import { generateBoard } from '../../../functions/generateBoard'
 import { placeBombs } from './placeBombs'
 
-const startingState: State = {
-  animationToApply: [],
-  animationTime: 0,
-  board: [],
-  columns: 10,
-  rows: 10,
-  customAnimations: {
-    CalculateNeighbors: false,
-    PlaceBombs: false,
-    RecursiveReveal: false
-  },
+const startingState = minesweeperStateFactory.build({
   allowedOperations: {
-    FlagCell: true,
-    CalculateNeighbors: false,
     PlaceBombs: true,
-    RevealCell: false,
-    RecursiveReveal: false,
-    AutoFlag: false,
-    BasicAutoClick: false
   },
-  isDead: false,
-  isPlaying: false,
-  isWinner: false,
-  numberOfBombs: 10,
-  borderlessMode: false,
-  isHoldingDown: false,
-  faceType: FaceType.Human,
-  flagsPlaced: 0
-}
+  customAnimations: {
+    PlaceBombs: true,
+  },
+})
+generateBoard(startingState)
 
 const startingAction: ClickCellAction = {
   type: 'ClickCell',
@@ -40,16 +20,18 @@ const startingAction: ClickCellAction = {
 }
 
 describe('place bombs', () => {
-  let state = { ...startingState }
-  let action = { ...startingAction }
+  let state: State
+  let action: ClickCellAction
 
   beforeEach(() => {
-    state = {
-      ...startingState,
-      animationToApply: [],
-      customAnimations: { ...startingState.customAnimations },
-      allowedOperations: { ...startingState.allowedOperations },
-    }
+    state = minesweeperStateFactory.build({
+      allowedOperations: {
+        PlaceBombs: true,
+      },
+      customAnimations: {
+        PlaceBombs: true,
+      },
+    })
     generateBoard(state)
     action = { ...startingAction }
   })
@@ -114,14 +96,13 @@ describe('place bombs', () => {
   })
 
   it('should apply animation affects', () => {
-    state.customAnimations.PlaceBombs = true;
-
     placeBombs(state, action)
 
-    expect(state.animationToApply.length).toBe(21)
+    expect(state.animationToApply.length).toBe(11)
   })
 
   it('should add no animation when customAnimation of PlaceBombs is not provided', () => {
+    state.customAnimations.PlaceBombs = false
     generateBoard(state)
 
     placeBombs(state, action)
@@ -131,11 +112,8 @@ describe('place bombs', () => {
 
   it('should do nothing if PlaceBombs is not an allowed operation and return the passed in board', () => {
     state.allowedOperations.PlaceBombs = false
-    state.customAnimations.PlaceBombs = true
-    placeBombs(
-      state,
-      action
-    )
+
+    placeBombs(state, action)
 
     let bombCount = 0
 

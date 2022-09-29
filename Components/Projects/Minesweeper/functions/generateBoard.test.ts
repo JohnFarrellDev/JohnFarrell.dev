@@ -1,42 +1,14 @@
-import { FaceType } from '../Components/GameTracking/GameTracking'
+import { minesweeperStateFactory } from '../../../../factories/minesweeperState'
 import { State } from '../reducer'
 import { generateBoard } from './generateBoard'
 
-const startingState: State = {
-  animationToApply: [],
-  animationTime: 0,
-  columns: 10,
-  rows: 10,
-  customAnimations: {
-    CalculateNeighbors: false,
-    PlaceBombs: false
-  },
-  allowedOperations: {
-    CalculateNeighbors: false,
-    FlagCell: false,
-    PlaceBombs: false,
-    RevealCell: false,
-    RecursiveReveal: false
-  },
-  isDead: false,
-  isPlaying: false,
-  isWinner: false,
-  numberOfBombs: 5,
-  borderlessMode: false,
-  board:[],
-  isHoldingDown: false,
-  faceType: FaceType.Human
-}
-
 describe('generate board', () => {
-
-  let state = {...startingState}
+  let state: State
 
   beforeEach(() => {
-    state = {...startingState}
+    state = minesweeperStateFactory.build({})
     generateBoard(state)
   })
-
 
   it('should return as many inner arrays as rows', () => {
     expect(state.board.length).toBe(state.rows)

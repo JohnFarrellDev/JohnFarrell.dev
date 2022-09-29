@@ -1,49 +1,20 @@
 import cloneDeep from 'lodash.clonedeep'
-import { AnimationColor, State } from '..'
-import { FaceType } from '../../Components/GameTracking/GameTracking'
+import { AnimationColor } from '..'
+import { minesweeperStateFactory } from '../../../../../factories/minesweeperState'
 import { generateBoard } from '../../functions/generateBoard'
 import { applyAnimation } from './applyAnimation'
 
-const startingState: State = {
-  animationToApply: [],
-  animationTime: 0,
-  board: [],
-  columns: 5,
-  rows: 5,
-  customAnimations: {
-    CalculateNeighbors: false,
-    PlaceBombs: false,
-    RecursiveReveal: false
-  },
-  allowedOperations: {
-    CalculateNeighbors: false,
-    FlagCell: false,
-    PlaceBombs: false,
-    RevealCell: false,
-    RecursiveReveal: false,
-    AutoFlag: false,
-    BasicAutoClick: false
-  },
-  isDead: false,
-  isPlaying: false,
-  isWinner: false,
-  numberOfBombs: 5,
-  borderlessMode: false,
-  isHoldingDown: false,
-  faceType: FaceType.Human,
-  flagsPlaced: 0
-}
+const startingState = minesweeperStateFactory.build({})
 generateBoard(startingState)
 
 describe('apply animations', () => {
-
   let state = { ...startingState }
 
   beforeEach(() => {
     state = {
       ...startingState,
       animationToApply: [],
-      board: cloneDeep(startingState.board)
+      board: cloneDeep(startingState.board),
     }
   })
 
@@ -60,7 +31,9 @@ describe('apply animations', () => {
     expect(state.board[0][0].color).toBeUndefined()
 
     state.animationToApply.push({
-      animations: [{ rowIndex: 0, columnIndex: 0, color: AnimationColor.SelectedCell }],
+      animations: [
+        { rowIndex: 0, columnIndex: 0, color: AnimationColor.SelectedCell },
+      ],
       time: 0,
     })
     expect(state.animationToApply.length).toBe(1)
@@ -80,14 +53,18 @@ describe('apply animations', () => {
     expect(state.animationTime).toBe(0)
 
     state.animationToApply.push({
-      animations: [{ rowIndex: 0, columnIndex: 0, color: AnimationColor.SelectedCell }],
+      animations: [
+        { rowIndex: 0, columnIndex: 0, color: AnimationColor.SelectedCell },
+      ],
       time: EXPECTED_ANIMATION_TIME,
     })
     applyAnimation(state)
     expect(state.animationTime).toBe(EXPECTED_ANIMATION_TIME)
 
     state.animationToApply.push({
-      animations: [{ rowIndex: 0, columnIndex: 0, color: AnimationColor.SelectedCell }],
+      animations: [
+        { rowIndex: 0, columnIndex: 0, color: AnimationColor.SelectedCell },
+      ],
       time: 0,
     })
     applyAnimation(state)

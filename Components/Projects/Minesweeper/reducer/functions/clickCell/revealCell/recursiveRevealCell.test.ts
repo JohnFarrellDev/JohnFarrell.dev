@@ -1,47 +1,9 @@
 import { State, ClickCellAction, AnimationColor } from '../../..'
-import { FaceType } from '../../../../Components/GameTracking/GameTracking'
+import { minesweeperStateFactory } from '../../../../../../../factories/minesweeperState'
 import { generateBoard } from '../../../../functions/generateBoard'
 import { Cell } from '../../../../types'
 import { calculateNeighborInformation } from '../calculateNeighborInformation'
 import { recursiveRevealCell } from './recursiveRevealCell'
-
-const startingState: State = {
-  animationToApply: [],
-  animationTime: 0,
-  columns: 5,
-  rows: 5,
-  customAnimations: {
-    CalculateNeighbors: false,
-    PlaceBombs: false,
-    RecursiveReveal: true,
-  },
-  allowedOperations: {
-    CalculateNeighbors: true,
-    FlagCell: false,
-    PlaceBombs: false,
-    RevealCell: true,
-    RecursiveReveal: true,
-    AutoFlag: false,
-    BasicAutoClick: false
-  },
-  isDead: false,
-  isPlaying: false,
-  isWinner: false,
-  numberOfBombs: 5,
-  borderlessMode: false,
-  board: [],
-  isHoldingDown: false,
-  faceType: FaceType.Human,
-  flagsPlaced: 0,
-}
-generateBoard(startingState)
-calculateNeighborInformation(startingState)
-
-const startingAction: ClickCellAction = {
-  type: 'ClickCell',
-  columnIndex: 1,
-  rowIndex: 1,
-}
 
 const countUncoveredCells = (board: Cell[][]): number => {
   let count = 0
@@ -54,17 +16,27 @@ const countUncoveredCells = (board: Cell[][]): number => {
   return count
 }
 
+const startingAction: ClickCellAction = {
+  type: 'ClickCell',
+  columnIndex: 1,
+  rowIndex: 1,
+}
+
 describe('recursive reveal cell', () => {
-  let state = { ...startingState }
+  let state: State
   let action = { ...startingAction }
 
   beforeEach(() => {
-    state = {
-      ...startingState,
-      animationToApply: [],
-      customAnimations: { ...startingState.customAnimations },
-      allowedOperations: { ...startingState.allowedOperations },
-    }
+    state = minesweeperStateFactory.build({
+      allowedOperations: {
+        RevealCell: true,
+        RecursiveReveal: true,
+        CalculateNeighbors: true,
+      },
+      customAnimations: { RecursiveReveal: true },
+      rows: 5,
+      columns: 5,
+    })
     generateBoard(state)
     calculateNeighborInformation(state)
     action = { ...action }
@@ -136,12 +108,16 @@ describe('recursive reveal cell', () => {
     expect(state.animationToApply[1]).toEqual({
       time: 100,
       animations: [
-        { rowIndex: 3, columnIndex: 4, color: AnimationColor.RecursiveRevealColor },
+        {
+          rowIndex: 3,
+          columnIndex: 4,
+          color: AnimationColor.RecursiveRevealColor,
+        },
       ],
     })
-    expect(state.animationToApply[state.animationToApply.length-1]).toEqual({
+    expect(state.animationToApply[state.animationToApply.length - 1]).toEqual({
       time: 2000,
-      animations: "WIPE"
+      animations: 'WIPE',
     })
   })
 })

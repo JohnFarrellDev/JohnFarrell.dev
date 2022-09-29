@@ -1,36 +1,10 @@
 import { ChangeNumberOfBombsAction, State } from '..'
-import { FaceType } from '../../Components/GameTracking/GameTracking'
+import { minesweeperStateFactory } from '../../../../../factories/minesweeperState'
+import { generateBoard } from '../../functions/generateBoard'
 import { changeNumberOfBombs } from './changeNumberOfBombs'
 
-const startingState: State = {
-  animationToApply: [],
-  animationTime: 0,
-  columns: 10,
-  rows: 10,
-  customAnimations: {
-    CalculateNeighbors: false,
-    PlaceBombs: false,
-    RecursiveReveal: false
-  },
-  allowedOperations: {
-    CalculateNeighbors: false,
-    FlagCell: false,
-    PlaceBombs: false,
-    RevealCell: false,
-    RecursiveReveal: false,
-    AutoFlag: false,
-    BasicAutoClick: false
-  },
-  isDead: false,
-  isPlaying: false,
-  isWinner: false,
-  numberOfBombs: 5,
-  borderlessMode: false,
-  board: [],
-  isHoldingDown: false,
-  faceType: FaceType.Human,
-  flagsPlaced: 0
-}
+const startingState = minesweeperStateFactory.build({})
+generateBoard(startingState)
 
 const startingAction: ChangeNumberOfBombsAction = {
   type: 'ChangeNumberOfBombs',
@@ -38,14 +12,12 @@ const startingAction: ChangeNumberOfBombsAction = {
 }
 
 describe('change number of bombs', () => {
-  let action: ChangeNumberOfBombsAction = {
-    ...startingAction,
-  }
-
-  let state = { ...startingState }
+  let state: State
+  let action: ChangeNumberOfBombsAction
 
   beforeEach(() => {
-    state = { ...startingState }
+    state = minesweeperStateFactory.build({})
+    generateBoard(state)
     action = { ...startingAction }
   })
 

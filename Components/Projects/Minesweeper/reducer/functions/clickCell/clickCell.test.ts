@@ -1,62 +1,26 @@
 import { State, ClickCellAction } from '../..'
-import { FaceType } from '../../../Components/GameTracking/GameTracking'
+import { minesweeperStateFactory } from '../../../../../../factories/minesweeperState'
 import { generateBoard } from '../../../functions/generateBoard'
 import { clickCell } from './clickCell'
 import { revealCell } from './revealCell/revealCell'
 import { startGame } from './startGame'
 
-const startingState: State = {
-  animationToApply: [],
-  animationTime: 0,
-  columns: 5,
-  rows: 5,
-  customAnimations: {
-    CalculateNeighbors: false,
-    PlaceBombs: false,
-    RecursiveReveal: false
-  },
-  allowedOperations: {
-    CalculateNeighbors: false,
-    FlagCell: false,
-    PlaceBombs: false,
-    RevealCell: true,
-    RecursiveReveal: false,
-    AutoFlag: false,
-    BasicAutoClick: false
-  },
-  isDead: false,
-  isPlaying: false,
-  isWinner: false,
-  numberOfBombs: 5,
-  borderlessMode: false,
-  board: [],
-  isHoldingDown: false,
-  faceType: FaceType.Human,
-  flagsPlaced: 0,
-}
-
-const startingAction: ClickCellAction = {
-  type: 'ClickCell',
-  columnIndex: 1,
-  rowIndex: 1,
-}
-
 jest.mock('./revealCell/revealCell')
 jest.mock('./startGame')
 
 describe('click cell', () => {
-  let state = { ...startingState }
-  let action = { ...startingAction }
+  let state: State
+  const action: ClickCellAction = {
+    type: 'ClickCell',
+    columnIndex: 1,
+    rowIndex: 1,
+  }
 
   beforeEach(() => {
-    state = {
-      ...startingState,
-      animationToApply: [],
-      customAnimations: { ...startingState.customAnimations },
-      allowedOperations: { ...startingState.allowedOperations },
-    }
+    state = minesweeperStateFactory.build({
+      allowedOperations: { RevealCell: true },
+    })
     generateBoard(state)
-    action = { ...startingAction }
     jest.resetAllMocks()
   })
 
@@ -97,8 +61,6 @@ describe('click cell', () => {
   })
 
   it('should call reveal cell if the state isPlaying is true and isWinner and isDead is false', () => {
-    state.isWinner = false
-    state.isDead = false
     state.isPlaying = true
 
     clickCell(state, action)

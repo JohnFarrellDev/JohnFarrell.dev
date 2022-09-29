@@ -1,6 +1,4 @@
 import { State, Action } from '.'
-import { FaceType } from '../Components/GameTracking/GameTracking'
-import { generateBoard } from '../functions/generateBoard'
 import { minesweeperReducer } from '.'
 
 import { applyAnimation } from './functions/applyAnimation'
@@ -13,6 +11,7 @@ import { mouseUpCell } from './functions/clickCell/mouseUpCell'
 import { init } from './functions/init'
 import { flagCell } from './functions/flagCell'
 import { switchFaceType } from './functions/switchFaceType'
+import { minesweeperStateFactory } from '../../../../factories/minesweeperState'
 
 jest.mock('./functions/applyAnimation')
 jest.mock('./functions/changeNumberOfBombs')
@@ -25,42 +24,13 @@ jest.mock('./functions/init')
 jest.mock('./functions/flagCell')
 jest.mock('./functions/switchFaceType')
 
-const startingState: State = {
-  animationToApply: [],
-  animationTime: 0,
-  columns: 5,
-  rows: 5,
-  isDead: false,
-  isPlaying: false,
-  isWinner: false,
-  numberOfBombs: 5,
-  board: [],
-  customAnimations: {
-    CalculateNeighbors: false,
-    PlaceBombs: false,
-    RecursiveReveal: false,
-  },
-  allowedOperations: {
-    CalculateNeighbors: false,
-    FlagCell: false,
-    PlaceBombs: false,
-    RevealCell: false,
-    RecursiveReveal: false,
-    AutoFlag: false,
-    BasicAutoClick: false
-  },
-  isHoldingDown: false,
-  borderlessMode: false,
-  faceType: FaceType.Human,
-  flagsPlaced: 0,
-}
-generateBoard(startingState)
-
 describe('minesweeper reducer', () => {
-  const state = {
-    ...startingState,
-  }
-  
+  let state: State
+
+  beforeEach(() => {
+    state = minesweeperStateFactory.build()
+  })
+
   it.each`
     action                               | passedFunction
     ${{ type: 'ApplyAnimation' }}        | ${applyAnimation}

@@ -1,52 +1,14 @@
 import { State } from '..'
+import { minesweeperStateFactory } from '../../../../../factories/minesweeperState'
 import { FaceType } from '../../Components/GameTracking/GameTracking'
 import { generateBoard } from '../../functions/generateBoard'
 import { switchFaceType } from './switchFaceType'
 
-const startingState: State = {
-  animationToApply: [],
-  animationTime: 0,
-  board: [],
-  columns: 5,
-  rows: 5,
-  customAnimations: {
-    CalculateNeighbors: false,
-    PlaceBombs: false,
-    RecursiveReveal: false
-  },
-  allowedOperations: {
-    FlagCell: false,
-    CalculateNeighbors: false,
-    PlaceBombs: false,
-    RevealCell: false,
-    RecursiveReveal: false,
-    AutoFlag: false,
-    BasicAutoClick: false
-  },
-  isDead: false,
-  isPlaying: true,
-  isWinner: false,
-  isHoldingDown: false,
-  numberOfBombs: 5,
-  borderlessMode: false,
-  faceType: FaceType.Human,
-  flagsPlaced: 0,
-}
-
 describe('switch face type', () => {
-  let state = { ...startingState }
+  let state: State
 
   beforeEach(() => {
-    state = {
-      ...startingState,
-      animationToApply: [],
-      allowedOperations: {
-        ...startingState.allowedOperations,
-      },
-      customAnimations: {
-        ...startingState.customAnimations,
-      },
-    }
+    state = minesweeperStateFactory.build()
     generateBoard(state)
   })
 

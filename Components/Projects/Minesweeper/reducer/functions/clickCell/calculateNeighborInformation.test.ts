@@ -1,49 +1,18 @@
 import { AnimationColor, State } from '../..'
-import { FaceType } from '../../../Components/GameTracking/GameTracking'
+import { minesweeperStateFactory } from '../../../../../../factories/minesweeperState'
 import { generateBoard } from '../../../functions/generateBoard'
 import { calculateNeighborInformation } from './calculateNeighborInformation'
 
-const startingState: State = {
-  animationToApply: [],
-  animationTime: 0,
-  columns: 5,
-  rows: 5,
-  customAnimations: {
-    CalculateNeighbors: true,
-    PlaceBombs: false,
-    RecursiveReveal: false
-  },
-  allowedOperations: {
-    CalculateNeighbors: true,
-    FlagCell: false,
-    PlaceBombs: false,
-    RevealCell: false,
-    RecursiveReveal: false,
-    AutoFlag: false,
-    BasicAutoClick: false
-  },
-  isDead: false,
-  isPlaying: false,
-  isWinner: false,
-  numberOfBombs: 5,
-  borderlessMode: false,
-  board: [],
-  isHoldingDown: false,
-  faceType: FaceType.Human,
-  flagsPlaced: 0
-}
-
-
 describe('calculate neighbor information', () => {
-  let state = { ...startingState }
+  let state: State
 
   beforeEach(() => {
-    state = {
-      ...startingState,
-      animationToApply: [],
-      customAnimations: { ...startingState.customAnimations },
-      allowedOperations: { ...startingState.allowedOperations }
-    }
+    state = minesweeperStateFactory.build({
+      allowedOperations: { CalculateNeighbors: true },
+      customAnimations: { CalculateNeighbors: true },
+      rows: 5,
+      columns: 5,
+    })
     generateBoard(state)
   })
 

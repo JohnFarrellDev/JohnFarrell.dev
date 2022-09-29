@@ -1,37 +1,9 @@
-import { State, ChangeNumberOfColumnsAction } from '..'
+import { ChangeNumberOfColumnsAction, State } from '..'
 import { changeNumberOfColumns } from './changeNumberOfColumns'
 import { generateBoard } from '../../functions/generateBoard'
-import { FaceType } from '../../Components/GameTracking/GameTracking'
+import { minesweeperStateFactory } from '../../../../../factories/minesweeperState'
 
-const startingState: State = {
-  animationToApply: [],
-  animationTime: 0,
-  columns: 10,
-  rows: 10,
-  customAnimations: {
-    CalculateNeighbors: false,
-    PlaceBombs: false,
-    RecursiveReveal: false
-  },
-  allowedOperations: {
-    CalculateNeighbors: false,
-    FlagCell: false,
-    PlaceBombs: false,
-    RevealCell: false,
-    RecursiveReveal: false,
-    AutoFlag: false,
-    BasicAutoClick: false
-  },
-  isDead: false,
-  isPlaying: false,
-  isWinner: false,
-  numberOfBombs: 10,
-  borderlessMode: false,
-  board: [],
-  isHoldingDown: false,
-  faceType: FaceType.Human,
-  flagsPlaced: 0
-}
+const startingState = minesweeperStateFactory.build({})
 generateBoard(startingState)
 
 const startingAction: ChangeNumberOfColumnsAction = {
@@ -40,11 +12,12 @@ const startingAction: ChangeNumberOfColumnsAction = {
 }
 
 describe('change number of columns', () => {
-  let state = { ...startingState }
-  let action = { ...startingAction }
+  let state: State
+  let action: ChangeNumberOfColumnsAction
 
   beforeEach(() => {
-    state = { ...startingState }
+    state = minesweeperStateFactory.build({})
+    generateBoard(state)
     action = { ...startingAction }
   })
 
@@ -65,7 +38,7 @@ describe('change number of columns', () => {
   })
 
   it('should not allow number of columns to be set to NaN', () => {
-    action.newNumberOfColumns = NaN;
+    action.newNumberOfColumns = NaN
 
     changeNumberOfColumns(state, action)
 

@@ -1,37 +1,7 @@
 import { RightClickCellAction, State } from '..'
-import { FaceType } from '../../Components/GameTracking/GameTracking'
+import { minesweeperStateFactory } from '../../../../../factories/minesweeperState'
 import { generateBoard } from '../../functions/generateBoard'
 import { flagCell } from './flagCell'
-
-const startingState: State = {
-  animationToApply: [],
-  animationTime: 0,
-  board: [],
-  columns: 5,
-  rows: 5,
-  customAnimations: {
-    CalculateNeighbors: false,
-    PlaceBombs: false,
-    RecursiveReveal: false
-  },
-  allowedOperations: {
-    FlagCell: true,
-    CalculateNeighbors: false,
-    PlaceBombs: true,
-    RevealCell: true,
-    RecursiveReveal: false,
-    AutoFlag: false,
-    BasicAutoClick: false
-  },
-  isDead: false,
-  isPlaying: true,
-  isWinner: false,
-  isHoldingDown: false,
-  numberOfBombs: 5,
-  borderlessMode: false,
-  faceType: FaceType.Human,
-  flagsPlaced: 0
-}
 
 const startingAction: RightClickCellAction = {
   type: 'RightClickCell',
@@ -40,22 +10,25 @@ const startingAction: RightClickCellAction = {
 }
 
 describe('right click cell', () => {
-  let state = { ...startingState }
-  let action = { ...startingAction }
+  let state: State
+  let action: RightClickCellAction
 
   beforeEach(() => {
-    state = {
-      ...startingState,
-      animationToApply: [],
+    state = minesweeperStateFactory.build({
       allowedOperations: {
-        ...startingState.allowedOperations,
+        FlagCell: true,
+        CalculateNeighbors: false,
+        PlaceBombs: false,
+        RevealCell: false,
+        RecursiveReveal: false,
+        AutoFlag: false,
+        BasicAutoClick: false,
       },
-      customAnimations: {
-        ...startingState.customAnimations,
-      },
-    }
+      isPlaying: true,
+    })
     generateBoard(state)
     action = { ...startingAction }
+    jest.resetAllMocks()
   })
 
   it('should do nothing if the state isPlaying is not true', () => {
@@ -63,7 +36,9 @@ describe('right click cell', () => {
 
     flagCell(state, action)
 
-    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
+    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(
+      false
+    )
   })
 
   it('should do nothing if the state isDead is true', () => {
@@ -71,7 +46,9 @@ describe('right click cell', () => {
 
     flagCell(state, action)
 
-    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
+    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(
+      false
+    )
   })
 
   it('should do nothing if the state isWinner is true', () => {
@@ -79,7 +56,9 @@ describe('right click cell', () => {
 
     flagCell(state, action)
 
-    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
+    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(
+      false
+    )
   })
 
   it('should do nothing if the state operation for FlagCell is not true', () => {
@@ -87,7 +66,9 @@ describe('right click cell', () => {
 
     flagCell(state, action)
 
-    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
+    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(
+      false
+    )
   })
 
   it('should do nothing if the cell is already uncovered', () => {
@@ -95,7 +76,9 @@ describe('right click cell', () => {
 
     flagCell(state, action)
 
-    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
+    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(
+      false
+    )
   })
 
   it('should do nothing if there are animations to apply', () => {
@@ -103,7 +86,9 @@ describe('right click cell', () => {
 
     flagCell(state, action)
 
-    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
+    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(
+      false
+    )
   })
 
   it('should be able to flag a cell', () => {

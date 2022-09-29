@@ -1,37 +1,9 @@
 import { State, ChangeNumberOfRowsAction } from '..'
 import { changeNumberOfRows } from './changeNumberOfRows'
 import { generateBoard } from '../../functions/generateBoard'
-import { FaceType } from '../../Components/GameTracking/GameTracking'
+import { minesweeperStateFactory } from '../../../../../factories/minesweeperState'
 
-const startingState: State = {
-  animationToApply: [],
-  animationTime: 0,
-  columns: 5,
-  rows: 5,
-  isDead: false,
-  isPlaying: false,
-  isWinner: false,
-  numberOfBombs: 5,
-  board: [],
-  customAnimations: {
-    CalculateNeighbors: false,
-    PlaceBombs: false,
-    RecursiveReveal: false
-  },
-  allowedOperations: {
-    CalculateNeighbors: false,
-    FlagCell: false,
-    PlaceBombs: false,
-    RevealCell: false,
-    RecursiveReveal: false,
-    AutoFlag: false,
-    BasicAutoClick: false
-  },
-  isHoldingDown: false,
-  borderlessMode: false,
-  faceType: FaceType.Human,
-  flagsPlaced: 0
-}
+const startingState = minesweeperStateFactory.build({})
 generateBoard(startingState)
 
 const startingAction: ChangeNumberOfRowsAction = {
@@ -40,13 +12,11 @@ const startingAction: ChangeNumberOfRowsAction = {
 }
 
 describe('change number of rows', () => {
-  let state = {
-    ...startingState,
-  }
-  let action = { ...startingAction }
+  let state: State
+  let action: ChangeNumberOfRowsAction
 
   beforeEach(() => {
-    state = { ...startingState }
+    state = minesweeperStateFactory.build({})
     generateBoard(state)
     action = { ...startingAction }
   })
@@ -102,7 +72,7 @@ describe('change number of rows', () => {
   })
 
   it('should allow 3 rows as a minimum', () => {
-    expect(state.rows).toBe(5)
+    expect(state.rows).toBe(startingState.rows)
 
     action.newNumberOfRows = 3
     changeNumberOfRows(state, action)
@@ -111,7 +81,7 @@ describe('change number of rows', () => {
   })
 
   it('should allow 30 rows as a maximum', () => {
-    expect(state.rows).toBe(5)
+    expect(state.rows).toBe(startingState.rows)
 
     action.newNumberOfRows = 30
 

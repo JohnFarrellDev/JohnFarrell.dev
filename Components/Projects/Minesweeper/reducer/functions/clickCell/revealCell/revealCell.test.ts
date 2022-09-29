@@ -1,62 +1,26 @@
 import { ClickCellAction, State } from '../../..'
-import { FaceType } from '../../../../Components/GameTracking/GameTracking'
 import { generateBoard } from '../../../../functions/generateBoard'
 import { revealCell } from './revealCell'
 import { recursiveRevealCell } from './recursiveRevealCell'
 import { determineHasWon } from './determineHasWon'
+import { minesweeperStateFactory } from '../../../../../../../factories/minesweeperState'
 
-const startingState: State = {
-  animationToApply: [],
-  animationTime: 0,
-  columns: 5,
-  rows: 5,
-  customAnimations: {
-    CalculateNeighbors: false,
-    PlaceBombs: false,
-    RecursiveReveal: false
-  },
-  allowedOperations: {
-    CalculateNeighbors: false,
-    FlagCell: false,
-    PlaceBombs: false,
-    RevealCell: true,
-    RecursiveReveal: false,
-    AutoFlag: false,
-    BasicAutoClick: false
-  },
-  isDead: false,
-  isPlaying: false,
-  isWinner: false,
-  numberOfBombs: 5,
-  borderlessMode: false,
-  board: [],
-  isHoldingDown: false,
-  faceType: FaceType.Human,
-  flagsPlaced: 0,
-}
-
-const startingAction: ClickCellAction = {
-  type: 'ClickCell',
-  columnIndex: 1,
-  rowIndex: 1,
-}
-
-jest.mock('./recursiveRevealCell');
+jest.mock('./recursiveRevealCell')
 jest.mock('./determineHasWon')
 
 describe('reveal cell', () => {
-  let state = { ...startingState }
-  let action = { ...startingAction }
+  let state: State
+  const action: ClickCellAction = {
+    type: 'ClickCell',
+    columnIndex: 1,
+    rowIndex: 1,
+  }
 
   beforeEach(() => {
-    state = {
-      ...startingState,
-      animationToApply: [],
-      customAnimations: { ...startingState.customAnimations },
-      allowedOperations: { ...startingState.allowedOperations },
-    }
+    state = minesweeperStateFactory.build({
+      allowedOperations: { RevealCell: true },
+    })
     generateBoard(state)
-    action = { ...startingAction }
     jest.resetAllMocks()
   })
 
