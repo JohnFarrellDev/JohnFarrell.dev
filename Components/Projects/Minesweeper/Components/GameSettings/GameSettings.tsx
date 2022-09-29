@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import styles from './GameSettings.module.css'
 
 interface GameSettingsI {
   columns: number
-  changeNumberOfColumns: (newNumberOfColumns: string) => void
+  changeNumberOfColumns: (newNumberOfColumns: ChangeEvent<HTMLInputElement>) => void
 
   rows: number
-  changeNumberOfRows: (newNumberOfRows: string) => void
+  changeNumberOfRows: (newNumberOfRows: ChangeEvent<HTMLInputElement>) => void
 
   numberOfBombs: number
-  changeNumberOfBombs: (newNumberOfBombs: string) => void
+  changeNumberOfBombs: (newNumberOfBombs: ChangeEvent<HTMLInputElement>) => void
 }
 
 export const GameSettings = ({
@@ -27,7 +27,7 @@ export const GameSettings = ({
         <input
           type="number"
           value={columns}
-          onChange={(event) => changeNumberOfColumns(event.target.value)}
+          onChange={changeNumberOfColumns}
           min={3}
           max={50}
         />
@@ -38,7 +38,7 @@ export const GameSettings = ({
         <input
           type="number"
           value={rows}
-          onChange={(event) => changeNumberOfRows(event.target.value)}
+          onChange={changeNumberOfRows}
           min={3}
           max={30}
         />
@@ -49,7 +49,7 @@ export const GameSettings = ({
         <input
           type="number"
           value={numberOfBombs}
-          onChange={(event) => changeNumberOfBombs(event.target.value)}
+          onChange={changeNumberOfBombs}
           min={1}
           max={columns * rows}
         />

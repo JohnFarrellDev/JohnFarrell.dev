@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useReducer, MouseEvent } from 'react'
+import React, { useCallback, useEffect, useReducer, MouseEvent, ChangeEvent } from 'react'
 import { minesweeperReducer } from '../../reducer'
 import { GameCell } from '../GameCell'
 import { GameSettings } from '../GameSettings'
@@ -79,24 +79,24 @@ export const Game = ({
     dispatch({ type: 'ClickCell', rowIndex, columnIndex })
   }, [])
 
-  const changeNumberOfColumns = useCallback((newNumberOfColumns: string) => {
+  const changeNumberOfColumns = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     dispatch({
       type: 'ChangeNumberOfColumns',
-      newNumberOfColumns: Number(newNumberOfColumns),
+      newNumberOfColumns: Number(event.target.value),
     })
   }, [])
 
-  const changeNumberOfRows = useCallback((newNumberOfRows: string) => {
+  const changeNumberOfRows = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     dispatch({
       type: 'ChangeNumberOfRows',
-      newNumberOfRows: Number(newNumberOfRows),
+      newNumberOfRows: Number(event.target.value),
     })
   }, [])
 
-  const changeNumberOfBombs = useCallback((newNumberOfBombs: string) => {
+  const changeNumberOfBombs = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     dispatch({
       type: 'ChangeNumberOfBombs',
-      newNumberOfBombs: Number(newNumberOfBombs),
+      newNumberOfBombs: Number(event.target.value),
     })
   }, [])
 
