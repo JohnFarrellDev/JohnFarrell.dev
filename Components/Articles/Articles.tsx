@@ -19,12 +19,12 @@ const articles: Article[] = [
     createdAt: new Date('2022-08-01T14:15:28.433Z'),
     tags: [],
   },
-  {
-    URI: '/articles/recruiter-challenge',
-    name: 'Recruiter Challenge (£250 up for grabs)',
-    createdAt: new Date('2022-05-28T11:10:19.558Z'),
-    tags: [],
-  },
+  // {
+  //   URI: '/articles/recruiter-challenge',
+  //   name: 'Recruiter Challenge (£250 up for grabs)',
+  //   createdAt: new Date('2022-05-28T11:10:19.558Z'),
+  //   tags: [],
+  // },
   {
     URI: '/articles/userscript-udemy-copy-out-quizzes',
     name: 'UserScripts to copy Quiz Questions and Answers from Udemy',
