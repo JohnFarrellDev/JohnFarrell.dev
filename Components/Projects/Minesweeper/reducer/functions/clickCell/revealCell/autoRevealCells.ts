@@ -5,6 +5,7 @@ const numberOfFlaggedNeighborCells = (cell: Cell): number =>
   cell.neighbors.reduce((prev, curr) => prev + Number(curr.isFlagged), 0)
 
 export const autoRevealCells = (state: State): boolean => {
+  if(!state.allowedOperations.BasicAutoClick) return false
   const rows = state.rows
   const columns = state.columns
 

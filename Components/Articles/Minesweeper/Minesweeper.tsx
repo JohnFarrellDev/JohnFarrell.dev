@@ -357,7 +357,7 @@ export const Minesweeper = () => {
                   AutoFlag: true,
                   BasicAutoClick: true,
                 }}
-                borderlessMode={true}
+                borderlessMode={false}
               />
 
               <li>Implement animation for auto flagging and basic auto clicking</li>

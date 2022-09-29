@@ -5,6 +5,7 @@ const numberOfCoveredNeighbors = (cell: Cell): number =>
   cell.neighbors.reduce((prev, curr) => prev + Number(curr.isCovered), 0)
 
 export const autoFlagCells = (state: State) => {
+  if(!state.allowedOperations.AutoFlag) return
   const rows = state.rows
   const columns = state.columns
 
