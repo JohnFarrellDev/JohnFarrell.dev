@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useReducer, MouseEvent, ChangeEvent } from 'react'
+import React, {
+  useCallback,
+  useEffect,
+  useReducer,
+  MouseEvent,
+  ChangeEvent,
+} from 'react'
 import { Queue } from '../../../../../Utilities/Queue'
 import { AnimationStep, minesweeperReducer } from '../../reducer'
 import { GameCell } from '../GameCell'
@@ -7,7 +13,11 @@ import { GameTracking } from '../GameTracking'
 import { FaceType } from '../GameTracking/GameTracking'
 import styles from './Game.module.css'
 
-export type CustomAnimations = 'PlaceBombs' | 'CalculateNeighbors' | 'RecursiveReveal' | 'FlagCell'
+export type CustomAnimations =
+  | 'PlaceBombs'
+  | 'CalculateNeighbors'
+  | 'RecursiveReveal'
+  | 'FlagCell'
 export type Operations =
   | 'PlaceBombs'
   | 'CalculateNeighbors'
@@ -53,22 +63,17 @@ export const Game = ({
     borderlessMode,
     isHoldingDown: false,
     faceType: FaceType.Human,
-    flagsPlaced: 0
+    flagsPlaced: 0,
   })
 
   useEffect(() => {
-    if (gameState.animationToApply.length > 0) {
-      setTimeout(() => {
-        dispatch({
-          type: 'ApplyAnimation',
-        })
-      }, gameState.animationTime)
-    }
-  }, [
-    gameState.animationToApply.length,
-    gameState.animationToApply,
-    gameState.animationTime,
-  ])
+    setTimeout(() => {
+      dispatch({
+        type: 'ApplyAnimation',
+      })
+    }, gameState.animationTime)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gameState.animationToApply.length])
 
   useEffect(() => {
     dispatch({
@@ -80,26 +85,35 @@ export const Game = ({
     dispatch({ type: 'ClickCell', rowIndex, columnIndex })
   }, [])
 
-  const changeNumberOfColumns = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-    dispatch({
-      type: 'ChangeNumberOfColumns',
-      newNumberOfColumns: Number(event.target.value),
-    })
-  }, [])
+  const changeNumberOfColumns = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      dispatch({
+        type: 'ChangeNumberOfColumns',
+        newNumberOfColumns: Number(event.target.value),
+      })
+    },
+    []
+  )
 
-  const changeNumberOfRows = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-    dispatch({
-      type: 'ChangeNumberOfRows',
-      newNumberOfRows: Number(event.target.value),
-    })
-  }, [])
+  const changeNumberOfRows = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      dispatch({
+        type: 'ChangeNumberOfRows',
+        newNumberOfRows: Number(event.target.value),
+      })
+    },
+    []
+  )
 
-  const changeNumberOfBombs = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-    dispatch({
-      type: 'ChangeNumberOfBombs',
-      newNumberOfBombs: Number(event.target.value),
-    })
-  }, [])
+  const changeNumberOfBombs = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      dispatch({
+        type: 'ChangeNumberOfBombs',
+        newNumberOfBombs: Number(event.target.value),
+      })
+    },
+    []
+  )
 
   const rightClickCell = useCallback(
     (rowIndex: number, columnIndex: number) => {
@@ -109,7 +123,7 @@ export const Game = ({
   )
 
   const mouseDownCell = useCallback((event: MouseEvent<HTMLDivElement>) => {
-    if(event.nativeEvent.button === 2) return
+    if (event.nativeEvent.button === 2) return
     dispatch({ type: 'MouseDownCell' })
   }, [])
 
@@ -118,7 +132,7 @@ export const Game = ({
   }, [])
 
   const switchFaceType = useCallback(() => {
-    dispatch({type: 'SwitchFaceType'})
+    dispatch({ type: 'SwitchFaceType' })
   }, [])
 
   return (

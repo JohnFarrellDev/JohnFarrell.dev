@@ -1,9 +1,9 @@
-import { State, AnimationStep } from "..";
+import { State } from "..";
 
 export const applyAnimation = (state: State) => {
-    if(state.animationToApply.length === 0) return
+    const animationStep = state.animationToApply.dequeue()
 
-    const animationStep = state.animationToApply.dequeue() as AnimationStep
+    if(!animationStep) return;
 
     if(animationStep.animations === "WIPE") {
         state.board.forEach((row) => {

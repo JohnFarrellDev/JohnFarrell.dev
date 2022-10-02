@@ -1,4 +1,5 @@
-import { ClickCellAction, State } from '../..'
+import { AnimationStep, ClickCellAction, State } from '../..'
+import { Queue } from '../../../../../../Utilities/Queue';
 import { generateBoard } from '../../../functions/generateBoard';
 import { calculateNeighborInformation } from './calculateNeighborInformation';
 import { placeBombs } from './placeBombs';
@@ -9,6 +10,8 @@ export const startGame = (state: State, action: ClickCellAction) => {
   state.isDead = false;
   state.isWinner = false;
   state.flagsPlaced = 0;
+  state.animationToApply = new Queue<AnimationStep>();
+  state.animationTime = 0;
   generateBoard(state)
   placeBombs(state, action)
   calculateNeighborInformation(state)
