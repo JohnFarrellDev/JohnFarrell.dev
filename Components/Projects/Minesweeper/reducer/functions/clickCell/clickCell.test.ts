@@ -25,7 +25,7 @@ describe('click cell', () => {
   })
 
   it('should do nothing if there are animations to apply', () => {
-    state.animationToApply.push({ animations: 'WIPE', time: 0 })
+    state.animationToApply.enqueue({ animations: 'WIPE', time: 0 })
 
     clickCell(state, action)
 

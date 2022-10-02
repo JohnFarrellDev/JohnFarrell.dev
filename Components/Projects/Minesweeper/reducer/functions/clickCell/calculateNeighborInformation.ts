@@ -20,7 +20,7 @@ export const calculateNeighborInformation = (state: State) => {
       const cellNeighbors: Cell[] = []
 
       if (state.customAnimations.CalculateNeighbors) {
-        state.animationToApply.push({
+        state.animationToApply.enqueue({
           time: 400,
           animations: [{ columnIndex, rowIndex, color: AnimationColor.SelectedCell }],
         })
@@ -85,12 +85,12 @@ export const calculateNeighborInformation = (state: State) => {
       }
 
       if (state.customAnimations['CalculateNeighbors']) {
-        state.animationToApply.push({
+        state.animationToApply.enqueue({
           time: 400,
           animations: neighborCellsAnimation,
         })
 
-        state.animationToApply.push({
+        state.animationToApply.enqueue({
           time: 400,
           animations: 'WIPE',
         })

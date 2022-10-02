@@ -3,7 +3,7 @@ import { State, AnimationStep } from "..";
 export const applyAnimation = (state: State) => {
     if(state.animationToApply.length === 0) return
 
-    const animationStep = state.animationToApply.pop() as AnimationStep
+    const animationStep = state.animationToApply.dequeue() as AnimationStep
 
     if(animationStep.animations === "WIPE") {
         state.board.forEach((row) => {

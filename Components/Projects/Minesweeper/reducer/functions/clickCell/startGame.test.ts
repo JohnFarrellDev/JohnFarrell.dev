@@ -1,4 +1,4 @@
-import { ClickCellAction, AnimationColor, State } from '../..'
+import { ClickCellAction, State } from '../..'
 import { startGame } from './startGame'
 
 import { generateBoard } from '../../../functions/generateBoard'
@@ -65,48 +65,6 @@ describe('start game', () => {
     startGame(state, action)
 
     expect(state.flagsPlaced).toBe(0)
-  })
-
-  it('should reorder our animations', () => {
-    state.animationToApply.push({
-      animations: [
-        { columnIndex: 0, rowIndex: 0, color: AnimationColor.SelectedCell },
-      ],
-      time: 500,
-    })
-    state.animationToApply.push({
-      animations: [
-        { columnIndex: 1, rowIndex: 1, color: AnimationColor.SelectedCell },
-      ],
-      time: 300,
-    })
-    state.animationToApply.push({
-      animations: [
-        { columnIndex: 2, rowIndex: 2, color: AnimationColor.SelectedCell },
-      ],
-      time: 100,
-    })
-
-    startGame(state, action)
-
-    expect(state.animationToApply[0]).toEqual({
-      animations: [
-        { columnIndex: 2, rowIndex: 2, color: AnimationColor.SelectedCell },
-      ],
-      time: 100,
-    })
-    expect(state.animationToApply[1]).toEqual({
-      animations: [
-        { columnIndex: 1, rowIndex: 1, color: AnimationColor.SelectedCell },
-      ],
-      time: 300,
-    })
-    expect(state.animationToApply[2]).toEqual({
-      animations: [
-        { columnIndex: 0, rowIndex: 0, color: AnimationColor.SelectedCell },
-      ],
-      time: 500,
-    })
   })
 
   it('should call generateBoard, placeBombs, calculateNeighborInformation and revealCell in the correct order with correct params', () => {

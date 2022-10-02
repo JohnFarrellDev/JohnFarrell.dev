@@ -1,4 +1,3 @@
-import cloneDeep from 'lodash.clonedeep'
 import { AnimationColor } from '..'
 import { minesweeperStateFactory } from '../../../../../factories/minesweeperState'
 import { generateBoard } from '../../functions/generateBoard'
@@ -11,11 +10,8 @@ describe('apply animations', () => {
   let state = { ...startingState }
 
   beforeEach(() => {
-    state = {
-      ...startingState,
-      animationToApply: [],
-      board: cloneDeep(startingState.board),
-    }
+    state = minesweeperStateFactory.build({})
+    generateBoard(state)
   })
 
   it('should do nothing if the animations to apply has a length of 0', () => {
@@ -30,7 +26,7 @@ describe('apply animations', () => {
     expect(state.animationToApply.length).toBe(0)
     expect(state.board[0][0].color).toBeUndefined()
 
-    state.animationToApply.push({
+    state.animationToApply.enqueue({
       animations: [
         { rowIndex: 0, columnIndex: 0, color: AnimationColor.SelectedCell },
       ],
@@ -43,7 +39,7 @@ describe('apply animations', () => {
     expect(state.animationToApply.length).toBe(0)
     expect(state.board[0][0].color).toBe(AnimationColor.SelectedCell)
 
-    state.animationToApply.push({ animations: 'WIPE', time: 0 })
+    state.animationToApply.enqueue({ animations: 'WIPE', time: 0 })
     applyAnimation(state)
     expect(state.board[0][0].color).toBeUndefined()
   })
@@ -52,7 +48,7 @@ describe('apply animations', () => {
     const EXPECTED_ANIMATION_TIME = 1000
     expect(state.animationTime).toBe(0)
 
-    state.animationToApply.push({
+    state.animationToApply.enqueue({
       animations: [
         { rowIndex: 0, columnIndex: 0, color: AnimationColor.SelectedCell },
       ],
@@ -61,7 +57,7 @@ describe('apply animations', () => {
     applyAnimation(state)
     expect(state.animationTime).toBe(EXPECTED_ANIMATION_TIME)
 
-    state.animationToApply.push({
+    state.animationToApply.enqueue({
       animations: [
         { rowIndex: 0, columnIndex: 0, color: AnimationColor.SelectedCell },
       ],
@@ -77,7 +73,7 @@ describe('apply animations', () => {
     expect(state.board[1][0].color).toBeUndefined()
     expect(state.board[1][1].color).toBeUndefined()
 
-    state.animationToApply.push({
+    state.animationToApply.enqueue({
       animations: [
         { rowIndex: 0, columnIndex: 0, color: AnimationColor.SelectedCell },
         { rowIndex: 0, columnIndex: 1, color: AnimationColor.SelectedCell },

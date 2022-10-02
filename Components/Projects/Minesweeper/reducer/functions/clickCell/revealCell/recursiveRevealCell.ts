@@ -10,7 +10,7 @@ export const recursiveRevealCell = (state: State, action: ClickCellAction) => {
   const cellsToVisit = [state.board[action.rowIndex][action.columnIndex].id]
 
   if (state.customAnimations.RecursiveReveal) {
-    state.animationToApply.push({
+    state.animationToApply.enqueue({
       animations: [
         {
           rowIndex: action.rowIndex,
@@ -31,7 +31,7 @@ export const recursiveRevealCell = (state: State, action: ClickCellAction) => {
       state.customAnimations.RecursiveReveal &&
       !(row === action.rowIndex && column === action.columnIndex)
     ) {
-      state.animationToApply.push({
+      state.animationToApply.enqueue({
         animations: [
           {
             rowIndex: row,
@@ -55,7 +55,7 @@ export const recursiveRevealCell = (state: State, action: ClickCellAction) => {
   }
 
   if (state.customAnimations.RecursiveReveal) {
-    state.animationToApply.push({
+    state.animationToApply.enqueue({
       animations: "WIPE",
       time: 2000,
     })

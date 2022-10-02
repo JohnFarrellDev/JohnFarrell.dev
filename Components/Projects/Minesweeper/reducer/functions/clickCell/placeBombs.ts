@@ -21,7 +21,7 @@ export const placeBombs = (
         isBomb: true,
       }
 
-      state.animationToApply.push({
+      state.animationToApply.enqueue({
         time: 500,
         animations: [
           {
@@ -67,7 +67,7 @@ export const placeBombs = (
         isBomb: switchHasBomb,
       }
 
-      state.animationToApply.push({
+      state.animationToApply.enqueue({
         time: 500,
         animations: [
           {
@@ -86,7 +86,7 @@ export const placeBombs = (
   }
 
   if (state.customAnimations.PlaceBombs) {
-    state.animationToApply.push({
+    state.animationToApply.enqueue({
       time: 500,
       animations: 'WIPE',
     })

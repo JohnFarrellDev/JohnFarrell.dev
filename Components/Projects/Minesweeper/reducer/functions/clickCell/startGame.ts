@@ -13,8 +13,4 @@ export const startGame = (state: State, action: ClickCellAction) => {
   placeBombs(state, action)
   calculateNeighborInformation(state)
   revealCell(state, action)
-
-  const animationToApply = [...state.animationToApply].reverse()
-
-  state.animationToApply = animationToApply
 }
