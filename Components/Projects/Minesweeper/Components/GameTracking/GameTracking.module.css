@@ -9,7 +9,6 @@
 .container p {
     font-size: 2rem;
     user-select: none;
-    width: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,4 +16,8 @@
 
 .container p:hover {
     cursor: pointer
+}
+
+.svg {
+    width: 50px
 }

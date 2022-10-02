@@ -19,7 +19,7 @@ describe('Game Cell', () => {
       />
     )
 
-    expect(screen.getByText('🚩')).toBeInTheDocument()
+    expect(screen.getByTestId('red-flag')).toBeInTheDocument()
   })
 
   it('should display how many neighbors are bombs if the cell is uncovered and not a bomb', () => {
@@ -59,7 +59,7 @@ describe('Game Cell', () => {
       />
     )
 
-    expect(screen.getByText('💣')).toBeInTheDocument()
+    expect(screen.getByTestId('bomb')).toBeInTheDocument()
   })
 
   it('should call leftClickCell on a left click with the cells row inder and column index', () => {

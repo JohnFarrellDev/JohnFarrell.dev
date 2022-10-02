@@ -3,17 +3,17 @@ import { FaceType, GameTracking } from './GameTracking'
 
 describe('game tracking', () => {
   it.each`
-    expectedFace | isPlaying | isWinner | isDead   | isHoldingDown | faceType
-    ${'😐'}      | ${false}  | ${false} | ${false} | ${false}      | ${FaceType.Human}
-    ${'🐱'}      | ${false}  | ${false} | ${false} | ${false}      | ${FaceType.Cat}
-    ${'🙂'}      | ${true}   | ${false} | ${false} | ${false}      | ${FaceType.Human}
-    ${'😺'}      | ${true}   | ${false} | ${false} | ${false}      | ${FaceType.Cat}
-    ${'🥳'}      | ${true}   | ${true}  | ${false} | ${false}      | ${FaceType.Human}
-    ${'😸'}      | ${true}   | ${true}  | ${false} | ${false}      | ${FaceType.Cat}
-    ${'😭'}      | ${true}   | ${false} | ${true}  | ${false}      | ${FaceType.Human}
-    ${'😿'}      | ${true}   | ${false} | ${true}  | ${false}      | ${FaceType.Cat}
-    ${'😲'}      | ${true}   | ${false} | ${false} | ${true}       | ${FaceType.Human}
-    ${'🙀'}      | ${true}   | ${false} | ${false} | ${true}       | ${FaceType.Cat}
+    expectedFace            | isPlaying | isWinner | isDead   | isHoldingDown | faceType
+    ${'human-neutral-face'} | ${false}  | ${false} | ${false} | ${false}      | ${FaceType.Human}
+    ${'cat-neutral-face'}   | ${false}  | ${false} | ${false} | ${false}      | ${FaceType.Cat}
+    ${'human-smiling-face'} | ${true}   | ${false} | ${false} | ${false}      | ${FaceType.Human}
+    ${'cat-smiling-face'}   | ${true}   | ${false} | ${false} | ${false}      | ${FaceType.Cat}
+    ${'human-party-face'}   | ${true}   | ${true}  | ${false} | ${false}      | ${FaceType.Human}
+    ${'cat-heart-face'}     | ${true}   | ${true}  | ${false} | ${false}      | ${FaceType.Cat}
+    ${'human-crying-face'}  | ${true}   | ${false} | ${true}  | ${false}      | ${FaceType.Human}
+    ${'cat-crying-face'}    | ${true}   | ${false} | ${true}  | ${false}      | ${FaceType.Cat}
+    ${'human-scared-face'}  | ${true}   | ${false} | ${false} | ${true}       | ${FaceType.Human}
+    ${'cat-scared-face'}    | ${true}   | ${false} | ${false} | ${true}       | ${FaceType.Cat}
   `(
     'it should display $expectedFace when isPlaying is $isPlaying, isWinner is $isWinner, isDead is $isDead, isHoldingDown is $isHoldingDown and faceType is $faceType',
     ({
@@ -44,22 +44,22 @@ describe('game tracking', () => {
         />
       )
 
-      expect(screen.getByText(expectedFace)).toBeInTheDocument()
+      expect(screen.getByTestId(expectedFace)).toBeInTheDocument()
     }
   )
 
   it.each`
     totalBombs | flagsPlaced | expectedFlagIndication
-    ${0}       | ${0} | ${0}
-    ${5}       | ${5} | ${0}
-    ${5}       | ${0} | ${5}
-    ${5}       | ${6} | ${-1}
+    ${0}       | ${0}        | ${0}
+    ${5}       | ${5}        | ${0}
+    ${5}       | ${0}        | ${5}
+    ${5}       | ${6}        | ${-1}
   `(
     'it should display the total numbers ($totalBombs) of bombs and indicate the flags placed ($flagsPlaced)',
     ({
       totalBombs,
       flagsPlaced,
-      expectedFlagIndication
+      expectedFlagIndication,
     }: {
       totalBombs: number
       flagsPlaced: number
@@ -78,8 +78,9 @@ describe('game tracking', () => {
         />
       )
 
+      expect(screen.getByTestId('bomb')).toBeInTheDocument()
       expect(
-        screen.getByText(`💣 ${expectedFlagIndication}/${totalBombs}`)
+        screen.getByText(`${expectedFlagIndication}/${totalBombs}`)
       ).toBeInTheDocument()
     }
   )

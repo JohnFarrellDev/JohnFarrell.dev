@@ -1,3 +1,14 @@
+import { Bomb } from '../SVGs/Bomb'
+import { CatCryingFace } from '../SVGs/CatCryingFace'
+import { CatHeartFace } from '../SVGs/CatHeartFace'
+import { CatNeutralFace } from '../SVGs/CatNeutralFace'
+import { CatScaredFace } from '../SVGs/CatScaredFace'
+import { CatSmilingFace } from '../SVGs/CatSmilingFace'
+import { HumanCryingFace } from '../SVGs/HumanCryingFace'
+import { HumanNeutralFace } from '../SVGs/HumanNeutralFace'
+import { HumanPartyFace } from '../SVGs/HumanPartyFace'
+import { HumanScaredFace } from '../SVGs/HumanScaredFace'
+import { HumanSmilingFace } from '../SVGs/HumanSmilingFace'
 import styles from './GameTracking.module.css'
 
 export enum FaceType {
@@ -17,11 +28,11 @@ interface GameTrackingI {
 }
 
 const faces = [
-  ['😐', '🐱'],
-  ['🥳', '😸'],
-  ['😭', '😿'],
-  ['🙂', '😺'],
-  ['😲', '🙀'],
+  [<HumanNeutralFace key="human-neutral-face" />, <CatNeutralFace key="cat-neutral-face" />],
+  [<HumanPartyFace key="human-party-face" />, <CatHeartFace key="cat-heart-face" />],
+  [<HumanCryingFace key="human-crying-face" />, <CatCryingFace key="cat-crying-face" />],
+  [<HumanSmilingFace key="human-smiling-face" />, <CatSmilingFace key="cat-smiling-face" />],
+  [<HumanScaredFace key="human-scared-face" />, <CatScaredFace key="cat-scared" />],
 ]
 
 export const GameTracking = ({
@@ -32,15 +43,15 @@ export const GameTracking = ({
   faceType,
   flagsPlaced,
   totalBombs,
-  switchFaceType
+  switchFaceType,
 }: GameTrackingI) => {
   return (
     <div className={styles.container}>
-      <div>
-        <p>{`💣 ${totalBombs-flagsPlaced}/${totalBombs}`}</p>
+      <div className={styles.svg}>
+        <Bomb /> <p>{` ${totalBombs - flagsPlaced}/${totalBombs}`}</p>
       </div>
       <div>
-        <p onClick={switchFaceType}>
+        <p onClick={switchFaceType} className={styles.svg}>
           {!isPlaying
             ? faces[0][faceType]
             : isWinner

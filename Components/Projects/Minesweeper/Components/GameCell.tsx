@@ -2,6 +2,8 @@ import { MouseEvent, useCallback } from 'react'
 import styled from 'styled-components'
 import { AnimationColorsRecord } from '../reducer'
 import { CustomAnimations } from './Game/Game'
+import { Bomb } from './SVGs/Bomb'
+import { RedFlag } from './SVGs/RedFlag'
 
 interface GameCellI {
   rowIndex: number
@@ -57,8 +59,8 @@ export const GameCell = ({
       onMouseUp={leftUp}
     >
       <CellDisplay neighborBombs={neighborBombs}>
-        {isFlagged && '🚩'}
-        {!isCovered && !isFlagged && !isWinner && isBomb && '💣'}
+        {isFlagged && <RedFlag />}
+        {!isCovered && !isFlagged && !isWinner && isBomb && <Bomb />}
         {!isCovered && !isBomb && neighborBombs !== 0 && neighborBombs}
       </CellDisplay>
     </CellContainer>
