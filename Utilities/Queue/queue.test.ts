@@ -93,4 +93,17 @@ describe('queue', () => {
     expect(queue.dequeue()).toBe(2)
     expect(queue.dequeue()).toBe(3)
   })
+
+  it('should ensure the tail is undefined when fully dequeued', () => {
+    const queue = new Queue<number>()
+    
+    expect(queue.tail).toBeUndefined()
+
+    queue.enqueue(1)
+    queue.enqueue(2)
+    queue.dequeue()
+    queue.dequeue()
+ 
+    expect(queue.tail).toBeUndefined()
+  })
 })
