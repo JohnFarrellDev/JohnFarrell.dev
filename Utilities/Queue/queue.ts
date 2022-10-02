@@ -48,48 +48,17 @@ export class Queue<T> {
   peek() {
     return this.head?.value
   }
-}
 
-export class StackQueue<T> {
-  private out: T[]
-  private in: T[]
+  toArray(): T[] {
+    const arr: T[] = []
 
-  constructor() {
-    this.out = []
-    this.in = []
-  }
+    let curr = this.head
 
-  enqueue(value: T) {
-    this.in.push(value)
-  }
-
-  dequeue(): T | undefined {
-    if (this.out.length === 0) {
-      while (this.in.length > 0) {
-        const element = this.in.pop()
-        if (element) {
-          this.out.push(element)
-        }
-      }
+    while (curr) {
+      arr.push(curr.value)
+      curr = curr.next
     }
 
-    return this.out.pop()
-  }
-
-  empty(): boolean {
-    return this.in.length === 0 && this.out.length === 0
-  }
-
-  peek(): T | undefined {
-    if (this.out.length === 0) {
-      while (this.in.length > 0) {
-        const element = this.in.pop()
-        if (element) {
-          this.out.push(element)
-        }
-      }
-    }
-
-    return this.out[this.out.length - 1]
+    return arr
   }
 }

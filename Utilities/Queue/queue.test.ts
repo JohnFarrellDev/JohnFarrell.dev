@@ -49,4 +49,18 @@ describe('queue', () => {
     queue.dequeue()
     expect(queue.peek()).toBeUndefined()
   })
+
+  it('should be able to turn a queue into an array into the correct order', () => {
+    const queue = new Queue<number>()
+
+    queue.enqueue(1)
+    queue.enqueue(2)
+    queue.enqueue(3)
+    queue.enqueue(4)
+    queue.dequeue()
+
+    const res = queue.toArray()
+
+    expect(res).toEqual([2, 3, 4])
+  })
 })

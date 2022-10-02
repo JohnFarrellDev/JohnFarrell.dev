@@ -1,5 +1,5 @@
 import { ClickCellAction, State } from '../..'
-import { fisherYatesShuffle } from '../../../../../../UtilityFunctions'
+import { fisherYatesShuffle } from '../../../../../../Utilities'
 import { extractRowAndColumnFromId } from '../../../functions/extractRowAndColumnFromId'
 
 export const placeBombs = (
