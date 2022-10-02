@@ -5,3 +5,7 @@
 .lineThrough {
   text-decoration: line-through;
 }
+
+.list li {
+  margin-top: 30px;
+}
