@@ -22,6 +22,43 @@ describe('Game Cell', () => {
     expect(screen.getByTestId('red-flag')).toBeInTheDocument()
   })
 
+  it.each`
+    neighborBombs
+    ${1}
+    ${2}
+    ${3}
+    ${4}
+    ${5}
+    ${6}
+    ${7}
+    ${8}
+  `(
+    'it should display the total numbers  of neighbor bombs - ($neighborBombs)',
+    ({
+      neighborBombs
+    }: {
+      neighborBombs: number
+    }) => {
+      render(
+        <GameCell
+          rowIndex={1}
+          columnIndex={1}
+          isBomb={false}
+          isCovered={false}
+          isWinner={false}
+          isFlagged={false}
+          neighborBombs={neighborBombs}
+          leftClick={jest.fn()}
+          rightClick={jest.fn()}
+          leftDown={jest.fn()}
+          leftUp={jest.fn()}
+        />
+      )
+
+      expect(screen.getByText(neighborBombs)).toBeInTheDocument()
+    }
+  )
+
   it('should display how many neighbors are bombs if the cell is uncovered and not a bomb', () => {
     render(
       <GameCell
