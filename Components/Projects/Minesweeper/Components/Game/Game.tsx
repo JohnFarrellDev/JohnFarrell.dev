@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useReducer, MouseEvent, ChangeEvent } from 'react'
-import { minesweeperReducer } from '../../reducer'
+import { Queue } from '../../../../../Utilities/Queue'
+import { AnimationStep, minesweeperReducer } from '../../reducer'
 import { GameCell } from '../GameCell'
 import { GameSettings } from '../GameSettings'
 import { GameTracking } from '../GameTracking'
@@ -47,7 +48,7 @@ export const Game = ({
     isPlaying: false,
     isDead: false,
     isWinner: false,
-    animationToApply: [],
+    animationToApply: new Queue<AnimationStep>(),
     animationTime: 0,
     borderlessMode,
     isHoldingDown: false,

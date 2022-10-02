@@ -88,12 +88,12 @@ export const autoFlagCells = (state: State) => {
         (selectedCellForAnimation as AnimationStep[]).length > 1
       ) {
         appliedAnimation = true;
-        state.animationToApply.push(...selectedCellForAnimation as AnimationStep[])
+        state.animationToApply.enqueueArray(selectedCellForAnimation as AnimationStep[])
       }
     }
   }
 
   if(state.customAnimations.FlagCell && appliedAnimation) {
-    state.animationToApply.push({ time: 500, animations: 'WIPE' })
+    state.animationToApply.enqueue({ time: 500, animations: 'WIPE' })
   }
 }

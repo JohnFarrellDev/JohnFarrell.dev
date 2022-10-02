@@ -12,6 +12,7 @@ import { mouseUpCell } from './functions/clickCell/mouseUpCell'
 import { init } from './functions/init'
 import { flagCell } from './functions/flagCell'
 import { switchFaceType } from './functions/switchFaceType'
+import { Queue } from '../../../../Utilities/Queue'
 
 type PlaceBombColor = '#eca1a6'
 type SelectedCell = '#90EE90'
@@ -61,7 +62,7 @@ export interface State {
   isDead: boolean
   isWinner: boolean
   isHoldingDown: boolean
-  animationToApply: AnimationStep[]
+  animationToApply: Queue<AnimationStep>
   animationTime: number
   faceType: FaceType
   flagsPlaced: number

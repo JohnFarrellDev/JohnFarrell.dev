@@ -7,6 +7,11 @@ interface LinkNode<T> {
 export class Queue<T> {
   private tail?: LinkNode<T>
   private head?: LinkNode<T>
+  length: number
+
+  constructor() {
+    this.length = 0;
+  }
 
   enqueue(value: T) {
     const addedNode: LinkNode<T> = {
@@ -28,6 +33,14 @@ export class Queue<T> {
     this.tail.next = addedNode
     addedNode.prev = this.tail
     this.tail = this.tail.next
+    length++;
+  }
+
+  enqueueArray(values: T[]) {
+    for(let i  = 0; i < values.length; i++) {
+        const value = values[i]
+        this.enqueue(value)
+    }
   }
 
   dequeue(): T | undefined {
@@ -37,6 +50,8 @@ export class Queue<T> {
 
     this.head = this.head.next
     if (this.head) this.head.prev = undefined
+
+    length--;
 
     return value
   }

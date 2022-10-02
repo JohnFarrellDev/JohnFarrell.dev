@@ -1,6 +1,7 @@
 import { Factory } from 'fishery'
 import { FaceType } from '../Components/Projects/Minesweeper/Components/GameTracking/GameTracking'
-import { State } from '../Components/Projects/Minesweeper/reducer'
+import { AnimationStep, State } from '../Components/Projects/Minesweeper/reducer'
+import { Queue } from '../Utilities/Queue'
 
 export const minesweeperStateFactory = Factory.define<State>(() => ({
   rows: 10,
@@ -27,7 +28,7 @@ export const minesweeperStateFactory = Factory.define<State>(() => ({
   isDead: false,
   isWinner: false,
   isHoldingDown: false,
-  animationToApply: [],
+  animationToApply: new Queue<AnimationStep>(),
   animationTime: 0,
   faceType: FaceType.Human,
   flagsPlaced: 0,
