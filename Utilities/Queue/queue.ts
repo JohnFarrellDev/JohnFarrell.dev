@@ -20,6 +20,7 @@ export class Queue<T> {
 
     if (!this.head) {
       this.head = addedNode
+      this.length++
       return
     }
 
@@ -27,13 +28,14 @@ export class Queue<T> {
       this.tail = addedNode
       this.tail.prev = this.head
       this.head.next = this.tail
+      this.length++
       return
     }
 
     this.tail.next = addedNode
     addedNode.prev = this.tail
     this.tail = this.tail.next
-    length++;
+    this.length++;
   }
 
   enqueueArray(values: T[]) {
@@ -51,7 +53,7 @@ export class Queue<T> {
     this.head = this.head.next
     if (this.head) this.head.prev = undefined
 
-    length--;
+    this.length--;
 
     return value
   }

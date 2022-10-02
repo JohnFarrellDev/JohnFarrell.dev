@@ -63,4 +63,34 @@ describe('queue', () => {
 
     expect(res).toEqual([2, 3, 4])
   })
+
+  it('should be able to update the length property with enqueue, dequeue and enqueueArray', () => {
+    const queue = new Queue<number>()
+
+    expect(queue.length).toBe(0)
+
+    queue.enqueue(1)
+    queue.enqueue(2)
+
+    expect(queue.length).toBe(2)
+
+    queue.enqueueArray([3,4,5])
+
+    expect(queue.length).toBe(5)
+
+    queue.dequeue()
+
+    expect(queue.length).toBe(4)
+  })
+
+  it('should be able to add multiple items with enqueueArray', () => {
+    const queue = new Queue<number>()
+
+    queue.enqueueArray([1,2,3])
+
+    expect(queue.length).toBe(3)
+    expect(queue.dequeue()).toBe(1)
+    expect(queue.dequeue()).toBe(2)
+    expect(queue.dequeue()).toBe(3)
+  })
 })
