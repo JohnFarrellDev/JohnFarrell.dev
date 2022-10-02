@@ -76,6 +76,7 @@ interface CellContainerI {
 const CellContainer = styled.div`
   width: 30px;
   height: 30px;
+  line-height: 30px;
   user-select: none;
   border-top: ${(props: CellContainerI) =>
     props.isCovered ? '2px solid white' : '1px solid #7B7B7B'};
@@ -100,7 +101,6 @@ const CellContainer = styled.div`
   display: flex;
   justify-content: center;
   cursor: pointer;
-  line-height: 30px;
 `
 
 interface CellDisplayI {
@@ -108,9 +108,7 @@ interface CellDisplayI {
 }
 
 const CellDisplay = styled.p`
-  vertical-align: middle;
-  line-height: 30px;
-  font-size: 1.5em;
+  font-size: 30px;
   font-style: bold;
   color: ${(props: CellDisplayI) =>
     props.neighborBombs === 1
@@ -128,4 +126,8 @@ const CellDisplay = styled.p`
       : props.neighborBombs === 7
       ? '#000000'
       : '#FFFFFF'};
+  svg {
+    width: 28px;
+    height: 28px;
+  }
 `
