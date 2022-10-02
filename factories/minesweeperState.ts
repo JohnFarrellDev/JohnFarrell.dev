@@ -11,6 +11,7 @@ export const minesweeperStateFactory = Factory.define<State>(() => ({
     CalculateNeighbors: false,
     PlaceBombs: false,
     RecursiveReveal: false,
+    FlagCell: false
   },
   allowedOperations: {
     AutoFlag: false,

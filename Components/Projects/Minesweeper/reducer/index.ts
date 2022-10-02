@@ -30,14 +30,11 @@ export const AnimationColor: Record<string, CellColor> = {
   SelectedCell: '#90EE90',
   RecursiveRevealColor: '#00CED1',
   SelectedNeighborCell: '#FF3399',
+  PlaceBombColor: '#eca1a6',
   NoColor: undefined,
 }
 
 export type AnimationColorsRecord = Map<CustomAnimations, CellColor>
-
-export const ANIMATION_COLORS: AnimationColorsRecord = new Map([
-  ['PlaceBombs', '#eca1a6'],
-])
 
 export interface Animation {
   columnIndex: number

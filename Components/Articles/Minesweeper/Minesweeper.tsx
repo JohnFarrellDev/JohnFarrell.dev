@@ -46,6 +46,7 @@ export const Minesweeper = () => {
                   CalculateNeighbors: false,
                   PlaceBombs: false,
                   RecursiveReveal: false,
+                  FlagCell: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: false,
@@ -74,6 +75,7 @@ export const Minesweeper = () => {
                   CalculateNeighbors: false,
                   PlaceBombs: false,
                   RecursiveReveal: false,
+                  FlagCell: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: false,
@@ -99,6 +101,7 @@ export const Minesweeper = () => {
                   CalculateNeighbors: false,
                   PlaceBombs: true,
                   RecursiveReveal: false,
+                  FlagCell: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: false,
@@ -127,6 +130,7 @@ export const Minesweeper = () => {
                   CalculateNeighbors: false,
                   PlaceBombs: false,
                   RecursiveReveal: false,
+                  FlagCell: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
@@ -155,6 +159,7 @@ export const Minesweeper = () => {
                   CalculateNeighbors: true,
                   PlaceBombs: false,
                   RecursiveReveal: false,
+                  FlagCell: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
@@ -183,6 +188,7 @@ export const Minesweeper = () => {
                   CalculateNeighbors: false,
                   PlaceBombs: false,
                   RecursiveReveal: false,
+                  FlagCell: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
@@ -211,6 +217,7 @@ export const Minesweeper = () => {
                   CalculateNeighbors: true,
                   PlaceBombs: false,
                   RecursiveReveal: false,
+                  FlagCell: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
@@ -240,6 +247,7 @@ export const Minesweeper = () => {
                   CalculateNeighbors: false,
                   PlaceBombs: false,
                   RecursiveReveal: false,
+                  FlagCell: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
@@ -265,6 +273,7 @@ export const Minesweeper = () => {
                   CalculateNeighbors: false,
                   PlaceBombs: false,
                   RecursiveReveal: false,
+                  FlagCell: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
@@ -295,6 +304,7 @@ export const Minesweeper = () => {
                   CalculateNeighbors: false,
                   PlaceBombs: false,
                   RecursiveReveal: false,
+                  FlagCell: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
@@ -320,6 +330,7 @@ export const Minesweeper = () => {
                   CalculateNeighbors: false,
                   PlaceBombs: false,
                   RecursiveReveal: false,
+                  FlagCell: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
@@ -347,6 +358,7 @@ export const Minesweeper = () => {
                   CalculateNeighbors: false,
                   PlaceBombs: false,
                   RecursiveReveal: false,
+                  FlagCell: false
                 }}
                 allowedOperations={{
                   CalculateNeighbors: true,
