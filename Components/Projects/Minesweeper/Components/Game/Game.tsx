@@ -18,6 +18,7 @@ export type CustomAnimations =
   | 'CalculateNeighbors'
   | 'RecursiveReveal'
   | 'FlagCell'
+  | 'BasicAutoClick'
 export type Operations =
   | 'PlaceBombs'
   | 'CalculateNeighbors'

@@ -34,7 +34,8 @@ export const Minesweeper = () => {
               CalculateNeighbors: false,
               PlaceBombs: false,
               RecursiveReveal: false,
-              FlagCell: true
+              FlagCell: true,
+              BasicAutoClick: true
             }}
             allowedOperations={{
               PlaceBombs: true,

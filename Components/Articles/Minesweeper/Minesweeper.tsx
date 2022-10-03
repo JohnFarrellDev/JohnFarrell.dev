@@ -47,6 +47,7 @@ export const Minesweeper = () => {
                     PlaceBombs: false,
                     RecursiveReveal: false,
                     FlagCell: false,
+                    BasicAutoClick: false,
                   }}
                   allowedOperations={{
                     CalculateNeighbors: false,
@@ -75,6 +76,7 @@ export const Minesweeper = () => {
                     PlaceBombs: false,
                     RecursiveReveal: false,
                     FlagCell: false,
+                    BasicAutoClick: false,
                   }}
                   allowedOperations={{
                     CalculateNeighbors: false,
@@ -102,6 +104,7 @@ export const Minesweeper = () => {
                     PlaceBombs: true,
                     RecursiveReveal: false,
                     FlagCell: false,
+                    BasicAutoClick: false,
                   }}
                   allowedOperations={{
                     CalculateNeighbors: false,
@@ -130,6 +133,7 @@ export const Minesweeper = () => {
                     PlaceBombs: false,
                     RecursiveReveal: false,
                     FlagCell: false,
+                    BasicAutoClick: false,
                   }}
                   allowedOperations={{
                     CalculateNeighbors: true,
@@ -158,6 +162,7 @@ export const Minesweeper = () => {
                     PlaceBombs: false,
                     RecursiveReveal: false,
                     FlagCell: false,
+                    BasicAutoClick: false,
                   }}
                   allowedOperations={{
                     CalculateNeighbors: true,
@@ -186,6 +191,7 @@ export const Minesweeper = () => {
                     PlaceBombs: false,
                     RecursiveReveal: false,
                     FlagCell: false,
+                    BasicAutoClick: false,
                   }}
                   allowedOperations={{
                     CalculateNeighbors: true,
@@ -214,6 +220,7 @@ export const Minesweeper = () => {
                     PlaceBombs: false,
                     RecursiveReveal: false,
                     FlagCell: false,
+                    BasicAutoClick: false,
                   }}
                   allowedOperations={{
                     CalculateNeighbors: true,
@@ -243,6 +250,7 @@ export const Minesweeper = () => {
                     PlaceBombs: false,
                     RecursiveReveal: false,
                     FlagCell: false,
+                    BasicAutoClick: false,
                   }}
                   allowedOperations={{
                     CalculateNeighbors: true,
@@ -270,6 +278,7 @@ export const Minesweeper = () => {
                     PlaceBombs: false,
                     RecursiveReveal: false,
                     FlagCell: false,
+                    BasicAutoClick: false,
                   }}
                   allowedOperations={{
                     CalculateNeighbors: true,
@@ -300,6 +309,7 @@ export const Minesweeper = () => {
                     PlaceBombs: false,
                     RecursiveReveal: false,
                     FlagCell: false,
+                    BasicAutoClick: false,
                   }}
                   allowedOperations={{
                     CalculateNeighbors: true,
@@ -327,6 +337,7 @@ export const Minesweeper = () => {
                     PlaceBombs: false,
                     RecursiveReveal: true,
                     FlagCell: false,
+                    BasicAutoClick: false,
                   }}
                   allowedOperations={{
                     CalculateNeighbors: true,
@@ -354,6 +365,7 @@ export const Minesweeper = () => {
                     PlaceBombs: false,
                     RecursiveReveal: false,
                     FlagCell: false,
+                    BasicAutoClick: false,
                   }}
                   allowedOperations={{
                     CalculateNeighbors: true,
@@ -370,6 +382,30 @@ export const Minesweeper = () => {
 
               <li>
                 Implement animation for auto flagging and basic auto clicking
+                <Game
+                  columns={10}
+                  rows={10}
+                  numberOfBombs={15}
+                  hasCustomControls={false}
+                  transparentSideView={false}
+                  customAnimations={{
+                    CalculateNeighbors: false,
+                    PlaceBombs: false,
+                    RecursiveReveal: false,
+                    FlagCell: true,
+                    BasicAutoClick: true,
+                  }}
+                  allowedOperations={{
+                    CalculateNeighbors: true,
+                    FlagCell: true,
+                    PlaceBombs: true,
+                    RevealCell: true,
+                    RecursiveReveal: false,
+                    AutoFlag: true,
+                    BasicAutoClick: true,
+                  }}
+                  borderlessMode={false}
+                />
               </li>
 
               <li>
