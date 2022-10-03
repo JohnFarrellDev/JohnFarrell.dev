@@ -5,7 +5,11 @@ import { startGame } from './startGame'
 
 export const clickCell = (state: State, action: ClickCellAction) => {
   if(state.animationToApply.length > 0) {
-    // TODO - left click skip, right click to pause?
+    state.board.forEach(row => {
+      row.forEach(cell => {
+        cell.color = undefined
+      })
+    })
     state.animationToApply = new Queue<AnimationStep>();
     return
   }

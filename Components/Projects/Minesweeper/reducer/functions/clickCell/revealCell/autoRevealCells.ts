@@ -17,19 +17,6 @@ export const autoRevealCells = (state: State): boolean => {
       const flaggedNeighbors = numberOfFlaggedNeighborCells(state.board[r][c])
 
       if (state.board[r][c].neighborBombs <= flaggedNeighbors) {
-        if (state.customAnimations.BasicAutoClick) {
-          state.animationToApply.enqueue({
-            time: 500,
-            animations: [
-              {
-                rowIndex: r,
-                columnIndex: c,
-                color: AnimationColor.SelectedCell,
-              },
-            ],
-          })
-        }
-
         const neighborSelectedReveal: Animation[] = []
 
         state.board[r][c].neighbors.forEach((neighborCell) => {
