@@ -15,7 +15,6 @@
 .btnContainer {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   margin-bottom: 4rem;
   overflow: auto;
 }
@@ -87,7 +86,6 @@
   }
   .btnContainer {
     flex-direction: column;
-    justify-content: flex-start;
   }
   .jobBtn {
     margin-bottom: 1rem;
