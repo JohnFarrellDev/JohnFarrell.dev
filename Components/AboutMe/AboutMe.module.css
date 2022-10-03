@@ -8,44 +8,20 @@
   text-decoration: underline;
 }
 
-.aboutImg {
-  margin-bottom: 2rem;
-  height: 25rem;
-}
-
-.aboutTextSectionTitle {
-  margin-bottom: 2rem;
-  text-align: left;
-}
-
-.underline {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.aboutText p {
+.aboutArticle p {
   line-height: 2;
 }
 
-.stackContainer {
-  width: 30rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  row-gap: 0.5rem;
-}
-
-.stackContainer span {
-  text-transform: uppercase;
+.articleContent {
   display: flex;
-  align-items: center;
-  letter-spacing: 1px;
-  color: var(--clr-grey-4);
 }
 
-.stackIcon {
-  color: var(--clr-primary-5);
-  margin-right: 0.25rem;
-  font-size: 1rem;
+.articleContent p {
+  margin-left: 100px
+}
+
+.aboutStack {
+  margin-left: 100px
 }
 
 .aboutStack span {
@@ -61,20 +37,17 @@
   margin-top: 0.5rem;
 }
 
-@media screen and (min-width: 992px) {
-  .aboutCenter {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    align-items: center;
-    column-gap: 4rem;
+/* TODO - consider smaller mobile screens! */
+@media screen and (max-width: 992px) {
+  .articleContent{
+    display: block
   }
 
-  .aboutImg {
-    grid-column: 1 / span 5;
-    margin-bottom: 0;
+  .articleContent p {
+    margin: 0px
   }
 
-  .aboutText {
-    grid-column: 6 / -1;
+  .aboutStack {
+    margin: 0px
   }
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import React from 'react'
 import { Layout } from '../Layout'
 import { SEO } from '../SEO'
@@ -61,29 +62,46 @@ export const AboutMe = () => {
       />
       <section className={styles.aboutPage}>
         <div className={`section-center ${styles.aboutCenter}`}>
-          <article className={styles.aboutText}>
+          <article className={styles.aboutArticle}>
             <Title title="About Me" />
-            <p className={styles.paragraph}>
-              Hi, I'm John Farrell, a professional software engineer. I started
-              programming in 2016 by teaching myself a little bit of coding
-              following the completion of my BSc in Biomedical Science. It
-              became my ambition to become a software engineer, so I enrolled in
-              a master's degree in Computer Science at the University of Kent.
-              After graduating, I worked at{' '}
-              <Link href="https://www.tcs.com/">Tata Consultancy Services</Link>
-              , where I had the opportunity to be involved in a large scale
-              cloud industrialisation project. I then became interested in web
-              development and joined a consultancy called{' '}
-              <Link href="https://www.caci-iig.co.uk/">CACI IIG</Link> where I
-              worked on several web app projects. I then joined the{' '}
-              <Link href="https://www.madetech.com/">Made Tech</Link> team which
-              is also a consultancy and continued with a focus on developing web
-              apps.
-            </p>
-            <div className={styles.aboutStack}>
-              {stack.map((item) => {
-                return <span key={item.id}>{item.title}</span>
-              })}
+
+            <div className={styles.articleContent}>
+              <div>
+                <Image
+                  src="https://i.imgur.com/ncSEBtN.png"
+                  alt="Photo of my black cat Trixie"
+                  width={4608}
+                  height={3456}
+                />
+              </div>
+
+              <div>
+                <p className={styles.paragraph}>
+                  Hi, I'm John Farrell, a professional software engineer. I
+                  started programming in 2016 by teaching myself a little bit of
+                  coding following the completion of my BSc in Biomedical
+                  Science. It became my ambition to become a software engineer,
+                  so I enrolled in a master's degree in Computer Science at the
+                  University of Kent. After graduating, I worked at{' '}
+                  <Link href="https://www.tcs.com/">
+                    Tata Consultancy Services
+                  </Link>
+                  , where I had the opportunity to be involved in a large scale
+                  cloud industrialisation project. I then became interested in
+                  web development and joined a consultancy called{' '}
+                  <Link href="https://www.caci-iig.co.uk/">CACI IIG</Link> where
+                  I worked on several web app projects. I then joined the{' '}
+                  <Link href="https://www.madetech.com/">Made Tech</Link> team
+                  which is also a consultancy and continued with a focus on
+                  developing web apps for the UK public.
+                </p>
+
+                <div className={styles.aboutStack}>
+                  {stack.map((item) => {
+                    return <span key={item.id}>{item.title}</span>
+                  })}
+                </div>
+              </div>
             </div>
           </article>
         </div>
