@@ -15,7 +15,7 @@
 .btnContainer {
   display: flex;
   flex-direction: row;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   overflow: auto;
 }
 
