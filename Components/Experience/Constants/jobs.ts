@@ -1,5 +1,20 @@
 export const jobs = [
   {
+    id: 4,
+    companyName: 'DAZN',
+    startDate: 'August 2022',
+    endDate: 'Present',
+    position: 'Software engineer',
+    responsibilities: [
+      {
+        id: 1,
+        description:
+          'Content Discovery Team - Developed APIs to deliver a personalised content feed to users',
+        technology: ['TypeScript', 'Node', 'AWS'],
+      },
+    ],
+  },
+  {
     id: 3,
     companyName: 'Made Tech',
     startDate: 'February 2021',
