@@ -1,4 +1,4 @@
-import { State } from '../../..'
+import { AnimationColor, State } from '../../..'
 import { minesweeperStateFactory } from '../../../../../../../factories/minesweeperState'
 import { generateBoard } from '../../../../functions/generateBoard'
 import { calculateNeighborInformation } from '../calculateNeighborInformation'
@@ -91,12 +91,76 @@ describe('auto reveal cell', () => {
     expect(repeat).toBe(true)
     for (let r = 0; r < state.rows; r++) {
       for (let c = 0; c < state.columns; c++) {
-        if (r === 0 && c === 0 || r === 0 && c === 1) {
+        if ((r === 0 && c === 0) || (r === 0 && c === 1)) {
           expect(state.board[r][c].isCovered).toBe(true)
         } else {
           expect(state.board[r][c].isCovered).toBe(false)
         }
       }
     }
+  })
+
+  it('should apply no animations if there are no cells automatically revealed', () => {
+    state.customAnimations.BasicAutoClick = true
+    state.board[1][1].neighborBombs = 1
+
+    autoRevealCells(state)
+
+    expect(state.animationToApply.length).toBe(0)
+  })
+
+  it('should apply animations when cells are automatically revealed and custom animation is turned on', () => {
+    state.customAnimations.BasicAutoClick = true
+    state.board[0][0].isFlagged = true
+    state.board[1][1].neighborBombs = 1
+    state.board[1][1].isCovered = false
+    state.board[0][1].isBomb = true
+
+    autoRevealCells(state)
+
+    const animations = state.animationToApply.toArray()
+    expect(animations.length).toBe(3)
+    expect(animations[0]).toEqual({
+      time: 500,
+      animations: [
+        { rowIndex: 1, columnIndex: 1, color: AnimationColor.SelectedCell },
+      ],
+    })
+    expect(animations[1]).toEqual({
+      time: 500,
+      animations: [
+        {
+          rowIndex: 0,
+          columnIndex: 2,
+          color: AnimationColor.RecursiveRevealColor,
+        },
+        {
+          rowIndex: 1,
+          columnIndex: 0,
+          color: AnimationColor.RecursiveRevealColor,
+        },
+        {
+          rowIndex: 1,
+          columnIndex: 2,
+          color: AnimationColor.RecursiveRevealColor,
+        },
+        {
+          rowIndex: 2,
+          columnIndex: 0,
+          color: AnimationColor.RecursiveRevealColor,
+        },
+        {
+          rowIndex: 2,
+          columnIndex: 1,
+          color: AnimationColor.RecursiveRevealColor,
+        },
+        {
+          rowIndex: 2,
+          columnIndex: 2,
+          color: AnimationColor.RecursiveRevealColor,
+        },
+      ],
+    })
+    expect(animations[2]).toEqual({time: 200, animations: "WIPE"})
   })
 })
