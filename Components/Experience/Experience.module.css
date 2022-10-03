@@ -17,6 +17,7 @@
   flex-direction: row;
   justify-content: center;
   margin-bottom: 4rem;
+  overflow: auto;
 }
 
 .jobBtn {
