@@ -6,14 +6,6 @@ import { SEO } from '../SEO'
 import { Title } from '../Utilities/Title'
 import styles from './AboutMe.module.css'
 
-const info =
-  "Hi, I'm John Farrell a professional software developer. I started this programming journey in 2016 teaching myself a little bit of " +
-  'Python following the completion of my BSc in Biomedical Science. It became my ambition to become a software engineer so I enrolled ' +
-  'in a masters degree in Computer Science at the University of Kent. After graduating I worked at Tata Consultancy Services ' +
-  'where I had the opportunity to be involved in a large scale cloud industrilisation project. I then became interested in web ' +
-  'development and joined CACI IIG where I worked on several web app projects as consultant. I then continued working at consultancies by joining Made Tech  ' +
-  'still with a focus on developing web apps.'
-
 const stack = [
   {
     id: 1,
@@ -61,7 +53,7 @@ export const AboutMe = () => {
         description="Information about John Farrell"
       />
       <section className={styles.aboutPage}>
-        <div className={`section-center ${styles.aboutCenter}`}>
+        <div className={`section-center`}>
           <article className={styles.aboutArticle}>
             <Title title="About Me" />
 

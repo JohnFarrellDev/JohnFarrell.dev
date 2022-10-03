@@ -1,5 +1,5 @@
 .aboutPage {
-  padding: 7rem 0;
+  padding: 2rem 0;
   background: var(--clr-grey-10);
   min-height: calc(100vh - 5rem - 9rem);
 }
