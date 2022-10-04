@@ -106,4 +106,18 @@ describe('apply changes', () => {
 
     expect(state.board[0][0].isBomb).toBe(true)
   })
+
+  it('should update the cell to not have a bomb when change applied action is REMOVEBOMB', () => {
+    state.board[0][0].isBomb = true
+    expect(state.board[0][0].isBomb).toBe(true)
+
+    state.changesToApply.enqueue({
+      changes: [{ rowIndex: 0, columnIndex: 0, action: 'REMOVEBOMB' }],
+      time: 0,
+    })
+
+    applyChanges(state)
+
+    expect(state.board[0][0].isBomb).toBe(false)
+  })
 })
