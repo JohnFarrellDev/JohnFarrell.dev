@@ -1,21 +1,32 @@
-import { State } from "..";
+import cloneDeep from 'lodash.clonedeep'
+import { AnimationColor, State } from '..'
 
 export const applyAnimation = (state: State) => {
-    const animationStep = state.animationToApply.dequeue()
+  const changeStep = state.changesToApply.dequeue()
 
-    if(!animationStep) return;
+  if (!changeStep) return
 
-    if(animationStep.animations === "WIPE") {
-        state.board.forEach((row) => {
-            row.forEach((cell) => {
-              cell.color = undefined
-            })
-          })
-    } else {
-        animationStep.animations.forEach(animation => {
-            state.board[animation.rowIndex][animation.columnIndex].color = animation.color 
+  state.animationTime = changeStep.time;
+
+  changeStep.changes.forEach((change) => {
+    if (change.action === 'WIPEANIMATION') {
+      state.board.forEach((row) => {
+        row.forEach((cell) => {
+          cell.color = undefined
         })
+      })
     }
-
-    state.animationTime = animationStep.time
+    if (change.action === 'PLACEBOMB') {
+      state.board[change.rowIndex][change.columnIndex].isBomb = true
+      state.board[change.rowIndex][change.columnIndex].color =
+        AnimationColor.PLACEBOMB
+    }
+    if (change.action === 'REMOVEBOMB') {
+      state.board[change.rowIndex][change.columnIndex].isBomb = false
+      state.board[change.rowIndex][change.columnIndex].color = undefined
+    }
+    if(change.action === "COPYBOARD") {
+        state.board = cloneDeep(change.board)
+    }
+  })
 }

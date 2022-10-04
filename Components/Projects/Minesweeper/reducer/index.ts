@@ -37,17 +37,15 @@ export const AnimationColor: Record<string, CellColor> = {
 
 export type AnimationColorsRecord = Map<CustomAnimations, CellColor>
 
-export interface Animation {
-  columnIndex: number
-  rowIndex: number
-  color: AnimationColorsRecord extends Map<CustomAnimations, infer I>
-    ? I
-    : never
-}
+export type Change =
+  | { action: 'WIPEANIMATION' }
+  | { action: 'PLACEBOMB'; rowIndex: number; columnIndex: number }
+  | { action: 'REMOVEBOMB'; rowIndex: number; columnIndex: number }
+  | { action: 'COPYBOARD', board: Cell[][]}
 
-export interface AnimationStep {
+export interface ChangeStep {
   time: number
-  animations: Animation[] | 'WIPE'
+  changes: Change[]
 }
 
 export interface State {
@@ -63,7 +61,7 @@ export interface State {
   isDead: boolean
   isWinner: boolean
   isHoldingDown: boolean
-  animationToApply: Queue<AnimationStep>
+  changesToApply: Queue<ChangeStep>
   animationTime: number
   faceType: FaceType
   flagsPlaced: number

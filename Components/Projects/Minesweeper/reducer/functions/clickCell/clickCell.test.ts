@@ -28,7 +28,6 @@ describe('click cell', () => {
     state.animationToApply.enqueue({ animations: 'WIPE', time: 0 })
 
     clickCell(state, action)
-
     expect(startGame).toBeCalledTimes(0)
     expect(revealCell).toBeCalledTimes(0)
   })

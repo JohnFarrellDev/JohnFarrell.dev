@@ -1,38 +1,13 @@
-import { ClickCellAction, State } from '../..'
+import { Change, ClickCellAction, State } from '../..'
 import { fisherYatesShuffle } from '../../../../../../Utilities'
 import { extractRowAndColumnFromId } from '../../../functions/extractRowAndColumnFromId'
 
-export const placeBombs = (
-  state: State,
-  action: ClickCellAction
-) => {
+// need to apply all direct state changes to revealedBoard
+// animation must look at revealed board to determine moves
+// going off state board doesn't work as it lags due to only updating with the animations!
+
+export const placeBombs = (state: State, action: ClickCellAction) => {
   if (!state.allowedOperations.PlaceBombs) return
-
-  if (state.customAnimations.PlaceBombs) {
-    for (let i = 0; i < state.numberOfBombs; i++) {
-      let animationLocation = state.columns * state.rows - 1 - i
-
-      if(animationLocation <= state.columns * action.rowIndex + action.columnIndex) animationLocation--
-
-      const [animationLocationRow, animationLocationColumn] = extractRowAndColumnFromId(animationLocation, state.columns)
-
-      state.board[animationLocationRow][animationLocationColumn] = {
-        ...state.board[animationLocationRow][animationLocationColumn],
-        isBomb: true,
-      }
-
-      state.animationToApply.enqueue({
-        time: 500,
-        animations: [
-          {
-            columnIndex: animationLocationColumn,
-            rowIndex: animationLocationRow,
-            color: '#eca1a6',
-          },
-        ],
-      })
-    }
-  }
 
   const possibleBombLocations: number[] = []
 
@@ -45,50 +20,110 @@ export const placeBombs = (
 
   fisherYatesShuffle(possibleBombLocations)
 
-  for (let i = 0; i < state.numberOfBombs; i++) {
-    const randomBombLocation = possibleBombLocations.pop() as number
-
-    const [randomBombLocationRow, randomBombLocationColumn] = extractRowAndColumnFromId(randomBombLocation, state.columns)
-
-    const switchHasBomb =
-      state.board[randomBombLocationRow][randomBombLocationColumn].isBomb
-
-      state.board[randomBombLocationRow][randomBombLocationColumn].isBomb = true;
-
-    if (state.customAnimations.PlaceBombs) {
-      let animationLocation = state.columns * state.rows - 1 - i
-
-      if(animationLocation <= state.columns * action.rowIndex + action.columnIndex) animationLocation--
-
-      const [animationLocationRow, animationLocationColumn] = extractRowAndColumnFromId(animationLocation, state.columns)
-
-      state.board[animationLocationRow][animationLocationColumn] = {
-        ...state.board[animationLocationRow][animationLocationColumn],
-        isBomb: switchHasBomb,
-      }
-
-      state.animationToApply.enqueue({
-        time: 500,
-        animations: [
-          {
-            columnIndex: animationLocationColumn,
-            rowIndex: animationLocationRow,
-            color: switchHasBomb ? '#eca1a6' : undefined,
-          },
-          {
-            columnIndex: randomBombLocationColumn,
-            rowIndex: randomBombLocationRow,
-            color: '#eca1a6',
-          },
-        ],
-      })
+  if (!state.customAnimations.PlaceBombs) {
+    for (let i = 0; i < state.numberOfBombs; i++) {
+      const bombLocation =
+        possibleBombLocations[possibleBombLocations.length - 1 - i]
+      const [bombLocationRow, bombLocationColumn] = extractRowAndColumnFromId(
+        bombLocation,
+        state.columns
+      )
+      state.revealedBoard[bombLocationRow][bombLocationColumn].isBomb = true
     }
   }
 
-  if (state.customAnimations.PlaceBombs) {
-    state.animationToApply.enqueue({
+  if (!state.customAnimations.PlaceBombs) {
+    state.changesToApply.enqueue({
+      time: 0,
+      changes: [{ action: 'COPYBOARD', board: state.revealedBoard }],
+    })
+    return
+  }
+
+  for (let i = 0; i < state.numberOfBombs; i++) {
+    let lastNBombLocation = state.columns * state.rows - 1 - i
+
+    if (
+      lastNBombLocation <=
+      state.columns * action.rowIndex + action.columnIndex
+    )
+      lastNBombLocation--
+
+    const [animationLocationRow, animationLocationColumn] =
+      extractRowAndColumnFromId(lastNBombLocation, state.columns)
+
+    state.revealedBoard[animationLocationRow][animationLocationColumn] = {
+      ...state.revealedBoard[animationLocationRow][animationLocationColumn],
+      isBomb: true,
+    }
+
+    state.changesToApply.enqueue({
       time: 500,
-      animations: 'WIPE',
+      changes: [
+        {
+          columnIndex: animationLocationColumn,
+          rowIndex: animationLocationRow,
+          action: 'PLACEBOMB',
+        },
+      ],
     })
   }
+
+  for (let i = 0; i < state.numberOfBombs; i++) {
+    const bombLocation =
+      possibleBombLocations[possibleBombLocations.length - 1 - i]
+
+    const [bombLocationRow, bombLocationColumn] = extractRowAndColumnFromId(
+      bombLocation,
+      state.columns
+    )
+
+    const switchHasBomb =
+      state.revealedBoard[bombLocationRow][bombLocationColumn].isBomb
+
+    state.revealedBoard[bombLocationRow][bombLocationColumn].isBomb = true
+
+    let animationLocation = state.columns * state.rows - 1 - i
+
+    if (
+      animationLocation <=
+      state.columns * action.rowIndex + action.columnIndex
+    )
+      animationLocation--
+
+    const [animationLocationRow, animationLocationColumn] =
+      extractRowAndColumnFromId(animationLocation, state.columns)
+
+    state.revealedBoard[animationLocationRow][animationLocationColumn] = {
+      ...state.revealedBoard[animationLocationRow][animationLocationColumn],
+      isBomb: switchHasBomb,
+    }
+
+    const changes: Change[] = [
+      {
+        columnIndex: bombLocationColumn,
+        rowIndex: bombLocationRow,
+        action: 'PLACEBOMB',
+      },
+    ]
+
+    if(!switchHasBomb) {
+      changes.push({
+        columnIndex: animationLocationColumn,
+        rowIndex: animationLocationRow,
+        action: 'REMOVEBOMB',
+      })
+    }
+    
+    state.changesToApply.enqueue({
+      time: 500,
+      changes
+    })
+    
+  }
+
+  state.changesToApply.enqueue({
+    time: 500,
+    changes: [{ action: 'WIPEANIMATION' }],
+  })
 }

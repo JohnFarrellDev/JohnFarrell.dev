@@ -6,7 +6,7 @@ import React, {
   ChangeEvent,
 } from 'react'
 import { Queue } from '../../../../../Utilities/Queue'
-import { AnimationStep, minesweeperReducer } from '../../reducer'
+import { ChangeStep, minesweeperReducer } from '../../reducer'
 import { GameCell } from '../GameCell'
 import { GameSettings } from '../GameSettings'
 import { GameTracking } from '../GameTracking'
@@ -60,7 +60,7 @@ export const Game = ({
     isPlaying: false,
     isDead: false,
     isWinner: false,
-    animationToApply: new Queue<AnimationStep>(),
+    changesToApply: new Queue<ChangeStep>(),
     animationTime: 0,
     borderlessMode,
     isHoldingDown: false,
@@ -75,7 +75,7 @@ export const Game = ({
       })
     }, gameState.animationTime)
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gameState.animationToApply.length])
+  }, [gameState.changesToApply.length])
 
   useEffect(() => {
     dispatch({
