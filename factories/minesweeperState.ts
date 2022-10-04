@@ -25,6 +25,7 @@ export const minesweeperStateFactory = Factory.define<State>(() => ({
     RevealCell: false,
   },
   board: [],
+  revealedBoard: [],
   isPlaying: false,
   isDead: false,
   isWinner: false,

@@ -58,6 +58,7 @@ export interface State {
   customAnimations: Record<CustomAnimations, boolean>
   allowedOperations: Record<Operations, boolean>
   board: Cell[][]
+  revealedBoard: Cell[][]
   isPlaying: boolean
   isDead: boolean
   isWinner: boolean

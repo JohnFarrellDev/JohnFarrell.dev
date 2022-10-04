@@ -56,6 +56,7 @@ export const Game = ({
     customAnimations,
     allowedOperations,
     board: [],
+    revealedBoard: [],
     isPlaying: false,
     isDead: false,
     isWinner: false,
