@@ -62,7 +62,7 @@ export interface State {
   isWinner: boolean
   isHoldingDown: boolean
   changesToApply: Queue<ChangeStep>
-  animationTime: number
+  changeTime: number
   faceType: FaceType
   flagsPlaced: number
 }

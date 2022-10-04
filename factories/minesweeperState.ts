@@ -31,7 +31,7 @@ export const minesweeperStateFactory = Factory.define<State>(() => ({
   isWinner: false,
   isHoldingDown: false,
   changesToApply: new Queue<ChangeStep>(),
-  animationTime: 0,
+  changeTime: 0,
   faceType: FaceType.Human,
   flagsPlaced: 0,
 }))

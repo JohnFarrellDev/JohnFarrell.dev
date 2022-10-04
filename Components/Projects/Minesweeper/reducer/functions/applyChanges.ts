@@ -6,7 +6,7 @@ export const applyChanges = (state: State) => {
 
   if (!changeStep) return
 
-  state.animationTime = changeStep.time;
+  state.changeTime = changeStep.time;
 
   changeStep.changes.forEach((change) => {
     if (change.action === 'WIPEANIMATION') {

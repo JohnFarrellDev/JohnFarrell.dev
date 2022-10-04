@@ -11,7 +11,7 @@ export const startGame = (state: State, action: ClickCellAction) => {
   state.isWinner = false;
   state.flagsPlaced = 0;
   state.animationToApply = new Queue<AnimationStep>();
-  state.animationTime = 0;
+  state.changeTime = 0;
   generateBoard(state)
   placeBombs(state, action)
   calculateNeighborInformation(state)

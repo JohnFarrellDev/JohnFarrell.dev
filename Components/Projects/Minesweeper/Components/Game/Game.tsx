@@ -61,7 +61,7 @@ export const Game = ({
     isDead: false,
     isWinner: false,
     changesToApply: new Queue<ChangeStep>(),
-    animationTime: 0,
+    changeTime: 0,
     borderlessMode,
     isHoldingDown: false,
     faceType: FaceType.Human,
@@ -73,7 +73,7 @@ export const Game = ({
       dispatch({
         type: 'ApplyChanges',
       })
-    }, gameState.animationTime)
+    }, gameState.changeTime)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameState.changesToApply.length])
 
