@@ -86,7 +86,7 @@ describe('recursive reveal cell', () => {
     calculateNeighborInformation(state)
     recursiveRevealCell(state, action)
 
-    expect(state.animationToApply.length).toBe(0)
+    expect(state.changesToApply.length).toBe(0)
   })
 
   it('should apply no animations of custom animations is set to false for RecursiveReveal', () => {
@@ -98,16 +98,16 @@ describe('recursive reveal cell', () => {
 
     recursiveRevealCell(state, action)
 
-    expect(state.animationToApply.length).toBe(21)
-    expect(state.animationToApply.toArray()[0]).toEqual({
+    expect(state.changesToApply.length).toBe(21)
+    expect(state.changesToApply.toArray()[0]).toEqual({
       time: 200,
-      animations: [
+      changes: [
         { rowIndex: 2, columnIndex: 3, color: AnimationColor.SelectedCell },
       ],
     })
-    expect(state.animationToApply.toArray()[1]).toEqual({
+    expect(state.changesToApply.toArray()[1]).toEqual({
       time: 100,
-      animations: [
+      changes: [
         {
           rowIndex: 3,
           columnIndex: 4,
@@ -115,7 +115,7 @@ describe('recursive reveal cell', () => {
         },
       ],
     })
-    expect(state.animationToApply.toArray()[state.animationToApply.length - 1]).toEqual({
+    expect(state.changesToApply.toArray()[state.changesToApply.length - 1]).toEqual({
       time: 2000,
       animations: 'WIPE',
     })

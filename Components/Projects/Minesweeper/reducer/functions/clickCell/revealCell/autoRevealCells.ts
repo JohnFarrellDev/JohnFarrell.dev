@@ -44,9 +44,9 @@ export const autoRevealCells = (state: State): boolean => {
         })
 
         if (neighborSelectedReveal.length > 0) {
-          state.animationToApply.enqueue({
+          state.changesToApply.enqueue({
             time: 500,
-            animations: [
+            changes: [
               {
                 rowIndex: r,
                 columnIndex: c,
@@ -54,13 +54,13 @@ export const autoRevealCells = (state: State): boolean => {
               },
             ],
           })
-          state.animationToApply.enqueue({
+          state.changesToApply.enqueue({
             time: 500,
             animations: neighborSelectedReveal,
           })
         }
         if (neighborSelectedReveal.length > 0) {
-          state.animationToApply.enqueue({
+          state.changesToApply.enqueue({
             time: 200,
             animations: 'WIPE',
           })

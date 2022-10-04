@@ -82,7 +82,7 @@ describe('right click cell', () => {
   })
 
   it('should do nothing if there are animations to apply', () => {
-    state.animationToApply.enqueue({ time: 0, animations: 'WIPE' })
+    state.changesToApply.enqueue({ time: 0, animations: 'WIPE' })
 
     flagCell(state, action)
 

@@ -86,7 +86,7 @@ describe('auto flag cell', () => {
 
     autoFlagCells(state)
 
-    expect(state.animationToApply.length).toBe(0)
+    expect(state.changesToApply.length).toBe(0)
   })
 
   it('should supply animations for cells to flag', () => {
@@ -96,12 +96,12 @@ describe('auto flag cell', () => {
 
     autoFlagCells(state)
 
-    const animations = state.animationToApply.toArray()
+    const animations = state.changesToApply.toArray()
 
     expect(animations.length).toBe(10)
     expect(animations[0]).toEqual({
       time: 500,
-      animations: [
+      changes: [
         {
           rowIndex: 1,
           columnIndex: 1,
@@ -111,7 +111,7 @@ describe('auto flag cell', () => {
     })
     expect(animations[1]).toEqual({
       time: 250,
-      animations: [
+      changes: [
         {
           rowIndex: 0,
           columnIndex: 0,

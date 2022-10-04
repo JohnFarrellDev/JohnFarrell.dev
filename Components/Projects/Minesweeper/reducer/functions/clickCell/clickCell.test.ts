@@ -25,7 +25,7 @@ describe('click cell', () => {
   })
 
   it('should do nothing if there are animations to apply', () => {
-    state.animationToApply.enqueue({ animations: 'WIPE', time: 0 })
+    state.changesToApply.enqueue({ animations: 'WIPE', time: 0 })
 
     clickCell(state, action)
     expect(startGame).toBeCalledTimes(0)

@@ -1,4 +1,4 @@
-import { AnimationColor, AnimationStep, Animation, State } from '../../..'
+import { AnimationColor, ChangeStep, State } from '../../..'
 import { extractRowAndColumnFromId } from '../../../../functions/extractRowAndColumnFromId'
 import { Cell } from '../../../../types'
 
@@ -22,12 +22,12 @@ export const autoFlagCells = (state: State) => {
       )
         continue
 
-      const selectedCellForAnimation: AnimationStep[] | undefined = state
+      const selectedCellForAnimation: ChangeStep[] | undefined = state
         .customAnimations.FlagCell
         ? [
             {
               time: 500,
-              animations: [
+              changes: [
                 {
                   rowIndex: r,
                   columnIndex: c,
@@ -41,12 +41,12 @@ export const autoFlagCells = (state: State) => {
       const coveredNeighbors = numberOfCoveredNeighbors(cell)
       if (coveredNeighbors === cell.neighborBombs) {
         cell.neighbors.forEach((neighborCell) => {
-          const cellsSelectedToFlagForAnimation: AnimationStep[] | undefined =
+          const cellsSelectedToFlagForAnimation: ChangeStep[] | undefined =
             state.customAnimations.FlagCell
               ? [
                   {
                     time: 250,
-                    animations: [],
+                    changes: [],
                   },
                 ]
               : undefined
@@ -61,8 +61,8 @@ export const autoFlagCells = (state: State) => {
               )
 
               ;(
-                (cellsSelectedToFlagForAnimation as AnimationStep[])[0]
-                  .animations as unknown as Animation[]
+                (cellsSelectedToFlagForAnimation as ChangeStep[])[0]
+                  .changes as unknown as Animation[]
               ).push({
                 rowIndex: row,
                 columnIndex: column,
@@ -73,11 +73,11 @@ export const autoFlagCells = (state: State) => {
 
           if (
             state.customAnimations.FlagCell &&
-            (cellsSelectedToFlagForAnimation as AnimationStep[])[0].animations
+            (cellsSelectedToFlagForAnimation as ChangeStep[])[0].changes
               .length > 0
           ) {
-            ;(selectedCellForAnimation as AnimationStep[]).push(
-              ...(cellsSelectedToFlagForAnimation as AnimationStep[])
+            ;(selectedCellForAnimation as ChangeStep[]).push(
+              ...(cellsSelectedToFlagForAnimation as ChangeStep[])
             )
           }
         })
@@ -85,15 +85,15 @@ export const autoFlagCells = (state: State) => {
 
       if (
         state.customAnimations.FlagCell &&
-        (selectedCellForAnimation as AnimationStep[]).length > 1
+        (selectedCellForAnimation as ChangeStep[]).length > 1
       ) {
         appliedAnimation = true;
-        state.animationToApply.enqueueArray(selectedCellForAnimation as AnimationStep[])
+        state.changesToApply.enqueueArray(selectedCellForAnimation as ChangeStep[])
       }
     }
   }
 
   if(state.customAnimations.FlagCell && appliedAnimation) {
-    state.animationToApply.enqueue({ time: 500, animations: 'WIPE' })
+    state.changesToApply.enqueue({ time: 500, animations: 'WIPE' })
   }
 }

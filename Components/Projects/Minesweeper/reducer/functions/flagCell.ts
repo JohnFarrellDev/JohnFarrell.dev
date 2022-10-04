@@ -1,7 +1,7 @@
 import { RightClickCellAction, State } from '..'
 
 export const flagCell = (state: State, action: RightClickCellAction) => {
-  if (state.animationToApply.length > 0) return
+  if (state.changesToApply.length > 0) return
 
   if (!state.isPlaying || state.isDead || state.isWinner) return
 

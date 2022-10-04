@@ -106,7 +106,7 @@ describe('auto reveal cell', () => {
 
     autoRevealCells(state)
 
-    expect(state.animationToApply.length).toBe(0)
+    expect(state.changesToApply.length).toBe(0)
   })
 
   it('should apply animations when cells are automatically revealed and custom animation is turned on', () => {
@@ -118,17 +118,17 @@ describe('auto reveal cell', () => {
 
     autoRevealCells(state)
 
-    const animations = state.animationToApply.toArray()
+    const animations = state.changesToApply.toArray()
     expect(animations.length).toBe(3)
     expect(animations[0]).toEqual({
       time: 500,
-      animations: [
+      changes: [
         { rowIndex: 1, columnIndex: 1, color: AnimationColor.SelectedCell },
       ],
     })
     expect(animations[1]).toEqual({
       time: 500,
-      animations: [
+      changes: [
         {
           rowIndex: 0,
           columnIndex: 2,

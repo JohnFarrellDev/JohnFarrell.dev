@@ -29,42 +29,42 @@ describe('calculate neighbor information', () => {
 
     calculateNeighborInformation(state)
 
-    expect(state.animationToApply.length).toBe(0)
+    expect(state.changesToApply.length).toBe(0)
   })
 
   it('should return animation steps if custom animations is selected for CalculateNeighbors - bordered mode', () => {
     calculateNeighborInformation(state)
 
-    expect(state.animationToApply.length).toBe(75)
+    expect(state.changesToApply.length).toBe(75)
 
-    expect(state.animationToApply.toArray()[0].time).toBe(400)
-    expect(state.animationToApply.toArray()[0].animations.length).toBe(1)
-    expect(state.animationToApply.toArray()[0].animations[0]).toEqual({
+    expect(state.changesToApply.toArray()[0].time).toBe(400)
+    expect(state.changesToApply.toArray()[0].changes.length).toBe(1)
+    expect(state.changesToApply.toArray()[0].changes[0]).toEqual({
       columnIndex: 0,
       rowIndex: 0,
       color: AnimationColor.SelectedCell,
     })
 
-    expect(state.animationToApply.toArray()[1].time).toBe(400)
-    expect(state.animationToApply.toArray()[1].animations.length).toBe(3)
-    expect(state.animationToApply.toArray()[1].animations[0]).toEqual({
+    expect(state.changesToApply.toArray()[1].time).toBe(400)
+    expect(state.changesToApply.toArray()[1].changes.length).toBe(3)
+    expect(state.changesToApply.toArray()[1].changes[0]).toEqual({
       columnIndex: 1,
       rowIndex: 0,
       color: AnimationColor.SelectedNeighborCell,
     })
-    expect(state.animationToApply.toArray()[1].animations[1]).toEqual({
+    expect(state.changesToApply.toArray()[1].changes[1]).toEqual({
       columnIndex: 0,
       rowIndex: 1,
       color: AnimationColor.SelectedNeighborCell,
     })
-    expect(state.animationToApply.toArray()[1].animations[2]).toEqual({
+    expect(state.changesToApply.toArray()[1].changes[2]).toEqual({
       columnIndex: 1,
       rowIndex: 1,
       color: AnimationColor.SelectedNeighborCell,
     })
 
-    expect(state.animationToApply.toArray()[2].time).toBe(400)
-    expect(state.animationToApply.toArray()[2].animations).toBe('WIPE')
+    expect(state.changesToApply.toArray()[2].time).toBe(400)
+    expect(state.changesToApply.toArray()[2].changes).toBe('WIPE')
   })
 
   it('should return animation steps if custom animations is selected for CalculateNeighbors - borderless mode', () => {
@@ -72,61 +72,61 @@ describe('calculate neighbor information', () => {
 
     calculateNeighborInformation(state)
 
-    expect(state.animationToApply.length).toBe(75)
+    expect(state.changesToApply.length).toBe(75)
 
-    expect(state.animationToApply.toArray()[0].time).toBe(400)
-    expect(state.animationToApply.toArray()[0].animations.length).toBe(1)
-    expect(state.animationToApply.toArray()[0].animations[0]).toEqual({
+    expect(state.changesToApply.toArray()[0].time).toBe(400)
+    expect(state.changesToApply.toArray()[0].changes.length).toBe(1)
+    expect(state.changesToApply.toArray()[0].changes[0]).toEqual({
       columnIndex: 0,
       rowIndex: 0,
       color: AnimationColor.SelectedCell,
     })
-    expect(state.animationToApply.toArray()[1].time).toBe(400)
-    expect(state.animationToApply.toArray()[1].animations.length).toBe(8)
+    expect(state.changesToApply.toArray()[1].time).toBe(400)
+    expect(state.changesToApply.toArray()[1].changes.length).toBe(8)
 
-    expect(state.animationToApply.toArray()[1].animations[0]).toEqual({
+    expect(state.changesToApply.toArray()[1].changes[0]).toEqual({
       columnIndex: 4,
       rowIndex: 4,
       color: AnimationColor.SelectedNeighborCell,
     })
-    expect(state.animationToApply.toArray()[1].animations[1]).toEqual({
+    expect(state.changesToApply.toArray()[1].changes[1]).toEqual({
       columnIndex: 0,
       rowIndex: 4,
       color: AnimationColor.SelectedNeighborCell,
     })
-    expect(state.animationToApply.toArray()[1].animations[2]).toEqual({
+    expect(state.changesToApply.toArray()[1].changes[2]).toEqual({
       columnIndex: 1,
       rowIndex: 4,
       color: AnimationColor.SelectedNeighborCell,
     })
-    expect(state.animationToApply.toArray()[1].animations[3]).toEqual({
+    expect(state.changesToApply.toArray()[1].changes[3]).toEqual({
       columnIndex: 4,
       rowIndex: 0,
       color: AnimationColor.SelectedNeighborCell,
     })
-    expect(state.animationToApply.toArray()[1].animations[4]).toEqual({
+    expect(state.changesToApply.toArray()[1].changes[4]).toEqual({
       columnIndex: 1,
       rowIndex: 0,
       color: AnimationColor.SelectedNeighborCell,
     })
-    expect(state.animationToApply.toArray()[1].animations[5]).toEqual({
+    expect(state.changesToApply.toArray()[1].changes[5]).toEqual({
       columnIndex: 4,
       rowIndex: 1,
       color: AnimationColor.SelectedNeighborCell,
     })
-    expect(state.animationToApply.toArray()[1].animations[6]).toEqual({
+    expect(state.changesToApply.toArray()[1].changes[6]).toEqual({
       columnIndex: 0,
       rowIndex: 1,
       color: AnimationColor.SelectedNeighborCell,
     })
-    expect(state.animationToApply.toArray()[1].animations[7]).toEqual({
+    expect(state.changesToApply.toArray()[1].changes[7]).toEqual({
       columnIndex: 1,
       rowIndex: 1,
       color: AnimationColor.SelectedNeighborCell,
     })
 
-    expect(state.animationToApply.toArray()[2].time).toBe(400)
-    expect(state.animationToApply.toArray()[2].animations).toBe('WIPE')
+    expect(state.changesToApply.toArray()[2].time).toBe(400)
+    expect(state.changesToApply.toArray()[2].changes).toBe('WIPE')
   })
 
   it.each`
