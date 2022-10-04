@@ -24,8 +24,8 @@ describe('click cell', () => {
     jest.resetAllMocks()
   })
 
-  it('should do nothing if there are animations to apply', () => {
-    state.changesToApply.enqueue({ animations: 'WIPE', time: 0 })
+  it('should do nothing if there are changes to apply', () => {
+    state.changesToApply.enqueue({ changes: [], time: 0 })
 
     clickCell(state, action)
     expect(startGame).toBeCalledTimes(0)
