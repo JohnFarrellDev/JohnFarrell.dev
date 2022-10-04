@@ -12,7 +12,7 @@ export const applyChanges = (state: State) => {
     if (change.action === 'WIPEANIMATION') {
       state.board.forEach((row) => {
         row.forEach((cell) => {
-          cell.color = undefined
+          cell.color = AnimationColor.NoColor
         })
       })
     }
@@ -23,10 +23,19 @@ export const applyChanges = (state: State) => {
     }
     if (change.action === 'REMOVEBOMB') {
       state.board[change.rowIndex][change.columnIndex].isBomb = false
-      state.board[change.rowIndex][change.columnIndex].color = undefined
+      state.board[change.rowIndex][change.columnIndex].color = AnimationColor.NoColor
     }
     if(change.action === "COPYBOARD") {
         state.board = cloneDeep(change.board)
+    }
+    if(change.action === "SELECTEDCELL") {
+      state.board[change.rowIndex][change.columnIndex].color = AnimationColor.SelectedCell
+    }
+    if(change.action === "SELECTEDNEIGHBORCELL") {
+      state.board[change.rowIndex][change.columnIndex].color = AnimationColor.SelectedNeighborCell
+    }
+    if(change.action === "SELECTEDNEIGHBORCELLBOMB") {
+      state.board[change.rowIndex][change.columnIndex].color = AnimationColor.SelectedNeighborCellBomb
     }
   })
 }

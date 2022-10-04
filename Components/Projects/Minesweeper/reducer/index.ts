@@ -14,34 +14,24 @@ import { flagCell } from './functions/flagCell'
 import { switchFaceType } from './functions/switchFaceType'
 import { Queue } from '../../../../Utilities/Queue'
 
-type PlaceBombColor = '#eca1a6'
-type SelectedCell = '#90EE90'
-type SelectedNeighborCell = '#FF3399'
-type RecursiveRevealColor = '#00CED1'
-type NoColor = undefined
 
-export type CellColor =
-  | PlaceBombColor
-  | SelectedCell
-  | SelectedNeighborCell
-  | RecursiveRevealColor
-  | NoColor
-
-export const AnimationColor: Record<string, CellColor> = {
+export const AnimationColor: Record<string, string | undefined> = {
   SelectedCell: '#90EE90',
   RecursiveRevealColor: '#00CED1',
-  SelectedNeighborCell: '#FF3399',
-  PlaceBombColor: '#eca1a6',
+  SelectedNeighborCell: '#AFEEEE',
+  SelectedNeighborCellBomb: '#ECA1A6',
+  PlaceBombColor: '#ECA1A6',
   NoColor: undefined,
 }
-
-export type AnimationColorsRecord = Map<CustomAnimations, CellColor>
 
 export type Change =
   | { action: 'WIPEANIMATION' }
   | { action: 'PLACEBOMB'; rowIndex: number; columnIndex: number }
   | { action: 'REMOVEBOMB'; rowIndex: number; columnIndex: number }
   | { action: 'COPYBOARD', board: Cell[][]}
+  | { action: 'SELECTEDCELL'; rowIndex: number; columnIndex: number }
+  | { action: 'SELECTEDNEIGHBORCELL'; rowIndex: number; columnIndex: number }
+  | { action: 'SELECTEDNEIGHBORCELLBOMB'; rowIndex: number; columnIndex: number }
 
 export interface ChangeStep {
   time: number
