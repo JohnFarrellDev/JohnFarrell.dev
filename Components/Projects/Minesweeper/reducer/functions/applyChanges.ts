@@ -37,5 +37,9 @@ export const applyChanges = (state: State) => {
     if(change.action === "SELECTEDNEIGHBORCELLBOMB") {
       state.board[change.rowIndex][change.columnIndex].color = AnimationColor.SelectedNeighborCellBomb
     }
+    if(change.action === "APPLYNEIGHBORINFORMATION") {
+      state.board[change.rowIndex][change.columnIndex].neighbors = change.neighbors
+      state.board[change.rowIndex][change.columnIndex].neighborBombs = change.neighborBombs
+    }
   })
 }

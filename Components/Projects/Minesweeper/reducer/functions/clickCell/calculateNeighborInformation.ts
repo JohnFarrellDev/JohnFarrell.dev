@@ -163,22 +163,31 @@ export const calculateNeighborInformation = (state: State) => {
         })
       }
 
+      const neighbors = cellNeighbors
+
+      const neighborBombs = neighbors.reduce(
+        (prev, current) => prev + Number(current.isBomb),
+        0
+      )
+      
+      neighborCellsChanges.push({
+        action: "APPLYNEIGHBORINFORMATION",
+        neighbors,
+        neighborBombs,
+        rowIndex,
+        columnIndex
+      })
+      
+
       state.changesToApply.enqueue({
-        time: 400,
+        time: 800,
         changes: neighborCellsChanges,
       })
 
       state.changesToApply.enqueue({
-        time: 400,
+        time: 0,
         changes: [{ action: 'WIPEANIMATION' }],
       })
-
-      cell.neighbors = cellNeighbors
-
-      cell.neighborBombs = cell.neighbors.reduce(
-        (prev, current) => prev + Number(current.isBomb),
-        0
-      )
     })
   })
 }

@@ -14,7 +14,6 @@ import { flagCell } from './functions/flagCell'
 import { switchFaceType } from './functions/switchFaceType'
 import { Queue } from '../../../../Utilities/Queue'
 
-
 export const AnimationColor: Record<string, string | undefined> = {
   SelectedCell: '#90EE90',
   RecursiveRevealColor: '#00CED1',
@@ -28,10 +27,21 @@ export type Change =
   | { action: 'WIPEANIMATION' }
   | { action: 'PLACEBOMB'; rowIndex: number; columnIndex: number }
   | { action: 'REMOVEBOMB'; rowIndex: number; columnIndex: number }
-  | { action: 'COPYBOARD', board: Cell[][]}
+  | { action: 'COPYBOARD'; board: Cell[][] }
   | { action: 'SELECTEDCELL'; rowIndex: number; columnIndex: number }
   | { action: 'SELECTEDNEIGHBORCELL'; rowIndex: number; columnIndex: number }
-  | { action: 'SELECTEDNEIGHBORCELLBOMB'; rowIndex: number; columnIndex: number }
+  | {
+      action: 'SELECTEDNEIGHBORCELLBOMB'
+      rowIndex: number
+      columnIndex: number
+    }
+  | {
+      action: 'APPLYNEIGHBORINFORMATION'
+      rowIndex: number
+      columnIndex: number
+      neighbors: Cell[]
+      neighborBombs: number
+    }
 
 export interface ChangeStep {
   time: number
