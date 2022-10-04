@@ -12,16 +12,25 @@ describe('generate board', () => {
 
   it('should return as many inner arrays as rows', () => {
     expect(state.board.length).toBe(state.rows)
+    expect(state.revealedBoard.length).toBe(state.rows)
   })
 
   it('each inner array length should be equal to the number of columns', () => {
     state.board.forEach((row) => {
       expect(row.length).toBe(state.columns)
     })
+    state.revealedBoard.forEach((row) => {
+      expect(row.length).toBe(state.columns)
+    })
   })
 
   it('should generate each cell as covered', () => {
     state.board.forEach((row) => {
+      row.forEach((cell) => {
+        expect(cell.isCovered).toBe(true)
+      })
+    })
+    state.revealedBoard.forEach((row) => {
       row.forEach((cell) => {
         expect(cell.isCovered).toBe(true)
       })
@@ -34,10 +43,20 @@ describe('generate board', () => {
         expect(cell.isFlagged).toBe(false)
       })
     })
+    state.revealedBoard.forEach((row) => {
+      row.forEach((cell) => {
+        expect(cell.isFlagged).toBe(false)
+      })
+    })
   })
 
   it('should generate each cell without a bomb', () => {
     state.board.forEach((row) => {
+      row.forEach((cell) => {
+        expect(cell.isBomb).toBe(false)
+      })
+    })
+    state.revealedBoard.forEach((row) => {
       row.forEach((cell) => {
         expect(cell.isBomb).toBe(false)
       })
@@ -56,6 +75,18 @@ describe('generate board', () => {
         expect(cell.neighborBombs).toBe(0)
       })
     })
+
+    state.revealedBoard.forEach((row) => {
+      row.forEach((cell) => {
+        expect(cell.neighbors.length).toBe(0)
+      })
+    })
+
+    state.revealedBoard.forEach((row) => {
+      row.forEach((cell) => {
+        expect(cell.neighborBombs).toBe(0)
+      })
+    })
   })
 
   it('should assign an incremental unique id to each cell', () => {
@@ -64,5 +95,11 @@ describe('generate board', () => {
     expect(state.board[1][0].id).toBe(10)
     expect(state.board[3][7].id).toBe(37)
     expect(state.board[4][9].id).toBe(49)
+
+    expect(state.revealedBoard[0][0].id).toBe(0)
+    expect(state.revealedBoard[0][9].id).toBe(9)
+    expect(state.revealedBoard[1][0].id).toBe(10)
+    expect(state.revealedBoard[3][7].id).toBe(37)
+    expect(state.revealedBoard[4][9].id).toBe(49)
   })
 })
