@@ -1,7 +1,5 @@
 import { MouseEvent, useCallback } from 'react'
 import styled from 'styled-components'
-import { AnimationColorsRecord } from '../reducer'
-import { CustomAnimations } from './Game/Game'
 import { Bomb } from './SVGs/Bomb'
 import { RedFlag } from './SVGs/RedFlag'
 
@@ -13,9 +11,7 @@ interface GameCellI {
   isFlagged: boolean
   isWinner: boolean
   neighborBombs: number
-  color?: AnimationColorsRecord extends Map<CustomAnimations, infer I>
-    ? I
-    : never
+  color?: string
   leftClick: (rowIndex: number, columnIndex: number) => void
   rightClick: (rowIndex: number, columnIndex: number) => void
   leftDown: (event: MouseEvent<HTMLDivElement>) => void
