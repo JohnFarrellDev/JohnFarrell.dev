@@ -1,7 +1,7 @@
 import { State, Action } from '.'
 import { minesweeperReducer } from '.'
 
-import { applyAnimation } from './functions/applyAnimation'
+import { applyChanges } from './functions/applyChanges'
 import { changeNumberOfBombs } from './functions/changeNumberOfBombs'
 import { changeNumberOfColumns } from './functions/changeNumberOfColumns'
 import { changeNumberOfRows } from './functions/changeNumberOfRows'
@@ -13,7 +13,7 @@ import { flagCell } from './functions/flagCell'
 import { switchFaceType } from './functions/switchFaceType'
 import { minesweeperStateFactory } from '../../../../factories/minesweeperState'
 
-jest.mock('./functions/applyAnimation')
+jest.mock('./functions/applyChanges')
 jest.mock('./functions/changeNumberOfBombs')
 jest.mock('./functions/changeNumberOfColumns')
 jest.mock('./functions/changeNumberOfRows')
@@ -33,7 +33,7 @@ describe('minesweeper reducer', () => {
 
   it.each`
     action                               | passedFunction
-    ${{ type: 'ApplyAnimation' }}        | ${applyAnimation}
+    ${{ type: 'ApplyChanges' }}        | ${applyChanges}
     ${{ type: 'ChangeNumberOfBombs' }}   | ${changeNumberOfBombs}
     ${{ type: 'ChangeNumberOfColumns' }} | ${changeNumberOfColumns}
     ${{ type: 'ChangeNumberOfRows' }}    | ${changeNumberOfRows}

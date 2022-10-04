@@ -71,7 +71,7 @@ export const Game = ({
   useEffect(() => {
     setTimeout(() => {
       dispatch({
-        type: 'ApplyAnimation',
+        type: 'ApplyChanges',
       })
     }, gameState.animationTime)
   // eslint-disable-next-line react-hooks/exhaustive-deps

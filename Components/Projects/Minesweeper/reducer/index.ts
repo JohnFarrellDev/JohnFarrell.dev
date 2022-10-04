@@ -2,7 +2,7 @@ import cloneDeep from 'lodash.clonedeep'
 import { CustomAnimations, Operations } from '../Components/Game/Game'
 import { FaceType } from '../Components/GameTracking/GameTracking'
 import { Cell } from '../types'
-import { applyAnimation } from './functions/applyAnimation'
+import { applyChanges } from './functions/applyChanges'
 import { changeNumberOfBombs } from './functions/changeNumberOfBombs'
 import { changeNumberOfColumns } from './functions/changeNumberOfColumns'
 import { changeNumberOfRows } from './functions/changeNumberOfRows'
@@ -90,7 +90,7 @@ export type ChangeNumberOfBombsAction = {
   type: 'ChangeNumberOfBombs'
   newNumberOfBombs: number
 }
-export type ApplyAnimationAction = { type: 'ApplyAnimation' }
+export type ApplyChangesAction = { type: 'ApplyChanges' }
 export type MouseDownCell = { type: 'MouseDownCell' }
 export type MouseUpCell = { type: 'MouseUpCell' }
 export type SwitchFaceType = { type: 'SwitchFaceType' }
@@ -101,7 +101,7 @@ export type Action =
   | ChangeNumberOfColumnsAction
   | ChangeNumberOfRowsAction
   | ChangeNumberOfBombsAction
-  | ApplyAnimationAction
+  | ApplyChangesAction
   | RightClickCellAction
   | MouseDownCell
   | MouseUpCell
@@ -114,7 +114,7 @@ const mapActionToFunction: Record<
   | 'ChangeNumberOfColumns'
   | 'ChangeNumberOfRows'
   | 'ChangeNumberOfBombs'
-  | 'ApplyAnimation'
+  | 'ApplyChanges'
   | 'MouseDownCell'
   | 'MouseUpCell'
   | 'SwitchFaceType',
@@ -127,7 +127,7 @@ const mapActionToFunction: Record<
   ChangeNumberOfColumns: changeNumberOfColumns,
   ChangeNumberOfRows: changeNumberOfRows,
   ChangeNumberOfBombs: changeNumberOfBombs,
-  ApplyAnimation: applyAnimation,
+  ApplyChanges: applyChanges,
   MouseDownCell: mouseDownCell,
   MouseUpCell: mouseUpCell,
   SwitchFaceType: switchFaceType,

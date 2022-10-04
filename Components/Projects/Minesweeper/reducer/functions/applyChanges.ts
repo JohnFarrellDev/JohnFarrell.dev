@@ -1,7 +1,7 @@
 import cloneDeep from 'lodash.clonedeep'
 import { AnimationColor, State } from '..'
 
-export const applyAnimation = (state: State) => {
+export const applyChanges = (state: State) => {
   const changeStep = state.changesToApply.dequeue()
 
   if (!changeStep) return
@@ -19,7 +19,7 @@ export const applyAnimation = (state: State) => {
     if (change.action === 'PLACEBOMB') {
       state.board[change.rowIndex][change.columnIndex].isBomb = true
       state.board[change.rowIndex][change.columnIndex].color =
-        AnimationColor.PLACEBOMB
+        AnimationColor.PlaceBombColor
     }
     if (change.action === 'REMOVEBOMB') {
       state.board[change.rowIndex][change.columnIndex].isBomb = false
