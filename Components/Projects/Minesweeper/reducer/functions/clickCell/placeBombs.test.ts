@@ -41,7 +41,7 @@ describe('place bombs', () => {
 
     let bombCount = 0
 
-    state.board.forEach((row) => {
+    state.revealedBoard.forEach((row) => {
       row.forEach((cell) => {
         if (cell.isBomb) bombCount++
       })
@@ -61,7 +61,7 @@ describe('place bombs', () => {
 
     placeBombs(state, action)
 
-    state.board.forEach((row, rowIndex) => {
+    state.revealedBoard.forEach((row, rowIndex) => {
       row.forEach((cell, columnIndex) => {
         if (rowIndex === 1 && columnIndex === 1) {
           expect(cell.isBomb).toBe(false)
@@ -84,7 +84,7 @@ describe('place bombs', () => {
 
     placeBombs(state, action)
 
-    state.board.forEach((row, rowIndex) => {
+    state.revealedBoard.forEach((row, rowIndex) => {
       row.forEach((cell, columnIndex) => {
         if (rowIndex === 1 && columnIndex === 1) {
           expect(cell.isBomb).toBe(false)
@@ -98,7 +98,15 @@ describe('place bombs', () => {
   it('should apply animation affects', () => {
     placeBombs(state, action)
 
-    expect(state.animationToApply.length).toBe(11)
+    const changesToApply = state.changesToApply.toArray();
+
+    expect(changesToApply.length).toBe(11)
+    expect(changesToApply[0].time).toBe(500)
+    expect(changesToApply[0].changes[0].action).toBe("PLACEBOMB")
+    expect(changesToApply[0].changes[0].action).toBe("PLACEBOMB")
+
+    expect(changesToApply[changesToApply.length - 1].changes[0].action).toBe("WIPEANIMATION")
+    expect(changesToApply[changesToApply.length - 1].time).toBe(500)
   })
 
   it('should add no animation when customAnimation of PlaceBombs is not provided', () => {
@@ -107,7 +115,11 @@ describe('place bombs', () => {
 
     placeBombs(state, action)
 
-    expect(state.animationToApply.length).toBe(0)
+    const changesToApply = state.changesToApply.toArray();
+
+    expect(changesToApply.length).toBe(1)
+    expect(changesToApply[0].time).toBe(0)
+    expect(changesToApply[0].changes[0].action).toBe("COPYBOARD")
   })
 
   it('should do nothing if PlaceBombs is not an allowed operation and return the passed in board', () => {
@@ -117,13 +129,13 @@ describe('place bombs', () => {
 
     let bombCount = 0
 
-    state.board.forEach((row) => {
+    state.revealedBoard.forEach((row) => {
       row.forEach((cell) => {
         if (cell.isBomb) bombCount++
       })
     })
 
     expect(bombCount).toBe(0)
-    expect(state.animationToApply.length).toBe(0)
+    expect(state.changesToApply.length).toBe(0)
   })
 })
