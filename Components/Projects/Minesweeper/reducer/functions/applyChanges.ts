@@ -1,11 +1,23 @@
 import cloneDeep from 'lodash.clonedeep'
-import { AnimationColor, State } from '..'
+import { Action, AnimationColor, ChangeStep, State } from '..'
 
-export const applyChanges = (state: State) => {
+export const applyChanges = (state: State, action: Action, applyAll = false) => {
   const changeStep = state.changesToApply.dequeue()
 
   if (!changeStep) return
 
+  applyChange(state, changeStep)
+
+  if(applyAll) {
+    let curr = state.changesToApply.dequeue()
+    while(curr) {
+      applyChange(state, curr)
+      curr = state.changesToApply.dequeue()
+    }
+  }
+}
+
+const applyChange = (state: State, changeStep: ChangeStep) => {
   state.changeTime = changeStep.time;
 
   changeStep.changes.forEach((change) => {
