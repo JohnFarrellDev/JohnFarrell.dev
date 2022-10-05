@@ -127,4 +127,105 @@ describe('apply changes', () => {
 
     expect(state.board[0][0].isBomb).toBe(false)
   })
+
+  it('should update the cell color with SELECTEDCELL', () => {
+    expect(state.board[0][0].color).toBeUndefined()
+
+    state.changesToApply.enqueue({
+      changes: [{ rowIndex: 0, columnIndex: 0, action: 'SELECTEDCELL' }],
+      time: 0,
+    })
+
+    applyChanges(state, action)
+
+    expect(state.board[0][0].color).toBe(AnimationColor.SelectedCell)
+  })
+
+  it('should update the cell color with SELECTEDNEIGHBORCELL', () => {
+    expect(state.board[0][0].color).toBeUndefined()
+
+    state.changesToApply.enqueue({
+      changes: [
+        { rowIndex: 0, columnIndex: 0, action: 'SELECTEDNEIGHBORCELL' },
+      ],
+      time: 0,
+    })
+
+    applyChanges(state, action)
+
+    expect(state.board[0][0].color).toBe(AnimationColor.SelectedNeighborCell)
+  })
+
+  it('should update the cell color with SELECTEDNEIGHBORCELLBOMB', () => {
+    expect(state.board[0][0].color).toBeUndefined()
+
+    state.changesToApply.enqueue({
+      changes: [
+        { rowIndex: 0, columnIndex: 0, action: 'SELECTEDNEIGHBORCELLBOMB' },
+      ],
+      time: 0,
+    })
+
+    applyChanges(state, action)
+
+    expect(state.board[0][0].color).toBe(
+      AnimationColor.SelectedNeighborCellBomb
+    )
+  })
+
+  it("should update the cell's neighbor and bomb information with APPLYNEIGHBORINFORMATION", () => {
+    expect(state.board[0][0].neighborBombs).toBe(0)
+    expect(state.board[0][0].neighbors).toEqual([])
+
+    state.changesToApply.enqueue({
+      changes: [
+        {
+          rowIndex: 0,
+          columnIndex: 0,
+          action: 'APPLYNEIGHBORINFORMATION',
+          neighborBombs: 3,
+          neighbors: [
+            {
+              id: 1,
+              isBomb: false,
+              isCovered: true,
+              isFlagged: false,
+              neighborBombs: 0,
+              neighbors: [],
+            },
+            {
+              id: 5,
+              isBomb: false,
+              isCovered: true,
+              isFlagged: false,
+              neighborBombs: 0,
+              neighbors: [],
+            },
+            {
+              id: 6,
+              isBomb: false,
+              isCovered: true,
+              isFlagged: false,
+              neighborBombs: 0,
+              neighbors: [],
+            },
+          ],
+        },
+      ],
+      time: 0,
+    })
+
+    applyChanges(state, action)
+
+    expect(state.board[0][0].neighborBombs).toBe(3)
+    expect(state.board[0][0].neighbors.length).toBe(3)
+    expect(state.board[0][0].neighbors[0]).toEqual({
+      id: 1,
+      isBomb: false,
+      isCovered: true,
+      isFlagged: false,
+      neighborBombs: 0,
+      neighbors: [],
+    })
+  })
 })
