@@ -99,13 +99,13 @@ describe('recursive reveal cell', () => {
     recursiveRevealCell(state, action)
 
     expect(state.changesToApply.length).toBe(21)
-    expect(state.changesToApply.toArray()[0]).toEqual({
+    expect(changesToApply[0]).toEqual({
       time: 200,
       changes: [
         { rowIndex: 2, columnIndex: 3, color: AnimationColor.SelectedCell },
       ],
     })
-    expect(state.changesToApply.toArray()[1]).toEqual({
+    expect(changesToApply[1]).toEqual({
       time: 100,
       changes: [
         {
@@ -115,7 +115,7 @@ describe('recursive reveal cell', () => {
         },
       ],
     })
-    expect(state.changesToApply.toArray()[state.changesToApply.length - 1]).toEqual({
+    expect(changesToApply[state.changesToApply.length - 1]).toEqual({
       time: 2000,
       animations: 'WIPE',
     })

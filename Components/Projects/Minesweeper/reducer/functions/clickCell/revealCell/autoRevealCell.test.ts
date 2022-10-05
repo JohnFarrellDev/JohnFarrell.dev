@@ -119,6 +119,7 @@ describe('auto reveal cell', () => {
     autoRevealCells(state)
 
     const animations = state.changesToApply.toArray()
+    
     expect(animations.length).toBe(3)
     expect(animations[0]).toEqual({
       time: 500,

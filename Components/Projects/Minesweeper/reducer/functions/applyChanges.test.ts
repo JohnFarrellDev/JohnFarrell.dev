@@ -1,4 +1,4 @@
-import { AnimationColor } from '..'
+import { AnimationColor, ChangeNumberOfBombsAction } from '..'
 import { minesweeperStateFactory } from '../../../../../factories/minesweeperState'
 import { generateBoard } from '../../functions/generateBoard'
 import { applyChanges } from './applyChanges'
@@ -6,18 +6,25 @@ import { applyChanges } from './applyChanges'
 const startingState = minesweeperStateFactory.build({})
 generateBoard(startingState)
 
+const startingAction: ChangeNumberOfBombsAction = {
+  type: 'ChangeNumberOfBombs',
+  newNumberOfBombs: 10,
+}
+
 describe('apply changes', () => {
   let state = { ...startingState }
+  let action: ChangeNumberOfBombsAction
 
   beforeEach(() => {
     state = minesweeperStateFactory.build({})
     generateBoard(state)
+    action = { ...startingAction }
   })
 
   it('should do nothing if the changes to apply has a length of 0', () => {
     expect(state.changesToApply.length).toBe(0)
 
-    applyChanges(state)
+    applyChanges(state, action)
 
     expect(state.board).toEqual(startingState.board)
   })
@@ -38,7 +45,7 @@ describe('apply changes', () => {
     })
     expect(state.changesToApply.length).toBe(1)
 
-    applyChanges(state)
+    applyChanges(state, action)
 
     expect(state.changesToApply.length).toBe(0)
     expect(state.board[0][0].color).toBe(AnimationColor.PlaceBombColor)
@@ -47,7 +54,7 @@ describe('apply changes', () => {
       changes: [{ action: 'WIPEANIMATION' }],
       time: 0,
     })
-    applyChanges(state)
+    applyChanges(state, action)
     expect(state.board[0][0].color).toBeUndefined()
   })
 
@@ -59,14 +66,14 @@ describe('apply changes', () => {
       changes: [],
       time: EXPECTED_CHANGE_TIME,
     })
-    applyChanges(state)
+    applyChanges(state, action)
     expect(state.changeTime).toBe(EXPECTED_CHANGE_TIME)
 
     state.changesToApply.enqueue({
       changes: [],
       time: 0,
     })
-    applyChanges(state)
+    applyChanges(state, action)
     expect(state.changeTime).toBe(0)
   })
 
@@ -86,7 +93,7 @@ describe('apply changes', () => {
       time: 0,
     })
 
-    applyChanges(state)
+    applyChanges(state, action)
 
     expect(state.board[0][0].color).toBe(AnimationColor.PlaceBombColor)
     expect(state.board[0][1].color).toBe(AnimationColor.PlaceBombColor)
@@ -102,7 +109,7 @@ describe('apply changes', () => {
       time: 0,
     })
 
-    applyChanges(state)
+    applyChanges(state, action)
 
     expect(state.board[0][0].isBomb).toBe(true)
   })
@@ -116,7 +123,7 @@ describe('apply changes', () => {
       time: 0,
     })
 
-    applyChanges(state)
+    applyChanges(state, action)
 
     expect(state.board[0][0].isBomb).toBe(false)
   })
