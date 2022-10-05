@@ -1,3 +1,4 @@
+import { pointerAction } from '@testing-library/user-event/dist/types/pointer/pointerAction'
 import cloneDeep from 'lodash.clonedeep'
 import { Action, AnimationColor, ChangeStep, State } from '..'
 
@@ -52,6 +53,15 @@ const applyChange = (state: State, changeStep: ChangeStep) => {
     if(change.action === "APPLYNEIGHBORINFORMATION") {
       state.board[change.rowIndex][change.columnIndex].neighbors = change.neighbors
       state.board[change.rowIndex][change.columnIndex].neighborBombs = change.neighborBombs
+    }
+    if(change.action === 'REVEALCELLANIMATED') {
+      state.board[change.rowIndex][change.columnIndex].color = AnimationColor.SelectedCell
+      state.board[change.rowIndex][change.columnIndex].isCovered = false;
+    }
+    if(change.action === 'REVEALCELLS') {
+      change.cells.forEach(([rowIndex, columnIndex]) => {
+        state.board[rowIndex][columnIndex].isCovered = false;
+      })
     }
   })
 }

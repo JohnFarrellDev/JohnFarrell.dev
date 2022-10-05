@@ -228,4 +228,47 @@ describe('apply changes', () => {
       neighbors: [],
     })
   })
+
+  it('should reveal a cell and apply the animated color when the action is REVEALCELLANIMATED', () => {
+    expect(state.board[0][1].isCovered).toBe(true)
+    expect(state.board[0][1].color).toBeUndefined()
+
+    state.changesToApply.enqueue({
+      changes: [
+        {
+          action: 'REVEALCELLANIMATED',
+          rowIndex: 0,
+          columnIndex: 1
+        },
+      ],
+      time: 0,
+    })
+
+    applyChanges(state, action)
+
+    expect(state.board[0][1].isCovered).toBe(false)
+    expect(state.board[0][1].color).toBe(AnimationColor.SelectedCell)
+  })
+
+  it('should reveal all the cells when the action is REVEALCELLS', () => {
+    expect(state.board[0][1].isCovered).toBe(true)
+    expect(state.board[1][0].isCovered).toBe(true)
+    expect(state.board[1][1].isCovered).toBe(true)
+
+    state.changesToApply.enqueue({
+      changes: [
+        {
+          action: 'REVEALCELLS',
+          cells: [[0,1],[1,0],[1,1]]
+        },
+      ],
+      time: 0,
+    })
+
+    applyChanges(state, action)
+
+    expect(state.board[0][1].isCovered).toBe(false)
+    expect(state.board[1][0].isCovered).toBe(false)
+    expect(state.board[1][1].isCovered).toBe(false)
+  })
 })

@@ -42,6 +42,15 @@ export type Change =
       neighbors: Cell[]
       neighborBombs: number
     }
+    | {
+      action: 'REVEALCELLANIMATED'
+      rowIndex: number
+      columnIndex: number
+    }
+    | {
+      action: 'REVEALCELLS'
+      cells: [row: number, column: number][]
+    }
 
 export interface ChangeStep {
   time: number
