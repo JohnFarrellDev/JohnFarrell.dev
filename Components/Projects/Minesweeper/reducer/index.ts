@@ -27,7 +27,8 @@ export type Change =
   | { action: 'WIPEANIMATION' }
   | { action: 'PLACEBOMB'; rowIndex: number; columnIndex: number }
   | { action: 'REMOVEBOMB'; rowIndex: number; columnIndex: number }
-  | { action: 'COPYBOARD'; board: Cell[][] }
+  | { action: 'COPYBOMBS' }
+  | { action: 'COPYNEIGHBORBOMBCOUNT' }
   | { action: 'SELECTEDCELL'; rowIndex: number; columnIndex: number }
   | { action: 'SELECTEDNEIGHBORCELL'; rowIndex: number; columnIndex: number }
   | {
@@ -49,7 +50,6 @@ export type Change =
     }
     | {
       action: 'REVEALCELLS'
-      cells: [row: number, column: number][]
     }
 
 export interface ChangeStep {

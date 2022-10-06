@@ -35,7 +35,7 @@ export const placeBombs = (state: State, action: ClickCellAction) => {
   if (!state.customAnimations.PlaceBombs) {
     state.changesToApply.enqueue({
       time: 0,
-      changes: [{ action: 'COPYBOARD', board: state.revealedBoard }],
+      changes: [{ action: 'COPYBOMBS' }],
     })
     return
   }

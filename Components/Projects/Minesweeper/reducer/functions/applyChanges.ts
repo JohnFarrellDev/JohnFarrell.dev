@@ -1,17 +1,19 @@
-import { pointerAction } from '@testing-library/user-event/dist/types/pointer/pointerAction'
-import cloneDeep from 'lodash.clonedeep'
 import { Action, AnimationColor, ChangeStep, State } from '..'
 
-export const applyChanges = (state: State, action: Action, applyAll = false) => {
+export const applyChanges = (
+  state: State,
+  action: Action,
+  applyAll = false
+) => {
   const changeStep = state.changesToApply.dequeue()
 
   if (!changeStep) return
 
   applyChange(state, changeStep)
 
-  if(applyAll) {
+  if (applyAll) {
     let curr = state.changesToApply.dequeue()
-    while(curr) {
+    while (curr) {
       applyChange(state, curr)
       curr = state.changesToApply.dequeue()
     }
@@ -19,7 +21,7 @@ export const applyChanges = (state: State, action: Action, applyAll = false) => 
 }
 
 const applyChange = (state: State, changeStep: ChangeStep) => {
-  state.changeTime = changeStep.time;
+  state.changeTime = changeStep.time
 
   changeStep.changes.forEach((change) => {
     if (change.action === 'WIPEANIMATION') {
@@ -36,31 +38,53 @@ const applyChange = (state: State, changeStep: ChangeStep) => {
     }
     if (change.action === 'REMOVEBOMB') {
       state.board[change.rowIndex][change.columnIndex].isBomb = false
-      state.board[change.rowIndex][change.columnIndex].color = AnimationColor.NoColor
+      state.board[change.rowIndex][change.columnIndex].color =
+        AnimationColor.NoColor
     }
-    if(change.action === "COPYBOARD") {
-        state.board = cloneDeep(change.board)
+    if (change.action === 'COPYBOMBS') {
+      state.revealedBoard.forEach((row, rowIndex) => {
+        row.forEach((cell, columnIndex) => {
+          if (cell.isBomb) {
+            state.board[rowIndex][columnIndex].isBomb = true
+          }
+        })
+      })
     }
-    if(change.action === "SELECTEDCELL") {
-      state.board[change.rowIndex][change.columnIndex].color = AnimationColor.SelectedCell
+    if (change.action === 'COPYNEIGHBORBOMBCOUNT') {
+      state.revealedBoard.forEach((row, rowIndex) => {
+        row.forEach((cell, columnIndex) => {
+          state.board[rowIndex][columnIndex].neighborBombs = cell.neighborBombs
+        })
+      })
     }
-    if(change.action === "SELECTEDNEIGHBORCELL") {
-      state.board[change.rowIndex][change.columnIndex].color = AnimationColor.SelectedNeighborCell
+    if (change.action === 'SELECTEDCELL') {
+      state.board[change.rowIndex][change.columnIndex].color =
+        AnimationColor.SelectedCell
     }
-    if(change.action === "SELECTEDNEIGHBORCELLBOMB") {
-      state.board[change.rowIndex][change.columnIndex].color = AnimationColor.SelectedNeighborCellBomb
+    if (change.action === 'SELECTEDNEIGHBORCELL') {
+      state.board[change.rowIndex][change.columnIndex].color =
+        AnimationColor.SelectedNeighborCell
     }
-    if(change.action === "APPLYNEIGHBORINFORMATION") {
-      state.board[change.rowIndex][change.columnIndex].neighbors = change.neighbors
-      state.board[change.rowIndex][change.columnIndex].neighborBombs = change.neighborBombs
+    if (change.action === 'SELECTEDNEIGHBORCELLBOMB') {
+      state.board[change.rowIndex][change.columnIndex].color =
+        AnimationColor.SelectedNeighborCellBomb
     }
-    if(change.action === 'REVEALCELLANIMATED') {
-      state.board[change.rowIndex][change.columnIndex].color = AnimationColor.SelectedCell
-      state.board[change.rowIndex][change.columnIndex].isCovered = false;
+    if (change.action === 'APPLYNEIGHBORINFORMATION') {
+      state.board[change.rowIndex][change.columnIndex].neighbors =
+        change.neighbors
+      state.board[change.rowIndex][change.columnIndex].neighborBombs =
+        change.neighborBombs
     }
-    if(change.action === 'REVEALCELLS') {
-      change.cells.forEach(([rowIndex, columnIndex]) => {
-        state.board[rowIndex][columnIndex].isCovered = false;
+    if (change.action === 'REVEALCELLANIMATED') {
+      state.board[change.rowIndex][change.columnIndex].color =
+        AnimationColor.SelectedCell
+      state.board[change.rowIndex][change.columnIndex].isCovered = false
+    }
+    if (change.action === 'REVEALCELLS') {
+      state.revealedBoard.forEach((row, rowIndex) => {
+        row.forEach((cell, columnIndex) => {
+          state.board[rowIndex][columnIndex].isCovered = cell.isCovered
+        })
       })
     }
   })

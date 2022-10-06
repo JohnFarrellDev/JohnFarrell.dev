@@ -74,8 +74,7 @@ export const Game = ({
         type: 'ApplyChanges',
       })
     }, gameState.changeTime)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gameState.changesToApply.length])
+  }, [gameState.changesToApply.length, gameState.changeTime])
 
   useEffect(() => {
     dispatch({

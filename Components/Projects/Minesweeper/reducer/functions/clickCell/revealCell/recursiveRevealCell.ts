@@ -1,24 +1,24 @@
-import { AnimationColor, ClickCellAction, State } from '../../..'
+import { ClickCellAction, State } from '../../..'
 import { extractRowAndColumnFromId } from '../../../../functions/extractRowAndColumnFromId'
 
 export const recursiveRevealCell = (state: State, action: ClickCellAction) => {
   if (!state.allowedOperations.RecursiveReveal) return
   const cellsAllReadySelected = new Set([
-    state.board[action.rowIndex][action.columnIndex].id,
+    state.revealedBoard[action.rowIndex][action.columnIndex].id,
   ])
 
-  const cellsToVisit = [state.board[action.rowIndex][action.columnIndex].id]
+  const cellsToVisit = [state.revealedBoard[action.rowIndex][action.columnIndex].id]
 
   if (state.customAnimations.RecursiveReveal) {
     state.changesToApply.enqueue({
+      time: 200,
       changes: [
         {
+          action: 'REVEALCELLANIMATED',
           rowIndex: action.rowIndex,
           columnIndex: action.columnIndex,
-          color: AnimationColor.SelectedCell,
         },
       ],
-      time: 200,
     })
   }
 
@@ -31,18 +31,20 @@ export const recursiveRevealCell = (state: State, action: ClickCellAction) => {
       state.customAnimations.RecursiveReveal &&
       !(row === action.rowIndex && column === action.columnIndex)
     ) {
-      state.changesToApply.enqueue({
-        changes: [
-          {
-            rowIndex: row,
-            columnIndex: column,
-            color: AnimationColor.RecursiveRevealColor,
-          },
-        ],
-        time: 100,
-      })
+      if(state.customAnimations.RecursiveReveal) {
+        state.changesToApply.enqueue({
+          changes: [
+            {
+              action: 'REVEALCELLANIMATED',
+              rowIndex: row,
+              columnIndex: column
+            },
+          ],
+          time: 100,
+        })
+      }
     }
-    const currentCell = state.board[row][column]
+    const currentCell = state.revealedBoard[row][column]
     if (currentCell.neighborBombs === 0) {
       currentCell.neighbors.forEach((neighborCell) => {
         if (!cellsAllReadySelected.has(neighborCell.id)) {
@@ -56,7 +58,7 @@ export const recursiveRevealCell = (state: State, action: ClickCellAction) => {
 
   if (state.customAnimations.RecursiveReveal) {
     state.changesToApply.enqueue({
-      animations: "WIPE",
+      changes: [{action: 'WIPEANIMATION'}],
       time: 2000,
     })
   }

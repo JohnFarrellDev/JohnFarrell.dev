@@ -3,7 +3,7 @@ import { minesweeperStateFactory } from '../../../../../../factories/minesweeper
 import { generateBoard } from '../../../functions/generateBoard'
 import { calculateNeighborInformation } from './calculateNeighborInformation'
 
-describe('calculate neighbor information', () => {
+describe.only('calculate neighbor information', () => {
   let state: State
 
   beforeEach(() => {
@@ -35,7 +35,7 @@ describe('calculate neighbor information', () => {
     expect(changesToApply.length).toBe(1)
     expect(changesToApply[0]).toEqual({
       time: 0,
-      changes: [{ action: 'COPYBOARD', board: state.revealedBoard }],
+      changes: [{ action: 'COPYNEIGHBORBOMBCOUNT' }],
     })
   })
 

@@ -329,7 +329,7 @@ export const Minesweeper = () => {
                 <Game
                   columns={10}
                   rows={10}
-                  numberOfBombs={1}
+                  numberOfBombs={5}
                   hasCustomControls={false}
                   transparentSideView={false}
                   customAnimations={{
@@ -348,7 +348,7 @@ export const Minesweeper = () => {
                     AutoFlag: false,
                     BasicAutoClick: false,
                   }}
-                  borderlessMode={true}
+                  borderlessMode={false}
                 />
               </li>
 

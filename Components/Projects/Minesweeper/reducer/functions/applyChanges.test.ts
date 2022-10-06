@@ -114,6 +114,23 @@ describe('apply changes', () => {
     expect(state.board[0][0].isBomb).toBe(true)
   })
 
+  it('should update all the board cell\'s bomb status to match the revealed board bombs when the action is COPYBOMBS', () => {
+    expect(state.board[0][0].isBomb).toBe(false)
+    expect(state.board[2][2].isBomb).toBe(false)
+    state.revealedBoard[0][0].isBomb = true
+    state.revealedBoard[2][2].isBomb = true
+
+    state.changesToApply.enqueue({
+      changes: [{ action: 'COPYBOMBS' }],
+      time: 0,
+    })
+
+    applyChanges(state, action)
+
+    expect(state.board[0][0].isBomb).toBe(true)
+    expect(state.board[2][2].isBomb).toBe(true)
+  })
+
   it('should update the cell to not have a bomb when change applied action is REMOVEBOMB', () => {
     state.board[0][0].isBomb = true
     expect(state.board[0][0].isBomb).toBe(true)
@@ -250,25 +267,5 @@ describe('apply changes', () => {
     expect(state.board[0][1].color).toBe(AnimationColor.SelectedCell)
   })
 
-  it('should reveal all the cells when the action is REVEALCELLS', () => {
-    expect(state.board[0][1].isCovered).toBe(true)
-    expect(state.board[1][0].isCovered).toBe(true)
-    expect(state.board[1][1].isCovered).toBe(true)
-
-    state.changesToApply.enqueue({
-      changes: [
-        {
-          action: 'REVEALCELLS',
-          cells: [[0,1],[1,0],[1,1]]
-        },
-      ],
-      time: 0,
-    })
-
-    applyChanges(state, action)
-
-    expect(state.board[0][1].isCovered).toBe(false)
-    expect(state.board[1][0].isCovered).toBe(false)
-    expect(state.board[1][1].isCovered).toBe(false)
-  })
+  
 })

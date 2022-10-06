@@ -81,7 +81,7 @@ export const calculateNeighborInformation = (state: State) => {
 
     state.changesToApply.enqueue({
       time: 0,
-      changes: [{ action: 'COPYBOARD', board: state.revealedBoard }],
+      changes: [{ action: 'COPYNEIGHBORBOMBCOUNT' }],
     })
     return
   }
