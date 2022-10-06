@@ -119,7 +119,7 @@ describe('place bombs', () => {
 
     expect(changesToApply.length).toBe(1)
     expect(changesToApply[0].time).toBe(0)
-    expect(changesToApply[0].changes[0].action).toBe("COPYBOARD")
+    expect(changesToApply[0].changes[0].action).toBe("COPYBOMBS")
   })
 
   it('should do nothing if PlaceBombs is not an allowed operation and return the passed in board', () => {
