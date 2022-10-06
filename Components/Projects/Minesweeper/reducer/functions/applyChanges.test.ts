@@ -267,5 +267,86 @@ describe('apply changes', () => {
     expect(state.board[0][1].color).toBe(AnimationColor.SelectedCell)
   })
 
-  
+  it('should copy the neighbor bomb count from revealed board to normal board when the action is COPYNEIGHBORBOMBCOUNT', () => {
+    expect(state.board[0][0].neighborBombs).toBe(0)
+    expect(state.board[2][2].neighborBombs).toBe(0)
+
+    state.revealedBoard[0][0].neighborBombs = 3
+    state.revealedBoard[2][2].neighborBombs = 5
+
+    state.changesToApply.enqueue({
+      changes: [
+        {
+          action: 'COPYNEIGHBORBOMBCOUNT'
+        },
+      ],
+      time: 0,
+    })
+
+    applyChanges(state, action)
+
+    expect(state.board[0][0].neighborBombs).toBe(3)
+    expect(state.board[2][2].neighborBombs).toBe(5)
+  })
+
+  it('should copy from revealed board to normal board cell isCovered status when the action is REVEALCELLS', () => {
+    expect(state.board[0][0].isCovered).toBe(true)
+    expect(state.board[2][2].isCovered).toBe(true)
+
+    state.revealedBoard[0][0].isCovered = false
+    state.revealedBoard[2][2].isCovered = false
+
+    state.changesToApply.enqueue({
+      changes: [
+        {
+          action: 'REVEALCELLS'
+        },
+      ],
+      time: 0,
+    })
+
+    applyChanges(state, action)
+
+    expect(state.board[0][0].isCovered).toBe(false)
+    expect(state.board[2][2].isCovered).toBe(false)
+  })
+
+  it('should apply all changes in one go if applyAll is set to true', () => {
+    expect(state.changesToApply.length).toBe(0)
+
+    state.changesToApply.enqueue({
+      changes: [{ action: 'WIPEANIMATION' }],
+      time: 0,
+    })
+    state.changesToApply.enqueue({
+      changes: [{ action: 'WIPEANIMATION' }],
+      time: 0,
+    })
+
+    expect(state.changesToApply.length).toBe(2)
+
+    applyChanges(state, action, true)
+
+    expect(state.changesToApply.length).toBe(0)
+  })
+
+
+  it('should only apply one change at a time when applyAll is it\'s default value as false', () => {
+    expect(state.changesToApply.length).toBe(0)
+
+    state.changesToApply.enqueue({
+      changes: [{ action: 'WIPEANIMATION' }],
+      time: 0,
+    })
+    state.changesToApply.enqueue({
+      changes: [{ action: 'WIPEANIMATION' }],
+      time: 0,
+    })
+
+    expect(state.changesToApply.length).toBe(2)
+
+    applyChanges(state, action)
+
+    expect(state.changesToApply.length).toBe(1)
+  })
 })
