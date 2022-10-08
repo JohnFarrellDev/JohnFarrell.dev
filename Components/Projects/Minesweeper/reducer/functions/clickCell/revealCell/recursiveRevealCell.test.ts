@@ -1,4 +1,4 @@
-import { State, ClickCellAction, AnimationColor } from '../../..'
+import { State, ClickCellAction } from '../../..'
 import { minesweeperStateFactory } from '../../../../../../../factories/minesweeperState'
 import { generateBoard } from '../../../../functions/generateBoard'
 import { Cell } from '../../../../types'
@@ -81,43 +81,73 @@ describe('recursive reveal cell', () => {
     expect(count).toBe(19)
   })
 
-  it('should apply no animations of custom animations is set to false for RecursiveReveal', () => {
+  it('should apply a change of REVEALCELLS if RecursiveReveal animation is false', () => {
     state.customAnimations.RecursiveReveal = false
-    calculateNeighborInformation(state)
     recursiveRevealCell(state, action)
 
-    expect(state.changesToApply.length).toBe(0)
+    expect(state.changesToApply.length).toBe(2)
+    expect(state.changesToApply.head?.value.changes[0].action).toBe(
+      'COPYNEIGHBORBOMBCOUNT'
+    )
+    expect(state.changesToApply.tail?.value.changes[0].action).toBe(
+      'REVEALCELLS'
+    )
+    expect(
+      (
+        state.changesToApply.tail?.value.changes[0] as {
+          action: 'REVEALCELLS'
+          cells: { rowIndex: number; columnIndex: number }[]
+        }
+      ).cells.length
+    ).toBe(state.rows * state.columns)
   })
 
-  it('should apply no animations of custom animations is set to false for RecursiveReveal', () => {
-    state.board[1][1].isBomb = true
-    state.board[4][4].isBomb = true
-    action.rowIndex = 2
-    action.columnIndex = 3
-    calculateNeighborInformation(state)
+  it('should apply a change of REVEALCELL if RecursiveReveal animation is true and only one cell is visited', () => {
+    state.revealedBoard[action.rowIndex][action.columnIndex].neighborBombs = 1
 
-    recursiveRevealCell(state, action)
+    recursiveRevealCell(state, action) 
 
-    expect(state.changesToApply.length).toBe(21)
-    expect(changesToApply[0]).toEqual({
-      time: 200,
-      changes: [
-        { rowIndex: 2, columnIndex: 3, color: AnimationColor.SelectedCell },
-      ],
+    expect(state.changesToApply.length).toBe(2)
+    expect(state.changesToApply.head?.value.changes[0].action).toBe("COPYNEIGHBORBOMBCOUNT")
+    expect(state.changesToApply.tail?.value).toEqual({
+      time: 0,
+      changes: [{
+        action: "REVEALCELL",
+        rowIndex: action.rowIndex,
+        columnIndex: action.columnIndex
+      }]
     })
-    expect(changesToApply[1]).toEqual({
-      time: 100,
+  })
+
+  it('should apply a change of REVEALCELLANIMATED(s) and WIPEANIMATION is RecursiveReveal animation is true', () => {
+    recursiveRevealCell(state, action) 
+
+    const changesToApply = state.changesToApply.toArray()
+
+    expect(changesToApply.length).toBe(27)
+    expect(changesToApply[0]).toEqual({
+      time: 0,
       changes: [
         {
-          rowIndex: 3,
-          columnIndex: 4,
-          color: AnimationColor.RecursiveRevealColor,
+          action: "COPYNEIGHBORBOMBCOUNT",
         },
       ],
     })
-    expect(changesToApply[state.changesToApply.length - 1]).toEqual({
-      time: 2000,
-      animations: 'WIPE',
+    expect(changesToApply[1]).toEqual({
+      changes: [
+        {
+          action: "REVEALCELLANIMATED",
+          rowIndex: 2,
+          columnIndex: 3,
+        },
+      ],
+      time: 100,
+    })
+    expect(changesToApply[changesToApply.length-1]).toEqual({
+      time: 1000,
+      changes: [{
+        action: 'WIPEANIMATION'
+      }]
     })
   })
 })
