@@ -28,42 +28,7 @@ export const recursiveRevealCell = (state: State, action: ClickCellAction) => {
     }
   }
 
-  if (state.customAnimations.RecursiveReveal) {
-    if (cellsAllReadySelected.size === 1) {
-      const [rowIndex, columnIndex] = extractRowAndColumnFromId(
-        Array.from(cellsAllReadySelected)[0],
-        state.columns
-      )
-
-      state.changesToApply.enqueue({
-        changes: [
-          {
-            action: 'REVEALCELL',
-            rowIndex,
-            columnIndex,
-          },
-        ],
-        time: 0,
-      })
-    } else {
-      cellsAllReadySelected.forEach((el) => {
-        const [rowIndex, columnIndex] = extractRowAndColumnFromId(
-          el,
-          state.columns
-        )
-        state.changesToApply.enqueue({
-          changes: [
-            {
-              action: 'REVEALCELLANIMATED',
-              rowIndex,
-              columnIndex,
-            },
-          ],
-          time: 100,
-        })
-      })
-    }
-  } else {
+  if (!state.customAnimations.RecursiveReveal) {
     state.changesToApply.enqueue({
       time: 0,
       changes: [
@@ -83,15 +48,44 @@ export const recursiveRevealCell = (state: State, action: ClickCellAction) => {
         },
       ],
     })
+    return
   }
 
-  if (
-    state.customAnimations.RecursiveReveal &&
-    cellsAllReadySelected.size > 1
-  ) {
+  if (cellsAllReadySelected.size === 1) {
+    const [rowIndex, columnIndex] = extractRowAndColumnFromId(
+      Array.from(cellsAllReadySelected)[0],
+      state.columns
+    )
+
     state.changesToApply.enqueue({
-      changes: [{ action: 'WIPEANIMATION' }],
-      time: 1000,
+      changes: [
+        {
+          action: 'REVEALCELL',
+          rowIndex,
+          columnIndex,
+        },
+      ],
+      time: 0,
     })
+    return
   }
+
+  cellsAllReadySelected.forEach((el) => {
+    const [rowIndex, columnIndex] = extractRowAndColumnFromId(el, state.columns)
+    state.changesToApply.enqueue({
+      changes: [
+        {
+          action: 'REVEALCELLANIMATED',
+          rowIndex,
+          columnIndex,
+        },
+      ],
+      time: 100,
+    })
+  })
+
+  state.changesToApply.enqueue({
+    changes: [{ action: 'WIPEANIMATION' }],
+    time: 1000,
+  })
 }
