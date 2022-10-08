@@ -3,6 +3,7 @@ import { extractRowAndColumnFromId } from '../../../../functions/extractRowAndCo
 
 export const recursiveRevealCell = (state: State, action: ClickCellAction) => {
   if (!state.allowedOperations.RecursiveReveal) return
+
   const cellsAllReadySelected = new Set([
     state.revealedBoard[action.rowIndex][action.columnIndex].id,
   ])

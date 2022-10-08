@@ -51,10 +51,15 @@ describe('reveal cell', () => {
     ).toBe(true)
   })
 
-  it('should uncover the cell if it is a bomb and set the isDead status to true', () => {
-    expect(
-      state.revealedBoard[action.rowIndex][action.columnIndex].isCovered
-    ).toBe(true)
+  it('should do nothing when the cell clicked on is not covered', () => {
+    state.revealedBoard[action.rowIndex][action.columnIndex].isCovered = false
+
+    revealCell(state, action)
+
+    expect(state.changesToApply.length).toBe(0)
+  })
+
+  it('should set the isDead status to true if it is a bomb', () => {
     expect(state.isDead).toBe(false)
 
     state.revealedBoard[action.rowIndex][action.columnIndex].isBomb = true
@@ -100,6 +105,22 @@ describe('reveal cell', () => {
       state.revealedBoard[action.rowIndex][action.columnIndex].isCovered
     ).toBe(false)
     expect(state.isDead).toBe(false)
+  })
+
+  it('should enqueue a change to REVEALCELL when RecursiveReveal is false', () => {
+    revealCell(state, action)
+
+    expect(state.changesToApply.length).toBe(1)
+    expect(state.changesToApply.head?.value).toEqual({
+      changes: [
+        {
+          action: 'REVEALCELL',
+          columnIndex: 1,
+          rowIndex: 1,
+        },
+      ],
+      time: 0,
+    })
   })
 
   it('should call to recursive reveal cells with the state after the cell has been uncovered', () => {

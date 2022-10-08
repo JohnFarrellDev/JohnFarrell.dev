@@ -47,38 +47,38 @@ describe('recursive reveal cell', () => {
 
     recursiveRevealCell(state, action)
 
-    const count = countUncoveredCells(state.board)
+    const count = countUncoveredCells(state.revealedBoard)
     expect(count).toBe(0)
   })
 
   it('should reveal recursively every cell', () => {
     recursiveRevealCell(state, action)
 
-    const count = countUncoveredCells(state.board)
-    expect(count).toBe(state.columns * state.rows)
+    const count = countUncoveredCells(state.revealedBoard)
+    expect(count).toBe(state.columns * state.rows - 1)
   })
 
   it('should not recursively reveal a cell if it has bombs for neighbors', () => {
-    state.board[0][0].isBomb = true
+    state.revealedBoard[0][0].isBomb = true
     calculateNeighborInformation(state)
 
     recursiveRevealCell(state, action)
 
-    const count = countUncoveredCells(state.board)
+    const count = countUncoveredCells(state.revealedBoard)
     expect(count).toBe(0)
   })
 
   it('should recursively reveal cells until the cell has a bomb', () => {
-    state.board[1][1].isBomb = true
-    state.board[4][4].isBomb = true
+    state.revealedBoard[1][1].isBomb = true
+    state.revealedBoard[4][4].isBomb = true
     action.rowIndex = 2
     action.columnIndex = 3
     calculateNeighborInformation(state)
 
     recursiveRevealCell(state, action)
 
-    const count = countUncoveredCells(state.board)
-    expect(count).toBe(20)
+    const count = countUncoveredCells(state.revealedBoard)
+    expect(count).toBe(19)
   })
 
   it('should apply no animations of custom animations is set to false for RecursiveReveal', () => {

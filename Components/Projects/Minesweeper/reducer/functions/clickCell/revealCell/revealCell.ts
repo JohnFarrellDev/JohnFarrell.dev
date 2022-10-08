@@ -22,9 +22,7 @@ export const revealCell = (state: State, action: ClickCellAction) => {
         },
       ],
     })
-    if (state.changesToApply.length > 0) {
-      applyChanges(state, action, true)
-    }
+    applyChanges(state, action, true)
     state.isDead = true
     return
   }
