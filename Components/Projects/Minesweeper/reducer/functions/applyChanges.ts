@@ -1,8 +1,9 @@
 import { Action, AnimationColor, ChangeStep, State } from '..'
+import { determineHasWon } from './clickCell/revealCell/determineHasWon'
 
 export const applyChanges = (
   state: State,
-  action: Action,
+  _: Action,
   applyAll = false
 ) => {
   const changeStep = state.changesToApply.dequeue()
@@ -18,6 +19,8 @@ export const applyChanges = (
       curr = state.changesToApply.dequeue()
     }
   }
+
+  determineHasWon(state)
 }
 
 const applyChange = (state: State, changeStep: ChangeStep) => {
