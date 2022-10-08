@@ -2,40 +2,43 @@ import { Change, ClickCellAction, State } from '../..'
 import { fisherYatesShuffle } from '../../../../../../Utilities'
 import { extractRowAndColumnFromId } from '../../../functions/extractRowAndColumnFromId'
 
-// need to apply all direct state changes to revealedBoard
-// animation must look at revealed board to determine moves
-// going off state board doesn't work as it lags due to only updating with the animations!
-
 export const placeBombs = (state: State, action: ClickCellAction) => {
   if (!state.allowedOperations.PlaceBombs) return
 
-  const possibleBombLocations: number[] = []
+  const possibleBombLocationsById: number[] = []
 
   for (let rIndex = 0; rIndex < state.rows; rIndex++) {
     for (let cIndex = 0; cIndex < state.columns; cIndex++) {
       if (rIndex === action.rowIndex && cIndex === action.columnIndex) continue
-      possibleBombLocations.push(cIndex + rIndex * state.columns)
+      possibleBombLocationsById.push(cIndex + rIndex * state.columns)
     }
   }
 
-  fisherYatesShuffle(possibleBombLocations)
+  const possibleBombLocations = fisherYatesShuffle(possibleBombLocationsById).map(el => {
+    const [bombLocationRow, bombLocationColumn] = extractRowAndColumnFromId(
+      el,
+      state.columns
+    )
+
+    return {
+      rowIndex: bombLocationRow,
+      columnIndex: bombLocationColumn
+    }
+  })
 
   if (!state.customAnimations.PlaceBombs) {
+    const bombsToCopy: {rowIndex: number, columnIndex: number}[] = []
     for (let i = 0; i < state.numberOfBombs; i++) {
       const bombLocation =
         possibleBombLocations[possibleBombLocations.length - 1 - i]
-      const [bombLocationRow, bombLocationColumn] = extractRowAndColumnFromId(
-        bombLocation,
-        state.columns
-      )
-      state.revealedBoard[bombLocationRow][bombLocationColumn].isBomb = true
+      
+        bombsToCopy.push(bombLocation)
+      state.revealedBoard[bombLocation.rowIndex][bombLocation.columnIndex].isBomb = true
     }
-  }
 
-  if (!state.customAnimations.PlaceBombs) {
     state.changesToApply.enqueue({
       time: 0,
-      changes: [{ action: 'COPYBOMBS' }],
+      changes: [{ action: 'COPYBOMBS', cells: bombsToCopy }],
     })
     return
   }
@@ -73,15 +76,10 @@ export const placeBombs = (state: State, action: ClickCellAction) => {
     const bombLocation =
       possibleBombLocations[possibleBombLocations.length - 1 - i]
 
-    const [bombLocationRow, bombLocationColumn] = extractRowAndColumnFromId(
-      bombLocation,
-      state.columns
-    )
-
     const switchHasBomb =
-      state.revealedBoard[bombLocationRow][bombLocationColumn].isBomb
+      state.revealedBoard[bombLocation.rowIndex][bombLocation.columnIndex].isBomb
 
-    state.revealedBoard[bombLocationRow][bombLocationColumn].isBomb = true
+    state.revealedBoard[bombLocation.rowIndex][bombLocation.columnIndex].isBomb = true
 
     let animationLocation = state.columns * state.rows - 1 - i
 
@@ -101,8 +99,8 @@ export const placeBombs = (state: State, action: ClickCellAction) => {
 
     const changes: Change[] = [
       {
-        columnIndex: bombLocationColumn,
-        rowIndex: bombLocationRow,
+        columnIndex: bombLocation.columnIndex,
+        rowIndex: bombLocation.rowIndex,
         action: 'PLACEBOMB',
       },
     ]

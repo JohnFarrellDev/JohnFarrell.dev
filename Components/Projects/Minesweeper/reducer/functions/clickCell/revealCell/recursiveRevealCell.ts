@@ -7,59 +7,91 @@ export const recursiveRevealCell = (state: State, action: ClickCellAction) => {
     state.revealedBoard[action.rowIndex][action.columnIndex].id,
   ])
 
-  const cellsToVisit = [state.revealedBoard[action.rowIndex][action.columnIndex].id]
-
-  if (state.customAnimations.RecursiveReveal) {
-    state.changesToApply.enqueue({
-      time: 200,
-      changes: [
-        {
-          action: 'REVEALCELLANIMATED',
-          rowIndex: action.rowIndex,
-          columnIndex: action.columnIndex,
-        },
-      ],
-    })
-  }
+  const cellsToVisit = [
+    state.revealedBoard[action.rowIndex][action.columnIndex].id,
+  ]
 
   while (cellsToVisit.length > 0) {
-    const [row, column] = extractRowAndColumnFromId(
+    const [rowIndex, columnIndex] = extractRowAndColumnFromId(
       cellsToVisit.pop() as number,
       state.columns
     )
-    if (
-      state.customAnimations.RecursiveReveal &&
-      !(row === action.rowIndex && column === action.columnIndex)
-    ) {
-      if(state.customAnimations.RecursiveReveal) {
-        state.changesToApply.enqueue({
-          changes: [
-            {
-              action: 'REVEALCELLANIMATED',
-              rowIndex: row,
-              columnIndex: column
-            },
-          ],
-          time: 100,
-        })
-      }
-    }
-    const currentCell = state.revealedBoard[row][column]
+
+    const currentCell = state.revealedBoard[rowIndex][columnIndex]
     if (currentCell.neighborBombs === 0) {
       currentCell.neighbors.forEach((neighborCell) => {
-        if (!cellsAllReadySelected.has(neighborCell.id)) {
-          cellsToVisit.push(neighborCell.id)
-          cellsAllReadySelected.add(neighborCell.id)
-        }
+        if (cellsAllReadySelected.has(neighborCell.id)) return
+        cellsToVisit.push(neighborCell.id)
+        cellsAllReadySelected.add(neighborCell.id)
         neighborCell.isCovered = false
       })
     }
   }
 
   if (state.customAnimations.RecursiveReveal) {
+    if (cellsAllReadySelected.size === 1) {
+      const [rowIndex, columnIndex] = extractRowAndColumnFromId(
+        Array.from(cellsAllReadySelected)[0],
+        state.columns
+      )
+
+      state.changesToApply.enqueue({
+        changes: [
+          {
+            action: 'REVEALCELL',
+            rowIndex,
+            columnIndex,
+          },
+        ],
+        time: 0,
+      })
+    } else {
+      cellsAllReadySelected.forEach((el) => {
+        const [rowIndex, columnIndex] = extractRowAndColumnFromId(
+          el,
+          state.columns
+        )
+        state.changesToApply.enqueue({
+          changes: [
+            {
+              action: 'REVEALCELLANIMATED',
+              rowIndex,
+              columnIndex,
+            },
+          ],
+          time: 100,
+        })
+      })
+    }
+  } else {
     state.changesToApply.enqueue({
-      changes: [{action: 'WIPEANIMATION'}],
-      time: 2000,
+      time: 0,
+      changes: [
+        {
+          action: 'REVEALCELLS',
+          cells: Array.from(cellsAllReadySelected).map((el) => {
+            const [rowIndex, columnIndex] = extractRowAndColumnFromId(
+              el,
+              state.columns
+            )
+
+            return {
+              rowIndex,
+              columnIndex,
+            }
+          }),
+        },
+      ],
+    })
+  }
+
+  if (
+    state.customAnimations.RecursiveReveal &&
+    cellsAllReadySelected.size > 1
+  ) {
+    state.changesToApply.enqueue({
+      changes: [{ action: 'WIPEANIMATION' }],
+      time: 1000,
     })
   }
 }

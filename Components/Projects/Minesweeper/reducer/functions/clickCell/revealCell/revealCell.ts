@@ -11,31 +11,17 @@ export const revealCell = (state: State, action: ClickCellAction) => {
 
   state.revealedBoard[action.rowIndex][action.columnIndex].isCovered = false
 
-  if(!state.revealedBoard[action.rowIndex][action.columnIndex].isBomb) {
-    if (state.customAnimations.RecursiveReveal) {
-      state.changesToApply.enqueue({
-        time: 200,
-        changes: [
-          {
-            action: 'REVEALCELLANIMATED',
-            rowIndex: action.rowIndex,
-            columnIndex: action.columnIndex,
-          },
-        ],
-      })
-    } else {
-      state.changesToApply.enqueue({
-        time: 0,
-        changes: [
-          {
-            action: 'REVEALCELLS'
-          },
-        ],
-      })
-    }
-  }
-
   if (state.revealedBoard[action.rowIndex][action.columnIndex].isBomb) {
+    state.changesToApply.enqueue({
+      time: 0,
+      changes: [
+        {
+          action: 'REVEALCELL',
+          rowIndex: action.rowIndex,
+          columnIndex: action.columnIndex,
+        },
+      ],
+    })
     if (state.changesToApply.length > 0) {
       applyChanges(state, action, true)
     }
@@ -43,13 +29,29 @@ export const revealCell = (state: State, action: ClickCellAction) => {
     return
   }
 
-  recursiveRevealCell(state, action)
+  if(state.allowedOperations.RecursiveReveal) {
 
-  // let scanBoardAgain = true
+    recursiveRevealCell(state, action)
 
-  // while (scanBoardAgain) {
-  //   autoFlagCells(state)
-  //   scanBoardAgain = autoRevealCells(state)
-  // }
+    // let scanBoardAgain = true
+
+    // while (scanBoardAgain) {
+    //   autoFlagCells(state)
+    //   scanBoardAgain = autoRevealCells(state)
+    // }
+
+  } else {
+    state.changesToApply.enqueue({
+      time: 0,
+      changes: [
+        {
+          action: 'REVEALCELL',
+          rowIndex: action.rowIndex,
+          columnIndex: action.columnIndex,
+        },
+      ],
+    })
+  }
+
   determineHasWon(state)
 }

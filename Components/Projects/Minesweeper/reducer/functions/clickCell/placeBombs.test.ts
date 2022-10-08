@@ -138,4 +138,16 @@ describe('place bombs', () => {
     expect(bombCount).toBe(0)
     expect(state.changesToApply.length).toBe(0)
   })
+
+  it('should have no memory references between the board and revealedBoard', () => {
+    expect(state.board[0][0].neighborBombs).toBe(0)
+    expect(state.revealedBoard[0][0].neighborBombs).toBe(0)
+
+    state.board[0][0].neighborBombs = 1
+
+    placeBombs(state, action)
+
+    expect(state.board[0][0].neighborBombs).toBe(1)
+    expect(state.revealedBoard[0][0].neighborBombs).toBe(0)
+  })
 })

@@ -1,4 +1,3 @@
-import cloneDeep from 'lodash.clonedeep'
 import { CustomAnimations, Operations } from '../Components/Game/Game'
 import { FaceType } from '../Components/GameTracking/GameTracking'
 import { Cell } from '../types'
@@ -27,7 +26,7 @@ export type Change =
   | { action: 'WIPEANIMATION' }
   | { action: 'PLACEBOMB'; rowIndex: number; columnIndex: number }
   | { action: 'REMOVEBOMB'; rowIndex: number; columnIndex: number }
-  | { action: 'COPYBOMBS' }
+  | { action: 'COPYBOMBS'; cells: { rowIndex: number; columnIndex: number }[] }
   | { action: 'COPYNEIGHBORBOMBCOUNT' }
   | { action: 'SELECTEDCELL'; rowIndex: number; columnIndex: number }
   | { action: 'SELECTEDNEIGHBORCELL'; rowIndex: number; columnIndex: number }
@@ -43,13 +42,19 @@ export type Change =
       neighbors: Cell[]
       neighborBombs: number
     }
-    | {
+  | {
       action: 'REVEALCELLANIMATED'
       rowIndex: number
       columnIndex: number
     }
-    | {
+  | {
+      action: 'REVEALCELL'
+      rowIndex: number
+      columnIndex: number
+    }
+  | {
       action: 'REVEALCELLS'
+      cells: { rowIndex: number; columnIndex: number }[]
     }
 
 export interface ChangeStep {
@@ -144,5 +149,13 @@ const mapActionToFunction: Record<
 
 export const minesweeperReducer = (state: State, action: Action): State => {
   mapActionToFunction[action.type](state, action as Action)
-  return cloneDeep(state)
+  return extractState(state)
+}
+
+const extractState = (state: State): State => {
+  return {
+    ...state,
+    board: [...state.board],
+    revealedBoard: [...state.revealedBoard],
+  }
 }

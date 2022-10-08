@@ -172,6 +172,18 @@ describe.only('calculate neighbor information', () => {
     expect(changesToApply[2].changes[0].action).toBe('WIPEANIMATION')
   })
 
+  it('should have no memory references between the board and revealedBoard', () => {
+    expect(state.board[0][0].neighborBombs).toBe(0)
+    expect(state.revealedBoard[0][0].neighborBombs).toBe(0)
+
+    state.board[0][0].neighborBombs = 1
+
+    calculateNeighborInformation(state)
+
+    expect(state.board[0][0].neighborBombs).toBe(1)
+    expect(state.revealedBoard[0][0].neighborBombs).toBe(0)
+  })
+
   it.each`
     testedCell | testedArea               | expectedBombs | borderlessMode | bombsToPlace
     ${[0, 0]}  | ${'top left corner'}     | ${3}          | ${false}       | ${[[0, 1], [0, 4], [1, 0], [1, 1], [1, 4], [4, 0], [4, 1], [4, 4]]}

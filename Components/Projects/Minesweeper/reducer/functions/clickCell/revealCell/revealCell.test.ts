@@ -18,7 +18,7 @@ describe('reveal cell', () => {
 
   beforeEach(() => {
     state = minesweeperStateFactory.build({
-      allowedOperations: { RevealCell: true },
+      allowedOperations: { RevealCell: true, RecursiveReveal: true },
     })
     generateBoard(state)
     jest.resetAllMocks()

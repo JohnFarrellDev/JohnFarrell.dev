@@ -42,12 +42,8 @@ const applyChange = (state: State, changeStep: ChangeStep) => {
         AnimationColor.NoColor
     }
     if (change.action === 'COPYBOMBS') {
-      state.revealedBoard.forEach((row, rowIndex) => {
-        row.forEach((cell, columnIndex) => {
-          if (cell.isBomb) {
-            state.board[rowIndex][columnIndex].isBomb = true
-          }
-        })
+      change.cells.forEach(({rowIndex, columnIndex}) => {
+        state.board[rowIndex][columnIndex].isBomb = true
       })
     }
     if (change.action === 'COPYNEIGHBORBOMBCOUNT') {
@@ -80,11 +76,12 @@ const applyChange = (state: State, changeStep: ChangeStep) => {
         AnimationColor.SelectedCell
       state.board[change.rowIndex][change.columnIndex].isCovered = false
     }
+    if (change.action === 'REVEALCELL') {
+      state.board[change.rowIndex][change.columnIndex].isCovered = false
+    }
     if (change.action === 'REVEALCELLS') {
-      state.revealedBoard.forEach((row, rowIndex) => {
-        row.forEach((cell, columnIndex) => {
-          state.board[rowIndex][columnIndex].isCovered = cell.isCovered
-        })
+      change.cells.forEach(({rowIndex, columnIndex}) => {
+        state.board[rowIndex][columnIndex].isCovered = false
       })
     }
   })

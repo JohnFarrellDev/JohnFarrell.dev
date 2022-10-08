@@ -162,9 +162,9 @@ export const Game = ({
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div style={{ margin: '5px' }}>
-          {gameState.board.map((column, rowIndex) => (
+          {gameState.board.map((row, rowIndex) => (
             <div className={styles.row} key={rowIndex}>
-              {column.map((cell, columnIndex) => (
+              {row.map((cell, columnIndex) => (
                 <GameCell
                   key={`${columnIndex}, ${rowIndex}`}
                   rowIndex={rowIndex}
@@ -187,9 +187,9 @@ export const Game = ({
 
         {transparentSideView && (
           <div style={{ margin: '5px' }}>
-            {gameState.board.map((column, rowIndex) => (
+            {gameState.board.map((row, rowIndex) => (
               <div className={styles.row} key={rowIndex}>
-                {column.map((cell, columnIndex) => (
+                {row.map((cell, columnIndex) => (
                   <GameCell
                     key={`${columnIndex}, ${rowIndex}`}
                     rowIndex={rowIndex}

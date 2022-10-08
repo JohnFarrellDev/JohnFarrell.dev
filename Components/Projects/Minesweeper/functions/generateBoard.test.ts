@@ -102,4 +102,14 @@ describe('generate board', () => {
     expect(state.revealedBoard[3][7].id).toBe(37)
     expect(state.revealedBoard[4][9].id).toBe(49)
   })
+
+  it('should have no memory references between the board and revealedBoard', () => {
+    expect(state.board[0][0].neighborBombs).toBe(0)
+    expect(state.revealedBoard[0][0].neighborBombs).toBe(0)
+
+    state.board[0][0].neighborBombs = 1
+
+    expect(state.board[0][0].neighborBombs).toBe(1)
+    expect(state.revealedBoard[0][0].neighborBombs).toBe(0)
+  })
 })
