@@ -400,7 +400,7 @@ export const Minesweeper = () => {
                     FlagCell: true,
                     PlaceBombs: true,
                     RevealCell: true,
-                    RecursiveReveal: false,
+                    RecursiveReveal: true,
                     AutoFlag: true,
                     BasicAutoClick: true,
                   }}

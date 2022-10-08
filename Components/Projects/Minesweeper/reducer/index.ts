@@ -56,6 +56,15 @@ export type Change =
       action: 'REVEALCELLS'
       cells: { rowIndex: number; columnIndex: number }[]
     }
+  | {
+      action: 'FLAGCELLS'
+      cells: { rowIndex: number; columnIndex: number }[]
+    }
+  | {
+      action: 'FLAGCELL'
+      rowIndex: number
+      columnIndex: number
+    }
 
 export interface ChangeStep {
   time: number

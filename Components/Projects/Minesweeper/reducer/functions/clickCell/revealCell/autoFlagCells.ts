@@ -1,4 +1,4 @@
-import { AnimationColor, ChangeStep, State } from '../../..'
+import { State } from '../../..'
 import { extractRowAndColumnFromId } from '../../../../functions/extractRowAndColumnFromId'
 import { Cell } from '../../../../types'
 
@@ -9,11 +9,12 @@ export const autoFlagCells = (state: State) => {
   if (!state.allowedOperations.AutoFlag) return
   const rows = state.rows
   const columns = state.columns
-  let appliedAnimation = false;
+
+  const noAnimationCellsToFlag: { rowIndex: number; columnIndex: number }[] = []
 
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < columns; c++) {
-      const cell = state.board[r][c]
+      const cell = state.revealedBoard[r][c]
       if (
         cell.isCovered ||
         cell.isBomb ||
@@ -22,78 +23,70 @@ export const autoFlagCells = (state: State) => {
       )
         continue
 
-      const selectedCellForAnimation: ChangeStep[] | undefined = state
-        .customAnimations.FlagCell
-        ? [
-            {
-              time: 500,
-              changes: [
-                {
-                  rowIndex: r,
-                  columnIndex: c,
-                  color: AnimationColor.SelectedCell,
-                },
-              ],
-            },
-          ]
-        : undefined
-
       const coveredNeighbors = numberOfCoveredNeighbors(cell)
-      if (coveredNeighbors === cell.neighborBombs) {
-        cell.neighbors.forEach((neighborCell) => {
-          const cellsSelectedToFlagForAnimation: ChangeStep[] | undefined =
-            state.customAnimations.FlagCell
-              ? [
-                  {
-                    time: 250,
-                    changes: [],
-                  },
-                ]
-              : undefined
+      if (coveredNeighbors !== cell.neighborBombs) continue
 
+      if (!state.customAnimations.FlagCell) {
+        cell.neighbors.forEach((neighborCell) => {
           if (neighborCell.isCovered && !neighborCell.isFlagged) {
             neighborCell.isFlagged = true
-            state.flagsPlaced++
-            if (state.customAnimations.FlagCell) {
-              const [row, column] = extractRowAndColumnFromId(
-                neighborCell.id,
-                state.columns
-              )
 
-              ;(
-                (cellsSelectedToFlagForAnimation as ChangeStep[])[0]
-                  .changes as unknown as Animation[]
-              ).push({
-                rowIndex: row,
-                columnIndex: column,
-                color: AnimationColor.PlaceBombColor,
-              })
-            }
-          }
-
-          if (
-            state.customAnimations.FlagCell &&
-            (cellsSelectedToFlagForAnimation as ChangeStep[])[0].changes
-              .length > 0
-          ) {
-            ;(selectedCellForAnimation as ChangeStep[]).push(
-              ...(cellsSelectedToFlagForAnimation as ChangeStep[])
+            const [rowIndex, columnIndex] = extractRowAndColumnFromId(
+              neighborCell.id,
+              state.columns
             )
+            noAnimationCellsToFlag.push({ rowIndex, columnIndex })
           }
         })
+        continue
       }
 
-      if (
-        state.customAnimations.FlagCell &&
-        (selectedCellForAnimation as ChangeStep[]).length > 1
-      ) {
-        appliedAnimation = true;
-        state.changesToApply.enqueueArray(selectedCellForAnimation as ChangeStep[])
+      const animationCellsToFlag: { rowIndex: number; columnIndex: number }[] =
+        []
+
+      cell.neighbors.forEach((neighborCell) => {
+        if (neighborCell.isCovered && !neighborCell.isFlagged) {
+          neighborCell.isFlagged = true
+
+          const [rowIndex, columnIndex] = extractRowAndColumnFromId(
+            neighborCell.id,
+            state.columns
+          )
+          animationCellsToFlag.push({ rowIndex, columnIndex })
+        }
+      })
+
+      if (animationCellsToFlag.length > 0) {
+        state.changesToApply.enqueue({
+          time: 500,
+          changes: [{ action: 'SELECTEDCELL', rowIndex: r, columnIndex: c }],
+        })
+
+        for (let i = 0; i < animationCellsToFlag.length; i++) {
+          state.changesToApply.enqueue({
+            time: 500,
+            changes: [
+              {
+                action: 'FLAGCELL',
+                rowIndex: animationCellsToFlag[i].rowIndex,
+                columnIndex: animationCellsToFlag[i].columnIndex,
+              },
+            ],
+          })
+        }
+
+        state.changesToApply.enqueue({
+          time: 500,
+          changes: [{ action: 'WIPEANIMATION' }],
+        })
       }
     }
   }
 
-  if(state.customAnimations.FlagCell && appliedAnimation) {
-    state.changesToApply.enqueue({ time: 500, animations: 'WIPE' })
+  if (!state.customAnimations.FlagCell) {
+    state.changesToApply.enqueue({
+      time: 0,
+      changes: [{ action: 'FLAGCELLS', cells: noAnimationCellsToFlag }],
+    })
   }
 }

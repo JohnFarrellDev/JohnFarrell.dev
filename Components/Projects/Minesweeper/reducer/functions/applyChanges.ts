@@ -87,5 +87,16 @@ const applyChange = (state: State, changeStep: ChangeStep) => {
         state.board[rowIndex][columnIndex].isCovered = false
       })
     }
+    if (change.action === 'FLAGCELLS') {
+      state.flagsPlaced += change.cells.length;
+      change.cells.forEach(({rowIndex, columnIndex}) => {
+        state.board[rowIndex][columnIndex].isFlagged = true
+      })
+    }
+    if(change.action === 'FLAGCELL') {
+      state.flagsPlaced++
+      state.board[change.rowIndex][change.columnIndex].isFlagged = true
+      state.board[change.rowIndex][change.columnIndex].color = AnimationColor.PlaceBombColor
+    }
   })
 }
