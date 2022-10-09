@@ -12,6 +12,7 @@ export const Minesweeper = () => {
       <SEO
         title="Minesweeper"
         description="Implementing minesweeper and it's automated solving algorithms visualised."
+        image="https://i.imgur.com/NznpTNf.png"
       />
     ),
     []

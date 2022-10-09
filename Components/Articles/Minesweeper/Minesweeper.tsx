@@ -14,7 +14,8 @@ export const Minesweeper = () => {
     <Layout>
       <SEO
         title="Solving Minesweeper | John Farrell"
-        description="Figuring out minesweeper and visualising the algorithms"
+        description="Algorithmically solving minesweeper and visualising the algorithms"
+        image="https://i.imgur.com/NznpTNf.png"
       />
       <section className="blog-page">
         <section className="section">
