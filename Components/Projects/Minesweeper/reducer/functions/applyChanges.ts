@@ -8,7 +8,10 @@ export const applyChanges = (
 ) => {
   const changeStep = state.changesToApply.dequeue()
 
-  if (!changeStep) return
+  if (!changeStep) {
+    state.changeTime = 0
+    return
+  }
 
   applyChange(state, changeStep)
 

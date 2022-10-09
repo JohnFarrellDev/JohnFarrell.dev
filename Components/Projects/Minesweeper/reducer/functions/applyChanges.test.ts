@@ -414,4 +414,29 @@ describe('apply changes', () => {
     expect(state.board[0][0].isFlagged).toBe(true)
     expect(state.board[0][0].color).toBe(AnimationColor.PlaceBombColor)
   })
+
+  it('should set the changeTime to 0 after the last change is applied', () => {
+    expect(state.changesToApply.length).toBe(0)
+
+    state.changesToApply.enqueue({
+      changes: [{ action: 'WIPEANIMATION' }],
+      time: 2000,
+    })
+    state.changesToApply.enqueue({
+      changes: [{ action: 'WIPEANIMATION' }],
+      time: 1000,
+    })
+
+    applyChanges(state, action)
+
+    expect(state.changeTime).toBe(2000)
+
+    applyChanges(state, action)
+
+    expect(state.changeTime).toBe(1000)
+
+    applyChanges(state, action)
+
+    expect(state.changeTime).toBe(0)
+  })
 })
