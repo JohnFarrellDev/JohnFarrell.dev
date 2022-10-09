@@ -31,7 +31,7 @@ export const Minesweeper = () => {
                 color: 'red',
               }}
             >
-              This is a work in progress!
+              This is a work in progress! (highly recommend for now using a PC and not mobile to view)
             </Paragraph>
 
             <Paragraph>
@@ -48,7 +48,7 @@ export const Minesweeper = () => {
               right is simply an uncovered version of the left hand side grid.
             </Paragraph>
 
-            <h3 style={{ marginTop: '30px' }}>Creation Process</h3>
+            <h3 style={{ marginTop: '30px' }}>Implement the Game</h3>
 
             <Paragraph style={{ textDecoration: 'underline' }}>
               Generate the Grid

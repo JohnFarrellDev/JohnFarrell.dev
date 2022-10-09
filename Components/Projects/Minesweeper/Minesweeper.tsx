@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { Paragraph } from '../../Articles/Utilities'
+import { ArticleTimeStamps, Paragraph } from '../../Articles/Utilities'
 import { Layout } from '../../Layout'
 import { SEO } from '../../SEO'
 import { Title } from '../../Utilities/Title'
@@ -24,8 +24,19 @@ export const Minesweeper = () => {
       {seo}
       {title}
       <main>
-        <Paragraph style={{ textAlign: 'center' }}>
-          This is a work in progress!
+        <ArticleTimeStamps
+          createdAt={new Date('2022-10-09T22:19:37.934Z')}
+          style={{ marginRight: '20px' }}
+        />
+        <Paragraph
+          style={{
+            textAlign: 'center',
+            textDecoration: 'underline',
+            color: 'red',
+          }}
+        >
+          This is a work in progress! (highly recommend for now using a PC and
+          not mobile to view)
         </Paragraph>
         <div className={styles.gameContainer}>
           <Game
