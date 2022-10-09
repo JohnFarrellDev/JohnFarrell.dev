@@ -161,7 +161,7 @@ export const Game = ({
       />
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <div style={{ margin: '5px' }}>
+        <div style={{ margin: '5px 0px 30px 0px' }}>
           {gameState.board.map((row, rowIndex) => (
             <div className={styles.row} key={rowIndex}>
               {row.map((cell, columnIndex) => (

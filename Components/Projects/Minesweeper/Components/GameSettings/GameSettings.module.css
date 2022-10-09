@@ -1,7 +1,6 @@
 .controls {
   display: flex;
   justify-content: center;
-  border: 2px solid #5c5c5c;
   padding: 5px;
 }
 
