@@ -1,4 +1,4 @@
-import { AnimationColor, Animation, State } from '../../..'
+import { State } from '../../..'
 import { extractRowAndColumnFromId } from '../../../../functions/extractRowAndColumnFromId'
 import { Cell } from '../../../../types'
 
@@ -10,16 +10,48 @@ export const autoRevealCells = (state: State): boolean => {
 
   let scanAgain = false
 
+  const noAnimationCellsToReveal: { rowIndex: number; columnIndex: number }[] =
+    []
+
   for (let r = 0; r < state.rows; r++) {
     for (let c = 0; c < state.columns; c++) {
-      if (state.board[r][c].isCovered || state.board[r][c].isFlagged) continue
+      if (
+        state.revealedBoard[r][c].isCovered ||
+        state.revealedBoard[r][c].isFlagged
+      )
+        continue
 
-      const flaggedNeighbors = numberOfFlaggedNeighborCells(state.board[r][c])
+      const flaggedNeighbors = numberOfFlaggedNeighborCells(
+        state.revealedBoard[r][c]
+      )
 
-      if (state.board[r][c].neighborBombs <= flaggedNeighbors) {
-        const neighborSelectedReveal: Animation[] = []
+      if (state.revealedBoard[r][c].neighborBombs <= flaggedNeighbors) {
 
-        state.board[r][c].neighbors.forEach((neighborCell) => {
+        if (!state.customAnimations.BasicAutoClick) {
+          state.revealedBoard[r][c].neighbors.forEach((neighborCell) => {
+            if (
+              neighborCell.isCovered &&
+              !neighborCell.isFlagged &&
+              !neighborCell.isBomb
+            ) {
+              neighborCell.isCovered = false
+              scanAgain = true
+
+              const [rowIndex, columnIndex] = extractRowAndColumnFromId(
+                neighborCell.id,
+                state.columns
+              )
+
+              noAnimationCellsToReveal.push({ rowIndex, columnIndex })
+            }
+          })
+          continue
+        }
+
+        const animationCellsToReveal: { rowIndex: number; columnIndex: number }[] =
+    []
+
+        state.revealedBoard[r][c].neighbors.forEach((neighborCell) => {
           if (
             neighborCell.isCovered &&
             !neighborCell.isFlagged &&
@@ -28,45 +60,48 @@ export const autoRevealCells = (state: State): boolean => {
             neighborCell.isCovered = false
             scanAgain = true
 
-            if (state.customAnimations.BasicAutoClick) {
-              const [row, column] = extractRowAndColumnFromId(
-                neighborCell.id,
-                state.columns
-              )
+            const [rowIndex, columnIndex] = extractRowAndColumnFromId(
+              neighborCell.id,
+              state.columns
+            )
 
-              neighborSelectedReveal.push({
-                columnIndex: column,
-                rowIndex: row,
-                color: AnimationColor.RecursiveRevealColor,
-              })
-            }
+            animationCellsToReveal.push({rowIndex, columnIndex})
           }
         })
 
-        if (neighborSelectedReveal.length > 0) {
+        if(animationCellsToReveal.length > 0) {
           state.changesToApply.enqueue({
             time: 500,
-            changes: [
-              {
-                rowIndex: r,
-                columnIndex: c,
-                color: AnimationColor.SelectedCell,
-              },
-            ],
+            changes: [{ action: 'SELECTEDCELL', rowIndex: r, columnIndex: c }],
           })
+
+          for (let i = 0; i < animationCellsToReveal.length; i++) {
+            state.changesToApply.enqueue({
+              time: 500,
+              changes: [
+                {
+                  action: 'REVEALCELLANIMATED',
+                  rowIndex: animationCellsToReveal[i].rowIndex,
+                  columnIndex: animationCellsToReveal[i].columnIndex,
+                },
+              ],
+            })
+          }
+
           state.changesToApply.enqueue({
             time: 500,
-            animations: neighborSelectedReveal,
-          })
-        }
-        if (neighborSelectedReveal.length > 0) {
-          state.changesToApply.enqueue({
-            time: 200,
-            animations: 'WIPE',
+            changes: [{ action: 'WIPEANIMATION' }],
           })
         }
       }
     }
+  }
+
+  if (!state.customAnimations.BasicAutoClick) {
+    state.changesToApply.enqueue({
+      time: 0,
+      changes: [{ action: 'REVEALCELLS', cells: noAnimationCellsToReveal }],
+    })
   }
 
   return scanAgain
