@@ -7,6 +7,7 @@ import { ArticleTimeStamps } from '../Utilities/ArticleTimeStamps'
 import { Paragraph } from '../Utilities/Paragraph'
 import { Game } from '../../Projects/Minesweeper/Components/Game'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const Minesweeper = () => {
   return (
@@ -33,6 +34,15 @@ export const Minesweeper = () => {
             >
               This is a work in progress! (highly recommend for now using a PC and not mobile to view)
             </Paragraph>
+
+            <div style={{display: 'flex', justifyContent: 'center'}}>
+              <Image
+                src="https://i.imgur.com/cVwtZnc.png"
+                alt="Image showing vs code search not very effectively finding the right file from component name"
+                width={512}
+                height={512}
+              />
+            </div>
 
             <Paragraph>
               Why do this? Uhm not sure, it's sort of interesting.
