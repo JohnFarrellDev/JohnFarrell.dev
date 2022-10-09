@@ -17,26 +17,26 @@ describe('determine has won', () => {
   })
 
   it('should set isWinner to true if the only covered cells are a bomb', () => {
-    state.revealedBoard.forEach((row) => {
+    state.board.forEach((row) => {
       row.forEach((cell) => {
         cell.isCovered = false
       })
     })
-    state.revealedBoard[0][0].isCovered = true
-    state.revealedBoard[0][0].isBomb = true
+    state.board[0][0].isCovered = true
+    state.board[0][0].isBomb = true
     determineHasWon(state)
     expect(state.isWinner).toBe(true)
   })
 
   it('should set isWinner to false if there is one covered cell that is not a bomb', () => {
-    state.revealedBoard.forEach((row) => {
+    state.board.forEach((row) => {
       row.forEach((cell) => {
         cell.isCovered = false
       })
     })
-    state.revealedBoard[0][0].isCovered = true
-    state.revealedBoard[0][0].isBomb = true
-    state.revealedBoard[0][1].isCovered = true
+    state.board[0][0].isCovered = true
+    state.board[0][0].isBomb = true
+    state.board[0][1].isCovered = true
     determineHasWon(state)
     expect(state.isWinner).toBe(false)
   })
