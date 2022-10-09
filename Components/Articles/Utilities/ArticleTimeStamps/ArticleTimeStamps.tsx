@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { HTMLAttributes } from 'react'
 import styles from './ArticleTimeStamps.module.css'
 
-interface ArticleTimeStampsProps {
+interface ArticleTimeStampsProps extends HTMLAttributes<HTMLDivElement> {
   createdAt: Date
   lastUpdated?: Date
 }
@@ -30,9 +30,10 @@ const toDisplayDate = (date: Date) => {
 export const ArticleTimeStamps = ({
   createdAt,
   lastUpdated,
+  ...props
 }: ArticleTimeStampsProps) => {
   return (
-    <div className={styles.container}>
+    <div {...props} className={styles.container} >
       <span>Created at: {toDisplayDate(createdAt)}</span>{' '}
       {lastUpdated && <span>Last Updated: {toDisplayDate(lastUpdated)}</span>}
     </div>
