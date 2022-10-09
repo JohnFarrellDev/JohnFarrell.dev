@@ -33,9 +33,9 @@ export const Minesweeper = () => {
             customAnimations={{
               CalculateNeighbors: false,
               PlaceBombs: false,
-              RecursiveReveal: true,
-              FlagCell: true,
-              BasicAutoClick: true
+              RecursiveReveal: false,
+              FlagCell: false,
+              BasicAutoClick: false
             }}
             allowedOperations={{
               PlaceBombs: true,
@@ -43,8 +43,8 @@ export const Minesweeper = () => {
               FlagCell: true,
               RevealCell: true,
               RecursiveReveal: true,
-              AutoFlag: true,
-              BasicAutoClick: true
+              AutoFlag: false,
+              BasicAutoClick: false
             }}
             borderlessMode={false}
           />

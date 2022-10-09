@@ -1,4 +1,4 @@
-import { Change, State } from '../..'
+import { AnimationSpeed, Change, State } from '../..'
 import { Cell } from '../../../types'
 
 const neighborIndexes = [
@@ -91,7 +91,7 @@ export const calculateNeighborInformation = (state: State) => {
       const cellNeighbors: Cell[] = []
 
       state.changesToApply.enqueue({
-        time: 400,
+        time: AnimationSpeed.SelectedCellNeighborInformation,
         changes: [{ columnIndex, rowIndex, action: 'SELECTEDCELL' }],
       })
 
@@ -180,7 +180,7 @@ export const calculateNeighborInformation = (state: State) => {
       
 
       state.changesToApply.enqueue({
-        time: 800,
+        time: AnimationSpeed.NeighborInformation,
         changes: neighborCellsChanges,
       })
 

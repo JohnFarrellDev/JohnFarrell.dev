@@ -101,7 +101,7 @@ describe('place bombs', () => {
     const changesToApply = state.changesToApply.toArray();
 
     expect(changesToApply.length).toBe(11)
-    expect(changesToApply[0].time).toBe(500)
+    expect(changesToApply[0].time).toBe(300)
     expect(changesToApply[0].changes[0].action).toBe("PLACEBOMB")
     expect(changesToApply[0].changes[0].action).toBe("PLACEBOMB")
 

@@ -22,6 +22,12 @@ export const AnimationColor: Record<string, string | undefined> = {
   NoColor: undefined,
 }
 
+export const AnimationSpeed: Record<string, number> = {
+  SelectedCellNeighborInformation: 250,
+  NeighborInformation: 400,
+  PlaceBomb: 300
+}
+
 export type Change =
   | { action: 'WIPEANIMATION' }
   | { action: 'PLACEBOMB'; rowIndex: number; columnIndex: number }

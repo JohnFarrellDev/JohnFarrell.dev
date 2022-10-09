@@ -46,7 +46,7 @@ describe.only('calculate neighbor information', () => {
 
     expect(changesToApply.length).toBe(75)
 
-    expect(changesToApply[0].time).toBe(400)
+    expect(changesToApply[0].time).toBe(250)
     expect(changesToApply[0].changes.length).toBe(1)
     expect(changesToApply[0].changes[0]).toEqual({
       columnIndex: 0,
@@ -54,7 +54,7 @@ describe.only('calculate neighbor information', () => {
       action: 'SELECTEDCELL',
     })
 
-    expect(changesToApply[1].time).toBe(800)
+    expect(changesToApply[1].time).toBe(400)
     expect(changesToApply[1].changes.length).toBe(4)
     expect(changesToApply[1].changes[0]).toEqual({
       columnIndex: 1,
@@ -117,14 +117,14 @@ describe.only('calculate neighbor information', () => {
 
     expect(state.changesToApply.length).toBe(75)
 
-    expect(changesToApply[0].time).toBe(400)
+    expect(changesToApply[0].time).toBe(250)
     expect(changesToApply[0].changes.length).toBe(1)
     expect(changesToApply[0].changes[0]).toEqual({
       columnIndex: 0,
       rowIndex: 0,
       action: 'SELECTEDCELL',
     })
-    expect(changesToApply[1].time).toBe(800)
+    expect(changesToApply[1].time).toBe(400)
     expect(changesToApply[1].changes.length).toBe(9)
 
     expect(changesToApply[1].changes[0]).toEqual({
@@ -181,7 +181,7 @@ describe.only('calculate neighbor information', () => {
 
     expect(changesToApply.length).toBe(75)
     expect(changesToApply[1]).toEqual({
-      time: 800,
+      time: 400,
       changes: [
         {
           rowIndex: 0,
@@ -247,7 +247,7 @@ describe.only('calculate neighbor information', () => {
 
     expect(changesToApply.length).toBe(75)
     expect(changesToApply[1]).toEqual({
-      time: 800,
+      time: 400,
       changes: [
         {
           rowIndex: 4,

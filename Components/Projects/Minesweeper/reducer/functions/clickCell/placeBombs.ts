@@ -1,4 +1,4 @@
-import { Change, ClickCellAction, State } from '../..'
+import { AnimationSpeed, Change, ClickCellAction, State } from '../..'
 import { fisherYatesShuffle } from '../../../../../../Utilities'
 import { extractRowAndColumnFromId } from '../../../functions/extractRowAndColumnFromId'
 
@@ -61,7 +61,7 @@ export const placeBombs = (state: State, action: ClickCellAction) => {
     }
 
     state.changesToApply.enqueue({
-      time: 500,
+      time: AnimationSpeed.PlaceBomb,
       changes: [
         {
           columnIndex: animationLocationColumn,
@@ -114,7 +114,7 @@ export const placeBombs = (state: State, action: ClickCellAction) => {
     }
     
     state.changesToApply.enqueue({
-      time: 500,
+      time: AnimationSpeed.PlaceBomb,
       changes
     })
     
