@@ -172,6 +172,207 @@ describe.only('calculate neighbor information', () => {
     expect(changesToApply[2].changes[0].action).toBe('WIPEANIMATION')
   })
 
+  it('should have an action of SELECTEDNEIGHBORCELLBOMB when the neighbor cell is a bomb (bordered mode)', () => {
+    state.revealedBoard[0][1].isBomb = true;
+
+    calculateNeighborInformation(state)
+
+    const changesToApply = state.changesToApply.toArray()
+
+    expect(changesToApply.length).toBe(75)
+    expect(changesToApply[1]).toEqual({
+      time: 800,
+      changes: [
+        {
+          rowIndex: 0,
+          columnIndex: 1,
+          action: "SELECTEDNEIGHBORCELLBOMB",
+        },
+        {
+          rowIndex: 1,
+          columnIndex: 0,
+          action: "SELECTEDNEIGHBORCELL",
+        },
+        {
+          rowIndex: 1,
+          columnIndex: 1,
+          action: "SELECTEDNEIGHBORCELL",
+        },
+        {
+          action: "APPLYNEIGHBORINFORMATION",
+          neighbors: [
+            {
+              id: 1,
+              isCovered: true,
+              isBomb: true,
+              isFlagged: false,
+              neighbors: [
+              ],
+              neighborBombs: 0,
+            },
+            {
+              id: 5,
+              isCovered: true,
+              isBomb: false,
+              isFlagged: false,
+              neighbors: [
+              ],
+              neighborBombs: 0,
+            },
+            {
+              id: 6,
+              isCovered: true,
+              isBomb: false,
+              isFlagged: false,
+              neighbors: [
+              ],
+              neighborBombs: 0,
+            },
+          ],
+          neighborBombs: 1,
+          rowIndex: 0,
+          columnIndex: 0,
+        },
+      ],
+    })
+  })
+
+  it('should have an action of SELECTEDNEIGHBORCELLBOMB when the neighbor cell is a bomb (borderless mode)', () => {
+    state.revealedBoard[0][1].isBomb = true;
+    state.borderlessMode = true
+
+    calculateNeighborInformation(state)
+
+    const changesToApply = state.changesToApply.toArray()
+
+    expect(changesToApply.length).toBe(75)
+    expect(changesToApply[1]).toEqual({
+      time: 800,
+      changes: [
+        {
+          rowIndex: 4,
+          columnIndex: 4,
+          action: "SELECTEDNEIGHBORCELL",
+        },
+        {
+          rowIndex: 4,
+          columnIndex: 0,
+          action: "SELECTEDNEIGHBORCELL",
+        },
+        {
+          rowIndex: 4,
+          columnIndex: 1,
+          action: "SELECTEDNEIGHBORCELL",
+        },
+        {
+          rowIndex: 0,
+          columnIndex: 4,
+          action: "SELECTEDNEIGHBORCELL",
+        },
+        {
+          rowIndex: 0,
+          columnIndex: 1,
+          action: "SELECTEDNEIGHBORCELLBOMB",
+        },
+        {
+          rowIndex: 1,
+          columnIndex: 4,
+          action: "SELECTEDNEIGHBORCELL",
+        },
+        {
+          rowIndex: 1,
+          columnIndex: 0,
+          action: "SELECTEDNEIGHBORCELL",
+        },
+        {
+          rowIndex: 1,
+          columnIndex: 1,
+          action: "SELECTEDNEIGHBORCELL",
+        },
+        {
+          action: "APPLYNEIGHBORINFORMATION",
+          neighbors: [
+            {
+              id: 24,
+              isCovered: true,
+              isBomb: false,
+              isFlagged: false,
+              neighbors: [
+              ],
+              neighborBombs: 0,
+            },
+            {
+              id: 20,
+              isCovered: true,
+              isBomb: false,
+              isFlagged: false,
+              neighbors: [
+              ],
+              neighborBombs: 0,
+            },
+            {
+              id: 21,
+              isCovered: true,
+              isBomb: false,
+              isFlagged: false,
+              neighbors: [
+              ],
+              neighborBombs: 0,
+            },
+            {
+              id: 4,
+              isCovered: true,
+              isBomb: false,
+              isFlagged: false,
+              neighbors: [
+              ],
+              neighborBombs: 0,
+            },
+            {
+              id: 1,
+              isCovered: true,
+              isBomb: true,
+              isFlagged: false,
+              neighbors: [
+              ],
+              neighborBombs: 0,
+            },
+            {
+              id: 9,
+              isCovered: true,
+              isBomb: false,
+              isFlagged: false,
+              neighbors: [
+              ],
+              neighborBombs: 0,
+            },
+            {
+              id: 5,
+              isCovered: true,
+              isBomb: false,
+              isFlagged: false,
+              neighbors: [
+              ],
+              neighborBombs: 0,
+            },
+            {
+              id: 6,
+              isCovered: true,
+              isBomb: false,
+              isFlagged: false,
+              neighbors: [
+              ],
+              neighborBombs: 0,
+            },
+          ],
+          neighborBombs: 1,
+          rowIndex: 0,
+          columnIndex: 0,
+        },
+      ],
+    })
+  })
+
   it('should have no memory references between the board and revealedBoard', () => {
     expect(state.board[0][0].neighborBombs).toBe(0)
     expect(state.revealedBoard[0][0].neighborBombs).toBe(0)
