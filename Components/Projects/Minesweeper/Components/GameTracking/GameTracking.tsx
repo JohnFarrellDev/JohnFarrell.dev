@@ -63,9 +63,6 @@ export const GameTracking = ({
             : faces[3][faceType]}
         </p>
       </div>
-      <div>
-        <p>⏰</p>
-      </div>
     </div>
   )
 }

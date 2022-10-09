@@ -23,6 +23,10 @@ export const Minesweeper = () => {
               createdAt={new Date('2022-08-01T14:15:28.433Z')}
             />
 
+            <Paragraph style={{ textAlign: 'center' }}>
+              This is a work in progress!
+            </Paragraph>
+
             <Paragraph>
               Why do this? Uhm not sure, it's sort of interesting.
             </Paragraph>

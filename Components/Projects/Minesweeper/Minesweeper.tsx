@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react'
+import { Paragraph } from '../../Articles/Utilities'
 import { Layout } from '../../Layout'
 import { SEO } from '../../SEO'
 import { Title } from '../../Utilities/Title'
@@ -23,6 +24,9 @@ export const Minesweeper = () => {
       {seo}
       {title}
       <main>
+        <Paragraph style={{ textAlign: 'center' }}>
+          This is a work in progress!
+        </Paragraph>
         <div className={styles.gameContainer}>
           <Game
             columns={20}
@@ -35,7 +39,7 @@ export const Minesweeper = () => {
               PlaceBombs: false,
               RecursiveReveal: false,
               FlagCell: false,
-              BasicAutoClick: false
+              BasicAutoClick: false,
             }}
             allowedOperations={{
               PlaceBombs: true,
@@ -44,7 +48,7 @@ export const Minesweeper = () => {
               RevealCell: true,
               RecursiveReveal: true,
               AutoFlag: false,
-              BasicAutoClick: false
+              BasicAutoClick: false,
             }}
             borderlessMode={false}
           />
