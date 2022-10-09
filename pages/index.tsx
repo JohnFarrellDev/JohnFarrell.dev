@@ -1,8 +1,9 @@
 import type { NextPage } from 'next'
-import { Index } from '../Components/Home'
+import { Home as HomeC } from '../Components/Home'
+
 
 const Home: NextPage = () => {
-  return <Index />
+  return <HomeC />
 }
 
 export default Home
