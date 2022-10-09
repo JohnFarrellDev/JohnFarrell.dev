@@ -334,4 +334,84 @@ describe('apply changes', () => {
 
     expect(state.changesToApply.length).toBe(1)
   })
+
+  it('should reveal a cell with no animation when the action is REVEALCELL', () => {
+    expect(state.board[0][0].isCovered).toBe(true)
+
+    state.changesToApply.enqueue({
+      changes: [{ action: 'REVEALCELL', rowIndex: 0, columnIndex: 0 }],
+      time: 0,
+    })
+
+    applyChanges(state, action)
+
+    expect(state.board[0][0].isCovered).toBe(false)
+  })
+
+  it('should reveal cells with no animation when the action is REVEALCELLS', () => {
+    expect(state.board[0][0].isCovered).toBe(true)
+    expect(state.board[0][1].isCovered).toBe(true)
+
+    state.changesToApply.enqueue({
+      changes: [
+        {
+          action: 'REVEALCELLS',
+          cells: [
+            { rowIndex: 0, columnIndex: 0 },
+            { rowIndex: 0, columnIndex: 1 },
+          ],
+        },
+      ],
+      time: 0,
+    })
+
+    applyChanges(state, action)
+
+    expect(state.board[0][0].isCovered).toBe(false)
+    expect(state.board[0][1].isCovered).toBe(false)
+  })
+
+  it('should flag cells with no animation when the action is FLAGCELLS', () => {
+    expect(state.board[0][0].isFlagged).toBe(false)
+    expect(state.board[0][1].isFlagged).toBe(false)
+
+    state.changesToApply.enqueue({
+      changes: [
+        {
+          action: 'FLAGCELLS',
+          cells: [
+            { rowIndex: 0, columnIndex: 0 },
+            { rowIndex: 0, columnIndex: 1 },
+          ],
+        },
+      ],
+      time: 0,
+    })
+
+    applyChanges(state, action)
+
+    expect(state.board[0][0].isFlagged).toBe(true)
+    expect(state.board[0][1].isFlagged).toBe(true)
+  })
+
+  it('should flag the cell with animation when the action is FLAGCELL', () => {
+    expect(state.board[0][0].isFlagged).toBe(false)
+    expect(state.board[0][0].color).toBe(undefined)
+
+    state.changesToApply.enqueue({
+      changes: [
+        {
+          action: 'FLAGCELL',
+          rowIndex: 0,
+          columnIndex: 0,
+        },
+      ],
+      time: 0,
+    })
+
+    applyChanges(state, action)
+
+    expect(state.board[0][0].isFlagged).toBe(true)
+    expect(state.board[0][0].color).toBe(AnimationColor.PlaceBombColor)
+  })
 })
