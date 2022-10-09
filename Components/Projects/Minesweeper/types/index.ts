@@ -1,5 +1,3 @@
-import { CellColor } from "../reducer"
-
 export interface Cell {
   id: number
   isBomb: boolean
@@ -7,5 +5,5 @@ export interface Cell {
   isFlagged: boolean
   neighbors: Cell[]
   neighborBombs: number
-  color?: CellColor
+  color?: string
 }
