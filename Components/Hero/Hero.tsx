@@ -16,7 +16,7 @@ export const Hero = () => {
             <h2>I'm a software developer with a focus on the web</h2>
 
             <Button>
-              <Link href="/contact">
+              <Link href="/contact" passHref={true}>
                 <span>Contact Me</span>
               </Link>
             </Button>
