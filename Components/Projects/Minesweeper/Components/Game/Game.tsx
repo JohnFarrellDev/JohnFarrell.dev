@@ -96,6 +96,12 @@ export const Game = ({
     []
   )
 
+  const validateChange = useCallback(() => {
+    dispatch({
+      type: 'ValidateChangeAction'
+    })
+  }, [])
+
   const changeNumberOfRows = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       dispatch({
@@ -142,6 +148,7 @@ export const Game = ({
         <GameSettings
           columns={gameState.columns}
           changeNumberOfColumns={changeNumberOfColumns}
+          validateChange={validateChange}
           rows={gameState.rows}
           changeNumberOfRows={changeNumberOfRows}
           numberOfBombs={gameState.numberOfBombs}

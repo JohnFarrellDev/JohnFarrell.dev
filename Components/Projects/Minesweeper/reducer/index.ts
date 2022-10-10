@@ -12,6 +12,7 @@ import { init } from './functions/init'
 import { flagCell } from './functions/flagCell'
 import { switchFaceType } from './functions/switchFaceType'
 import { Queue } from '../../../../Utilities/Queue'
+import { validateChange } from './functions/validateChange'
 
 export const AnimationColor: Record<string, string | undefined> = {
   SelectedCell: '#90EE90',
@@ -25,7 +26,7 @@ export const AnimationColor: Record<string, string | undefined> = {
 export const AnimationSpeed: Record<string, number> = {
   SelectedCellNeighborInformation: 250,
   NeighborInformation: 400,
-  PlaceBomb: 300
+  PlaceBomb: 300,
 }
 
 export type Change =
@@ -123,6 +124,7 @@ export type ApplyChangesAction = { type: 'ApplyChanges' }
 export type MouseDownCell = { type: 'MouseDownCell' }
 export type MouseUpCell = { type: 'MouseUpCell' }
 export type SwitchFaceType = { type: 'SwitchFaceType' }
+export type ValidateChangeAction = { type: 'ValidateChangeAction' }
 
 export type Action =
   | InitAction
@@ -135,6 +137,7 @@ export type Action =
   | MouseDownCell
   | MouseUpCell
   | SwitchFaceType
+  | ValidateChangeAction
 
 const mapActionToFunction: Record<
   | 'Init'
@@ -146,7 +149,8 @@ const mapActionToFunction: Record<
   | 'ApplyChanges'
   | 'MouseDownCell'
   | 'MouseUpCell'
-  | 'SwitchFaceType',
+  | 'SwitchFaceType'
+  | 'ValidateChangeAction',
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (state: State, action: any) => void
 > = {
@@ -160,6 +164,7 @@ const mapActionToFunction: Record<
   MouseDownCell: mouseDownCell,
   MouseUpCell: mouseUpCell,
   SwitchFaceType: switchFaceType,
+  ValidateChangeAction: validateChange,
 }
 
 export const minesweeperReducer = (state: State, action: Action): State => {

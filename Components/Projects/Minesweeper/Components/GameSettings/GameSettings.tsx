@@ -4,12 +4,14 @@ import styles from './GameSettings.module.css'
 interface GameSettingsI {
   columns: number
   changeNumberOfColumns: (newNumberOfColumns: ChangeEvent<HTMLInputElement>) => void
-
+  
   rows: number
   changeNumberOfRows: (newNumberOfRows: ChangeEvent<HTMLInputElement>) => void
 
   numberOfBombs: number
   changeNumberOfBombs: (newNumberOfBombs: ChangeEvent<HTMLInputElement>) => void
+
+  validateChange: () => void
 }
 
 export const GameSettings = ({
@@ -19,6 +21,7 @@ export const GameSettings = ({
   changeNumberOfRows,
   numberOfBombs,
   changeNumberOfBombs,
+  validateChange
 }: GameSettingsI) => {
   return (
     <div className={styles.controls}>
@@ -28,6 +31,7 @@ export const GameSettings = ({
           type="number"
           value={columns}
           onChange={changeNumberOfColumns}
+          onBlur={validateChange}
           min={3}
           max={50}
         />
@@ -39,6 +43,7 @@ export const GameSettings = ({
           type="number"
           value={rows}
           onChange={changeNumberOfRows}
+          onBlur={validateChange}
           min={3}
           max={30}
         />
@@ -50,6 +55,7 @@ export const GameSettings = ({
           type="number"
           value={numberOfBombs}
           onChange={changeNumberOfBombs}
+          onBlur={validateChange}
           min={1}
           max={columns * rows}
         />
