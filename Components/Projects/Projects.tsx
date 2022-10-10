@@ -15,7 +15,7 @@ const projects: Project[] = [
   {
     URI: '/projects/minesweeper',
     name: 'Minesweeper solved and visualised',
-    createdAt: new Date('2022-08-01T14:15:28.433Z'),
+    createdAt: new Date('2022-10-09T22:19:37.934Z'),
     tags: [],
   },
 ]
