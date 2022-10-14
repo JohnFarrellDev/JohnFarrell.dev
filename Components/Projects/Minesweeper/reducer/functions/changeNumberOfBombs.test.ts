@@ -21,58 +21,6 @@ describe('change number of bombs', () => {
     action = { ...startingAction }
   })
 
-  it('should make no change if the number of bombs is equal to the number of game cells', () => {
-    changeNumberOfBombs(state, {
-      ...action,
-      newNumberOfBombs: state.rows * state.columns,
-    })
-
-    expect(state.numberOfBombs).toBe(startingState.numberOfBombs)
-  })
-
-  it('should make no change if the number of bombs is greater than the number of game cells', () => {
-    changeNumberOfBombs(state, {
-      ...action,
-      newNumberOfBombs: state.rows * state.columns + 20,
-    })
-
-    expect(state.numberOfBombs).toBe(startingState.numberOfBombs)
-  })
-
-  it('should make no change if the number of bombs is 0', () => {
-    changeNumberOfBombs(state, {
-      ...action,
-      newNumberOfBombs: 0,
-    })
-
-    expect(state.numberOfBombs).toBe(startingState.numberOfBombs)
-  })
-
-  it('should make no change if the number of bombs is less than 0', () => {
-    changeNumberOfBombs(state, {
-      ...action,
-      newNumberOfBombs: -1,
-    })
-
-    expect(state.numberOfBombs).toBe(startingState.numberOfBombs)
-  })
-
-  it('should make no change if NaN is passed in for number of bombs', () => {
-    changeNumberOfBombs(state, {
-      ...action,
-      newNumberOfBombs: NaN,
-    })
-
-    expect(state.numberOfBombs).toBe(startingState.numberOfBombs)
-  })
-
-  it('should not allow a change to number of bombs if current game state isPlaying', () => {
-    state.isPlaying = true
-    changeNumberOfBombs(state, action)
-
-    expect(state.numberOfBombs).toBe(startingState.numberOfBombs)
-  })
-
   it('should allow number of bombs to change if isPlaying is true but isWinner is also true', () => {
     state.isPlaying = true
     state.isWinner = true
