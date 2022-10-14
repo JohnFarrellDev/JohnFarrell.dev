@@ -21,6 +21,15 @@ describe('change number of bombs', () => {
     action = { ...startingAction }
   })
 
+  it('should not allow number of bombs to change if isPlaying is true and isWinner is false', () => {
+    state.isPlaying = true
+    state.isWinner = false
+
+    changeNumberOfBombs(state, action)
+
+    expect(state.board).toEqual(startingState.board)
+  })
+
   it('should allow number of bombs to change if isPlaying is true but isWinner is also true', () => {
     state.isPlaying = true
     state.isWinner = true
