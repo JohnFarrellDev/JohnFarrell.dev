@@ -1,9 +1,24 @@
 export const jobs = [
   {
+    id: 5,
+    companyName: 'Aviva',
+    startDate: 'November 2022',
+    endDate: 'Present',
+    position: 'Software Engineer',
+    responsibilities: [
+      {
+        id: 1,
+        description:
+          'Working as part of the support team to fix bugs impacting our customers',
+        technology: ['TypeScript', 'React', 'Next.js', 'GO', 'AWS'],
+      },
+    ],
+  },
+  {
     id: 4,
     companyName: 'DAZN',
     startDate: 'August 2022',
-    endDate: 'Present',
+    endDate: 'October 2022',
     position: 'Software engineer',
     responsibilities: [
       {
@@ -117,4 +132,4 @@ export const jobs = [
       },
     ],
   },
-]
+] as const
