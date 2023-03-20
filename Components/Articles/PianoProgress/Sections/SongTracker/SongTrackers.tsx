@@ -80,10 +80,19 @@ const songs: SongInformation[] = [
     },
     progress: 'Finished',
     performances: [
-      { link: 'https://www.youtube.com/watch?v=N3tW1_CwSyw', iconText: '' },
+      {
+        link: 'https://www.youtube.com/watch?v=AidYvRgYTdU',
+        iconText:
+          'By the time I played this I had finished the song for a while but just wanted a recording. Took about an hour to have the song at a decent level again. Happy with the smooth transition from line 2 to 3 and the smoothness of the whole piece.',
+      },
+      {
+        link: 'https://www.youtube.com/watch?v=N3tW1_CwSyw',
+        iconText:
+          'Disjointed (too long a break) sound when I move from the second line to the third line as I have to move my left hand with the 5th finger at C3 up to the 3rd finger being at G3.',
+      },
       { link: 'https://www.youtube.com/watch?v=oEd4o98OCj0', iconText: '' },
     ],
-    comments: ['The first song I learnt :)'],
+    comments: ['The first song I learnt :D'],
   },
 ]
 

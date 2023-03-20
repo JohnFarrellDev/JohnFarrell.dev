@@ -23,3 +23,7 @@
 .youtube {
   margin-right: 8px;
 }
+
+.container {
+  display: flex;
+}

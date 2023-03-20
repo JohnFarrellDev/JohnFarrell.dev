@@ -9,7 +9,7 @@ interface YouTubeLinkProps {
 
 export const YoutubeLink = ({ link, iconText }: YouTubeLinkProps) => {
   return (
-    <div>
+    <div className={styles.container}>
       <a
         href={link}
         className={styles.link}
