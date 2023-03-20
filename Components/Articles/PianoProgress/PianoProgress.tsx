@@ -13,7 +13,7 @@ export const PianoProgress = () => {
       <SEO
         title="Piano Progress Tracker | John Farrell"
         description="My personal tracker for piano progression"
-        image="https://i.imgur.com/WOpYcG8.jpeg"
+        image="https://i.imgur.com/ikwTfTE.jpeg"
       />
       <section className="blog-page">
         <section className="section">
