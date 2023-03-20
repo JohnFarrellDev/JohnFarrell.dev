@@ -1,0 +1,16 @@
+.link {
+  display: inline-block;
+  background-color: hsl(0, 80%, 50%);
+  color: #ffffff;
+  padding: 8px 16px;
+  margin: 8px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.link:hover {
+    background-color: hsl(0, 100%, 50%);
+}

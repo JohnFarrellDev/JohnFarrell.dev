@@ -50,6 +50,12 @@ export const Articles = () => {
         <section className="section">
           <Title title="Articles" extraStyles={styles.title} />
           <div className="section-center">
+          <h2 className={styles.year}>Continually Updated</h2>
+            <ul>
+              <li>
+                <Link href={'/articles/piano-progress'}>Piano Progress</Link>
+              </li>
+            </ul>
             <h2 className={styles.year}>2022</h2>
             <ul>
               {articles

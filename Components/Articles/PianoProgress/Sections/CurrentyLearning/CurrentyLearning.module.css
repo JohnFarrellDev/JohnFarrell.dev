@@ -1,0 +1,17 @@
+.notification {
+  background-color: #ffffcc;
+  border: 2px solid #ffcc00;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.notification h2 {
+  margin-top: 0;
+  font-size: 2rem;
+}
+
+.notification ul {
+  list-style: disc;
+  margin: 10px 0;
+  padding-left: 20px;
+}
