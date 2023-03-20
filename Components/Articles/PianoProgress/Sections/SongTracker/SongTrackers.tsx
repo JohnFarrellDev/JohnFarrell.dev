@@ -16,7 +16,7 @@ const songs: SongInformation[] = [
     composerOrArtist: '?',
     sheetMusic: {
       text: 'Bastien (Piano For Adults Book 1 Page 52)',
-      link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008'
+      link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008',
     },
     progress: 'In progress',
     performances: [],
@@ -27,7 +27,7 @@ const songs: SongInformation[] = [
     composerOrArtist: '?',
     sheetMusic: {
       text: 'Bastien (Piano For Adults Book 1 Page 51)',
-      link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008'
+      link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008',
     },
     progress: 'In progress',
     performances: [],
@@ -38,21 +38,26 @@ const songs: SongInformation[] = [
     composerOrArtist: '?',
     sheetMusic: {
       text: 'Bastien (Piano For Adults Book 1 Page 45)',
-      link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008'
+      link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008',
     },
     progress: 'In progress',
     performances: [],
-    comments: ['First time having to work with the pedal and usage of a black key throughout the whole song.'],
+    comments: [
+      'First time having to work with the pedal and usage of a black key throughout the whole song.',
+    ],
   },
   {
     name: 'When The Saints Go Marching In',
     composerOrArtist: '?',
     sheetMusic: {
       text: 'Bastien (Piano For Adults Book 1 Page 44)',
+      link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008',
     },
     progress: 'Finished',
     performances: [],
-    comments: [],
+    comments: [
+      'First time managing to play a song that had multiple chord throughout, the movement between the chords are minimal though.',
+    ],
   },
   {
     name: 'Morning Mood',
@@ -62,7 +67,9 @@ const songs: SongInformation[] = [
     },
     progress: 'Finished',
     performances: [],
-    comments: [],
+    comments: [
+      'Roughly the same difficulty as Ode to Joy. Took me about 45 minutes to learn instead of the 10 hours Ode to Joy took.',
+    ],
   },
   {
     name: 'Ode to Joy',
@@ -76,7 +83,7 @@ const songs: SongInformation[] = [
       { link: 'https://www.youtube.com/watch?v=N3tW1_CwSyw', iconText: '' },
       { link: 'https://www.youtube.com/watch?v=oEd4o98OCj0', iconText: '' },
     ],
-    comments: [],
+    comments: ['The first song I learnt :)'],
   },
 ]
 

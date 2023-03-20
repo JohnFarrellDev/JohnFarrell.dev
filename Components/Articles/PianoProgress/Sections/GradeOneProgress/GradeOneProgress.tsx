@@ -24,27 +24,28 @@ export const GradeOneProgress = () => {
             <h3>Chords and Arpeggios</h3>
             <ul>
               <li style={{ textDecoration: 'line-through' }}>
-                C Major (right hand, left hand, contramotion, in similie)
+                C Major (right hand, left hand, contrary-motion, similar-motion)
               </li>
-              <li>G Major</li>
-              <li>D Major</li>
-              <li>A Major</li>
-              <li>E Major</li>
+              <li>G Major (right hand, left hand, arpeggio)</li>
+              <li>F Major (right hand, left hand)</li>
+              <li>A Minor (right hand, left hand, arpeggio)</li>
+              <li>D Minor (right hand, left hand)</li>
             </ul>
           </div>
 
           <div className={styles.subSection}>
             <h3>Exam Pieces</h3>
-            <ul></ul>
+            <ul>?</ul>
           </div>
 
           <div className={styles.subSection}>
             <h3>Sight Reading</h3>
-            <ul></ul>
+            <ul>?</ul>
           </div>
 
           <div className={styles.subSection}>
             <h3>Aural</h3>
+            <ul>?</ul>
           </div>
         </>
       )}
