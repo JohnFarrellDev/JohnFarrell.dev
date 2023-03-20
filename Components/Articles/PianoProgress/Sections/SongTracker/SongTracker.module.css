@@ -7,6 +7,7 @@
   margin-bottom: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  overflow-x: auto;
 }
 
 .songTracker h2 {
@@ -19,7 +20,6 @@
 .progressTable {
   border-collapse: collapse;
   width: 100%;
-  overflow-x: auto;
 }
 
 .progressTable th,
