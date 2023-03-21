@@ -57,6 +57,7 @@ const songs: SongInformation[] = [
     performances: [],
     comments: [
       'First time managing to play a song that had multiple chord throughout, the movement between the chords are minimal though.',
+      'First time working with dynamics, right hand is played mezzo forte (medium loud) and left hand is played mezzo piano (medium soft).',
     ],
   },
   {
@@ -66,7 +67,7 @@ const songs: SongInformation[] = [
       text: 'Arranged by James Bastien',
     },
     progress: 'Finished',
-    performances: [],
+    performances: [{ link: 'https://www.youtube.com/watch?v=I38n6SseTLQ' }],
     comments: [
       'Roughly the same difficulty as Ode to Joy. Took me about 45 minutes to learn instead of the 10 hours Ode to Joy took.',
     ],
@@ -148,7 +149,7 @@ export const SongTrackers = () => {
                 </td>
                 <td>
                   {song.comments.map((comment) => {
-                    return comment
+                    return <p key={comment}>{comment}</p>
                   })}
                 </td>
               </tr>
