@@ -1,54 +1,151 @@
 import styles from './GradeOneProgress.module.css'
-import { FaChevronDown, FaChevronRight } from 'react-icons/fa'
-import { useState } from 'react'
 
 export const GradeOneProgress = () => {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const toggleOpen = () => {
-    setIsOpen(!isOpen)
-  }
-
   return (
-    <div className={styles.grade1}>
-      <h2 onClick={toggleOpen}>
-        <div>
-            Grade 1 Progress (ABRSM){' '}
-            {isOpen ? <FaChevronDown /> : <FaChevronRight />}
-        </div>
-      </h2>
-
-      {isOpen && (
-        <>
-          <div className={styles.subSection}>
-            <h3>Chords and Arpeggios</h3>
-            <ul>
-              <li style={{ textDecoration: 'line-through' }}>
-                C Major (right hand, left hand, contrary-motion, similar-motion)
-              </li>
-              <li>G Major (right hand, left hand, arpeggio)</li>
-              <li>F Major (right hand, left hand)</li>
-              <li>A Minor (right hand, left hand, arpeggio)</li>
-              <li>D Minor (right hand, left hand)</li>
-            </ul>
-          </div>
-
-          <div className={styles.subSection}>
-            <h3>Exam Pieces</h3>
-            <ul>?</ul>
-          </div>
-
-          <div className={styles.subSection}>
-            <h3>Sight Reading</h3>
-            <ul>?</ul>
-          </div>
-
-          <div className={styles.subSection}>
-            <h3>Aural</h3>
-            <ul>?</ul>
-          </div>
-        </>
-      )}
+    <div className={styles.songTracker}>
+      <h2>Grade 1 Progress (ABRSM)</h2>
+      <table className={styles.progressTable}>
+        <thead>
+          <tr>
+            <th>Skill</th>
+            <th>Sub Skill</th>
+            <th>Sheet Music</th>
+            <th>Progress</th>
+            <th>Performances</th>
+            <th>Comments</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chords and Arpeggios</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>C Major Right Hand</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>C Major Left Hand</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>C Major Contrary Motion</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>C Major Similar Motion</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>G Major Right Hand</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>G Major Left Hand</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>F Major Right Hand</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>F Major Left Hand</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>A Minor Right Hand</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>A Minor Left Hand</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>D Minor Right Hand</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>D Minor Left Hand</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Exam Pieces</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Sight Reading</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Aural</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   )
 }

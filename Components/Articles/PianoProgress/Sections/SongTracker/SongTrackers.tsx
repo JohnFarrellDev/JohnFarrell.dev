@@ -1,3 +1,4 @@
+import { ShowMoreText } from '../ShowMoreText'
 import { YoutubeLink } from '../YoutubeLink/YoutubeLink'
 import styles from './SongTracker.module.css'
 
@@ -13,25 +14,25 @@ interface SongInformation {
 const songs: SongInformation[] = [
   {
     name: 'Fantaisie Impromptu',
-    composerOrArtist: '?',
+    composerOrArtist: 'Frédéric Chopin',
     sheetMusic: {
       text: 'Bastien (Piano For Adults Book 1 Page 52)',
       link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008',
     },
     progress: 'In progress',
     performances: [],
-    comments: [],
+    comments: ['Doesn\'t seem particularly difficult, I just need to practice it a bit.'],
   },
   {
     name: 'Can Can',
-    composerOrArtist: '?',
+    composerOrArtist: 'Jacques Offenbach',
     sheetMusic: {
       text: 'Bastien (Piano For Adults Book 1 Page 51)',
       link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008',
     },
     progress: 'In progress',
     performances: [],
-    comments: [],
+    comments: ['Keep the timing and playing smooth at the high tempo is a challenge.'],
   },
   {
     name: 'Persian Market',
@@ -41,9 +42,12 @@ const songs: SongInformation[] = [
       link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008',
     },
     progress: 'In progress',
-    performances: [],
+    performances: [{
+      link: 'https://www.youtube.com/watch?v=8Yu09SsAxyw'
+    }],
     comments: [
       'First time having to work with the pedal and usage of a black key throughout the whole song.',
+      'Also having to do a diminuendo at the end of the song which is a new dynamic.'
     ],
   },
   {
@@ -54,7 +58,10 @@ const songs: SongInformation[] = [
       link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008',
     },
     progress: 'Finished',
-    performances: [],
+    performances: [{
+      link: 'https://www.youtube.com/watch?v=XP_-eHI5wqY',
+      iconText: 'Need more control over the left hand so I can continuously (not just the chords) play it quieter while keeping the same tempo. '
+    }],
     comments: [
       'First time managing to play a song that had multiple chord throughout, the movement between the chords are minimal though.',
       'First time working with dynamics, right hand is played mezzo forte (medium loud) and left hand is played mezzo piano (medium soft).',
@@ -149,7 +156,9 @@ export const SongTrackers = () => {
                 </td>
                 <td>
                   {song.comments.map((comment) => {
-                    return <p key={comment}>{comment}</p>
+                    return (
+                      <ShowMoreText key={comment} text={comment} length={100} />
+                    )
                   })}
                 </td>
               </tr>
