@@ -1,9 +1,9 @@
 import styles from './CurrentyLearning.module.css'
 
 const itemsBeingLearnt = [
-  "Persian Market, Bastien Piano For Adults Book 1, Page 45",
   "Can Can, Bastien Piano For Adults Book 1, page 51",
-  "Fantaisie Impromptu, Bastien Piano For Adults Book 1, page 52"
+  "Fantaisie Impromptu, Bastien Piano For Adults Book 1, page 52",
+  "Minuet in G, Bastien Piano For Adults Book 1, page 55"
 ]
 
 export const CurrentyLearning = () => {
