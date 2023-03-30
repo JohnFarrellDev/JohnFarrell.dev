@@ -44,7 +44,10 @@ const songs: SongInformation[] = [
       link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008',
     },
     progress: 'In progress',
-    performances: [],
+    performances: [{
+      link: 'https://www.youtube.com/watch?v=DYSCU0q15EE',
+      iconText: 'This was before working with a metronome, all the notes played are correct but the timing is quite poor.'
+    }],
     comments: [
       'Keep the timing and playing smooth at the high tempo is a challenge.',
     ],
