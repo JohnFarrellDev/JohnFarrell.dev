@@ -95,7 +95,7 @@ const Display = ({ data, hierarchy, index }: DisplayProps) => {
     <li style={{ paddingLeft: `${hierarchy.split('.').length - 1}rem` }}>
       <Link href={data.url} passHref={true}>
         <a>
-          <span>{incrementLastDigit(hierarchy?.toString(), index)}</span>
+          <span>{incrementLastDigit(hierarchy.toString(), index)}</span>
           <span className={styles.dataDisplay}>{data.display}</span>
         </a>
       </Link>
