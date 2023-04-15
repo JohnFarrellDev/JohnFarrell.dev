@@ -107,6 +107,84 @@ describe('TableOfContents', () => {
     expect(secondContentDoubleNestedFirstLink).toBe('#test-two-one-one')
   })
 
+  it('should continuously increment the last digit as more content is added', () => {
+    render(
+      <TableOfContents
+        content={[
+          { display: 'test-one', url: '#test-one' },
+          {
+            display: 'test-two',
+            url: '#test-two',
+            nestedContent: [
+              {
+                display: 'test-two-one',
+                url: '#test-two-one',
+              },
+              {
+                display: 'test-two-two',
+                url: '#test-two-two',
+              },
+              {
+                display: 'test-two-three',
+                url: '#test-two-three',
+              },
+            ],
+          },
+        ]}
+      />
+    )
+
+    const firstContentIndex = screen.getByText('1')
+    const firstContent = screen.getByText('test-one')
+    const firstContentLink = new URL(
+      (screen.getByText('1').closest('a') as HTMLAnchorElement).href
+    ).hash
+
+    const secondContentIndex = screen.getByText('2')
+    const secondContent = screen.getByText('test-two')
+    const secondContentLink = new URL(
+      (screen.getByText('2').closest('a') as HTMLAnchorElement).href
+    ).hash
+
+    const secondContentNestedFirstIndex = screen.getByText('2.1')
+    const secondContentNestedFirst = screen.getByText('test-two-one')
+    const secondContentNestedFirstLink = new URL(
+      (screen.getByText('2.1').closest('a') as HTMLAnchorElement).href
+    ).hash
+
+    const secondContentNestedSecondIndex = screen.getByText('2.2')
+    const secondContentDoubleNestedFirst = screen.getByText('test-two-two')
+    const secondContentDoubleNestedFirstLink = new URL(
+      (screen.getByText('2.2').closest('a') as HTMLAnchorElement).href
+    ).hash
+
+    const secondContentNestedThirdIndex = screen.getByText('2.3')
+    const secondContentDoubleNestedSecond = screen.getByText('test-two-three')
+    const secondContentDoubleNestedSecondLink = new URL(
+      (screen.getByText('2.3').closest('a') as HTMLAnchorElement).href
+    ).hash
+
+    expect(firstContentIndex).toBeInTheDocument()
+    expect(firstContent).toBeInTheDocument()
+    expect(firstContentLink).toBe('#test-one')
+
+    expect(secondContentIndex).toBeInTheDocument()
+    expect(secondContent).toBeInTheDocument()
+    expect(secondContentLink).toBe('#test-two')
+
+    expect(secondContentNestedFirstIndex).toBeInTheDocument()
+    expect(secondContentNestedFirst).toBeInTheDocument()
+    expect(secondContentNestedFirstLink).toBe('#test-two-one')
+
+    expect(secondContentNestedSecondIndex).toBeInTheDocument()
+    expect(secondContentDoubleNestedFirst).toBeInTheDocument()
+    expect(secondContentDoubleNestedFirstLink).toBe('#test-two-two')
+
+    expect(secondContentNestedThirdIndex).toBeInTheDocument()
+    expect(secondContentDoubleNestedSecond).toBeInTheDocument()
+    expect(secondContentDoubleNestedSecondLink).toBe('#test-two-three')
+  })
+
   it('should on init show the content and text to hide content', () => {
     render(
       <TableOfContents content={[{ display: 'test-one', url: '#test-one' }]} />
