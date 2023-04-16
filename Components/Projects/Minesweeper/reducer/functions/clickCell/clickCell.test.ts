@@ -24,12 +24,18 @@ describe('click cell', () => {
     jest.resetAllMocks()
   })
 
-  it('should do nothing if there are changes to apply', () => {
+  it('should apply all changes if there are changes to apply and the user clicks', () => {
     state.changesToApply.enqueue({ changes: [], time: 0 })
+    state.changesToApply.enqueue({ changes: [], time: 0 })
+    state.changesToApply.enqueue({ changes: [], time: 0 })
+
+    expect(state.changesToApply.length).toBe(3)
 
     clickCell(state, action)
     expect(startGame).toBeCalledTimes(0)
     expect(revealCell).toBeCalledTimes(0)
+
+    expect(state.changesToApply.length).toBe(0)
   })
 
   it('should call to start game if isPlaying is false', () => {
