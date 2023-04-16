@@ -39,16 +39,16 @@ export const Code = () => {
         <Link href="https://greasyfork.org">Greasy Fork</Link>. The benefit of
         this is ease of installation and any changes I push to GitHub should be
         automatically picked up by Greasy Fork.
-        <div>
-          <Link href="https://greasyfork.org/en/scripts/446004-udemy-copy-from-section-quiz">
-            Greasy Fork - Udemy Copy From Section Quiz
-          </Link>
-        </div>
-        <div>
-          <Link href="https://greasyfork.org/en/scripts/446005-udemy-copy-from-practice-test">
-            Greasy Fork - Udemy Copy From Practice Test
-          </Link>
-        </div>
+      </Paragraph>
+      <Paragraph>
+        <Link href="https://greasyfork.org/en/scripts/446004-udemy-copy-from-section-quiz">
+          Greasy Fork - Udemy Copy From Section Quiz
+        </Link>
+      </Paragraph>
+      <Paragraph>
+        <Link href="https://greasyfork.org/en/scripts/446005-udemy-copy-from-practice-test">
+          Greasy Fork - Udemy Copy From Practice Test
+        </Link>
       </Paragraph>
     </>
   )
