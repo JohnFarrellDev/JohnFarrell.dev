@@ -13,6 +13,17 @@ interface SongInformation {
 
 const songs: SongInformation[] = [
   {
+    name: 'Another Year Older',
+    sheetMusic: {
+      text: 'Bastien (Piano For Adults Book 1 Page 54)',
+      link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008',
+    },
+    composerOrArtist: 'unknown',
+    progress: 'In progress',
+    performances: [],
+    comments: [],
+  },
+  {
     name: 'Minuet In G',
     composerOrArtist: 'Johann Sebastian Bach',
     sheetMusic: {
