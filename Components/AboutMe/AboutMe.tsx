@@ -58,14 +58,13 @@ export const AboutMe = () => {
             <Title title="About Me" />
 
             <div className={styles.articleContent}>
-              <div>
-                <Image
-                  src="https://i.imgur.com/ncSEBtN.png"
-                  alt="Photo of my black cat Trixie"
-                  width={4608}
-                  height={3456}
-                />
-              </div>
+              <Image
+                src="https://i.imgur.com/ncSEBtN.png"
+                alt="Photo of my black cat Trixie"
+                className={styles.imageContainer}
+                width={460}
+                height={345}
+              />
 
               <div>
                 <p className={styles.paragraph}>
