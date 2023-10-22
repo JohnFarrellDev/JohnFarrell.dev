@@ -18,10 +18,7 @@ export const TableOfContents = ({ content }: TableOfContentsProps) => {
 
   return (
     <div className={styles.container}>
-      <TableOfContentsContainer
-        showContents={showContents}
-        setShowContents={setShowContents}
-      />
+      <TableOfContentsContainer showContents={showContents} setShowContents={setShowContents} />
       {showContents && (
         <ul>
           <Contents content={content} />
@@ -36,16 +33,11 @@ interface TableOfContentsContainerProps {
   setShowContents: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const TableOfContentsContainer = ({
-  showContents,
-  setShowContents,
-}: TableOfContentsContainerProps) => {
+const TableOfContentsContainer = ({ showContents, setShowContents }: TableOfContentsContainerProps) => {
   return (
     <div className={styles.containerHeader}>
       <h2>Contents</h2>
-      <span onClick={() => setShowContents(!showContents)}>
-        {showContents ? '[hide]' : '[show]'}
-      </span>
+      <span onClick={() => setShowContents(!showContents)}>{showContents ? '[hide]' : '[show]'}</span>
     </div>
   )
 }
@@ -63,22 +55,12 @@ const Contents = ({ content, hierarchy = '1' }: ContentsProps) => {
           return (
             <span key={incrementLastDigit(hierarchy, index)}>
               <Display data={data} hierarchy={hierarchy} index={index} />
-              <Contents
-                content={data.nestedContent}
-                hierarchy={addLastDigit(incrementLastDigit(hierarchy, index))}
-              />
+              <Contents content={data.nestedContent} hierarchy={addLastDigit(incrementLastDigit(hierarchy, index))} />
             </span>
           )
         }
 
-        return (
-          <Display
-            key={incrementLastDigit(hierarchy, index)}
-            data={data}
-            hierarchy={hierarchy}
-            index={index}
-          />
-        )
+        return <Display key={incrementLastDigit(hierarchy, index)} data={data} hierarchy={hierarchy} index={index} />
       })}
     </>
   )
@@ -94,10 +76,8 @@ const Display = ({ data, hierarchy, index }: DisplayProps) => {
   return (
     <li style={{ paddingLeft: `${hierarchy.split('.').length - 1}rem` }}>
       <Link href={data.url} passHref={true}>
-        <a>
-          <span>{incrementLastDigit(hierarchy.toString(), index)}</span>
-          <span className={styles.dataDisplay}>{data.display}</span>
-        </a>
+        <span>{incrementLastDigit(hierarchy.toString(), index)}</span>
+        <span className={styles.dataDisplay}>{data.display}</span>
       </Link>
     </li>
   )
@@ -105,9 +85,7 @@ const Display = ({ data, hierarchy, index }: DisplayProps) => {
 
 const incrementLastDigit = (inputDigits: string, increment: number): string => {
   const allDigits = inputDigits.split('.')
-  allDigits[allDigits.length - 1] = (
-    Number(allDigits[allDigits.length - 1]) + increment
-  ).toString()
+  allDigits[allDigits.length - 1] = (Number(allDigits[allDigits.length - 1]) + increment).toString()
   return allDigits.join('.')
 }
 
