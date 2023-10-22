@@ -1,16 +1,30 @@
 export const jobs = [
   {
+    id: 6,
+    companyName: 'BJSS',
+    startDate: 'May 2023',
+    endDate: 'Present',
+    position: 'Senior Software Engineer',
+    responsibilities: [
+      {
+        id: 1,
+        description: 'Worked with British Airways to launch a site wide transformation with a particular focus from myself on a new homepage',
+        technology: ['TypeScript', 'React', 'Next.js']
+      }
+    ]
+  },
+  {
     id: 5,
     companyName: 'Aviva',
     startDate: 'November 2022',
-    endDate: 'Present',
+    endDate: 'May 2023',
     position: 'Software Engineer',
     responsibilities: [
       {
         id: 1,
         description:
           'Working as part of the support team to fix bugs impacting our customers',
-        technology: ['TypeScript', 'React', 'Next.js', 'GO', 'AWS'],
+        technology: ['TypeScript', 'React', 'Next.js', 'Go', 'AWS'],
       },
     ],
   },
