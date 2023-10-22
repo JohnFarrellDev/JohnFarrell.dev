@@ -36,6 +36,7 @@ const Links = ({ styleLinks }: LinksProps) => {
                   ? `${styles.socialLink} ${styleLinks}`
                   : styles.socialLink
               }
+              target="_blank" rel="noreferrer"
             >
               {link.icon}
             </a>
