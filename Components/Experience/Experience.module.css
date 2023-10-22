@@ -6,6 +6,10 @@
   margin-top: 3rem;
 }
 
+.centreButton a {
+  color: var(--clr-primary-10);
+}
+
 .jobsCenter {
   width: 80vw;
   margin: 0 auto;
