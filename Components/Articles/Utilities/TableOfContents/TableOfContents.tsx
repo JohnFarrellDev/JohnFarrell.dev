@@ -37,7 +37,9 @@ const TableOfContentsContainer = ({ showContents, setShowContents }: TableOfCont
   return (
     <div className={styles.containerHeader}>
       <h2>Contents</h2>
-      <span onClick={() => setShowContents(!showContents)}>{showContents ? '[hide]' : '[show]'}</span>
+      <button className={styles.showHideButton} onClick={() => setShowContents(!showContents)}>
+        {showContents ? 'hide' : 'show'}
+      </button>
     </div>
   )
 }

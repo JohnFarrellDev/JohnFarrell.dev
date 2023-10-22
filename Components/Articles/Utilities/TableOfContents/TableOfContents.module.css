@@ -10,6 +10,8 @@
 .containerHeader {
   display: flex;
   align-items: center;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 .containerHeader h2 {
@@ -26,4 +28,20 @@
 
 .dataDisplay {
   margin-left: 25px;
+}
+
+.showHideButton {
+  background-color: unset;
+  border: unset;
+  color: blue;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.showHideButton:before {
+  content: '['
+}
+
+.showHideButton:after {
+  content: ']'
 }
