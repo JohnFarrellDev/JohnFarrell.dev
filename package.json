@@ -54,8 +54,8 @@
     "@testing-library/user-event": "^14.1.1",
     "babel-jest": "27.5.1",
     "babel-loader": "^8.2.5",
-    "fishery": "^2.2.2", 
-    "next-sitemap": "^2.5.25",
+    "fishery": "2.2.2", 
+    "next-sitemap": "4.2.3",
     "prettier": "^2.6.2",
     "webpack": "^5.73.0"
   }
