@@ -5,11 +5,14 @@ import userEvent from '@testing-library/user-event'
 describe('TableOfContents', () => {
   const user = userEvent.setup()
 
+  const hideText = 'hide'
+  const showText = 'show'
+
   it('should display table of content header information', () => {
     render(<TableOfContents content={[]} />)
 
     const contentsHeader = screen.getByText('Contents')
-    const hide = screen.getByText('[hide]')
+    const hide = screen.getByText(hideText)
 
     expect(contentsHeader).toBeInTheDocument()
     expect(hide).toBeInTheDocument()
@@ -162,7 +165,7 @@ describe('TableOfContents', () => {
 
     render(<TableOfContents content={content} />)
 
-    const hideContent = screen.getByText('[hide]')
+    const hideContent = screen.getByText(hideText)
     const pieceOfContent = screen.getByText(content[0].display)
 
     expect(hideContent).toBeInTheDocument()
@@ -174,21 +177,21 @@ describe('TableOfContents', () => {
 
     render(<TableOfContents content={content} />)
 
-    let showHideContent = screen.getByText('[hide]')
+    let showHideContent = screen.getByText(hideText)
     let pieceOfContent = screen.queryByText(content[0].display)
     expect(showHideContent).toBeInTheDocument()
     expect(pieceOfContent).toBeInTheDocument()
 
     await user.click(showHideContent)
 
-    showHideContent = screen.getByText('[show]')
+    showHideContent = screen.getByText(showText)
     expect(showHideContent).toBeInTheDocument()
     pieceOfContent = screen.queryByText(content[0].display)
     expect(pieceOfContent).not.toBeInTheDocument()
 
     await user.click(showHideContent)
 
-    showHideContent = screen.getByText('[hide]')
+    showHideContent = screen.getByText(hideText)
     pieceOfContent = screen.queryByText(content[0].display)
     expect(showHideContent).toBeInTheDocument()
     expect(pieceOfContent).toBeInTheDocument()
