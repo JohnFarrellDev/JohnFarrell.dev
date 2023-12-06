@@ -1,16 +1,31 @@
 .card {
-  display: block;
-  height: 150px;
+  height: 175px;
   max-width: 800px;
   border-radius: 10px;
   /* to enforce the border radius on the image */
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease-in-out;
+
+  @media (max-width: 550px) {
+    height: 350px;
+  }
 }
 
 .card:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
+}
+
+.card h3 {
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
+.card p {
+  margin: 0;
+  padding: 0;
+  color: black;
 }
 
 .link {
@@ -23,18 +38,22 @@
   display: flex;
   flex-direction: row;
   height: 100%;
+
+  @media (max-width: 550px) {
+    flex-direction: column;
+    /* overflow: visible; */
+  }
 }
 
-.imageContainer {
-  /* height: 100%; */
-  /* width: fit-content; */
-}
-
-.imageContainer img {
-  height: auto;
+.image {
+  height: 100%;
   width: 150px;
-  /* object-fit: cover; */
-  /* aspect-ratio: 1/1; */
+  object-fit: cover;
+
+  @media (max-width: 550px) {
+    width: 100%;
+    height: 150px;
+  }
 }
 
 .textContainer {
@@ -47,7 +66,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  flex-grow: 4;
+  gap: 6px;
   padding: 10px 20px 5px 20px;
   overflow: auto;
 }
@@ -55,7 +74,6 @@
 .title {
   text-align: center;
   font-size: 1.2rem;
-  color: black;
 }
 
 .description {
@@ -64,6 +82,7 @@
 
 .tagContainer {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
@@ -74,4 +93,17 @@
   font-size: 0.8rem;
   font-weight: 700;
   color: black;
+}
+
+.dateContainer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+}
+
+.date {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
 }

@@ -15,7 +15,6 @@ const articles: ArticleCardProps[] = [
     description:
       'Explore algorithms that strategically solve Minesweeper with every algorithm visualised in this article.',
     createdAt: new Date('2022-10-09T22:19:37.934Z'),
-    lastUpdatedAt: new Date('2022-10-09T22:19:37.934Z'),
     tags: ['react', 'typescript', 'problem solving', 'algorithms'],
     imageURL: 'https://i.imgur.com/OjqgY02.jpg',
     imageAlt: 'man hunched over a board trying to solve a puzzle game',
@@ -25,18 +24,16 @@ const articles: ArticleCardProps[] = [
     title: 'Preferred React Project Structure',
     description: 'A look at how I like to structure my React projects',
     createdAt: new Date('2022-08-01T14:15:28.433Z'),
-    lastUpdatedAt: new Date('2022-08-01T14:15:28.433Z'),
-    tags: [],
+    tags: ['react', 'typescript'],
     imageURL: 'https://i.imgur.com/BRkhyeG.png',
     imageAlt: 'react logo',
   },
   {
     URL: '/articles/userscript-udemy-copy-out-quizzes',
-    title: 'UserScripts to copy Quiz Questions and Answers from Udemy',
+    title: 'UserScripts for Fun and Profit',
     description: 'A look at how I created a UserScript to copy Quiz Questions and Answers from Udemy',
     createdAt: new Date('2022-05-27T11:16:06.761Z'),
-    lastUpdatedAt: new Date('2022-05-27T11:16:06.761Z'),
-    tags: [],
+    tags: ['javascript'],
     imageURL: 'https://i.imgur.com/xPyjZf5.jpg',
     imageAlt: 'Breaking free from technological prison',
   },
@@ -59,7 +56,7 @@ export const Articles = () => {
                 title="Piano Progress"
                 description=""
                 URL="/articles/piano-progress"
-                createdAt={new Date('2021-10-09T22:19:37.934Z')}
+                createdAt={new Date('2023-01-30T22:19:37.934Z')}
                 imageURL="https://i.imgur.com/1AVIQeM.jpg"
                 tags={[]}
                 imageAlt="upright piano in a sunlit room"
