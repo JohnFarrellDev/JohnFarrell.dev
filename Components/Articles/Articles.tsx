@@ -1,13 +1,11 @@
-import React, { ComponentProps } from 'react'
 import { Layout } from '../Layout'
 import { SEO } from '../SEO'
 import { Title } from '../Utilities/Title'
 import styles from './Articles.module.css'
 import { ArticleCard } from './ArticleCard'
+import React from 'react'
 
-type ArticleCardProps = ComponentProps<typeof ArticleCard>
-
-const allArticles: { year: string; articles: ArticleCardProps[] }[] = [
+const allArticles = [
   {
     year: 'Continually Updated',
     articles: [
@@ -19,6 +17,20 @@ const allArticles: { year: string; articles: ArticleCardProps[] }[] = [
         tags: ['piano', 'non technical'],
         imageURL: 'https://i.imgur.com/1AVIQeM.jpg',
         imageAlt: 'upright piano in a sunlit room',
+      },
+    ],
+  },
+  {
+    year: '2023',
+    articles: [
+      {
+        URL: '/articles/advent-of-code-2023',
+        title: 'Advent of Code 2023',
+        description: 'A detailed look at my solutions for Advent of Code 2023',
+        createdAt: new Date('2023-11-07T16:56:37.934Z'),
+        tags: ['typescript', 'problem solving', 'algorithms', 'advent of code'],
+        imageURL: 'https://i.imgur.com/ebiwJDK.jpg',
+        imageAlt: 'Santa writing code at his desktop computer',
       },
     ],
   },
@@ -69,36 +81,15 @@ export const Articles = () => {
           <Title title="Articles" extraStyles={styles.title} />
           <div className="section-center">
             {allArticles.map(({ year, articles }) => (
-              <>
+              <React.Fragment key={year}>
                 <h2 className={styles.year}>{year}</h2>
                 <ul className={styles.articlesContainer}>
                   {articles.map((article) => (
                     <ArticleCard key={article.URL} {...article} />
                   ))}
                 </ul>
-              </>
+              </React.Fragment>
             ))}
-            {/* <h2 className={styles.year}>Continually Updated</h2>
-            <ul className={styles.articlesContainer}>
-              <ArticleCard
-                title="Piano Progress"
-                description=""
-                URL="/articles/piano-progress"
-                createdAt={new Date('2023-01-30T22:19:37.934Z')}
-                imageURL="https://i.imgur.com/1AVIQeM.jpg"
-                tags={[]}
-                imageAlt="upright piano in a sunlit room"
-                shortCard
-              />
-            </ul>
-            <h2 className={styles.year}>2022</h2>
-            <ul className={styles.articlesContainer}>
-              {articles
-                .filter((article) => article.createdAt.getFullYear() === 2022)
-                .map((article) => (
-                  <ArticleCard key={article.URL} {...article} />
-                ))}
-            </ul> */}
           </div>
         </section>
       </section>
