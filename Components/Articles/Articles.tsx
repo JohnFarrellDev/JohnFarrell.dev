@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import React, { ComponentProps } from 'react'
 import { Layout } from '../Layout'
 import { SEO } from '../SEO'
@@ -60,6 +59,7 @@ export const Articles = () => {
                 imageURL="https://i.imgur.com/1AVIQeM.jpg"
                 tags={[]}
                 imageAlt="upright piano in a sunlit room"
+                shortCard
               />
             </ul>
             <h2 className={styles.year}>2022</h2>

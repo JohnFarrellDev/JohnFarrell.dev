@@ -5,13 +5,14 @@ import Image from 'next/image'
 
 interface ArticleCardProps {
   title: string
-  description: string
+  description?: string
   URL: string
   createdAt: Date
   lastUpdatedAt?: Date
   tags: string[]
   imageURL: string
   imageAlt: string
+  shortCard?: boolean
 }
 
 function dateToDisplay(date: Date) {
@@ -33,16 +34,17 @@ export const ArticleCard = ({
   tags,
   imageURL,
   imageAlt,
+  shortCard,
 }: ArticleCardProps) => {
   return (
-    <li className={styles.card}>
+    <li className={`${styles.card} ${!description ? styles.shortContainer : ''}`}>
       <Link href={URL} className={styles.link}>
         <div className={styles.contentContainer}>
-          <Image src={imageURL} alt={imageAlt} className={styles.image} width={200} height={200} />
+          <Image src={imageURL} alt={imageAlt} className={styles.image} width={500} height={500} />
           <div className={styles.textContainer}>
             <div className={styles.textContent}>
               <h3 className={styles.title}>{title}</h3>
-              <p className={styles.description}>{description}</p>
+              {description ? <p className={styles.description}>{description}</p> : null}
               <div className={styles.tagContainer}>
                 {tags.map((tag) => (
                   <span key={tag} className={styles.tag}>
