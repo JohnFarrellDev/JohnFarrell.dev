@@ -35,6 +35,39 @@ const AdventOfCode2023: NextPage = () => {
               format. I will then create a function for each of part 1 and part 2.
             </p>
             <p>In some cases I will write tests but the purpose of these is to help with debugging.</p>
+            <p>
+              The company I work for (<a href="https://www.bjss.com">BJSS</a>) is also a sponsor which is cool, we are
+              hiring for a range of positions and skill levels so if you are interested in working at a tech consultancy
+              with interesting projects and good people messed me on{' '}
+              <a href="https://www.linkedin.com/in/johnfarrelldev/">LinkedIn</a> and I can refer you.
+            </p>
+            <ul>
+              <li>Day 25 Explanation (not yet released) -</li>
+              <li>Day 24 Explanation (not yet released) -</li>
+              <li>Day 23 Explanation (not yet released) -</li>
+              <li>Day 22 Explanation (not yet released) -</li>
+              <li>Day 21 Explanation (not yet released) -</li>
+              <li>Day 20 Explanation (not yet released) -</li>
+              <li>Day 19 Explanation (not yet released) -</li>
+              <li>Day 18 Explanation (not yet released) -</li>
+              <li>Day 17 Explanation (not yet released) -</li>
+              <li>Day 16 Explanation (not yet released) -</li>
+              <li>Day 15 Explanation (not yet released) -</li>
+              <li>Day 14 Explanation (not yet released) -</li>
+              <li>Day 13 Explanation (not yet released) -</li>
+              <li>Day 12 Explanation (not yet released) -</li>
+              <li>Day 11 Explanation (not yet released) -</li>
+              <li>Day 10 Explanation (not yet released) -</li>
+              <li>Day 09 Explanation (not yet released) -</li>
+              <li>Day 08 Explanation (not yet released) -</li>
+              <li>Day 07 Explanation -</li>
+              <li>Day 06 Explanation -</li>
+              <li>Day 05 Explanation -</li>
+              <li>Day 04 Explanation - ⭐⭐</li>
+              <li>Day 03 Explanation - ⭐</li>
+              <li>Day 02 Explanation - ⭐⭐</li>
+              <li>Day 01 Explanation - ⭐⭐</li>
+            </ul>
           </div>
         </section>
       </section>
