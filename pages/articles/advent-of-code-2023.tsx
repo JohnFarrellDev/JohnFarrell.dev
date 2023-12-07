@@ -38,7 +38,7 @@ const AdventOfCode2023: NextPage = () => {
             <p>
               The company I work for (<a href="https://www.bjss.com">BJSS</a>) is also a sponsor which is cool, we are
               hiring for a range of positions and skill levels so if you are interested in working at a tech consultancy
-              with interesting projects and good people messed me on{' '}
+              with interesting projects and good people message me on{' '}
               <a href="https://www.linkedin.com/in/johnfarrelldev/">LinkedIn</a> and I can refer you.
             </p>
             <ul>
