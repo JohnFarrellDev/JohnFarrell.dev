@@ -1,6 +1,6 @@
 import React from 'react'
-import { Layout } from '../../Layout'
-import { SEO } from '../../SEO'
+import { Layout } from '../../Layout/Layout'
+import { SEO } from '../../SEO/SEO'
 import { Title } from '../../Utilities/Title'
 import { ArticleTimeStamps } from '../Utilities/ArticleTimeStamps'
 import styles from './UdemyUserscript.module.css'
@@ -23,10 +23,7 @@ export const UdemyUserscript = () => {
       />
       <section className="blog-page">
         <section className="section">
-          <Title
-            title="Copy out Quizzes From Udemy With a UserScript"
-            extraStyles={styles.title}
-          />
+          <Title title="Copy out Quizzes From Udemy With a UserScript" extraStyles={styles.title} />
           <div className="section-center">
             <ArticleTimeStamps
               createdAt={new Date('2022-05-27T11:16:06.761Z')}

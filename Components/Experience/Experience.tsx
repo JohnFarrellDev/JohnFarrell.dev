@@ -8,8 +8,7 @@ import styles from './Experience.module.css'
 
 export const Experience = () => {
   const [value, setValue] = useState(0)
-  const { companyName, position, startDate, endDate, responsibilities } =
-    jobs[value]
+  const { companyName, position, startDate, endDate, responsibilities } = jobs[value]
 
   return (
     <section className={`section ${styles.jobs}`}>
@@ -21,9 +20,7 @@ export const Experience = () => {
               <button
                 key={job.id}
                 onClick={() => setValue(indx)}
-                className={`${styles.jobBtn} ${
-                  indx === value && styles.activeBtn
-                }`}
+                className={`${styles.jobBtn} ${indx === value && styles.activeBtn}`}
                 type="button"
               >
                 {job.companyName}

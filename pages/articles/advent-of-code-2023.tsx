@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
-import { Layout } from '../../Components/Layout'
-import { SEO } from '../../Components/SEO'
+import { Layout } from '../../Components/Layout/Layout'
+import { SEO } from '../../Components/SEO/SEO'
 import { Title } from '../../Components/Utilities/Title'
 import { Banner } from '../../Components/Banner'
 

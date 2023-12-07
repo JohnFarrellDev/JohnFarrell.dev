@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
-import { Layout } from '../Layout'
-import { SEO } from '../SEO'
+import { Layout } from '../Layout/Layout'
+import { SEO } from '../SEO/SEO'
 import { Title } from '../Utilities/Title'
 import styles from './Projects.module.css'
 interface Project {
@@ -23,10 +23,7 @@ const projects: Project[] = [
 export const Projects = () => {
   return (
     <Layout>
-      <SEO
-        title="Projects | John Farrell"
-        description="Software engineering projects created by John Farrell"
-      />
+      <SEO title="Projects | John Farrell" description="Software engineering projects created by John Farrell" />
       <section className="section projects">
         <Title title="Projects" />
         <div className="section-center projects-center">

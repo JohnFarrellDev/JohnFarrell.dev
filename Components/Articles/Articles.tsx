@@ -1,5 +1,5 @@
-import { Layout } from '../Layout'
-import { SEO } from '../SEO'
+import { Layout } from '../Layout/Layout'
+import { SEO } from '../SEO/SEO'
 import { Title } from '../Utilities/Title'
 import styles from './Articles.module.css'
 import { ArticleCard } from './ArticleCard'
