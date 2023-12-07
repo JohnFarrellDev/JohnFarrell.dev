@@ -2,6 +2,7 @@
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
   margin-top: 0.75rem;
+  text-align: center;
 }
 
 .title {
@@ -12,4 +13,5 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin: 0 auto;
 }

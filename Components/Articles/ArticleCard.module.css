@@ -1,13 +1,14 @@
 .card {
   height: auto;
   max-height: 200px;
+  width: 100%;
   max-width: 800px;
   border-radius: 10px;
   /* to enforce the border radius on the image */
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease-in-out;
-
+  margin: 0 auto;
   @media (max-width: 550px) {
     height: auto;
     max-height: 350px;

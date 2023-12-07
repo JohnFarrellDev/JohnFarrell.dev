@@ -50,7 +50,7 @@ export const Articles = () => {
           <Title title="Articles" extraStyles={styles.title} />
           <div className="section-center">
             <h2 className={styles.year}>Continually Updated</h2>
-            <ul>
+            <ul className={styles.articlesContainer}>
               <ArticleCard
                 title="Piano Progress"
                 description=""
