@@ -10,7 +10,7 @@ const AdventOfCode2023: NextPage = () => {
       <SEO
         title="Advent of Code 2023"
         description="A detailed look at my solutions for Advent of Code 2023"
-        image="https://i.imgur.com/ebiwJDK.jpg"
+        image="https://i.imgur.com/G1kmea0.jpg"
       />
       <section className="blog-page">
         <section className="section">
