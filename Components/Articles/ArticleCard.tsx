@@ -12,12 +12,11 @@ interface ArticleCardProps {
   tags: string[]
   imageURL: string
   imageAlt: string
-  shortCard?: boolean
 }
 
-export const ArticleCard = ({ title, description, URL, tags, imageURL, imageAlt, shortCard }: ArticleCardProps) => {
+export const ArticleCard = ({ title, description, URL, tags, imageURL, imageAlt }: ArticleCardProps) => {
   return (
-    <li className={`${styles.card} ${shortCard ? styles.shortContainer : ''}`}>
+    <li className={styles.card}>
       <Link href={URL} className={styles.link}>
         <div className={styles.contentContainer}>
           <Image src={imageURL} alt={imageAlt} className={styles.image} width={500} height={500} />
