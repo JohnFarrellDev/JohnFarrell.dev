@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { SocialLinks } from '../SocialLinks'
-import { Robot } from '../Robot'
+import { Robot } from '../Robot/Robot'
 import styles from './Hero.module.css'
 import { Button } from '../Utilities/Button'
 import { Underline } from '../Utilities/Underline'
