@@ -2,10 +2,11 @@
 import { IoWarningSharp } from 'react-icons/io5'
 import { IoIosInformationCircle } from 'react-icons/io'
 import styles from './Banner.module.css'
+import React from 'react'
 interface BannerProps {
   type: 'information' | 'warning'
   heading: string
-  description: string
+  description: React.ReactNode
 }
 
 export const Banner = ({ type, heading, description }: BannerProps) => {

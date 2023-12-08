@@ -17,6 +17,18 @@ const AdventOfCode2023: NextPage = () => {
           <Title title="Advent of Code 2023" />
           <div className="section-center">
             <Banner type="warning" heading="Advent of Code 2023" description="Spoilers ahead!" />
+            <Banner
+              type="information"
+              heading="Hiring Oppurtunity"
+              description={
+                <>
+                  The company I work for (<a href="https://www.bjss.com">BJSS</a>) is a sponsor this year, we are hiring
+                  for a range of positions and skill levels so if you are interested in working at a tech consultancy
+                  with interesting projects and good people message me on{' '}
+                  <a href="https://www.linkedin.com/in/johnfarrelldev/">LinkedIn</a> and I can refer you
+                </>
+              }
+            />
 
             <p>
               Advent of Code is a yearly event where a new programming puzzle is released every day from December 1st to
@@ -35,12 +47,7 @@ const AdventOfCode2023: NextPage = () => {
               format. I will then create a function for each of part 1 and part 2.
             </p>
             <p>In some cases I will write tests but the purpose of these is to help with debugging.</p>
-            <p>
-              The company I work for (<a href="https://www.bjss.com">BJSS</a>) is also a sponsor which is cool, we are
-              hiring for a range of positions and skill levels so if you are interested in working at a tech consultancy
-              with interesting projects and good people message me on{' '}
-              <a href="https://www.linkedin.com/in/johnfarrelldev/">LinkedIn</a> and I can refer you.
-            </p>
+
             <ul>
               <li>Day 25 Explanation (not yet released) -</li>
               <li>Day 24 Explanation (not yet released) -</li>

@@ -137,10 +137,6 @@ export const ReactProjectStructure = () => {
                   ],
                 },
                 {
-                  folderName: 'Constant/',
-                  content: ['siteMetadata.ts'],
-                },
-                {
                   folderName: 'Utilities/',
                   content: ['fetchData.ts', 'transformData.ts'],
                 },
