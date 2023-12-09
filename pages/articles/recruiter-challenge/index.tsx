@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { RecruiterChallenge as RecruiterChallengeArticle } from '../../../Components/Articles/RecruiterChallenge'
+import { RecruiterChallenge as RecruiterChallengeArticle } from '../../../Components/Articles/RecruiterChallenge/RecruiterChallenge'
 
 const RecruiterChallenge: NextPage = () => {
   return <RecruiterChallengeArticle />

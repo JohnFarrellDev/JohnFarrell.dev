@@ -1,6 +1,6 @@
-import { ShowMoreText } from '../ShowMoreText'
-import { YoutubeLink } from '../YoutubeLink/YoutubeLink'
 import styles from './SongTracker.module.css'
+import { ShowMoreText } from '../ShowMoreText/ShowMoreText'
+import { YoutubeLink } from '../YoutubeLink/YoutubeLink'
 
 interface SongInformation {
   name: string
@@ -43,9 +43,7 @@ const songs: SongInformation[] = [
     },
     progress: 'In progress',
     performances: [],
-    comments: [
-      "Doesn't seem particularly difficult, I just need to practice it a bit.",
-    ],
+    comments: ["Doesn't seem particularly difficult, I just need to practice it a bit."],
   },
   {
     name: 'Can Can',
@@ -55,13 +53,14 @@ const songs: SongInformation[] = [
       link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008',
     },
     progress: 'In progress',
-    performances: [{
-      link: 'https://www.youtube.com/watch?v=DYSCU0q15EE',
-      iconText: 'This was before working with a metronome, all the notes played are correct but the timing is quite poor.'
-    }],
-    comments: [
-      'Keep the timing and playing smooth at the high tempo is a challenge.',
+    performances: [
+      {
+        link: 'https://www.youtube.com/watch?v=DYSCU0q15EE',
+        iconText:
+          'This was before working with a metronome, all the notes played are correct but the timing is quite poor.',
+      },
     ],
+    comments: ['Keep the timing and playing smooth at the high tempo is a challenge.'],
   },
   {
     name: 'Persian Market',
@@ -165,11 +164,7 @@ export const SongTrackers = () => {
                     <>
                       {' '}
                       -
-                      <a
-                        href={song.sheetMusic.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <a href={song.sheetMusic.link} target="_blank" rel="noopener noreferrer">
                         {' '}
                         Sheets
                       </a>
@@ -179,20 +174,12 @@ export const SongTrackers = () => {
                 <td>{song.progress}</td>
                 <td>
                   {song.performances.map((performance, index) => {
-                    return (
-                      <YoutubeLink
-                        key={index}
-                        link={performance.link}
-                        iconText={performance.iconText}
-                      />
-                    )
+                    return <YoutubeLink key={index} link={performance.link} iconText={performance.iconText} />
                   })}
                 </td>
                 <td>
                   {song.comments.map((comment) => {
-                    return (
-                      <ShowMoreText key={comment} text={comment} length={100} />
-                    )
+                    return <ShowMoreText key={comment} text={comment} length={100} />
                   })}
                 </td>
               </tr>

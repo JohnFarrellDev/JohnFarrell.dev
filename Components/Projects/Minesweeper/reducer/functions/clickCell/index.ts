@@ -1,1 +1,0 @@
-export { clickCell } from './clickCell'

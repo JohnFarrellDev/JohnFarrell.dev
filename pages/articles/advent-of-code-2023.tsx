@@ -1,10 +1,9 @@
-import type { NextPage } from 'next'
 import { Layout } from '../../Components/Layout/Layout'
 import { SEO } from '../../Components/SEO/SEO'
-import { Title } from '../../Components/Utilities/Title'
+import { Title } from '../../Components/Utilities/Title/Title'
 import { Banner } from '../../Components/Banner'
 
-const AdventOfCode2023: NextPage = () => {
+const AdventOfCode2023 = () => {
   return (
     <Layout>
       <SEO

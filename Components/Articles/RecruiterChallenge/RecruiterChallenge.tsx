@@ -1,10 +1,9 @@
-import React from 'react'
+import styles from './RecruiterChallenge.module.css'
 import { Layout } from '../../Layout/Layout'
 import { SEO } from '../../SEO/SEO'
-import { Paragraph } from '../Utilities/Paragraph'
-import styles from './RecruiterChallenge.module.css'
-import { ArticleTimeStamps } from '../Utilities/ArticleTimeStamps'
-import { BlockQuote } from '../Utilities/BlockQuote'
+import { Paragraph } from '../Utilities/Paragraph/Paragraph'
+import { ArticleTimeStamps } from '../Utilities/ArticleTimeStamps/ArticleTimeStamps'
+import { BlockQuote } from '../Utilities/BlockQuote/BlockQuote'
 import Link from 'next/link'
 
 export const RecruiterChallenge = () => {

@@ -1,24 +1,13 @@
-import React, {
-  useCallback,
-  useEffect,
-  useReducer,
-  MouseEvent,
-  ChangeEvent,
-} from 'react'
-import { Queue } from '../../../../../Utilities/Queue'
+import styles from './Game.module.css'
+import { useCallback, useEffect, useReducer, MouseEvent, ChangeEvent } from 'react'
+import { Queue } from '../../../../../Utilities/Queue/queue'
 import { ChangeStep, minesweeperReducer } from '../../reducer'
 import { GameCell } from '../GameCell'
-import { GameSettings } from '../GameSettings'
-import { GameTracking } from '../GameTracking'
+import { GameSettings } from '../GameSettings/GameSettings'
+import { GameTracking } from '../GameTracking/GameTracking'
 import { FaceType } from '../GameTracking/GameTracking'
-import styles from './Game.module.css'
 
-export type CustomAnimations =
-  | 'PlaceBombs'
-  | 'CalculateNeighbors'
-  | 'RecursiveReveal'
-  | 'FlagCell'
-  | 'BasicAutoClick'
+export type CustomAnimations = 'PlaceBombs' | 'CalculateNeighbors' | 'RecursiveReveal' | 'FlagCell' | 'BasicAutoClick'
 export type Operations =
   | 'PlaceBombs'
   | 'CalculateNeighbors'
@@ -86,48 +75,36 @@ export const Game = ({
     dispatch({ type: 'ClickCell', rowIndex, columnIndex })
   }, [])
 
-  const changeNumberOfColumns = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
-      dispatch({
-        type: 'ChangeNumberOfColumns',
-        newNumberOfColumns: Number(event.target.value),
-      })
-    },
-    []
-  )
-
-  const validateChange = useCallback(() => {
+  const changeNumberOfColumns = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     dispatch({
-      type: 'ValidateChangeAction'
+      type: 'ChangeNumberOfColumns',
+      newNumberOfColumns: Number(event.target.value),
     })
   }, [])
 
-  const changeNumberOfRows = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
-      dispatch({
-        type: 'ChangeNumberOfRows',
-        newNumberOfRows: Number(event.target.value),
-      })
-    },
-    []
-  )
+  const validateChange = useCallback(() => {
+    dispatch({
+      type: 'ValidateChangeAction',
+    })
+  }, [])
 
-  const changeNumberOfBombs = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
-      dispatch({
-        type: 'ChangeNumberOfBombs',
-        newNumberOfBombs: Number(event.target.value),
-      })
-    },
-    []
-  )
+  const changeNumberOfRows = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    dispatch({
+      type: 'ChangeNumberOfRows',
+      newNumberOfRows: Number(event.target.value),
+    })
+  }, [])
 
-  const rightClickCell = useCallback(
-    (rowIndex: number, columnIndex: number) => {
-      dispatch({ type: 'RightClickCell', rowIndex, columnIndex })
-    },
-    []
-  )
+  const changeNumberOfBombs = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    dispatch({
+      type: 'ChangeNumberOfBombs',
+      newNumberOfBombs: Number(event.target.value),
+    })
+  }, [])
+
+  const rightClickCell = useCallback((rowIndex: number, columnIndex: number) => {
+    dispatch({ type: 'RightClickCell', rowIndex, columnIndex })
+  }, [])
 
   const mouseDownCell = useCallback((event: MouseEvent<HTMLDivElement>) => {
     if (event.nativeEvent.button === 2) return

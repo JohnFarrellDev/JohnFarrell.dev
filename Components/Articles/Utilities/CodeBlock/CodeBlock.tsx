@@ -11,12 +11,7 @@ interface CodeBlockProps {
   fileName?: string
 }
 
-export const CodeBlock = ({
-  canHide,
-  githubLink,
-  children,
-  fileName,
-}: CodeBlockProps) => {
+export const CodeBlock = ({ canHide, githubLink, children, fileName }: CodeBlockProps) => {
   const [showCode, setShowCode] = useState(true)
 
   return (
@@ -24,11 +19,7 @@ export const CodeBlock = ({
       <div className={styles.container}>
         {githubLink && <Link href={githubLink}>Code on GitHub</Link>}
 
-        {canHide && (
-          <button onClick={() => setShowCode(!showCode)}>
-            {showCode ? 'Hide code' : 'Show code'}
-          </button>
-        )}
+        {canHide && <button onClick={() => setShowCode(!showCode)}>{showCode ? 'Hide code' : 'Show code'}</button>}
 
         {showCode && fileName && <p className={styles.fileName}>{fileName}</p>}
       </div>

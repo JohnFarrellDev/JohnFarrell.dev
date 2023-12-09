@@ -1,17 +1,15 @@
-import React from 'react'
+import styles from './UdemyUserscript.module.css'
 import { Layout } from '../../Layout/Layout'
 import { SEO } from '../../SEO/SEO'
-import { Title } from '../../Utilities/Title'
-import { ArticleTimeStamps } from '../Utilities/ArticleTimeStamps'
-import styles from './UdemyUserscript.module.css'
-
-import { Introduction } from './Sections/Introduction'
-import { TableOfContentsUdemyUserScript } from './TableOfContentsUdemyUserScript'
-import { Goal } from './Sections/Goal'
-import { VideoDemo } from './Sections/VideoDemo'
-import { LessonsLearned } from './Sections/LessonsLearned'
-import { Code } from './Sections/Code'
-import { PotentialProblems } from './Sections/PotentialProblems'
+import { Title } from '../../Utilities/Title/Title'
+import { ArticleTimeStamps } from '../Utilities/ArticleTimeStamps/ArticleTimeStamps'
+import { Introduction } from './Sections/Introduction/Introduction'
+import { TableOfContentsUdemyUserScript } from './TableOfContentsUdemyUserScript/TableOfContents'
+import { Goal } from './Sections/Goal/Goal'
+import { VideoDemo } from './Sections/VideoDemo/VideoDemo'
+import { LessonsLearned } from './Sections/LessonsLearned/LessonsLearned'
+import { Code } from './Sections/Code/Code'
+import { PotentialProblems } from './Sections/PotentialProblems/PotentialProblems'
 
 export const UdemyUserscript = () => {
   return (

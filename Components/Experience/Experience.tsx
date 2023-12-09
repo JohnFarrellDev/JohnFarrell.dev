@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { FaAngleDoubleRight } from 'react-icons/fa'
-import { Title } from '../Utilities/Title'
-import { jobs } from './Constants/jobs'
-import Link from 'next/link'
-import { Button } from '../Utilities/Button'
 import styles from './Experience.module.css'
+import Link from 'next/link'
+import { useState } from 'react'
+import { FaAngleDoubleRight } from 'react-icons/fa'
+import { Title } from '../Utilities/Title/Title'
+import { jobs } from './Constants/jobs'
+import { Button } from '../Utilities/Button/Button'
 
 export const Experience = () => {
   const [value, setValue] = useState(0)

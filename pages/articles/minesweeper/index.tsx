@@ -1,7 +1,6 @@
-import type { NextPage } from 'next'
-import { Minesweeper as MinesweeperArticle } from '../../../Components/Articles/Minesweeper'
+import { Minesweeper as MinesweeperArticle } from '../../../Components/Articles/Minesweeper/Minesweeper'
 
-const Minesweeper: NextPage = () => {
+const Minesweeper = () => {
   return <MinesweeperArticle />
 }
 

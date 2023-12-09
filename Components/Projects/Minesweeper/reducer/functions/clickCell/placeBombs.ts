@@ -1,5 +1,5 @@
 import { AnimationSpeed, Change, ClickCellAction, State } from '../..'
-import { fisherYatesShuffle } from '../../../../../../Utilities'
+import { fisherYatesShuffle } from '../../../../../../Utilities/fisherYatesShuffle'
 import { extractRowAndColumnFromId } from '../../../functions/extractRowAndColumnFromId'
 
 export const placeBombs = (state: State, action: ClickCellAction) => {
@@ -14,25 +14,21 @@ export const placeBombs = (state: State, action: ClickCellAction) => {
     }
   }
 
-  const possibleBombLocations = fisherYatesShuffle(possibleBombLocationsById).map(el => {
-    const [bombLocationRow, bombLocationColumn] = extractRowAndColumnFromId(
-      el,
-      state.columns
-    )
+  const possibleBombLocations = fisherYatesShuffle(possibleBombLocationsById).map((el) => {
+    const [bombLocationRow, bombLocationColumn] = extractRowAndColumnFromId(el, state.columns)
 
     return {
       rowIndex: bombLocationRow,
-      columnIndex: bombLocationColumn
+      columnIndex: bombLocationColumn,
     }
   })
 
   if (!state.customAnimations.PlaceBombs) {
-    const bombsToCopy: {rowIndex: number, columnIndex: number}[] = []
+    const bombsToCopy: { rowIndex: number; columnIndex: number }[] = []
     for (let i = 0; i < state.numberOfBombs; i++) {
-      const bombLocation =
-        possibleBombLocations[possibleBombLocations.length - 1 - i]
-      
-        bombsToCopy.push(bombLocation)
+      const bombLocation = possibleBombLocations[possibleBombLocations.length - 1 - i]
+
+      bombsToCopy.push(bombLocation)
       state.revealedBoard[bombLocation.rowIndex][bombLocation.columnIndex].isBomb = true
     }
 
@@ -46,14 +42,9 @@ export const placeBombs = (state: State, action: ClickCellAction) => {
   for (let i = 0; i < state.numberOfBombs; i++) {
     let lastNBombLocation = state.columns * state.rows - 1 - i
 
-    if (
-      lastNBombLocation <=
-      state.columns * action.rowIndex + action.columnIndex
-    )
-      lastNBombLocation--
+    if (lastNBombLocation <= state.columns * action.rowIndex + action.columnIndex) lastNBombLocation--
 
-    const [animationLocationRow, animationLocationColumn] =
-      extractRowAndColumnFromId(lastNBombLocation, state.columns)
+    const [animationLocationRow, animationLocationColumn] = extractRowAndColumnFromId(lastNBombLocation, state.columns)
 
     state.revealedBoard[animationLocationRow][animationLocationColumn] = {
       ...state.revealedBoard[animationLocationRow][animationLocationColumn],
@@ -73,24 +64,17 @@ export const placeBombs = (state: State, action: ClickCellAction) => {
   }
 
   for (let i = 0; i < state.numberOfBombs; i++) {
-    const bombLocation =
-      possibleBombLocations[possibleBombLocations.length - 1 - i]
+    const bombLocation = possibleBombLocations[possibleBombLocations.length - 1 - i]
 
-    const switchHasBomb =
-      state.revealedBoard[bombLocation.rowIndex][bombLocation.columnIndex].isBomb
+    const switchHasBomb = state.revealedBoard[bombLocation.rowIndex][bombLocation.columnIndex].isBomb
 
     state.revealedBoard[bombLocation.rowIndex][bombLocation.columnIndex].isBomb = true
 
     let animationLocation = state.columns * state.rows - 1 - i
 
-    if (
-      animationLocation <=
-      state.columns * action.rowIndex + action.columnIndex
-    )
-      animationLocation--
+    if (animationLocation <= state.columns * action.rowIndex + action.columnIndex) animationLocation--
 
-    const [animationLocationRow, animationLocationColumn] =
-      extractRowAndColumnFromId(animationLocation, state.columns)
+    const [animationLocationRow, animationLocationColumn] = extractRowAndColumnFromId(animationLocation, state.columns)
 
     state.revealedBoard[animationLocationRow][animationLocationColumn] = {
       ...state.revealedBoard[animationLocationRow][animationLocationColumn],
@@ -105,19 +89,18 @@ export const placeBombs = (state: State, action: ClickCellAction) => {
       },
     ]
 
-    if(!switchHasBomb) {
+    if (!switchHasBomb) {
       changes.push({
         columnIndex: animationLocationColumn,
         rowIndex: animationLocationRow,
         action: 'REMOVEBOMB',
       })
     }
-    
+
     state.changesToApply.enqueue({
       time: AnimationSpeed.PlaceBomb,
-      changes
+      changes,
     })
-    
   }
 
   state.changesToApply.enqueue({

@@ -1,9 +1,8 @@
-import React from 'react'
-import { Title } from '../Utilities/Title'
-import { skills } from './Constants/skills'
 import styles from './Skills.module.css'
-import { Button } from '../Utilities/Button'
-import { Underline } from '../Utilities/Underline'
+import { Title } from '../Utilities/Title/Title'
+import { skills } from './Constants/skills'
+import { Button } from '../Utilities/Button/Button'
+import { Underline } from '../Utilities/Underline/Underline'
 
 export const Skills = () => {
   return (

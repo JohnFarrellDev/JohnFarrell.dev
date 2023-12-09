@@ -1,7 +1,7 @@
-import React from 'react'
-import { Tooltip } from '../Tooltip'
 import styles from './YoutubeLink.module.css'
+import { Tooltip } from '../Tooltip/Tooltip'
 import { FaYoutube } from 'react-icons/fa'
+
 interface YouTubeLinkProps {
   link: string
   iconText?: string
@@ -10,12 +10,7 @@ interface YouTubeLinkProps {
 export const YoutubeLink = ({ link, iconText }: YouTubeLinkProps) => {
   return (
     <div className={styles.container}>
-      <a
-        href={link}
-        className={styles.link}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href={link} className={styles.link} target="_blank" rel="noopener noreferrer">
         <span>
           <span className={styles.youtube}>
             <FaYoutube size={25} />

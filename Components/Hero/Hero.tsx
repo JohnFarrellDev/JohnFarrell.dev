@@ -1,9 +1,9 @@
-import Link from 'next/link'
-import { SocialLinks } from '../SocialLinks'
-import { Robot } from '../Robot/Robot'
 import styles from './Hero.module.css'
-import { Button } from '../Utilities/Button'
-import { Underline } from '../Utilities/Underline'
+import Link from 'next/link'
+import { SocialLinks } from '../SocialLinks/SocialLinks'
+import { Robot } from '../Robot/Robot'
+import { Button } from '../Utilities/Button/Button'
+import { Underline } from '../Utilities/Underline/Underline'
 
 export const Hero = () => {
   return (

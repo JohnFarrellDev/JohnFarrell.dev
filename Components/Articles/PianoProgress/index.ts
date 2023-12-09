@@ -1,1 +1,0 @@
-export { PianoProgress } from './PianoProgress'

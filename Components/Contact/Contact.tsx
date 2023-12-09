@@ -1,8 +1,7 @@
-import React from 'react'
+import styles from './Contact.module.css'
 import { Layout } from '../Layout/Layout'
 import { SEO } from '../SEO/SEO'
-import { ContactForm } from './ContactForm'
-import styles from './Contact.module.css'
+import { ContactForm } from './ContactForm/ContactForm'
 
 export const Contact = () => {
   return (

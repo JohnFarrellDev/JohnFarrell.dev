@@ -1,9 +1,9 @@
+import styles from './Projects.module.css'
 import Link from 'next/link'
-import React from 'react'
 import { Layout } from '../Layout/Layout'
 import { SEO } from '../SEO/SEO'
-import { Title } from '../Utilities/Title'
-import styles from './Projects.module.css'
+import { Title } from '../Utilities/Title/Title'
+
 interface Project {
   URI: string
   name: string

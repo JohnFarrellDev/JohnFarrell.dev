@@ -1,7 +1,6 @@
-import type { NextPage } from 'next'
-import { Projects as ProjectsC } from '../../Components/Projects'
+import { Projects as ProjectsC } from '../../Components/Projects/Projects'
 
-const Projects: NextPage = () => {
+const Projects = () => {
   return <ProjectsC />
 }
 

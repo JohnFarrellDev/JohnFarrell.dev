@@ -1,9 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import React from 'react'
 import { Layout } from '../Layout/Layout'
 import { SEO } from '../SEO/SEO'
-import { Title } from '../Utilities/Title'
+import { Title } from '../Utilities/Title/Title'
 import styles from './AboutMe.module.css'
 
 const stack = [

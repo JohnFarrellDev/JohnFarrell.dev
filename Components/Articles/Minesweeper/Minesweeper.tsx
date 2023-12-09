@@ -1,13 +1,12 @@
-import React from 'react'
-import { Layout } from '../../Layout/Layout'
-import { SEO } from '../../SEO/SEO'
-import { Title } from '../../Utilities/Title'
 import styles from './Minesweeper.module.css'
-import { ArticleTimeStamps } from '../Utilities/ArticleTimeStamps'
-import { Paragraph } from '../Utilities/Paragraph'
-import { Game } from '../../Projects/Minesweeper/Components/Game'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Layout } from '../../Layout/Layout'
+import { SEO } from '../../SEO/SEO'
+import { Title } from '../../Utilities/Title/Title'
+import { ArticleTimeStamps } from '../Utilities/ArticleTimeStamps/ArticleTimeStamps'
+import { Paragraph } from '../Utilities/Paragraph/Paragraph'
+import { Game } from '../../Projects/Minesweeper/Components/Game/Game'
 
 export const Minesweeper = () => {
   return (

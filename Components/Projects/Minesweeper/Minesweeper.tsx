@@ -1,10 +1,11 @@
-import React, { useMemo } from 'react'
-import { ArticleTimeStamps, Paragraph } from '../../Articles/Utilities'
+import styles from './Minesweeper.module.css'
+import { useMemo } from 'react'
+import { ArticleTimeStamps } from '../../Articles/Utilities/ArticleTimeStamps/ArticleTimeStamps'
 import { Layout } from '../../Layout/Layout'
 import { SEO } from '../../SEO/SEO'
-import { Title } from '../../Utilities/Title'
-import { Game } from './Components/Game'
-import styles from './Minesweeper.module.css'
+import { Title } from '../../Utilities/Title/Title'
+import { Game } from './Components/Game/Game'
+import { Paragraph } from '../../Articles/Utilities/Paragraph/Paragraph'
 
 export const Minesweeper = () => {
   const seo = useMemo(

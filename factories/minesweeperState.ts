@@ -1,7 +1,7 @@
 import { Factory } from 'fishery'
 import { FaceType } from '../Components/Projects/Minesweeper/Components/GameTracking/GameTracking'
 import { ChangeStep, State } from '../Components/Projects/Minesweeper/reducer'
-import { Queue } from '../Utilities/Queue'
+import { Queue } from '../Utilities/Queue/queue'
 
 export const minesweeperStateFactory = Factory.define<State>(() => ({
   rows: 10,
@@ -13,7 +13,7 @@ export const minesweeperStateFactory = Factory.define<State>(() => ({
     PlaceBombs: false,
     RecursiveReveal: false,
     FlagCell: false,
-    BasicAutoClick: false
+    BasicAutoClick: false,
   },
   allowedOperations: {
     AutoFlag: false,

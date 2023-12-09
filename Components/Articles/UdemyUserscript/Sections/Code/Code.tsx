@@ -1,8 +1,8 @@
 import React from 'react'
-import { SectionTitle } from '../../../Utilities/SectionTitle'
-import { SubSectionTitle } from '../../../Utilities/SubSectionTitle'
-import { CodeBlock } from '../../../Utilities/CodeBlock'
-import { Paragraph } from '../../../Utilities/Paragraph'
+import { SectionTitle } from '../../../Utilities/SectionTitle/SectionTitle'
+import { SubSectionTitle } from '../../../Utilities/SubSectionTitle/SubSectionTitle'
+import { CodeBlock } from '../../../Utilities/CodeBlock/CodeBlock'
+import { Paragraph } from '../../../Utilities/Paragraph/Paragraph'
 import Link from 'next/link'
 
 export const Code = () => {
@@ -10,9 +10,7 @@ export const Code = () => {
     <>
       <SectionTitle id="code">Code</SectionTitle>
 
-      <SubSectionTitle id="copy-from-practice-test">
-        Code for Copying from Practice Test
-      </SubSectionTitle>
+      <SubSectionTitle id="copy-from-practice-test">Code for Copying from Practice Test</SubSectionTitle>
       <CodeBlock
         canHide={true}
         githubLink="https://github.com/JohnFarrellDev/UserScripts/blob/main/UdemyCopyFromTest.js"
@@ -20,9 +18,7 @@ export const Code = () => {
         {codeCopyFromPracticeTest}
       </CodeBlock>
 
-      <SubSectionTitle id="copy-from-end-of-section-quiz">
-        Code for Copying from End of Section Quiz
-      </SubSectionTitle>
+      <SubSectionTitle id="copy-from-end-of-section-quiz">Code for Copying from End of Section Quiz</SubSectionTitle>
       <CodeBlock
         canHide={true}
         githubLink="https://github.com/JohnFarrellDev/UserScripts/blob/main/UdemyCopyFromSectionQuiz.js"
@@ -30,15 +26,11 @@ export const Code = () => {
         {codeCopyFromEndOfSectionQuiz}
       </CodeBlock>
 
-      <SubSectionTitle id="greasy-fork-publish">
-        Published on Greasy Fork
-      </SubSectionTitle>
+      <SubSectionTitle id="greasy-fork-publish">Published on Greasy Fork</SubSectionTitle>
 
       <Paragraph>
-        I have published both of these scripts to{' '}
-        <Link href="https://greasyfork.org">Greasy Fork</Link>. The benefit of
-        this is ease of installation and any changes I push to GitHub should be
-        automatically picked up by Greasy Fork.
+        I have published both of these scripts to <Link href="https://greasyfork.org">Greasy Fork</Link>. The benefit of
+        this is ease of installation and any changes I push to GitHub should be automatically picked up by Greasy Fork.
       </Paragraph>
       <Paragraph>
         <Link href="https://greasyfork.org/en/scripts/446004-udemy-copy-from-section-quiz">

@@ -1,7 +1,6 @@
-import type { NextPage } from 'next'
-import { ReactProjectStructure as ReactProjectStructureArticle } from '../../../Components/Articles/ReactProjectStructure'
+import { ReactProjectStructure as ReactProjectStructureArticle } from '../../../Components/Articles/ReactProjectStructure/ReactProjectStructure'
 
-const ReactProjectStructure: NextPage = () => {
+const ReactProjectStructure = () => {
   return <ReactProjectStructureArticle />
 }
 

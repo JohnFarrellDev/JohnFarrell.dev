@@ -1,6 +1,5 @@
-import React from 'react'
-import { Underline } from '../Underline'
 import styles from './Title.module.css'
+import { Underline } from '../Underline/Underline'
 
 interface TitleProps {
   title: string

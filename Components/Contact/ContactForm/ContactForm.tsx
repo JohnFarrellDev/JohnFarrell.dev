@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Button } from '../../Utilities/Button'
+import { useState } from 'react'
+import { Button } from '../../Utilities/Button/Button'
 import styles from './ContactForm.module.css'
 
 enum Status {
@@ -30,42 +30,20 @@ export const ContactForm = () => {
   }
 
   return (
-    <form
-      action="https://formspree.io/xqkyvgaw"
-      method="POST"
-      onSubmit={submitForm}
-    >
+    <form action="https://formspree.io/xqkyvgaw" method="POST" onSubmit={submitForm}>
       <div className={styles.formGroup}>
         <label htmlFor="form-name" className={styles.srOnly}>
           Name:
         </label>
-        <input
-          type="text"
-          name="name"
-          id="form-name"
-          placeholder="name"
-          className={styles.formControl}
-        />
+        <input type="text" name="name" id="form-name" placeholder="name" className={styles.formControl} />
         <label htmlFor="form-email" className={styles.srOnly}>
           Email:
         </label>
-        <input
-          type="email"
-          name="email"
-          placeholder="email"
-          id="form-email"
-          className={styles.formControl}
-        />
+        <input type="email" name="email" placeholder="email" id="form-email" className={styles.formControl} />
         <label htmlFor="form-message" className={styles.srOnly}>
           Message:
         </label>
-        <textarea
-          name="message"
-          rows={5}
-          placeholder="message"
-          id="form-message"
-          className={styles.formControl}
-        />
+        <textarea name="message" rows={5} placeholder="message" id="form-message" className={styles.formControl} />
       </div>
 
       {status === Status.Success ? (

@@ -1,7 +1,6 @@
-import React from 'react'
 import { FaTimes } from 'react-icons/fa'
-import { Links } from '../Links'
-import { SocialLinks } from '../../SocialLinks'
+import { Links } from '../Links/Links'
+import { SocialLinks } from '../../SocialLinks/SocialLinks'
 
 interface SidebarProps {
   isOpen: boolean
@@ -11,12 +10,7 @@ interface SidebarProps {
 export const Sidebar = ({ isOpen, toggleSidebar }: SidebarProps) => {
   return (
     <aside className={`sidebar ${isOpen ? 'show-sidebar' : ''}`}>
-      <button
-        type="button"
-        className="close-btn"
-        onClick={toggleSidebar}
-        aria-label="close sidebar"
-      >
+      <button type="button" className="close-btn" onClick={toggleSidebar} aria-label="close sidebar">
         <FaTimes />
       </button>
       <div className="side-container">

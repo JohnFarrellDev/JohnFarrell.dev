@@ -1,9 +1,9 @@
+import styles from './Articles.module.css'
+import { Fragment } from 'react'
 import { Layout } from '../Layout/Layout'
 import { SEO } from '../SEO/SEO'
-import { Title } from '../Utilities/Title'
-import styles from './Articles.module.css'
+import { Title } from '../Utilities/Title/Title'
 import { ArticleCard } from './ArticleCard'
-import React from 'react'
 
 const allArticles = [
   {
@@ -81,14 +81,14 @@ export const Articles = () => {
           <Title title="Articles" extraStyles={styles.title} />
           <div className="section-center">
             {allArticles.map(({ year, articles }) => (
-              <React.Fragment key={year}>
+              <Fragment key={year}>
                 <h2 className={styles.year}>{year}</h2>
                 <ul className={styles.articlesContainer}>
                   {articles.map((article) => (
                     <ArticleCard key={article.URL} {...article} />
                   ))}
                 </ul>
-              </React.Fragment>
+              </Fragment>
             ))}
           </div>
         </section>

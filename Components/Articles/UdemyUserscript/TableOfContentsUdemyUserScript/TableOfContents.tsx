@@ -1,5 +1,5 @@
 import React from 'react'
-import { TableOfContents } from '../../Utilities/TableOfContents'
+import { TableOfContents } from '../../Utilities/TableOfContents/TableOfContents'
 
 export const TableOfContentsUdemyUserScript = () => {
   return (

@@ -1,7 +1,6 @@
-import type { NextPage } from 'next'
-import { UdemyUserscript } from '../../../Components/Articles/UdemyUserscript'
+import { UdemyUserscript } from '../../../Components/Articles/UdemyUserscript/UdemyUserscript'
 
-const Articles: NextPage = () => {
+const Articles = () => {
   return <UdemyUserscript />
 }
 

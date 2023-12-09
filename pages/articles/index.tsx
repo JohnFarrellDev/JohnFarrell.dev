@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { Articles as ArticlesC } from '../../Components/Articles'
+import { Articles as ArticlesC } from '../../Components/Articles/Articles'
 
 const Articles: NextPage = () => {
   return <ArticlesC />
