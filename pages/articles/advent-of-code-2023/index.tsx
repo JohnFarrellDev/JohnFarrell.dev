@@ -16,10 +16,9 @@ const AdventOfCode2023 = () => {
         <section className="section">
           <Title title="Advent of Code 2023" />
           <div className="section-center">
-            <Banner type="warning" heading="Advent of Code 2023" description="Spoilers ahead!" />
             <Banner
               type="information"
-              heading="Hiring Oppurtunity"
+              heading="Job Oppurtunity"
               description={
                 <>
                   The company I work for (<a href="https://www.bjss.com">BJSS</a>) is a sponsor this year, we are hiring
