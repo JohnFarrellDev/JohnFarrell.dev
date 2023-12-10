@@ -17,11 +17,11 @@
 }
 
 .articleContent p {
-  margin-left: 100px
+  margin-left: 100px;
 }
 
 .aboutStack {
-  margin-left: 100px
+  margin-left: 100px;
 }
 
 .aboutStack span {
@@ -39,15 +39,15 @@
 
 /* TODO - consider smaller mobile screens! */
 @media screen and (max-width: 992px) {
-  .articleContent{
-    display: block
+  .articleContent {
+    display: block;
   }
 
   .articleContent p {
-    margin: 0px
+    margin: 0px;
   }
 
   .aboutStack {
-    margin: 0px
+    margin: 0px;
   }
 }
