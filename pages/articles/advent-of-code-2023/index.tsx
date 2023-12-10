@@ -1,7 +1,8 @@
-import { Layout } from '../../Components/Layout/Layout'
-import { SEO } from '../../Components/SEO/SEO'
-import { Title } from '../../Components/Utilities/Title/Title'
-import { Banner } from '../../Components/Banner'
+import Link from 'next/link'
+import { Banner } from '../../../Components/Banner'
+import { Layout } from '../../../Components/Layout/Layout'
+import { SEO } from '../../../Components/SEO/SEO'
+import { Title } from '../../../Components/Utilities/Title/Title'
 
 const AdventOfCode2023 = () => {
   return (
@@ -63,11 +64,13 @@ const AdventOfCode2023 = () => {
               <li>Day 13 Explanation (not yet released) -</li>
               <li>Day 12 Explanation (not yet released) -</li>
               <li>Day 11 Explanation (not yet released) -</li>
-              <li>Day 10 Explanation (not yet released) -</li>
-              <li>Day 09 Explanation (not yet released) -</li>
-              <li>Day 08 Explanation (not yet released) -</li>
+              <li>Day 10 Explanation -</li>
+              <li>Day 09 Explanation -</li>
+              <li>Day 08 Explanation -</li>
               <li>Day 07 Explanation -</li>
-              <li>Day 06 Explanation -</li>
+              <li>
+                <Link href="/articles/advent-of-code-2023/day-6">Day 06 Explanation</Link> - ⭐⭐
+              </li>
               <li>Day 05 Explanation -</li>
               <li>Day 04 Explanation - ⭐⭐</li>
               <li>Day 03 Explanation - ⭐</li>
