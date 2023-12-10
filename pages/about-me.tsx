@@ -70,8 +70,9 @@ const AboutMe = () => {
                   University of Kent. After graduating, I worked at{' '}
                   <Link href="https://www.tcs.com/">Tata Consultancy Services</Link>, where I had the opportunity to be
                   involved in a large scale cloud industrialisation project. I then became interested in web development
-                  and joined a consultancy called <Link href="https://www.caci-iig.co.uk/">CACI IIG</Link> where I
-                  worked on several web app projects. I then joined the{' '}
+                  and joined a consultancy called{' '}
+                  <Link href="https://www.linkedin.com/showcase/caci-information-intelligence-group/">CACI IIG</Link>{' '}
+                  where I worked on several web app projects. I then joined the{' '}
                   <Link href="https://www.madetech.com/">Made Tech</Link> team which is also a consultancy and continued
                   with a focus on developing web apps for the UK public.
                 </p>
