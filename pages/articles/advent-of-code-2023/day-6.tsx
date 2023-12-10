@@ -189,7 +189,12 @@ function solution2BreakLoopEarly(input: string): number {
           <pre>940200 = 71530TH - TH^2</pre>
           <pre>0 = -TH^2 + 71530TH - 940200</pre>
 
-          <Image src="https://i.imgur.com/qCcMYLb.png" width={500} height={400} />
+          <Image
+            src="https://i.imgur.com/qCcMYLb.png"
+            alt="wolfram alpha graph showing a quadratic equation"
+            width={500}
+            height={400}
+          />
 
           <CodeBlock canHide={false}>
             {`function quadraticFormula(
