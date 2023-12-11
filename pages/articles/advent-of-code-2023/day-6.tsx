@@ -221,6 +221,7 @@ const Day6 = () => (
             alt="wolfram alpha graph showing a quadratic equation"
             width={500}
             height={400}
+            style={{ maxWidth: '100%', height: 'auto' }}
           />
 
           <CodeBlock canHide={false}>{solution2Quadratic}</CodeBlock>
