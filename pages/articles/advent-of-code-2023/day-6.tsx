@@ -7,11 +7,111 @@ import { FaGithub } from 'react-icons/fa'
 import Image from 'next/image'
 import Link from 'next/link'
 
+const solution1Code = `export function solution1(input: string) {
+    const parsedInput = parseInput1(input)
+
+    console.time('solution 1')
+    const waysToWinPerRound: number[] = []
+
+    for (const { time, distance } of parsedInput) {
+        let timesWon = 0
+        for (let timeHeld = 0; timeHeld <= time; timeHeld++) {
+            const speed = timeHeld
+            const timeLeft = time - timeHeld
+            const distanceTravelled = speed * timeLeft
+            if (distanceTravelled > distance) timesWon++
+        }
+        waysToWinPerRound.push(timesWon)
+    }
+
+    console.timeEnd('solution 1')
+    return waysToWinPerRound.reduce((acc, curr) => curr * acc, 1)
+}`
+
+const solution2CodeFullLoop = `// 60ms
+export function solution2FullLoop(input: string): number {
+    const parsedInput = parseInput2(input)
+    const { time, distance } = parsedInput
+
+    console.time('solution 2 full loop')
+    let timesWon = 0
+
+    for (let timeHeld = 0; timeHeld <= time; timeHeld++) {
+        const speed = timeHeld
+        const timeLeft = time - timeHeld
+        const distanceTravelled = speed * timeLeft
+        if (distanceTravelled > distance) timesWon++
+    }
+
+    console.timeEnd('solution 2 full loop')
+    return timesWon
+}`
+
+const solution2CodeBreakLoopEarly = `// 16 ms
+function solution2BreakLoopEarly(input: string): number {
+  const parsedInput = parseInput2(input)
+  const { time, distance } = parsedInput
+
+  console.time('solution 2 break early')
+  let minTimeNeededForWin = 0
+  let maxTimeNeededForWin = 0
+
+  for (let timeHeld = 0; timeHeld <= time; timeHeld++) {
+    const speed = timeHeld
+    const timeLeft = time - timeHeld
+    const distanceTravelled = speed * timeLeft
+    if (distanceTravelled > distance) {
+      minTimeNeededForWin = timeHeld
+      break
+    }
+  }
+
+  for (let timeHeld = time; timeHeld >= 0; timeHeld--) {
+    const speed = timeHeld
+    const timeLeft = time - timeHeld
+    const distanceTravelled = speed * timeLeft
+    if (distanceTravelled > distance) {
+      maxTimeNeededForWin = timeHeld
+      break
+    }
+  }
+
+  console.timeEnd('solution 2 break early')
+  return maxTimeNeededForWin - minTimeNeededForWin + 1
+}`
+
+const solution2Quadratic = `function quadraticFormula(
+    a: number,
+    b: number,
+    c: number,
+  ): { lowerBound: number; upperBound: number } {
+    const root1 = ((-b + Math.sqrt(b * b - 4 * a * c)) / 2) * a
+    const root2 = ((-b - Math.sqrt(b * b - 4 * a * c)) / 2) * a
+  
+    return {
+      lowerBound: Math.min(root1, root2),
+      upperBound: Math.max(root1, root2),
+    }
+  }
+  
+  // 0.061ms
+  function solution2QuadarticEquation(input: string): number {
+    const parsedInput = parseInput2(input)
+    const { time, distance } = parsedInput
+  
+    console.time('solution 2 quadartic')
+  
+    const { lowerBound, upperBound } = quadraticFormula(-1, time, -distance)
+  
+    console.timeEnd('solution 2 quadartic')
+    return Math.floor(upperBound) - Math.ceil(lowerBound) + 1
+  }`
+
 const Day6 = () => (
   <Layout>
     <SEO
       title="Advent of Code 2023 - Day 6"
-      description="A detailed look at my solution for Advent of Code 2023 day 6"
+      description="A detailed look at my solution for Advent of Code 2023 | Day 6"
       image="https://i.imgur.com/G1kmea0.jpg"
     />
     <section className="blog-page">
@@ -69,28 +169,7 @@ const Day6 = () => (
             travel a greater distance for each time-distance pair in the input.
           </p>
 
-          <CodeBlock canHide={false}>
-            {`export function solution1(input: string) {
-    const parsedInput = parseInput1(input)
-
-    console.time('solution 1')
-    const waysToWinPerRound: number[] = []
-
-    for (const { time, distance } of parsedInput) {
-        let timesWon = 0
-        for (let timeHeld = 0; timeHeld <= time; timeHeld++) {
-            const speed = timeHeld
-            const timeLeft = time - timeHeld
-            const distanceTravelled = speed * timeLeft
-            if (distanceTravelled > distance) timesWon++
-        }
-        waysToWinPerRound.push(timesWon)
-    }
-
-    console.timeEnd('solution 1')
-    return waysToWinPerRound.reduce((acc, curr) => curr * acc, 1)
-    }`}
-          </CodeBlock>
+          <CodeBlock canHide={false}>{solution1Code}</CodeBlock>
 
           <h3>Part 2</h3>
           <p>
@@ -105,29 +184,10 @@ const Day6 = () => (
           <p>
             I initially approached the problem by simply looping through the times from 0 to, in this case, 71530. The
             method involved calculating the distance that could be traveled and tallying how many instances surpassed
-            the predefined distance. The code ran efficiently on my machine, taking approximately 60ms. However, I
-            recognized the potential for significant optimization.
+            the predefined distance. The code ran efficiently on my machine, taking approximately 60ms for my real
+            input. However, I recognized the potential for significant optimization.
           </p>
-          <CodeBlock canHide={false}>
-            {`// 60ms
-export function solution2FullLoop(input: string): number {
-const parsedInput = parseInput2(input)
-const { time, distance } = parsedInput
-
-console.time('solution 2 full loop')
-let timesWon = 0
-
-for (let timeHeld = 0; timeHeld <= time; timeHeld++) {
-    const speed = timeHeld
-    const timeLeft = time - timeHeld
-    const distanceTravelled = speed * timeLeft
-    if (distanceTravelled > distance) timesWon++
-}
-
-console.timeEnd('solution 2 full loop')
-return timesWon
-}`}
-          </CodeBlock>
+          <CodeBlock canHide={false}>{solution2CodeFullLoop}</CodeBlock>
           <p>
             An optimization strategy involves two loops: the first starts at 0, incrementing by 1 until a valid distance
             is found for the minimum time. The second loop starts at the input time, decrementing by 1 until a valid
@@ -140,40 +200,7 @@ return timesWon
             This did solve about 4x faster for my real input but in the worst case the time complexity would not be any
             better.
           </p>
-          <CodeBlock canHide={false}>
-            {`// 16 ms
-function solution2BreakLoopEarly(input: string): number {
-  const parsedInput = parseInput2(input)
-  const { time, distance } = parsedInput
-
-  console.time('solution 2 break early')
-  let minTimeNeededForWin = 0
-  let maxTimeNeededForWin = 0
-
-  for (let timeHeld = 0; timeHeld <= time; timeHeld++) {
-    const speed = timeHeld
-    const timeLeft = time - timeHeld
-    const distanceTravelled = speed * timeLeft
-    if (distanceTravelled > distance) {
-      minTimeNeededForWin = timeHeld
-      break
-    }
-  }
-
-  for (let timeHeld = time; timeHeld >= 0; timeHeld--) {
-    const speed = timeHeld
-    const timeLeft = time - timeHeld
-    const distanceTravelled = speed * timeLeft
-    if (distanceTravelled > distance) {
-      maxTimeNeededForWin = timeHeld
-      break
-    }
-  }
-
-  console.timeEnd('solution 2 break early')
-  return maxTimeNeededForWin - minTimeNeededForWin + 1
-}`}
-          </CodeBlock>
+          <CodeBlock canHide={false}>{solution2CodeBreakLoopEarly}</CodeBlock>
           <p>
             However doing this is became clear the pattern between distance travelled and time held on the boat button
             follows a quadratic relationship. (
@@ -196,34 +223,7 @@ function solution2BreakLoopEarly(input: string): number {
             height={400}
           />
 
-          <CodeBlock canHide={false}>
-            {`function quadraticFormula(
-  a: number,
-  b: number,
-  c: number,
-): { lowerBound: number; upperBound: number } {
-  const root1 = ((-b + Math.sqrt(b * b - 4 * a * c)) / 2) * a
-  const root2 = ((-b - Math.sqrt(b * b - 4 * a * c)) / 2) * a
-
-  return {
-    lowerBound: Math.min(root1, root2),
-    upperBound: Math.max(root1, root2),
-  }
-}
-
-// 0.061ms
-function solution2QuadarticEquation(input: string): number {
-  const parsedInput = parseInput2(input)
-  const { time, distance } = parsedInput
-
-  console.time('solution 2 quadartic')
-
-  const { lowerBound, upperBound } = quadraticFormula(-1, time, -distance)
-
-  console.timeEnd('solution 2 quadartic')
-  return Math.floor(upperBound) - Math.ceil(lowerBound) + 1
-}`}
-          </CodeBlock>
+          <CodeBlock canHide={false}>{solution2Quadratic}</CodeBlock>
           <p>A nice 1000x performance improvment on our basic for loop solution.</p>
         </div>
       </section>

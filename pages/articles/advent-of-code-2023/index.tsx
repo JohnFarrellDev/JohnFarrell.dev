@@ -66,7 +66,7 @@ const AdventOfCode2023 = () => {
               <li>Day 10 Explanation -</li>
               <li>Day 09 Explanation -</li>
               <li>Day 08 Explanation -</li>
-              <li>Day 07 Explanation -</li>
+              <li>Day 07 Explanation - ⭐⭐</li>
               <li>
                 <Link href="/articles/advent-of-code-2023/day-6">Day 06 Explanation</Link> - ⭐⭐
               </li>
