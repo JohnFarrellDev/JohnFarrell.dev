@@ -6,6 +6,7 @@ import { Title } from '../../../Components/Utilities/Title/Title'
 import { FaGithub } from 'react-icons/fa'
 import Image from 'next/image'
 import Link from 'next/link'
+import { PreBlock } from '../../../Components/PreBlock/PreBlock'
 
 const solution1Code = `export function solution1(input: string) {
     const parsedInput = parseInput1(input)
@@ -134,8 +135,9 @@ const Day6 = () => (
           <h2>The Problem</h2>
 
           <p>Day 6 problem was relatively simply, the input was small and looked like below for the example</p>
-          <pre>Time: 7 15 30</pre>
-          <pre>Distance: 9 40 200</pre>
+
+          <PreBlock lines={[`Time: 7 15 30`, `Distance: 9 40 200`]} />
+
           <p>
             The problem involved a user with a toy boat that starts with a speed of 0. The boat is equipped with a
             charging button that can be held for as long as the user desires. Each millisecond the button is held, the
@@ -155,10 +157,10 @@ const Day6 = () => (
 
           <p>To achieve this, we initially parsed the input into an array of objects structured as follows:</p>
 
-          <code>{`{ time: number; distance: number }[]`}</code>
+          <PreBlock lines={[`{ time: number; distance: number }[]`]} />
 
           <p>So for the example</p>
-          <code>{`[{ time: 7, distance:9 }, { time: 15, distance:40 }, { time: 30, distance:200 }]`}</code>
+          <PreBlock lines={[`[{ time: 7, distance: 9 }, { time: 15, distance: 40 }, { time: 30, distance: 200 }]`]} />
 
           <p>
             The initial approach for Solution 1 involved a straightforward process. We looped through the array of
@@ -176,11 +178,13 @@ const Day6 = () => (
             Part 2 wasn't significantly more challenging than Part 1; the primary change was in how the input was
             processed. Unlike Part 1, the input for Part 2 should not be read removing the spaces between the numbers.
           </p>
-          <pre>Time: 7 15 30</pre>
-          <pre>Distance: 9 40 200</pre>
+
+          <PreBlock lines={['Time: 7 15 30', 'Distance: 9 40 200']} />
+
           <p>becomes a single race like so</p>
-          <pre>Time: 71530</pre>
-          <pre>Distance: 940200</pre>
+
+          <PreBlock lines={['{ time: 71530, distance: 940200 }']} />
+
           <p>
             I initially approached the problem by simply looping through the times from 0 to, in this case, 71530. The
             method involved calculating the distance that could be traveled and tallying how many instances surpassed
@@ -207,14 +211,18 @@ const Day6 = () => (
             <a href="https://en.wikipedia.org/wiki/Quadratic_formula">wikipedia article on quadratic formula</a>)
           </p>
 
-          <pre>time = 71530</pre>
-          <pre>distance = 940200</pre>
-          <pre>speed = time held (TH)</pre>
-          <pre>distance = speed * time</pre>
-          <pre>distance = TH * (time - TH)</pre>
-          <pre>940200 = TH * (71530 - TH)</pre>
-          <pre>940200 = 71530TH - TH^2</pre>
-          <pre>0 = -TH^2 + 71530TH - 940200</pre>
+          <PreBlock
+            lines={[
+              `time = 71_530`,
+              `distance = 940_200`,
+              `speed = time held (TH)`,
+              `distance = speed * time`,
+              `distance = TH * (time - TH)`,
+              `940_200 = TH * (71530 - TH)`,
+              `940_200 = 71_530TH - TH^2`,
+              `0 = -TH^2 + 71_530TH - 940_200`,
+            ]}
+          />
 
           <Image
             src="https://i.imgur.com/qCcMYLb.png"

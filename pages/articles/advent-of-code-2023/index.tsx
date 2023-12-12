@@ -41,8 +41,8 @@ const AdventOfCode2023 = () => {
             </p>
             <p>In future years I would consider another language as a learning oppurtunity</p>
             <p>
-              My approach to each question is fairly simple, I will take the input and use a backtick(`) string to store
-              it against a variable. I will then apply some basic parsing to extract the input data into a more usable
+              My approach to each question is fairly simple, I will take the input and use a string literal to store
+              then input against a variable. I will then apply some parsing to extract the input data into a more usable
               format. I will then create a function for each of part 1 and part 2.
             </p>
             <p>In some cases I will write tests but the purpose of these is to help with debugging.</p>
