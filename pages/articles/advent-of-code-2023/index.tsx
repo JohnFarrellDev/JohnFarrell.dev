@@ -55,16 +55,16 @@ const AdventOfCode2023 = () => {
               <li>Day 21 Explanation (not yet released) -</li>
               <li>Day 20 Explanation (not yet released) -</li>
               <li>Day 19 Explanation (not yet released) -</li>
-              <li>Day 18 Explanation (not yet released) -</li>
-              <li>Day 17 Explanation (not yet released) -</li>
-              <li>Day 16 Explanation (not yet released) -</li>
-              <li>Day 15 Explanation (not yet released) -</li>
-              <li>Day 14 Explanation (not yet released) -</li>
-              <li>Day 13 Explanation (not yet released) -</li>
-              <li>Day 12 Explanation (not yet released) -</li>
-              <li>Day 11 Explanation (not yet released) -</li>
-              <li>Day 10 Explanation -</li>
-              <li>Day 09 Explanation -</li>
+              <li>Day 18 Explanation -</li>
+              <li>Day 17 Explanation -</li>
+              <li>Day 16 Explanation -</li>
+              <li>Day 15 Explanation -</li>
+              <li>Day 14 Explanation -</li>
+              <li>Day 13 Explanation -</li>
+              <li>Day 12 Explanation -</li>
+              <li>Day 11 Explanation - ⭐⭐</li>
+              <li>Day 10 Explanation - ⭐</li>
+              <li>Day 09 Explanation - ⭐⭐</li>
               <li>Day 08 Explanation - ⭐⭐</li>
               <li>Day 07 Explanation - ⭐⭐</li>
               <li>
@@ -72,9 +72,11 @@ const AdventOfCode2023 = () => {
               </li>
               <li>Day 05 Explanation -</li>
               <li>Day 04 Explanation - ⭐⭐</li>
-              <li>Day 03 Explanation - ⭐</li>
+              <li>Day 03 Explanation - ⭐⭐</li>
               <li>Day 02 Explanation - ⭐⭐</li>
-              <li>Day 01 Explanation - ⭐⭐</li>
+              <li>
+                <Link href="/articles/advent-of-code-2023/day-1">Day 01 Explanation</Link> - ⭐⭐
+              </li>
             </ul>
           </div>
         </section>
