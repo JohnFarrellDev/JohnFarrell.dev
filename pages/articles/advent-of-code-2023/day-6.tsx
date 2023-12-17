@@ -19,8 +19,8 @@ const solution1Code = `export function solution1(input: string) {
         for (let timeHeld = 0; timeHeld <= time; timeHeld++) {
             const speed = timeHeld
             const timeLeft = time - timeHeld
-            const distanceTravelled = speed * timeLeft
-            if (distanceTravelled > distance) timesWon++
+            const distanceTraveled = speed * timeLeft
+            if (distanceTraveled > distance) timesWon++
         }
         waysToWinPerRound.push(timesWon)
     }
@@ -40,8 +40,8 @@ export function solution2FullLoop(input: string): number {
     for (let timeHeld = 0; timeHeld <= time; timeHeld++) {
         const speed = timeHeld
         const timeLeft = time - timeHeld
-        const distanceTravelled = speed * timeLeft
-        if (distanceTravelled > distance) timesWon++
+        const distanceTraveled = speed * timeLeft
+        if (distanceTraveled > distance) timesWon++
     }
 
     console.timeEnd('solution 2 full loop')
@@ -60,8 +60,8 @@ function solution2BreakLoopEarly(input: string): number {
   for (let timeHeld = 0; timeHeld <= time; timeHeld++) {
     const speed = timeHeld
     const timeLeft = time - timeHeld
-    const distanceTravelled = speed * timeLeft
-    if (distanceTravelled > distance) {
+    const distanceTraveled = speed * timeLeft
+    if (distanceTraveled > distance) {
       minTimeNeededForWin = timeHeld
       break
     }
@@ -70,8 +70,8 @@ function solution2BreakLoopEarly(input: string): number {
   for (let timeHeld = time; timeHeld >= 0; timeHeld--) {
     const speed = timeHeld
     const timeLeft = time - timeHeld
-    const distanceTravelled = speed * timeLeft
-    if (distanceTravelled > distance) {
+    const distanceTraveled = speed * timeLeft
+    if (distanceTraveled > distance) {
       maxTimeNeededForWin = timeHeld
       break
     }
@@ -96,22 +96,22 @@ const solution2Quadratic = `function quadraticFormula(
   }
   
   // 0.061ms
-  function solution2QuadarticEquation(input: string): number {
+  function solution2QuadraticEquation(input: string): number {
     const parsedInput = parseInput2(input)
     const { time, distance } = parsedInput
   
-    console.time('solution 2 quadartic')
+    console.time('solution 2 quadratic')
   
     const { lowerBound, upperBound } = quadraticFormula(-1, time, -distance)
   
-    console.timeEnd('solution 2 quadartic')
+    console.timeEnd('solution 2 quadratic')
     return Math.floor(upperBound) - Math.ceil(lowerBound) + 1
   }`
 
 const Day6 = () => (
   <Layout>
     <SEO
-      title="Advent of Code 2023 - Day 6"
+      title="Advent of Code 2023 | Day 6"
       description="A detailed look at my solution for Advent of Code 2023 | Day 6"
       image="https://i.imgur.com/G1kmea0.jpg"
     />
@@ -206,7 +206,7 @@ const Day6 = () => (
           </p>
           <CodeBlock canHide={false}>{solution2CodeBreakLoopEarly}</CodeBlock>
           <p>
-            However doing this is became clear the pattern between distance travelled and time held on the boat button
+            However doing this is became clear the pattern between distance traveled and time held on the boat button
             follows a quadratic relationship. (
             <a href="https://en.wikipedia.org/wiki/Quadratic_formula">wikipedia article on quadratic formula</a>)
           </p>
@@ -233,7 +233,7 @@ const Day6 = () => (
           />
 
           <CodeBlock canHide={false}>{solution2Quadratic}</CodeBlock>
-          <p>A nice 1000x performance improvment on our basic for loop solution.</p>
+          <p>A nice 1000x performance improvement on our basic for loop solution.</p>
         </div>
       </section>
     </section>

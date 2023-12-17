@@ -1,4 +1,3 @@
-//information or warning for props
 import { IoWarningSharp } from 'react-icons/io5'
 import { IoIosInformationCircle } from 'react-icons/io'
 import styles from './Banner.module.css'
