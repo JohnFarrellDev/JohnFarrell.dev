@@ -76,6 +76,20 @@ function generateGameOverMessage(isGameOver: boolean, currentScore: number, high
 }
 
 const TwentyNumberChallenge = () => {
+  return (
+    <Layout>
+      <SEO title="Twenty Number Challenge" description="Fun numbers game" image="https://i.imgur.com/cZyUWlv.png" />
+      <Title title="Twenty Number Challenge" extraStyles={styles.title} />
+      <main className={styles.main}>
+        <Game />
+      </main>
+    </Layout>
+  )
+}
+
+export default TwentyNumberChallenge
+
+const Game = () => {
   const [hydration, setHydration] = useState(false)
 
   useEffect(() => {
@@ -169,45 +183,35 @@ const TwentyNumberChallenge = () => {
   }
 
   return (
-    <Layout>
-      <SEO title="Twenty Number Challenge" description="Fun numbers game" image="https://i.imgur.com/cZyUWlv.png" />
-      <Title title="Twenty Number Challenge" extraStyles={styles.title} />
-      <main className={styles.main}>
-        <div>
-          <p className={styles.info}>
-            Attempt to place 20 randomly assigned numbers from 1 to 1,000 in descending order
-          </p>
-          <p className={styles.currentNumber}>Your Current Number is:</p>
-          <p className={styles.nextNumber}>{randomValue}</p>
-          {isGameOver && (
-            <>
-              <p className={styles.gameOverMessage}>{gameOverMessage}</p>
-              <div className={styles.gameOver}>
-                <button onClick={restartGame} ref={resetGameRef}>
-                  Game Over, click to restart
-                </button>
-              </div>
-            </>
-          )}
-          <div className={styles.slotsContainer} ref={slotsContainerRef}>
-            {slots.map((slot, index) => (
-              <Slot
-                index={index}
-                slotValue={slot}
-                disabled={disabled[index]}
-                handleClick={handleClick}
-                handleKeyDown={handleKeyDown}
-                key={index}
-              />
-            ))}
+    <div>
+      <p className={styles.info}>Attempt to place 20 randomly assigned numbers from 1 to 1,000 in descending order</p>
+      <p className={styles.currentNumber}>Your Current Number is:</p>
+      <p className={styles.nextNumber}>{randomValue}</p>
+      {isGameOver && (
+        <>
+          <p className={styles.gameOverMessage}>{gameOverMessage}</p>
+          <div className={styles.gameOver}>
+            <button onClick={restartGame} ref={resetGameRef}>
+              Game Over, click to restart
+            </button>
           </div>
-        </div>
-      </main>
-    </Layout>
+        </>
+      )}
+      <div className={styles.slotsContainer} ref={slotsContainerRef}>
+        {slots.map((slot, index) => (
+          <Slot
+            index={index}
+            slotValue={slot}
+            disabled={disabled[index]}
+            handleClick={handleClick}
+            handleKeyDown={handleKeyDown}
+            key={index}
+          />
+        ))}
+      </div>
+    </div>
   )
 }
-
-export default TwentyNumberChallenge
 
 interface SlotProps {
   index: number
