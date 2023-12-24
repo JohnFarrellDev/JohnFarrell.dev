@@ -170,7 +170,7 @@ const TwentyNumberChallenge = () => {
 
   return (
     <Layout>
-      <SEO title="Twenty Number Challenge" description="Fun numbers game" image="https://i.imgur.com/r0lNgWH.png" />
+      <SEO title="Twenty Number Challenge" description="Fun numbers game" image="https://i.imgur.com/cZyUWlv.png" />
       <Title title="Twenty Number Challenge" extraStyles={styles.title} />
       <main className={styles.main}>
         <div>
