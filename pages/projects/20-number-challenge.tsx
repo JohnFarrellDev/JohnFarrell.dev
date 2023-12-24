@@ -78,7 +78,7 @@ function generateGameOverMessage(isGameOver: boolean, currentScore: number, high
 const TwentyNumberChallenge = () => {
   return (
     <Layout>
-      <SEO title="Twenty Number Challenge" description="Fun numbers game" image="https://imgur.com/a/iX5Pcxt" />
+      <SEO title="Twenty Number Challenge" description="Fun numbers game" image="https://i.imgur.com/t6rv7fj.png" />
       <Title title="Twenty Number Challenge" extraStyles={styles.title} />
       <main className={styles.main}>
         <Game />
