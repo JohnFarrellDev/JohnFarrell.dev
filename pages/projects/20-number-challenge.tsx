@@ -4,6 +4,7 @@ import { SEO } from '../../Components/SEO/SEO'
 import { Title } from '../../Components/Utilities/Title/Title'
 import styles from './twenty-number-challenge.module.css'
 import { UseLocalStorage } from '../../Utilities/UseLocalStorage'
+import confetti from 'canvas-confetti'
 
 function getRandomValue(notPossibleValues: Set<number>) {
   let randomValue = 0
@@ -70,9 +71,11 @@ function generateGameOverMessage(isGameOver: boolean, currentScore: number, high
     return `Game Over, your score is ${currentScore}, great job, so close! Your high score is ${highScore}`
   }
 
-  if (currentScore === highScore) {
-    return `Game Over, your score is ${currentScore}, which ties your high score!`
+  if (currentScore === 20) {
+    return `Wow, you got a perfect score!`
   }
+
+  return ''
 }
 
 const TwentyNumberChallenge = () => {
@@ -85,6 +88,43 @@ const TwentyNumberChallenge = () => {
       </main>
     </Layout>
   )
+}
+
+function applyConfetti(isWinner: boolean) {
+  let confettiInterval: NodeJS.Timer | null = null
+  if (isWinner) {
+    const randomDrift = () => Math.random() * (Math.random() > 0.5 ? 1 : -1)
+
+    confettiInterval = setInterval(() => {
+      confetti({
+        particleCount: 150,
+        spread: 45,
+        angle: 45,
+        drift: 1 + randomDrift(),
+        disableForReducedMotion: true,
+        origin: { x: 0.2, y: 0.5 },
+        gravity: 1.5,
+      })
+      confetti({
+        particleCount: 300,
+        spread: 90,
+        drift: randomDrift(),
+        disableForReducedMotion: true,
+        origin: { x: 0.5, y: 0.5 },
+        gravity: 1.5,
+      })
+      confetti({
+        particleCount: 150,
+        spread: 45,
+        angle: 135,
+        drift: -1 + randomDrift(),
+        disableForReducedMotion: true,
+        origin: { x: 0.8, y: 0.5 },
+        gravity: 1.5,
+      })
+    }, 1000)
+  }
+  return { confettiInterval }
 }
 
 export default TwentyNumberChallenge
@@ -122,8 +162,11 @@ const Game = () => {
     return false
   }
   const disabled = new Array(20).fill(false).map((_, index) => checkDisabled(index))
-  const isGameOver = disabled.every((value) => value) && nonNullValues.length !== 20
+  const isGameOver = disabled.every((value) => value)
+  const isWinner = nonNullValues.length === 5
   const gameOverMessage = generateGameOverMessage(isGameOver, nonNullValues.length, highScore)
+
+  const { confettiInterval } = applyConfetti(isWinner)
 
   // for handling focus events
   useEffect(() => {
@@ -143,6 +186,7 @@ const Game = () => {
   }
 
   const restartGame = () => {
+    if (confettiInterval) clearInterval(confettiInterval)
     refetch()
     setSlots(Array(20).fill(null))
   }
