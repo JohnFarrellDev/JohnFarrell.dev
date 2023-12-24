@@ -1,0 +1,71 @@
+.main p {
+  line-height: 1.2;
+}
+
+.title {
+  margin: 0 0 16px 0;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.info {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.currentNumber {
+  margin: 0;
+  text-align: center;
+}
+
+.nextNumber {
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.gameOverMessage {
+  text-align: center;
+  margin: 0 0 8px 0;
+}
+
+.slotsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.slotContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.slotNumber {
+  margin-right: 4px;
+}
+
+.slotInput {
+  display: block;
+  width: 150px;
+}
+
+.gameOver {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.gameOver[data-game-over='false'] button {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  text-decoration-line: line-through;
+}
+
+.gameOver button {
+  padding: 4px 8px;
+}
