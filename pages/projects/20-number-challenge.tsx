@@ -129,6 +129,8 @@ function applyConfetti(isWinner: boolean) {
 
 export default TwentyNumberChallenge
 
+const NUMBER_OF_SLOTS = 20
+
 const Game = () => {
   const [hydration, setHydration] = useState(false)
 
@@ -136,7 +138,7 @@ const Game = () => {
     setHydration(true)
   }, [])
 
-  const [slots, setSlots] = useState<(number | null)[]>(Array(20).fill(null))
+  const [slots, setSlots] = useState<(number | null)[]>(Array(NUMBER_OF_SLOTS).fill(null))
   const {
     value: highScore,
     setValueLocalStorageNoRerender: setHighScore,
@@ -161,9 +163,9 @@ const Game = () => {
 
     return false
   }
-  const disabled = new Array(20).fill(false).map((_, index) => checkDisabled(index))
+  const disabled = new Array(NUMBER_OF_SLOTS).fill(false).map((_, index) => checkDisabled(index))
   const isGameOver = disabled.every((value) => value)
-  const isWinner = nonNullValues.length === 5
+  const isWinner = nonNullValues.length === NUMBER_OF_SLOTS
   const gameOverMessage = generateGameOverMessage(isGameOver, nonNullValues.length, highScore)
 
   const { confettiInterval } = applyConfetti(isWinner)
@@ -188,7 +190,7 @@ const Game = () => {
   const restartGame = () => {
     if (confettiInterval) clearInterval(confettiInterval)
     refetch()
-    setSlots(Array(20).fill(null))
+    setSlots(Array(NUMBER_OF_SLOTS).fill(null))
   }
 
   const handleClick = (index: number) => {
