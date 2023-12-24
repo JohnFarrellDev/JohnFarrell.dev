@@ -177,12 +177,8 @@ const TwentyNumberChallenge = () => {
           <p className={styles.info}>
             Attempt to place 20 randomly assigned numbers from 1 to 1,000 in descending order
           </p>
-          {!isGameOver && (
-            <>
-              <p className={styles.currentNumber}>Your Current Number is:</p>
-              <p className={styles.nextNumber}>{randomValue}</p>
-            </>
-          )}
+          <p className={styles.currentNumber}>Your Current Number is:</p>
+          <p className={styles.nextNumber}>{randomValue}</p>
           {isGameOver && (
             <>
               <p className={styles.gameOverMessage}>{gameOverMessage}</p>
