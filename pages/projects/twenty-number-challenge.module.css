@@ -53,6 +53,10 @@
   width: 150px;
 }
 
+.slotInput[data-slot-fail='true'] {
+  background-color: hsl(0, 100%, 80%);
+}
+
 .gameOver {
   display: flex;
   justify-content: center;
@@ -62,6 +66,17 @@
 
 .gameOver button {
   padding: 8px;
+  cursor: pointer;
+}
+
+.gameOverButton {
+  background-color: hsl(125, 100%, 75%);
+  border-color: hsl(125, 100%, 60%);
+}
+
+.gameOverButton:hover {
+  background-color: hsl(125, 100%, 65%);
+  border-color: hsl(125, 100%, 50%);
 }
 
 .gameOverScore {
@@ -75,6 +90,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: hsl(200, 100%, 75%);
+  border-color: hsl(200, 100%, 60%);
+}
+
+.shareButton:hover {
+  background-color: hsl(200, 100%, 65%);
+  border-color: hsl(200, 100%, 50%);
 }
 
 .shareButton svg {

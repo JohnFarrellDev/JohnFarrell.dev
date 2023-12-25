@@ -272,7 +272,7 @@ const Game = () => {
         <>
           {gameOverMessage}
           <div className={styles.gameOver}>
-            <button onClick={restartGame} ref={resetGameRef}>
+            <button className={styles.gameOverButton} onClick={restartGame} ref={resetGameRef}>
               Game Over, click to restart
             </button>
             <ShareButton score={nonNullValues.length} />
@@ -285,6 +285,9 @@ const Game = () => {
             index={index}
             slotValue={slot}
             disabled={disabled[index]}
+            slotFail={
+              isGameOver && nonNullValues.length !== 20 && (index === validLowestIndex || index === validHighestIndex)
+            }
             handleClick={handleClick}
             handleKeyDown={handleKeyDown}
             key={index}
@@ -313,7 +316,7 @@ const ShareButton = ({ score }: { score: number }) => {
   return (
     <button onClick={copyToClipboard} className={styles.shareButton}>
       <IoCopyOutline size={20} />
-      Share results
+      Share Results
     </button>
   )
 }
@@ -322,11 +325,12 @@ interface SlotProps {
   index: number
   disabled: boolean
   slotValue: number | null
+  slotFail: boolean
   handleClick: (index: number) => void
   handleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void
 }
 
-const Slot = ({ index, slotValue, disabled, handleClick, handleKeyDown }: SlotProps) => {
+const Slot = ({ index, slotValue, disabled, slotFail, handleClick, handleKeyDown }: SlotProps) => {
   return (
     <div className={styles.slotContainer}>
       <span className={styles.slotNumber}>
@@ -340,6 +344,7 @@ const Slot = ({ index, slotValue, disabled, handleClick, handleKeyDown }: SlotPr
         onClick={() => handleClick(index)}
         onKeyDown={handleKeyDown}
         className={styles.slotInput}
+        data-slot-fail={slotFail}
         value={slotValue ?? ''}
         disabled={disabled}
         data-index={index}
