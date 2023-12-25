@@ -313,8 +313,23 @@ const ShareButton = ({ score }: { score: number }) => {
     navigator.clipboard.writeText(message)
   }
 
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: 'Twenty Number Challenge',
+          text: clipboardMessage(score),
+          url,
+        })
+        .then(() => {})
+        .catch(() => {})
+    } else {
+      copyToClipboard()
+    }
+  }
+
   return (
-    <button onClick={copyToClipboard} className={styles.shareButton}>
+    <button onClick={handleShare} className={styles.shareButton}>
       <IoCopyOutline size={20} />
       Share Results
     </button>
