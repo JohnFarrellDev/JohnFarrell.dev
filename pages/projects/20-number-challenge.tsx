@@ -319,7 +319,6 @@ const ShareButton = ({ score }: { score: number }) => {
       navigator
         .share({
           text: message,
-          url,
         })
         .then(() => {})
         .catch(() => {})
