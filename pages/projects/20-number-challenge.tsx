@@ -167,12 +167,6 @@ export default TwentyNumberChallenge
 const NUMBER_OF_SLOTS = 20
 
 const Game = () => {
-  const [hydration, setHydration] = useState(false)
-
-  useEffect(() => {
-    setHydration(true)
-  }, [])
-
   const [slots, setSlots] = useState<(number | null)[]>(Array(NUMBER_OF_SLOTS).fill(null))
   const {
     value: highScore,
@@ -215,8 +209,6 @@ const Game = () => {
       midElement?.querySelector('input')?.focus()
     }
   }, [isGameOver, validHighestIndex, validLowestIndex])
-
-  if (!hydration) return null
 
   if (isGameOver && nonNullValues.length > highScore) {
     setHighScore(nonNullValues.length)
@@ -265,9 +257,7 @@ const Game = () => {
 
   return (
     <div>
-      <p className={styles.info}>Attempt to place 20 randomly assigned numbers from 1 to 1,000 in descending order</p>
-      <p className={styles.currentNumber}>Your Current Number is:</p>
-      <p className={styles.nextNumber}>{randomValue}</p>
+      <CurrentNumber currentNumber={randomValue} />
       {isGameOver && (
         <>
           {gameOverMessage}
@@ -299,6 +289,24 @@ const Game = () => {
 }
 
 const url = 'https://www.johnfarrell.dev/projects/20-number-challenge'
+
+const CurrentNumber = ({ currentNumber }: { currentNumber: number }) => {
+  const [hydration, setHydration] = useState(false)
+
+  useEffect(() => {
+    setHydration(true)
+  }, [])
+
+  if (!hydration) return null
+
+  return (
+    <>
+      <p className={styles.info}>Attempt to place 20 randomly assigned numbers from 1 to 1,000 in descending order</p>
+      <p className={styles.currentNumber}>Your Current Number is:</p>
+      <p className={styles.nextNumber}>{currentNumber}</p>
+    </>
+  )
+}
 
 const clipboardMessage = (score: number) => {
   if (score === 20)
