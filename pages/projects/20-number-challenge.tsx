@@ -317,8 +317,7 @@ const ShareButton = ({ score }: { score: number }) => {
     if (navigator.share) {
       navigator
         .share({
-          title: 'Twenty Number Challenge',
-          text: clipboardMessage(score),
+          title: clipboardMessage(score),
           url,
         })
         .then(() => {})
