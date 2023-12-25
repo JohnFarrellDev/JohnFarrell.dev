@@ -2,9 +2,10 @@ import { useEffect, useState, useRef } from 'react'
 import { Layout } from '../../Components/Layout/Layout'
 import { SEO } from '../../Components/SEO/SEO'
 import { Title } from '../../Components/Utilities/Title/Title'
-import styles from './twenty-number-challenge.module.css'
 import { UseLocalStorage } from '../../Utilities/UseLocalStorage'
+import { IoCopyOutline } from 'react-icons/io5'
 import confetti from 'canvas-confetti'
+import styles from './twenty-number-challenge.module.css'
 
 function getRandomValue(notPossibleValues: Set<number>) {
   let randomValue = 0
@@ -41,41 +42,75 @@ function getHighestIndex(slots: (number | null)[], nonNullValues: number[], rand
 }
 
 function generateGameOverMessage(isGameOver: boolean, currentScore: number, highScore: number) {
-  if (!isGameOver) return ''
+  if (!isGameOver) return <></>
 
   if (highScore === 0) {
-    return `Well done on your first game, your score is ${currentScore}, which is a new high score!`
+    return (
+      <p className={styles.gameOverMessage}>
+        Well done on your first game, your score is <span className={styles.gameOverScore}>{currentScore}</span>, which
+        is a new high score!
+      </p>
+    )
   }
 
   if (currentScore > highScore) {
-    return `Game Over, your score is ${currentScore}, which is a new high score!`
+    return (
+      <p className={styles.gameOverMessage}>
+        Game Over, your score is <span className={styles.gameOverScore}>{currentScore}</span>, which is a new high
+        score!
+      </p>
+    )
   }
 
   if (currentScore < 4) {
-    return `Game Over, your score is ${currentScore}, wow that was bad! Your high score is ${highScore}`
+    return (
+      <p className={styles.gameOverMessage}>
+        Game Over, your score is <span className={styles.gameOverScore}>{currentScore}</span>, wow that was bad! Your
+        high score is {highScore}!
+      </p>
+    )
   }
 
   if (currentScore < 8) {
-    return `Game Over, your score is ${currentScore}, you can do better than that! Your high score is ${highScore}`
+    return (
+      <p className={styles.gameOverMessage}>
+        Game Over, your score is <span className={styles.gameOverScore}>{currentScore}</span>, you can do better than
+        that! Your high score is {highScore}
+      </p>
+    )
   }
 
   if (currentScore < 12) {
-    return `Game Over, your score is ${currentScore}, not bad! Your high score is ${highScore}`
+    return (
+      <p className={styles.gameOverMessage}>
+        Game Over, your score is <span className={styles.gameOverScore}>{currentScore}</span>, not bad! Your high score
+        is {highScore}
+      </p>
+    )
   }
 
   if (currentScore < 16) {
-    return `Game Over, your score is ${currentScore}, nice! Your high score is ${highScore}`
+    return (
+      <p className={styles.gameOverMessage}>
+        Game Over, your score is <span className={styles.gameOverScore}>{currentScore}</span>, nice! Your high score is{' '}
+        {highScore}
+      </p>
+    )
   }
 
   if (currentScore < 20) {
-    return `Game Over, your score is ${currentScore}, great job, so close! Your high score is ${highScore}`
+    return (
+      <p className={styles.gameOverMessage}>
+        Game Over, your score is <span className={styles.gameOverScore}>{currentScore}</span>, great job, so close!
+      </p>
+    )
   }
 
   if (currentScore === 20) {
-    return `Wow, you got a perfect score!`
+    return <p className={styles.gameOverMessage}>Wow, you got a perfect score!</p>
   }
 
-  return ''
+  return <></>
 }
 
 const TwentyNumberChallenge = () => {
@@ -235,11 +270,12 @@ const Game = () => {
       <p className={styles.nextNumber}>{randomValue}</p>
       {isGameOver && (
         <>
-          <p className={styles.gameOverMessage}>{gameOverMessage}</p>
+          {gameOverMessage}
           <div className={styles.gameOver}>
             <button onClick={restartGame} ref={resetGameRef}>
               Game Over, click to restart
             </button>
+            <ShareButton score={nonNullValues.length} />
           </div>
         </>
       )}
@@ -256,6 +292,29 @@ const Game = () => {
         ))}
       </div>
     </div>
+  )
+}
+
+const url = 'https://www.johnfarrell.dev/projects/20-number-challenge'
+
+const clipboardMessage = (score: number) => {
+  if (score === 20)
+    return `I got a perfect score on the Twenty Number Challenge!` + '\n\n' + 'Can you manage it?' + '\n\n' + url
+
+  return `I got a score of ${score} on the Twenty Number Challenge!` + '\n\n' + 'Can you beat it?' + '\n\n' + url
+}
+
+const ShareButton = ({ score }: { score: number }) => {
+  const copyToClipboard = () => {
+    const message = clipboardMessage(score)
+    navigator.clipboard.writeText(message)
+  }
+
+  return (
+    <button onClick={copyToClipboard} className={styles.shareButton}>
+      <IoCopyOutline size={20} />
+      Share results
+    </button>
   )
 }
 

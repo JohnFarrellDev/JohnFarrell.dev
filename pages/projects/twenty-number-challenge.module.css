@@ -57,16 +57,26 @@
   display: flex;
   justify-content: center;
   margin-bottom: 8px;
-}
-
-.gameOver[data-game-over='false'] button {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #fff;
-  cursor: pointer;
-  text-decoration-line: line-through;
+  gap: 16px;
 }
 
 .gameOver button {
-  padding: 4px 8px;
+  padding: 8px;
+}
+
+.gameOverScore {
+  text-decoration: underline;
+  font-size: 1.5rem;
+}
+
+.shareButton {
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shareButton svg {
+  margin-right: 8px;
 }
