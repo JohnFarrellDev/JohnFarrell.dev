@@ -308,8 +308,9 @@ const clipboardMessage = (score: number) => {
 }
 
 const ShareButton = ({ score }: { score: number }) => {
+  const message = clipboardMessage(score)
+
   const copyToClipboard = () => {
-    const message = clipboardMessage(score)
     navigator.clipboard.writeText(message)
   }
 
@@ -317,7 +318,7 @@ const ShareButton = ({ score }: { score: number }) => {
     if (navigator.share) {
       navigator
         .share({
-          title: clipboardMessage(score),
+          text: message,
           url,
         })
         .then(() => {})
