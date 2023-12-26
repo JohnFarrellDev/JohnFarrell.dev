@@ -1,17 +1,29 @@
 import { IoCopyOutline } from 'react-icons/io5'
 import styles from './Game.module.css'
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
+import { Dispatch, RefObject, SetStateAction, useEffect, useRef, useState } from 'react'
 import { gameValues, applyConfetti } from './Game.utils'
 
-interface GameProps {
-  slots: (number | null)[]
-  setSlots: Dispatch<SetStateAction<(number | null)[]>>
+type SetGameProps = {
+  gameType: 'set-size'
   highScore: number
   setHighScore: (score: number) => void
-  refetch: () => void
 }
 
-export const Game = ({ slots, setSlots, highScore, setHighScore, refetch }: GameProps) => {
+type LevelGameProps = {
+  gameType: 'level'
+  level: number
+  setLevel: (level: number) => void
+}
+
+export type SetGameOrLevelGameProps = SetGameProps | LevelGameProps
+
+type GameProps = {
+  slots: (number | null)[]
+  setSlots: Dispatch<SetStateAction<(number | null)[]>>
+  refetch: () => void
+} & SetGameOrLevelGameProps
+
+export const Game = ({ slots, setSlots, refetch, ...gameTypeProps }: GameProps) => {
   const resetGameRef = useRef<HTMLButtonElement>(null)
   const slotsContainerRef = useRef<HTMLDivElement>(null)
 
@@ -24,7 +36,13 @@ export const Game = ({ slots, setSlots, highScore, setHighScore, refetch }: Game
     isGameOver,
     isWinner,
     gameOverMessage,
-  } = gameValues(slots, highScore)
+    updateStorageCondition,
+    updateStorageFunction,
+  } = gameValues(slots, gameTypeProps)
+
+  if (updateStorageCondition) {
+    updateStorageFunction(gameTypeProps, turnsTaken)
+  }
 
   const { clearConfetti } = applyConfetti(isWinner)
 
@@ -38,10 +56,6 @@ export const Game = ({ slots, setSlots, highScore, setHighScore, refetch }: Game
       midElement?.querySelector('input')?.focus()
     }
   }, [isGameOver, validHighestIndex, validLowestIndex])
-
-  if (isGameOver && turnsTaken > highScore) {
-    setHighScore(turnsTaken)
-  }
 
   const handleRestartGame = () => {
     if (clearConfetti) clearConfetti()
@@ -81,17 +95,13 @@ export const Game = ({ slots, setSlots, highScore, setHighScore, refetch }: Game
   return (
     <div>
       <CurrentNumber currentNumber={randomValue} />
-      {isGameOver && (
-        <>
-          {gameOverMessage}
-          <div className={styles.gameOver}>
-            <button className={styles.gameOverButton} onClick={handleRestartGame} ref={resetGameRef}>
-              Game Over, click to restart
-            </button>
-            <ShareButton score={turnsTaken} />
-          </div>
-        </>
-      )}
+      <GameOver
+        isGameOver={isGameOver}
+        turnsTaken={turnsTaken}
+        gameOverMessage={gameOverMessage}
+        handleRestartGame={handleRestartGame}
+        resetGameRef={resetGameRef}
+      />
       <Slots
         slots={slots}
         slotsContainerRef={slotsContainerRef}
@@ -108,6 +118,34 @@ export const Game = ({ slots, setSlots, highScore, setHighScore, refetch }: Game
 }
 
 const url = 'https://www.johnfarrell.dev/projects/20-number-challenge'
+
+const GameOver = ({
+  isGameOver,
+  turnsTaken,
+  gameOverMessage,
+  handleRestartGame,
+  resetGameRef,
+}: {
+  isGameOver: boolean
+  turnsTaken: number
+  gameOverMessage: JSX.Element
+  handleRestartGame: () => void
+  resetGameRef: RefObject<HTMLButtonElement>
+}) => {
+  if (!isGameOver) return null
+
+  return (
+    <>
+      {gameOverMessage}
+      <div className={styles.gameOver}>
+        <button className={styles.gameOverButton} onClick={handleRestartGame} ref={resetGameRef}>
+          Game Over, click to restart
+        </button>
+        <ShareButton score={turnsTaken} />
+      </div>
+    </>
+  )
+}
 
 const Slots = ({
   slots,

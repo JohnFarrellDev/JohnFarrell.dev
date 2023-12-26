@@ -13,5 +13,14 @@ export const Game20 = () => {
 
   const [slots, setSlots] = useState<(number | null)[]>(Array(numberOfSlots).fill(null))
 
-  return <Game slots={slots} highScore={highScore} setHighScore={setHighScore} setSlots={setSlots} refetch={refetch} />
+  return (
+    <Game
+      slots={slots}
+      setSlots={setSlots}
+      refetch={refetch}
+      highScore={highScore}
+      setHighScore={setHighScore}
+      gameType="set-size"
+    />
+  )
 }

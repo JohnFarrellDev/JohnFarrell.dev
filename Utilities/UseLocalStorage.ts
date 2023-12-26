@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 
-type Keys = 'twenty-number-challenge-high-score' | `descending-insanity-${number}`
+type Keys = 'twenty-number-challenge-high-score' | 'descending-insanity-level'
 
 interface MapKeyToValue {
   'twenty-number-challenge-high-score': number
+  'descending-insanity-level': number
 }
 
 export function UseLocalStorage<T extends Keys, R>(

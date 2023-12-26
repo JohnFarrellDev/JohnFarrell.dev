@@ -1,21 +1,6 @@
-// const validLowestIndex = getLowestIndex(slots, nonNullValues, randomValue)
-//   const validHighestIndex = getHighestIndex(slots, nonNullValues, randomValue)
-
-//   const checkDisabled = (index: number): boolean => {
-//     const value = slots[index]
-//     if (value !== null) return true
-//     if (index < validLowestIndex) return true
-//     if (index > validHighestIndex) return true
-
-//     return false
-//   }
-//   const disabled = new Array(numberOfSlots).fill(false).map((_, index) => checkDisabled(index))
-//   const isGameOver = disabled.every((value) => value)
-//   const isWinner = nonNullValues.length === numberOfSlots
-//   const gameOverMessage = generateGameOverMessage(isGameOver, nonNullValues.length, highScore)
-
 import confetti from 'canvas-confetti'
 import styles from './Game.module.css'
+import { SetGameOrLevelGameProps } from './Game'
 
 export function applyConfetti(isWinner: boolean) {
   let confettiInterval: NodeJS.Timer | null = null
@@ -57,9 +42,7 @@ export function applyConfetti(isWinner: boolean) {
   return { clearConfetti: () => clearInterval(confettiInterval as NodeJS.Timer) }
 }
 
-export function generateGameOverMessage(isGameOver: boolean, currentScore: number, highScore: number) {
-  if (!isGameOver) return <></>
-
+function generateGameOverMessageLevel(isGameOver: boolean, currentScore: number, highScore: number) {
   if (highScore === 0) {
     return (
       <p className={styles.gameOverMessage}>
@@ -129,6 +112,17 @@ export function generateGameOverMessage(isGameOver: boolean, currentScore: numbe
   return <></>
 }
 
+export function generateGameOverMessage(
+  isGameOver: boolean,
+  currentScore: number,
+  gameTypeProps: SetGameOrLevelGameProps
+) {
+  if (!isGameOver) return <></>
+  if (gameTypeProps.gameType === 'level') return <></>
+
+  return generateGameOverMessageLevel(isGameOver, currentScore, gameTypeProps.highScore)
+}
+
 export function getRandomValue(notPossibleValues: Set<number>) {
   let randomValue = 0
   while (notPossibleValues.has(randomValue) || randomValue === 0) {
@@ -163,7 +157,26 @@ export function getHighestIndex(slots: (number | null)[], nonNullValues: number[
   return slots.length - 1
 }
 
-export function gameValues(slots: (number | null)[], highScore: number) {
+function updateStorageCondition(
+  isGameOver: boolean,
+  turnsTaken: number,
+  maximumNumberOfTurns: number,
+  gameTypeProps: SetGameOrLevelGameProps
+) {
+  if (gameTypeProps.gameType === 'level') return turnsTaken === maximumNumberOfTurns
+
+  return isGameOver && turnsTaken > gameTypeProps.highScore
+}
+
+function updateStorageFunction(gameTypeProps: SetGameOrLevelGameProps, turnsTaken: number) {
+  if (gameTypeProps.gameType === 'level') {
+    gameTypeProps.setLevel(turnsTaken - 3)
+  } else {
+    gameTypeProps.setHighScore(turnsTaken)
+  }
+}
+
+export function gameValues(slots: (number | null)[], gameTypeProps: SetGameOrLevelGameProps) {
   const nonNullValues = slots.filter((slot) => slot !== null) as number[]
   const notPossibleValues = new Set<number>(nonNullValues)
   const randomValue = getRandomValue(notPossibleValues)
@@ -182,7 +195,7 @@ export function gameValues(slots: (number | null)[], highScore: number) {
   const disabled = new Array(slots.length).fill(false).map((_, index) => checkDisabled(index))
   const isGameOver = disabled.every((value) => value)
   const isWinner = nonNullValues.length === slots.length
-  const gameOverMessage = generateGameOverMessage(isGameOver, nonNullValues.length, highScore)
+  const gameOverMessage = generateGameOverMessage(isGameOver, nonNullValues.length, gameTypeProps)
 
   return {
     turnsTaken: nonNullValues.length,
@@ -193,5 +206,11 @@ export function gameValues(slots: (number | null)[], highScore: number) {
     isGameOver,
     isWinner,
     gameOverMessage,
+    updateStorageCondition: updateStorageCondition(isGameOver, nonNullValues.length, slots.length, gameTypeProps),
+    updateStorageFunction: updateStorageFunction,
   }
 }
+
+// if (isGameOver && turnsTaken > highScore) {
+//   setHighScore(turnsTaken)
+// }
