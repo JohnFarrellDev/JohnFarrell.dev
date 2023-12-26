@@ -96,7 +96,7 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
 
   return (
     <div>
-      <CurrentNumber currentNumber={randomValue} />
+      <CurrentNumber currentNumber={randomValue} targetNumber={numberOfSlots} />
       <GameOver
         isGameOver={isGameOver}
         turnsTaken={turnsTaken}
@@ -190,7 +190,7 @@ const Slots = ({
   )
 }
 
-const CurrentNumber = ({ currentNumber }: { currentNumber: number }) => {
+const CurrentNumber = ({ currentNumber, targetNumber }: { currentNumber: number; targetNumber: number }) => {
   const [hydration, setHydration] = useState(false)
 
   useEffect(() => {
@@ -201,7 +201,9 @@ const CurrentNumber = ({ currentNumber }: { currentNumber: number }) => {
 
   return (
     <>
-      <p className={styles.info}>Attempt to place 20 randomly assigned numbers from 1 to 1,000 in descending order</p>
+      <p className={styles.info}>
+        Attempt to place {targetNumber} randomly assigned numbers from 1 to 1,000 in descending order
+      </p>
       <p className={styles.currentNumber}>Your Current Number is:</p>
       <p className={styles.nextNumber}>{currentNumber}</p>
     </>
