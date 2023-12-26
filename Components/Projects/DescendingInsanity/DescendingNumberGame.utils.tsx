@@ -1,6 +1,6 @@
 import confetti from 'canvas-confetti'
-import styles from './Game.module.css'
-import { SetGameOrLevelGameProps } from './Game'
+import styles from './DescendingNumberGame.module.css'
+import { SetGameOrLevelGameProps } from './DescendingNumberGame'
 
 export function applyConfetti(isWinner: boolean) {
   let confettiInterval: NodeJS.Timer | null = null

@@ -1,8 +1,7 @@
-import { useState } from 'react'
 import { UseLocalStorage } from '../../../Utilities/UseLocalStorage'
-import { Game } from './Game'
+import { DescendingNumberGame } from './DescendingNumberGame'
 
-const numberOfSlots = 20
+const NUMBER_OF_SLOTS = 20
 
 export const Game20 = () => {
   const {
@@ -11,12 +10,9 @@ export const Game20 = () => {
     refetch,
   } = UseLocalStorage('twenty-number-challenge-high-score', 0)
 
-  const [slots, setSlots] = useState<(number | null)[]>(Array(numberOfSlots).fill(null))
-
   return (
-    <Game
-      slots={slots}
-      setSlots={setSlots}
+    <DescendingNumberGame
+      numberOfSlots={NUMBER_OF_SLOTS}
       refetch={refetch}
       highScore={highScore}
       setHighScore={setHighScore}

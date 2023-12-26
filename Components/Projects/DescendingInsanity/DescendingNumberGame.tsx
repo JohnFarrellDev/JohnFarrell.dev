@@ -1,7 +1,7 @@
 import { IoCopyOutline } from 'react-icons/io5'
-import styles from './Game.module.css'
-import { Dispatch, RefObject, SetStateAction, useEffect, useRef, useState } from 'react'
-import { gameValues, applyConfetti } from './Game.utils'
+import styles from './DescendingNumberGame.module.css'
+import { RefObject, useEffect, useRef, useState } from 'react'
+import { gameValues, applyConfetti } from './DescendingNumberGame.utils'
 
 type SetGameProps = {
   gameType: 'set-size'
@@ -18,12 +18,13 @@ type LevelGameProps = {
 export type SetGameOrLevelGameProps = SetGameProps | LevelGameProps
 
 type GameProps = {
-  slots: (number | null)[]
-  setSlots: Dispatch<SetStateAction<(number | null)[]>>
+  numberOfSlots: number
   refetch: () => void
 } & SetGameOrLevelGameProps
 
-export const Game = ({ slots, setSlots, refetch, ...gameTypeProps }: GameProps) => {
+export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps }: GameProps) => {
+  const [slots, setSlots] = useState<(number | null)[]>(Array(numberOfSlots).fill(null))
+
   const resetGameRef = useRef<HTMLButtonElement>(null)
   const slotsContainerRef = useRef<HTMLDivElement>(null)
 

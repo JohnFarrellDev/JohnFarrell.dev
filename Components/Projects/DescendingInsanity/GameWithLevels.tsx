@@ -1,6 +1,5 @@
-import { useState } from 'react'
 import { UseLocalStorage } from '../../../Utilities/UseLocalStorage'
-import { Game } from './Game'
+import { DescendingNumberGame } from './DescendingNumberGame'
 
 export const DescendingInsanity = () => {
   const {
@@ -11,7 +10,13 @@ export const DescendingInsanity = () => {
 
   const numberOfSlots = level + 4
 
-  const [slots, setSlots] = useState<(number | null)[]>(Array(numberOfSlots).fill(null))
-
-  return <Game slots={slots} setSlots={setSlots} refetch={refetch} level={level} setLevel={setLevel} gameType="level" />
+  return (
+    <DescendingNumberGame
+      numberOfSlots={numberOfSlots}
+      refetch={refetch}
+      level={level}
+      setLevel={setLevel}
+      gameType="level"
+    />
+  )
 }
