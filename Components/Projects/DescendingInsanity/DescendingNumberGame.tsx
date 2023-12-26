@@ -37,6 +37,7 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
     isGameOver,
     isWinner,
     gameOverMessage,
+    gameOverButtonMessage,
     updateStorageCondition,
     updateStorageFunction,
   } = gameValues(slots, gameTypeProps)
@@ -100,6 +101,7 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
         isGameOver={isGameOver}
         turnsTaken={turnsTaken}
         gameOverMessage={gameOverMessage}
+        gameOverButtonMessage={gameOverButtonMessage}
         handleRestartGame={handleRestartGame}
         resetGameRef={resetGameRef}
       />
@@ -124,12 +126,14 @@ const GameOver = ({
   isGameOver,
   turnsTaken,
   gameOverMessage,
+  gameOverButtonMessage,
   handleRestartGame,
   resetGameRef,
 }: {
   isGameOver: boolean
   turnsTaken: number
   gameOverMessage: JSX.Element
+  gameOverButtonMessage: string
   handleRestartGame: () => void
   resetGameRef: RefObject<HTMLButtonElement>
 }) => {
@@ -140,7 +144,7 @@ const GameOver = ({
       {gameOverMessage}
       <div className={styles.gameOver}>
         <button className={styles.gameOverButton} onClick={handleRestartGame} ref={resetGameRef}>
-          Game Over, click to restart
+          {gameOverButtonMessage}
         </button>
         <ShareButton score={turnsTaken} />
       </div>

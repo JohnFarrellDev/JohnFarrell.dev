@@ -176,6 +176,18 @@ function updateStorageFunction(gameTypeProps: SetGameOrLevelGameProps, turnsTake
   }
 }
 
+function generateGameOverButtonMessage(isGameOver: boolean, isWinner: boolean, gameTypeProps: SetGameOrLevelGameProps) {
+  if (!isGameOver) return ''
+
+  if (!isWinner) return 'Game Over, click to restart'
+
+  if (gameTypeProps.gameType === 'set-size') {
+    return 'Click to play again'
+  }
+
+  return 'Click to play the next level'
+}
+
 export function gameValues(slots: (number | null)[], gameTypeProps: SetGameOrLevelGameProps) {
   const nonNullValues = slots.filter((slot) => slot !== null) as number[]
   const notPossibleValues = new Set<number>(nonNullValues)
@@ -196,6 +208,7 @@ export function gameValues(slots: (number | null)[], gameTypeProps: SetGameOrLev
   const isGameOver = disabled.every((value) => value)
   const isWinner = nonNullValues.length === slots.length
   const gameOverMessage = generateGameOverMessage(isGameOver, nonNullValues.length, gameTypeProps)
+  const gameOverButtonMessage = generateGameOverButtonMessage(isGameOver, isWinner, gameTypeProps)
 
   return {
     turnsTaken: nonNullValues.length,
@@ -206,11 +219,8 @@ export function gameValues(slots: (number | null)[], gameTypeProps: SetGameOrLev
     isGameOver,
     isWinner,
     gameOverMessage,
+    gameOverButtonMessage,
     updateStorageCondition: updateStorageCondition(isGameOver, nonNullValues.length, slots.length, gameTypeProps),
     updateStorageFunction: updateStorageFunction,
   }
 }
-
-// if (isGameOver && turnsTaken > highScore) {
-//   setHighScore(turnsTaken)
-// }

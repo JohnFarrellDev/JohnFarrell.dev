@@ -1,7 +1,7 @@
 import { UseLocalStorage } from '../../../Utilities/UseLocalStorage'
 import { DescendingNumberGame } from './DescendingNumberGame'
 
-export const DescendingInsanity = () => {
+export const GameWithLevels = () => {
   const {
     value: level,
     setValueLocalStorageNoRerender: setLevel,
