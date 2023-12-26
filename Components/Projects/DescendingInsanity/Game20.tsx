@@ -4,11 +4,9 @@ import { UseLocalStorage } from '../../../Utilities/UseLocalStorage'
 import { IoCopyOutline } from 'react-icons/io5'
 import { applyConfetti, gameValues } from './Game.utils'
 
-interface GameProps {
-  numberOfSlots: number
-}
+const numberOfSlots = 20
 
-export const Game = ({ numberOfSlots }: GameProps) => {
+export const Game20 = () => {
   const [slots, setSlots] = useState<(number | null)[]>(Array(numberOfSlots).fill(null))
 
   const {
