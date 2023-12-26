@@ -10,6 +10,7 @@ interface GameProps {
 
 export const Game = ({ numberOfSlots }: GameProps) => {
   const [slots, setSlots] = useState<(number | null)[]>(Array(numberOfSlots).fill(null))
+
   const {
     value: highScore,
     setValueLocalStorageNoRerender: setHighScore,
@@ -47,13 +48,13 @@ export const Game = ({ numberOfSlots }: GameProps) => {
     setHighScore(turnsTaken)
   }
 
-  const restartGame = () => {
+  const handleRestartGame = () => {
     if (clearConfetti) clearConfetti()
     refetch()
     setSlots(Array(numberOfSlots).fill(null))
   }
 
-  const handleClick = (index: number) => {
+  const handleSlotClick = (index: number) => {
     if (slots[index] !== null) return
     if (isGameOver) return
 
@@ -89,7 +90,7 @@ export const Game = ({ numberOfSlots }: GameProps) => {
         <>
           {gameOverMessage}
           <div className={styles.gameOver}>
-            <button className={styles.gameOverButton} onClick={restartGame} ref={resetGameRef}>
+            <button className={styles.gameOverButton} onClick={handleRestartGame} ref={resetGameRef}>
               Game Over, click to restart
             </button>
             <ShareButton score={turnsTaken} />
@@ -104,7 +105,7 @@ export const Game = ({ numberOfSlots }: GameProps) => {
         disabled={disabled}
         validLowestIndex={validLowestIndex}
         validHighestIndex={validHighestIndex}
-        handleClick={handleClick}
+        handleClick={handleSlotClick}
         handleKeyDown={handleKeyDown}
       />
     </div>

@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
 
-type Keys = 'twenty-number-challenge-high-score'
+type Keys = 'twenty-number-challenge-high-score' | `descending-insanity-${number}`
 
 interface MapKeyToValue {
   'twenty-number-challenge-high-score': number
 }
 
-export function UseLocalStorage<T extends Keys>(key: T, initialValue: MapKeyToValue[T]) {
-  const [value, setValue] = useState<MapKeyToValue[T]>(initialValue)
+export function UseLocalStorage<T extends Keys, R>(
+  key: T,
+  initialValue: T extends keyof MapKeyToValue ? MapKeyToValue[T] : R
+) {
+  const [value, setValue] = useState<typeof initialValue>(initialValue)
   const [isLocalStorageAvailable, setIsLocalStorageAvailable] = useState(true)
 
   useEffect(() => {
@@ -25,14 +28,14 @@ export function UseLocalStorage<T extends Keys>(key: T, initialValue: MapKeyToVa
     }
   }, [key, setValue, initialValue])
 
-  const setValueLocalStorage = (value: MapKeyToValue[T]) => {
+  const setValueLocalStorage = (value: typeof initialValue) => {
     try {
       setValue(value)
       window.localStorage.setItem(key, JSON.stringify(value))
     } catch (error) {}
   }
 
-  const setValueLocalStorageNoRerender = (value: MapKeyToValue[T]) => {
+  const setValueLocalStorageNoRerender = (value: typeof initialValue) => {
     try {
       window.localStorage.setItem(key, JSON.stringify(value))
     } catch (error) {}
