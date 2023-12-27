@@ -62,7 +62,11 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
   const handleRestartGame = () => {
     if (clearConfetti) clearConfetti()
     if (isWinner) refetch()
-    setSlots(Array(slots.length).fill(null))
+    if (gameTypeProps.gameType === 'level' && isWinner) {
+      setSlots(Array(numberOfSlots + 1).fill(null))
+    } else {
+      setSlots(Array(numberOfSlots).fill(null))
+    }
   }
 
   const handleSlotClick = (index: number) => {
