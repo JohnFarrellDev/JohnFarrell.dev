@@ -2,12 +2,19 @@ import confetti from 'canvas-confetti'
 import styles from './DescendingNumberGame.module.css'
 import { SetGameOrLevelGameProps } from './DescendingNumberGame'
 
-export function applyConfetti(isWinner: boolean) {
-  let confettiInterval: NodeJS.Timer | null = null
-  if (isWinner) {
-    const randomDrift = () => Math.random() * (Math.random() > 0.5 ? 1 : -1)
+function randomDrift() {
+  return Math.random() * (Math.random() > 0.5 ? 1 : -1)
+}
 
-    confettiInterval = setInterval(() => {
+export function applyConfetti(isWinner: boolean) {
+  if (!isWinner) return { clearConfetti: undefined }
+
+  const difference = 1_500
+  let lastFired = 0
+  let animationNumber: number
+
+  function playAnimation() {
+    if (lastFired + difference < Date.now()) {
       confetti({
         particleCount: 150,
         spread: 45,
@@ -34,12 +41,15 @@ export function applyConfetti(isWinner: boolean) {
         origin: { x: 0.8, y: 0.5 },
         gravity: 1.5,
       })
-    }, 1000)
+      lastFired = Date.now()
+    }
+
+    animationNumber = window.requestAnimationFrame(playAnimation)
   }
 
-  if (confettiInterval === null) return { clearConfetti: undefined }
+  animationNumber = window.requestAnimationFrame(playAnimation)
 
-  return { clearConfetti: () => clearInterval(confettiInterval as NodeJS.Timer) }
+  return { clearConfetti: () => window.cancelAnimationFrame(animationNumber) }
 }
 
 function generateGameOverMessageLevel(isGameOver: boolean, currentScore: number, highScore: number) {
