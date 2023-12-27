@@ -48,6 +48,12 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
 
   const { clearConfetti } = applyConfetti(isWinner)
 
+  useEffect(() => {
+    return () => {
+      if (clearConfetti) clearConfetti()
+    }
+  }, [clearConfetti])
+
   // for handling focus events
   useEffect(() => {
     if (isGameOver) {
