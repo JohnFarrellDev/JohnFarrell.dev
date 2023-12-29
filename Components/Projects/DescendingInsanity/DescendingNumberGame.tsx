@@ -106,7 +106,7 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
 
   return (
     <div>
-      <CurrentNumber currentNumber={randomValue} targetNumber={numberOfSlots} />
+      {!isGameOver && <CurrentNumber currentNumber={randomValue} targetNumber={numberOfSlots} />}
       <GameOver
         isGameOver={isGameOver}
         turnsTaken={turnsTaken}
