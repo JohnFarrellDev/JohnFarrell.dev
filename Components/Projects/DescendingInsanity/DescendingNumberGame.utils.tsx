@@ -52,7 +52,7 @@ export function applyConfetti(isWinner: boolean) {
   return { clearConfetti: () => window.cancelAnimationFrame(animationNumber) }
 }
 
-function generateGameOverMessageLevel(isGameOver: boolean, currentScore: number, highScore: number) {
+function generateGameOverMessageSetSize(currentScore: number, highScore: number) {
   if (highScore === 0) {
     return (
       <p className={styles.gameOverMessage}>
@@ -122,15 +122,64 @@ function generateGameOverMessageLevel(isGameOver: boolean, currentScore: number,
   return <></>
 }
 
+function generateGameOverMessageLevel(currentScore: number, gameTypeProps: SetGameOrLevelGameProps) {
+  if (gameTypeProps.gameType === 'set-size') return <></>
+
+  const totalSlots = gameTypeProps.level + 4
+  const ratio = currentScore / totalSlots
+  const currentScorePercentage = ratio * 100
+
+  if (currentScorePercentage < 25) {
+    return (
+      <p className={styles.gameOverMessage}>
+        Game Over, you got {currentScore} out of {gameTypeProps.level + 4} correct, which is pretty bad
+      </p>
+    )
+  }
+
+  if (currentScorePercentage < 50) {
+    return (
+      <p className={styles.gameOverMessage}>
+        Game Over, you got {currentScore} out of {gameTypeProps.level + 4} correct, which is not bad
+      </p>
+    )
+  }
+
+  if (currentScorePercentage < 75) {
+    return (
+      <p className={styles.gameOverMessage}>
+        Game Over, you got {currentScore} out of {gameTypeProps.level + 4} correct, which is pretty good
+      </p>
+    )
+  }
+
+  if (currentScorePercentage < 100) {
+    return (
+      <p className={styles.gameOverMessage}>
+        Game Over, you got {currentScore} out of {gameTypeProps.level + 4} correct, so close!
+      </p>
+    )
+  }
+
+  if (currentScorePercentage >= 100) {
+    return <p className={styles.gameOverMessage}>Wow, you got a perfect score! Level complete</p>
+  }
+
+  return <></>
+}
+
 export function generateGameOverMessage(
   isGameOver: boolean,
   currentScore: number,
   gameTypeProps: SetGameOrLevelGameProps
 ) {
   if (!isGameOver) return <></>
-  if (gameTypeProps.gameType === 'level') return <></>
 
-  return generateGameOverMessageLevel(isGameOver, currentScore, gameTypeProps.highScore)
+  if (gameTypeProps.gameType === 'level') {
+    return generateGameOverMessageLevel(currentScore, gameTypeProps)
+  }
+
+  return generateGameOverMessageSetSize(currentScore, gameTypeProps.highScore)
 }
 
 export function getRandomValue(notPossibleValues: Set<number>) {
