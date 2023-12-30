@@ -7,7 +7,7 @@ import { GameWithLevels } from '../../Components/Projects/DescendingInsanity/Gam
 const TwentyNumberChallenge = () => {
   return (
     <Layout>
-      <SEO title="Descending Insanity" description="How far can you go?" image="https://i.imgur.com/xm1cgR9.png" />
+      <SEO title="Descending Insanity" description="How far can you go?" image="https://i.imgur.com/ApXjd6C.png" />
       <Title title="Descending Insanity" extraStyles={styles.title} />
       <main className={styles.main}>
         <GameWithLevels />

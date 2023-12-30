@@ -13,7 +13,7 @@ const allProjects = [
         title: 'Descending Insanity',
         description: 'How far can you go?',
         URL: '/projects/descending-insanity',
-        imageURL: 'https://i.imgur.com/kp6xRVV.png',
+        imageURL: 'https://i.imgur.com/FP0vUEg.png',
         imageAlt: '',
         createdAt: new Date('2023-12-26T20:00:00.000Z'),
         tags: [],
