@@ -38,6 +38,7 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
     isWinner,
     gameOverMessage,
     gameOverButtonMessage,
+    shareMessage,
     updateStorageCondition,
     updateStorageFunction,
   } = gameValues(slots, gameTypeProps)
@@ -90,7 +91,7 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
     if (e.key === 'ArrowUp') {
       const newIndex = index - 1
       if (newIndex < validLowestIndex) return
-      const newElement = slotsContainerRef.current?.children[newIndex] as HTMLDivElement | undefined
+      const newElement = slotsContainerRef.current?.children[newIndex]
       newElement?.querySelector('input')?.focus()
       return
     }
@@ -98,7 +99,7 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
     if (e.key === 'ArrowDown') {
       const newIndex = index + 1
       if (newIndex > validHighestIndex) return
-      const newElement = slotsContainerRef.current?.children[newIndex] as HTMLDivElement | undefined
+      const newElement = slotsContainerRef.current?.children[newIndex]
       newElement?.querySelector('input')?.focus()
       return
     }
@@ -109,8 +110,8 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
       {!isGameOver && <CurrentNumber currentNumber={randomValue} targetNumber={numberOfSlots} />}
       <GameOver
         isGameOver={isGameOver}
-        turnsTaken={turnsTaken}
         gameOverMessage={gameOverMessage}
+        shareMessage={shareMessage}
         gameOverButtonMessage={gameOverButtonMessage}
         handleRestartGame={handleRestartGame}
         resetGameRef={resetGameRef}
@@ -130,20 +131,18 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
   )
 }
 
-const url = 'https://www.johnfarrell.dev/projects/20-number-challenge'
-
 const GameOver = ({
   isGameOver,
-  turnsTaken,
   gameOverMessage,
   gameOverButtonMessage,
+  shareMessage,
   handleRestartGame,
   resetGameRef,
 }: {
   isGameOver: boolean
-  turnsTaken: number
   gameOverMessage: JSX.Element
   gameOverButtonMessage: string
+  shareMessage: string
   handleRestartGame: () => void
   resetGameRef: RefObject<HTMLButtonElement>
 }) => {
@@ -156,7 +155,7 @@ const GameOver = ({
         <button className={styles.gameOverButton} onClick={handleRestartGame} ref={resetGameRef}>
           {gameOverButtonMessage}
         </button>
-        <ShareButton score={turnsTaken} />
+        <ShareButton shareMessage={shareMessage} />
       </div>
     </>
   )
@@ -220,25 +219,16 @@ const CurrentNumber = ({ currentNumber, targetNumber }: { currentNumber: number;
   )
 }
 
-const clipboardMessage = (score: number) => {
-  if (score === 20)
-    return `I got a perfect score on the Twenty Number Challenge!` + '\n\n' + 'Can you manage it?' + '\n\n' + url
-
-  return `I got a score of ${score} on the Twenty Number Challenge!` + '\n\n' + 'Can you beat it?' + '\n\n' + url
-}
-
-const ShareButton = ({ score }: { score: number }) => {
-  const message = clipboardMessage(score)
-
+const ShareButton = ({ shareMessage }: { shareMessage: string }) => {
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(message)
+    navigator.clipboard.writeText(shareMessage)
   }
 
   const handleShare = () => {
     if (navigator.share) {
       navigator
         .share({
-          text: message,
+          text: shareMessage,
         })
         .then(() => {})
         .catch(() => {})

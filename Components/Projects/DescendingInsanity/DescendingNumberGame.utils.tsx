@@ -198,6 +198,41 @@ function generateGameOverButtonMessage(isGameOver: boolean, isWinner: boolean, g
   return 'Click to play the next level'
 }
 
+const twentyNumberChallengeUrl = 'https://www.johnfarrell.dev/projects/20-number-challenge'
+const descendingInsanityUrl = 'https://www.johnfarrell.dev/projects/descending-insanity'
+
+function generateShareMessage(isWinner: boolean, turnsTaken: number, gameTypeProps: SetGameOrLevelGameProps) {
+  if (gameTypeProps.gameType === 'set-size') {
+    if (isWinner)
+      return (
+        `I got a perfect score on the Twenty Number Challenge!` +
+        '\n\n' +
+        'Can you manage it?' +
+        '\n\n' +
+        twentyNumberChallengeUrl
+      )
+
+    return (
+      `I got a score of ${turnsTaken} on the Twenty Number Challenge!` +
+      '\n\n' +
+      'Can you beat it?' +
+      '\n\n' +
+      twentyNumberChallengeUrl
+    )
+  }
+
+  if (isWinner)
+    return `I just completed level ${gameTypeProps.level} of Descending Insanity!` + '\n\n' + descendingInsanityUrl
+
+  return (
+    `I got a score of ${turnsTaken} on level ${gameTypeProps.level} of Descending Insanity!` +
+    '\n\n' +
+    'Can you beat it?' +
+    '\n\n' +
+    descendingInsanityUrl
+  )
+}
+
 export function gameValues(slots: (number | null)[], gameTypeProps: SetGameOrLevelGameProps) {
   const nonNullValues = slots.filter((slot) => slot !== null) as number[]
   const notPossibleValues = new Set<number>(nonNullValues)
@@ -230,6 +265,7 @@ export function gameValues(slots: (number | null)[], gameTypeProps: SetGameOrLev
     isWinner,
     gameOverMessage,
     gameOverButtonMessage,
+    shareMessage: generateShareMessage(isWinner, nonNullValues.length, gameTypeProps),
     updateStorageCondition: updateStorageCondition(isGameOver, nonNullValues.length, slots.length, gameTypeProps),
     updateStorageFunction: updateStorageFunction,
   }
