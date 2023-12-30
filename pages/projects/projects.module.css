@@ -4,3 +4,10 @@
   margin-bottom: 0.75rem;
   margin-top: 0.75rem;
 }
+
+.articlesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0 auto;
+}
