@@ -1,7 +1,7 @@
 import { IoCopyOutline } from 'react-icons/io5'
 import styles from './DescendingNumberGame.module.css'
 import { RefObject, useEffect, useRef, useState } from 'react'
-import { gameValues, applyConfetti } from './DescendingNumberGame.utils'
+import { deferredGameState, applyConfetti } from './DescendingNumberGame.utils'
 
 type SetGameProps = {
   gameType: 'set-size'
@@ -41,7 +41,7 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
     shareMessage,
     updateStorageCondition,
     updateStorageFunction,
-  } = gameValues(slots, gameTypeProps)
+  } = deferredGameState(slots, gameTypeProps)
 
   if (updateStorageCondition) {
     updateStorageFunction(gameTypeProps, turnsTaken)

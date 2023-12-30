@@ -190,7 +190,9 @@ export function getRandomValue(notPossibleValues: Set<number>) {
   return randomValue
 }
 
-export function getLowestIndex(slots: (number | null)[], nonNullValues: number[], randomValue: number) {
+export function getLowestIndex(slots: (number | null)[], randomValue: number) {
+  const nonNullValues = slots.filter((slot) => slot !== null) as number[]
+
   if (nonNullValues.length === 0) return 0
 
   for (let i = slots.length - 1; i >= 0; i--) {
@@ -203,7 +205,9 @@ export function getLowestIndex(slots: (number | null)[], nonNullValues: number[]
   return 0
 }
 
-export function getHighestIndex(slots: (number | null)[], nonNullValues: number[], randomValue: number) {
+export function getHighestIndex(slots: (number | null)[], randomValue: number) {
+  const nonNullValues = slots.filter((slot) => slot !== null) as number[]
+
   if (nonNullValues.length === 0) return slots.length - 1
 
   for (let i = 0; i < slots.length; i++) {
@@ -282,13 +286,13 @@ function generateShareMessage(isWinner: boolean, turnsTaken: number, gameTypePro
   )
 }
 
-export function gameValues(slots: (number | null)[], gameTypeProps: SetGameOrLevelGameProps) {
+export function deferredGameState(slots: (number | null)[], gameTypeProps: SetGameOrLevelGameProps) {
   const nonNullValues = slots.filter((slot) => slot !== null) as number[]
   const notPossibleValues = new Set<number>(nonNullValues)
   const randomValue = getRandomValue(notPossibleValues)
 
-  const validLowestIndex = getLowestIndex(slots, nonNullValues, randomValue)
-  const validHighestIndex = getHighestIndex(slots, nonNullValues, randomValue)
+  const validLowestIndex = getLowestIndex(slots, randomValue)
+  const validHighestIndex = getHighestIndex(slots, randomValue)
 
   const checkDisabled = (index: number): boolean => {
     const value = slots[index]
