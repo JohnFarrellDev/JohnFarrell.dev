@@ -229,8 +229,8 @@ const ShareButton = ({
 }: {
   shareMessage: { text: string; url: string; clipboardMessage: string }
 }) => {
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(clipboardMessage)
+  const copyToClipboard = async () => {
+    await navigator.clipboard.writeText(clipboardMessage)
     toast('Copied text content to clipboard to share', {
       type: 'success',
       autoClose: 3000,
@@ -244,9 +244,8 @@ const ShareButton = ({
   const handleShare = async () => {
     if (navigator.share) {
       await navigator.share({
-        title: text,
         url,
-        text: 'hardcoded text',
+        text,
       })
     } else {
       copyToClipboard()
