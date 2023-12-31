@@ -2,6 +2,7 @@ import { IoCopyOutline } from 'react-icons/io5'
 import styles from './DescendingNumberGame.module.css'
 import { RefObject, useEffect, useRef, useState } from 'react'
 import { deferredGameState, applyConfetti } from './DescendingNumberGame.utils'
+import { toast } from 'react-toastify'
 
 type SetGameProps = {
   gameType: 'set-size'
@@ -230,13 +231,22 @@ const ShareButton = ({
 }) => {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(clipboardMessage)
+    toast('Copied text content to clipboard to share', {
+      type: 'success',
+      autoClose: 3000,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      position: 'bottom-center',
+    })
   }
 
-  const handleShare = () => {
+  const handleShare = async () => {
     if (navigator.share) {
-      navigator.share({
+      await navigator.share({
         title: text,
         url,
+        text: 'hardcoded text',
       })
     } else {
       copyToClipboard()
