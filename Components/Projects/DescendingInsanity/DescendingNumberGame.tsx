@@ -140,7 +140,7 @@ const GameOver = ({
   resetGameRef,
 }: {
   isGameOver: boolean
-  gameOverMessage: JSX.Element
+  gameOverMessage: React.ReactNode
   gameOverButtonMessage: string
   shareMessage: string
   handleRestartGame: () => void

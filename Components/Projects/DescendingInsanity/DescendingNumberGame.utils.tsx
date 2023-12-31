@@ -53,6 +53,10 @@ export function applyConfetti(isWinner: boolean) {
 }
 
 function generateGameOverMessageSetSize(currentScore: number, highScore: number) {
+  if (currentScore === 20) {
+    return <p className={styles.gameOverMessage}>Wow, you got a perfect score!</p>
+  }
+
   if (highScore === 0) {
     return (
       <p className={styles.gameOverMessage}>
@@ -113,10 +117,6 @@ function generateGameOverMessageSetSize(currentScore: number, highScore: number)
         Game Over, your score is <span className={styles.gameOverScore}>{currentScore}</span>, great job, so close!
       </p>
     )
-  }
-
-  if (currentScore === 20) {
-    return <p className={styles.gameOverMessage}>Wow, you got a perfect score!</p>
   }
 
   return <></>

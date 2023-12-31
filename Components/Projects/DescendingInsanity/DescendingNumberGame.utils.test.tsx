@@ -1,4 +1,5 @@
-import { getHighestIndex, getLowestIndex, getRandomValue } from './DescendingNumberGame.utils'
+import { generateGameOverMessage, getHighestIndex, getLowestIndex, getRandomValue } from './DescendingNumberGame.utils'
+import { render } from '@testing-library/react'
 
 describe('descendingNumberGame.utils', () => {
   describe('getLowestIndex', () => {
@@ -97,4 +98,115 @@ describe('descendingNumberGame.utils', () => {
       }
     })
   })
+
+  describe('generateGameOverMessage', () => {
+    it('should return an empty fragment if isGameOver is false', () => {
+      const result = generateGameOverMessage(false, 0, { gameType: 'set-size', highScore: 0, setHighScore: () => {} })
+
+      const { container } = render(result)
+
+      expect(container.innerHTML).toHaveLength(0)
+      expect(container).toBeEmptyDOMElement()
+    })
+
+    it.each([
+      {
+        currentScore: 20,
+        highScore: 0,
+        expectedMessage: '<p class="gameOverMessage">Wow, you got a perfect score!</p>',
+      },
+      {
+        currentScore: 10,
+        highScore: 0,
+        expectedMessage:
+          '<p class="gameOverMessage">Well done on your first game, your score is <span class="gameOverScore">10</span>, which is a new high score!</p>',
+      },
+      {
+        currentScore: 10,
+        highScore: 5,
+        expectedMessage:
+          '<p class="gameOverMessage">Game Over, your score is <span class="gameOverScore">10</span>, which is a new high score!</p>',
+      },
+      {
+        currentScore: 3,
+        highScore: 5,
+        expectedMessage:
+          '<p class="gameOverMessage">Game Over, your score is <span class="gameOverScore">3</span>, wow that was bad! Your high score is 5!</p>',
+      },
+      {
+        currentScore: 7,
+        highScore: 20,
+        expectedMessage:
+          '<p class="gameOverMessage">Game Over, your score is <span class="gameOverScore">7</span>, you can do better than that! Your high score is 20</p>',
+      },
+      {
+        currentScore: 11,
+        highScore: 20,
+        expectedMessage:
+          '<p class="gameOverMessage">Game Over, your score is <span class="gameOverScore">11</span>, not bad! Your high score is 20</p>',
+      },
+      {
+        currentScore: 15,
+        highScore: 20,
+        expectedMessage:
+          '<p class="gameOverMessage">Game Over, your score is <span class="gameOverScore">15</span>, nice! Your high score is 20</p>',
+      },
+      {
+        currentScore: 19,
+        highScore: 20,
+        expectedMessage:
+          '<p class="gameOverMessage">Game Over, your score is <span class="gameOverScore">19</span>, great job, so close!</p>',
+      },
+    ])(
+      'should return the correct message if isGameOver is true and the gameType is set-size',
+      ({ currentScore, highScore, expectedMessage }) => {
+        const result = generateGameOverMessage(true, currentScore, {
+          gameType: 'set-size',
+          highScore,
+          setHighScore: () => {},
+        })
+
+        const { container } = render(result)
+
+        expect(container.innerHTML).toContain(expectedMessage)
+      }
+    )
+  })
+
+  it.each([
+    {
+      currentScore: 2,
+      expectedMessage: '<p class="gameOverMessage">Game Over, you got 2 out of 10 correct, which is pretty bad</p>',
+    },
+    {
+      currentScore: 4,
+      expectedMessage: '<p class="gameOverMessage">Game Over, you got 4 out of 10 correct, which is not bad</p>',
+    },
+    {
+      currentScore: 7,
+      expectedMessage: '<p class="gameOverMessage">Game Over, you got 7 out of 10 correct, which is pretty good</p>',
+    },
+    {
+      currentScore: 9,
+      expectedMessage: '<p class="gameOverMessage">Game Over, you got 9 out of 10 correct, so close!</p>',
+    },
+    {
+      currentScore: 10,
+      expectedMessage: '<p class="gameOverMessage">Wow, you got a perfect score! Level complete</p>',
+    },
+  ])(
+    'should return the correct message if isGameOver is true and the gameType is level',
+    ({ currentScore, expectedMessage }) => {
+      // level 6 means 10 turns required to win
+      const result = generateGameOverMessage(true, currentScore, {
+        gameType: 'level',
+        level: 6,
+        setLevel: () => {},
+      })
+
+      const { container } = render(result)
+
+      expect(container.innerHTML).toContain(expectedMessage)
+    }
+  )
 })
