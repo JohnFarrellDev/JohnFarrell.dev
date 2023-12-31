@@ -1,4 +1,4 @@
-import { getHighestIndex, getLowestIndex } from './DescendingNumberGame.utils'
+import { getHighestIndex, getLowestIndex, getRandomValue } from './DescendingNumberGame.utils'
 
 describe('descendingNumberGame.utils', () => {
   describe('getLowestIndex', () => {
@@ -79,5 +79,22 @@ describe('descendingNumberGame.utils', () => {
         expect(getHighestIndex(slots, randomValue)).toBe(expectedIndex)
       }
     )
+  })
+
+  describe('getRandomValue', () => {
+    it('should return a random number between 1 and 1000', () => {
+      const randomValue = getRandomValue(new Set())
+      expect(randomValue).toBeGreaterThanOrEqual(1)
+      expect(randomValue).toBeLessThanOrEqual(1000)
+    })
+
+    it('should not return a number that is in the notPossibleValues set', () => {
+      const notPossibleValues = new Set([1, 2, 3, 4, 5])
+      for (let i = 0; i < 1_000; i++) {
+        const randomValue = getRandomValue(notPossibleValues)
+        expect(randomValue).toBeGreaterThanOrEqual(6)
+        expect(randomValue).toBeLessThanOrEqual(1000)
+      }
+    })
   })
 })
