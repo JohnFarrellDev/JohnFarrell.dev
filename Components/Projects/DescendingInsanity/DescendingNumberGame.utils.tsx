@@ -15,6 +15,7 @@ export function applyConfetti(isWinner: boolean) {
 
   function playAnimation() {
     if (lastFired + difference < Date.now()) {
+      lastFired = Date.now()
       confetti({
         particleCount: 150,
         spread: 45,
@@ -41,7 +42,6 @@ export function applyConfetti(isWinner: boolean) {
         origin: { x: 0.8, y: 0.5 },
         gravity: 1.5,
       })
-      lastFired = Date.now()
     }
 
     animationNumber = window.requestAnimationFrame(playAnimation)
@@ -257,33 +257,50 @@ const descendingInsanityUrl = 'https://www.johnfarrell.dev/projects/descending-i
 function generateShareMessage(isWinner: boolean, turnsTaken: number, gameTypeProps: SetGameOrLevelGameProps) {
   if (gameTypeProps.gameType === 'set-size') {
     if (isWinner)
-      return (
-        `I got a perfect score on the Twenty Number Challenge!` +
-        '\n\n' +
-        'Can you manage it?' +
-        '\n\n' +
-        twentyNumberChallengeUrl
-      )
+      return {
+        text: `I got a perfect score on the Twenty Number Challenge!` + '\n\n' + 'Can you manage it?',
+        url: twentyNumberChallengeUrl,
+        clipboardMessage:
+          `I got a perfect score on the Twenty Number Challenge!` +
+          '\n\n' +
+          'Can you manage it?' +
+          '\n\n' +
+          twentyNumberChallengeUrl,
+      }
 
-    return (
-      `I got a score of ${turnsTaken} on the Twenty Number Challenge!` +
-      '\n\n' +
-      'Can you beat it?' +
-      '\n\n' +
-      twentyNumberChallengeUrl
-    )
+    return {
+      text: `I got a score of ${turnsTaken} on the Twenty Number Challenge!` + '\n\n' + 'Can you beat it?',
+      url: twentyNumberChallengeUrl,
+      clipboardMessage:
+        `I got a score of ${turnsTaken} on the Twenty Number Challenge!` +
+        '\n\n' +
+        'Can you beat it?' +
+        '\n\n' +
+        twentyNumberChallengeUrl,
+    }
   }
 
   if (isWinner)
-    return `I just completed level ${gameTypeProps.level} of Descending Insanity!` + '\n\n' + descendingInsanityUrl
+    return {
+      text: `I just completed level ${gameTypeProps.level} of Descending Insanity!`,
+      url: descendingInsanityUrl,
+      clipboardMessage:
+        `I just completed level ${gameTypeProps.level} of Descending Insanity!` + '\n\n' + descendingInsanityUrl,
+    }
 
-  return (
-    `I got a score of ${turnsTaken} on level ${gameTypeProps.level} of Descending Insanity!` +
-    '\n\n' +
-    'Can you beat it?' +
-    '\n\n' +
-    descendingInsanityUrl
-  )
+  return {
+    text:
+      `I got a score of ${turnsTaken} on level ${gameTypeProps.level} of Descending Insanity!` +
+      '\n\n' +
+      'Can you beat it?',
+    url: descendingInsanityUrl,
+    clipboardMessage:
+      `I got a score of ${turnsTaken} on level ${gameTypeProps.level} of Descending Insanity!` +
+      '\n\n' +
+      'Can you beat it?' +
+      '\n\n' +
+      descendingInsanityUrl,
+  }
 }
 
 export function deferredGameState(slots: (number | null)[], gameTypeProps: SetGameOrLevelGameProps) {

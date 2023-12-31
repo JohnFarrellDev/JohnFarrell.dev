@@ -61,7 +61,7 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
       resetGameRef.current?.focus()
     } else {
       const midIndexNotDisabled = Math.floor((validHighestIndex + validLowestIndex) / 2)
-      const midElement = slotsContainerRef.current?.children[midIndexNotDisabled] as HTMLDivElement | undefined
+      const midElement = slotsContainerRef.current?.children[midIndexNotDisabled]
       midElement?.querySelector('input')?.focus()
     }
   }, [isGameOver, validHighestIndex, validLowestIndex])
@@ -107,7 +107,7 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
 
   return (
     <div>
-      {!isGameOver && <CurrentNumber currentNumber={randomValue} targetNumber={numberOfSlots} />}
+      {!isWinner && <CurrentNumber currentNumber={randomValue} targetNumber={numberOfSlots} />}
       <GameOver
         isGameOver={isGameOver}
         gameOverMessage={gameOverMessage}
@@ -142,7 +142,11 @@ const GameOver = ({
   isGameOver: boolean
   gameOverMessage: React.ReactNode
   gameOverButtonMessage: string
-  shareMessage: string
+  shareMessage: {
+    text: string
+    url: string
+    clipboardMessage: string
+  }
   handleRestartGame: () => void
   resetGameRef: RefObject<HTMLButtonElement>
 }) => {
@@ -219,19 +223,21 @@ const CurrentNumber = ({ currentNumber, targetNumber }: { currentNumber: number;
   )
 }
 
-const ShareButton = ({ shareMessage }: { shareMessage: string }) => {
+const ShareButton = ({
+  shareMessage: { text, url, clipboardMessage },
+}: {
+  shareMessage: { text: string; url: string; clipboardMessage: string }
+}) => {
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(shareMessage)
+    navigator.clipboard.writeText(clipboardMessage)
   }
 
   const handleShare = () => {
     if (navigator.share) {
-      navigator
-        .share({
-          text: shareMessage,
-        })
-        .then(() => {})
-        .catch(() => {})
+      navigator.share({
+        title: text,
+        url,
+      })
     } else {
       copyToClipboard()
     }
