@@ -258,7 +258,7 @@ function generateShareMessage(isWinner: boolean, turnsTaken: number, gameTypePro
   if (gameTypeProps.gameType === 'set-size') {
     if (isWinner)
       return {
-        text: `I got a perfect score on the Twenty Number Challenge!` + '\n\n' + 'Can you manage it?',
+        text: `I got a perfect score on the Twenty Number Challenge!` + '\n\n' + 'Can you manage it?' + '\n\n',
         url: twentyNumberChallengeUrl,
         clipboardMessage:
           `I got a perfect score on the Twenty Number Challenge!` +
@@ -269,7 +269,7 @@ function generateShareMessage(isWinner: boolean, turnsTaken: number, gameTypePro
       }
 
     return {
-      text: `I got a score of ${turnsTaken} on the Twenty Number Challenge!` + '\n\n' + 'Can you beat it?',
+      text: `I got a score of ${turnsTaken} on the Twenty Number Challenge!` + '\n\n' + 'Can you beat it?' + '\n\n',
       url: twentyNumberChallengeUrl,
       clipboardMessage:
         `I got a score of ${turnsTaken} on the Twenty Number Challenge!` +

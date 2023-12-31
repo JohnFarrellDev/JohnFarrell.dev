@@ -242,9 +242,12 @@ const ShareButton = ({
   }
 
   const handleShare = async () => {
+    const userAgent = navigator.userAgent
+    const isFirefox = /Firefox/i.test(userAgent)
+
     const canShare = navigator.canShare?.({ url, text }) ?? false
 
-    if (canShare) {
+    if (canShare && !isFirefox) {
       await navigator.share({
         url,
         text,
