@@ -244,17 +244,9 @@ const ShareButton = ({
   const handleShare = async () => {
     const userAgent = navigator.userAgent
     const isFirefox = /Firefox/i.test(userAgent)
-    alert('🚀 ~ file: DescendingNumberGame.tsx:247 ~ handleShare ~ isFirefox:' + isFirefox + ',' + userAgent)
-    const isChromeDesktop = /Chrome\/[^M]+(?:\sMobile\sSafari)?/i.test(userAgent)
-    alert(
-      '🚀 ~ file: DescendingNumberGame.tsx:247 ~ handleShare ~ isChromeDesktop:' + isChromeDesktop + ',' + userAgent
-    )
-    const isSafariDesktop = /AppleWebKit.*Safari(?<!Mobile)(?!.*Chrome)/.test(userAgent)
-    alert(
-      '🚀 ~ file: DescendingNumberGame.tsx:247 ~ handleShare ~ isSafariDesktop:' + isSafariDesktop + ',' + userAgent
-    )
+    const isMobile = /Mobile/i.test(userAgent)
 
-    const nonShareBrowser = isFirefox || isChromeDesktop || isSafariDesktop
+    const nonShareBrowser = isFirefox || !isMobile
 
     const canShare = navigator.canShare?.({ url, text }) ?? false
 
