@@ -205,21 +205,15 @@ const Slots = ({
 }
 
 const CurrentNumber = ({ currentNumber, targetNumber }: { currentNumber: number; targetNumber: number }) => {
-  const [hydration, setHydration] = useState(false)
-
-  useEffect(() => {
-    setHydration(true)
-  }, [])
-
-  if (!hydration) return null
-
   return (
     <>
       <p className={styles.info}>
         Attempt to place {targetNumber} randomly assigned numbers from 1 to 1,000 in descending order
       </p>
       <p className={styles.currentNumber}>Your Current Number is:</p>
-      <p className={styles.nextNumber}>{currentNumber}</p>
+      <p className={styles.nextNumber} suppressHydrationWarning={true}>
+        {currentNumber}
+      </p>
     </>
   )
 }
