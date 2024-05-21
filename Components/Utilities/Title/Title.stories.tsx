@@ -1,11 +1,13 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { Title } from './Title'
+import type { Meta, StoryObj } from '@storybook/react'
 
 export default {
   title: 'Utilities/Title',
   component: Title,
-} as ComponentMeta<typeof Title>
+} as Meta<typeof Title>
 
-export const Default: ComponentStory<typeof Title> = () => (
-  <Title title="template title" />
-)
+export const Primary: StoryObj<typeof Title> = {
+  args: {
+    title: 'Hello world',
+  },
+}

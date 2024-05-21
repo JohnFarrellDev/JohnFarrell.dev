@@ -1,9 +1,9 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Underline } from './Underline'
 
 export default {
   title: 'Utilities/Underline',
   component: Underline,
-} as ComponentMeta<typeof Underline>
+} as Meta<typeof Underline>
 
-export const Default: ComponentStory<typeof Underline> = () => <Underline />
+export const Default: StoryObj<typeof Underline> = {}

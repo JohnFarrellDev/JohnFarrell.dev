@@ -1,20 +1,21 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { ArticleTimeStamps } from './ArticleTimeStamps'
 
-export default {
+const meta = {
   title: 'Utilities/ArticleTimeStamps',
   component: ArticleTimeStamps,
-} as ComponentMeta<typeof ArticleTimeStamps>
+} as Meta<typeof ArticleTimeStamps>
+export default meta
 
-export const CreatedAt: ComponentStory<typeof ArticleTimeStamps> = () => (
-  <ArticleTimeStamps createdAt={new Date('2022-05-29T19:28:53.185Z')} />
-)
+export const CreatedAt: StoryObj<typeof ArticleTimeStamps> = {
+  args: {
+    createdAt: new Date('2022-05-29T19:28:53.185Z'),
+  },
+}
 
-export const CreatedAtAndLastUpdated: ComponentStory<
-  typeof ArticleTimeStamps
-> = () => (
-  <ArticleTimeStamps
-    createdAt={new Date('2022-05-29T19:28:53.185Z')}
-    lastUpdated={new Date('2022-05-30T19:28:53.185Z')}
-  />
-)
+export const CreatedAtAndLastUpdated: StoryObj<typeof ArticleTimeStamps> = {
+  args: {
+    createdAt: new Date('2022-05-29T19:28:53.185Z'),
+    lastUpdated: new Date('2022-05-30T19:28:53.185Z'),
+  },
+}

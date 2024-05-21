@@ -1,27 +1,25 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { TableOfContents } from './TableOfContents'
 
 export default {
   title: 'Utilities/TableOfContents',
   component: TableOfContents,
-} as ComponentMeta<typeof TableOfContents>
+} as Meta<typeof TableOfContents>
 
-export const NoContent: ComponentStory<typeof TableOfContents> = () => (
-  <TableOfContents content={[]} />
-)
+export const NoContent: StoryObj<typeof TableOfContents> = {}
 
-export const LinearContent: ComponentStory<typeof TableOfContents> = () => (
-  <TableOfContents
-    content={[
+export const LinearContent: StoryObj<typeof TableOfContents> = {
+  args: {
+    content: [
       { display: 'Test one', url: '#test-one' },
       { display: 'Test two', url: '#test-two' },
-    ]}
-  />
-)
+    ],
+  },
+}
 
-export const nestedContent: ComponentStory<typeof TableOfContents> = () => (
-  <TableOfContents
-    content={[
+export const nestedContent: StoryObj<typeof TableOfContents> = {
+  args: {
+    content: [
       { display: 'test-one', url: '#test-one' },
       {
         display: 'test-two',
@@ -49,6 +47,6 @@ export const nestedContent: ComponentStory<typeof TableOfContents> = () => (
           },
         ],
       },
-    ]}
-  />
-)
+    ],
+  },
+}
