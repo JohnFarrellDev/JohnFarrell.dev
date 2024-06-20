@@ -21,6 +21,21 @@ const allArticles = [
     ],
   },
   {
+    year: '2024',
+    articles: [
+      {
+        URL: '/articles/optimizing-youtube',
+        title: 'Optimizing YouTube',
+        description: 'How I personalize my YouTube experience',
+        createdAt: new Date('2024-06-19T19:35:38.114Z'),
+        tags: ['Firefox', 'extensions', 'web'],
+        imageURL:
+          'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/article-thumbnails/optimizing-youtube.png',
+        imageAlt: 'Santa writing code at his desktop computer',
+      },
+    ],
+  },
+  {
     year: '2023',
     articles: [
       {
