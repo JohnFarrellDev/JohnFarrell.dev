@@ -1,10 +1,10 @@
-import { ArticleTimeStamps } from '../../../Components/Articles/Utilities/ArticleTimeStamps/ArticleTimeStamps'
-import { Paragraph } from '../../../Components/Articles/Utilities/Paragraph/Paragraph'
-import { TableOfContents } from '../../../Components/Articles/Utilities/TableOfContents/TableOfContents'
-import { Banner } from '../../../Components/Banner'
-import { Layout } from '../../../Components/Layout/Layout'
-import { SEO } from '../../../Components/SEO/SEO'
-import { Title } from '../../../Components/Utilities/Title/Title'
+import { ArticleTimeStamps } from '../../Components/Articles/Utilities/ArticleTimeStamps/ArticleTimeStamps'
+import { Paragraph } from '../../Components/Articles/Utilities/Paragraph/Paragraph'
+import { TableOfContents } from '../../Components/Articles/Utilities/TableOfContents/TableOfContents'
+import { Banner } from '../../Components/Banner'
+import { Layout } from '../../Components/Layout/Layout'
+import { SEO } from '../../Components/SEO/SEO'
+import { Title } from '../../Components/Utilities/Title/Title'
 import Image from 'next/image'
 
 function OptimizingYoutube() {
