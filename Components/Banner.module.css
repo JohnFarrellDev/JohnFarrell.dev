@@ -1,10 +1,21 @@
 .banner {
+  position: relative;
+  border-radius: 10px;
   margin: 0 auto;
-  border: 2px solid black;
+  border: 2px dashed hsl(200, 80%, 25%);
   min-width: 60%;
   width: 400px;
   max-width: 100%;
   margin-bottom: 10px;
+  padding: 5px;
+}
+
+.banner[data-type='information'] {
+  border-color: hsl(200, 80%, 25%);
+}
+
+.banner[data-type='warning'] {
+  border-color: hsl(0, 80%, 25%);
 }
 
 .bannerHeader {
@@ -19,6 +30,7 @@
   margin: 0;
   padding: 0;
   color: black;
+  text-align: center;
 }
 
 .information {
