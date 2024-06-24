@@ -73,7 +73,7 @@ const allArticles = [
       },
       {
         URL: '/articles/userscript-udemy-copy-out-quizzes',
-        title: 'UserScripts for Fun and Profit',
+        title: 'How to Effortlessly Extract Udemy Quizzes with a Custom Userscript',
         description: 'A look at how I created a UserScript to copy Quiz Questions and Answers from Udemy',
         createdAt: new Date('2022-05-27T11:16:06.761Z'),
         tags: ['javascript'],
