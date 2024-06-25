@@ -10,8 +10,12 @@ export const Navbar = ({ toggleSidebar }: NavbarProps) => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navCenter}>
-        <div className={styles.navHeader}>
-          <button type="button" className={styles.toggleBtn} aria-label="open sidebar">
+        <div className="flex justify-between items-center">
+          <button
+            type="button"
+            className={`text-4xl text-primary-500 hover:text-primary-200 ${styles.toggleBtn}`}
+            aria-label="open sidebar"
+          >
             <FaAlignRight onClick={toggleSidebar} />
           </button>
         </div>

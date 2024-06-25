@@ -44,8 +44,6 @@ Variables
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   --max-width: 1170px;
   --fixed-width: 700px;
-  /* --hover-top: 80px;
-  --hover-bottom: 30px; */
 }
 /*
 ===============
@@ -66,7 +64,6 @@ body {
   color: var(--clr-grey-1);
   line-height: 1.5;
   font-size: 0.875rem;
-  margin-top: 5rem;
 }
 ul {
   list-style-type: none;

@@ -1,7 +1,5 @@
 .hero {
-  margin-top: -5rem;
-  padding-top: 5rem;
-  height: 100vh;
+  height: calc(100svh - 5rem);
   background: var(--clr-primary-10);
   position: relative;
 }

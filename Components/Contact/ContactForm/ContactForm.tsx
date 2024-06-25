@@ -31,16 +31,16 @@ export const ContactForm = () => {
 
   return (
     <form action="https://formspree.io/xqkyvgaw" method="POST" onSubmit={submitForm}>
-      <div className={styles.formGroup}>
-        <label htmlFor="form-name" className={styles.srOnly}>
+      <div>
+        <label htmlFor="form-name" className="sr-only">
           Name:
         </label>
         <input type="text" name="name" id="form-name" placeholder="name" className={styles.formControl} />
-        <label htmlFor="form-email" className={styles.srOnly}>
+        <label htmlFor="form-email" className="sr-only">
           Email:
         </label>
         <input type="email" name="email" placeholder="email" id="form-email" className={styles.formControl} />
-        <label htmlFor="form-message" className={styles.srOnly}>
+        <label htmlFor="form-message" className="sr-only">
           Message:
         </label>
         <textarea name="message" rows={5} placeholder="message" id="form-message" className={styles.formControl} />
@@ -49,7 +49,7 @@ export const ContactForm = () => {
       {status === Status.Success ? (
         <p>Thanks!</p>
       ) : (
-        <Button type="submit" extraStyles={styles.submitBtn}>
+        <Button type="submit" className="block w-full p-1">
           <span>submit here</span>
         </Button>
       )}

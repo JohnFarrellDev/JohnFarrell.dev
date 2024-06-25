@@ -12,15 +12,6 @@
   padding: 1rem 1.5rem;
 }
 
-.srOnly {
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
 .formControl {
   display: block;
   width: 100%;
