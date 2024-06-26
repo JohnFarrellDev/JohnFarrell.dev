@@ -13,9 +13,12 @@ export const Skills = () => {
           const { id, title, description, icon, link } = skill
           return (
             <article key={id} className={styles.skill}>
-              {icon}
-              <h3>{title}</h3>
-              <Underline extraStyles={styles.underline} />
+              <div className="flex flex-col justify-center">
+                <div className="m-auto">{icon}</div>
+                <h3 className="grow">{title}</h3>
+                <Underline extraStyles={styles.underline} />
+              </div>
+
               <p>{description}</p>
               {link && (
                 <a href={link.url}>
