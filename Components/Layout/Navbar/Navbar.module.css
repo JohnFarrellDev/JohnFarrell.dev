@@ -17,9 +17,6 @@
   transition: var(--transition);
 }
 
-.toggleBtn:hover {
-}
-
 .navLinks {
   display: none;
 }

@@ -2,35 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-===============
-Variables
-===============
-*/
-
 :root {
-  /* dark shades of primary color*/
-  /* --clr-primary-1: hsl(43, 86%, 17%); */
   --clr-primary-1: hsl(184, 91%, 17%);
   --clr-primary-2: hsl(185, 84%, 25%);
   --clr-primary-3: hsl(185, 81%, 29%);
   --clr-primary-4: hsl(184, 77%, 34%);
   --clr-primary-5: #2caeba;
-  /* lighter shades of primary color */
   --clr-primary-6: hsl(185, 57%, 50%);
   --clr-primary-7: hsl(184, 65%, 59%);
   --clr-primary-8: hsl(184, 80%, 74%);
   --clr-primary-9: hsl(185, 94%, 87%);
   --clr-primary-10: hsl(186, 100%, 94%);
-  /* darkest grey - used for headings */
+
   --clr-grey-1: hsl(209, 61%, 16%);
   --clr-grey-3: hsl(209, 34%, 30%);
   --clr-grey-4: hsl(209, 28%, 39%);
-  /* grey used for paragraphs */
   --clr-grey-5: hsl(210, 22%, 49%);
   --clr-grey-8: hsl(210, 31%, 80%);
   --clr-grey-9: hsl(212, 33%, 89%);
   --clr-grey-10: hsl(210, 36%, 96%);
+
   --clr-green-dark: hsl(125, 67%, 35%);
   --clr-red-dark: hsl(360, 67%, 44%);
   --clr-red-light: hsl(360, 71%, 66%);
@@ -45,11 +36,6 @@ Variables
   --max-width: 1170px;
   --fixed-width: 700px;
 }
-/*
-===============
-Global Styles
-===============
-*/
 
 *,
 ::after,
@@ -370,80 +356,9 @@ Projects
 
 /*
 ===============
-Blog
-===============
-*/
-.blog {
-  display: block;
-  margin-bottom: 2rem;
-  background: var(--clr-grey-10);
-  border-radius: var(--radius);
-  box-shadow: var(--light-shadow);
-  transition: var(--transition);
-}
-.blog:hover {
-  box-shadow: var(--dark-shadow);
-  transform: scale(1.02);
-}
-.blog article {
-  height: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr;
-}
-.blog-card {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-}
-.blog-img {
-  border-top-left-radius: var(--radius);
-  border-top-right-radius: var(--radius);
-  height: 15rem;
-}
-.blog-card {
-  padding: 1.5rem 1rem;
-}
-.blog-card h4 {
-  color: var(--clr-grey-1);
-}
-
-.blog-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.blog-footer p {
-  margin-bottom: 0;
-  font-weight: bold;
-  color: var(--clr-grey-5);
-}
-.blog-footer p:first-of-type {
-  display: inline-block;
-  background: var(--clr-grey-9);
-  color: var(--clr-grey-5);
-  margin-right: 0.5rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: var(--radius);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.85rem;
-}
-@media screen and (min-width: 576px) {
-  .blog-img {
-    height: 17.5rem;
-  }
-}
-@media screen and (min-width: 850px) {
-  .blog-img {
-    height: 13.75rem;
-  }
-}
-
-/*
-===============
 Pages
 ===============
 */
-.blog-template,
 .projects-page,
 .blog-page,
 .error-page {
@@ -460,58 +375,4 @@ Pages
   text-transform: uppercase;
   color: var(--clr-primary-1);
   margin-bottom: 2rem;
-}
-/*
-===============
-Blog Page
-===============
-*/
-.blog-page .blog {
-  background: var(--clr-white);
-}
-
-/*
-===============
-Blog Template
-===============
-*/
-.blog-template {
-  padding: 5rem 0;
-}
-
-.blog-template h1,
-.blog-template h2 {
-  text-align: center;
-}
-.blog-template ul {
-  margin-top: 2rem;
-  display: inline-block;
-}
-.blog-template ul li {
-  background: var(--clr-grey-9);
-  color: var(--clr-grey-5);
-  padding: 0.5rem 1rem;
-  margin: 1rem 0;
-  text-transform: uppercase;
-}
-
-.blog-template blockquote {
-  background: var(--clr-primary-9);
-  border-radius: var(--radius);
-  padding: 1rem;
-  line-height: 2;
-  color: var(--clr-primary-5);
-  margin: 2rem 0;
-}
-.blog-template pre {
-  background: #222;
-  color: yellow;
-  overflow-x: scroll;
-  padding: 1rem 1.5rem;
-  border-radius: var(--radius);
-}
-.blog-template img {
-  width: 15rem;
-  height: 15rem;
-  margin: 3rem 0;
 }

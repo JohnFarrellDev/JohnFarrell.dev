@@ -11,13 +11,15 @@ export const Navbar = ({ toggleSidebar }: NavbarProps) => {
     <nav className={styles.navbar}>
       <div className={styles.navCenter}>
         <div className="flex justify-between items-center">
-          <button
-            type="button"
-            className={`text-4xl text-primary-500 hover:text-primary-200 ${styles.toggleBtn}`}
-            aria-label="open sidebar"
-          >
-            <FaAlignRight onClick={toggleSidebar} />
-          </button>
+          <div className="w-full flex justify-end">
+            <button
+              type="button"
+              className={`text-4xl text-primary-500 hover:text-primary-200 ${styles.toggleBtn}`}
+              aria-label="open sidebar"
+            >
+              <FaAlignRight onClick={toggleSidebar} />
+            </button>
+          </div>
         </div>
         <Links styleClass={styles.navLinks} />
       </div>

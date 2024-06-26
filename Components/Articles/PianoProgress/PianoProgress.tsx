@@ -3,7 +3,6 @@ import { Layout } from '../../Layout/Layout'
 import { SEO } from '../../SEO/SEO'
 import { Title } from '../../Utilities/Title/Title'
 import { CurrentyLearning } from './Sections/CurrentyLearning/CurrentyLearning'
-import { GradeOneProgress } from './Sections/GradeOneProgress/GradeOneProgress'
 import { SongTrackers } from './Sections/SongTracker/SongTrackers'
 
 export const PianoProgress = () => {
@@ -22,8 +21,6 @@ export const PianoProgress = () => {
             <CurrentyLearning />
 
             <SongTrackers />
-
-            <GradeOneProgress />
           </div>
         </section>
       </section>
