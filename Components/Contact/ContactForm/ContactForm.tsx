@@ -31,7 +31,7 @@ export const ContactForm = () => {
 
   return (
     <form action="https://formspree.io/xqkyvgaw" method="POST" onSubmit={submitForm}>
-      <div>
+      <div className="px-6">
         <label htmlFor="form-name" className="sr-only">
           Name:
         </label>
@@ -49,7 +49,7 @@ export const ContactForm = () => {
       {status === Status.Success ? (
         <p>Thanks!</p>
       ) : (
-        <Button type="submit" className="block w-full p-1">
+        <Button type="submit" extraStyles="block w-full py-4 bg-primary-300 text-primary-1000 font-bold">
           <span>submit here</span>
         </Button>
       )}
