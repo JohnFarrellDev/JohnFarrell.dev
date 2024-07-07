@@ -16,7 +16,7 @@ export const Skills = () => {
               <div className="flex flex-col justify-center">
                 <div className="m-auto">{icon}</div>
                 <h3 className="grow">{title}</h3>
-                <Underline extraStyles={styles.underline} />
+                <Underline className={styles.underline} />
               </div>
 
               <p>{description}</p>

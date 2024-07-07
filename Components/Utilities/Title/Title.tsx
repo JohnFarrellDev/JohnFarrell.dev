@@ -1,5 +1,5 @@
-import styles from './Title.module.css'
 import { Underline } from '../Underline/Underline'
+import { cn } from '../../../Utilities/cn'
 
 interface TitleProps {
   title: string
@@ -8,9 +8,9 @@ interface TitleProps {
 
 export const Title = ({ title, extraStyles }: TitleProps) => {
   return (
-    <div className={`${styles.sectionTitle} ${extraStyles ? extraStyles : ''}`}>
+    <div className={cn('mb-16 text-center', extraStyles)}>
       <h2>{title}</h2>
-      <Underline extraStyles={styles.underline} />
+      <Underline className="mx-auto" />
     </div>
   )
 }

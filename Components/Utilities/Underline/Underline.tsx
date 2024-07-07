@@ -1,10 +1,10 @@
 import React from 'react'
-import styles from './Underline.module.css'
+import { cn } from '../../../Utilities/cn'
 
 interface UnderlineProps {
-  extraStyles?: string
+  className?: string
 }
 
-export const Underline = ({ extraStyles }: UnderlineProps) => {
-  return <div className={extraStyles ? `${styles.underline} ${extraStyles}` : styles.underline} />
+export const Underline = ({ className }: UnderlineProps) => {
+  return <div className={cn('mb-2 h-1 w-60 bg-primary-500', className)} />
 }
