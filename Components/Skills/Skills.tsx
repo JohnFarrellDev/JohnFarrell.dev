@@ -6,7 +6,7 @@ import { Underline } from '../Utilities/Underline/Underline'
 
 export const Skills = () => {
   return (
-    <section className="section bg-grey">
+    <section className="section bg-grey-1000">
       <Title title="Tech Skills" />
       <div className={`section-center ${styles.skillsCenter}`}>
         {skills.map((skill) => {
