@@ -1,42 +1,47 @@
 import React from 'react'
 import Link from 'next/link'
+import { House } from '../../icons/House'
+import { Person } from '../../icons/Person'
+import { Wrench } from '../../icons/Wrench'
+import { NewsPaper } from '../../icons/NewsPaper'
+import { Mail } from '../../icons/Mail'
 
 const data = [
   {
     id: 1,
     text: 'home',
-    icon: '🏠',
+    icon: <House />,
     url: '/',
   },
   {
     id: 2,
     text: 'about me',
-    icon: '👨‍💻',
+    icon: <Person />,
     url: '/about-me/',
   },
   {
     id: 3,
     text: 'projects',
-    icon: '🛠️',
+    icon: <Wrench />,
     url: '/projects/',
   },
   {
     id: 4,
     text: 'articles',
-    icon: '📰',
+    icon: <NewsPaper />,
     url: '/articles/',
   },
   {
     id: 5,
     text: 'contact',
-    icon: '📞',
+    icon: <Mail />,
     url: '/contact/',
   },
 ]
 
 export function Links() {
   return (
-    <ul className="flex justify-end gap-8">
+    <ul className="flex justify-end gap-2 min-[300px]:gap-8">
       {data.map((link) => {
         return (
           <li key={link.id}>
