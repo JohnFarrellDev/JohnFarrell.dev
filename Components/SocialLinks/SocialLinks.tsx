@@ -1,5 +1,5 @@
 import { FaGithubSquare, FaLinkedin, FaTwitterSquare } from 'react-icons/fa'
-import styles from './SocialLinks.module.css'
+import { cn } from '../../Utilities/cn'
 
 const data = [
   {
@@ -31,7 +31,7 @@ const Links = ({ styleLinks }: LinksProps) => {
           <li key={link.id}>
             <a
               href={link.url}
-              className={styleLinks ? `${styles.socialLink} ${styleLinks}` : styles.socialLink}
+              className={cn('text-3xl text-grey-100 transition duration-500 hover:text-primary-500', styleLinks)}
               target="_blank"
               rel="noreferrer"
             >
@@ -45,13 +45,13 @@ const Links = ({ styleLinks }: LinksProps) => {
 }
 
 interface SocialLinksProps {
-  styleClass?: string
+  className?: string
   styleLinks?: string
 }
 
-export const SocialLinks = ({ styleClass, styleLinks }: SocialLinksProps) => {
+export const SocialLinks = ({ className, styleLinks }: SocialLinksProps) => {
   return (
-    <ul className={`${styles.socialLinks} ${styleClass || ''}`}>
+    <ul className={cn('mt-8 flex w-32 justify-between', className)}>
       <Links styleLinks={styleLinks} />
     </ul>
   )
