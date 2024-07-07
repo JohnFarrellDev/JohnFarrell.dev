@@ -19,7 +19,7 @@ export const Minesweeper = () => {
       <section className="blog-page">
         <section className="section">
           <div className="section-center">
-            <Title title="Solving Minesweeper" extraStyles={styles.title} />
+            <Title title="Solving Minesweeper" className={styles.title} />
 
             <ArticleTimeStamps createdAt={new Date('2022-10-09T22:19:37.934Z')} />
 

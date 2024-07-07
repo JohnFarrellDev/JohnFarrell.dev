@@ -93,7 +93,7 @@ export const Articles = () => {
       />
       <section className="blog-page">
         <section className="section">
-          <Title title="Articles" extraStyles={styles.title} />
+          <Title title="Articles" className={styles.title} />
           <div className="section-center">
             {allArticles.map(({ year, articles }) => (
               <Fragment key={year}>

@@ -1,8 +1,8 @@
 import { IoCopyOutline } from 'react-icons/io5'
-import styles from './DescendingNumberGame.module.css'
 import { RefObject, useEffect, useRef, useState } from 'react'
 import { deferredGameState, applyConfetti } from './DescendingNumberGame.utils'
 import { toast } from 'react-toastify'
+import { cn } from '../../../Utilities/cn'
 
 type SetGameProps = {
   gameType: 'set-size'
@@ -107,7 +107,7 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
   }
 
   return (
-    <div>
+    <div className="flex flex-col">
       {!isWinner && <CurrentNumber currentNumber={randomValue} targetNumber={numberOfSlots} />}
       <GameOver
         isGameOver={isGameOver}
@@ -156,8 +156,8 @@ const GameOver = ({
   return (
     <>
       {gameOverMessage}
-      <div className={styles.gameOver}>
-        <button className={styles.gameOverButton} onClick={handleRestartGame} ref={resetGameRef}>
+      <div className="mb-2 flex justify-center gap-4">
+        <button className="bg-green-300 p-2 hover:bg-green-400" onClick={handleRestartGame} ref={resetGameRef}>
           {gameOverButtonMessage}
         </button>
         <ShareButton shareMessage={shareMessage} />
@@ -188,7 +188,7 @@ const Slots = ({
   handleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void
 }) => {
   return (
-    <div className={styles.slotsContainer} ref={slotsContainerRef}>
+    <div className="mb-4 flex flex-col gap-1" ref={slotsContainerRef}>
       {slots.map((slot, index) => (
         <Slot
           index={index}
@@ -207,11 +207,11 @@ const Slots = ({
 const CurrentNumber = ({ currentNumber, targetNumber }: { currentNumber: number; targetNumber: number }) => {
   return (
     <>
-      <p className={styles.info}>
+      <p className="text-center">
         Attempt to place {targetNumber} randomly assigned numbers from 1 to 1,000 in descending order
       </p>
-      <p className={styles.currentNumber}>Your Current Number is:</p>
-      <p className={styles.nextNumber} suppressHydrationWarning={true}>
+      <p className="text-center">Your Current Number is:</p>
+      <p className="text-center text-3xl" suppressHydrationWarning={true}>
         {currentNumber}
       </p>
     </>
@@ -255,7 +255,7 @@ const ShareButton = ({
   }
 
   return (
-    <button onClick={handleShare} className={styles.shareButton}>
+    <button onClick={handleShare} className="flex gap-2 bg-blue-300 p-2 text-center hover:bg-blue-400">
       <IoCopyOutline size={20} />
       Share Results
     </button>
@@ -271,10 +271,10 @@ interface SlotProps {
   handleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void
 }
 
-const Slot = ({ index, slotValue, disabled, slotFail, handleClick, handleKeyDown }: SlotProps) => {
+function Slot({ index, slotValue, disabled, slotFail, handleClick, handleKeyDown }: SlotProps) {
   return (
-    <div className={styles.slotContainer}>
-      <span className={styles.slotNumber}>
+    <div className="flex justify-center gap-2">
+      <span>
         {Number(index + 1)
           .toString()
           .padStart(2, '0')}
@@ -284,11 +284,12 @@ const Slot = ({ index, slotValue, disabled, slotFail, handleClick, handleKeyDown
         type="button"
         onClick={() => handleClick(index)}
         onKeyDown={handleKeyDown}
-        className={styles.slotInput}
-        data-slot-fail={slotFail}
+        className={cn('block w-[150px] rounded-sm border border-gray-600 bg-gray-300 disabled:bg-gray-200', {
+          'bg-red-500': slotFail,
+          'disabled:bg-red-500': slotFail,
+        })}
         value={slotValue ?? ''}
         disabled={disabled}
-        data-index={index}
       />
     </div>
   )

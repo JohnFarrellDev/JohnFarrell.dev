@@ -1,5 +1,4 @@
 import confetti from 'canvas-confetti'
-import styles from './DescendingNumberGame.module.css'
 import { SetGameOrLevelGameProps } from './DescendingNumberGame'
 
 function randomDrift() {
@@ -54,58 +53,57 @@ export function applyConfetti(isWinner: boolean) {
 
 function generateGameOverMessageSetSize(currentScore: number, highScore: number) {
   if (currentScore === 20) {
-    return <p className={styles.gameOverMessage}>Wow, you got a perfect score!</p>
+    return <p>Wow, you got a perfect score!</p>
   }
 
   if (highScore === 0) {
     return (
-      <p className={styles.gameOverMessage}>
-        Well done on your first game, your score is <span className={styles.gameOverScore}>{currentScore}</span>, which
-        is a new high score!
+      <p>
+        Well done on your first game, your score is <span className="text-xl underline">{currentScore}</span>, which is
+        a new high score!
       </p>
     )
   }
 
   if (currentScore > highScore) {
     return (
-      <p className={styles.gameOverMessage}>
-        Game Over, your score is <span className={styles.gameOverScore}>{currentScore}</span>, which is a new high
-        score!
+      <p>
+        Game Over, your score is <span className="text-xl underline">{currentScore}</span>, which is a new high score!
       </p>
     )
   }
 
   if (currentScore < 4) {
     return (
-      <p className={styles.gameOverMessage}>
-        Game Over, your score is <span className={styles.gameOverScore}>{currentScore}</span>, wow that was bad! Your
-        high score is {highScore}!
+      <p>
+        Game Over, your score is <span className="text-xl underline">{currentScore}</span>, wow that was bad! Your high
+        score is {highScore}!
       </p>
     )
   }
 
   if (currentScore < 8) {
     return (
-      <p className={styles.gameOverMessage}>
-        Game Over, your score is <span className={styles.gameOverScore}>{currentScore}</span>, you can do better than
-        that! Your high score is {highScore}
+      <p>
+        Game Over, your score is <span className="text-xl underline">{currentScore}</span>, you can do better than that!
+        Your high score is {highScore}
       </p>
     )
   }
 
   if (currentScore < 12) {
     return (
-      <p className={styles.gameOverMessage}>
-        Game Over, your score is <span className={styles.gameOverScore}>{currentScore}</span>, not bad! Your high score
-        is {highScore}
+      <p>
+        Game Over, your score is <span className="text-xl underline">{currentScore}</span>, not bad! Your high score is{' '}
+        {highScore}
       </p>
     )
   }
 
   if (currentScore < 16) {
     return (
-      <p className={styles.gameOverMessage}>
-        Game Over, your score is <span className={styles.gameOverScore}>{currentScore}</span>, nice! Your high score is{' '}
+      <p>
+        Game Over, your score is <span className="text-xl underline">{currentScore}</span>, nice! Your high score is{' '}
         {highScore}
       </p>
     )
@@ -113,8 +111,8 @@ function generateGameOverMessageSetSize(currentScore: number, highScore: number)
 
   if (currentScore < 20) {
     return (
-      <p className={styles.gameOverMessage}>
-        Game Over, your score is <span className={styles.gameOverScore}>{currentScore}</span>, great job, so close!
+      <p>
+        Game Over, your score is <span className="text-xl underline">{currentScore}</span>, great job, so close!
       </p>
     )
   }
@@ -131,7 +129,7 @@ function generateGameOverMessageLevel(currentScore: number, gameTypeProps: SetGa
 
   if (currentScorePercentage < 25) {
     return (
-      <p className={styles.gameOverMessage}>
+      <p>
         Game Over, you got {currentScore} out of {gameTypeProps.level + 4} correct, which is pretty bad
       </p>
     )
@@ -139,7 +137,7 @@ function generateGameOverMessageLevel(currentScore: number, gameTypeProps: SetGa
 
   if (currentScorePercentage < 50) {
     return (
-      <p className={styles.gameOverMessage}>
+      <p>
         Game Over, you got {currentScore} out of {gameTypeProps.level + 4} correct, which is not bad
       </p>
     )
@@ -147,7 +145,7 @@ function generateGameOverMessageLevel(currentScore: number, gameTypeProps: SetGa
 
   if (currentScorePercentage < 75) {
     return (
-      <p className={styles.gameOverMessage}>
+      <p>
         Game Over, you got {currentScore} out of {gameTypeProps.level + 4} correct, which is pretty good
       </p>
     )
@@ -155,14 +153,14 @@ function generateGameOverMessageLevel(currentScore: number, gameTypeProps: SetGa
 
   if (currentScorePercentage < 100) {
     return (
-      <p className={styles.gameOverMessage}>
+      <p>
         Game Over, you got {currentScore} out of {gameTypeProps.level + 4} correct, so close!
       </p>
     )
   }
 
   if (currentScorePercentage >= 100) {
-    return <p className={styles.gameOverMessage}>Wow, you got a perfect score! Level complete</p>
+    return <p>Wow, you got a perfect score! Level complete</p>
   }
 
   return <></>

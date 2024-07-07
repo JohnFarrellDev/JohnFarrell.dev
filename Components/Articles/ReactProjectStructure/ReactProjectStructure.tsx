@@ -23,7 +23,7 @@ export const ReactProjectStructure = () => {
       <section className="blog-page">
         <section className="section">
           <div className="section-center">
-            <Title title="How I Like to Organise my React Projects" extraStyles={styles.title} />
+            <Title title="How I Like to Organise my React Projects" className={styles.title} />
 
             <ArticleTimeStamps createdAt={new Date('2022-08-01T14:15:28.433Z')} />
 

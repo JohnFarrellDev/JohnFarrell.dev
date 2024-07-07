@@ -113,49 +113,49 @@ describe('descendingNumberGame.utils', () => {
       {
         currentScore: 20,
         highScore: 0,
-        expectedMessage: '<p class="gameOverMessage">Wow, you got a perfect score!</p>',
+        expectedMessage: '<p>Wow, you got a perfect score!</p>',
       },
       {
         currentScore: 10,
         highScore: 0,
         expectedMessage:
-          '<p class="gameOverMessage">Well done on your first game, your score is <span class="gameOverScore">10</span>, which is a new high score!</p>',
+          '<p>Well done on your first game, your score is <span class="text-xl underline">10</span>, which is a new high score!</p>',
       },
       {
         currentScore: 10,
         highScore: 5,
         expectedMessage:
-          '<p class="gameOverMessage">Game Over, your score is <span class="gameOverScore">10</span>, which is a new high score!</p>',
+          '<p>Game Over, your score is <span class="text-xl underline">10</span>, which is a new high score!</p>',
       },
       {
         currentScore: 3,
         highScore: 5,
         expectedMessage:
-          '<p class="gameOverMessage">Game Over, your score is <span class="gameOverScore">3</span>, wow that was bad! Your high score is 5!</p>',
+          '<p>Game Over, your score is <span class="text-xl underline">3</span>, wow that was bad! Your high score is 5!</p>',
       },
       {
         currentScore: 7,
         highScore: 20,
         expectedMessage:
-          '<p class="gameOverMessage">Game Over, your score is <span class="gameOverScore">7</span>, you can do better than that! Your high score is 20</p>',
+          '<p>Game Over, your score is <span class="text-xl underline">7</span>, you can do better than that! Your high score is 20</p>',
       },
       {
         currentScore: 11,
         highScore: 20,
         expectedMessage:
-          '<p class="gameOverMessage">Game Over, your score is <span class="gameOverScore">11</span>, not bad! Your high score is 20</p>',
+          '<p>Game Over, your score is <span class="text-xl underline">11</span>, not bad! Your high score is 20</p>',
       },
       {
         currentScore: 15,
         highScore: 20,
         expectedMessage:
-          '<p class="gameOverMessage">Game Over, your score is <span class="gameOverScore">15</span>, nice! Your high score is 20</p>',
+          '<p>Game Over, your score is <span class="text-xl underline">15</span>, nice! Your high score is 20</p>',
       },
       {
         currentScore: 19,
         highScore: 20,
         expectedMessage:
-          '<p class="gameOverMessage">Game Over, your score is <span class="gameOverScore">19</span>, great job, so close!</p>',
+          '<p>Game Over, your score is <span class="text-xl underline">19</span>, great job, so close!</p>',
       },
     ])(
       'should return the correct message if isGameOver is true and the gameType is set-size',
@@ -175,23 +175,23 @@ describe('descendingNumberGame.utils', () => {
     it.each([
       {
         currentScore: 2,
-        expectedMessage: '<p class="gameOverMessage">Game Over, you got 2 out of 10 correct, which is pretty bad</p>',
+        expectedMessage: '<p>Game Over, you got 2 out of 10 correct, which is pretty bad</p>',
       },
       {
         currentScore: 4,
-        expectedMessage: '<p class="gameOverMessage">Game Over, you got 4 out of 10 correct, which is not bad</p>',
+        expectedMessage: '<p>Game Over, you got 4 out of 10 correct, which is not bad</p>',
       },
       {
         currentScore: 7,
-        expectedMessage: '<p class="gameOverMessage">Game Over, you got 7 out of 10 correct, which is pretty good</p>',
+        expectedMessage: '<p>Game Over, you got 7 out of 10 correct, which is pretty good</p>',
       },
       {
         currentScore: 9,
-        expectedMessage: '<p class="gameOverMessage">Game Over, you got 9 out of 10 correct, so close!</p>',
+        expectedMessage: '<p>Game Over, you got 9 out of 10 correct, so close!</p>',
       },
       {
         currentScore: 10,
-        expectedMessage: '<p class="gameOverMessage">Wow, you got a perfect score! Level complete</p>',
+        expectedMessage: '<p>Wow, you got a perfect score! Level complete</p>',
       },
     ])(
       'should return the correct message if isGameOver is true and the gameType is level',

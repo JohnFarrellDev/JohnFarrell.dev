@@ -16,7 +16,7 @@ export const PianoProgress = () => {
       <section className="blog-page">
         <section className="section">
           <div className="section-center">
-            <Title title="Piano Progress" extraStyles={styles.title} />
+            <Title title="Piano Progress" className={styles.title} />
 
             <CurrentyLearning />
 
