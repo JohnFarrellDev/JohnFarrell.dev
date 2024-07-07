@@ -1,14 +1,12 @@
 import { Underline } from '../Underline/Underline'
-import { cn } from '../../../Utilities/cn'
 
 interface TitleProps {
   title: string
-  className?: string
 }
 
-export const Title = ({ title, className }: TitleProps) => {
+export const Title = ({ title }: TitleProps) => {
   return (
-    <div className={cn('mb-8 text-center', className)}>
+    <div className="mb-4 text-center">
       <h2>{title}</h2>
       <Underline className="mx-auto" />
     </div>

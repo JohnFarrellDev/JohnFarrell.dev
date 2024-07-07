@@ -1,4 +1,3 @@
-import styles from './PianoProgress.module.css'
 import { Layout } from '../../Layout/Layout'
 import { SEO } from '../../SEO/SEO'
 import { Title } from '../../Utilities/Title/Title'
@@ -16,10 +15,8 @@ export const PianoProgress = () => {
       <section className="blog-page">
         <section className="section">
           <div className="section-center">
-            <Title title="Piano Progress" className={styles.title} />
-
+            <Title title="Piano Progress" />
             <CurrentyLearning />
-
             <SongTrackers />
           </div>
         </section>

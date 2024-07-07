@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import styles from './ReactProjectStructure.module.css'
 import { Layout } from '../../Layout/Layout'
 import { SEO } from '../../SEO/SEO'
 import { Title } from '../../Utilities/Title/Title'
@@ -23,7 +22,7 @@ export const ReactProjectStructure = () => {
       <section className="blog-page">
         <section className="section">
           <div className="section-center">
-            <Title title="How I Like to Organise my React Projects" className={styles.title} />
+            <Title title="How I Like to Organise my React Projects" />
 
             <ArticleTimeStamps createdAt={new Date('2022-08-01T14:15:28.433Z')} />
 
