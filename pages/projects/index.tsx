@@ -3,7 +3,6 @@ import { ArticleCard } from '../../Components/Articles/ArticleCard'
 import { Layout } from '../../Components/Layout/Layout'
 import { SEO } from '../../Components/SEO/SEO'
 import { Title } from '../../Components/Utilities/Title/Title'
-import styles from './projects.module.css'
 
 const allProjects = [
   {
@@ -49,13 +48,13 @@ const Projects = () => {
   return (
     <Layout>
       <SEO title="Projects | John Farrell" description="Software engineering projects created by John Farrell" />
-      <section className="section projects">
+      <section className="section projects h-full">
         <Title title="Projects" />
         <div className="section-center projects-center">
           {allProjects.map(({ year, projects }) => (
             <Fragment key={year}>
-              <h2 className={styles.year}>{year}</h2>
-              <ul className={styles.articlesContainer}>
+              <h2 className="my-3 text-center text-xl">{year}</h2>
+              <ul className="mx-auto my-0 flex flex-col gap-5">
                 {projects.map((project) => (
                   <ArticleCard key={project.URL} {...project} />
                 ))}
