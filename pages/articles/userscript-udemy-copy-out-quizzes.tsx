@@ -7,7 +7,7 @@ import { Title } from '../../Components/Utilities/Title/Title'
 import { TableOfContents } from '../../Components/Articles/Utilities/TableOfContents/TableOfContents'
 import { SectionTitle } from '../../Components/Articles/Utilities/SectionTitle/SectionTitle'
 import { SubSectionTitle } from '../../Components/Articles/Utilities/SubSectionTitle/SubSectionTitle'
-import { VideoContainer } from '../../Components/Utilities/VideoContainer/VideoContainer'
+import { YoutubeVideo } from '../../Components/Utilities/YoutubeVideo/YoutubeVideo'
 import { CodeBlock } from '../../Components/Articles/Utilities/CodeBlock/CodeBlock'
 import Image from 'next/image'
 
@@ -129,21 +129,17 @@ const Articles = () => {
             <SectionTitle id="video-demo">Video Demo</SectionTitle>
 
             <SubSectionTitle id="video-demo-copy-from-practice-test">Copy from Practice Test</SubSectionTitle>
-            <VideoContainer>
-              <iframe src="https://www.youtube.com/embed/iNQTm9M3rbE" title="Copy from Practice Test" />
-            </VideoContainer>
+
+            <YoutubeVideo src="https://www.youtube.com/embed/iNQTm9M3rbE" title="Copy from Practice Test" />
 
             <SubSectionTitle id="video-demo-copy-from-end-of-section-quiz">
               Copy from End of Section Quiz
             </SubSectionTitle>
-            <VideoContainer>
-              <iframe src="https://www.youtube.com/embed/dTyebX77JPU" title="Copy from End of Section Quiz" />
-            </VideoContainer>
+
+            <YoutubeVideo src="https://www.youtube.com/embed/dTyebX77JPU" title="Copy from End of Section Quiz" />
 
             <SubSectionTitle id="end-result-in-zorbi">End result in Zorbi</SubSectionTitle>
-            <VideoContainer>
-              <iframe src="https://www.youtube.com/embed/7WWEwf86RvE" title="Zorbi demo" />
-            </VideoContainer>
+            <YoutubeVideo src="https://www.youtube.com/embed/7WWEwf86RvE" title="Zorbi demo" />
 
             <SectionTitle id="code">Code</SectionTitle>
 
