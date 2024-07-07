@@ -8,8 +8,8 @@ export function Person() {
       fill="none"
       stroke="currentColor"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       <path d="M18 20a6 6 0 0 0-12 0" />
       <circle cx="12" cy="10" r="4" />
