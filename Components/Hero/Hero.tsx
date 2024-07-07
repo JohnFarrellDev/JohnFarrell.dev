@@ -15,11 +15,9 @@ export const Hero = () => {
             <h1 className="text-7xl font-bold">Hello, I'm John</h1>
             <h2 className="text-lg text-grey-300">I'm a software developer with a focus on the web</h2>
 
-            <Button className={styles.btn}>
-              <Link href="/contact" passHref={true} className="text-primary-1000">
-                <span>Contact Me</span>
-              </Link>
-            </Button>
+            <Link href="/contact">
+              <Button>Contact Me</Button>
+            </Link>
 
             <SocialLinks />
           </div>

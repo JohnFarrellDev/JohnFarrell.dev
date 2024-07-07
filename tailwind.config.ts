@@ -1,9 +1,5 @@
 module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './Components/**/*.{js,ts,jsx,tsx}',
-    // Add more paths here if you have more directories where you use Tailwind classes
-  ],
+  content: ['./pages/**/*.{js,ts,jsx,tsx}', './Components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
