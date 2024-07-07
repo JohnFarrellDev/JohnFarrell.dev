@@ -10,7 +10,7 @@ export class Queue<T> {
   length: number
 
   constructor() {
-    this.length = 0;
+    this.length = 0
     this.tail = undefined
     this.head = undefined
   }
@@ -37,13 +37,13 @@ export class Queue<T> {
     this.tail.next = addedNode
     addedNode.prev = this.tail
     this.tail = this.tail.next
-    this.length++;
+    this.length++
   }
 
   enqueueArray(values: T[]) {
-    for(let i  = 0; i < values.length; i++) {
-        const value = values[i]
-        this.enqueue(value)
+    for (let i = 0; i < values.length; i++) {
+      const value = values[i]
+      this.enqueue(value)
     }
   }
 
@@ -56,9 +56,9 @@ export class Queue<T> {
 
     this.head = this.head.next
     if (this.head) this.head.prev = undefined
-    if(!this.head?.next) this.tail = undefined
+    if (!this.head?.next) this.tail = undefined
 
-    this.length--;
+    this.length--
 
     return value
   }

@@ -2,13 +2,7 @@ import { SVGProps } from 'react'
 
 export const Bomb = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      id="emoji"
-      viewBox="0 0 72 72"
-      xmlns="http://www.w3.org/2000/svg"
-      data-testid="bomb"
-      {...props}
-    >
+    <svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" data-testid="bomb" {...props}>
       <g id="color">
         <rect
           x="42.9998"
@@ -18,10 +12,7 @@ export const Bomb = (props: SVGProps<SVGSVGElement>) => {
           transform="matrix(0.7071 -0.7071 0.7071 0.7071 -2.4114 41.1773)"
           fill="#9B9B9A"
         />
-        <polygon
-          fill="#3F3F3F"
-          points="46.0339,22.2119 50.512,17.7338 57.8891,25.1109 52.5221,30.4779"
-        />
+        <polygon fill="#3F3F3F" points="46.0339,22.2119 50.512,17.7338 57.8891,25.1109 52.5221,30.4779" />
         <circle cx="31.769" cy="40.4038" r="23" fill="#9B9B9A" />
         <path
           fill="#3F3F3F"

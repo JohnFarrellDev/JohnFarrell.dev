@@ -31,12 +31,9 @@ const Links = ({ styleLinks }: LinksProps) => {
           <li key={link.id}>
             <a
               href={link.url}
-              className={
-                styleLinks
-                  ? `${styles.socialLink} ${styleLinks}`
-                  : styles.socialLink
-              }
-              target="_blank" rel="noreferrer"
+              className={styleLinks ? `${styles.socialLink} ${styleLinks}` : styles.socialLink}
+              target="_blank"
+              rel="noreferrer"
             >
               {link.icon}
             </a>

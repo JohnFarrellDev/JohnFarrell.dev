@@ -130,42 +130,42 @@ describe.only('calculate neighbor information', () => {
     expect(changesToApply[1].changes[0]).toEqual({
       columnIndex: 4,
       rowIndex: 4,
-      action: 'SELECTEDNEIGHBORCELL'
+      action: 'SELECTEDNEIGHBORCELL',
     })
     expect(changesToApply[1].changes[1]).toEqual({
       columnIndex: 0,
       rowIndex: 4,
-      action: 'SELECTEDNEIGHBORCELL'
+      action: 'SELECTEDNEIGHBORCELL',
     })
     expect(changesToApply[1].changes[2]).toEqual({
       columnIndex: 1,
       rowIndex: 4,
-      action: 'SELECTEDNEIGHBORCELL'
+      action: 'SELECTEDNEIGHBORCELL',
     })
     expect(changesToApply[1].changes[3]).toEqual({
       columnIndex: 4,
       rowIndex: 0,
-      action: 'SELECTEDNEIGHBORCELL'
+      action: 'SELECTEDNEIGHBORCELL',
     })
     expect(changesToApply[1].changes[4]).toEqual({
       columnIndex: 1,
       rowIndex: 0,
-      action: 'SELECTEDNEIGHBORCELL'
+      action: 'SELECTEDNEIGHBORCELL',
     })
     expect(changesToApply[1].changes[5]).toEqual({
       columnIndex: 4,
       rowIndex: 1,
-      action: 'SELECTEDNEIGHBORCELL'
+      action: 'SELECTEDNEIGHBORCELL',
     })
     expect(changesToApply[1].changes[6]).toEqual({
       columnIndex: 0,
       rowIndex: 1,
-      action: 'SELECTEDNEIGHBORCELL'
+      action: 'SELECTEDNEIGHBORCELL',
     })
     expect(changesToApply[1].changes[7]).toEqual({
       columnIndex: 1,
       rowIndex: 1,
-      action: 'SELECTEDNEIGHBORCELL'
+      action: 'SELECTEDNEIGHBORCELL',
     })
 
     expect(changesToApply[2].time).toBe(0)
@@ -173,7 +173,7 @@ describe.only('calculate neighbor information', () => {
   })
 
   it('should have an action of SELECTEDNEIGHBORCELLBOMB when the neighbor cell is a bomb (bordered mode)', () => {
-    state.revealedBoard[0][1].isBomb = true;
+    state.revealedBoard[0][1].isBomb = true
 
     calculateNeighborInformation(state)
 
@@ -186,28 +186,27 @@ describe.only('calculate neighbor information', () => {
         {
           rowIndex: 0,
           columnIndex: 1,
-          action: "SELECTEDNEIGHBORCELLBOMB",
+          action: 'SELECTEDNEIGHBORCELLBOMB',
         },
         {
           rowIndex: 1,
           columnIndex: 0,
-          action: "SELECTEDNEIGHBORCELL",
+          action: 'SELECTEDNEIGHBORCELL',
         },
         {
           rowIndex: 1,
           columnIndex: 1,
-          action: "SELECTEDNEIGHBORCELL",
+          action: 'SELECTEDNEIGHBORCELL',
         },
         {
-          action: "APPLYNEIGHBORINFORMATION",
+          action: 'APPLYNEIGHBORINFORMATION',
           neighbors: [
             {
               id: 1,
               isCovered: true,
               isBomb: true,
               isFlagged: false,
-              neighbors: [
-              ],
+              neighbors: [],
               neighborBombs: 0,
             },
             {
@@ -215,8 +214,7 @@ describe.only('calculate neighbor information', () => {
               isCovered: true,
               isBomb: false,
               isFlagged: false,
-              neighbors: [
-              ],
+              neighbors: [],
               neighborBombs: 0,
             },
             {
@@ -224,8 +222,7 @@ describe.only('calculate neighbor information', () => {
               isCovered: true,
               isBomb: false,
               isFlagged: false,
-              neighbors: [
-              ],
+              neighbors: [],
               neighborBombs: 0,
             },
           ],
@@ -238,7 +235,7 @@ describe.only('calculate neighbor information', () => {
   })
 
   it('should have an action of SELECTEDNEIGHBORCELLBOMB when the neighbor cell is a bomb (borderless mode)', () => {
-    state.revealedBoard[0][1].isBomb = true;
+    state.revealedBoard[0][1].isBomb = true
     state.borderlessMode = true
 
     calculateNeighborInformation(state)
@@ -252,53 +249,52 @@ describe.only('calculate neighbor information', () => {
         {
           rowIndex: 4,
           columnIndex: 4,
-          action: "SELECTEDNEIGHBORCELL",
+          action: 'SELECTEDNEIGHBORCELL',
         },
         {
           rowIndex: 4,
           columnIndex: 0,
-          action: "SELECTEDNEIGHBORCELL",
+          action: 'SELECTEDNEIGHBORCELL',
         },
         {
           rowIndex: 4,
           columnIndex: 1,
-          action: "SELECTEDNEIGHBORCELL",
+          action: 'SELECTEDNEIGHBORCELL',
         },
         {
           rowIndex: 0,
           columnIndex: 4,
-          action: "SELECTEDNEIGHBORCELL",
+          action: 'SELECTEDNEIGHBORCELL',
         },
         {
           rowIndex: 0,
           columnIndex: 1,
-          action: "SELECTEDNEIGHBORCELLBOMB",
+          action: 'SELECTEDNEIGHBORCELLBOMB',
         },
         {
           rowIndex: 1,
           columnIndex: 4,
-          action: "SELECTEDNEIGHBORCELL",
+          action: 'SELECTEDNEIGHBORCELL',
         },
         {
           rowIndex: 1,
           columnIndex: 0,
-          action: "SELECTEDNEIGHBORCELL",
+          action: 'SELECTEDNEIGHBORCELL',
         },
         {
           rowIndex: 1,
           columnIndex: 1,
-          action: "SELECTEDNEIGHBORCELL",
+          action: 'SELECTEDNEIGHBORCELL',
         },
         {
-          action: "APPLYNEIGHBORINFORMATION",
+          action: 'APPLYNEIGHBORINFORMATION',
           neighbors: [
             {
               id: 24,
               isCovered: true,
               isBomb: false,
               isFlagged: false,
-              neighbors: [
-              ],
+              neighbors: [],
               neighborBombs: 0,
             },
             {
@@ -306,8 +302,7 @@ describe.only('calculate neighbor information', () => {
               isCovered: true,
               isBomb: false,
               isFlagged: false,
-              neighbors: [
-              ],
+              neighbors: [],
               neighborBombs: 0,
             },
             {
@@ -315,8 +310,7 @@ describe.only('calculate neighbor information', () => {
               isCovered: true,
               isBomb: false,
               isFlagged: false,
-              neighbors: [
-              ],
+              neighbors: [],
               neighborBombs: 0,
             },
             {
@@ -324,8 +318,7 @@ describe.only('calculate neighbor information', () => {
               isCovered: true,
               isBomb: false,
               isFlagged: false,
-              neighbors: [
-              ],
+              neighbors: [],
               neighborBombs: 0,
             },
             {
@@ -333,8 +326,7 @@ describe.only('calculate neighbor information', () => {
               isCovered: true,
               isBomb: true,
               isFlagged: false,
-              neighbors: [
-              ],
+              neighbors: [],
               neighborBombs: 0,
             },
             {
@@ -342,8 +334,7 @@ describe.only('calculate neighbor information', () => {
               isCovered: true,
               isBomb: false,
               isFlagged: false,
-              neighbors: [
-              ],
+              neighbors: [],
               neighborBombs: 0,
             },
             {
@@ -351,8 +342,7 @@ describe.only('calculate neighbor information', () => {
               isCovered: true,
               isBomb: false,
               isFlagged: false,
-              neighbors: [
-              ],
+              neighbors: [],
               neighborBombs: 0,
             },
             {
@@ -360,8 +350,7 @@ describe.only('calculate neighbor information', () => {
               isCovered: true,
               isBomb: false,
               isFlagged: false,
-              neighbors: [
-              ],
+              neighbors: [],
               neighborBombs: 0,
             },
           ],
@@ -427,9 +416,7 @@ describe.only('calculate neighbor information', () => {
 
       calculateNeighborInformation(state)
 
-      expect(
-        state.revealedBoard[testedCell[0]][testedCell[1]].neighborBombs
-      ).toBe(expectedBombs)
+      expect(state.revealedBoard[testedCell[0]][testedCell[1]].neighborBombs).toBe(expectedBombs)
     }
   )
 })

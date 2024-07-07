@@ -2,13 +2,7 @@ import { SVGProps } from 'react'
 
 export const HumanNeutralFace = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      id="emoji"
-      viewBox="0 0 72 72"
-      xmlns="http://www.w3.org/2000/svg"
-      data-testid="human-neutral-face"
-      {...props}
-    >
+    <svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" data-testid="human-neutral-face" {...props}>
       <g id="color">
         <path
           fill="#FCEA2B"
@@ -19,15 +13,7 @@ export const HumanNeutralFace = (props: SVGProps<SVGSVGElement>) => {
       <g id="skin" />
       <g id="skin-shadow" />
       <g id="line">
-        <circle
-          cx="36"
-          cy="36"
-          r="23"
-          fill="none"
-          stroke="#000000"
-          strokeMiterlimit="10"
-          strokeWidth="2"
-        />
+        <circle cx="36" cy="36" r="23" fill="none" stroke="#000000" strokeMiterlimit="10" strokeWidth="2" />
         <line
           x1="27"
           x2="45"

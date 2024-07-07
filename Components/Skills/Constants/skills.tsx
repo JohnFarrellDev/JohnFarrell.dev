@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  SiJavascript,
-  SiTypescript,
-  SiReact,
-  SiNodedotjs,
-  SiCsharp,
-} from 'react-icons/si'
+import { SiJavascript, SiTypescript, SiReact, SiNodedotjs, SiCsharp } from 'react-icons/si'
 import { AiFillGithub } from 'react-icons/ai'
 import styles from '../Skills.module.css'
 

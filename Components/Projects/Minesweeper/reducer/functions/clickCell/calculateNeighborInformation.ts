@@ -39,43 +39,28 @@ export const calculateNeighborInformation = (state: State) => {
 
           neighborIndexesBorderless.forEach((neighborIndex, indx) => {
             const nRowIndex =
-              isOnTop && indx <= 2
-                ? state.rows - 1
-                : isOnBottom && indx >= 5
-                ? 0
-                : rowIndex + neighborIndex[0]
+              isOnTop && indx <= 2 ? state.rows - 1 : isOnBottom && indx >= 5 ? 0 : rowIndex + neighborIndex[0]
 
             const nColumnIndex =
               isOnLeft && (indx === 0 || indx === 3 || indx === 5)
                 ? state.columns - 1
                 : isOnRight && (indx === 2 || indx === 4 || indx === 7)
-                ? 0
-                : columnIndex + neighborIndex[1]
+                  ? 0
+                  : columnIndex + neighborIndex[1]
 
             cellNeighbors.push(state.revealedBoard[nRowIndex][nColumnIndex])
           })
         } else {
           neighborIndexes.forEach((neighborIndex) => {
-            if (
-              state.revealedBoard[rowIndex + neighborIndex[0]]?.[
-                columnIndex + neighborIndex[1]
-              ]
-            ) {
-              cellNeighbors.push(
-                state.revealedBoard[rowIndex + neighborIndex[0]][
-                  columnIndex + neighborIndex[1]
-                ]
-              )
+            if (state.revealedBoard[rowIndex + neighborIndex[0]]?.[columnIndex + neighborIndex[1]]) {
+              cellNeighbors.push(state.revealedBoard[rowIndex + neighborIndex[0]][columnIndex + neighborIndex[1]])
             }
           })
         }
 
         cell.neighbors = cellNeighbors
 
-        cell.neighborBombs = cell.neighbors.reduce(
-          (prev, current) => prev + Number(current.isBomb),
-          0
-        )
+        cell.neighborBombs = cell.neighbors.reduce((prev, current) => prev + Number(current.isBomb), 0)
       })
     })
 
@@ -116,18 +101,14 @@ export const calculateNeighborInformation = (state: State) => {
 
         neighborIndexesBorderless.forEach((neighborIndex, indx) => {
           const nRowIndex =
-            isOnTop && indx <= 2
-              ? state.rows - 1
-              : isOnBottom && indx >= 5
-              ? 0
-              : rowIndex + neighborIndex[0]
+            isOnTop && indx <= 2 ? state.rows - 1 : isOnBottom && indx >= 5 ? 0 : rowIndex + neighborIndex[0]
 
           const nColumnIndex =
             isOnLeft && (indx === 0 || indx === 3 || indx === 5)
               ? state.columns - 1
               : isOnRight && (indx === 2 || indx === 4 || indx === 7)
-              ? 0
-              : columnIndex + neighborIndex[1]
+                ? 0
+                : columnIndex + neighborIndex[1]
 
           cellNeighbors.push(state.revealedBoard[nRowIndex][nColumnIndex])
           neighborCellsChanges.push({
@@ -140,22 +121,12 @@ export const calculateNeighborInformation = (state: State) => {
         })
       } else {
         neighborIndexes.forEach((neighborIndex) => {
-          if (
-            state.revealedBoard[rowIndex + neighborIndex[0]]?.[
-              columnIndex + neighborIndex[1]
-            ]
-          ) {
-            cellNeighbors.push(
-              state.revealedBoard[rowIndex + neighborIndex[0]][
-                columnIndex + neighborIndex[1]
-              ]
-            )
+          if (state.revealedBoard[rowIndex + neighborIndex[0]]?.[columnIndex + neighborIndex[1]]) {
+            cellNeighbors.push(state.revealedBoard[rowIndex + neighborIndex[0]][columnIndex + neighborIndex[1]])
             neighborCellsChanges.push({
               rowIndex: rowIndex + neighborIndex[0],
               columnIndex: columnIndex + neighborIndex[1],
-              action: state.revealedBoard[rowIndex + neighborIndex[0]][
-                columnIndex + neighborIndex[1]
-              ].isBomb
+              action: state.revealedBoard[rowIndex + neighborIndex[0]][columnIndex + neighborIndex[1]].isBomb
                 ? 'SELECTEDNEIGHBORCELLBOMB'
                 : 'SELECTEDNEIGHBORCELL',
             })
@@ -165,19 +136,15 @@ export const calculateNeighborInformation = (state: State) => {
 
       const neighbors = cellNeighbors
 
-      const neighborBombs = neighbors.reduce(
-        (prev, current) => prev + Number(current.isBomb),
-        0
-      )
-      
+      const neighborBombs = neighbors.reduce((prev, current) => prev + Number(current.isBomb), 0)
+
       neighborCellsChanges.push({
-        action: "APPLYNEIGHBORINFORMATION",
+        action: 'APPLYNEIGHBORINFORMATION',
         neighbors,
         neighborBombs,
         rowIndex,
-        columnIndex
+        columnIndex,
       })
-      
 
       state.changesToApply.enqueue({
         time: AnimationSpeed.NeighborInformation,

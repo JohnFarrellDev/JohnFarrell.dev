@@ -8,10 +8,11 @@ export const jobs = [
     responsibilities: [
       {
         id: 1,
-        description: 'Worked with British Airways to launch a site wide transformation with a particular focus from myself on a new homepage',
-        technology: ['TypeScript', 'React', 'Next.js']
-      }
-    ]
+        description:
+          'Worked with British Airways to launch a site wide transformation with a particular focus from myself on a new homepage',
+        technology: ['TypeScript', 'React', 'Next.js'],
+      },
+    ],
   },
   {
     id: 5,
@@ -22,8 +23,7 @@ export const jobs = [
     responsibilities: [
       {
         id: 1,
-        description:
-          'Working as part of the support team to fix bugs impacting our customers',
+        description: 'Working as part of the support team to fix bugs impacting our customers',
         technology: ['TypeScript', 'React', 'Next.js', 'Go', 'AWS'],
       },
     ],
@@ -37,8 +37,7 @@ export const jobs = [
     responsibilities: [
       {
         id: 1,
-        description:
-          'Content Discovery Team - Developed APIs to deliver a personalised content feed to users',
+        description: 'Content Discovery Team - Developed APIs to deliver a personalised content feed to users',
         technology: ['TypeScript', 'Node', 'AWS'],
       },
     ],
@@ -52,8 +51,7 @@ export const jobs = [
     responsibilities: [
       {
         id: 3,
-        description:
-          'Built a prototype of the Met Office weather app as part of a bid',
+        description: 'Built a prototype of the Met Office weather app as part of a bid',
         technology: ['JavaScript', 'TypeScript', 'React', 'next.js', 'vercel'],
       },
       {
@@ -66,15 +64,7 @@ export const jobs = [
         id: 1,
         description:
           'Worked with Hackney social care to build a web application for social care workers to facilitate their work within the community',
-        technology: [
-          'JavaScript',
-          'TypeScript',
-          'React',
-          'next.js',
-          'C#',
-          '.NET',
-          'AWS',
-        ],
+        technology: ['JavaScript', 'TypeScript', 'React', 'next.js', 'C#', '.NET', 'AWS'],
       },
     ],
   },
@@ -100,34 +90,18 @@ export const jobs = [
       },
       {
         id: 3,
-        description:
-          'Developed an application that allowed the configuration of communication devices',
-        technology: [
-          'JavaScript',
-          'TypeScript',
-          'React',
-          'Java',
-          'Spring',
-          'SNMP',
-        ],
+        description: 'Developed an application that allowed the configuration of communication devices',
+        technology: ['JavaScript', 'TypeScript', 'React', 'Java', 'Spring', 'SNMP'],
       },
       {
         id: 4,
         description:
           'Developed a web app that gave government contractors a collaborative online platform to create work proposals',
-        technology: [
-          'JavaScript',
-          'TypeScript',
-          'Angular',
-          'Java',
-          'Spring',
-          'SQL',
-        ],
+        technology: ['JavaScript', 'TypeScript', 'Angular', 'Java', 'Spring', 'SQL'],
       },
       {
         id: 5,
-        description:
-          'Developed an internal web app so that all new-joiners could take a required security quiz',
+        description: 'Developed an internal web app so that all new-joiners could take a required security quiz',
         technology: ['JavaScript', 'TypeScript', 'Vue', 'Java', 'Spring'],
       },
     ],

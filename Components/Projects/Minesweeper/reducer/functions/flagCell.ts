@@ -9,7 +9,7 @@ export const flagCell = (state: State, action: RightClickCellAction) => {
 
   if (!state.allowedOperations.FlagCell) return
 
-  if(state.revealedBoard[action.rowIndex][action.columnIndex].isFlagged) {
+  if (state.revealedBoard[action.rowIndex][action.columnIndex].isFlagged) {
     state.revealedBoard[action.rowIndex][action.columnIndex].isFlagged = false
     state.board[action.rowIndex][action.columnIndex].isFlagged = false
     state.flagsPlaced--

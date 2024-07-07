@@ -2,13 +2,7 @@ import { SVGProps } from 'react'
 
 export const CatScaredFace = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      id="emoji"
-      viewBox="0 0 72 72"
-      xmlns="http://www.w3.org/2000/svg"
-      data-testid="cat-scared-face"
-      {...props}
-    >
+    <svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" data-testid="cat-scared-face" {...props}>
       <g id="color">
         <path
           fill="#F4AA41"

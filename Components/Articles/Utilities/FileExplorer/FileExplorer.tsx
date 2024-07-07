@@ -27,11 +27,7 @@ interface FileExplorerContentProps {
   isHiddenProp?: boolean
 }
 
-const FileExplorerContent = ({
-  content,
-  depth,
-  isHiddenProp,
-}: FileExplorerContentProps) => {
+const FileExplorerContent = ({ content, depth, isHiddenProp }: FileExplorerContentProps) => {
   const [isHidden, setIsHidden] = useState<Set<number>>(new Set())
   const [isShown, setIsShown] = useState<Set<number>>(new Set())
 
@@ -103,9 +99,7 @@ const FileExplorerContent = ({
               <FileExplorerContent
                 content={c.content}
                 depth={depth + 1}
-                isHiddenProp={
-                  (c.collapsed || isHidden.has(index)) && !isShown.has(index)
-                }
+                isHiddenProp={(c.collapsed || isHidden.has(index)) && !isShown.has(index)}
               />
             </>
           )}

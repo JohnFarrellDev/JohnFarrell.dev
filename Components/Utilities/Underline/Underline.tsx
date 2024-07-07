@@ -6,11 +6,5 @@ interface UnderlineProps {
 }
 
 export const Underline = ({ extraStyles }: UnderlineProps) => {
-  return (
-    <div
-      className={
-        extraStyles ? `${styles.underline} ${extraStyles}` : styles.underline
-      }
-    />
-  )
+  return <div className={extraStyles ? `${styles.underline} ${extraStyles}` : styles.underline} />
 }

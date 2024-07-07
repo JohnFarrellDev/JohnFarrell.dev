@@ -36,12 +36,8 @@ describe('right click cell', () => {
 
     flagCell(state, action)
 
-    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(
-      false
-    )
-    expect(state.revealedBoard[action.rowIndex][action.columnIndex].isFlagged).toBe(
-      false
-    )
+    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
+    expect(state.revealedBoard[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
   })
 
   it('should do nothing if the state isDead is true', () => {
@@ -49,12 +45,8 @@ describe('right click cell', () => {
 
     flagCell(state, action)
 
-    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(
-      false
-    )
-    expect(state.revealedBoard[action.rowIndex][action.columnIndex].isFlagged).toBe(
-      false
-    )
+    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
+    expect(state.revealedBoard[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
   })
 
   it('should do nothing if the state isWinner is true', () => {
@@ -62,12 +54,8 @@ describe('right click cell', () => {
 
     flagCell(state, action)
 
-    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(
-      false
-    )
-    expect(state.revealedBoard[action.rowIndex][action.columnIndex].isFlagged).toBe(
-      false
-    )
+    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
+    expect(state.revealedBoard[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
   })
 
   it('should do nothing if the state operation for FlagCell is not true', () => {
@@ -75,12 +63,8 @@ describe('right click cell', () => {
 
     flagCell(state, action)
 
-    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(
-      false
-    )
-    expect(state.revealedBoard[action.rowIndex][action.columnIndex].isFlagged).toBe(
-      false
-    )
+    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
+    expect(state.revealedBoard[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
   })
 
   it('should do nothing if the cell is already uncovered', () => {
@@ -88,25 +72,17 @@ describe('right click cell', () => {
 
     flagCell(state, action)
 
-    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(
-      false
-    )
-    expect(state.revealedBoard[action.rowIndex][action.columnIndex].isFlagged).toBe(
-      false
-    )
+    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
+    expect(state.revealedBoard[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
   })
 
   it('should do nothing if there are changes to apply', () => {
-    state.changesToApply.enqueue({ time: 0, changes: [{action: "WIPEANIMATION"}] })
+    state.changesToApply.enqueue({ time: 0, changes: [{ action: 'WIPEANIMATION' }] })
 
     flagCell(state, action)
 
-    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(
-      false
-    )
-    expect(state.revealedBoard[action.rowIndex][action.columnIndex].isFlagged).toBe(
-      false
-    )
+    expect(state.board[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
+    expect(state.revealedBoard[action.rowIndex][action.columnIndex].isFlagged).toBe(false)
   })
 
   it('should be able to flag a cell', () => {

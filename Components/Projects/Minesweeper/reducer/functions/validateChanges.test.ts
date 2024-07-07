@@ -32,7 +32,6 @@ describe('validate changes', () => {
     expect(state.rows).toBe(30)
   })
 
-  
   it('should reduce the number of bombs to total game cells minus one if shrinking the board meant number of bombs greater than total cell count', () => {
     state.numberOfBombs = 22
     state.columns = 5

@@ -39,9 +39,9 @@
 }
 
 .showHideButton:before {
-  content: '['
+  content: '[';
 }
 
 .showHideButton:after {
-  content: ']'
+  content: ']';
 }

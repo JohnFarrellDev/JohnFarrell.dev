@@ -2,35 +2,14 @@ import { SVGProps } from 'react'
 
 export const HumanPartyFace = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      id="emoji"
-      viewBox="0 0 72 72"
-      xmlns="http://www.w3.org/2000/svg"
-      data-testid="human-party-face"
-      {...props}
-    >
+    <svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" data-testid="human-party-face" {...props}>
       <g id="color">
         <circle cx="36" cy="36" r="23" fill="#FCEA2B" />
-        <polygon
-          fill="#F4AA41"
-          points="15.0628,6.4465 17.0628,21.4465 33.0628,15.4465"
-        />
-        <polyline
-          fill="#E27022"
-          points="26.9838,12.4065 33.0628,15.4465 19.9118,20.3785"
-        />
-        <polygon
-          fill="#EA5A47"
-          points="15.3958,10.8345 20.6208,8.8175 23.4538,10.5795 15.5628,13.9465"
-        />
-        <polyline
-          fill="#D22F27"
-          points="25.4208,12.3925 26.5628,11.9465 30.5628,12.9465 24.0628,15.7315"
-        />
-        <polyline
-          fill="#EA5A47"
-          points="24.0628,15.7315 16.5588,18.9465 16.3958,15.9125 25.4208,12.3925"
-        />
+        <polygon fill="#F4AA41" points="15.0628,6.4465 17.0628,21.4465 33.0628,15.4465" />
+        <polyline fill="#E27022" points="26.9838,12.4065 33.0628,15.4465 19.9118,20.3785" />
+        <polygon fill="#EA5A47" points="15.3958,10.8345 20.6208,8.8175 23.4538,10.5795 15.5628,13.9465" />
+        <polyline fill="#D22F27" points="25.4208,12.3925 26.5628,11.9465 30.5628,12.9465 24.0628,15.7315" />
+        <polyline fill="#EA5A47" points="24.0628,15.7315 16.5588,18.9465 16.3958,15.9125 25.4208,12.3925" />
       </g>
       <g id="line">
         <g>

@@ -23,10 +23,7 @@ export const ShowMoreText = ({ text, length }: Props) => {
   return (
     <div>
       {truncatedText}
-      <span
-        style={{ color: 'blue', cursor: 'pointer' }}
-        onClick={toggleExpanded}
-      >
+      <span style={{ color: 'blue', cursor: 'pointer' }} onClick={toggleExpanded}>
         {showMoreText}
       </span>
     </div>

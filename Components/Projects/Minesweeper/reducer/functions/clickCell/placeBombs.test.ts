@@ -98,14 +98,14 @@ describe('place bombs', () => {
   it('should apply animation affects', () => {
     placeBombs(state, action)
 
-    const changesToApply = state.changesToApply.toArray();
+    const changesToApply = state.changesToApply.toArray()
 
     expect(changesToApply.length).toBe(11)
     expect(changesToApply[0].time).toBe(300)
-    expect(changesToApply[0].changes[0].action).toBe("PLACEBOMB")
-    expect(changesToApply[0].changes[0].action).toBe("PLACEBOMB")
+    expect(changesToApply[0].changes[0].action).toBe('PLACEBOMB')
+    expect(changesToApply[0].changes[0].action).toBe('PLACEBOMB')
 
-    expect(changesToApply[changesToApply.length - 1].changes[0].action).toBe("WIPEANIMATION")
+    expect(changesToApply[changesToApply.length - 1].changes[0].action).toBe('WIPEANIMATION')
     expect(changesToApply[changesToApply.length - 1].time).toBe(500)
   })
 
@@ -115,11 +115,11 @@ describe('place bombs', () => {
 
     placeBombs(state, action)
 
-    const changesToApply = state.changesToApply.toArray();
+    const changesToApply = state.changesToApply.toArray()
 
     expect(changesToApply.length).toBe(1)
     expect(changesToApply[0].time).toBe(0)
-    expect(changesToApply[0].changes[0].action).toBe("COPYBOMBS")
+    expect(changesToApply[0].changes[0].action).toBe('COPYBOMBS')
   })
 
   it('should do nothing if PlaceBombs is not an allowed operation and return the passed in board', () => {

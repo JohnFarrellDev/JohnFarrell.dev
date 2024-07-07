@@ -86,12 +86,8 @@ describe('recursive reveal cell', () => {
     recursiveRevealCell(state, action)
 
     expect(state.changesToApply.length).toBe(2)
-    expect(state.changesToApply.head?.value.changes[0].action).toBe(
-      'COPYNEIGHBORBOMBCOUNT'
-    )
-    expect(state.changesToApply.tail?.value.changes[0].action).toBe(
-      'REVEALCELLS'
-    )
+    expect(state.changesToApply.head?.value.changes[0].action).toBe('COPYNEIGHBORBOMBCOUNT')
+    expect(state.changesToApply.tail?.value.changes[0].action).toBe('REVEALCELLS')
     expect(
       (
         state.changesToApply.tail?.value.changes[0] as {
@@ -105,22 +101,24 @@ describe('recursive reveal cell', () => {
   it('should apply a change of REVEALCELL if RecursiveReveal animation is true and only one cell is visited', () => {
     state.revealedBoard[action.rowIndex][action.columnIndex].neighborBombs = 1
 
-    recursiveRevealCell(state, action) 
+    recursiveRevealCell(state, action)
 
     expect(state.changesToApply.length).toBe(2)
-    expect(state.changesToApply.head?.value.changes[0].action).toBe("COPYNEIGHBORBOMBCOUNT")
+    expect(state.changesToApply.head?.value.changes[0].action).toBe('COPYNEIGHBORBOMBCOUNT')
     expect(state.changesToApply.tail?.value).toEqual({
       time: 0,
-      changes: [{
-        action: "REVEALCELL",
-        rowIndex: action.rowIndex,
-        columnIndex: action.columnIndex
-      }]
+      changes: [
+        {
+          action: 'REVEALCELL',
+          rowIndex: action.rowIndex,
+          columnIndex: action.columnIndex,
+        },
+      ],
     })
   })
 
   it('should apply a change of REVEALCELLANIMATED(s) and WIPEANIMATION is RecursiveReveal animation is true', () => {
-    recursiveRevealCell(state, action) 
+    recursiveRevealCell(state, action)
 
     const changesToApply = state.changesToApply.toArray()
 
@@ -129,25 +127,27 @@ describe('recursive reveal cell', () => {
       time: 0,
       changes: [
         {
-          action: "COPYNEIGHBORBOMBCOUNT",
+          action: 'COPYNEIGHBORBOMBCOUNT',
         },
       ],
     })
     expect(changesToApply[1]).toEqual({
       changes: [
         {
-          action: "REVEALCELLANIMATED",
+          action: 'REVEALCELLANIMATED',
           rowIndex: 2,
           columnIndex: 3,
         },
       ],
       time: 100,
     })
-    expect(changesToApply[changesToApply.length-1]).toEqual({
+    expect(changesToApply[changesToApply.length - 1]).toEqual({
       time: 1000,
-      changes: [{
-        action: 'WIPEANIMATION'
-      }]
+      changes: [
+        {
+          action: 'WIPEANIMATION',
+        },
+      ],
     })
   })
 })

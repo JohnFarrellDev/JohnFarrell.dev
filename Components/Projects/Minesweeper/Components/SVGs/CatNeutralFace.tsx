@@ -2,13 +2,7 @@ import { SVGProps } from 'react'
 
 export const CatNeutralFace = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      id="emoji"
-      viewBox="0 0 72 72"
-      xmlns="http://www.w3.org/2000/svg"
-      data-testid="cat-neutral-face"
-      {...props}
-    >
+    <svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" data-testid="cat-neutral-face" {...props}>
       <g id="color">
         <path
           fill="#F4AA41"
@@ -25,22 +19,8 @@ export const CatNeutralFace = (props: SVGProps<SVGSVGElement>) => {
       <g id="skin" />
       <g id="skin-shadow" />
       <g id="line">
-        <ellipse
-          cx="45.0854"
-          cy="38.1033"
-          rx="1.6461"
-          ry="2.8119"
-          fill="#000000"
-          stroke="none"
-        />
-        <ellipse
-          cx="26.8427"
-          cy="38.1033"
-          rx="1.6461"
-          ry="2.8119"
-          fill="#000000"
-          stroke="none"
-        />
+        <ellipse cx="45.0854" cy="38.1033" rx="1.6461" ry="2.8119" fill="#000000" stroke="none" />
+        <ellipse cx="26.8427" cy="38.1033" rx="1.6461" ry="2.8119" fill="#000000" stroke="none" />
         <polyline
           fill="none"
           stroke="#000000"

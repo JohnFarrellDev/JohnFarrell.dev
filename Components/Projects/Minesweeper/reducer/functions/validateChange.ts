@@ -26,8 +26,8 @@ export const validateChange = (
     state.numberOfBombs >= state.rows * state.columns
       ? state.rows * state.columns - 1
       : state.numberOfBombs < 1
-      ? 1
-      : state.numberOfBombs
+        ? 1
+        : state.numberOfBombs
 
   generateBoard(state)
 }

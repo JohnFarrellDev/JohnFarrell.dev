@@ -55,12 +55,12 @@ export const GameTracking = ({
           {!isPlaying
             ? faces[0][faceType]
             : isWinner
-            ? faces[1][faceType]
-            : isDead
-            ? faces[2][faceType]
-            : isHoldingDown
-            ? faces[4][faceType]
-            : faces[3][faceType]}
+              ? faces[1][faceType]
+              : isDead
+                ? faces[2][faceType]
+                : isHoldingDown
+                  ? faces[4][faceType]
+                  : faces[3][faceType]}
         </p>
       </div>
     </div>

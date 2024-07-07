@@ -157,8 +157,8 @@ describe('auto flag cell', () => {
       time: 500,
       changes: [
         {
-          action: 'WIPEANIMATION'
-        }
+          action: 'WIPEANIMATION',
+        },
       ],
     })
   })

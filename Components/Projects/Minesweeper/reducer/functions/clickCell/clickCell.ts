@@ -9,8 +9,7 @@ export const clickCell = (state: State, action: ClickCellAction) => {
     return
   }
 
-  if (!state.isPlaying || state.isDead || state.isWinner)
-    return startGame(state, action)
+  if (!state.isPlaying || state.isDead || state.isWinner) return startGame(state, action)
 
   revealCell(state, action)
 }

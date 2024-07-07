@@ -1,23 +1,22 @@
-.container
- {
-    display: flex;
-    justify-content: space-around;
-    max-width: 500px;
-    margin: 0 auto;
+.container {
+  display: flex;
+  justify-content: space-around;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .container p {
-    font-size: 2rem;
-    user-select: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  font-size: 2rem;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container p:hover {
-    cursor: pointer
+  cursor: pointer;
 }
 
 .svg {
-    width: 50px
+  width: 50px;
 }

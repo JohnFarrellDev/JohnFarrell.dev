@@ -7,8 +7,7 @@ import { recursiveRevealCell } from './recursiveRevealCell'
 export const revealCell = (state: State, action: ClickCellAction) => {
   if (!state.allowedOperations.RevealCell) return
   if (state.revealedBoard[action.rowIndex][action.columnIndex].isFlagged) return
-  if (!state.revealedBoard[action.rowIndex][action.columnIndex].isCovered)
-    return
+  if (!state.revealedBoard[action.rowIndex][action.columnIndex].isCovered) return
   state.revealedBoard[action.rowIndex][action.columnIndex].isCovered = false
 
   if (state.revealedBoard[action.rowIndex][action.columnIndex].isBomb) {
@@ -38,7 +37,7 @@ export const revealCell = (state: State, action: ClickCellAction) => {
         },
       ],
     })
-    return;
+    return
   }
 
   recursiveRevealCell(state, action)

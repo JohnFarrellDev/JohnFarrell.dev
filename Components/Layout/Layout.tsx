@@ -15,7 +15,7 @@ export const Layout = ({ children }: LayoutProps) => {
   }
 
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] min-h-svh">
+    <div className="grid min-h-svh grid-rows-[auto_1fr_auto]">
       <Navbar toggleSidebar={toggleSidebar} />
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
       <div className="grow">{children}</div>

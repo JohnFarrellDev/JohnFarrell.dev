@@ -4,19 +4,12 @@ import { extractRowAndColumnFromId } from '../../../../functions/extractRowAndCo
 export const recursiveRevealCell = (state: State, action: ClickCellAction) => {
   if (!state.allowedOperations.RecursiveReveal) return
 
-  const cellsAllReadySelected = new Set([
-    state.revealedBoard[action.rowIndex][action.columnIndex].id,
-  ])
+  const cellsAllReadySelected = new Set([state.revealedBoard[action.rowIndex][action.columnIndex].id])
 
-  const cellsToVisit = [
-    state.revealedBoard[action.rowIndex][action.columnIndex].id,
-  ]
+  const cellsToVisit = [state.revealedBoard[action.rowIndex][action.columnIndex].id]
 
   while (cellsToVisit.length > 0) {
-    const [rowIndex, columnIndex] = extractRowAndColumnFromId(
-      cellsToVisit.pop() as number,
-      state.columns
-    )
+    const [rowIndex, columnIndex] = extractRowAndColumnFromId(cellsToVisit.pop() as number, state.columns)
 
     const currentCell = state.revealedBoard[rowIndex][columnIndex]
     if (currentCell.neighborBombs === 0) {
@@ -36,10 +29,7 @@ export const recursiveRevealCell = (state: State, action: ClickCellAction) => {
         {
           action: 'REVEALCELLS',
           cells: Array.from(cellsAllReadySelected).map((el) => {
-            const [rowIndex, columnIndex] = extractRowAndColumnFromId(
-              el,
-              state.columns
-            )
+            const [rowIndex, columnIndex] = extractRowAndColumnFromId(el, state.columns)
 
             return {
               rowIndex,
@@ -53,10 +43,7 @@ export const recursiveRevealCell = (state: State, action: ClickCellAction) => {
   }
 
   if (cellsAllReadySelected.size === 1) {
-    const [rowIndex, columnIndex] = extractRowAndColumnFromId(
-      Array.from(cellsAllReadySelected)[0],
-      state.columns
-    )
+    const [rowIndex, columnIndex] = extractRowAndColumnFromId(Array.from(cellsAllReadySelected)[0], state.columns)
 
     state.changesToApply.enqueue({
       changes: [

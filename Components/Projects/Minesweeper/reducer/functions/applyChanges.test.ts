@@ -170,9 +170,7 @@ describe('apply changes', () => {
     expect(state.board[0][0].color).toBeUndefined()
 
     state.changesToApply.enqueue({
-      changes: [
-        { rowIndex: 0, columnIndex: 0, action: 'SELECTEDNEIGHBORCELL' },
-      ],
+      changes: [{ rowIndex: 0, columnIndex: 0, action: 'SELECTEDNEIGHBORCELL' }],
       time: 0,
     })
 
@@ -185,17 +183,13 @@ describe('apply changes', () => {
     expect(state.board[0][0].color).toBeUndefined()
 
     state.changesToApply.enqueue({
-      changes: [
-        { rowIndex: 0, columnIndex: 0, action: 'SELECTEDNEIGHBORCELLBOMB' },
-      ],
+      changes: [{ rowIndex: 0, columnIndex: 0, action: 'SELECTEDNEIGHBORCELLBOMB' }],
       time: 0,
     })
 
     applyChanges(state, action)
 
-    expect(state.board[0][0].color).toBe(
-      AnimationColor.SelectedNeighborCellBomb
-    )
+    expect(state.board[0][0].color).toBe(AnimationColor.SelectedNeighborCellBomb)
   })
 
   it("should update the cell's neighbor and bomb information with APPLYNEIGHBORINFORMATION", () => {

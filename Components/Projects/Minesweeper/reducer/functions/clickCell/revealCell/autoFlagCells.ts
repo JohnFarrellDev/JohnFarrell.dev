@@ -15,13 +15,7 @@ export const autoFlagCells = (state: State) => {
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < columns; c++) {
       const cell = state.revealedBoard[r][c]
-      if (
-        cell.isCovered ||
-        cell.isBomb ||
-        cell.neighborBombs === 0 ||
-        cell.isFlagged
-      )
-        continue
+      if (cell.isCovered || cell.isBomb || cell.neighborBombs === 0 || cell.isFlagged) continue
 
       const coveredNeighbors = numberOfCoveredNeighbors(cell)
       if (coveredNeighbors !== cell.neighborBombs) continue
@@ -31,27 +25,20 @@ export const autoFlagCells = (state: State) => {
           if (neighborCell.isCovered && !neighborCell.isFlagged) {
             neighborCell.isFlagged = true
 
-            const [rowIndex, columnIndex] = extractRowAndColumnFromId(
-              neighborCell.id,
-              state.columns
-            )
+            const [rowIndex, columnIndex] = extractRowAndColumnFromId(neighborCell.id, state.columns)
             noAnimationCellsToFlag.push({ rowIndex, columnIndex })
           }
         })
         continue
       }
 
-      const animationCellsToFlag: { rowIndex: number; columnIndex: number }[] =
-        []
+      const animationCellsToFlag: { rowIndex: number; columnIndex: number }[] = []
 
       cell.neighbors.forEach((neighborCell) => {
         if (neighborCell.isCovered && !neighborCell.isFlagged) {
           neighborCell.isFlagged = true
 
-          const [rowIndex, columnIndex] = extractRowAndColumnFromId(
-            neighborCell.id,
-            state.columns
-          )
+          const [rowIndex, columnIndex] = extractRowAndColumnFromId(neighborCell.id, state.columns)
           animationCellsToFlag.push({ rowIndex, columnIndex })
         }
       })

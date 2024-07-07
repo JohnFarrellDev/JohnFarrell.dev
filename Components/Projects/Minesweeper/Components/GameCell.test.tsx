@@ -34,11 +34,7 @@ describe('Game Cell', () => {
     ${8}
   `(
     'it should display the total numbers  of neighbor bombs - ($neighborBombs)',
-    ({
-      neighborBombs
-    }: {
-      neighborBombs: number
-    }) => {
+    ({ neighborBombs }: { neighborBombs: number }) => {
       render(
         <GameCell
           rowIndex={1}

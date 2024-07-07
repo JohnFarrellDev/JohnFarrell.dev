@@ -2,13 +2,7 @@ import { SVGProps } from 'react'
 
 export const HumanCryingFace = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      id="emoji"
-      viewBox="0 0 72 72"
-      xmlns="http://www.w3.org/2000/svg"
-      data-testid="human-crying-face"
-      {...props}
-    >
+    <svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" data-testid="human-crying-face" {...props}>
       <g id="line-supplement">
         <path
           fill="none"
@@ -97,15 +91,7 @@ export const HumanCryingFace = (props: SVGProps<SVGSVGElement>) => {
           strokeWidth="2"
           d="m22.5 32.82c0.4132-0.344 2.246-1.792 4.909-1.636 2.161 0.1259 3.61 1.233 4.091 1.636"
         />
-        <circle
-          cx="36"
-          cy="36"
-          r="23"
-          fill="none"
-          stroke="#000"
-          strokeMiterlimit="10"
-          strokeWidth="2"
-        />
+        <circle cx="36" cy="36" r="23" fill="none" stroke="#000" strokeMiterlimit="10" strokeWidth="2" />
         <circle
           cx="36"
           cy="46.6"

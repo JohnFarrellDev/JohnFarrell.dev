@@ -79,9 +79,7 @@ describe('game tracking', () => {
       )
 
       expect(screen.getByTestId('bomb')).toBeInTheDocument()
-      expect(
-        screen.getByText(`${expectedFlagIndication}/${totalBombs}`)
-      ).toBeInTheDocument()
+      expect(screen.getByText(`${expectedFlagIndication}/${totalBombs}`)).toBeInTheDocument()
     }
   )
 })

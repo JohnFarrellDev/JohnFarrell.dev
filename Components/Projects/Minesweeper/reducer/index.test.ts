@@ -33,7 +33,7 @@ describe('minesweeper reducer', () => {
 
   it.each`
     action                               | passedFunction
-    ${{ type: 'ApplyChanges' }}        | ${applyChanges}
+    ${{ type: 'ApplyChanges' }}          | ${applyChanges}
     ${{ type: 'ChangeNumberOfBombs' }}   | ${changeNumberOfBombs}
     ${{ type: 'ChangeNumberOfColumns' }} | ${changeNumberOfColumns}
     ${{ type: 'ChangeNumberOfRows' }}    | ${changeNumberOfRows}
@@ -45,13 +45,7 @@ describe('minesweeper reducer', () => {
     ${{ type: 'SwitchFaceType' }}        | ${switchFaceType}
   `(
     'should call the correct function with the expected params when action type is $actionType',
-    ({
-      action,
-      passedFunction,
-    }: {
-      action: Action
-      passedFunction: (state: State, action: Action) => void
-    }) => {
+    ({ action, passedFunction }: { action: Action; passedFunction: (state: State, action: Action) => void }) => {
       minesweeperReducer(state, action)
 
       expect(passedFunction).toBeCalledTimes(1)

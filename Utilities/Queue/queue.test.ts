@@ -74,7 +74,7 @@ describe('queue', () => {
 
     expect(queue.length).toBe(2)
 
-    queue.enqueueArray([3,4,5])
+    queue.enqueueArray([3, 4, 5])
 
     expect(queue.length).toBe(5)
 
@@ -86,7 +86,7 @@ describe('queue', () => {
   it('should be able to add multiple items with enqueueArray', () => {
     const queue = new Queue<number>()
 
-    queue.enqueueArray([1,2,3])
+    queue.enqueueArray([1, 2, 3])
 
     expect(queue.length).toBe(3)
     expect(queue.dequeue()).toBe(1)
@@ -96,14 +96,14 @@ describe('queue', () => {
 
   it('should ensure the tail is undefined when fully dequeued', () => {
     const queue = new Queue<number>()
-    
+
     expect(queue.tail).toBeUndefined()
 
     queue.enqueue(1)
     queue.enqueue(2)
     queue.dequeue()
     queue.dequeue()
- 
+
     expect(queue.tail).toBeUndefined()
   })
 })

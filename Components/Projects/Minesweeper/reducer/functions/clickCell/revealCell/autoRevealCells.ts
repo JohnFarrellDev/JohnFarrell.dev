@@ -10,37 +10,22 @@ export const autoRevealCells = (state: State): boolean => {
 
   let scanAgain = false
 
-  const noAnimationCellsToReveal: { rowIndex: number; columnIndex: number }[] =
-    []
+  const noAnimationCellsToReveal: { rowIndex: number; columnIndex: number }[] = []
 
   for (let r = 0; r < state.rows; r++) {
     for (let c = 0; c < state.columns; c++) {
-      if (
-        state.revealedBoard[r][c].isCovered ||
-        state.revealedBoard[r][c].isFlagged
-      )
-        continue
+      if (state.revealedBoard[r][c].isCovered || state.revealedBoard[r][c].isFlagged) continue
 
-      const flaggedNeighbors = numberOfFlaggedNeighborCells(
-        state.revealedBoard[r][c]
-      )
+      const flaggedNeighbors = numberOfFlaggedNeighborCells(state.revealedBoard[r][c])
 
       if (state.revealedBoard[r][c].neighborBombs <= flaggedNeighbors) {
-
         if (!state.customAnimations.BasicAutoClick) {
           state.revealedBoard[r][c].neighbors.forEach((neighborCell) => {
-            if (
-              neighborCell.isCovered &&
-              !neighborCell.isFlagged &&
-              !neighborCell.isBomb
-            ) {
+            if (neighborCell.isCovered && !neighborCell.isFlagged && !neighborCell.isBomb) {
               neighborCell.isCovered = false
               scanAgain = true
 
-              const [rowIndex, columnIndex] = extractRowAndColumnFromId(
-                neighborCell.id,
-                state.columns
-              )
+              const [rowIndex, columnIndex] = extractRowAndColumnFromId(neighborCell.id, state.columns)
 
               noAnimationCellsToReveal.push({ rowIndex, columnIndex })
             }
@@ -48,28 +33,20 @@ export const autoRevealCells = (state: State): boolean => {
           continue
         }
 
-        const animationCellsToReveal: { rowIndex: number; columnIndex: number }[] =
-    []
+        const animationCellsToReveal: { rowIndex: number; columnIndex: number }[] = []
 
         state.revealedBoard[r][c].neighbors.forEach((neighborCell) => {
-          if (
-            neighborCell.isCovered &&
-            !neighborCell.isFlagged &&
-            !neighborCell.isBomb
-          ) {
+          if (neighborCell.isCovered && !neighborCell.isFlagged && !neighborCell.isBomb) {
             neighborCell.isCovered = false
             scanAgain = true
 
-            const [rowIndex, columnIndex] = extractRowAndColumnFromId(
-              neighborCell.id,
-              state.columns
-            )
+            const [rowIndex, columnIndex] = extractRowAndColumnFromId(neighborCell.id, state.columns)
 
-            animationCellsToReveal.push({rowIndex, columnIndex})
+            animationCellsToReveal.push({ rowIndex, columnIndex })
           }
         })
 
-        if(animationCellsToReveal.length > 0) {
+        if (animationCellsToReveal.length > 0) {
           state.changesToApply.enqueue({
             time: 500,
             changes: [{ action: 'SELECTEDCELL', rowIndex: r, columnIndex: c }],

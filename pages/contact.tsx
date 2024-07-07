@@ -7,9 +7,9 @@ const Contact = () => {
   return (
     <Layout>
       <SEO title="Contact Me | John Farrell" description="Form for contacting John Farrell" />
-      <section className={`min-h-full h-full max-h-full grid place-items-center bg-grey-1000`}>
+      <section className={`grid h-full max-h-full min-h-full place-items-center bg-grey-1000`}>
         <article className={styles.contactForm}>
-          <h3 className="text-grey-500 pt-4">get in touch</h3>
+          <h3 className="pt-4 text-grey-500">get in touch</h3>
           <ContactForm />
         </article>
       </section>

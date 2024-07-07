@@ -26,29 +26,21 @@ describe('reveal cell', () => {
   })
 
   it('should do nothing if operation RevealCell is not true', () => {
-    expect(
-      state.revealedBoard[action.rowIndex][action.columnIndex].isCovered
-    ).toBe(true)
+    expect(state.revealedBoard[action.rowIndex][action.columnIndex].isCovered).toBe(true)
     state.allowedOperations.RevealCell = false
 
     revealCell(state, action)
 
-    expect(
-      state.revealedBoard[action.rowIndex][action.columnIndex].isCovered
-    ).toBe(true)
+    expect(state.revealedBoard[action.rowIndex][action.columnIndex].isCovered).toBe(true)
   })
 
   it('should do nothing if the cell is flagged', () => {
-    expect(
-      state.revealedBoard[action.rowIndex][action.columnIndex].isCovered
-    ).toBe(true)
+    expect(state.revealedBoard[action.rowIndex][action.columnIndex].isCovered).toBe(true)
     state.revealedBoard[action.rowIndex][action.columnIndex].isFlagged = true
 
     revealCell(state, action)
 
-    expect(
-      state.revealedBoard[action.rowIndex][action.columnIndex].isCovered
-    ).toBe(true)
+    expect(state.revealedBoard[action.rowIndex][action.columnIndex].isCovered).toBe(true)
   })
 
   it('should do nothing when the cell clicked on is not covered', () => {
@@ -66,9 +58,7 @@ describe('reveal cell', () => {
 
     revealCell(state, action)
 
-    expect(
-      state.revealedBoard[action.rowIndex][action.columnIndex].isCovered
-    ).toBe(false)
+    expect(state.revealedBoard[action.rowIndex][action.columnIndex].isCovered).toBe(false)
     expect(state.isDead).toBe(true)
   })
 
@@ -94,16 +84,12 @@ describe('reveal cell', () => {
   })
 
   it('should uncover the cell and if it not a bomb the state isDead should remain false', () => {
-    expect(
-      state.revealedBoard[action.rowIndex][action.columnIndex].isCovered
-    ).toBe(true)
+    expect(state.revealedBoard[action.rowIndex][action.columnIndex].isCovered).toBe(true)
     expect(state.isDead).toBe(false)
 
     revealCell(state, action)
 
-    expect(
-      state.revealedBoard[action.rowIndex][action.columnIndex].isCovered
-    ).toBe(false)
+    expect(state.revealedBoard[action.rowIndex][action.columnIndex].isCovered).toBe(false)
     expect(state.isDead).toBe(false)
   })
 

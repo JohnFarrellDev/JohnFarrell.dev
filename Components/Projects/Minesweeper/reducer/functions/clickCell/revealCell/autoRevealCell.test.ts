@@ -133,7 +133,7 @@ describe('auto reveal cell', () => {
       time: 0,
       changes: [
         {
-          action: "REVEALCELLS",
+          action: 'REVEALCELLS',
           cells: [
             {
               rowIndex: 0,
