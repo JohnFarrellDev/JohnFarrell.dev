@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { Button } from '../../Utilities/Button/Button'
-import styles from './ContactForm.module.css'
+import { Button } from '../Utilities/Button/Button'
 
 enum Status {
   Success,
@@ -31,25 +30,52 @@ export const ContactForm = () => {
 
   return (
     <form action="https://formspree.io/xqkyvgaw" method="POST" onSubmit={submitForm}>
-      <div className="px-6">
+      <div className="rounded-[200px] px-6">
         <label htmlFor="form-name" className="sr-only">
           Name:
         </label>
-        <input type="text" name="name" id="form-name" placeholder="name" className={styles.formControl} />
+        <input
+          type="text"
+          name="name"
+          id="form-name"
+          placeholder="name"
+          className={
+            'mb-5 w-full rounded-md bg-grey-1000 px-4 py-3 tracking-wide placeholder:uppercase placeholder:text-grey-500'
+          }
+        />
         <label htmlFor="form-email" className="sr-only">
           Email:
         </label>
-        <input type="email" name="email" placeholder="email" id="form-email" className={styles.formControl} />
+        <input
+          type="email"
+          name="email"
+          placeholder="email"
+          id="form-email"
+          className={
+            'mb-5 w-full rounded-md bg-grey-1000 px-4 py-3 tracking-wide placeholder:uppercase placeholder:text-grey-500'
+          }
+        />
         <label htmlFor="form-message" className="sr-only">
           Message:
         </label>
-        <textarea name="message" rows={5} placeholder="message" id="form-message" className={styles.formControl} />
+        <textarea
+          name="message"
+          rows={5}
+          placeholder="message"
+          id="form-message"
+          className={
+            'mb-5 w-full rounded-md bg-grey-1000 px-4 py-3 tracking-wide placeholder:uppercase placeholder:text-grey-500'
+          }
+        />
       </div>
 
       {status === Status.Success ? (
         <p>Thanks!</p>
       ) : (
-        <Button type="submit" extraStyles="block w-full py-4 bg-primary-300 text-primary-1000 font-bold">
+        <Button
+          type="submit"
+          className="block w-full rounded-lg rounded-t-none bg-primary-300 py-4 font-bold uppercase text-primary-1000"
+        >
           <span>submit here</span>
         </Button>
       )}
