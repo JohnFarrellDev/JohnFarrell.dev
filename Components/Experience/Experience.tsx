@@ -42,11 +42,9 @@ export const Experience = () => {
           })}
         </article>
       </div>
-      <Button extraStyles={styles.centreButton}>
-        <Link href="/about-me" passHref={true}>
-          <span>more info about me</span>
-        </Link>
-      </Button>
+      <Link href="/about-me">
+        <Button className="mx-auto block w-48 uppercase">More Info About Me</Button>
+      </Link>
     </section>
   )
 }

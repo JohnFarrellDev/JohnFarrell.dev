@@ -22,9 +22,7 @@ export const Skills = () => {
               <p>{description}</p>
               {link && (
                 <a href={link.url}>
-                  <Button>
-                    <span>{link.display}</span>
-                  </Button>
+                  <Button className="uppercase">{link.display}</Button>
                 </a>
               )}
             </article>

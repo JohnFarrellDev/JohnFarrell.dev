@@ -16,7 +16,7 @@ export const Hero = () => {
             <h2 className="text-lg text-grey-300">I'm a software developer with a focus on the web</h2>
 
             <Link href="/contact">
-              <Button>Contact Me</Button>
+              <Button className="uppercase">Contact Me</Button>
             </Link>
 
             <SocialLinks />
