@@ -3,6 +3,7 @@ import { Title } from '../Utilities/Title/Title'
 import { skills } from './Constants/skills'
 import { Button } from '../Utilities/Button/Button'
 import { Underline } from '../Utilities/Underline/Underline'
+import { cn } from '../../Utilities/cn'
 
 export const Skills = () => {
   return (
@@ -12,7 +13,7 @@ export const Skills = () => {
         {skills.map((skill) => {
           const { id, title, description, icon, link } = skill
           return (
-            <article key={id} className={styles.skill}>
+            <article key={id} className={cn(styles.skill, 'bg-white')}>
               <div className="flex flex-col justify-center">
                 <div className="m-auto">{icon}</div>
                 <h3 className="grow">{title}</h3>

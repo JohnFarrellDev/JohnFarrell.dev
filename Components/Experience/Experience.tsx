@@ -8,7 +8,7 @@ import { Button } from '../Utilities/Button/Button'
 
 export const Experience = () => {
   const [value, setValue] = useState(0)
-  const { companyName, position, startDate, endDate, responsibilities } = jobs[value]
+  const { position, startDate, endDate, responsibilities } = jobs[value]
 
   return (
     <section className={`section ${styles.jobs}`}>
@@ -30,7 +30,6 @@ export const Experience = () => {
         </div>
         <article className={styles.jobInfo}>
           <h3>{position}</h3>
-          <h4>{companyName}</h4>
           <p className={styles.jobDate}>{`${startDate} - ${endDate}`}</p>
           {responsibilities.map((item) => {
             return (
