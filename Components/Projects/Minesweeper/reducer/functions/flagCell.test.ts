@@ -3,6 +3,8 @@ import { minesweeperStateFactory } from '../../../../../factories/minesweeperSta
 import { generateBoard } from '../../functions/generateBoard'
 import { flagCell } from './flagCell'
 
+import { vi } from 'vitest'
+
 const startingAction: RightClickCellAction = {
   type: 'RightClickCell',
   rowIndex: 0,
@@ -28,7 +30,7 @@ describe('right click cell', () => {
     })
     generateBoard(state)
     action = { ...startingAction }
-    jest.resetAllMocks()
+    vi.resetAllMocks()
   })
 
   it('should do nothing if the state isPlaying is not true', () => {

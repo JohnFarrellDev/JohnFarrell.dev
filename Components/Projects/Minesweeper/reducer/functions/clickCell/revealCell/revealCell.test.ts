@@ -4,10 +4,11 @@ import { revealCell } from './revealCell'
 import { recursiveRevealCell } from './recursiveRevealCell'
 import { minesweeperStateFactory } from '../../../../../../../factories/minesweeperState'
 import { applyChanges } from '../../applyChanges'
+import { vi } from 'vitest'
 
-jest.mock('./recursiveRevealCell')
-jest.mock('./determineHasWon')
-jest.mock('../../applyChanges')
+vi.mock('./recursiveRevealCell')
+vi.mock('./determineHasWon')
+vi.mock('../../applyChanges')
 
 describe('reveal cell', () => {
   let state: State
@@ -22,7 +23,7 @@ describe('reveal cell', () => {
       allowedOperations: { RevealCell: true },
     })
     generateBoard(state)
-    jest.resetAllMocks()
+    vi.resetAllMocks()
   })
 
   it('should do nothing if operation RevealCell is not true', () => {
@@ -113,7 +114,7 @@ describe('reveal cell', () => {
     state.allowedOperations.RecursiveReveal = true
 
     revealCell(state, action)
-    expect(recursiveRevealCell).toBeCalledTimes(1)
-    expect(recursiveRevealCell).toBeCalledWith(state, action)
+    expect(recursiveRevealCell).toHaveBeenCalledTimes(1)
+    expect(recursiveRevealCell).toHaveBeenCalledWith(state, action)
   })
 })

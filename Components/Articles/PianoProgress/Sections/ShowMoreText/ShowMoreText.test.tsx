@@ -1,5 +1,5 @@
 import { render, fireEvent, screen } from '@testing-library/react'
-import { ShowMoreText } from '.'
+import { ShowMoreText } from './ShowMoreText'
 
 describe('ShowMoreText', () => {
   const text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'

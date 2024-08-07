@@ -5,8 +5,10 @@ import { clickCell } from './clickCell'
 import { revealCell } from './revealCell/revealCell'
 import { startGame } from './startGame'
 
-jest.mock('./revealCell/revealCell')
-jest.mock('./startGame')
+import { vi } from 'vitest'
+
+vi.mock('./revealCell/revealCell')
+vi.mock('./startGame')
 
 describe('click cell', () => {
   let state: State
@@ -21,7 +23,7 @@ describe('click cell', () => {
       allowedOperations: { RevealCell: true },
     })
     generateBoard(state)
-    jest.resetAllMocks()
+    vi.resetAllMocks()
   })
 
   it('should apply all changes if there are changes to apply and the user clicks', () => {
