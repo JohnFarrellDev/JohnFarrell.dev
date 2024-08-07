@@ -3,7 +3,9 @@ import { minesweeperStateFactory } from '../../../../../factories/minesweeperSta
 import { generateBoard } from '../../functions/generateBoard'
 import { init } from './init'
 
-jest.mock('../../functions/generateBoard')
+import { vi } from 'vitest'
+
+vi.mock('../../functions/generateBoard')
 
 describe('init', () => {
   let state: State
@@ -11,7 +13,7 @@ describe('init', () => {
   beforeEach(() => {
     state = minesweeperStateFactory.build()
     generateBoard(state)
-    jest.resetAllMocks()
+    vi.resetAllMocks()
   })
 
   it('should call generate board with our state', () => {

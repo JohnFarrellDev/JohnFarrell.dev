@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { TableOfContents } from '.'
+import { TableOfContents } from './TableOfContents'
 import userEvent from '@testing-library/user-event'
 
 describe('TableOfContents', () => {

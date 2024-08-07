@@ -13,16 +13,18 @@ import { flagCell } from './functions/flagCell'
 import { switchFaceType } from './functions/switchFaceType'
 import { minesweeperStateFactory } from '../../../../factories/minesweeperState'
 
-jest.mock('./functions/applyChanges')
-jest.mock('./functions/changeNumberOfBombs')
-jest.mock('./functions/changeNumberOfColumns')
-jest.mock('./functions/changeNumberOfRows')
-jest.mock('./functions/clickCell/clickCell')
-jest.mock('./functions/clickCell/mouseDownCell')
-jest.mock('./functions/clickCell/mouseUpCell')
-jest.mock('./functions/init')
-jest.mock('./functions/flagCell')
-jest.mock('./functions/switchFaceType')
+import { vi } from 'vitest'
+
+vi.mock('./functions/applyChanges')
+vi.mock('./functions/changeNumberOfBombs')
+vi.mock('./functions/changeNumberOfColumns')
+vi.mock('./functions/changeNumberOfRows')
+vi.mock('./functions/clickCell/clickCell')
+vi.mock('./functions/clickCell/mouseDownCell')
+vi.mock('./functions/clickCell/mouseUpCell')
+vi.mock('./functions/init')
+vi.mock('./functions/flagCell')
+vi.mock('./functions/switchFaceType')
 
 describe('minesweeper reducer', () => {
   let state: State
@@ -48,8 +50,8 @@ describe('minesweeper reducer', () => {
     ({ action, passedFunction }: { action: Action; passedFunction: (state: State, action: Action) => void }) => {
       minesweeperReducer(state, action)
 
-      expect(passedFunction).toBeCalledTimes(1)
-      expect(passedFunction).toBeCalledWith(state, action)
+      expect(passedFunction).toHaveBeenCalledTimes(1)
+      expect(passedFunction).toHaveBeenCalledWith(state, action)
     }
   )
 })

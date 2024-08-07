@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { GameSettings } from './GameSettings'
+import { vi } from 'vitest'
 
 describe('game settings', () => {
   it('should display how many rows there currently are', () => {
@@ -8,9 +9,10 @@ describe('game settings', () => {
         rows={5}
         columns={10}
         numberOfBombs={15}
-        changeNumberOfRows={jest.fn()}
-        changeNumberOfColumns={jest.fn()}
-        changeNumberOfBombs={jest.fn()}
+        changeNumberOfRows={vi.fn()}
+        changeNumberOfColumns={vi.fn()}
+        changeNumberOfBombs={vi.fn()}
+        validateChange={vi.fn()}
       />
     )
 
@@ -18,7 +20,7 @@ describe('game settings', () => {
   })
 
   it('should call changeNumberOfRows with the event when we change the number of rows', () => {
-    const changeNumberOfRowsMock = jest.fn()
+    const changeNumberOfRowsMock = vi.fn()
 
     render(
       <GameSettings
@@ -26,8 +28,9 @@ describe('game settings', () => {
         columns={10}
         numberOfBombs={15}
         changeNumberOfRows={changeNumberOfRowsMock}
-        changeNumberOfColumns={jest.fn()}
-        changeNumberOfBombs={jest.fn()}
+        changeNumberOfColumns={vi.fn()}
+        changeNumberOfBombs={vi.fn()}
+        validateChange={vi.fn()}
       />
     )
 
@@ -42,9 +45,10 @@ describe('game settings', () => {
         rows={5}
         columns={10}
         numberOfBombs={15}
-        changeNumberOfRows={jest.fn()}
-        changeNumberOfColumns={jest.fn()}
-        changeNumberOfBombs={jest.fn()}
+        changeNumberOfRows={vi.fn()}
+        changeNumberOfColumns={vi.fn()}
+        changeNumberOfBombs={vi.fn()}
+        validateChange={vi.fn()}
       />
     )
 
@@ -52,16 +56,17 @@ describe('game settings', () => {
   })
 
   it('should call changeNumberOfColumns with the event when we change the number of columns', () => {
-    const changeNumberOfColumnsMock = jest.fn()
+    const changeNumberOfColumnsMock = vi.fn()
 
     render(
       <GameSettings
         rows={5}
         columns={10}
         numberOfBombs={15}
-        changeNumberOfRows={jest.fn()}
+        changeNumberOfRows={vi.fn()}
         changeNumberOfColumns={changeNumberOfColumnsMock}
-        changeNumberOfBombs={jest.fn()}
+        changeNumberOfBombs={vi.fn()}
+        validateChange={vi.fn()}
       />
     )
 
@@ -76,9 +81,10 @@ describe('game settings', () => {
         rows={5}
         columns={10}
         numberOfBombs={15}
-        changeNumberOfRows={jest.fn()}
-        changeNumberOfColumns={jest.fn()}
-        changeNumberOfBombs={jest.fn()}
+        changeNumberOfRows={vi.fn()}
+        changeNumberOfColumns={vi.fn()}
+        changeNumberOfBombs={vi.fn()}
+        validateChange={vi.fn()}
       />
     )
 
@@ -86,16 +92,17 @@ describe('game settings', () => {
   })
 
   it('should call changeNumberOfBombs with the event when we change the number of bombs', () => {
-    const changeNumberOfBombsMock = jest.fn()
+    const changeNumberOfBombsMock = vi.fn()
 
     render(
       <GameSettings
         rows={5}
         columns={10}
         numberOfBombs={15}
-        changeNumberOfRows={jest.fn()}
-        changeNumberOfColumns={jest.fn()}
+        changeNumberOfRows={vi.fn()}
+        changeNumberOfColumns={vi.fn()}
         changeNumberOfBombs={changeNumberOfBombsMock}
+        validateChange={vi.fn()}
       />
     )
 

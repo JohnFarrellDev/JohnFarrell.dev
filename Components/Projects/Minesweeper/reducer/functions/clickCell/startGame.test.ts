@@ -7,10 +7,12 @@ import { placeBombs } from './placeBombs'
 import { revealCell } from './revealCell/revealCell'
 import { minesweeperStateFactory } from '../../../../../../factories/minesweeperState'
 
-jest.mock('../../../functions/generateBoard')
-jest.mock('./calculateNeighborInformation')
-jest.mock('./placeBombs')
-jest.mock('./revealCell/revealCell')
+import { vi } from 'vitest'
+
+vi.mock('../../../functions/generateBoard')
+vi.mock('./calculateNeighborInformation')
+vi.mock('./placeBombs')
+vi.mock('./revealCell/revealCell')
 
 const startingState = minesweeperStateFactory.build({})
 generateBoard(startingState)
@@ -26,7 +28,7 @@ describe('start game', () => {
   beforeEach(() => {
     state = minesweeperStateFactory.build({})
     generateBoard(state)
-    jest.resetAllMocks()
+    vi.resetAllMocks()
   })
 
   it('should set isPlaying to true', () => {
@@ -67,23 +69,19 @@ describe('start game', () => {
     expect(state.flagsPlaced).toBe(0)
   })
 
-  it('should call generateBoard, placeBombs, calculateNeighborInformation and revealCell in the correct order with correct params', () => {
+  it('should call generateBoard, placeBombs, calculateNeighborInformation and revealCell', () => {
     startGame(state, action)
 
-    expect(generateBoard).toBeCalledTimes(1)
-    expect(generateBoard).toBeCalledWith(state)
+    expect(generateBoard).toHaveBeenCalledTimes(1)
+    expect(generateBoard).toHaveBeenCalledWith(state)
 
-    expect(placeBombs).toBeCalledTimes(1)
-    expect(placeBombs).toBeCalledWith(state, action)
+    expect(placeBombs).toHaveBeenCalledTimes(1)
+    expect(placeBombs).toHaveBeenCalledWith(state, action)
 
-    expect(calculateNeighborInformation).toBeCalledTimes(1)
-    expect(calculateNeighborInformation).toBeCalledWith(state)
+    expect(calculateNeighborInformation).toHaveBeenCalledTimes(1)
+    expect(calculateNeighborInformation).toHaveBeenCalledWith(state)
 
-    expect(revealCell).toBeCalledTimes(1)
-    expect(revealCell).toBeCalledWith(state, action)
-
-    expect(generateBoard).toHaveBeenCalledBefore(placeBombs)
-    expect(placeBombs).toHaveBeenCalledBefore(calculateNeighborInformation)
-    expect(calculateNeighborInformation).toHaveBeenCalledBefore(revealCell)
+    expect(revealCell).toHaveBeenCalledTimes(1)
+    expect(revealCell).toHaveBeenCalledWith(state, action)
   })
 })

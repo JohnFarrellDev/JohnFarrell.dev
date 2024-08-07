@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { FaceType, GameTracking } from './GameTracking'
+import { vi } from 'vitest'
 
 describe('game tracking', () => {
   it.each`
@@ -38,7 +39,7 @@ describe('game tracking', () => {
           isDead={isDead}
           isHoldingDown={isHoldingDown}
           faceType={faceType}
-          switchFaceType={jest.fn()}
+          switchFaceType={vi.fn()}
           totalBombs={0}
           flagsPlaced={0}
         />
@@ -72,7 +73,7 @@ describe('game tracking', () => {
           isDead={false}
           isHoldingDown={false}
           faceType={FaceType.Human}
-          switchFaceType={jest.fn()}
+          switchFaceType={vi.fn()}
           totalBombs={totalBombs}
           flagsPlaced={flagsPlaced}
         />
