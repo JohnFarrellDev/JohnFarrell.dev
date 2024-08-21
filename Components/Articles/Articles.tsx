@@ -10,6 +10,16 @@ const allArticles = [
     year: 'Continually Updated',
     articles: [
       {
+        URL: '/articles/favorite-nextjs-and-react-packages',
+        title: 'Favorite Next.js Packages',
+        description: 'A reminder of useful packages I have found to save me time',
+        createdAt: new Date('2024-08-21T18:24:58.869Z'),
+        tags: ['Next.js', 'React', 'JavaScript', 'TypeScript'],
+        imageURL:
+          'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/article-thumbnails/article-card-next-js-packages.png',
+        imageAlt: 'web icons exploding from a desktop screen',
+      },
+      {
         URL: '/articles/piano-progress',
         title: 'Piano Progress',
         description: 'A look at my progress learning piano',
