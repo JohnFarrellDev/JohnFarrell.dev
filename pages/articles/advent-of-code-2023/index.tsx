@@ -18,13 +18,12 @@ const AdventOfCode2023 = () => {
           <div className="section-center">
             <Banner
               type="information"
-              heading="Job Oppurtunity"
-              description={
+              message={
                 <>
                   The company I work for (<a href="https://www.bjss.com">BJSS</a>) is a sponsor this year, we are hiring
                   for a range of positions and skill levels so if you are interested in working at a tech consultancy
                   with interesting projects and good people message me on{' '}
-                  <a href="https://www.linkedin.com/in/johnfarrelldev/">LinkedIn</a> and I can refer you
+                  <a href="https://www.linkedin.com/in/johnfarrelldev/">LinkedIn</a> and I can refer you.
                 </>
               }
             />

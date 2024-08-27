@@ -23,10 +23,7 @@ function OptimizingYoutube() {
             <ArticleTimeStamps createdAt={new Date('2024-06-19T19:35:38.114Z')} />
             <Banner
               type="information"
-              heading="Google are actively weakening the effectiveness of extensions on Chrome"
-              description='YouTube and Google are on the offensive against ad blockers and extensions. The release of Manifest V3 on Chrome
-        plus forcing all extensions to "upgrade" has reduced the effectiveness of some extensions. I would recommend using Firefox
-        as your browser of choice.'
+              message="Google are actively weakening the effectiveness of extensions on Chrome, try FireFox."
             />
             <Paragraph>
               For about 15 years, I have been an avid YouTube user, integrating the platform into my daily routine.

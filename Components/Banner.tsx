@@ -1,21 +1,31 @@
-import styles from './Banner.module.css'
-import React from 'react'
+import { Info, OctagonAlert } from 'lucide-react'
+import { cn } from '../Utilities/cn'
 
 interface BannerProps {
   type: 'information' | 'warning'
-  heading: string
-  description: React.ReactNode
+  message: React.ReactNode
 }
 
-export const Banner = ({ type, heading, description }: BannerProps) => {
-  const bannerClass = type === 'information' ? styles.information : styles.warning
-
+export function Banner({ type, message }: BannerProps) {
   return (
-    <div className={`${styles.banner} ${bannerClass}`} data-type={type}>
-      <div className={styles.bannerHeader}>
-        <h2 className={styles.heading}>{heading}</h2>
+    <div className="flex w-full justify-center">
+      <div
+        className={cn(
+          'bg-muted w-full max-w-2xl rounded-md px-4 py-3',
+          'border-border border shadow-sm',
+          'text-muted-foreground text-sm'
+        )}
+        role={type === 'information' ? 'status' : 'alert'}
+      >
+        <div className="flex items-center gap-3">
+          {type === 'information' ? (
+            <Info className="text-primary h-5 w-5 flex-shrink-0" />
+          ) : (
+            <OctagonAlert className="text-primary h-5 w-5 flex-shrink-0" />
+          )}
+          <p className="mb-0">{message}</p>
+        </div>
       </div>
-      <p className={styles.description}>{description}</p>
     </div>
   )
 }
