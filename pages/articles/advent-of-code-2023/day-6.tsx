@@ -1,5 +1,4 @@
 import { CodeBlock } from '../../../Components/Articles/Utilities/CodeBlock/CodeBlock'
-import { Banner } from '../../../Components/Banner'
 import { Layout } from '../../../Components/Layout/Layout'
 import { SEO } from '../../../Components/SEO/SEO'
 import { Title } from '../../../Components/Utilities/Title/Title'
@@ -119,8 +118,6 @@ const Day6 = () => (
       <section className="section">
         <Title title="Advent of Code 2023 - Day 6" />
         <div className="section-center">
-          <Banner type="warning" heading="Advent of Code 2023" description="Spoilers ahead!" />
-
           <a
             style={{ textDecoration: 'underline', display: 'block' }}
             href="https://github.com/JohnFarrellDev/advent-of-code-2023/blob/master/day6.ts"
