@@ -1,10 +1,8 @@
 import React from 'react'
-import styles from './Robot.module.css'
 
-export const Robot = () => {
+export function Robot() {
   return (
     <svg
-      className={styles.heroImg}
       version="1.1"
       id="robot"
       x="0"
