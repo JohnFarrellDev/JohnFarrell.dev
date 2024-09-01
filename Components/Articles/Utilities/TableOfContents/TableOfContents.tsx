@@ -1,23 +1,21 @@
-import Link from 'next/link'
 import React, { useState } from 'react'
-import styles from './TableOfContents.module.css'
 
-interface displayContent {
+interface DisplayContent {
   display: string
   url: string
   startIndexValue?: number
-  nestedContent?: displayContent[]
+  nestedContent?: DisplayContent[]
 }
 
 interface TableOfContentsProps {
-  content: displayContent[]
+  content: DisplayContent[]
 }
 
 export const TableOfContents = ({ content }: TableOfContentsProps) => {
   const [showContents, setShowContents] = useState(true)
 
   return (
-    <div className={styles.container}>
+    <div className="w-fit border border-gray-500 bg-grey-900 p-4">
       <TableOfContentsContainer showContents={showContents} setShowContents={setShowContents} />
       {showContents && (
         <ul>
@@ -35,9 +33,12 @@ interface TableOfContentsContainerProps {
 
 const TableOfContentsContainer = ({ showContents, setShowContents }: TableOfContentsContainerProps) => {
   return (
-    <div className={styles.containerHeader}>
-      <h2>Contents</h2>
-      <button className={styles.showHideButton} onClick={() => setShowContents(!showContents)}>
+    <div className="flex items-center gap-4">
+      <h2 className="m-0 text-lg">Contents</h2>
+      <button
+        className="text-link text-base before:content-['['] after:content-[']']"
+        onClick={() => setShowContents(!showContents)}
+      >
         {showContents ? 'hide' : 'show'}
       </button>
     </div>
@@ -45,7 +46,7 @@ const TableOfContentsContainer = ({ showContents, setShowContents }: TableOfCont
 }
 
 interface ContentsProps {
-  content: displayContent[]
+  content: DisplayContent[]
   hierarchy?: string
 }
 
@@ -69,28 +70,36 @@ const Contents = ({ content, hierarchy = '1' }: ContentsProps) => {
 }
 
 interface DisplayProps {
-  data: displayContent
+  data: DisplayContent
   hierarchy: string
   index: number
 }
 
 const Display = ({ data, hierarchy, index }: DisplayProps) => {
+  const indentationCount = ((hierarchy.split('.').length - 1) * 1.5).toString()
+
   return (
-    <li style={{ paddingLeft: `${hierarchy.split('.').length - 1}rem` }}>
-      <Link href={data.url} passHref={true}>
+    <li
+      style={{
+        paddingLeft: `${indentationCount}rem`,
+      }}
+      data-test-hierarchy={hierarchy}
+      data-test-indentation={indentationCount}
+    >
+      <a href={data.url} className="text-link hover:text-link-hover">
         <span>{incrementLastDigit(hierarchy.toString(), index)}</span>
-        <span className={styles.dataDisplay}>{data.display}</span>
-      </Link>
+        <span className="pl-4">{data.display}</span>
+      </a>
     </li>
   )
 }
 
-const incrementLastDigit = (inputDigits: string, increment: number): string => {
+function incrementLastDigit(inputDigits: string, increment: number): string {
   const allDigits = inputDigits.split('.')
   allDigits[allDigits.length - 1] = (Number(allDigits[allDigits.length - 1]) + increment).toString()
   return allDigits.join('.')
 }
 
-const addLastDigit = (inputDigits: string): string => {
+function addLastDigit(inputDigits: string): string {
   return inputDigits + '.1'
 }

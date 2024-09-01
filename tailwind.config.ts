@@ -24,6 +24,8 @@ module.exports = {
           900: 'var(--clr-grey-9)',
           1000: 'var(--clr-grey-10)',
         },
+        link: 'hsl(240, 100%, 47%)',
+        'link-hover': 'hsl(240, 100%, 27%)',
       },
     },
   },

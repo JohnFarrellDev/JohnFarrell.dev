@@ -6,7 +6,11 @@ export default {
   component: TableOfContents,
 } as Meta<typeof TableOfContents>
 
-export const NoContent: StoryObj<typeof TableOfContents> = {}
+export const NoContent: StoryObj<typeof TableOfContents> = {
+  args: {
+    content: [],
+  },
+}
 
 export const LinearContent: StoryObj<typeof TableOfContents> = {
   args: {
