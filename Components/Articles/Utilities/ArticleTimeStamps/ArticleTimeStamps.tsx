@@ -1,7 +1,4 @@
-import React, { HTMLAttributes } from 'react'
-import styles from './ArticleTimeStamps.module.css'
-
-interface ArticleTimeStampsProps extends HTMLAttributes<HTMLDivElement> {
+interface ArticleTimeStampsProps {
   createdAt: Date
   lastUpdated?: Date
 }
@@ -12,11 +9,11 @@ const toDisplayDate = (date: Date) => {
   return `${threeLetterMonths[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
 }
 
-export const ArticleTimeStamps = ({ createdAt, lastUpdated, ...props }: ArticleTimeStampsProps) => {
+export const ArticleTimeStamps = ({ createdAt, lastUpdated }: ArticleTimeStampsProps) => {
   return (
-    <div {...props} className={styles.container}>
-      <span>Created at: {toDisplayDate(createdAt)}</span>{' '}
-      {lastUpdated && <span>Last Updated: {toDisplayDate(lastUpdated)}</span>}
+    <div className="flex justify-end gap-4">
+      <span className="underline">Created at: {toDisplayDate(createdAt)}</span>{' '}
+      {lastUpdated && <span className="underline">Last Updated: {toDisplayDate(lastUpdated)}</span>}
     </div>
   )
 }
