@@ -1,8 +1,10 @@
+import LiteYouTubeEmbed from 'react-lite-youtube-embed'
+
 interface YouTubeVideoProps {
-  src: string
+  videoId: string
   title: string
 }
 
-export function YoutubeVideo({ src, title }: YouTubeVideoProps) {
-  return <iframe src={src} title={title} allowFullScreen className="aspect-video h-auto w-full" />
+export function YoutubeVideo({ videoId, title }: YouTubeVideoProps) {
+  return <LiteYouTubeEmbed id={videoId} title={title} />
 }

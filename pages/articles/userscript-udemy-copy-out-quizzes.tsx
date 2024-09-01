@@ -130,16 +130,16 @@ const Articles = () => {
 
             <SubSectionTitle id="video-demo-copy-from-practice-test">Copy from Practice Test</SubSectionTitle>
 
-            <YoutubeVideo src="https://www.youtube.com/embed/iNQTm9M3rbE" title="Copy from Practice Test" />
+            <YoutubeVideo videoId="iNQTm9M3rbE" title="Copy from Practice Test" />
 
             <SubSectionTitle id="video-demo-copy-from-end-of-section-quiz">
               Copy from End of Section Quiz
             </SubSectionTitle>
 
-            <YoutubeVideo src="https://www.youtube.com/embed/dTyebX77JPU" title="Copy from End of Section Quiz" />
+            <YoutubeVideo videoId="dTyebX77JPU" title="Copy from End of Section Quiz" />
 
             <SubSectionTitle id="end-result-in-zorbi">End result in Zorbi</SubSectionTitle>
-            <YoutubeVideo src="https://www.youtube.com/embed/7WWEwf86RvE" title="Zorbi demo" />
+            <YoutubeVideo videoId="7WWEwf86RvE" title="Zorbi demo" />
 
             <SectionTitle id="code">Code</SectionTitle>
 
