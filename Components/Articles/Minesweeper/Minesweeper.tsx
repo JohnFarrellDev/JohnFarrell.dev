@@ -5,7 +5,6 @@ import { Layout } from '../../Layout/Layout'
 import { SEO } from '../../SEO/SEO'
 import { Title } from '../../Utilities/Title/Title'
 import { ArticleTimeStamps } from '../Utilities/ArticleTimeStamps/ArticleTimeStamps'
-import { Paragraph } from '../Utilities/Paragraph/Paragraph'
 import { Game } from '../../Projects/Minesweeper/Components/Game/Game'
 
 export const Minesweeper = () => {
@@ -23,7 +22,7 @@ export const Minesweeper = () => {
 
             <ArticleTimeStamps createdAt={new Date('2022-10-09T22:19:37.934Z')} />
 
-            <Paragraph
+            <p
               style={{
                 textAlign: 'center',
                 textDecoration: 'underline',
@@ -31,7 +30,7 @@ export const Minesweeper = () => {
               }}
             >
               This is a work in progress! (highly recommend for now using a PC and not mobile to view)
-            </Paragraph>
+            </p>
 
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <Image
@@ -42,26 +41,26 @@ export const Minesweeper = () => {
               />
             </div>
 
-            <Paragraph>Why do this? Uhm not sure, it's sort of interesting.</Paragraph>
+            <p>Why do this? Uhm not sure, it's sort of interesting.</p>
 
-            <Paragraph>
+            <p>
               The purpose of this accompanying article is to provide further context and to allow to showcase individual
               features easily.
-            </Paragraph>
+            </p>
 
-            <Paragraph>
+            <p>
               Any visual examples with side-by-side game grids, the grid on the right is simply an uncovered version of
               the left hand side grid.
-            </Paragraph>
+            </p>
 
             <h3 style={{ marginTop: '30px' }}>Implement the Game</h3>
 
-            <Paragraph style={{ textDecoration: 'underline' }}>Generate the Grid</Paragraph>
+            <p style={{ textDecoration: 'underline' }}>Generate the Grid</p>
 
-            <Paragraph>
+            <p>
               Generating the grid for the game is done by creating a simple 2d array where each inner array represents a
               row. Each element within the inner array represents the state of a particular cell in the grid.
-            </Paragraph>
+            </p>
 
             <ul className={styles.list}>
               <Game
@@ -89,9 +88,9 @@ export const Minesweeper = () => {
                 borderlessMode={false}
               />
 
-              <Paragraph style={{ textDecoration: 'underline' }}>Place the Bombs</Paragraph>
+              <p style={{ textDecoration: 'underline' }}>Place the Bombs</p>
 
-              <Paragraph>
+              <p>
                 The second step is to ensure that N cells contain a bomb where N is the number of bombs for that
                 specific game. An additional rule is that the first cell clicked by a player on starting the game should
                 never contain a bomb. Because of the additional rule bomb placement can only be done directly after the
@@ -101,7 +100,7 @@ export const Minesweeper = () => {
                   Fisher-Yates Shuffler
                 </Link>
                 . The last N cells in the shuffled array then have their cell state update to true for isBomb.
-              </Paragraph>
+              </p>
 
               <Game
                 columns={5}
@@ -128,11 +127,11 @@ export const Minesweeper = () => {
                 borderlessMode={false}
               />
 
-              <Paragraph>
+              <p>
                 Technically this visualisation is a bit of a lie. It does not include every shuffle done by the
                 Fisher-Yates shuffling algorithm but simply shows the starting bomb positions and end bomb position (but
                 here you go with my lies anyway)
-              </Paragraph>
+              </p>
 
               <Game
                 columns={5}
@@ -159,17 +158,15 @@ export const Minesweeper = () => {
                 borderlessMode={false}
               />
 
-              <Paragraph style={{ textDecoration: 'underline' }}>
-                Calculate neighbor cells and number of neighbor bombs.
-              </Paragraph>
+              <p style={{ textDecoration: 'underline' }}>Calculate neighbor cells and number of neighbor bombs.</p>
 
-              <Paragraph>
+              <p>
                 To play Minesweeper every cell must know how many bombs are in its adjacent cells. This can only be
                 calculated after the bombs have been placed obviously which occurs on the player's first click. Simply
                 loop through every cell, calculate the position of its adjacent cells and also the total number of
                 adjacent bombs. (for a twist I also added a borderless mode which has made the code significantly more
                 disgusting to read)
-              </Paragraph>
+              </p>
 
               <Game
                 columns={5}
@@ -196,9 +193,7 @@ export const Minesweeper = () => {
                 borderlessMode={false}
               />
 
-              <Paragraph>
-                Animation showing how the grid is looped through and every neighbor's position is calculated.
-              </Paragraph>
+              <p>Animation showing how the grid is looped through and every neighbor's position is calculated.</p>
 
               <Game
                 columns={5}
@@ -225,10 +220,10 @@ export const Minesweeper = () => {
                 borderlessMode={false}
               />
 
-              <Paragraph>
+              <p>
                 Borderless mode implementation, a cell on the left can have a bomb for a neighbor on the right, same for
                 top-bottom and for all corners too.
-              </Paragraph>
+              </p>
 
               <Game
                 columns={5}
@@ -255,10 +250,10 @@ export const Minesweeper = () => {
                 borderlessMode={true}
               />
 
-              <Paragraph>
+              <p>
                 Animation showing how the grid is looped through and every neighbor's position is calculated but for
                 borderless.
-              </Paragraph>
+              </p>
 
               <Game
                 columns={5}
@@ -285,14 +280,14 @@ export const Minesweeper = () => {
                 borderlessMode={true}
               />
 
-              <Paragraph style={{ textDecoration: 'underline' }}>Make the Game Playable</Paragraph>
+              <p style={{ textDecoration: 'underline' }}>Make the Game Playable</p>
 
-              <Paragraph>
+              <p>
                 Finally to be able to play the game you must be able to reveal cells by left clicking, additionally
                 right clicking a cell should allow a user to place a flag indicating they think the cell has a bomb. If
                 the user is able to uncover all non-bomb cells they win, if the user uncovers a cell that has a bomb
                 however they lose.
-              </Paragraph>
+              </p>
 
               <Game
                 columns={5}
@@ -319,16 +314,14 @@ export const Minesweeper = () => {
                 borderlessMode={false}
               />
 
-              <Paragraph style={{ textDecoration: 'underline' }}>
-                Automatically Reveal Neighbor Cells when 0 Neighbor Bombs
-              </Paragraph>
+              <p style={{ textDecoration: 'underline' }}>Automatically Reveal Neighbor Cells when 0 Neighbor Bombs</p>
 
-              <Paragraph>
+              <p>
                 And finally, a functionality that is normally implemented in Minesweeper is the "recursive reveal". If a
                 player clicks a cell that contains no neighboring bombs all adjacent cells should be automatically
                 uncovered. If any of the adjacent cells also have no neighboring bombs then it's neighbors can be
                 uncovered and so on...
-              </Paragraph>
+              </p>
 
               <Game
                 columns={5}
@@ -355,7 +348,7 @@ export const Minesweeper = () => {
                 borderlessMode={false}
               />
 
-              <Paragraph>For visualisation purposes you can see how the recursive reveal is implemented.</Paragraph>
+              <p>For visualisation purposes you can see how the recursive reveal is implemented.</p>
 
               <Game
                 columns={10}
@@ -384,35 +377,35 @@ export const Minesweeper = () => {
 
               <h3 style={{ marginTop: '30px' }}>Constraint Propagation Auto Solver</h3>
 
-              <Paragraph>
+              <p>
                 Most of the time when a player is able to with certainty uncover a cell knowing it is not a bomb or
                 place a flag on a cell as they know it is a bomb they are utilising{' '}
                 <Link href={'https://en.wikipedia.org/wiki/Local_consistency'} passHref={true}>
                   constraint propagation
                 </Link>
                 .
-              </Paragraph>
+              </p>
 
-              <Paragraph>
+              <p>
                 If a cell indicates it only has 2 bombs adjacent to it and there are only 2 uncovered cells then we can
                 with certainty flag those cells as having bombs.
-              </Paragraph>
+              </p>
 
-              <Paragraph>
+              <p>
                 Alternatively if a cell only has 2 bombs and 2 of it's adjacent cells are already flagged then we can
                 with certainty uncover the remaining cells.
-              </Paragraph>
+              </p>
 
-              <Paragraph>
+              <p>
                 By applying these 2 constraints we able to uncovered more of the grid, each time we uncover more of the
                 grid we can apply the constraints again (hench the propagation)
-              </Paragraph>
+              </p>
 
-              <Paragraph>
+              <p>
                 For someone who is very adept at Minesweeper it could be good practice to play with the constrain
                 propagation turned on. This only leaves the more challenging problems to solve and anything that would
                 be trivial is already computed away.
-              </Paragraph>
+              </p>
 
               <Game
                 columns={10}
@@ -439,9 +432,7 @@ export const Minesweeper = () => {
                 borderlessMode={false}
               />
 
-              <Paragraph>
-                If my explanation didn't make any sense the animation should make it clearer (I hope)
-              </Paragraph>
+              <p>If my explanation didn't make any sense the animation should make it clearer (I hope)</p>
 
               <Game
                 columns={10}

@@ -1,5 +1,4 @@
 import { ArticleTimeStamps } from '../../Components/Articles/Utilities/ArticleTimeStamps/ArticleTimeStamps'
-import { Paragraph } from '../../Components/Articles/Utilities/Paragraph/Paragraph'
 import { TableOfContents } from '../../Components/Articles/Utilities/TableOfContents/TableOfContents'
 import { Banner } from '../../Components/Banner'
 import { Layout } from '../../Components/Layout/Layout'
@@ -25,7 +24,7 @@ function OptimizingYoutube() {
               type="information"
               message="Google are actively weakening the effectiveness of extensions on Chrome, try FireFox."
             />
-            <Paragraph>
+            <p>
               For about 15 years, I have been an avid YouTube user, integrating the platform into my daily routine.
               YouTube provides me with free entertainment and access to excellent educational resources. Whether I’m
               watching highlights of my favorite gaming streamers, football matches, or exploring tutorials on software
@@ -34,7 +33,7 @@ function OptimizingYoutube() {
               These tools allow me to tailor my YouTube journey to my unique needs and preferences, transforming my time
               on YouTube into a more productive, enjoyable, and personalized experience. As a result, YouTube has become
               an even more invaluable resource in my daily life.
-            </Paragraph>
+            </p>
 
             <TableOfContents
               content={[
@@ -77,14 +76,14 @@ function OptimizingYoutube() {
               <a href="https://addons.mozilla.org/en-GB/firefox/addon/ublock-origin/">Firefox Add-On</a>
               <a href="https://ublockorigin.com/">uBlock Website</a>
             </div>
-            <Paragraph>
+            <p>
               For me, this is the most essential extension to have installed. It blocks all adverts across websites you
               visit, making your browsing experience smoother and less intrusive. Recently, YouTube has become more
               aggressive in attempting to counter ad blockers, but for now, uBlock appears to be prevailing. Personally,
               I don’t feel guilty for using an ad blocker because, without it, YouTube often shows me ads for financial
               scams or misleading phone games. These ads are neither relevant nor accurately represented, making uBlock
               Origin a crucial tool in avoiding such content.
-            </Paragraph>
+            </p>
 
             <h2 id="sponsor-block">Sponsor Block</h2>
             <div style={{ display: 'flex', flexDirection: 'column', marginBottom: 10 }}>
@@ -94,18 +93,18 @@ function OptimizingYoutube() {
               <a href="https://addons.mozilla.org/en-GB/firefox/addon/sponsorblock/">Firefox Add-On</a>
               <a href="https://github.com/ajayyy/SponsorBlock">GitHub Repo</a>
             </div>
-            <Paragraph>
+            <p>
               While uBlock Origin effectively blocks ads served by YouTube, there are also ads integrated directly into
               the content by creators. Sponsor Block is a community-driven extension that automatically skips these
               sponsored segments, as well as pre-rolls, intros, and outros, in YouTube videos. It relies on crowdsourced
               data to identify and skip sponsorships, ads, and product placements, providing a seamless viewing
               experience.
-            </Paragraph>
-            <Paragraph>
+            </p>
+            <p>
               Sponsor Block is highly customizable, allowing you to adjust skip settings based on your preferences. It
               conveniently tracks the time you save by using the extension, and in my case, I've saved almost 1 day and
               16 hours.
-            </Paragraph>
+            </p>
             <Image
               src="https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/optimizing-youtube/sponsor-block-time-saved.png"
               alt="time saved by Sponsor Block, 1 day 16 hours"
@@ -121,15 +120,15 @@ function OptimizingYoutube() {
               <a href="https://addons.mozilla.org/en-GB/firefox/addon/blocktube/">Firefox Add-On</a>
               <a href="https://github.com/amitbl/blocktube">GitHub Repo</a>
             </div>
-            <Paragraph>
+            <p>
               BlockTube is my favorite YouTube extension. I discovered it after realizing that YouTube's "Not interested
               in this video" button was largely ineffective; disliked videos and videos selected as not intersting to me
               would still clutter my feed. Subscribed to hundreds of channels, many posting daily, I found it
               increasingly difficult to locate the 5% of videos I actually care about. BlockTube solves this problem by
               allowing me to block specific videos or entire channels from appearing anywhere on YouTube with just a
               couple of clicks.
-            </Paragraph>
-            <Paragraph>My subscription feed without blocktube with 4 rows of content goes back only 6 hours.</Paragraph>
+            </p>
+            <p>My subscription feed without blocktube with 4 rows of content goes back only 6 hours.</p>
             <Image
               src="https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/optimizing-youtube/blocktube-before.jpg"
               width={1613}
@@ -137,10 +136,10 @@ function OptimizingYoutube() {
               alt="subscription feed without blocktube"
               style={{ maxWidth: '100%', height: 'auto' }}
             />
-            <Paragraph>
+            <p>
               With BlockTube enabled I can see content from 8 days ago and a small scroll would show content from 3
               months ago!
-            </Paragraph>
+            </p>
             <Image
               src="https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/optimizing-youtube/blocktube-after.jpg"
               width={1610}
@@ -148,18 +147,18 @@ function OptimizingYoutube() {
               alt="subscription feed with blocktube"
               style={{ maxWidth: '100%', height: 'auto' }}
             />
-            <Paragraph>
+            <p>
               BlockTube also features an advanced mode that allows you to programmatically block content by writing
               custom code. This mode provides access to video and channel objects, enabling precise filtering based on
               your specific criteria.
-            </Paragraph>
-            <Paragraph>
+            </p>
+            <p>
               Using this I am able to block all livestream videos and videos that are set to premier in the future. I
               also have written code that allows me to block certain keywords in general or for a specific channel, for
               example if the UFC channel posts a video with string 'ufc unfiltered' (a podcast I don't care about that
               they post every week) in the title I will never see that video. Over time I have built quite an advanced
               custom filter which automatically blocks videos I don't care about.
-            </Paragraph>
+            </p>
 
             <h2 id="return-youtube-dislikes">Return YouTube Dislikes</h2>
             <div style={{ display: 'flex', flexDirection: 'column', marginBottom: 10 }}>
@@ -169,17 +168,15 @@ function OptimizingYoutube() {
               <a href="https://addons.mozilla.org/en-GB/firefox/addon/return-youtube-dislikes/">Firefox Add-On</a>
               <a href="https://returnyoutubedislike.com/">Return YouTube Dislikes website</a>
             </div>
-            <Paragraph>
+            <p>
               YouTube, in an effort to appease large corporations, removed the visible dislike count on videos.
               Unfortunately, seeing dislikes is a valuable tool for viewers to quickly gauge the quality of a video. For
               example, if I'm watching a tech tutorial or a handyman's guide with a high dislike count, I can quickly
               determine that the video may not be worth my time. This extension simply restores an estimated dislike
               count to videos, allowing viewers to make more informed decisions.
-            </Paragraph>
+            </p>
 
-            <Paragraph>
-              Based on the below image YouTube rewind 2018 was a great success and received 3.1 million likes...
-            </Paragraph>
+            <p>Based on the below image YouTube rewind 2018 was a great success and received 3.1 million likes...</p>
             <Image
               src="https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/optimizing-youtube/return-youtube-dislike-turned-off.png"
               alt="youtube rewind 2018 with a like count of 3.1 million"
@@ -188,10 +185,10 @@ function OptimizingYoutube() {
               style={{ maxWidth: '100%', height: 'auto' }}
             />
 
-            <Paragraph>
+            <p>
               However with the extension Return YouTube Dislikes turned on we can see the dislike count is at 20M for
               YouTube a dislike % of ~85%.
-            </Paragraph>
+            </p>
             <Image
               src="https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/optimizing-youtube/return-youtube-dislike.png"
               alt="youtube dislike count still on a youtube video"
@@ -208,13 +205,13 @@ function OptimizingYoutube() {
               <a href="https://addons.mozilla.org/en-US/firefox/addon/clickbait-remover-for-youtube/">Firefox Add-On</a>
               <a href="https://github.com/pietervanheijningen/clickbait-remover-for-youtube">GitHub Repo</a>
             </div>
-            <Paragraph>
+            <p>
               This simple extension helps reduce the annoying clickbait often seen on YouTube. It allows me to choose a
               specific section of the video (start, middle, or end) to use as the thumbnail, rather than relying on the
               often misleading default thumbnail. Additionally, I can adjust the casing of video titles, converting{' '}
               <span style={{ textTransform: 'uppercase' }}>all caps</span> titles into more readable Title Case Text.
-            </Paragraph>
-            <Paragraph>The below</Paragraph>
+            </p>
+            <p>The below</p>
             <Image
               src="https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/optimizing-youtube/clickbait-remover-before.png"
               alt="examples of annoying youtube clickbait before the extension"
@@ -222,7 +219,7 @@ function OptimizingYoutube() {
               height={804}
               style={{ maxWidth: '100%', height: 'auto' }}
             />
-            <Paragraph>Becomes</Paragraph>
+            <p>Becomes</p>
             <Image
               src="https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/optimizing-youtube/clickbait-remover-after.png"
               alt="examples of youtube thumbnails and titles after the extension reduces the clickbait"
@@ -239,24 +236,24 @@ function OptimizingYoutube() {
               <a href="https://addons.mozilla.org/en-GB/firefox/addon/dearrow/">Firefox Add-On</a>
               <a href="https://dearrow.ajay.app/">DeArrow Website</a>
             </div>
-            <Paragraph>
+            <p>
               DeArrow operates similarly to Clickbait Remover for YouTube, eliminating clickbait thumbnails and titles.
               Instead of using algorithmically selected sections, DeArrow relies on community-submitted thumbnails and
               titles to replace the misleading ones. Although I prefer using Clickbait Remover due to its
               straightforward approach, DeArrow shows promise and is worth keeping an eye on as its community grows.
-            </Paragraph>
+            </p>
 
             <h2 id="google-gemini">Google Gemini</h2>
             <div style={{ display: 'flex', flexDirection: 'column', marginBottom: 10 }}>
               <a href="https://gemini.google.com/">Google Gemini</a>
             </div>
-            <Paragraph>
+            <p>
               Unlike the other tools mentioned, Google Gemini is not a browser extension. It's Google's AI chat service,
               similar to ChatGPT, and integrates seamlessly with YouTube due to Google's ownership of both. I use Gemini
               to quickly summarize videos I'm unsure about watching. For instance, if a 20-minute video by Tim Corey is
               irrelevant to me based on the Gemini summary, I can promptly use BlockTube to block the video and remove
               it from my subscription feed.
-            </Paragraph>
+            </p>
             <Image
               src="https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/optimizing-youtube/gemini-video-to-summarise.png"
               alt="20 minute video by Tim Corey"

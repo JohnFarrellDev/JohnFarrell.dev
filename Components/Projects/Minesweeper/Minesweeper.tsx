@@ -5,7 +5,6 @@ import { Layout } from '../../Layout/Layout'
 import { SEO } from '../../SEO/SEO'
 import { Title } from '../../Utilities/Title/Title'
 import { Game } from './Components/Game/Game'
-import { Paragraph } from '../../Articles/Utilities/Paragraph/Paragraph'
 
 export const Minesweeper = () => {
   const seo = useMemo(
@@ -27,7 +26,7 @@ export const Minesweeper = () => {
       {title}
       <main>
         <ArticleTimeStamps createdAt={new Date('2022-10-09T22:19:37.934Z')} style={{ marginRight: '20px' }} />
-        <Paragraph
+        <p
           style={{
             textAlign: 'center',
             textDecoration: 'underline',
@@ -35,7 +34,7 @@ export const Minesweeper = () => {
           }}
         >
           This is a work in progress! (highly recommend for now using a PC and not mobile to view)
-        </Paragraph>
+        </p>
         <div className={styles.gameContainer}>
           <Game
             columns={20}

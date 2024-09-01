@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { ArticleTimeStamps } from '../../Components/Articles/Utilities/ArticleTimeStamps/ArticleTimeStamps'
-import { Paragraph } from '../../Components/Articles/Utilities/Paragraph/Paragraph'
 import { Layout } from '../../Components/Layout/Layout'
 import { SEO } from '../../Components/SEO/SEO'
 import { Title } from '../../Components/Utilities/Title/Title'
@@ -27,14 +26,14 @@ const Articles = () => {
               createdAt={new Date('2022-05-27T11:16:06.761Z')}
               lastUpdated={new Date('2022-06-04T22:25:57.626Z')}
             />
-            <Paragraph>
+            <p>
               First I need to mention how much I love UserScripts. As the end-user when visiting a website you are in
               control of your personal view and how you interact with the website. Userscripts are a way to inject your
               own client-side JavaScript into any website. This allows you to edit the HTML, add new functionality,
               interact with APIs etc. Anything you can do with client-side JavaScript you can do in your UserScript.
-            </Paragraph>
+            </p>
 
-            <Paragraph>
+            <p>
               On Firefox I utilise an{' '}
               <Link href="https://addons.mozilla.org/en-GB/firefox/addon/tampermonkey/">
                 add on called Tampermonkey
@@ -44,15 +43,15 @@ const Articles = () => {
                 available as an extension on Chrome
               </Link>{' '}
               and most <Link href="https://www.tampermonkey.net/">other popular browsers.</Link>
-            </Paragraph>
+            </p>
 
-            <Paragraph>
+            <p>
               You can also utilise other people's UserScripts without writing your own,{' '}
               <Link href="https://www.userscript.zone/">userscript.zone</Link> allows you to search for scripts by
               website name, <Link href="https://greasyfork.org">Greasy Fork</Link>
               is an online host of UserScripts that can easily be installed. When installing someone else's code it is
               your responsibility to understand what you are installing.
-            </Paragraph>
+            </p>
 
             <TableOfContents
               content={[
@@ -105,26 +104,26 @@ const Articles = () => {
             />
 
             <SectionTitle id="goal">Goal</SectionTitle>
-            <Paragraph>
+            <p>
               Personally, I find myself getting easily distracted when studying for AWS exams on Udemy, by removing one
               of the more tedious steps I can focus better and not end up on Reddit/HackerNews.
-            </Paragraph>
-            <Paragraph>
+            </p>
+            <p>
               The tedious step is that I would like to export quiz sections and practice tests for the AWS exam into a{' '}
               <Link href="https://en.wikipedia.org/wiki/Spaced_repetition">Spaced Repetition Learning</Link> (SRL) app.
               SRL isn't a service offered on the Udemy platform. (<Link href="https://www.udemy.com/">Udemy</Link> is an
               online education platform)
-            </Paragraph>
-            <Paragraph>
+            </p>
+            <p>
               I personally use an app called <Link href="https://zorbi.app/">Zorbi</Link>,{' '}
               <Link href="https://apps.ankiweb.net/">Anki</Link> is another popular choice.
-            </Paragraph>
-            <Paragraph>
+            </p>
+            <p>
               Unfortunately, it is not easy to highlight the text within Udemy quiz pages so I created a couple of
               UserScripts to make this process smoother for me. I have come across two types of quizzes so far on Udemy,
               quizzes that exist at the end of a course section and practice exam papers. For each quiz type I have a
               unique UserScript.
-            </Paragraph>
+            </p>
 
             <SectionTitle id="video-demo">Video Demo</SectionTitle>
 
@@ -163,45 +162,45 @@ const Articles = () => {
 
             <SubSectionTitle id="greasy-fork-publish">Published on Greasy Fork</SubSectionTitle>
 
-            <Paragraph>
+            <p>
               I have published both of these scripts to <Link href="https://greasyfork.org">Greasy Fork</Link>. The
               benefit of this is ease of installation and any changes I push to GitHub should be automatically picked up
               by Greasy Fork.
-            </Paragraph>
-            <Paragraph>
+            </p>
+            <p>
               <Link href="https://greasyfork.org/en/scripts/446004-udemy-copy-from-section-quiz">
                 Greasy Fork - Udemy Copy From Section Quiz
               </Link>
-            </Paragraph>
-            <Paragraph>
+            </p>
+            <p>
               <Link href="https://greasyfork.org/en/scripts/446005-udemy-copy-from-practice-test">
                 Greasy Fork - Udemy Copy From Practice Test
               </Link>
-            </Paragraph>
+            </p>
 
             <SectionTitle id="lessons-learned">Lessons learned</SectionTitle>
-            <Paragraph>
+            <p>
               By the time I got into web development the rise of the frameworks (Angular, Vue, React) had occurred, and
               I missed out on working with jQuery and vanilla JS. The frameworks are great but it is good to understand
               APIs offered by the browser and how to write vanilla JS to interact with the DOM (display object model).
               Working with UserScripts gives me some insight into web development without frameworks.
-            </Paragraph>
-            <Paragraph>
+            </p>
+            <p>
               An example from the code I wrote in these two scripts is that I utilised the{' '}
               <Link href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver">Mutation Observer</Link>{' '}
               class for the first time. Initially, when I first wrote this code I was utilising setTimeout and
               setInterval which felt hacky, I am far happier with the Mutation Observer implementation and it was a good
               tool to learn about.
-            </Paragraph>
-            <Paragraph>
+            </p>
+            <p>
               I also learned when using the mutation observer that is triggering a function that edits the HTML you need
               to ignore your own HTML changes or you'll cause infinite recursion and crash your browser :p
-            </Paragraph>
-            <Paragraph>
+            </p>
+            <p>
               When doing something like this I often think about the classic <Link href="https://xkcd.com/">XKCD</Link>{' '}
               for time saved vs time spent. I think it is important to also value the learning experience, if I ever
               need to do something like this again I could now do it very quickly.
-            </Paragraph>
+            </p>
             <Image
               src="https://imgs.xkcd.com/comics/is_it_worth_the_time.png"
               alt="Is It Worth the Time?"
@@ -210,21 +209,21 @@ const Articles = () => {
             />
 
             <SectionTitle id="potential-problems">Potential problems</SectionTitle>
-            <Paragraph>
+            <p>
               Udemy may have a variety of quizzes that exist outside of the two I have written UserScripts for, I may
               need to amend or create new scripts to handle future possible variations.
-            </Paragraph>
-            <Paragraph>
+            </p>
+            <p>
               The code is quite fragile, if Udemy change the HTML structure of their website or update CSS class names
               my scripts will break. Most likely it would only take a few minutes to update the code.
-            </Paragraph>
-            <Paragraph>
+            </p>
+            <p>
               There are no automated tests for any of the code in the UserScripts. It would be possible to take a
               snapshot of the HTML from a Udemy quiz to test my code against. I could also configure fetching the HTML
               snapshot from a Udemy page periodically and then run my tests to automatically catch if the HTML structure
               has been updated and requires my code to be changed. I doubt I'll do any of this though, I've already
               procrastinated enough making the scripts and writing this instead of studying AWS.
-            </Paragraph>
+            </p>
           </div>
         </section>
       </section>
