@@ -8,7 +8,7 @@ export default {
 
 export const Default: StoryObj<typeof YoutubeVideo> = {
   args: {
-    src: 'https://www.youtube.com/embed/6TnKvlQ2h7s',
+    videoId: '6TnKvlQ2h7s',
     title: 'Copy from End of Section Quiz',
   },
 }
