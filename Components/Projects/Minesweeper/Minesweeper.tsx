@@ -25,7 +25,7 @@ export const Minesweeper = () => {
       {seo}
       {title}
       <main>
-        <ArticleTimeStamps createdAt={new Date('2022-10-09T22:19:37.934Z')} style={{ marginRight: '20px' }} />
+        <ArticleTimeStamps createdAt={new Date('2022-10-09T22:19:37.934Z')} />
         <p
           style={{
             textAlign: 'center',

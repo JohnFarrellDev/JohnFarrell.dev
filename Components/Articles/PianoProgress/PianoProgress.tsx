@@ -13,13 +13,11 @@ export const PianoProgress = () => {
         image="https://i.imgur.com/ikwTfTE.jpeg"
       />
       <section className="blog-page">
-        <section className="section">
-          <div className="section-center">
-            <Title title="Piano Progress" />
-            <CurrentyLearning />
-            <SongTrackers />
-          </div>
-        </section>
+        <div className="section-center">
+          <Title title="Piano Progress" />
+          <CurrentyLearning />
+          <SongTrackers />
+        </div>
       </section>
     </Layout>
   )

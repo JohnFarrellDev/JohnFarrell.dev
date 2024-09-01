@@ -13,15 +13,13 @@ export default function PianoProgress() {
         image="https://i.imgur.com/ikwTfTE.jpeg"
       />
       <section className="blog-page">
-        <section className="section">
-          <div className="section-center">
-            <Title title="Piano Progress" />
+        <div className="section-center">
+          <Title title="Piano Progress" />
 
-            <CurrentyLearning />
+          <CurrentyLearning />
 
-            <SongTrackers />
-          </div>
-        </section>
+          <SongTrackers />
+        </div>
       </section>
     </Layout>
   )

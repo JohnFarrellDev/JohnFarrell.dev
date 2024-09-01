@@ -84,29 +84,27 @@ const allArticles = [
   },
 ]
 
-export const Articles = () => {
+export function Articles() {
   return (
     <Layout>
       <SEO
         title="Articles | John Farrell"
         description="Articles (mostly about software engineering) written by John Farrell"
       />
-      <section className="blog-page">
-        <section className="section">
-          <Title title="Articles" />
-          <div className="section-center">
-            {allArticles.map(({ year, articles }) => (
-              <Fragment key={year}>
-                <h2 className={styles.year}>{year}</h2>
-                <ul className={styles.articlesContainer}>
-                  {articles.map((article) => (
-                    <ArticleCard key={article.URL} {...article} />
-                  ))}
-                </ul>
-              </Fragment>
-            ))}
-          </div>
-        </section>
+      <section>
+        <Title title="Articles" />
+        <div className="section-center">
+          {allArticles.map(({ year, articles }) => (
+            <Fragment key={year}>
+              <h2 className={styles.year}>{year}</h2>
+              <ul className={styles.articlesContainer}>
+                {articles.map((article) => (
+                  <ArticleCard key={article.URL} {...article} />
+                ))}
+              </ul>
+            </Fragment>
+          ))}
+        </div>
       </section>
     </Layout>
   )
