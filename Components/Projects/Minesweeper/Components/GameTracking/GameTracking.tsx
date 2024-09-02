@@ -9,7 +9,6 @@ import { HumanNeutralFace } from '../SVGs/HumanNeutralFace'
 import { HumanPartyFace } from '../SVGs/HumanPartyFace'
 import { HumanScaredFace } from '../SVGs/HumanScaredFace'
 import { HumanSmilingFace } from '../SVGs/HumanSmilingFace'
-import styles from './GameTracking.module.css'
 
 export enum FaceType {
   Human,
@@ -28,14 +27,29 @@ interface GameTrackingI {
 }
 
 const faces = [
-  [<HumanNeutralFace key="human-neutral-face" />, <CatNeutralFace key="cat-neutral-face" />],
-  [<HumanPartyFace key="human-party-face" />, <CatHeartFace key="cat-heart-face" />],
-  [<HumanCryingFace key="human-crying-face" />, <CatCryingFace key="cat-crying-face" />],
-  [<HumanSmilingFace key="human-smiling-face" />, <CatSmilingFace key="cat-smiling-face" />],
-  [<HumanScaredFace key="human-scared-face" />, <CatScaredFace key="cat-scared" />],
+  [
+    <HumanNeutralFace key="human-neutral-face" className="w-[50px]" />,
+    <CatNeutralFace key="cat-neutral-face" className="w-[50px]" />,
+  ],
+  [
+    <HumanPartyFace key="human-party-face" className="w-[50px]" />,
+    <CatHeartFace key="cat-heart-face" className="w-[50px]" />,
+  ],
+  [
+    <HumanCryingFace key="human-crying-face" className="w-[50px]" />,
+    <CatCryingFace key="cat-crying-face" className="w-[50px]" />,
+  ],
+  [
+    <HumanSmilingFace key="human-smiling-face" className="w-[50px]" />,
+    <CatSmilingFace key="cat-smiling-face" className="w-[50px]" />,
+  ],
+  [
+    <HumanScaredFace key="human-scared-face" className="w-[50px]" />,
+    <CatScaredFace key="cat-scared" className="w-[50px]" />,
+  ],
 ]
 
-export const GameTracking = ({
+export function GameTracking({
   isDead,
   isWinner,
   isPlaying,
@@ -44,14 +58,14 @@ export const GameTracking = ({
   flagsPlaced,
   totalBombs,
   switchFaceType,
-}: GameTrackingI) => {
+}: GameTrackingI) {
   return (
-    <div className={styles.container}>
-      <div className={styles.svg}>
-        <Bomb /> <p>{` ${totalBombs - flagsPlaced}/${totalBombs}`}</p>
+    <div className="mx-auto flex max-w-[500px] justify-around">
+      <div>
+        <Bomb /> <p className="select-none text-2xl text-red-500">{`${totalBombs - flagsPlaced}/${totalBombs}`}</p>
       </div>
       <div>
-        <p onClick={switchFaceType} className={styles.svg}>
+        <p onClick={switchFaceType}>
           {!isPlaying
             ? faces[0][faceType]
             : isWinner
