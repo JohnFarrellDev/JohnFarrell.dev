@@ -5,6 +5,7 @@ import { Person } from '../../icons/Person'
 import { Wrench } from '../../icons/Wrench'
 import { NewsPaper } from '../../icons/NewsPaper'
 import { Mail } from '../../icons/Mail'
+import { cn } from '../../../lib/utils'
 
 const data = [
   {
@@ -39,22 +40,30 @@ const data = [
   },
 ]
 
-export function Links() {
+interface LinkProps {
+  isOpen: boolean
+}
+
+export function Links({ isOpen }: LinkProps) {
   return (
-    <ul className="flex justify-end gap-2 min-[300px]:gap-8">
-      {data.map((link) => {
-        return (
-          <li key={link.id}>
-            <Link
-              href={link.url}
-              className="font-bold capitalize tracking-wide text-grey-100 transition duration-300 hover:text-primary-500"
-            >
-              <span className="hidden min-[500px]:block">{link.text}</span>
-              <span className="block min-[500px]:hidden">{link.icon}</span>
-            </Link>
-          </li>
-        )
-      })}
+    <ul
+      className={cn(
+        'justify-end gap-2 min-[300px]:gap-8 md:flex md:items-center',
+        isOpen ? 'absolute left-0 right-0 top-20 flex flex-col bg-white p-4' : 'hidden'
+      )}
+      id="mobile-menu"
+    >
+      {data.map((link) => (
+        <li key={link.id}>
+          <Link
+            href={link.url}
+            className="flex items-center gap-2 font-bold capitalize tracking-wide text-grey-100 transition duration-300 hover:text-primary-500"
+          >
+            <span className="md:hidden">{link.icon}</span>
+            <span>{link.text}</span>
+          </Link>
+        </li>
+      ))}
     </ul>
   )
 }
