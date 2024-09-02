@@ -8,7 +8,7 @@ export function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen)
 
   return (
-    <nav className={cn('flex h-20 items-center bg-white px-4')}>
+    <nav className="flex h-20 items-center bg-white px-4">
       <div className="mx-auto flex w-full max-w-[1170px] items-center justify-end">
         <button
           onClick={toggleMenu}
@@ -17,22 +17,27 @@ export function Navbar() {
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
         >
-          <span
-            className={cn(
-              'mb-1 block h-0.5 w-6 bg-gray-600 transition-transform',
-              isOpen ? 'translate-y-1.5 rotate-45' : ''
-            )}
-          />
-          <span className={cn('mb-1 block h-0.5 w-6 bg-gray-600', isOpen ? 'opacity-0' : '')} />
-          <span
-            className={cn(
-              'block h-0.5 w-6 bg-gray-600 transition-transform',
-              isOpen ? '-translate-y-1.5 -rotate-45' : ''
-            )}
-          />
+          <Hamburger isOpen={isOpen} />
         </button>
         <Links isOpen={isOpen} />
       </div>
     </nav>
+  )
+}
+
+function Hamburger({ isOpen }: { isOpen: boolean }) {
+  return (
+    <>
+      <span
+        className={cn(
+          'mb-1 block h-0.5 w-6 bg-gray-600 transition-transform',
+          isOpen ? 'translate-y-1.5 rotate-45' : ''
+        )}
+      />
+      <span className={cn('mb-1 block h-0.5 w-6 bg-gray-600', isOpen ? 'opacity-0' : '')} />
+      <span
+        className={cn('block h-0.5 w-6 bg-gray-600 transition-transform', isOpen ? '-translate-y-1.5 -rotate-45' : '')}
+      />
+    </>
   )
 }
