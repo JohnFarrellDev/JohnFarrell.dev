@@ -1,21 +1,28 @@
-import styles from './CurrentyLearning.module.css'
+import { Music } from 'lucide-react'
+import { Card, CardHeader, CardTitle, CardContent } from '../../../../ui/card'
 
-const itemsBeingLearnt = [
-  'Another Year Older, Bastien Piano For Adults Book 1, page 54',
-  'Can Can, Bastien Piano For Adults Book 1, page 51',
-  'Fantaisie Impromptu, Bastien Piano For Adults Book 1, page 52',
-  'Minuet in G, Bastien Piano For Adults Book 1, page 55',
+const currentSongs: string[] = [
+  'interstellar theme - Hans Zimmer',
+  'gymnopedie - Erik Satie',
+  'una mattina - Ludovico Einaudi',
 ]
 
-export const CurrentyLearning = () => {
+export function CurrentyLearning() {
   return (
-    <div className={styles.notification}>
-      <h2>Currently Learning:</h2>
-      <ul>
-        {itemsBeingLearnt.map((item, index) => {
-          return <li key={index}>{item}</li>
-        })}
-      </ul>
-    </div>
+    <Card className="mx-auto w-full max-w-3xl">
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+        <CardTitle className="text-2xl font-bold">Current Piano Repertoire</CardTitle>
+        <Music className="text-muted-foreground h-6 w-6" />
+      </CardHeader>
+      <CardContent>
+        <ul className="list-disc space-y-2 pl-5">
+          {currentSongs.map((song, index) => (
+            <li key={index} className="text-muted-foreground text-sm">
+              {song}
+            </li>
+          ))}
+        </ul>
+      </CardContent>
+    </Card>
   )
 }
