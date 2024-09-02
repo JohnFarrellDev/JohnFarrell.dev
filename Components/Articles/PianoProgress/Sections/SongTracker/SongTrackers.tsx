@@ -1,12 +1,13 @@
-import styles from './SongTracker.module.css'
-import { ShowMoreText } from '../ShowMoreText/ShowMoreText'
-import { YoutubeLink } from '../YoutubeLink/YoutubeLink'
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/Components/ui/table'
+import { Badge } from '@/Components/ui/badge'
+import { Button } from '@/Components/ui/button'
+import { Music, Youtube } from 'lucide-react'
 
 interface SongInformation {
   name: string
   composerOrArtist: string
   sheetMusic: { text: string; link?: string }
-  progress: string
+  progress: number
   performances: { link: string; iconText?: string }[]
   comments: string[]
 }
@@ -19,7 +20,7 @@ const songs: SongInformation[] = [
       link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008',
     },
     composerOrArtist: 'unknown',
-    progress: 'In progress',
+    progress: 100,
     performances: [],
     comments: [],
   },
@@ -30,7 +31,7 @@ const songs: SongInformation[] = [
       text: 'Bastien (Piano For Adults Book 1 Page 55)',
       link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008',
     },
-    progress: 'In progress',
+    progress: 100,
     performances: [],
     comments: [],
   },
@@ -41,7 +42,7 @@ const songs: SongInformation[] = [
       text: 'Bastien (Piano For Adults Book 1 Page 52)',
       link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008',
     },
-    progress: 'In progress',
+    progress: 100,
     performances: [],
     comments: ["Doesn't seem particularly difficult, I just need to practice it a bit."],
   },
@@ -52,7 +53,7 @@ const songs: SongInformation[] = [
       text: 'Bastien (Piano For Adults Book 1 Page 51)',
       link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008',
     },
-    progress: 'In progress',
+    progress: 100,
     performances: [
       {
         link: 'https://www.youtube.com/watch?v=DYSCU0q15EE',
@@ -69,7 +70,7 @@ const songs: SongInformation[] = [
       text: 'Bastien (Piano For Adults Book 1 Page 45)',
       link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008',
     },
-    progress: 'Finished',
+    progress: 100,
     performances: [
       {
         link: 'https://www.youtube.com/watch?v=8Yu09SsAxyw',
@@ -87,7 +88,7 @@ const songs: SongInformation[] = [
       text: 'Bastien (Piano For Adults Book 1 Page 44)',
       link: 'https://www.amazon.co.uk/Bastien-Piano-Adults-Book-1/dp/0849773008',
     },
-    progress: 'Finished',
+    progress: 100,
     performances: [
       {
         link: 'https://www.youtube.com/watch?v=XP_-eHI5wqY',
@@ -106,7 +107,7 @@ const songs: SongInformation[] = [
     sheetMusic: {
       text: 'Arranged by James Bastien',
     },
-    progress: 'Finished',
+    progress: 100,
     performances: [{ link: 'https://www.youtube.com/watch?v=I38n6SseTLQ' }],
     comments: [
       'Roughly the same difficulty as Ode to Joy. Took me about 45 minutes to learn instead of the 10 hours Ode to Joy took.',
@@ -119,7 +120,7 @@ const songs: SongInformation[] = [
       text: 'Arranged by James Bastien',
       link: 'https://www.amazon.co.uk/Bastien-Piano-Basics-Level-One/dp/0849752663',
     },
-    progress: 'Finished',
+    progress: 100,
     performances: [
       {
         link: 'https://www.youtube.com/watch?v=AidYvRgYTdU',
@@ -137,56 +138,53 @@ const songs: SongInformation[] = [
   },
 ]
 
-export const SongTrackers = () => {
+export function SongTrackers() {
   return (
-    <div className={styles.songTracker}>
-      <h2>Song Tracker</h2>
-      <table className={styles.progressTable}>
-        <thead>
-          <tr>
-            <th>Song Name</th>
-            <th>Composer</th>
-            <th>Sheet Music</th>
-            <th>Progress</th>
-            <th>Performances</th>
-            <th>Comments</th>
-          </tr>
-        </thead>
-        <tbody>
-          {songs.map((song) => {
-            return (
-              <tr key={`${song.name}-${song.composerOrArtist}}`}>
-                <td>{song.name}</td>
-                <td>{song.composerOrArtist}</td>
-                <td>
-                  {song.sheetMusic.text}
-                  {song.sheetMusic.link && (
-                    <>
-                      {' '}
-                      -
-                      <a href={song.sheetMusic.link} target="_blank" rel="noopener noreferrer">
-                        {' '}
-                        Sheets
-                      </a>
-                    </>
-                  )}
-                </td>
-                <td>{song.progress}</td>
-                <td>
-                  {song.performances.map((performance, index) => {
-                    return <YoutubeLink key={index} link={performance.link} iconText={performance.iconText} />
-                  })}
-                </td>
-                <td>
-                  {song.comments.map((comment) => {
-                    return <ShowMoreText key={comment} text={comment} length={100} />
-                  })}
-                </td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
+    <div className="container mx-auto py-10">
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Song Name</TableHead>
+            <TableHead>Composer</TableHead>
+            <TableHead>Sheet Music</TableHead>
+            <TableHead>Progress</TableHead>
+            <TableHead>Performance</TableHead>
+            <TableHead>Comments</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {songs.map((song, index) => (
+            <TableRow key={index}>
+              <TableCell className="font-medium">{song.name}</TableCell>
+              <TableCell>{song.composerOrArtist}</TableCell>
+              <TableCell>
+                <Button variant="outline" size="sm" asChild>
+                  <a href={song.sheetMusic.link ?? ''} target="_blank" rel="noopener noreferrer">
+                    <Music className="mr-2 h-4 w-4" />
+                    View Sheet
+                  </a>
+                </Button>
+              </TableCell>
+              <TableCell>
+                <Badge variant={song.progress === 100 ? 'default' : 'secondary'}>{song.progress}%</Badge>
+              </TableCell>
+              <TableCell>
+                {song.performances.length > 0 ? (
+                  <Button variant="outline" size="sm" asChild>
+                    <a href={song.performances[0].link ?? ''} target="_blank" rel="noopener noreferrer">
+                      <Youtube className="mr-2 h-4 w-4" />
+                      Watch
+                    </a>
+                  </Button>
+                ) : (
+                  <span className="text-muted-foreground">Not recorded</span>
+                )}
+              </TableCell>
+              <TableCell>{song.comments}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </div>
   )
 }
