@@ -1,10 +1,9 @@
 import React from 'react'
-import styles from './PreBlock.module.css'
 
 interface PreBlockProps {
   lines: string[]
 }
 
-export const PreBlock = ({ lines }: PreBlockProps) => {
-  return <pre className={styles.container}>{lines.join('\n')}</pre>
+export function PreBlock({ lines }: PreBlockProps) {
+  return <pre className="w-fit whitespace-pre-wrap bg-grey-900 p-2">{lines.join('\n')}</pre>
 }
