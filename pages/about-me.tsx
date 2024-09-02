@@ -1,6 +1,4 @@
-import Link from 'next/link'
 import Image from 'next/image'
-import styles from './AboutMe.module.css'
 import { Layout } from '../Components/Layout/Layout'
 import { SEO } from '../Components/SEO/SEO'
 import { Title } from '../Components/Utilities/Title/Title'
@@ -48,39 +46,53 @@ const AboutMe = () => {
   return (
     <Layout>
       <SEO title="About Me | John Farrell" description="Information about John Farrell" />
-      <section className={styles.aboutPage}>
-        <div className={`section-center`}>
-          <article className={styles.aboutArticle}>
+      <section className="min-h-[calc(100vh-5rem-9rem)] bg-grey-1000 py-4">
+        <div className="section-center">
+          <article>
             <Title title="About Me" />
 
-            <div className={styles.articleContent}>
+            <div className="block gap-[50px] lg:flex">
               <Image
                 src="https://i.imgur.com/ncSEBtN.png"
                 alt="Photo of my black cat Trixie"
-                className={styles.imageContainer}
                 width={460}
                 height={345}
+                className="mx-auto h-auto max-w-[460px] shrink-0 rounded-md object-cover"
               />
 
               <div>
-                <p className={styles.paragraph}>
+                <p className="leading-8">
                   Hi, I'm John Farrell, a professional software engineer. I started programming in 2016 by teaching
                   myself a little bit of coding following the completion of my BSc in Biomedical Science. It became my
                   ambition to become a software engineer, so I enrolled in a master's degree in Computer Science at the
                   University of Kent. After graduating, I worked at{' '}
-                  <Link href="https://www.tcs.com/">Tata Consultancy Services</Link>, where I had the opportunity to be
-                  involved in a large scale cloud industrialisation project. I then became interested in web development
-                  and joined a consultancy called{' '}
-                  <Link href="https://www.linkedin.com/showcase/caci-information-intelligence-group/">CACI IIG</Link>{' '}
+                  <a href="https://www.tcs.com/" className="underline">
+                    Tata Consultancy Services
+                  </a>
+                  , where I had the opportunity to be involved in a large scale cloud industrialisation project. I then
+                  became interested in web development and joined a consultancy called{' '}
+                  <a
+                    href="https://www.linkedin.com/showcase/caci-information-intelligence-group/"
+                    className="underline"
+                  >
+                    CACI IIG
+                  </a>{' '}
                   where I worked on several web app projects. I then joined the{' '}
-                  <Link href="https://www.madetech.com/">Made Tech</Link> team which is also a consultancy and continued
-                  with a focus on developing web apps for the UK public.
+                  <a href="https://www.madetech.com/" className="underline">
+                    Made Tech
+                  </a>{' '}
+                  team which is also a consultancy and continued with a focus on developing web apps for the UK public.
                 </p>
 
-                <div className={styles.aboutStack}>
-                  {techStack.map((item) => {
-                    return <span key={item.id}>{item.title}</span>
-                  })}
+                <div className="flex flex-wrap gap-2">
+                  {techStack.map((item) => (
+                    <span
+                      key={item.id}
+                      className="inline-block rounded-md bg-grey-900 p-2 text-sm uppercase tracking-wide text-grey-300"
+                    >
+                      {item.title}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
