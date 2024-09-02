@@ -27,7 +27,7 @@ interface FileExplorerContentProps {
   isHiddenProp?: boolean
 }
 
-const FileExplorerContent = ({ content, depth, isHiddenProp }: FileExplorerContentProps) => {
+function FileExplorerContent({ content, depth, isHiddenProp }: FileExplorerContentProps) {
   const [isHidden, setIsHidden] = useState<Set<number>>(new Set())
   const [isShown, setIsShown] = useState<Set<number>>(new Set())
 
