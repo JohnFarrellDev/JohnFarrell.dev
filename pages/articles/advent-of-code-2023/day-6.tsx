@@ -1,4 +1,4 @@
-import { CodeBlock } from '../../../Components/Articles/Utilities/CodeBlock/CodeBlock'
+import { CodeBlock } from '../../../Components/CodeBlock'
 import { Layout } from '../../../Components/Layout/Layout'
 import { SEO } from '../../../Components/SEO'
 import { Title } from '../../../Components/Title'

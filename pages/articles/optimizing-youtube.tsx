@@ -1,5 +1,5 @@
-import { ArticleTimeStamps } from '../../Components/Articles/Utilities/ArticleTimeStamps/ArticleTimeStamps'
-import { TableOfContents } from '../../Components/Articles/Utilities/TableOfContents/TableOfContents'
+import { ArticleTimeStamps } from '../../Components/ArticleTimeStamps'
+import { TableOfContents } from '../../Components/TableOfContents'
 import { Banner } from '../../Components/Banner'
 import { Layout } from '../../Components/Layout/Layout'
 import { SEO } from '../../Components/SEO'

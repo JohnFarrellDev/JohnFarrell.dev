@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { ArticleTimeStamps } from '../../Articles/Utilities/ArticleTimeStamps/ArticleTimeStamps'
+import { ArticleTimeStamps } from '../../ArticleTimeStamps'
 import { Layout } from '../../Layout/Layout'
 import { SEO } from '../../SEO'
 import { Title } from '../../Title'

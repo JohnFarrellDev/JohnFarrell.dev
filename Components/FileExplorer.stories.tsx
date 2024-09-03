@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { FileExplorer } from './FileExplorer'
+import { FileExplorer } from '../../../FileExplorer'
 
 const meta = {
   title: 'Articles/Utilities/FileExplorer',

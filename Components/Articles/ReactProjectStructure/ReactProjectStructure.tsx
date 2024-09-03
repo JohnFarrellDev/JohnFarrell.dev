@@ -3,12 +3,12 @@ import Image from 'next/image'
 import { Layout } from '../../Layout/Layout'
 import { SEO } from '../../SEO'
 import { Title } from '../../Title'
-import { FileExplorer } from '../Utilities/FileExplorer/FileExplorer'
-import { SectionTitle } from '../Utilities/SectionTitle/SectionTitle'
-import { SubSectionTitle } from '../Utilities/SubSectionTitle/SubSectionTitle'
-import { TableOfContents } from '../Utilities/TableOfContents/TableOfContents'
-import { CodeBlock } from '../Utilities/CodeBlock/CodeBlock'
-import { ArticleTimeStamps } from '../Utilities/ArticleTimeStamps/ArticleTimeStamps'
+import { FileExplorer } from '../../FileExplorer'
+import { SectionTitle } from '../../SectionTitle'
+import { SubSectionTitle } from '../../SubSectionTitle'
+import { TableOfContents } from '../../TableOfContents'
+import { CodeBlock } from '../../CodeBlock'
+import { ArticleTimeStamps } from '../../ArticleTimeStamps'
 
 export const ReactProjectStructure = () => {
   return (

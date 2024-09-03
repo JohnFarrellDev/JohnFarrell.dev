@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Layout } from '../../Layout/Layout'
-import { SEO } from '../../SEO'
-import { Title } from '../../Title'
-import { ArticleTimeStamps } from '../Utilities/ArticleTimeStamps/ArticleTimeStamps'
-import { Game } from '../../Projects/Minesweeper/Components/Game/Game'
+import { Layout } from '../Layout/Layout'
+import { SEO } from '../SEO'
+import { Title } from '../Title'
+import { ArticleTimeStamps } from '../ArticleTimeStamps'
+import { Game } from '../Projects/Minesweeper/Components/Game/Game'
 
 export const Minesweeper = () => {
   return (

@@ -1,13 +1,13 @@
 import Link from 'next/link'
-import { ArticleTimeStamps } from '../../Components/Articles/Utilities/ArticleTimeStamps/ArticleTimeStamps'
+import { ArticleTimeStamps } from '../../Components/ArticleTimeStamps'
 import { Layout } from '../../Components/Layout/Layout'
 import { SEO } from '../../Components/SEO'
 import { Title } from '../../Components/Title'
-import { TableOfContents } from '../../Components/Articles/Utilities/TableOfContents/TableOfContents'
-import { SectionTitle } from '../../Components/Articles/Utilities/SectionTitle/SectionTitle'
-import { SubSectionTitle } from '../../Components/Articles/Utilities/SubSectionTitle/SubSectionTitle'
+import { TableOfContents } from '../../Components/TableOfContents'
+import { SectionTitle } from '../../Components/SectionTitle'
+import { SubSectionTitle } from '../../Components/SubSectionTitle'
 import { YoutubeVideo } from '../../Components/YoutubeVideo'
-import { CodeBlock } from '../../Components/Articles/Utilities/CodeBlock/CodeBlock'
+import { CodeBlock } from '../../Components/CodeBlock'
 import Image from 'next/image'
 
 const Articles = () => {

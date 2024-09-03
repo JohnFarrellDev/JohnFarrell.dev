@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { ArticleTimeStamps } from './ArticleTimeStamps'
+import { ArticleTimeStamps } from '../../../ArticleTimeStamps'
 
 describe('TableOfContents', () => {
   it('should only display created at when last updated not provided', () => {
