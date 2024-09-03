@@ -3,7 +3,7 @@ import { minesweeperStateFactory } from '../../../../../../factories/minesweeper
 import { generateBoard } from '../../../functions/generateBoard'
 import { calculateNeighborInformation } from './calculateNeighborInformation'
 
-describe.only('calculate neighbor information', () => {
+describe('calculate neighbor information', () => {
   let state: State
 
   beforeEach(() => {
