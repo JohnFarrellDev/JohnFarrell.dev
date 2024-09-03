@@ -1,5 +1,4 @@
 import React, { ChangeEvent } from 'react'
-import styles from './GameSettings.module.css'
 
 interface GameSettingsI {
   columns: number
@@ -24,10 +23,11 @@ export const GameSettings = ({
   validateChange,
 }: GameSettingsI) => {
   return (
-    <div className={styles.controls}>
-      <div className={styles.controlItem}>
+    <div className="flex justify-center gap-4 py-2">
+      <div>
         <label>Number of columns</label>
         <input
+          className="block w-full border"
           type="number"
           value={columns}
           onChange={changeNumberOfColumns}
@@ -37,15 +37,24 @@ export const GameSettings = ({
         />
       </div>
 
-      <div className={styles.controlItem}>
+      <div>
         <label>Number of Rows</label>
-        <input type="number" value={rows} onChange={changeNumberOfRows} onBlur={validateChange} min={3} max={30} />
+        <input
+          type="number"
+          className="block w-full border"
+          value={rows}
+          onChange={changeNumberOfRows}
+          onBlur={validateChange}
+          min={3}
+          max={30}
+        />
       </div>
 
-      <div className={styles.controlItem}>
+      <div>
         <label>Number of Bombs</label>
         <input
           type="number"
+          className="block w-full border"
           value={numberOfBombs}
           onChange={changeNumberOfBombs}
           onBlur={validateChange}
