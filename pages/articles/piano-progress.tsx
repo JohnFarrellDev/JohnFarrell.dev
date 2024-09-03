@@ -1,5 +1,5 @@
-import { CurrentyLearning } from '../../Components/Articles/PianoProgress/Sections/CurrentyLearning/CurrentyLearning'
-import { SongTrackers } from '../../Components/Articles/PianoProgress/Sections/SongTracker/SongTrackers'
+import { CurrentyLearning } from '../../Components/Articles/PianoProgress/CurrentyLearning'
+import { SongTrackers } from '../../Components/Articles/PianoProgress/SongTrackers'
 import { Layout } from '../../Components/Layout/Layout'
 import { SEO } from '../../Components/SEO/SEO'
 import { Title } from '../../Components/Utilities/Title/Title'

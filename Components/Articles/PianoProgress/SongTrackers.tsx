@@ -170,17 +170,25 @@ export function SongTrackers() {
               </TableCell>
               <TableCell>
                 {song.performances.length > 0 ? (
-                  <Button variant="outline" size="sm" asChild>
-                    <a href={song.performances[0].link ?? ''} target="_blank" rel="noopener noreferrer">
-                      <Youtube className="mr-2 h-4 w-4" />
-                      Watch
-                    </a>
-                  </Button>
+                  <div className="flex flex-col gap-2">
+                    {song.performances.map((performance, index) => (
+                      <Button variant="outline" size="sm" asChild key={index}>
+                        <a href={performance.link ?? ''} target="_blank" rel="noopener noreferrer">
+                          <Youtube className="mr-2 h-4 w-4" />
+                          Watch
+                        </a>
+                      </Button>
+                    ))}
+                  </div>
                 ) : (
                   <span className="text-muted-foreground">Not recorded</span>
                 )}
               </TableCell>
-              <TableCell>{song.comments}</TableCell>
+              <TableCell className="whitespace-pre-wrap">
+                {song.comments.map((comment, index) => (
+                  <p key={index}>{comment}</p>
+                ))}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
