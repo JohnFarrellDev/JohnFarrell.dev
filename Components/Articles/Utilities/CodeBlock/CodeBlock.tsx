@@ -8,9 +8,10 @@ interface CodeBlockProps {
   canHide: boolean
   githubLink?: string
   children: string
+  fileName?: string
 }
 
-export const CodeBlock = ({ canHide, githubLink, children }: CodeBlockProps) => {
+export const CodeBlock = ({ canHide, githubLink, children, fileName }: CodeBlockProps) => {
   const [showCode, setShowCode] = useState(true)
 
   return (
@@ -23,6 +24,8 @@ export const CodeBlock = ({ canHide, githubLink, children }: CodeBlockProps) => 
         )}
 
         {canHide && <button onClick={() => setShowCode(!showCode)}>{showCode ? 'Hide code' : 'Show code'}</button>}
+
+        {showCode && fileName && <p className="w-full text-right">{fileName}</p>}
       </div>
       {showCode && (
         <SyntaxHighlighter

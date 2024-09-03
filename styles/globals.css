@@ -86,6 +86,9 @@
   --clr-grey-9: hsl(212, 33%, 89%);
   --clr-grey-10: hsl(210, 36%, 96%);
 
+  --clr-link: hsl(240, 100%, 47%);
+  --clr-link-hover: hsl(240, 100%, 27%);
+
   --ff-primary: 'Roboto', sans-serif;
   --ff-secondary: 'Open Sans', sans-serif;
   --transition: all 0.3s linear;
@@ -111,6 +114,15 @@ body {
   color: var(--clr-grey-1);
   line-height: 1.5;
   font-size: 0.875rem;
+}
+
+a {
+  color: var(--clr-link);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--clr-link-hover);
 }
 
 h1,
