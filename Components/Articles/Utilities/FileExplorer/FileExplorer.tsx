@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import styles from './FileExplorer.module.css'
 
 interface Folder {
   folderName: string
@@ -15,7 +14,7 @@ interface FileExplorerProps {
 
 export const FileExplorer = ({ content }: FileExplorerProps) => {
   return (
-    <div className={styles.fileStructure}>
+    <div className="w-fit overflow-x-auto rounded-lg bg-grey-300 p-4 text-white">
       <FileExplorerContent content={content} depth={0} />
     </div>
   )
@@ -63,10 +62,12 @@ function FileExplorerContent({ content, depth, isHiddenProp }: FileExplorerConte
       {content.map((c, index) => (
         <div key={`${depth}.${index}`}>
           {typeof c === 'string' ? (
-            <p>{c}</p>
+            // display the file name
+            <p className="mb-0 select-none text-white">{c}</p>
           ) : (
             <>
-              <p style={{ cursor: 'pointer', color: 'yellow' }}>
+              {/* handle a folder being rendered */}
+              <p className="mb-0 cursor-pointer select-none text-yellow-300">
                 {(c.collapsed || isHidden.has(index)) && !isShown.has(index) ? (
                   <span
                     onClick={() => setOpen(index)}
@@ -75,22 +76,13 @@ function FileExplorerContent({ content, depth, isHiddenProp }: FileExplorerConte
                       alignItems: 'center',
                     }}
                   >
-                    <span style={{ marginRight: '4px' }}>
-                      <ChevronRight />
-                    </span>{' '}
+                    <ChevronRight className="mr-1" />
+
                     {c.folderName}
                   </span>
                 ) : (
-                  <span
-                    onClick={() => setHide(index)}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <span style={{ marginRight: '4px' }}>
-                      <ChevronDown />
-                    </span>
+                  <span onClick={() => setHide(index)} className="flex items-center">
+                    <ChevronDown className="mr-1" />
                     {c.folderName}
                   </span>
                 )}
@@ -109,7 +101,7 @@ function FileExplorerContent({ content, depth, isHiddenProp }: FileExplorerConte
   )
 }
 
-const ChevronRight = () => {
+const ChevronRight = ({ className }: { className: string }) => {
   return (
     <svg
       stroke="currentColor"
@@ -119,6 +111,7 @@ const ChevronRight = () => {
       height="1em"
       width="1em"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path
         fillRule="evenodd"
@@ -128,7 +121,7 @@ const ChevronRight = () => {
   )
 }
 
-const ChevronDown = () => {
+const ChevronDown = ({ className }: { className: string }) => {
   return (
     <svg
       stroke="currentColor"
@@ -138,6 +131,7 @@ const ChevronDown = () => {
       height="1em"
       width="1em"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path
         fillRule="evenodd"

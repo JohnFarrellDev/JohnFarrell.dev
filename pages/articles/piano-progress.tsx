@@ -15,9 +15,7 @@ export default function PianoProgress() {
       <section className="blog-page">
         <div className="section-center">
           <Title title="Piano Progress" />
-
           <CurrentyLearning />
-
           <SongTrackers />
         </div>
       </section>
