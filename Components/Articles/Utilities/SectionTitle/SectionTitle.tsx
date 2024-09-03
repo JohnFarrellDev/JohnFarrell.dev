@@ -1,5 +1,4 @@
 import React, { HTMLAttributes } from 'react'
-import styles from './SectionTitle.module.css'
 
 interface SectionTitleProps extends HTMLAttributes<HTMLElement> {
   children: string
@@ -7,7 +6,7 @@ interface SectionTitleProps extends HTMLAttributes<HTMLElement> {
 
 export const SectionTitle = ({ children, ...htmlProps }: SectionTitleProps) => {
   return (
-    <h3 {...htmlProps} className={styles.sectionTitle}>
+    <h3 {...htmlProps} className="tracking-normal">
       {children}
     </h3>
   )
