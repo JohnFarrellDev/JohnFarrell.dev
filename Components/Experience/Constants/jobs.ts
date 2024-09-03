@@ -108,7 +108,7 @@ export const jobs = [
   },
   {
     id: 1,
-    companyName: 'Tata consultancy services (TCS)',
+    companyName: 'TCS',
     startDate: 'December 2017',
     endDate: 'August 2018',
     position: 'Junior software engineer',

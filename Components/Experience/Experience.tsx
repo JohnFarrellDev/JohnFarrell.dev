@@ -4,25 +4,28 @@ import { FaAngleDoubleRight } from 'react-icons/fa'
 import { Title } from '../Utilities/Title/Title'
 import { Button } from '../Utilities/Button/Button'
 import { jobs } from './Constants/jobs'
+import { cn } from '../../lib/utils'
 
-export const Experience = () => {
+export function Experience() {
   const [value, setValue] = useState(0)
   const { position, startDate, endDate, responsibilities } = jobs[value]
 
   return (
     <section className="py-8">
       <Title title="experience" />
-      <div className="mx-auto w-[80vw] max-w-[1170px] lg:grid lg:w-[90vw] lg:grid-cols-[200px_1fr] lg:gap-16">
-        <div className="mb-8 flex flex-row overflow-auto lg:flex-col">
+      <div className="mx-auto mt-6 w-[80vw] max-w-[1170px] lg:grid lg:w-[90vw] lg:grid-cols-[200px_1fr] lg:gap-16">
+        <div className="mb-8 flex flex-row gap-8 overflow-auto lg:flex-col lg:gap-4">
           {jobs.map((job, index) => (
             <button
               key={job.id}
               onClick={() => setValue(index)}
-              className={`mx-2 my-0 cursor-pointer border-none bg-transparent px-0 py-1 text-xl capitalize leading-none tracking-[var(--spacing)] transition-all hover:text-primary-200 hover:shadow-[0_2px_var(--clr-primary-2)] lg:mb-4 lg:hover:shadow-[-2px_0_var(--clr-primary-5)] ${
-                index === value
-                  ? 'text-primary-200 shadow-[0_2px_var(--clr-primary-2)] lg:shadow-[-2px_0_var(--clr-primary-5)]'
-                  : ''
-              }`}
+              className={cn(
+                'cursor-pointer border-none bg-transparent px-0 py-1 text-xl capitalize leading-none tracking-[var(--spacing)] transition-all hover:text-primary-200 hover:shadow-[0_2px_var(--clr-primary-2)] lg:hover:shadow-[-2px_0_var(--clr-primary-5)]',
+                {
+                  'text-primary-200 shadow-[0_2px_var(--clr-primary-2)] lg:shadow-[-2px_0_var(--clr-primary-5)]':
+                    index === value,
+                }
+              )}
             >
               {job.companyName}
             </button>
@@ -41,8 +44,8 @@ export const Experience = () => {
           </div>
         </article>
       </div>
-      <Link href="/about-me">
-        <Button className="mx-auto block w-48 uppercase">More Info About Me</Button>
+      <Link href="/about-me" className="mx-auto mt-6 block w-fit">
+        <Button className="w-48 rounded-lg uppercase">More Info About Me</Button>
       </Link>
     </section>
   )
