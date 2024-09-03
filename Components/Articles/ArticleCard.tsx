@@ -1,6 +1,4 @@
 import Link from 'next/link'
-import React from 'react'
-import styles from './ArticleCard.module.css'
 import Image from 'next/image'
 
 interface ArticleCardProps {
@@ -13,25 +11,32 @@ interface ArticleCardProps {
   imageURL: string
   imageAlt: string
 }
-
-export const ArticleCard = ({ title, description, URL, tags, imageURL, imageAlt }: ArticleCardProps) => {
+export function ArticleCard({ title, description, URL, tags, imageURL, imageAlt }: ArticleCardProps) {
   return (
-    <li className={styles.card}>
-      <Link href={URL} className={styles.link}>
-        <div className={styles.contentContainer}>
-          <Image src={imageURL} alt={imageAlt} className={styles.image} width={500} height={500} />
-          <div className={styles.textContainer}>
-            <div className={styles.textContent}>
-              <h3 className={styles.title}>{title}</h3>
-              {description ? <p className={styles.description}>{description}</p> : null}
-              <div className={styles.tagContainer}>
+    <li className="mx-auto max-h-[350px] w-full max-w-[800px] overflow-hidden rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-105 md:max-h-[200px]">
+      <Link href={URL} className="relative flex h-full flex-col md:flex-row">
+        <Image
+          src={imageURL}
+          alt={imageAlt}
+          className="h-[150px] w-full object-cover md:h-full md:w-[150px]"
+          width={500}
+          height={500}
+        />
+        <div className="flex flex-grow flex-col overflow-y-auto">
+          <h3 className="p-2 text-center text-lg font-semibold md:absolute md:left-0 md:right-0 md:top-0 md:z-10">
+            {title}
+          </h3>
+          <div className="flex flex-grow flex-col gap-2 p-2 md:pt-12">
+            {description && <p className="whitespace-pre-wrap">{description}</p>}
+            {tags.length > 0 && (
+              <div className="flex flex-wrap gap-2">
                 {tags.map((tag) => (
-                  <span key={tag} className={styles.tag}>
+                  <span key={tag} className="rounded-lg bg-gray-200 px-2 py-1 text-sm font-bold">
                     {tag}
                   </span>
                 ))}
               </div>
-            </div>
+            )}
           </div>
         </div>
       </Link>
