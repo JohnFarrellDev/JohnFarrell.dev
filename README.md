@@ -1,5 +1,7 @@
 ## 🚀
 
+[![Tests](https://github.com/JohnFarrellDev/JohnFarrell.dev/actions/workflows/tests.yml/badge.svg)](https://github.com/JohnFarrellDev/JohnFarrell.dev/actions/workflows/tests.yml)
+
 Personal website of John Farrell.
 Built to demo projects and write about stuff.
 

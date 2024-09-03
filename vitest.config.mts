@@ -8,5 +8,9 @@ export default defineConfig({
     include: ['**/*.test.tsx', '**/*.test.ts'],
     globals: true,
     setupFiles: ['./vitestSetup.ts'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html'],
+    },
   },
 })
