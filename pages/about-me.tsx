@@ -57,7 +57,7 @@ const AboutMe = () => {
                 alt="Photo of my black cat Trixie"
                 width={460}
                 height={345}
-                className="mx-auto h-auto max-w-[460px] shrink-0 rounded-md object-cover"
+                className="mx-auto h-auto max-w-[min(460px,100%)] shrink-0 rounded-md object-cover"
               />
 
               <div>
