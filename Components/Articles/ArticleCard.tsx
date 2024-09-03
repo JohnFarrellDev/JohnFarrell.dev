@@ -14,7 +14,10 @@ interface ArticleCardProps {
 export function ArticleCard({ title, description, URL, tags, imageURL, imageAlt }: ArticleCardProps) {
   return (
     <li className="mx-auto max-h-[350px] w-full max-w-[800px] overflow-hidden rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-105 md:max-h-[200px]">
-      <Link href={URL} className="relative flex h-full flex-col md:flex-row">
+      <Link
+        href={URL}
+        className="relative flex h-full flex-col text-grey-100 no-underline hover:text-grey-100 md:flex-row"
+      >
         <Image
           src={imageURL}
           alt={imageAlt}
