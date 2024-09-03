@@ -1,4 +1,3 @@
-import styles from './Minesweeper.module.css'
 import { useMemo } from 'react'
 import { ArticleTimeStamps } from '../../Articles/Utilities/ArticleTimeStamps/ArticleTimeStamps'
 import { Layout } from '../../Layout/Layout'
@@ -35,7 +34,7 @@ export const Minesweeper = () => {
         >
           This is a work in progress! (highly recommend for now using a PC and not mobile to view)
         </p>
-        <div className={styles.gameContainer}>
+        <div>
           <Game
             columns={20}
             rows={20}
