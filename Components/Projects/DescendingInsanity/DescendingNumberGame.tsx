@@ -1,4 +1,4 @@
-import { IoCopyOutline } from 'react-icons/io5'
+import { Copy } from 'lucide-react'
 import { RefObject, useEffect, useRef, useState } from 'react'
 import { deferredGameState, applyConfetti } from './DescendingNumberGame.utils'
 import { toast } from 'react-toastify'
@@ -256,7 +256,7 @@ const ShareButton = ({
 
   return (
     <button onClick={handleShare} className="flex gap-2 bg-blue-300 p-2 text-center hover:bg-blue-400">
-      <IoCopyOutline size={20} />
+      <Copy />
       Share Results
     </button>
   )

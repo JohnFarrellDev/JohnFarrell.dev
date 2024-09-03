@@ -1,20 +1,20 @@
-import { FaGithubSquare, FaLinkedin, FaTwitterSquare } from 'react-icons/fa'
 import { cn } from './../Utilities/cn'
+import { Twitter, Github, Linkedin } from 'lucide-react'
 
 const data = [
   {
     id: 1,
-    icon: <FaGithubSquare aria-label="link to github profile" />,
+    icon: <Github aria-label="link to github profile" />,
     url: 'https://www.github.com/JohnFarrellDev/',
   },
   {
     id: 2,
-    icon: <FaLinkedin aria-label="link to github profile" />,
+    icon: <Linkedin aria-label="link to github profile" />,
     url: 'https://linkedin.com/in/johnfarrelldev',
   },
   {
     id: 3,
-    icon: <FaTwitterSquare aria-label="link to twitter profile" />,
+    icon: <Twitter aria-label="link to twitter profile" />,
     url: 'https://twitter.com/JohnFar55526330',
   },
 ]
@@ -23,7 +23,7 @@ interface LinksProps {
   styleLinks?: string
 }
 
-const Links = ({ styleLinks }: LinksProps) => {
+function Links({ styleLinks }: LinksProps) {
   return (
     <>
       {data.map((link) => {

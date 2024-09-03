@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { useState } from 'react'
-import { FaAngleDoubleRight } from 'react-icons/fa'
 import { Title } from '../Title'
 import { Button } from '../Button'
 import { jobs } from './Constants/jobs'
 import { cn } from '../../lib/utils'
+import { ChevronsRight } from 'lucide-react'
 
 export function Experience() {
   const [value, setValue] = useState(0)
@@ -37,7 +37,7 @@ export function Experience() {
           <div className="grid grid-cols-1 gap-4">
             {responsibilities.map((item) => (
               <div key={item.id} className="flex items-center gap-8">
-                <FaAngleDoubleRight className="text-primary-500" />
+                <ChevronsRight className="text-primary-500" />
                 <p className="mb-0 text-grey-300">{item.description}</p>
               </div>
             ))}

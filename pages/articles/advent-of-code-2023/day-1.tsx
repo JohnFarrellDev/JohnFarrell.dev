@@ -2,9 +2,9 @@ import { CodeBlock } from '../../../Components/Articles/Utilities/CodeBlock/Code
 import { Layout } from '../../../Components/Layout/Layout'
 import { SEO } from '../../../Components/SEO'
 import { Title } from '../../../Components/Title'
-import { FaGithub } from 'react-icons/fa'
 import Link from 'next/link'
 import { PreBlock } from '../../../Components/PreBlock'
+import { Github } from 'lucide-react'
 
 const parseInputCode = `function parseInput(input: string) {
   return input.split('\\n')
@@ -108,16 +108,11 @@ const Day1 = () => (
     <section className="blog-page">
       <Title title="Advent of Code 2023 - Day 1" />
       <div className="section-center">
-        <a
-          style={{ textDecoration: 'underline', display: 'block' }}
-          href="https://github.com/JohnFarrellDev/advent-of-code-2023/blob/master/day1.ts"
-        >
-          Code on GitHub <FaGithub />
+        <a className="flex" href="https://github.com/JohnFarrellDev/advent-of-code-2023/blob/master/day1.ts">
+          <Github /> Code on GitHub
         </a>
 
-        <Link href="/articles/advent-of-code-2023" style={{ textDecoration: 'underline' }}>
-          Back to Advent of Code 2023
-        </Link>
+        <Link href="/articles/advent-of-code-2023">Back to Advent of Code 2023</Link>
 
         <h2>The Problem</h2>
 

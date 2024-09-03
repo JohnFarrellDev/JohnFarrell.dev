@@ -1,25 +1,28 @@
-import React from 'react'
-import { SiJavascript, SiTypescript, SiReact, SiNodedotjs, SiCsharp } from 'react-icons/si'
-import { AiFillGithub } from 'react-icons/ai'
+import { GitMerge } from 'lucide-react'
+import { JavaScript } from '../../icons/JavaScript'
+import { TypeScript } from '../../icons/TypeScript'
+import { CSharp } from '../../icons/CSharp'
+import { React } from '../../icons/React'
+import { Node } from '../../icons/Node'
 
 export const skills = [
   {
     id: 1,
-    icon: <SiJavascript />,
+    icon: <JavaScript />,
     title: 'JavaScript',
     description:
       'JavaScript is a language I have been using professionally for a few years. I really enjoy web development so as a result have grown very fond of JavaScript. I personally find the internet the best way to deploy applications that are easily available to millions of users.',
   },
   {
     id: 2,
-    icon: <SiTypescript />,
+    icon: <TypeScript />,
     title: 'TypeScript',
     description:
       'TypeScript for me is simply a better "version" of JavaScript. The static type checking and compile time analysis allows for certain bugs to be caught at compile time (by devs) instead of at runtime (by users). I also find the increased verbosity of the language actually increases how fast I can develop code as it acts as useful documentation.',
   },
   {
     id: 3,
-    icon: <SiCsharp />,
+    icon: <CSharp />,
     title: 'C#/.NET',
     description:
       'I find C# great for enterprise development when working as part of a team. C# enables good software development patterns' +
@@ -27,7 +30,7 @@ export const skills = [
   },
   {
     id: 4,
-    icon: <SiReact />,
+    icon: <React />,
     title: 'React',
     description:
       'React has been my consistent web framework of choice. I have also used Angular and Vue professionally and have an interest in Svelte. I find modern functional React makes ' +
@@ -35,7 +38,7 @@ export const skills = [
   },
   {
     id: 5,
-    icon: <SiNodedotjs />,
+    icon: <Node />,
     title: 'Node',
     description:
       "I'm a big fan of the node ecosystem/community. Being able to use one language across the full web stack for a project is very advantageous. I find with node I can get a " +
@@ -43,7 +46,7 @@ export const skills = [
   },
   {
     id: 6,
-    icon: <AiFillGithub />,
+    icon: <GitMerge className="h-[36px] w-[36px]" />,
     title: 'Git',
     description:
       "Every project I've worked on professionally has used Git for version control, I also use Git for my personal projects, " +
