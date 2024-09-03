@@ -1,7 +1,7 @@
 import { MouseEvent, useCallback } from 'react'
 import { Bomb } from './SVGs/Bomb'
 import { RedFlag } from './SVGs/RedFlag'
-import styles from './GameCell.module.css'
+import { cn } from '../../../../lib/utils'
 
 interface GameCellI {
   rowIndex: number
@@ -49,14 +49,30 @@ export const GameCell = ({
       onContextMenuCapture={rightClickCell}
       onMouseDown={leftDown}
       onMouseUp={leftUp}
-      className={styles.container}
+      className={cn(
+        'flex h-[30px] w-[30px] cursor-pointer select-none items-center justify-center border-2 border-gray-200 bg-gray-300',
+        isCovered && 'bg-gray-400',
+        isBomb && !isCovered && 'bg-red-500'
+      )}
       data-is-covered={isCovered}
       data-is-bomb={isBomb}
       data-number-of-neighbor-bombs={neighborBombs}
     >
-      <span>
-        {isFlagged && <RedFlag />}
-        {!isCovered && !isFlagged && !isWinner && isBomb && <Bomb />}
+      <span
+        className={cn(
+          'font-bold',
+          neighborBombs === 1 && 'text-blue-700',
+          neighborBombs === 2 && 'text-green-500',
+          neighborBombs === 3 && 'text-red-700',
+          neighborBombs === 4 && 'text-purple-700',
+          neighborBombs === 5 && 'text-orange-700',
+          neighborBombs === 6 && 'text-yellow-700',
+          neighborBombs === 7 && 'text-gray-700',
+          neighborBombs === 8 && 'text-white'
+        )}
+      >
+        {isFlagged && <RedFlag className="h-[28px] w-[28px]" />}
+        {!isCovered && !isFlagged && !isWinner && isBomb && <Bomb className="h-[28px] w-[28px]" />}
         {!isCovered && !isBomb && neighborBombs !== 0 && neighborBombs}
       </span>
     </div>
