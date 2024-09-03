@@ -16,7 +16,12 @@ Built to demo projects and write about stuff.
 
 ## Running Locally
 
-1. Clone the repository
+1. Clone the repository:
+
+```bash
+git clone git@github.com:JohnFarrellDev/JohnFarrell.dev.git
+```
+
 2. Install dependencies:
 
 ```bash
