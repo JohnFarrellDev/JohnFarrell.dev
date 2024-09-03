@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import { SocialLinks } from '../SocialLinks/SocialLinks'
-import { Robot } from '../Robot/Robot'
-import { Button } from '../Utilities/Button/Button'
+import { SocialLinks } from './SocialLinks'
+import { Robot } from './Robot'
+import { Button } from './Button'
 
 export function Hero() {
   return (

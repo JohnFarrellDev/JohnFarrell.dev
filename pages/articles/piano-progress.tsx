@@ -1,8 +1,8 @@
 import { CurrentyLearning } from '../../Components/Articles/PianoProgress/CurrentyLearning'
 import { SongTrackers } from '../../Components/Articles/PianoProgress/SongTrackers'
 import { Layout } from '../../Components/Layout/Layout'
-import { SEO } from '../../Components/SEO/SEO'
-import { Title } from '../../Components/Utilities/Title/Title'
+import { SEO } from '../../Components/SEO'
+import { Title } from '../../Components/Title'
 
 export default function PianoProgress() {
   return (

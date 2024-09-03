@@ -1,6 +1,6 @@
-import { ContactForm } from '../Components/ContactForm/ContactForm'
+import { ContactForm } from '../Components/ContactForm'
 import { Layout } from '../Components/Layout/Layout'
-import { SEO } from '../Components/SEO/SEO'
+import { SEO } from '../Components/SEO'
 
 const Contact = () => {
   return (

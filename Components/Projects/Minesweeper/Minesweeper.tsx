@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
 import { ArticleTimeStamps } from '../../Articles/Utilities/ArticleTimeStamps/ArticleTimeStamps'
 import { Layout } from '../../Layout/Layout'
-import { SEO } from '../../SEO/SEO'
-import { Title } from '../../Utilities/Title/Title'
+import { SEO } from '../../SEO'
+import { Title } from '../../Title'
 import { Game } from './Components/Game/Game'
 
 export const Minesweeper = () => {

@@ -2,8 +2,8 @@ import { ArticleTimeStamps } from '../../Components/Articles/Utilities/ArticleTi
 import { TableOfContents } from '../../Components/Articles/Utilities/TableOfContents/TableOfContents'
 import { Banner } from '../../Components/Banner'
 import { Layout } from '../../Components/Layout/Layout'
-import { SEO } from '../../Components/SEO/SEO'
-import { Title } from '../../Components/Utilities/Title/Title'
+import { SEO } from '../../Components/SEO'
+import { Title } from '../../Components/Title'
 import Image from 'next/image'
 
 function OptimizingYoutube() {

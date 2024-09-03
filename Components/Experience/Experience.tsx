@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { FaAngleDoubleRight } from 'react-icons/fa'
-import { Title } from '../Utilities/Title/Title'
-import { Button } from '../Utilities/Button/Button'
+import { Title } from '../Title'
+import { Button } from '../Button'
 import { jobs } from './Constants/jobs'
 import { cn } from '../../lib/utils'
 

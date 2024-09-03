@@ -1,6 +1,6 @@
 import { Layout } from '../../Components/Layout/Layout'
-import { SEO } from '../../Components/SEO/SEO'
-import { Title } from '../../Components/Utilities/Title/Title'
+import { SEO } from '../../Components/SEO'
+import { Title } from '../../Components/Title'
 import { Game20 } from '../../Components/Projects/DescendingInsanity/Game20'
 
 const TwentyNumberChallenge = () => {

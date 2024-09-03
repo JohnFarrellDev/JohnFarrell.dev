@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { Banner } from '../../../Components/Banner'
 import { Layout } from '../../../Components/Layout/Layout'
-import { SEO } from '../../../Components/SEO/SEO'
-import { Title } from '../../../Components/Utilities/Title/Title'
+import { SEO } from '../../../Components/SEO'
+import { Title } from '../../../Components/Title'
 
 const AdventOfCode2023 = () => {
   return (

@@ -1,4 +1,4 @@
-import { Underline } from '../Underline/Underline'
+import { Underline } from './Underline'
 
 interface TitleProps {
   title: string

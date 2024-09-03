@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button } from '../Utilities/Button/Button'
+import { Button } from './Button'
 
 enum Status {
   Success,

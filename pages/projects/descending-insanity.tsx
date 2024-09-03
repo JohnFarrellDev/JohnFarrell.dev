@@ -1,6 +1,6 @@
 import { Layout } from '../../Components/Layout/Layout'
-import { SEO } from '../../Components/SEO/SEO'
-import { Title } from '../../Components/Utilities/Title/Title'
+import { SEO } from '../../Components/SEO'
+import { Title } from '../../Components/Title'
 import { GameWithLevels } from '../../Components/Projects/DescendingInsanity/GameWithLevels'
 
 const TwentyNumberChallenge = () => {

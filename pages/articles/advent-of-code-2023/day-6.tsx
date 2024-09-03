@@ -1,11 +1,11 @@
 import { CodeBlock } from '../../../Components/Articles/Utilities/CodeBlock/CodeBlock'
 import { Layout } from '../../../Components/Layout/Layout'
-import { SEO } from '../../../Components/SEO/SEO'
-import { Title } from '../../../Components/Utilities/Title/Title'
+import { SEO } from '../../../Components/SEO'
+import { Title } from '../../../Components/Title'
 import { FaGithub } from 'react-icons/fa'
 import Image from 'next/image'
 import Link from 'next/link'
-import { PreBlock } from '../../../Components/PreBlock/PreBlock'
+import { PreBlock } from '../../../Components/PreBlock'
 
 const solution1Code = `export function solution1(input: string) {
     const parsedInput = parseInput1(input)

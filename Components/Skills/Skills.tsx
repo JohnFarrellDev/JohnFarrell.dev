@@ -1,7 +1,7 @@
-import { Title } from '../Utilities/Title/Title'
+import { Title } from '../Title'
 import { skills } from './Constants/skills'
-import { Button } from '../Utilities/Button/Button'
-import { Underline } from '../Utilities/Underline/Underline'
+import { Button } from '../Button'
+import { Underline } from '../Underline'
 
 export function Skills() {
   return (

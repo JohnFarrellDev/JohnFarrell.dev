@@ -1,6 +1,6 @@
-import { SocialLinks } from '../../SocialLinks/SocialLinks'
+import { SocialLinks } from '../SocialLinks'
 
-export const Footer = () => {
+export function Footer() {
   return (
     <footer className="grid h-36 place-items-center bg-gray-900 text-center">
       <div>

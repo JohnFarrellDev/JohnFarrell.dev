@@ -1,6 +1,6 @@
 import { Layout } from '../Components/Layout/Layout'
-import { SEO } from '../Components/SEO/SEO'
-import { Hero } from '../Components/Hero/Hero'
+import { SEO } from '../Components/SEO'
+import { Hero } from '../Components/Hero'
 import { Skills } from '../Components/Skills/Skills'
 import { Experience } from '../Components/Experience/Experience'
 

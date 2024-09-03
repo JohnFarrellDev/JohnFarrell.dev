@@ -1,10 +1,10 @@
 import { CodeBlock } from '../../../Components/Articles/Utilities/CodeBlock/CodeBlock'
 import { Layout } from '../../../Components/Layout/Layout'
-import { SEO } from '../../../Components/SEO/SEO'
-import { Title } from '../../../Components/Utilities/Title/Title'
+import { SEO } from '../../../Components/SEO'
+import { Title } from '../../../Components/Title'
 import { FaGithub } from 'react-icons/fa'
 import Link from 'next/link'
-import { PreBlock } from '../../../Components/PreBlock/PreBlock'
+import { PreBlock } from '../../../Components/PreBlock'
 
 const parseInputCode = `function parseInput(input: string) {
   return input.split('\\n')

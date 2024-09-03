@@ -1,11 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
-import { House } from '../../icons/House'
-import { Person } from '../../icons/Person'
-import { Wrench } from '../../icons/Wrench'
-import { NewsPaper } from '../../icons/NewsPaper'
-import { Mail } from '../../icons/Mail'
-import { cn } from '../../../lib/utils'
+import { House } from '../icons/House'
+import { Person } from '../icons/Person'
+import { Wrench } from '../icons/Wrench'
+import { NewsPaper } from '../icons/NewsPaper'
+import { Mail } from '../icons/Mail'
+import { cn } from '../../lib/utils'
 
 const data = [
   {

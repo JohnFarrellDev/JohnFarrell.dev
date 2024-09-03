@@ -1,5 +1,5 @@
 import { FaGithubSquare, FaLinkedin, FaTwitterSquare } from 'react-icons/fa'
-import { cn } from '../../Utilities/cn'
+import { cn } from './../Utilities/cn'
 
 const data = [
   {
