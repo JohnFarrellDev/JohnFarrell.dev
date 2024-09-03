@@ -1,4 +1,3 @@
-import styles from './Articles.module.css'
 import { Fragment } from 'react'
 import { Layout } from '../Layout/Layout'
 import { SEO } from '../SEO/SEO'
@@ -96,8 +95,8 @@ export function Articles() {
         <div className="section-center">
           {allArticles.map(({ year, articles }) => (
             <Fragment key={year}>
-              <h2 className={styles.year}>{year}</h2>
-              <ul className={styles.articlesContainer}>
+              <h2 className="my-2 text-center text-xl font-bold">{year}</h2>
+              <ul className="mx-auto flex flex-col gap-4">
                 {articles.map((article) => (
                   <ArticleCard key={article.URL} {...article} />
                 ))}
