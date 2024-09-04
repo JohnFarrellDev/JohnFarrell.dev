@@ -1,4 +1,4 @@
-import { Minesweeper as MinesweeperArticle } from '../../Components/Articles/Minesweeper/Minesweeper'
+import { Minesweeper as MinesweeperArticle } from '../../Components/Articles/Minesweeper'
 
 const Minesweeper = () => {
   return <MinesweeperArticle />
