@@ -5,7 +5,7 @@ import { Underline } from '../Underline';
 
 export function Skills() {
   return (
-    <section className="section bg-grey-1000">
+    <section className="section bg-grey-1000 py-8">
       <Title title="Tech Skills" />
       <div className="section-center grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {skills.map(({ id, title, description, icon, link }) => {

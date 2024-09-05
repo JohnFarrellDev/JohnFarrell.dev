@@ -45,7 +45,7 @@ export function Experience() {
         </article>
       </div>
       <Link href="/about-me" className="mx-auto mt-6 block w-fit">
-        <Button className="w-48 rounded-lg uppercase">More Info About Me</Button>
+        <Button className="w-48 rounded-lg px-5 py-3.5 uppercase">More Info About Me</Button>
       </Link>
     </section>
   );
