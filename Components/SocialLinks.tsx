@@ -1,15 +1,17 @@
 import { cn } from './../Utilities/cn';
-import { Twitter, Github, Linkedin } from 'lucide-react';
+import { GitHub } from './icons/GitHub';
+import { LinkedIn } from './icons/LinkedIn';
+import { Twitter } from './icons/Twitter';
 
 const data = [
   {
     id: 1,
-    icon: <Github aria-label="link to github profile" />,
+    icon: <GitHub aria-label="link to github profile" />,
     url: 'https://www.github.com/JohnFarrellDev/',
   },
   {
     id: 2,
-    icon: <Linkedin aria-label="link to github profile" />,
+    icon: <LinkedIn aria-label="link to github profile" />,
     url: 'https://linkedin.com/in/johnfarrelldev',
   },
   {
@@ -31,7 +33,7 @@ function Links({ styleLinks }: LinksProps) {
           <li key={link.id}>
             <a
               href={link.url}
-              className={cn('text-3xl text-grey-100 transition duration-500 hover:text-primary-500', styleLinks)}
+              className={cn('inline-block text-grey-100 transition duration-500 hover:text-primary-500', styleLinks)}
               target="_blank"
               rel="noreferrer"
             >

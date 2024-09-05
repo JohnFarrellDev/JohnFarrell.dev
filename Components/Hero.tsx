@@ -18,7 +18,7 @@ export function Hero() {
               Contact Me
             </Link>
 
-            <SocialLinks className="flex w-full justify-center gap-4 md:justify-start" />
+            <SocialLinks className="flex w-full justify-center gap-4 md:justify-start" styleLinks="w-8" />
           </div>
         </article>
         <div className="hidden md:block">
