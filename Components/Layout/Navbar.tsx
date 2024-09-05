@@ -8,8 +8,8 @@ export function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen)
 
   return (
-    <nav className="flex h-20 items-center bg-white px-4">
-      <div className="mx-auto flex w-full max-w-[1170px] items-center justify-end">
+    <nav className="flex h-20 items-center bg-white">
+      <div className="page-center mx-auto flex items-center justify-end">
         <button
           onClick={toggleMenu}
           className="flex flex-col items-center justify-center md:hidden"

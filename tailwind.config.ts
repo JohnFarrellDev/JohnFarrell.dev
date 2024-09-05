@@ -1,3 +1,5 @@
+import plugin from 'tailwindcss/plugin'
+
 module.exports = {
   darkMode: ['class'],
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './Components/**/*.{js,ts,jsx,tsx}'],
@@ -73,5 +75,27 @@ module.exports = {
       },
     },
   },
-  plugins: [import('tailwindcss-animate')],
+  plugins: [
+    import('tailwindcss-animate'),
+    plugin(function ({ addUtilities }) {
+      const newUtilities = {
+        '.page-center': {
+          maxWidth: 'calc(var(--max-width) + 32px)',
+          width: '100%',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          paddingRight: '16px',
+          paddingLeft: '16px',
+        },
+
+        '.full-width': {
+          width: '100vw',
+          'margin-left': 'calc(50% - 50vw)',
+          'margin-right': 'calc(50% - 50vw)',
+          'max-width': '100vw',
+        },
+      }
+      addUtilities(newUtilities)
+    }),
+  ],
 }
