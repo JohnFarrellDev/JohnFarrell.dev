@@ -20,7 +20,7 @@ const Articles = () => {
       />
       <section className="blog-page">
         <Title title="How to Effortlessly Extract Udemy Quizzes with a Custom Userscript" />
-        <div className="section-center">
+        <div className="page-center">
           <ArticleTimeStamps
             createdAt={new Date('2022-05-27T11:16:06.761Z')}
             lastUpdated={new Date('2022-06-04T22:25:57.626Z')}

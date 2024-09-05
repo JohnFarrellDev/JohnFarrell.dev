@@ -80,19 +80,26 @@ module.exports = {
     plugin(function ({ addUtilities }) {
       const newUtilities = {
         '.page-center': {
+          // 32px is to maintain the desired width with the padding added
           maxWidth: 'calc(var(--max-width) + 32px)',
-          width: '100%',
+          width: '95vw',
           marginLeft: 'auto',
           marginRight: 'auto',
-          paddingRight: '16px',
           paddingLeft: '16px',
+          paddingRight: '16px',
+          '@screen lg': {
+            width: '90vw', // Reverts to 90vw for md and larger screens
+          },
         },
 
         '.full-width': {
-          width: '100vw',
-          'margin-left': 'calc(50% - 50vw)',
-          'margin-right': 'calc(50% - 50vw)',
-          'max-width': '100vw',
+          // no idea why 8px is required but it stops the width being greater than the viewport width
+          width: 'calc(100vw - 8px)',
+          position: 'relative',
+          left: '50%',
+          right: '50%',
+          marginLeft: '-50vw',
+          marginRight: '-50vw',
         },
       };
       addUtilities(newUtilities);

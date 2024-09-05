@@ -92,7 +92,7 @@ export function Articles() {
       />
       <section>
         <Title title="Articles" />
-        <div className="section-center">
+        <div className="page-center">
           {allArticles.map(({ year, articles }) => (
             <Fragment key={year}>
               <h2 className="my-2 text-center text-xl font-bold">{year}</h2>

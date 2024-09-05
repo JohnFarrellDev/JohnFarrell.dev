@@ -44,13 +44,13 @@ const allProjects = [
   },
 ];
 
-const Projects = () => {
+function Projects() {
   return (
     <Layout>
       <SEO title="Projects | John Farrell" description="Software engineering projects created by John Farrell" />
-      <section className="section projects h-full">
+      <section className="page-center">
         <Title title="Projects" />
-        <div className="section-center projects-center">
+        <div>
           {allProjects.map(({ year, projects }) => (
             <Fragment key={year}>
               <h2 className="my-3 text-center text-xl">{year}</h2>
@@ -65,6 +65,6 @@ const Projects = () => {
       </section>
     </Layout>
   );
-};
+}
 
 export default Projects;

@@ -104,7 +104,6 @@ body {
   color: var(--clr-grey-1);
   line-height: 1.5;
   font-size: 0.875rem;
-  overflow-x: hidden;
 }
 
 a {
@@ -162,17 +161,6 @@ p {
   h3,
   h4 {
     line-height: 1;
-  }
-}
-
-.section-center {
-  width: 90vw;
-  margin: 0 auto;
-  max-width: 1170px;
-}
-@media screen and (min-width: 992px) {
-  .section-center {
-    width: 95vw;
   }
 }
 
@@ -253,10 +241,4 @@ p {
 .yt-lite.lyt-activated > .lty-playbtn {
   opacity: 0;
   pointer-events: none;
-}
-
-@layer components {
-  .my-custom-class {
-    @apply rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700;
-  }
 }

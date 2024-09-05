@@ -47,7 +47,7 @@ const AboutMe = () => {
     <Layout>
       <SEO title="About Me | John Farrell" description="Information about John Farrell" />
       <section className="min-h-[calc(100vh-5rem-9rem)] bg-grey-1000 py-4">
-        <div className="section-center">
+        <div className="page-center">
           <article>
             <Title title="About Me" />
 

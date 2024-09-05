@@ -16,7 +16,7 @@ function OptimizingYoutube() {
       />
 
       <section className="blog-page">
-        <div className="section-center">
+        <div className="page-center">
           <Title title="Optimizing YouTube" />
           <ArticleTimeStamps createdAt={new Date('2024-06-19T19:35:38.114Z')} />
           <Banner

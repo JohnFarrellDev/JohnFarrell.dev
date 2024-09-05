@@ -14,7 +14,7 @@ const AdventOfCode2023 = () => {
       />
       <section className="blog-page">
         <Title title="Advent of Code 2023" />
-        <div className="section-center">
+        <div className="page-center">
           <Banner
             type="information"
             message={

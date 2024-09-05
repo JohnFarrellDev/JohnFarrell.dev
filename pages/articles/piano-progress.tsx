@@ -13,7 +13,7 @@ export default function PianoProgress() {
         image="https://i.imgur.com/ikwTfTE.jpeg"
       />
       <section className="blog-page">
-        <div className="section-center">
+        <div className="page-center">
           <Title title="Piano Progress" />
           <CurrentyLearning />
           <SongTrackers />

@@ -116,7 +116,7 @@ const Day6 = () => (
     />
     <section className="blog-page">
       <Title title="Advent of Code 2023 - Day 6" />
-      <div className="section-center">
+      <div className="page-center">
         <a className="flex" href="https://github.com/JohnFarrellDev/advent-of-code-2023/blob/master/day6.ts">
           <Github /> Code on GitHub
         </a>
