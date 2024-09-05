@@ -1,5 +1,4 @@
 import { Fragment } from 'react';
-import { Layout } from '../Layout/Layout';
 import { SEO } from '../SEO';
 import { Title } from '../Title';
 import { ArticleCard } from './ArticleCard';
