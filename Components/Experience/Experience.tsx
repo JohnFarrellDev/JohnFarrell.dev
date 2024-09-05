@@ -11,7 +11,7 @@ export function Experience() {
   const { position, startDate, endDate, responsibilities } = jobs[value]
 
   return (
-    <section className="py-8">
+    <section className="bg-white py-8">
       <Title title="experience" />
       <div className="mx-auto mt-6 w-[80vw] max-w-[1170px] lg:grid lg:w-[90vw] lg:grid-cols-[200px_1fr] lg:gap-16">
         <div className="mb-8 flex flex-row gap-8 overflow-auto lg:flex-col lg:gap-4">

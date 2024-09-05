@@ -6,7 +6,7 @@ import { Experience } from '../Components/Experience/Experience'
 
 const Home = () => {
   return (
-    <Layout>
+    <Layout className="bg-primary-1000">
       <SEO />
       <Hero />
       <Skills />

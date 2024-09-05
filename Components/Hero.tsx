@@ -5,7 +5,7 @@ import { Button } from './Button'
 
 export function Hero() {
   return (
-    <header className="relative h-[calc(100svh-5rem)] bg-primary-1000">
+    <header className="relative h-svh bg-primary-1000">
       <div className="section-center grid h-full items-center md:grid-cols-2">
         <article className="bg-primary-1000">
           <div className="text-center md:text-left">

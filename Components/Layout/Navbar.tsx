@@ -5,11 +5,17 @@ import { cn } from '../../lib/utils'
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
-  const toggleMenu = () => setIsOpen(!isOpen)
+  function toggleMenu() {
+    setIsOpen(!isOpen)
+  }
 
   return (
-    <nav className="flex h-20 items-center bg-white">
-      <div className="page-center mx-auto flex items-center justify-end">
+    <nav
+      className={cn('absolute left-0 right-0 top-0 z-10 flex h-20 items-center bg-transparent', {
+        'bg-white': isOpen,
+      })}
+    >
+      <div className="mx-auto flex items-center justify-end page-center">
         <button
           onClick={toggleMenu}
           className="flex flex-col items-center justify-center md:hidden"
