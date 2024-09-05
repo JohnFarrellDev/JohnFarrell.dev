@@ -1,10 +1,10 @@
-import { ArticleTimeStamps } from '../../Components/ArticleTimeStamps'
-import { TableOfContents } from '../../Components/TableOfContents'
-import { Banner } from '../../Components/Banner'
-import { Layout } from '../../Components/Layout/Layout'
-import { SEO } from '../../Components/SEO'
-import { Title } from '../../Components/Title'
-import Image from 'next/image'
+import { ArticleTimeStamps } from '../../Components/ArticleTimeStamps';
+import { TableOfContents } from '../../Components/TableOfContents';
+import { Banner } from '../../Components/Banner';
+import { Layout } from '../../Components/Layout/Layout';
+import { SEO } from '../../Components/SEO';
+import { Title } from '../../Components/Title';
+import Image from 'next/image';
 
 function OptimizingYoutube() {
   return (
@@ -269,7 +269,7 @@ function OptimizingYoutube() {
         </div>
       </section>
     </Layout>
-  )
+  );
 }
 
-export default OptimizingYoutube
+export default OptimizingYoutube;

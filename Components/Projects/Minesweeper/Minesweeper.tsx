@@ -1,9 +1,9 @@
-import { useMemo } from 'react'
-import { ArticleTimeStamps } from '../../ArticleTimeStamps'
-import { Layout } from '../../Layout/Layout'
-import { SEO } from '../../SEO'
-import { Title } from '../../Title'
-import { Game } from './Components/Game/Game'
+import { useMemo } from 'react';
+import { ArticleTimeStamps } from '../../ArticleTimeStamps';
+import { Layout } from '../../Layout/Layout';
+import { SEO } from '../../SEO';
+import { Title } from '../../Title';
+import { Game } from './Components/Game/Game';
 
 export const Minesweeper = () => {
   const seo = useMemo(
@@ -15,9 +15,9 @@ export const Minesweeper = () => {
       />
     ),
     []
-  )
+  );
 
-  const title = useMemo(() => <Title title="Minesweeper" />, [])
+  const title = useMemo(() => <Title title="Minesweeper" />, []);
 
   return (
     <Layout>
@@ -62,7 +62,7 @@ export const Minesweeper = () => {
         </div>
       </main>
     </Layout>
-  )
-}
+  );
+};
 
-export default Minesweeper
+export default Minesweeper;

@@ -1,14 +1,14 @@
-import Link from 'next/link'
-import { ArticleTimeStamps } from '../../Components/ArticleTimeStamps'
-import { Layout } from '../../Components/Layout/Layout'
-import { SEO } from '../../Components/SEO'
-import { Title } from '../../Components/Title'
-import { TableOfContents } from '../../Components/TableOfContents'
-import { SectionTitle } from '../../Components/SectionTitle'
-import { SubSectionTitle } from '../../Components/SubSectionTitle'
-import { YoutubeVideo } from '../../Components/YoutubeVideo'
-import { CodeBlock } from '../../Components/CodeBlock'
-import Image from 'next/image'
+import Link from 'next/link';
+import { ArticleTimeStamps } from '../../Components/ArticleTimeStamps';
+import { Layout } from '../../Components/Layout/Layout';
+import { SEO } from '../../Components/SEO';
+import { Title } from '../../Components/Title';
+import { TableOfContents } from '../../Components/TableOfContents';
+import { SectionTitle } from '../../Components/SectionTitle';
+import { SubSectionTitle } from '../../Components/SubSectionTitle';
+import { YoutubeVideo } from '../../Components/YoutubeVideo';
+import { CodeBlock } from '../../Components/CodeBlock';
+import Image from 'next/image';
 
 const Articles = () => {
   return (
@@ -222,10 +222,10 @@ const Articles = () => {
         </div>
       </section>
     </Layout>
-  )
-}
+  );
+};
 
-export default Articles
+export default Articles;
 
 const codeCopyFromPracticeTest = `// ==UserScript==
 // @name         Udemy - Copy from Practice Test
@@ -287,7 +287,7 @@ const codeCopyFromPracticeTest = `// ==UserScript==
 
     // Start observing the target node for configured mutations
     observer.observe(targetNode, config);
-})();`
+})();`;
 
 const codeCopyFromEndOfSectionQuiz = `// ==UserScript==
 // @name         Udemy - Copy from Section Quiz
@@ -375,4 +375,4 @@ const codeCopyFromEndOfSectionQuiz = `// ==UserScript==
 
     // Start observing the target node for configured mutations
     observer.observe(targetNode, config);
-})();`
+})();`;

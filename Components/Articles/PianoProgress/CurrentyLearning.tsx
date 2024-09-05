@@ -1,11 +1,11 @@
-import { Music } from 'lucide-react'
-import { Card, CardHeader, CardTitle, CardContent } from '../../ui/card'
+import { Music } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardContent } from '../../ui/card';
 
 const currentSongs: string[] = [
   'Interstellar Main Theme - Hans Zimmer',
   'Gymnopedie No. 1 - Erik Satie',
   'Una Mattina - Ludovico Einaudi',
-]
+];
 
 export function CurrentyLearning() {
   return (
@@ -24,5 +24,5 @@ export function CurrentyLearning() {
         </ul>
       </CardContent>
     </Card>
-  )
+  );
 }

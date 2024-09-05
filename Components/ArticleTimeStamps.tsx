@@ -1,6 +1,6 @@
 interface ArticleTimeStampsProps {
-  createdAt: Date
-  lastUpdated?: Date
+  createdAt: Date;
+  lastUpdated?: Date;
 }
 
 export function ArticleTimeStamps({ createdAt, lastUpdated }: ArticleTimeStampsProps) {
@@ -9,11 +9,11 @@ export function ArticleTimeStamps({ createdAt, lastUpdated }: ArticleTimeStampsP
       <span className="underline">Created at: {toDisplayDate(createdAt)}</span>{' '}
       {lastUpdated && <span className="underline">Last Updated: {toDisplayDate(lastUpdated)}</span>}
     </div>
-  )
+  );
 }
 
-const threeLetterMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+const threeLetterMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 function toDisplayDate(date: Date) {
-  return `${threeLetterMonths[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
+  return `${threeLetterMonths[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 }

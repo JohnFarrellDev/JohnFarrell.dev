@@ -1,24 +1,24 @@
-import { ClickCellAction, State } from '../../..'
-import { extractRowAndColumnFromId } from '../../../../functions/extractRowAndColumnFromId'
+import { ClickCellAction, State } from '../../..';
+import { extractRowAndColumnFromId } from '../../../../functions/extractRowAndColumnFromId';
 
 export const recursiveRevealCell = (state: State, action: ClickCellAction) => {
-  if (!state.allowedOperations.RecursiveReveal) return
+  if (!state.allowedOperations.RecursiveReveal) return;
 
-  const cellsAllReadySelected = new Set([state.revealedBoard[action.rowIndex][action.columnIndex].id])
+  const cellsAllReadySelected = new Set([state.revealedBoard[action.rowIndex][action.columnIndex].id]);
 
-  const cellsToVisit = [state.revealedBoard[action.rowIndex][action.columnIndex].id]
+  const cellsToVisit = [state.revealedBoard[action.rowIndex][action.columnIndex].id];
 
   while (cellsToVisit.length > 0) {
-    const [rowIndex, columnIndex] = extractRowAndColumnFromId(cellsToVisit.pop() as number, state.columns)
+    const [rowIndex, columnIndex] = extractRowAndColumnFromId(cellsToVisit.pop() as number, state.columns);
 
-    const currentCell = state.revealedBoard[rowIndex][columnIndex]
+    const currentCell = state.revealedBoard[rowIndex][columnIndex];
     if (currentCell.neighborBombs === 0) {
       currentCell.neighbors.forEach((neighborCell) => {
-        if (cellsAllReadySelected.has(neighborCell.id)) return
-        cellsToVisit.push(neighborCell.id)
-        cellsAllReadySelected.add(neighborCell.id)
-        neighborCell.isCovered = false
-      })
+        if (cellsAllReadySelected.has(neighborCell.id)) return;
+        cellsToVisit.push(neighborCell.id);
+        cellsAllReadySelected.add(neighborCell.id);
+        neighborCell.isCovered = false;
+      });
     }
   }
 
@@ -29,21 +29,21 @@ export const recursiveRevealCell = (state: State, action: ClickCellAction) => {
         {
           action: 'REVEALCELLS',
           cells: Array.from(cellsAllReadySelected).map((el) => {
-            const [rowIndex, columnIndex] = extractRowAndColumnFromId(el, state.columns)
+            const [rowIndex, columnIndex] = extractRowAndColumnFromId(el, state.columns);
 
             return {
               rowIndex,
               columnIndex,
-            }
+            };
           }),
         },
       ],
-    })
-    return
+    });
+    return;
   }
 
   if (cellsAllReadySelected.size === 1) {
-    const [rowIndex, columnIndex] = extractRowAndColumnFromId(Array.from(cellsAllReadySelected)[0], state.columns)
+    const [rowIndex, columnIndex] = extractRowAndColumnFromId(Array.from(cellsAllReadySelected)[0], state.columns);
 
     state.changesToApply.enqueue({
       changes: [
@@ -54,12 +54,12 @@ export const recursiveRevealCell = (state: State, action: ClickCellAction) => {
         },
       ],
       time: 0,
-    })
-    return
+    });
+    return;
   }
 
   cellsAllReadySelected.forEach((el) => {
-    const [rowIndex, columnIndex] = extractRowAndColumnFromId(el, state.columns)
+    const [rowIndex, columnIndex] = extractRowAndColumnFromId(el, state.columns);
     state.changesToApply.enqueue({
       changes: [
         {
@@ -69,11 +69,11 @@ export const recursiveRevealCell = (state: State, action: ClickCellAction) => {
         },
       ],
       time: 100,
-    })
-  })
+    });
+  });
 
   state.changesToApply.enqueue({
     changes: [{ action: 'WIPEANIMATION' }],
     time: 1000,
-  })
-}
+  });
+};

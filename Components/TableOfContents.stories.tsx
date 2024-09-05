@@ -1,16 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { TableOfContents } from './TableOfContents'
+import type { Meta, StoryObj } from '@storybook/react';
+import { TableOfContents } from './TableOfContents';
 
 export default {
   title: 'Utilities/TableOfContents',
   component: TableOfContents,
-} as Meta<typeof TableOfContents>
+} as Meta<typeof TableOfContents>;
 
 export const NoContent: StoryObj<typeof TableOfContents> = {
   args: {
     content: [],
   },
-}
+};
 
 export const LinearContent: StoryObj<typeof TableOfContents> = {
   args: {
@@ -19,7 +19,7 @@ export const LinearContent: StoryObj<typeof TableOfContents> = {
       { display: 'Test two', url: '#test-two' },
     ],
   },
-}
+};
 
 export const nestedContent: StoryObj<typeof TableOfContents> = {
   args: {
@@ -53,4 +53,4 @@ export const nestedContent: StoryObj<typeof TableOfContents> = {
       },
     ],
   },
-}
+};

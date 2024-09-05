@@ -1,8 +1,8 @@
-import { CurrentyLearning } from '../../Components/Articles/PianoProgress/CurrentyLearning'
-import { SongTrackers } from '../../Components/Articles/PianoProgress/SongTrackers'
-import { Layout } from '../../Components/Layout/Layout'
-import { SEO } from '../../Components/SEO'
-import { Title } from '../../Components/Title'
+import { CurrentyLearning } from '../../Components/Articles/PianoProgress/CurrentyLearning';
+import { SongTrackers } from '../../Components/Articles/PianoProgress/SongTrackers';
+import { Layout } from '../../Components/Layout/Layout';
+import { SEO } from '../../Components/SEO';
+import { Title } from '../../Components/Title';
 
 export default function PianoProgress() {
   return (
@@ -20,5 +20,5 @@ export default function PianoProgress() {
         </div>
       </section>
     </Layout>
-  )
+  );
 }

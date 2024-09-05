@@ -1,14 +1,14 @@
-import { Bomb } from '../SVGs/Bomb'
-import { CatCryingFace } from '../SVGs/CatCryingFace'
-import { CatHeartFace } from '../SVGs/CatHeartFace'
-import { CatNeutralFace } from '../SVGs/CatNeutralFace'
-import { CatScaredFace } from '../SVGs/CatScaredFace'
-import { CatSmilingFace } from '../SVGs/CatSmilingFace'
-import { HumanCryingFace } from '../SVGs/HumanCryingFace'
-import { HumanNeutralFace } from '../SVGs/HumanNeutralFace'
-import { HumanPartyFace } from '../SVGs/HumanPartyFace'
-import { HumanScaredFace } from '../SVGs/HumanScaredFace'
-import { HumanSmilingFace } from '../SVGs/HumanSmilingFace'
+import { Bomb } from '../SVGs/Bomb';
+import { CatCryingFace } from '../SVGs/CatCryingFace';
+import { CatHeartFace } from '../SVGs/CatHeartFace';
+import { CatNeutralFace } from '../SVGs/CatNeutralFace';
+import { CatScaredFace } from '../SVGs/CatScaredFace';
+import { CatSmilingFace } from '../SVGs/CatSmilingFace';
+import { HumanCryingFace } from '../SVGs/HumanCryingFace';
+import { HumanNeutralFace } from '../SVGs/HumanNeutralFace';
+import { HumanPartyFace } from '../SVGs/HumanPartyFace';
+import { HumanScaredFace } from '../SVGs/HumanScaredFace';
+import { HumanSmilingFace } from '../SVGs/HumanSmilingFace';
 
 export enum FaceType {
   Human,
@@ -16,14 +16,14 @@ export enum FaceType {
 }
 
 interface GameTrackingI {
-  isDead: boolean
-  isWinner: boolean
-  isPlaying: boolean
-  isHoldingDown: boolean
-  faceType: FaceType
-  switchFaceType: () => void
-  flagsPlaced: number
-  totalBombs: number
+  isDead: boolean;
+  isWinner: boolean;
+  isPlaying: boolean;
+  isHoldingDown: boolean;
+  faceType: FaceType;
+  switchFaceType: () => void;
+  flagsPlaced: number;
+  totalBombs: number;
 }
 
 const faces = [
@@ -47,7 +47,7 @@ const faces = [
     <HumanScaredFace key="human-scared-face" className="w-[50px]" />,
     <CatScaredFace key="cat-scared" className="w-[50px]" />,
   ],
-]
+];
 
 export function GameTracking({
   isDead,
@@ -78,5 +78,5 @@ export function GameTracking({
         </p>
       </div>
     </div>
-  )
+  );
 }

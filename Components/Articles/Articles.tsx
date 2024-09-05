@@ -1,8 +1,8 @@
-import { Fragment } from 'react'
-import { Layout } from '../Layout/Layout'
-import { SEO } from '../SEO'
-import { Title } from '../Title'
-import { ArticleCard } from './ArticleCard'
+import { Fragment } from 'react';
+import { Layout } from '../Layout/Layout';
+import { SEO } from '../SEO';
+import { Title } from '../Title';
+import { ArticleCard } from './ArticleCard';
 
 const allArticles = [
   {
@@ -81,7 +81,7 @@ const allArticles = [
       },
     ],
   },
-]
+];
 
 export function Articles() {
   return (
@@ -106,5 +106,5 @@ export function Articles() {
         </div>
       </section>
     </Layout>
-  )
+  );
 }

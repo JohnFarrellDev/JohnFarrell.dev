@@ -1,9 +1,9 @@
-import { GitMerge } from 'lucide-react'
-import { JavaScript } from '../../icons/JavaScript'
-import { TypeScript } from '../../icons/TypeScript'
-import { CSharp } from '../../icons/CSharp'
-import { React } from '../../icons/React'
-import { Node } from '../../icons/Node'
+import { GitMerge } from 'lucide-react';
+import { JavaScript } from '../../icons/JavaScript';
+import { TypeScript } from '../../icons/TypeScript';
+import { CSharp } from '../../icons/CSharp';
+import { React } from '../../icons/React';
+import { Node } from '../../icons/Node';
 
 export const skills = [
   {
@@ -56,4 +56,4 @@ export const skills = [
       display: 'GitHub',
     },
   },
-]
+];

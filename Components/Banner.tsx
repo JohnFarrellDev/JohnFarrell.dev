@@ -1,9 +1,9 @@
-import { Info, OctagonAlert } from 'lucide-react'
-import { cn } from '../Utilities/cn'
+import { Info, OctagonAlert } from 'lucide-react';
+import { cn } from '../Utilities/cn';
 
 interface BannerProps {
-  type: 'information' | 'warning'
-  message: React.ReactNode
+  type: 'information' | 'warning';
+  message: React.ReactNode;
 }
 
 export function Banner({ type, message }: BannerProps) {
@@ -30,5 +30,5 @@ export function Banner({ type, message }: BannerProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }

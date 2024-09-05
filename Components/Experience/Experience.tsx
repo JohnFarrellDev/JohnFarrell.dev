@@ -1,14 +1,14 @@
-import Link from 'next/link'
-import { useState } from 'react'
-import { Title } from '../Title'
-import { Button } from '../Button'
-import { jobs } from './Constants/jobs'
-import { cn } from '../../lib/utils'
-import { ChevronsRight } from 'lucide-react'
+import Link from 'next/link';
+import { useState } from 'react';
+import { Title } from '../Title';
+import { Button } from '../Button';
+import { jobs } from './Constants/jobs';
+import { cn } from '../../lib/utils';
+import { ChevronsRight } from 'lucide-react';
 
 export function Experience() {
-  const [value, setValue] = useState(0)
-  const { position, startDate, endDate, responsibilities } = jobs[value]
+  const [value, setValue] = useState(0);
+  const { position, startDate, endDate, responsibilities } = jobs[value];
 
   return (
     <section className="bg-white py-8">
@@ -48,5 +48,5 @@ export function Experience() {
         <Button className="w-48 rounded-lg uppercase">More Info About Me</Button>
       </Link>
     </section>
-  )
+  );
 }

@@ -1,14 +1,14 @@
-import { UseLocalStorage } from '../../../Utilities/UseLocalStorage'
-import { DescendingNumberGame } from './DescendingNumberGame'
+import { UseLocalStorage } from '../../../Utilities/UseLocalStorage';
+import { DescendingNumberGame } from './DescendingNumberGame';
 
-const NUMBER_OF_SLOTS = 20
+const NUMBER_OF_SLOTS = 20;
 
 export const Game20 = () => {
   const {
     value: highScore,
     setValueLocalStorageNoRerender: setHighScore,
     refetch,
-  } = UseLocalStorage('twenty-number-challenge-high-score', 0)
+  } = UseLocalStorage('twenty-number-challenge-high-score', 0);
 
   return (
     <DescendingNumberGame
@@ -18,5 +18,5 @@ export const Game20 = () => {
       setHighScore={setHighScore}
       gameType="set-size"
     />
-  )
-}
+  );
+};

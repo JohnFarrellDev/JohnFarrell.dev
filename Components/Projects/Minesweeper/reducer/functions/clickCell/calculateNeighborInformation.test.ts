@@ -1,10 +1,10 @@
-import { State } from '../..'
-import { minesweeperStateFactory } from '../../../../../../factories/minesweeperState'
-import { generateBoard } from '../../../functions/generateBoard'
-import { calculateNeighborInformation } from './calculateNeighborInformation'
+import { State } from '../..';
+import { minesweeperStateFactory } from '../../../../../../factories/minesweeperState';
+import { generateBoard } from '../../../functions/generateBoard';
+import { calculateNeighborInformation } from './calculateNeighborInformation';
 
 describe('calculate neighbor information', () => {
-  let state: State
+  let state: State;
 
   beforeEach(() => {
     state = minesweeperStateFactory.build({
@@ -12,65 +12,65 @@ describe('calculate neighbor information', () => {
       customAnimations: { CalculateNeighbors: true },
       rows: 5,
       columns: 5,
-    })
-    generateBoard(state)
-  })
+    });
+    generateBoard(state);
+  });
 
   it('should do nothing if the operation CalculateNeighbors is not provided', () => {
-    state.allowedOperations.CalculateNeighbors = false
+    state.allowedOperations.CalculateNeighbors = false;
 
-    calculateNeighborInformation(state)
+    calculateNeighborInformation(state);
 
-    expect(state.revealedBoard[0][0].neighbors).toEqual([])
-    expect(state.changesToApply.length).toBe(0)
-  })
+    expect(state.revealedBoard[0][0].neighbors).toEqual([]);
+    expect(state.changesToApply.length).toBe(0);
+  });
 
   it('should have no animation steps if customAnimations of CalculateNeighbors is not provided', () => {
-    state.customAnimations.CalculateNeighbors = false
+    state.customAnimations.CalculateNeighbors = false;
 
-    calculateNeighborInformation(state)
+    calculateNeighborInformation(state);
 
-    const changesToApply = state.changesToApply.toArray()
+    const changesToApply = state.changesToApply.toArray();
 
-    expect(changesToApply.length).toBe(1)
+    expect(changesToApply.length).toBe(1);
     expect(changesToApply[0]).toEqual({
       time: 0,
       changes: [{ action: 'COPYNEIGHBORBOMBCOUNT' }],
-    })
-  })
+    });
+  });
 
   it('should return animation steps if custom animations is selected for CalculateNeighbors - bordered mode', () => {
-    calculateNeighborInformation(state)
+    calculateNeighborInformation(state);
 
-    const changesToApply = state.changesToApply.toArray()
+    const changesToApply = state.changesToApply.toArray();
 
-    expect(changesToApply.length).toBe(75)
+    expect(changesToApply.length).toBe(75);
 
-    expect(changesToApply[0].time).toBe(250)
-    expect(changesToApply[0].changes.length).toBe(1)
+    expect(changesToApply[0].time).toBe(250);
+    expect(changesToApply[0].changes.length).toBe(1);
     expect(changesToApply[0].changes[0]).toEqual({
       columnIndex: 0,
       rowIndex: 0,
       action: 'SELECTEDCELL',
-    })
+    });
 
-    expect(changesToApply[1].time).toBe(400)
-    expect(changesToApply[1].changes.length).toBe(4)
+    expect(changesToApply[1].time).toBe(400);
+    expect(changesToApply[1].changes.length).toBe(4);
     expect(changesToApply[1].changes[0]).toEqual({
       columnIndex: 1,
       rowIndex: 0,
       action: 'SELECTEDNEIGHBORCELL',
-    })
+    });
     expect(changesToApply[1].changes[1]).toEqual({
       columnIndex: 0,
       rowIndex: 1,
       action: 'SELECTEDNEIGHBORCELL',
-    })
+    });
     expect(changesToApply[1].changes[2]).toEqual({
       columnIndex: 1,
       rowIndex: 1,
       action: 'SELECTEDNEIGHBORCELL',
-    })
+    });
     expect(changesToApply[1].changes[3]).toEqual({
       columnIndex: 0,
       rowIndex: 0,
@@ -102,84 +102,84 @@ describe('calculate neighbor information', () => {
           neighbors: [],
         },
       ],
-    })
+    });
 
-    expect(changesToApply[2].time).toBe(0)
-    expect(changesToApply[2].changes[0].action).toBe('WIPEANIMATION')
-  })
+    expect(changesToApply[2].time).toBe(0);
+    expect(changesToApply[2].changes[0].action).toBe('WIPEANIMATION');
+  });
 
   it('should return animation steps if custom animations is selected for CalculateNeighbors - borderless mode', () => {
-    state.borderlessMode = true
+    state.borderlessMode = true;
 
-    calculateNeighborInformation(state)
+    calculateNeighborInformation(state);
 
-    const changesToApply = state.changesToApply.toArray()
+    const changesToApply = state.changesToApply.toArray();
 
-    expect(state.changesToApply.length).toBe(75)
+    expect(state.changesToApply.length).toBe(75);
 
-    expect(changesToApply[0].time).toBe(250)
-    expect(changesToApply[0].changes.length).toBe(1)
+    expect(changesToApply[0].time).toBe(250);
+    expect(changesToApply[0].changes.length).toBe(1);
     expect(changesToApply[0].changes[0]).toEqual({
       columnIndex: 0,
       rowIndex: 0,
       action: 'SELECTEDCELL',
-    })
-    expect(changesToApply[1].time).toBe(400)
-    expect(changesToApply[1].changes.length).toBe(9)
+    });
+    expect(changesToApply[1].time).toBe(400);
+    expect(changesToApply[1].changes.length).toBe(9);
 
     expect(changesToApply[1].changes[0]).toEqual({
       columnIndex: 4,
       rowIndex: 4,
       action: 'SELECTEDNEIGHBORCELL',
-    })
+    });
     expect(changesToApply[1].changes[1]).toEqual({
       columnIndex: 0,
       rowIndex: 4,
       action: 'SELECTEDNEIGHBORCELL',
-    })
+    });
     expect(changesToApply[1].changes[2]).toEqual({
       columnIndex: 1,
       rowIndex: 4,
       action: 'SELECTEDNEIGHBORCELL',
-    })
+    });
     expect(changesToApply[1].changes[3]).toEqual({
       columnIndex: 4,
       rowIndex: 0,
       action: 'SELECTEDNEIGHBORCELL',
-    })
+    });
     expect(changesToApply[1].changes[4]).toEqual({
       columnIndex: 1,
       rowIndex: 0,
       action: 'SELECTEDNEIGHBORCELL',
-    })
+    });
     expect(changesToApply[1].changes[5]).toEqual({
       columnIndex: 4,
       rowIndex: 1,
       action: 'SELECTEDNEIGHBORCELL',
-    })
+    });
     expect(changesToApply[1].changes[6]).toEqual({
       columnIndex: 0,
       rowIndex: 1,
       action: 'SELECTEDNEIGHBORCELL',
-    })
+    });
     expect(changesToApply[1].changes[7]).toEqual({
       columnIndex: 1,
       rowIndex: 1,
       action: 'SELECTEDNEIGHBORCELL',
-    })
+    });
 
-    expect(changesToApply[2].time).toBe(0)
-    expect(changesToApply[2].changes[0].action).toBe('WIPEANIMATION')
-  })
+    expect(changesToApply[2].time).toBe(0);
+    expect(changesToApply[2].changes[0].action).toBe('WIPEANIMATION');
+  });
 
   it('should have an action of SELECTEDNEIGHBORCELLBOMB when the neighbor cell is a bomb (bordered mode)', () => {
-    state.revealedBoard[0][1].isBomb = true
+    state.revealedBoard[0][1].isBomb = true;
 
-    calculateNeighborInformation(state)
+    calculateNeighborInformation(state);
 
-    const changesToApply = state.changesToApply.toArray()
+    const changesToApply = state.changesToApply.toArray();
 
-    expect(changesToApply.length).toBe(75)
+    expect(changesToApply.length).toBe(75);
     expect(changesToApply[1]).toEqual({
       time: 400,
       changes: [
@@ -231,18 +231,18 @@ describe('calculate neighbor information', () => {
           columnIndex: 0,
         },
       ],
-    })
-  })
+    });
+  });
 
   it('should have an action of SELECTEDNEIGHBORCELLBOMB when the neighbor cell is a bomb (borderless mode)', () => {
-    state.revealedBoard[0][1].isBomb = true
-    state.borderlessMode = true
+    state.revealedBoard[0][1].isBomb = true;
+    state.borderlessMode = true;
 
-    calculateNeighborInformation(state)
+    calculateNeighborInformation(state);
 
-    const changesToApply = state.changesToApply.toArray()
+    const changesToApply = state.changesToApply.toArray();
 
-    expect(changesToApply.length).toBe(75)
+    expect(changesToApply.length).toBe(75);
     expect(changesToApply[1]).toEqual({
       time: 400,
       changes: [
@@ -359,20 +359,20 @@ describe('calculate neighbor information', () => {
           columnIndex: 0,
         },
       ],
-    })
-  })
+    });
+  });
 
   it('should have no memory references between the board and revealedBoard', () => {
-    expect(state.board[0][0].neighborBombs).toBe(0)
-    expect(state.revealedBoard[0][0].neighborBombs).toBe(0)
+    expect(state.board[0][0].neighborBombs).toBe(0);
+    expect(state.revealedBoard[0][0].neighborBombs).toBe(0);
 
-    state.board[0][0].neighborBombs = 1
+    state.board[0][0].neighborBombs = 1;
 
-    calculateNeighborInformation(state)
+    calculateNeighborInformation(state);
 
-    expect(state.board[0][0].neighborBombs).toBe(1)
-    expect(state.revealedBoard[0][0].neighborBombs).toBe(0)
-  })
+    expect(state.board[0][0].neighborBombs).toBe(1);
+    expect(state.revealedBoard[0][0].neighborBombs).toBe(0);
+  });
 
   it.each`
     testedCell | testedArea               | expectedBombs | borderlessMode | bombsToPlace
@@ -402,21 +402,21 @@ describe('calculate neighbor information', () => {
       borderlessMode,
       bombsToPlace,
     }: {
-      testedCell: [number, number]
-      testedArea: string
-      expectedBombs: number
-      borderlessMode: boolean
-      bombsToPlace: [number, number][]
+      testedCell: [number, number];
+      testedArea: string;
+      expectedBombs: number;
+      borderlessMode: boolean;
+      bombsToPlace: [number, number][];
     }) => {
-      state.customAnimations.CalculateNeighbors = false
+      state.customAnimations.CalculateNeighbors = false;
       bombsToPlace.forEach(([row, column]) => {
-        state.revealedBoard[row][column].isBomb = true
-      })
-      state.borderlessMode = borderlessMode
+        state.revealedBoard[row][column].isBomb = true;
+      });
+      state.borderlessMode = borderlessMode;
 
-      calculateNeighborInformation(state)
+      calculateNeighborInformation(state);
 
-      expect(state.revealedBoard[testedCell[0]][testedCell[1]].neighborBombs).toBe(expectedBombs)
+      expect(state.revealedBoard[testedCell[0]][testedCell[1]].neighborBombs).toBe(expectedBombs);
     }
-  )
-})
+  );
+});

@@ -1,15 +1,15 @@
-import Link from 'next/link'
-import Image from 'next/image'
+import Link from 'next/link';
+import Image from 'next/image';
 
 interface ArticleCardProps {
-  title: string
-  description?: string
-  URL: string
-  createdAt: Date
-  lastUpdatedAt?: Date
-  tags: string[]
-  imageURL: string
-  imageAlt: string
+  title: string;
+  description?: string;
+  URL: string;
+  createdAt: Date;
+  lastUpdatedAt?: Date;
+  tags: string[];
+  imageURL: string;
+  imageAlt: string;
 }
 export function ArticleCard({ title, description, URL, tags, imageURL, imageAlt }: ArticleCardProps) {
   return (
@@ -44,5 +44,5 @@ export function ArticleCard({ title, description, URL, tags, imageURL, imageAlt 
         </div>
       </Link>
     </li>
-  )
+  );
 }

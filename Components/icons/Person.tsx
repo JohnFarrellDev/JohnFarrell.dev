@@ -15,5 +15,5 @@ export function Person() {
       <circle cx="12" cy="10" r="4" />
       <circle cx="12" cy="12" r="10" />
     </svg>
-  )
+  );
 }

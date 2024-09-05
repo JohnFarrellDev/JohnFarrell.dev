@@ -1,7 +1,7 @@
-import { ReactProjectStructure as ReactProjectStructureArticle } from '../../../Components/Articles/ReactProjectStructure/ReactProjectStructure'
+import { ReactProjectStructure as ReactProjectStructureArticle } from '../../../Components/Articles/ReactProjectStructure/ReactProjectStructure';
 
 const ReactProjectStructure = () => {
-  return <ReactProjectStructureArticle />
-}
+  return <ReactProjectStructureArticle />;
+};
 
-export default ReactProjectStructure
+export default ReactProjectStructure;

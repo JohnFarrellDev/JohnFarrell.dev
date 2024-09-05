@@ -1,4 +1,4 @@
-import { SocialLinks } from '../SocialLinks'
+import { SocialLinks } from '../SocialLinks';
 
 export function Footer() {
   return (
@@ -11,5 +11,5 @@ export function Footer() {
         </p>
       </div>
     </footer>
-  )
+  );
 }

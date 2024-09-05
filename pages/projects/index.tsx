@@ -1,8 +1,8 @@
-import { Fragment } from 'react'
-import { ArticleCard } from '../../Components/Articles/ArticleCard'
-import { Layout } from '../../Components/Layout/Layout'
-import { SEO } from '../../Components/SEO'
-import { Title } from '../../Components/Title'
+import { Fragment } from 'react';
+import { ArticleCard } from '../../Components/Articles/ArticleCard';
+import { Layout } from '../../Components/Layout/Layout';
+import { SEO } from '../../Components/SEO';
+import { Title } from '../../Components/Title';
 
 const allProjects = [
   {
@@ -42,7 +42,7 @@ const allProjects = [
       },
     ],
   },
-]
+];
 
 const Projects = () => {
   return (
@@ -64,7 +64,7 @@ const Projects = () => {
         </div>
       </section>
     </Layout>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;

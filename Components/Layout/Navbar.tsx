@@ -1,12 +1,12 @@
-import { useState } from 'react'
-import { Links } from './Links'
-import { cn } from '../../lib/utils'
+import { useState } from 'react';
+import { Links } from './Links';
+import { cn } from '../../lib/utils';
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   function toggleMenu() {
-    setIsOpen(!isOpen)
+    setIsOpen(!isOpen);
   }
 
   return (
@@ -28,7 +28,7 @@ export function Navbar() {
         <Links isOpen={isOpen} />
       </div>
     </nav>
-  )
+  );
 }
 
 function Hamburger({ isOpen }: { isOpen: boolean }) {
@@ -45,5 +45,5 @@ function Hamburger({ isOpen }: { isOpen: boolean }) {
         className={cn('block h-0.5 w-6 bg-gray-600 transition-transform', isOpen ? '-translate-y-1.5 -rotate-45' : '')}
       />
     </>
-  )
+  );
 }

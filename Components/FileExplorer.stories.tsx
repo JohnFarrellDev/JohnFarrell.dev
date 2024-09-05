@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { FileExplorer } from './FileExplorer'
+import type { Meta, StoryObj } from '@storybook/react';
+import { FileExplorer } from './FileExplorer';
 
 const meta = {
   title: 'Articles/Utilities/FileExplorer',
   component: FileExplorer,
-} as Meta<typeof FileExplorer>
-export default meta
+} as Meta<typeof FileExplorer>;
+export default meta;
 
 export const Primary: StoryObj<typeof FileExplorer> = {
   args: {
@@ -20,4 +20,4 @@ export const Primary: StoryObj<typeof FileExplorer> = {
       },
     ],
   },
-}
+};

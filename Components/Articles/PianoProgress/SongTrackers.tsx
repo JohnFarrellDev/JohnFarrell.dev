@@ -1,15 +1,15 @@
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/Components/ui/table'
-import { Badge } from '@/Components/ui/badge'
-import { Button } from '@/Components/ui/button'
-import { Music, Youtube } from 'lucide-react'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/Components/ui/table';
+import { Badge } from '@/Components/ui/badge';
+import { Button } from '@/Components/ui/button';
+import { Music, Youtube } from 'lucide-react';
 
 interface SongInformation {
-  name: string
-  composerOrArtist: string
-  sheetMusic: { text: string; link?: string }
-  progress: number
-  performances: { link: string; iconText?: string }[]
-  comments: string[]
+  name: string;
+  composerOrArtist: string;
+  sheetMusic: { text: string; link?: string };
+  progress: number;
+  performances: { link: string; iconText?: string }[];
+  comments: string[];
 }
 
 const songs: SongInformation[] = [
@@ -136,7 +136,7 @@ const songs: SongInformation[] = [
     ],
     comments: ['The first song I learnt :D'],
   },
-]
+];
 
 export function SongTrackers() {
   return (
@@ -194,5 +194,5 @@ export function SongTrackers() {
         </TableBody>
       </Table>
     </div>
-  )
+  );
 }

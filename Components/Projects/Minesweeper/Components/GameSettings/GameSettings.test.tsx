@@ -1,6 +1,6 @@
-import { fireEvent, render, screen } from '@testing-library/react'
-import { GameSettings } from './GameSettings'
-import { vi } from 'vitest'
+import { fireEvent, render, screen } from '@testing-library/react';
+import { GameSettings } from './GameSettings';
+import { vi } from 'vitest';
 
 describe('game settings', () => {
   it('should display how many rows there currently are', () => {
@@ -14,13 +14,13 @@ describe('game settings', () => {
         changeNumberOfBombs={vi.fn()}
         validateChange={vi.fn()}
       />
-    )
+    );
 
-    expect(screen.getByDisplayValue(5)).toBeInTheDocument()
-  })
+    expect(screen.getByDisplayValue(5)).toBeInTheDocument();
+  });
 
   it('should call changeNumberOfRows with the event when we change the number of rows', () => {
-    const changeNumberOfRowsMock = vi.fn()
+    const changeNumberOfRowsMock = vi.fn();
 
     render(
       <GameSettings
@@ -32,12 +32,12 @@ describe('game settings', () => {
         changeNumberOfBombs={vi.fn()}
         validateChange={vi.fn()}
       />
-    )
+    );
 
-    fireEvent.change(screen.getByDisplayValue(5), { target: { value: 6 } })
+    fireEvent.change(screen.getByDisplayValue(5), { target: { value: 6 } });
 
-    expect(changeNumberOfRowsMock).toBeCalledTimes(1)
-  })
+    expect(changeNumberOfRowsMock).toBeCalledTimes(1);
+  });
 
   it('should display how many columns there currently are', () => {
     render(
@@ -50,13 +50,13 @@ describe('game settings', () => {
         changeNumberOfBombs={vi.fn()}
         validateChange={vi.fn()}
       />
-    )
+    );
 
-    expect(screen.getByDisplayValue(10)).toBeInTheDocument()
-  })
+    expect(screen.getByDisplayValue(10)).toBeInTheDocument();
+  });
 
   it('should call changeNumberOfColumns with the event when we change the number of columns', () => {
-    const changeNumberOfColumnsMock = vi.fn()
+    const changeNumberOfColumnsMock = vi.fn();
 
     render(
       <GameSettings
@@ -68,12 +68,12 @@ describe('game settings', () => {
         changeNumberOfBombs={vi.fn()}
         validateChange={vi.fn()}
       />
-    )
+    );
 
-    fireEvent.change(screen.getByDisplayValue(10), { target: { value: 11 } })
+    fireEvent.change(screen.getByDisplayValue(10), { target: { value: 11 } });
 
-    expect(changeNumberOfColumnsMock).toBeCalledTimes(1)
-  })
+    expect(changeNumberOfColumnsMock).toBeCalledTimes(1);
+  });
 
   it('should display how many bombs there currently are', () => {
     render(
@@ -86,13 +86,13 @@ describe('game settings', () => {
         changeNumberOfBombs={vi.fn()}
         validateChange={vi.fn()}
       />
-    )
+    );
 
-    expect(screen.getByDisplayValue(15)).toBeInTheDocument()
-  })
+    expect(screen.getByDisplayValue(15)).toBeInTheDocument();
+  });
 
   it('should call changeNumberOfBombs with the event when we change the number of bombs', () => {
-    const changeNumberOfBombsMock = vi.fn()
+    const changeNumberOfBombsMock = vi.fn();
 
     render(
       <GameSettings
@@ -104,10 +104,10 @@ describe('game settings', () => {
         changeNumberOfBombs={changeNumberOfBombsMock}
         validateChange={vi.fn()}
       />
-    )
+    );
 
-    fireEvent.change(screen.getByDisplayValue(15), { target: { value: 16 } })
+    fireEvent.change(screen.getByDisplayValue(15), { target: { value: 16 } });
 
-    expect(changeNumberOfBombsMock).toBeCalledTimes(1)
-  })
-})
+    expect(changeNumberOfBombsMock).toBeCalledTimes(1);
+  });
+});

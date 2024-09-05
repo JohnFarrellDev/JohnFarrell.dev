@@ -1,18 +1,18 @@
-import Link from 'next/link'
-import React, { useState } from 'react'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { a11yDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
-import { ExternalLink } from 'lucide-react'
+import Link from 'next/link';
+import React, { useState } from 'react';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { a11yDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { ExternalLink } from 'lucide-react';
 
 interface CodeBlockProps {
-  canHide: boolean
-  githubLink?: string
-  children: string
-  fileName?: string
+  canHide: boolean;
+  githubLink?: string;
+  children: string;
+  fileName?: string;
 }
 
 export const CodeBlock = ({ canHide, githubLink, children, fileName }: CodeBlockProps) => {
-  const [showCode, setShowCode] = useState(true)
+  const [showCode, setShowCode] = useState(true);
 
   return (
     <>
@@ -40,5 +40,5 @@ export const CodeBlock = ({ canHide, githubLink, children, fileName }: CodeBlock
         </SyntaxHighlighter>
       )}
     </>
-  )
-}
+  );
+};

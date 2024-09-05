@@ -1,8 +1,8 @@
-import Link from 'next/link'
-import { Banner } from '../../../Components/Banner'
-import { Layout } from '../../../Components/Layout/Layout'
-import { SEO } from '../../../Components/SEO'
-import { Title } from '../../../Components/Title'
+import Link from 'next/link';
+import { Banner } from '../../../Components/Banner';
+import { Layout } from '../../../Components/Layout/Layout';
+import { SEO } from '../../../Components/SEO';
+import { Title } from '../../../Components/Title';
 
 const AdventOfCode2023 = () => {
   return (
@@ -79,7 +79,7 @@ const AdventOfCode2023 = () => {
         </div>
       </section>
     </Layout>
-  )
-}
+  );
+};
 
-export default AdventOfCode2023
+export default AdventOfCode2023;

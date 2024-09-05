@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 interface Folder {
-  folderName: string
-  content: Content[]
-  collapsed?: boolean
+  folderName: string;
+  content: Content[];
+  collapsed?: boolean;
 }
 
-type Content = string | Folder
+type Content = string | Folder;
 
 interface FileExplorerProps {
-  content: Content[]
+  content: Content[];
 }
 
 export const FileExplorer = ({ content }: FileExplorerProps) => {
@@ -17,40 +17,40 @@ export const FileExplorer = ({ content }: FileExplorerProps) => {
     <div className="w-fit overflow-x-auto rounded-lg bg-grey-300 p-4 text-white">
       <FileExplorerContent content={content} depth={0} />
     </div>
-  )
-}
+  );
+};
 
 interface FileExplorerContentProps {
-  content: Content[]
-  depth: number
-  isHiddenProp?: boolean
+  content: Content[];
+  depth: number;
+  isHiddenProp?: boolean;
 }
 
 function FileExplorerContent({ content, depth, isHiddenProp }: FileExplorerContentProps) {
-  const [isHidden, setIsHidden] = useState<Set<number>>(new Set())
-  const [isShown, setIsShown] = useState<Set<number>>(new Set())
+  const [isHidden, setIsHidden] = useState<Set<number>>(new Set());
+  const [isShown, setIsShown] = useState<Set<number>>(new Set());
 
   const setOpen = (index: number) => {
-    const newIsHidden = new Set(isHidden)
-    const newIsShown = new Set(isShown)
+    const newIsHidden = new Set(isHidden);
+    const newIsShown = new Set(isShown);
 
-    newIsShown.add(index)
-    newIsHidden.delete(index)
+    newIsShown.add(index);
+    newIsHidden.delete(index);
 
-    setIsShown(newIsShown)
-    setIsHidden(newIsHidden)
-  }
+    setIsShown(newIsShown);
+    setIsHidden(newIsHidden);
+  };
 
   const setHide = (index: number) => {
-    const newIsHidden = new Set(isHidden)
-    const newIsShown = new Set(isShown)
+    const newIsHidden = new Set(isHidden);
+    const newIsShown = new Set(isShown);
 
-    newIsHidden.add(index)
-    newIsShown.delete(index)
+    newIsHidden.add(index);
+    newIsShown.delete(index);
 
-    setIsHidden(newIsHidden)
-    setIsShown(newIsShown)
-  }
+    setIsHidden(newIsHidden);
+    setIsShown(newIsShown);
+  };
 
   return (
     <div
@@ -98,7 +98,7 @@ function FileExplorerContent({ content, depth, isHiddenProp }: FileExplorerConte
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 const ChevronRight = ({ className }: { className: string }) => {
@@ -118,8 +118,8 @@ const ChevronRight = ({ className }: { className: string }) => {
         d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
       ></path>
     </svg>
-  )
-}
+  );
+};
 
 const ChevronDown = ({ className }: { className: string }) => {
   return (
@@ -138,5 +138,5 @@ const ChevronDown = ({ className }: { className: string }) => {
         d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
       ></path>
     </svg>
-  )
-}
+  );
+};

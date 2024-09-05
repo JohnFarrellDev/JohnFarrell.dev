@@ -1,7 +1,7 @@
-import { State } from '../..'
+import { State } from '../..';
 
 export const mouseDownCell = (state: State) => {
-  if (!state.isPlaying || state.isWinner || state.isDead) return
+  if (!state.isPlaying || state.isWinner || state.isDead) return;
 
-  state.isHoldingDown = true
-}
+  state.isHoldingDown = true;
+};

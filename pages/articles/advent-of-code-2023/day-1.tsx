@@ -1,14 +1,14 @@
-import { CodeBlock } from '../../../Components/CodeBlock'
-import { Layout } from '../../../Components/Layout/Layout'
-import { SEO } from '../../../Components/SEO'
-import { Title } from '../../../Components/Title'
-import Link from 'next/link'
-import { PreBlock } from '../../../Components/PreBlock'
-import { Github } from 'lucide-react'
+import { CodeBlock } from '../../../Components/CodeBlock';
+import { Layout } from '../../../Components/Layout/Layout';
+import { SEO } from '../../../Components/SEO';
+import { Title } from '../../../Components/Title';
+import Link from 'next/link';
+import { PreBlock } from '../../../Components/PreBlock';
+import { Github } from 'lucide-react';
 
 const parseInputCode = `function parseInput(input: string) {
   return input.split('\\n')
-}`
+}`;
 
 const solution1Code = `export function solution1(input: string[]) {
   let total = 0
@@ -32,7 +32,7 @@ const solution1Code = `export function solution1(input: string[]) {
   }
 
   return total
-}`
+}`;
 
 const solution2Code = `export function solution2(input: string[]) {
   let total = 0
@@ -96,7 +96,7 @@ const solution2Code = `export function solution2(input: string[]) {
   }
 
   return total
-}`
+}`;
 
 const Day1 = () => (
   <Layout>
@@ -243,6 +243,6 @@ total => 281`,
       </div>
     </section>
   </Layout>
-)
+);
 
-export default Day1
+export default Day1;

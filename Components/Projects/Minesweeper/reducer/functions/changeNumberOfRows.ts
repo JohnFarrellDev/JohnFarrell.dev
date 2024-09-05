@@ -1,10 +1,10 @@
-import { ChangeNumberOfRowsAction, State } from '..'
-import { generateBoard } from '../../functions/generateBoard'
+import { ChangeNumberOfRowsAction, State } from '..';
+import { generateBoard } from '../../functions/generateBoard';
 
 export const changeNumberOfRows = (state: State, action: ChangeNumberOfRowsAction) => {
-  if (state.isPlaying && !(state.isWinner || state.isDead)) return
+  if (state.isPlaying && !(state.isWinner || state.isDead)) return;
 
-  state.rows = action.newNumberOfRows
+  state.rows = action.newNumberOfRows;
 
-  generateBoard(state)
-}
+  generateBoard(state);
+};

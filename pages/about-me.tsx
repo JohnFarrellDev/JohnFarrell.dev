@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import { Layout } from '../Components/Layout/Layout'
-import { SEO } from '../Components/SEO'
-import { Title } from '../Components/Title'
+import Image from 'next/image';
+import { Layout } from '../Components/Layout/Layout';
+import { SEO } from '../Components/SEO';
+import { Title } from '../Components/Title';
 
 const techStack = [
   {
@@ -40,7 +40,7 @@ const techStack = [
     id: 9,
     title: 'AWS',
   },
-]
+];
 
 const AboutMe = () => {
   return (
@@ -100,7 +100,7 @@ const AboutMe = () => {
         </div>
       </section>
     </Layout>
-  )
-}
+  );
+};
 
-export default AboutMe
+export default AboutMe;

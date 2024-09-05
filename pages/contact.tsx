@@ -1,6 +1,6 @@
-import { ContactForm } from '../Components/ContactForm'
-import { Layout } from '../Components/Layout/Layout'
-import { SEO } from '../Components/SEO'
+import { ContactForm } from '../Components/ContactForm';
+import { Layout } from '../Components/Layout/Layout';
+import { SEO } from '../Components/SEO';
 
 const Contact = () => {
   return (
@@ -13,7 +13,7 @@ const Contact = () => {
         </article>
       </section>
     </Layout>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

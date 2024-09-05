@@ -1,4 +1,4 @@
-import { StorybookConfig } from '@storybook/nextjs'
+import { StorybookConfig } from '@storybook/nextjs';
 
 const config: StorybookConfig = {
   stories: ['../**/*.stories.tsx'],
@@ -10,6 +10,6 @@ const config: StorybookConfig = {
   typescript: {
     reactDocgen: 'react-docgen-typescript',
   },
-}
+};
 
-export default config
+export default config;

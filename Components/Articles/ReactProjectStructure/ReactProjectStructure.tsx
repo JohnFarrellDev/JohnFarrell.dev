@@ -1,14 +1,14 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { Layout } from '../../Layout/Layout'
-import { SEO } from '../../SEO'
-import { Title } from '../../Title'
-import { FileExplorer } from '../../FileExplorer'
-import { SectionTitle } from '../../SectionTitle'
-import { SubSectionTitle } from '../../SubSectionTitle'
-import { TableOfContents } from '../../TableOfContents'
-import { CodeBlock } from '../../CodeBlock'
-import { ArticleTimeStamps } from '../../ArticleTimeStamps'
+import Link from 'next/link';
+import Image from 'next/image';
+import { Layout } from '../../Layout/Layout';
+import { SEO } from '../../SEO';
+import { Title } from '../../Title';
+import { FileExplorer } from '../../FileExplorer';
+import { SectionTitle } from '../../SectionTitle';
+import { SubSectionTitle } from '../../SubSectionTitle';
+import { TableOfContents } from '../../TableOfContents';
+import { CodeBlock } from '../../CodeBlock';
+import { ArticleTimeStamps } from '../../ArticleTimeStamps';
 
 export const ReactProjectStructure = () => {
   return (
@@ -266,5 +266,5 @@ export const ReactProjectStructure = () => {
         </div>
       </section>
     </Layout>
-  )
-}
+  );
+};

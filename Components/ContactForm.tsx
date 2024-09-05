@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Button } from './Button'
+import { useState } from 'react';
+import { Button } from './Button';
 
 enum Status {
   Success,
@@ -7,26 +7,26 @@ enum Status {
 }
 
 export const ContactForm = () => {
-  const [status, setStatus] = useState<Status | null>(null)
+  const [status, setStatus] = useState<Status | null>(null);
 
   const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    const form = event.target as HTMLFormElement
-    const data = new FormData(form)
-    const xhr = new XMLHttpRequest()
-    xhr.open(form.method, form.action)
-    xhr.setRequestHeader('Accept', 'application/json')
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    const data = new FormData(form);
+    const xhr = new XMLHttpRequest();
+    xhr.open(form.method, form.action);
+    xhr.setRequestHeader('Accept', 'application/json');
     xhr.onreadystatechange = () => {
-      if (xhr.readyState !== XMLHttpRequest.DONE) return
+      if (xhr.readyState !== XMLHttpRequest.DONE) return;
       if (xhr.status === 200) {
-        form.reset()
-        setStatus(Status.Success)
+        form.reset();
+        setStatus(Status.Success);
       } else {
-        setStatus(Status.Error)
+        setStatus(Status.Error);
       }
-    }
-    xhr.send(data)
-  }
+    };
+    xhr.send(data);
+  };
 
   return (
     <form action="https://formspree.io/xqkyvgaw" method="POST" onSubmit={submitForm}>
@@ -81,5 +81,5 @@ export const ContactForm = () => {
       )}
       {status === Status.Error && <p>Ooops! There was an error.</p>}
     </form>
-  )
-}
+  );
+};

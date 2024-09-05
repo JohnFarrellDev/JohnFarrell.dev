@@ -1,13 +1,13 @@
-import { State } from '../../..'
+import { State } from '../../..';
 
 export const determineHasWon = (state: State) => {
-  let hasWon = true
+  let hasWon = true;
   state.board.forEach((row) => {
     row.forEach((cell) => {
       if (!cell.isBomb && cell.isCovered) {
-        hasWon = false
+        hasWon = false;
       }
-    })
-  })
-  state.isWinner = hasWon
-}
+    });
+  });
+  state.isWinner = hasWon;
+};

@@ -1,4 +1,4 @@
-import { SVGProps } from 'react'
+import { SVGProps } from 'react';
 
 export const HumanSmilingFace = (props: SVGProps<SVGSVGElement>) => {
   return (
@@ -32,5 +32,5 @@ export const HumanSmilingFace = (props: SVGProps<SVGSVGElement>) => {
         <path d="M48,31c0,1.6568-1.3447,3-3,3s-3-1.3433-3-3c0-1.6552,1.3447-3,3-3S48,29.3448,48,31" />
       </g>
     </svg>
-  )
-}
+  );
+};

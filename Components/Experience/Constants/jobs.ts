@@ -120,4 +120,4 @@ export const jobs = [
       },
     ],
   },
-] as const
+] as const;

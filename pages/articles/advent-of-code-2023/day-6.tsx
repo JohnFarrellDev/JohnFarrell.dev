@@ -1,11 +1,11 @@
-import { CodeBlock } from '../../../Components/CodeBlock'
-import { Layout } from '../../../Components/Layout/Layout'
-import { SEO } from '../../../Components/SEO'
-import { Title } from '../../../Components/Title'
-import Image from 'next/image'
-import Link from 'next/link'
-import { PreBlock } from '../../../Components/PreBlock'
-import { Github } from 'lucide-react'
+import { CodeBlock } from '../../../Components/CodeBlock';
+import { Layout } from '../../../Components/Layout/Layout';
+import { SEO } from '../../../Components/SEO';
+import { Title } from '../../../Components/Title';
+import Image from 'next/image';
+import Link from 'next/link';
+import { PreBlock } from '../../../Components/PreBlock';
+import { Github } from 'lucide-react';
 
 const solution1Code = `export function solution1(input: string) {
     const parsedInput = parseInput1(input)
@@ -26,7 +26,7 @@ const solution1Code = `export function solution1(input: string) {
 
     console.timeEnd('solution 1')
     return waysToWinPerRound.reduce((acc, curr) => curr * acc, 1)
-}`
+}`;
 
 const solution2CodeFullLoop = `// 60ms
 export function solution2FullLoop(input: string): number {
@@ -45,7 +45,7 @@ export function solution2FullLoop(input: string): number {
 
     console.timeEnd('solution 2 full loop')
     return timesWon
-}`
+}`;
 
 const solution2CodeBreakLoopEarly = `// 16 ms
 function solution2BreakLoopEarly(input: string): number {
@@ -78,7 +78,7 @@ function solution2BreakLoopEarly(input: string): number {
 
   console.timeEnd('solution 2 break early')
   return maxTimeNeededForWin - minTimeNeededForWin + 1
-}`
+}`;
 
 const solution2Quadratic = `function quadraticFormula(
     a: number,
@@ -105,7 +105,7 @@ const solution2Quadratic = `function quadraticFormula(
   
     console.timeEnd('solution 2 quadratic')
     return Math.floor(upperBound) - Math.ceil(lowerBound) + 1
-  }`
+  }`;
 
 const Day6 = () => (
   <Layout>
@@ -230,6 +230,6 @@ const Day6 = () => (
       </div>
     </section>
   </Layout>
-)
+);
 
-export default Day6
+export default Day6;

@@ -1,11 +1,11 @@
-import React from 'react'
-import Link from 'next/link'
-import { House } from '../icons/House'
-import { Person } from '../icons/Person'
-import { Wrench } from '../icons/Wrench'
-import { NewsPaper } from '../icons/NewsPaper'
-import { Mail } from '../icons/Mail'
-import { cn } from '../../lib/utils'
+import React from 'react';
+import Link from 'next/link';
+import { House } from '../icons/House';
+import { Person } from '../icons/Person';
+import { Wrench } from '../icons/Wrench';
+import { NewsPaper } from '../icons/NewsPaper';
+import { Mail } from '../icons/Mail';
+import { cn } from '../../lib/utils';
 
 const data = [
   {
@@ -38,10 +38,10 @@ const data = [
     icon: <Mail />,
     url: '/contact/',
   },
-]
+];
 
 interface LinkProps {
-  isOpen: boolean
+  isOpen: boolean;
 }
 
 export function Links({ isOpen }: LinkProps) {
@@ -65,5 +65,5 @@ export function Links({ isOpen }: LinkProps) {
         </li>
       ))}
     </ul>
-  )
+  );
 }

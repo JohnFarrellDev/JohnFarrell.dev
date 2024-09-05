@@ -1,5 +1,5 @@
-import { State, ValidateChangeAction } from '..'
-import { generateBoard } from '../../functions/generateBoard'
+import { State, ValidateChangeAction } from '..';
+import { generateBoard } from '../../functions/generateBoard';
 
 export const validateChange = (
   state: State,
@@ -7,19 +7,19 @@ export const validateChange = (
   _: ValidateChangeAction
 ): void => {
   if (state.columns > 50) {
-    state.columns = 50
+    state.columns = 50;
   }
 
   if (state.columns < 3) {
-    state.columns = 3
+    state.columns = 3;
   }
 
   if (state.rows < 3) {
-    state.rows = 3
+    state.rows = 3;
   }
 
   if (state.rows > 30) {
-    state.rows = 30
+    state.rows = 30;
   }
 
   state.numberOfBombs =
@@ -27,7 +27,7 @@ export const validateChange = (
       ? state.rows * state.columns - 1
       : state.numberOfBombs < 1
         ? 1
-        : state.numberOfBombs
+        : state.numberOfBombs;
 
-  generateBoard(state)
-}
+  generateBoard(state);
+};

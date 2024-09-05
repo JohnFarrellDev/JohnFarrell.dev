@@ -1,10 +1,10 @@
-import React from 'react'
-import { ButtonHTMLAttributes } from 'react'
-import { cn } from '../Utilities/cn'
+import React from 'react';
+import { ButtonHTMLAttributes } from 'react';
+import { cn } from '../Utilities/cn';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode
-  className?: string
+  children: React.ReactNode;
+  className?: string;
 }
 
 export const Button = ({ children, className, ...htmlProps }: ButtonProps) => {
@@ -18,5 +18,5 @@ export const Button = ({ children, className, ...htmlProps }: ButtonProps) => {
     >
       {children}
     </button>
-  )
-}
+  );
+};

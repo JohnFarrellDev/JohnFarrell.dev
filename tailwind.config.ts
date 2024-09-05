@@ -1,4 +1,4 @@
-import plugin from 'tailwindcss/plugin'
+import plugin from 'tailwindcss/plugin';
 
 module.exports = {
   darkMode: ['class'],
@@ -94,8 +94,8 @@ module.exports = {
           'margin-right': 'calc(50% - 50vw)',
           'max-width': '100vw',
         },
-      }
-      addUtilities(newUtilities)
+      };
+      addUtilities(newUtilities);
     }),
   ],
-}
+};

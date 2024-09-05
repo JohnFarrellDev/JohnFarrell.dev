@@ -1,4 +1,4 @@
-import { SVGProps } from 'react'
+import { SVGProps } from 'react';
 
 export const CatNeutralFace = (props: SVGProps<SVGSVGElement>) => {
   return (
@@ -122,5 +122,5 @@ export const CatNeutralFace = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
     </svg>
-  )
-}
+  );
+};

@@ -1,5 +1,5 @@
-import { generateGameOverMessage, getHighestIndex, getLowestIndex, getRandomValue } from './DescendingNumberGame.utils'
-import { render } from '@testing-library/react'
+import { generateGameOverMessage, getHighestIndex, getLowestIndex, getRandomValue } from './DescendingNumberGame.utils';
+import { render } from '@testing-library/react';
 
 describe('descendingNumberGame.utils', () => {
   describe('getLowestIndex', () => {
@@ -37,10 +37,10 @@ describe('descendingNumberGame.utils', () => {
     ])(
       'should return an index +1 of the first slot that the random value is greater than',
       ({ slots, randomValue, expectedIndex }) => {
-        expect(getLowestIndex(slots, randomValue)).toBe(expectedIndex)
+        expect(getLowestIndex(slots, randomValue)).toBe(expectedIndex);
       }
-    )
-  })
+    );
+  });
 
   describe('getHighestIndex', () => {
     it.each([
@@ -77,37 +77,37 @@ describe('descendingNumberGame.utils', () => {
     ])(
       'should return an index -1 of the first slot that the random value is less than',
       ({ slots, randomValue, expectedIndex }) => {
-        expect(getHighestIndex(slots, randomValue)).toBe(expectedIndex)
+        expect(getHighestIndex(slots, randomValue)).toBe(expectedIndex);
       }
-    )
-  })
+    );
+  });
 
   describe('getRandomValue', () => {
     it('should return a random number between 1 and 1000', () => {
-      const randomValue = getRandomValue(new Set())
-      expect(randomValue).toBeGreaterThanOrEqual(1)
-      expect(randomValue).toBeLessThanOrEqual(1000)
-    })
+      const randomValue = getRandomValue(new Set());
+      expect(randomValue).toBeGreaterThanOrEqual(1);
+      expect(randomValue).toBeLessThanOrEqual(1000);
+    });
 
     it('should not return a number that is in the notPossibleValues set', () => {
-      const notPossibleValues = new Set([1, 2, 3, 4, 5])
+      const notPossibleValues = new Set([1, 2, 3, 4, 5]);
       for (let i = 0; i < 1_000; i++) {
-        const randomValue = getRandomValue(notPossibleValues)
-        expect(randomValue).toBeGreaterThanOrEqual(6)
-        expect(randomValue).toBeLessThanOrEqual(1000)
+        const randomValue = getRandomValue(notPossibleValues);
+        expect(randomValue).toBeGreaterThanOrEqual(6);
+        expect(randomValue).toBeLessThanOrEqual(1000);
       }
-    })
-  })
+    });
+  });
 
   describe('generateGameOverMessage', () => {
     it('should return an empty fragment if isGameOver is false', () => {
-      const result = generateGameOverMessage(false, 0, { gameType: 'set-size', highScore: 0, setHighScore: () => {} })
+      const result = generateGameOverMessage(false, 0, { gameType: 'set-size', highScore: 0, setHighScore: () => {} });
 
-      const { container } = render(result)
+      const { container } = render(result);
 
-      expect(container.innerHTML).toHaveLength(0)
-      expect(container).toBeEmptyDOMElement()
-    })
+      expect(container.innerHTML).toHaveLength(0);
+      expect(container).toBeEmptyDOMElement();
+    });
 
     it.each([
       {
@@ -164,13 +164,13 @@ describe('descendingNumberGame.utils', () => {
           gameType: 'set-size',
           highScore,
           setHighScore: () => {},
-        })
+        });
 
-        const { container } = render(result)
+        const { container } = render(result);
 
-        expect(container.innerHTML).toContain(expectedMessage)
+        expect(container.innerHTML).toContain(expectedMessage);
       }
-    )
+    );
 
     it.each([
       {
@@ -201,12 +201,12 @@ describe('descendingNumberGame.utils', () => {
           gameType: 'level',
           level: 6,
           setLevel: () => {},
-        })
+        });
 
-        const { container } = render(result)
+        const { container } = render(result);
 
-        expect(container.innerHTML).toContain(expectedMessage)
+        expect(container.innerHTML).toContain(expectedMessage);
       }
-    )
-  })
-})
+    );
+  });
+});

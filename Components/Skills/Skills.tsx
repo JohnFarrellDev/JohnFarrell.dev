@@ -1,7 +1,7 @@
-import { Title } from '../Title'
-import { skills } from './Constants/skills'
-import { Button } from '../Button'
-import { Underline } from '../Underline'
+import { Title } from '../Title';
+import { skills } from './Constants/skills';
+import { Button } from '../Button';
+import { Underline } from '../Underline';
 
 export function Skills() {
   return (
@@ -26,9 +26,9 @@ export function Skills() {
                 </a>
               )}
             </article>
-          )
+          );
         })}
       </div>
     </section>
-  )
+  );
 }

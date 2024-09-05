@@ -1,16 +1,16 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
 const siteMetadata = {
   title: 'John Farrell | Professional Software Engineer',
   description: 'My website for sharing projects and articles.',
   twitterUsername: 'JohnFarrellDev',
   image: 'https://i.imgur.com/CoW8DSQ.png',
-}
+};
 
 interface SEOProps {
-  title?: string
-  description?: string
-  image?: string
+  title?: string;
+  description?: string;
+  image?: string;
 }
 
 export const SEO = ({ title, description, image }: SEOProps) => {
@@ -31,5 +31,5 @@ export const SEO = ({ title, description, image }: SEOProps) => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content={siteMetadata.twitterUsername} />
     </Head>
-  )
-}
+  );
+};

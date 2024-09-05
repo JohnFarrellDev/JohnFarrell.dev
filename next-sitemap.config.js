@@ -4,4 +4,4 @@ module.exports = {
   robotsTxtOptions: {
     includeNonIndexSitemaps: true,
   },
-}
+};

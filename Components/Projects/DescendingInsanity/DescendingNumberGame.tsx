@@ -1,33 +1,33 @@
-import { Copy } from 'lucide-react'
-import { RefObject, useEffect, useRef, useState } from 'react'
-import { deferredGameState, applyConfetti } from './DescendingNumberGame.utils'
-import { toast } from 'react-toastify'
-import { cn } from '../../../Utilities/cn'
+import { Copy } from 'lucide-react';
+import { RefObject, useEffect, useRef, useState } from 'react';
+import { deferredGameState, applyConfetti } from './DescendingNumberGame.utils';
+import { toast } from 'react-toastify';
+import { cn } from '../../../Utilities/cn';
 
 type SetGameProps = {
-  gameType: 'set-size'
-  highScore: number
-  setHighScore: (score: number) => void
-}
+  gameType: 'set-size';
+  highScore: number;
+  setHighScore: (score: number) => void;
+};
 
 type LevelGameProps = {
-  gameType: 'level'
-  level: number
-  setLevel: (level: number) => void
-}
+  gameType: 'level';
+  level: number;
+  setLevel: (level: number) => void;
+};
 
-export type SetGameOrLevelGameProps = SetGameProps | LevelGameProps
+export type SetGameOrLevelGameProps = SetGameProps | LevelGameProps;
 
 type GameProps = {
-  numberOfSlots: number
-  refetch: () => void
-} & SetGameOrLevelGameProps
+  numberOfSlots: number;
+  refetch: () => void;
+} & SetGameOrLevelGameProps;
 
 export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps }: GameProps) => {
-  const [slots, setSlots] = useState<(number | null)[]>(Array(numberOfSlots).fill(null))
+  const [slots, setSlots] = useState<(number | null)[]>(Array(numberOfSlots).fill(null));
 
-  const resetGameRef = useRef<HTMLButtonElement>(null)
-  const slotsContainerRef = useRef<HTMLDivElement>(null)
+  const resetGameRef = useRef<HTMLButtonElement>(null);
+  const slotsContainerRef = useRef<HTMLDivElement>(null);
 
   const {
     turnsTaken,
@@ -42,67 +42,67 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
     shareMessage,
     updateStorageCondition,
     updateStorageFunction,
-  } = deferredGameState(slots, gameTypeProps)
+  } = deferredGameState(slots, gameTypeProps);
 
   if (updateStorageCondition) {
-    updateStorageFunction(gameTypeProps, turnsTaken)
+    updateStorageFunction(gameTypeProps, turnsTaken);
   }
 
-  const { clearConfetti } = applyConfetti(isWinner)
+  const { clearConfetti } = applyConfetti(isWinner);
 
   useEffect(() => {
     return () => {
-      if (clearConfetti) clearConfetti()
-    }
-  }, [clearConfetti])
+      if (clearConfetti) clearConfetti();
+    };
+  }, [clearConfetti]);
 
   // for handling focus events
   useEffect(() => {
     if (isGameOver) {
-      resetGameRef.current?.focus()
+      resetGameRef.current?.focus();
     } else {
-      const midIndexNotDisabled = Math.floor((validHighestIndex + validLowestIndex) / 2)
-      const midElement = slotsContainerRef.current?.children[midIndexNotDisabled]
-      midElement?.querySelector('input')?.focus()
+      const midIndexNotDisabled = Math.floor((validHighestIndex + validLowestIndex) / 2);
+      const midElement = slotsContainerRef.current?.children[midIndexNotDisabled];
+      midElement?.querySelector('input')?.focus();
     }
-  }, [isGameOver, validHighestIndex, validLowestIndex])
+  }, [isGameOver, validHighestIndex, validLowestIndex]);
 
   const handleRestartGame = () => {
-    if (clearConfetti) clearConfetti()
-    if (isWinner) refetch()
+    if (clearConfetti) clearConfetti();
+    if (isWinner) refetch();
     if (gameTypeProps.gameType === 'level' && isWinner) {
-      setSlots(Array(numberOfSlots + 1).fill(null))
+      setSlots(Array(numberOfSlots + 1).fill(null));
     } else {
-      setSlots(Array(numberOfSlots).fill(null))
+      setSlots(Array(numberOfSlots).fill(null));
     }
-  }
+  };
 
   const handleSlotClick = (index: number) => {
-    if (slots[index] !== null) return
-    if (isGameOver) return
+    if (slots[index] !== null) return;
+    if (isGameOver) return;
 
-    const newSlots = [...slots]
-    newSlots[index] = randomValue
-    setSlots(newSlots)
-  }
+    const newSlots = [...slots];
+    newSlots[index] = randomValue;
+    setSlots(newSlots);
+  };
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
-    const index = Number((e.target as HTMLInputElement).getAttribute('data-index'))
+    const index = Number((e.target as HTMLInputElement).getAttribute('data-index'));
 
     if (e.key === 'ArrowUp') {
-      const newIndex = index - 1
-      if (newIndex < validLowestIndex) return
-      const newElement = slotsContainerRef.current?.children[newIndex]
-      newElement?.querySelector('input')?.focus()
-      return
+      const newIndex = index - 1;
+      if (newIndex < validLowestIndex) return;
+      const newElement = slotsContainerRef.current?.children[newIndex];
+      newElement?.querySelector('input')?.focus();
+      return;
     }
 
     if (e.key === 'ArrowDown') {
-      const newIndex = index + 1
-      if (newIndex > validHighestIndex) return
-      const newElement = slotsContainerRef.current?.children[newIndex]
-      newElement?.querySelector('input')?.focus()
-      return
+      const newIndex = index + 1;
+      if (newIndex > validHighestIndex) return;
+      const newElement = slotsContainerRef.current?.children[newIndex];
+      newElement?.querySelector('input')?.focus();
+      return;
     }
   }
 
@@ -129,8 +129,8 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
         handleKeyDown={handleKeyDown}
       />
     </div>
-  )
-}
+  );
+};
 
 const GameOver = ({
   isGameOver,
@@ -140,18 +140,18 @@ const GameOver = ({
   handleRestartGame,
   resetGameRef,
 }: {
-  isGameOver: boolean
-  gameOverMessage: React.ReactNode
-  gameOverButtonMessage: string
+  isGameOver: boolean;
+  gameOverMessage: React.ReactNode;
+  gameOverButtonMessage: string;
   shareMessage: {
-    text: string
-    url: string
-    clipboardMessage: string
-  }
-  handleRestartGame: () => void
-  resetGameRef: RefObject<HTMLButtonElement>
+    text: string;
+    url: string;
+    clipboardMessage: string;
+  };
+  handleRestartGame: () => void;
+  resetGameRef: RefObject<HTMLButtonElement>;
 }) => {
-  if (!isGameOver) return null
+  if (!isGameOver) return null;
 
   return (
     <>
@@ -163,8 +163,8 @@ const GameOver = ({
         <ShareButton shareMessage={shareMessage} />
       </div>
     </>
-  )
-}
+  );
+};
 
 const Slots = ({
   slots,
@@ -177,15 +177,15 @@ const Slots = ({
   handleClick,
   handleKeyDown,
 }: {
-  slots: (number | null)[]
-  slotsContainerRef: React.RefObject<HTMLDivElement>
-  isGameOver: boolean
-  isWinner: boolean
-  disabled: boolean[]
-  validLowestIndex: number
-  validHighestIndex: number
-  handleClick: (index: number) => void
-  handleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void
+  slots: (number | null)[];
+  slotsContainerRef: React.RefObject<HTMLDivElement>;
+  isGameOver: boolean;
+  isWinner: boolean;
+  disabled: boolean[];
+  validLowestIndex: number;
+  validHighestIndex: number;
+  handleClick: (index: number) => void;
+  handleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }) => {
   return (
     <div className="mb-4 flex flex-col gap-1" ref={slotsContainerRef}>
@@ -201,8 +201,8 @@ const Slots = ({
         />
       ))}
     </div>
-  )
-}
+  );
+};
 
 const CurrentNumber = ({ currentNumber, targetNumber }: { currentNumber: number; targetNumber: number }) => {
   return (
@@ -215,16 +215,16 @@ const CurrentNumber = ({ currentNumber, targetNumber }: { currentNumber: number;
         {currentNumber}
       </p>
     </>
-  )
-}
+  );
+};
 
 const ShareButton = ({
   shareMessage: { text, url, clipboardMessage },
 }: {
-  shareMessage: { text: string; url: string; clipboardMessage: string }
+  shareMessage: { text: string; url: string; clipboardMessage: string };
 }) => {
   const copyToClipboard = async () => {
-    await navigator.clipboard.writeText(clipboardMessage)
+    await navigator.clipboard.writeText(clipboardMessage);
     toast('Copied sharable result to clipboard so you can paste it to others', {
       type: 'success',
       autoClose: 5_000,
@@ -232,43 +232,43 @@ const ShareButton = ({
       pauseOnHover: true,
       draggable: true,
       position: 'bottom-center',
-    })
-  }
+    });
+  };
 
   const handleShare = async () => {
-    const userAgent = navigator.userAgent
-    const isFirefox = /Firefox/i.test(userAgent)
-    const isMobile = /Mobile/i.test(userAgent)
+    const userAgent = navigator.userAgent;
+    const isFirefox = /Firefox/i.test(userAgent);
+    const isMobile = /Mobile/i.test(userAgent);
 
-    const nonShareBrowser = isFirefox || !isMobile
+    const nonShareBrowser = isFirefox || !isMobile;
 
-    const canShare = navigator.canShare?.({ url, text }) ?? false
+    const canShare = navigator.canShare?.({ url, text }) ?? false;
 
     if (canShare && !nonShareBrowser) {
       await navigator.share({
         url,
         text,
-      })
+      });
     } else {
-      copyToClipboard()
+      copyToClipboard();
     }
-  }
+  };
 
   return (
     <button onClick={handleShare} className="flex gap-2 bg-blue-300 p-2 text-center hover:bg-blue-400">
       <Copy />
       Share Results
     </button>
-  )
-}
+  );
+};
 
 interface SlotProps {
-  index: number
-  disabled: boolean
-  slotValue: number | null
-  slotFail: boolean
-  handleClick: (index: number) => void
-  handleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void
+  index: number;
+  disabled: boolean;
+  slotValue: number | null;
+  slotFail: boolean;
+  handleClick: (index: number) => void;
+  handleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 function Slot({ index, slotValue, disabled, slotFail, handleClick, handleKeyDown }: SlotProps) {
@@ -292,5 +292,5 @@ function Slot({ index, slotValue, disabled, slotFail, handleClick, handleKeyDown
         disabled={disabled}
       />
     </div>
-  )
+  );
 }

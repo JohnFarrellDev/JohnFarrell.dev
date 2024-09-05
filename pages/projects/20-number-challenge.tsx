@@ -1,7 +1,7 @@
-import { Layout } from '../../Components/Layout/Layout'
-import { SEO } from '../../Components/SEO'
-import { Title } from '../../Components/Title'
-import { Game20 } from '../../Components/Projects/DescendingInsanity/Game20'
+import { Layout } from '../../Components/Layout/Layout';
+import { SEO } from '../../Components/SEO';
+import { Title } from '../../Components/Title';
+import { Game20 } from '../../Components/Projects/DescendingInsanity/Game20';
 
 const TwentyNumberChallenge = () => {
   return (
@@ -12,7 +12,7 @@ const TwentyNumberChallenge = () => {
         <Game20 />
       </main>
     </Layout>
-  )
-}
+  );
+};
 
-export default TwentyNumberChallenge
+export default TwentyNumberChallenge;

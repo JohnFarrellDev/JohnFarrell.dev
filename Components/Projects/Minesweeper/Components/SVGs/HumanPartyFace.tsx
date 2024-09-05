@@ -1,4 +1,4 @@
-import { SVGProps } from 'react'
+import { SVGProps } from 'react';
 
 export const HumanPartyFace = (props: SVGProps<SVGSVGElement>) => {
   return (
@@ -176,5 +176,5 @@ export const HumanPartyFace = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
     </svg>
-  )
-}
+  );
+};

@@ -1,21 +1,21 @@
-import { MouseEvent, useCallback } from 'react'
-import { Bomb } from './SVGs/Bomb'
-import { RedFlag } from './SVGs/RedFlag'
-import { cn } from '../../../../lib/utils'
+import { MouseEvent, useCallback } from 'react';
+import { Bomb } from './SVGs/Bomb';
+import { RedFlag } from './SVGs/RedFlag';
+import { cn } from '../../../../lib/utils';
 
 interface GameCellI {
-  rowIndex: number
-  columnIndex: number
-  isCovered: boolean
-  isBomb: boolean
-  isFlagged: boolean
-  isWinner: boolean
-  neighborBombs: number
-  color?: string
-  leftClick: (rowIndex: number, columnIndex: number) => void
-  rightClick: (rowIndex: number, columnIndex: number) => void
-  leftDown: (event: MouseEvent<HTMLDivElement>) => void
-  leftUp: (event: MouseEvent<HTMLDivElement>) => void
+  rowIndex: number;
+  columnIndex: number;
+  isCovered: boolean;
+  isBomb: boolean;
+  isFlagged: boolean;
+  isWinner: boolean;
+  neighborBombs: number;
+  color?: string;
+  leftClick: (rowIndex: number, columnIndex: number) => void;
+  rightClick: (rowIndex: number, columnIndex: number) => void;
+  leftDown: (event: MouseEvent<HTMLDivElement>) => void;
+  leftUp: (event: MouseEvent<HTMLDivElement>) => void;
 }
 
 export const GameCell = ({
@@ -32,16 +32,16 @@ export const GameCell = ({
   leftUp,
 }: GameCellI) => {
   const clickCell = useCallback(() => {
-    leftClick(rowIndex, columnIndex)
-  }, [rowIndex, columnIndex, leftClick])
+    leftClick(rowIndex, columnIndex);
+  }, [rowIndex, columnIndex, leftClick]);
 
   const rightClickCell = useCallback(
     (event: MouseEvent<HTMLDivElement>) => {
-      event.preventDefault()
-      rightClick(rowIndex, columnIndex)
+      event.preventDefault();
+      rightClick(rowIndex, columnIndex);
     },
     [rightClick, columnIndex, rowIndex]
-  )
+  );
 
   return (
     <div
@@ -76,5 +76,5 @@ export const GameCell = ({
         {!isCovered && !isBomb && neighborBombs !== 0 && neighborBombs}
       </span>
     </div>
-  )
-}
+  );
+};

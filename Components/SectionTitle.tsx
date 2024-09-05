@@ -1,7 +1,7 @@
-import React, { HTMLAttributes } from 'react'
+import React, { HTMLAttributes } from 'react';
 
 interface SectionTitleProps extends HTMLAttributes<HTMLElement> {
-  children: string
+  children: string;
 }
 
 export const SectionTitle = ({ children, ...htmlProps }: SectionTitleProps) => {
@@ -9,5 +9,5 @@ export const SectionTitle = ({ children, ...htmlProps }: SectionTitleProps) => {
     <h3 {...htmlProps} className="tracking-normal">
       {children}
     </h3>
-  )
-}
+  );
+};

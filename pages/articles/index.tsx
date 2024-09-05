@@ -1,8 +1,8 @@
-import type { NextPage } from 'next'
-import { Articles as ArticlesC } from '../../Components/Articles/Articles'
+import type { NextPage } from 'next';
+import { Articles as ArticlesC } from '../../Components/Articles/Articles';
 
 const Articles: NextPage = () => {
-  return <ArticlesC />
-}
+  return <ArticlesC />;
+};
 
-export default Articles
+export default Articles;

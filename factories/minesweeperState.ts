@@ -1,7 +1,7 @@
-import { Factory } from 'fishery'
-import { FaceType } from '../Components/Projects/Minesweeper/Components/GameTracking/GameTracking'
-import { ChangeStep, State } from '../Components/Projects/Minesweeper/reducer'
-import { Queue } from '../Utilities/Queue/queue'
+import { Factory } from 'fishery';
+import { FaceType } from '../Components/Projects/Minesweeper/Components/GameTracking/GameTracking';
+import { ChangeStep, State } from '../Components/Projects/Minesweeper/reducer';
+import { Queue } from '../Utilities/Queue/queue';
 
 export const minesweeperStateFactory = Factory.define<State>(() => ({
   rows: 10,
@@ -34,4 +34,4 @@ export const minesweeperStateFactory = Factory.define<State>(() => ({
   changeTime: 0,
   faceType: FaceType.Human,
   flagsPlaced: 0,
-}))
+}));

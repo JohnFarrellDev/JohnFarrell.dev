@@ -1,4 +1,4 @@
-import { SVGProps } from 'react'
+import { SVGProps } from 'react';
 
 export const Bomb = (props: SVGProps<SVGSVGElement>) => {
   return (
@@ -57,5 +57,5 @@ export const Bomb = (props: SVGProps<SVGSVGElement>) => {
         />
       </g>
     </svg>
-  )
-}
+  );
+};

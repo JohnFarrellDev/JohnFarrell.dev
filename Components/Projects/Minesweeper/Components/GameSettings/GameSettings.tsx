@@ -1,16 +1,16 @@
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent } from 'react';
 
 interface GameSettingsI {
-  columns: number
-  changeNumberOfColumns: (newNumberOfColumns: ChangeEvent<HTMLInputElement>) => void
+  columns: number;
+  changeNumberOfColumns: (newNumberOfColumns: ChangeEvent<HTMLInputElement>) => void;
 
-  rows: number
-  changeNumberOfRows: (newNumberOfRows: ChangeEvent<HTMLInputElement>) => void
+  rows: number;
+  changeNumberOfRows: (newNumberOfRows: ChangeEvent<HTMLInputElement>) => void;
 
-  numberOfBombs: number
-  changeNumberOfBombs: (newNumberOfBombs: ChangeEvent<HTMLInputElement>) => void
+  numberOfBombs: number;
+  changeNumberOfBombs: (newNumberOfBombs: ChangeEvent<HTMLInputElement>) => void;
 
-  validateChange: () => void
+  validateChange: () => void;
 }
 
 export const GameSettings = ({
@@ -63,5 +63,5 @@ export const GameSettings = ({
         />
       </div>
     </div>
-  )
-}
+  );
+};

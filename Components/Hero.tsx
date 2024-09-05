@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import { SocialLinks } from './SocialLinks'
-import { Robot } from './Robot'
-import { Button } from './Button'
+import Link from 'next/link';
+import { SocialLinks } from './SocialLinks';
+import { Robot } from './Robot';
+import { Button } from './Button';
 
 export function Hero() {
   return (
@@ -24,5 +24,5 @@ export function Hero() {
         </div>
       </div>
     </header>
-  )
+  );
 }

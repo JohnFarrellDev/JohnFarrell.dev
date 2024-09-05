@@ -1,12 +1,12 @@
-import React from 'react'
-import { Footer } from './Footer'
-import { Navbar } from './Navbar'
-import { cn } from '../../lib/utils'
+import React from 'react';
+import { Footer } from './Footer';
+import { Navbar } from './Navbar';
+import { cn } from '../../lib/utils';
 
 interface LayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
   // to determine the background color of the page
-  className?: string
+  className?: string;
 }
 
 export const Layout = ({ children, className = 'bg-grey-1000' }: LayoutProps) => {
@@ -16,5 +16,5 @@ export const Layout = ({ children, className = 'bg-grey-1000' }: LayoutProps) =>
       <div className={cn('grow pt-20', className)}>{children}</div>
       <Footer />
     </div>
-  )
-}
+  );
+};

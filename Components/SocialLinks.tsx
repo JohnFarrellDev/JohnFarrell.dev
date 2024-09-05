@@ -1,5 +1,5 @@
-import { cn } from './../Utilities/cn'
-import { Twitter, Github, Linkedin } from 'lucide-react'
+import { cn } from './../Utilities/cn';
+import { Twitter, Github, Linkedin } from 'lucide-react';
 
 const data = [
   {
@@ -17,10 +17,10 @@ const data = [
     icon: <Twitter aria-label="link to twitter profile" />,
     url: 'https://twitter.com/JohnFar55526330',
   },
-]
+];
 
 interface LinksProps {
-  styleLinks?: string
+  styleLinks?: string;
 }
 
 function Links({ styleLinks }: LinksProps) {
@@ -38,15 +38,15 @@ function Links({ styleLinks }: LinksProps) {
               {link.icon}
             </a>
           </li>
-        )
+        );
       })}
     </>
-  )
+  );
 }
 
 interface SocialLinksProps {
-  className?: string
-  styleLinks?: string
+  className?: string;
+  styleLinks?: string;
 }
 
 export const SocialLinks = ({ className, styleLinks }: SocialLinksProps) => {
@@ -54,5 +54,5 @@ export const SocialLinks = ({ className, styleLinks }: SocialLinksProps) => {
     <ul className={cn('mt-8 flex w-32 justify-between', className)}>
       <Links styleLinks={styleLinks} />
     </ul>
-  )
-}
+  );
+};

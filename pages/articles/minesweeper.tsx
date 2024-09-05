@@ -1,7 +1,7 @@
-import { Minesweeper as MinesweeperArticle } from '../../Components/Articles/Minesweeper'
+import { Minesweeper as MinesweeperArticle } from '../../Components/Articles/Minesweeper';
 
 const Minesweeper = () => {
-  return <MinesweeperArticle />
-}
+  return <MinesweeperArticle />;
+};
 
-export default Minesweeper
+export default Minesweeper;

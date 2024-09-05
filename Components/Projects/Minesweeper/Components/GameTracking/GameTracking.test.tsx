@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react'
-import { FaceType, GameTracking } from './GameTracking'
-import { vi } from 'vitest'
+import { render, screen } from '@testing-library/react';
+import { FaceType, GameTracking } from './GameTracking';
+import { vi } from 'vitest';
 
 describe('game tracking', () => {
   it.each`
@@ -25,12 +25,12 @@ describe('game tracking', () => {
       isHoldingDown,
       faceType,
     }: {
-      expectedFace: string
-      isPlaying: boolean
-      isWinner: boolean
-      isDead: boolean
-      isHoldingDown: boolean
-      faceType: FaceType
+      expectedFace: string;
+      isPlaying: boolean;
+      isWinner: boolean;
+      isDead: boolean;
+      isHoldingDown: boolean;
+      faceType: FaceType;
     }) => {
       render(
         <GameTracking
@@ -43,11 +43,11 @@ describe('game tracking', () => {
           totalBombs={0}
           flagsPlaced={0}
         />
-      )
+      );
 
-      expect(screen.getByTestId(expectedFace)).toBeInTheDocument()
+      expect(screen.getByTestId(expectedFace)).toBeInTheDocument();
     }
-  )
+  );
 
   it.each`
     totalBombs | flagsPlaced | expectedFlagIndication
@@ -62,9 +62,9 @@ describe('game tracking', () => {
       flagsPlaced,
       expectedFlagIndication,
     }: {
-      totalBombs: number
-      flagsPlaced: number
-      expectedFlagIndication: number
+      totalBombs: number;
+      flagsPlaced: number;
+      expectedFlagIndication: number;
     }) => {
       render(
         <GameTracking
@@ -77,10 +77,10 @@ describe('game tracking', () => {
           totalBombs={totalBombs}
           flagsPlaced={flagsPlaced}
         />
-      )
+      );
 
-      expect(screen.getByTestId('bomb')).toBeInTheDocument()
-      expect(screen.getByText(`${expectedFlagIndication}/${totalBombs}`)).toBeInTheDocument()
+      expect(screen.getByTestId('bomb')).toBeInTheDocument();
+      expect(screen.getByText(`${expectedFlagIndication}/${totalBombs}`)).toBeInTheDocument();
     }
-  )
-})
+  );
+});

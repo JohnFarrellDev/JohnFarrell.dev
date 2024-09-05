@@ -1,7 +1,7 @@
-import { Underline } from './Underline'
+import { Underline } from './Underline';
 
 interface TitleProps {
-  title: string
+  title: string;
 }
 
 export const Title = ({ title }: TitleProps) => {
@@ -10,5 +10,5 @@ export const Title = ({ title }: TitleProps) => {
       <h2>{title}</h2>
       <Underline className="mx-auto" />
     </div>
-  )
-}
+  );
+};

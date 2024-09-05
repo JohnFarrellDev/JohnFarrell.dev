@@ -130,5 +130,5 @@ export function Robot() {
         </g>
       </g>
     </svg>
-  )
+  );
 }

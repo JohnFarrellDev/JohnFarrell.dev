@@ -1,23 +1,23 @@
-import { useEffect, useState } from 'react'
-import { UseLocalStorage } from '../../../Utilities/UseLocalStorage'
-import { DescendingNumberGame } from './DescendingNumberGame'
+import { useEffect, useState } from 'react';
+import { UseLocalStorage } from '../../../Utilities/UseLocalStorage';
+import { DescendingNumberGame } from './DescendingNumberGame';
 
 export const GameWithLevels = () => {
   const {
     value: level,
     setValueLocalStorageNoRerender: setLevel,
     refetch,
-  } = UseLocalStorage('descending-insanity-level', 1)
+  } = UseLocalStorage('descending-insanity-level', 1);
 
-  const [hydration, setHydration] = useState(false)
+  const [hydration, setHydration] = useState(false);
 
   useEffect(() => {
-    setHydration(true)
-  }, [])
+    setHydration(true);
+  }, []);
 
-  if (!hydration) return null
+  if (!hydration) return null;
 
-  const numberOfSlots = level + 4
+  const numberOfSlots = level + 4;
 
   return (
     <DescendingNumberGame
@@ -27,5 +27,5 @@ export const GameWithLevels = () => {
       setLevel={setLevel}
       gameType="level"
     />
-  )
-}
+  );
+};
