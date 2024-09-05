@@ -13,7 +13,7 @@ export function Hero() {
 
             <Link
               href="/contact"
-              className="mx-auto mt-5 block w-fit rounded-md bg-primary-300 px-3.5 py-3.5 font-bold uppercase tracking-[0.2rem] text-primary-1000 no-underline shadow-lg transition-all duration-500 hover:bg-primary-800 hover:text-primary-100 md:block"
+              className="mx-auto mt-5 block w-fit rounded-md bg-primary-300 px-3.5 py-3.5 font-bold uppercase tracking-[0.2rem] text-primary-1000 no-underline shadow-lg transition-all duration-500 hover:bg-primary-800 hover:text-primary-100 md:mx-0 md:block"
             >
               Contact Me
             </Link>
