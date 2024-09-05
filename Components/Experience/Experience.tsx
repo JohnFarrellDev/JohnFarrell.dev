@@ -37,7 +37,7 @@ export function Experience() {
           <div className="grid grid-cols-1 gap-4">
             {responsibilities.map((item) => (
               <div key={item.id} className="flex items-center gap-8">
-                <ChevronsRight className="text-primary-500" />
+                <ChevronsRight className="shrink-0 text-primary-500" />
                 <p className="mb-0 text-grey-300">{item.description}</p>
               </div>
             ))}
