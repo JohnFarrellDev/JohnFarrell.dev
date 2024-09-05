@@ -1,5 +1,4 @@
 import { Fragment } from 'react';
-import { SEO } from '../SEO';
 import { Title } from '../Title';
 import { ArticleCard } from './ArticleCard';
 
@@ -84,26 +83,20 @@ const allArticles = [
 
 export function Articles() {
   return (
-    <>
-      <SEO
-        title="Articles | John Farrell"
-        description="Articles (mostly about software engineering) written by John Farrell"
-      />
-      <section>
-        <Title title="Articles" />
-        <div className="page-center">
-          {allArticles.map(({ year, articles }) => (
-            <Fragment key={year}>
-              <h2 className="my-2 text-center text-xl font-bold">{year}</h2>
-              <ul className="mx-auto flex flex-col gap-4">
-                {articles.map((article) => (
-                  <ArticleCard key={article.URL} {...article} />
-                ))}
-              </ul>
-            </Fragment>
-          ))}
-        </div>
-      </section>
-    </>
+    <section>
+      <Title title="Articles" />
+      <div className="page-center">
+        {allArticles.map(({ year, articles }) => (
+          <Fragment key={year}>
+            <h2 className="my-2 text-center text-xl font-bold">{year}</h2>
+            <ul className="mx-auto flex flex-col gap-4">
+              {articles.map((article) => (
+                <ArticleCard key={article.URL} {...article} />
+              ))}
+            </ul>
+          </Fragment>
+        ))}
+      </div>
+    </section>
   );
 }
