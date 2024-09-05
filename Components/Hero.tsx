@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { SocialLinks } from './SocialLinks';
 import { Robot } from './Robot';
-import { Button } from './Button';
 
 export function Hero() {
   return (
@@ -12,8 +11,11 @@ export function Hero() {
             <h1 className="text-7xl font-bold">Hello, I'm John</h1>
             <h2 className="text-lg text-grey-300">I'm a software developer with a focus on the web</h2>
 
-            <Link href="/contact" className="inline-block md:block">
-              <Button className="mt-5 px-4 py-4 uppercase">Contact Me</Button>
+            <Link
+              href="/contact"
+              className="mx-auto mt-5 block w-fit rounded-md bg-primary-300 px-3.5 py-3.5 font-bold uppercase tracking-[0.2rem] text-primary-1000 no-underline shadow-lg transition-all duration-500 hover:bg-primary-800 hover:text-primary-100 md:block"
+            >
+              Contact Me
             </Link>
 
             <SocialLinks className="flex w-full justify-center gap-4 md:justify-start" />
