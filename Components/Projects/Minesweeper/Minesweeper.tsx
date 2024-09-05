@@ -4,6 +4,7 @@ import { Layout } from '../../Layout/Layout';
 import { SEO } from '../../SEO';
 import { Title } from '../../Title';
 import { Game } from './Components/Game/Game';
+import { Banner } from '../../Banner';
 
 export default function Minesweeper() {
   const seo = useMemo(
@@ -23,17 +24,12 @@ export default function Minesweeper() {
     <Layout>
       {seo}
       {title}
-      <main>
+      <main className="page-center">
         <ArticleTimeStamps createdAt={new Date('2022-10-09T22:19:37.934Z')} />
-        <p
-          style={{
-            textAlign: 'center',
-            textDecoration: 'underline',
-            color: 'red',
-          }}
-        >
-          This is a work in progress! (highly recommend for now using a PC and not mobile to view)
-        </p>
+        <Banner
+          type="warning"
+          message="This is a work in progress! (highly recommend for now using a PC and not mobile to view)"
+        />
         <div>
           <Game
             columns={20}
