@@ -85,7 +85,7 @@ const allArticles = [
 
 export function Articles() {
   return (
-    <Layout>
+    <>
       <SEO
         title="Articles | John Farrell"
         description="Articles (mostly about software engineering) written by John Farrell"
@@ -105,6 +105,6 @@ export function Articles() {
           ))}
         </div>
       </section>
-    </Layout>
+    </>
   );
 }
