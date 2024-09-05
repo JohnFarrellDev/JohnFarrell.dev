@@ -13,7 +13,7 @@ export function Hero() {
             <h2 className="text-lg text-grey-300">I'm a software developer with a focus on the web</h2>
 
             <Link href="/contact" className="inline-block md:block">
-              <Button className="mt-5 uppercase">Contact Me</Button>
+              <Button className="mt-5 px-4 py-4 uppercase">Contact Me</Button>
             </Link>
 
             <SocialLinks className="flex w-full justify-center gap-4 md:justify-start" />
