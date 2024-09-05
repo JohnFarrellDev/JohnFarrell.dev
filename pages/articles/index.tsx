@@ -1,8 +1,5 @@
-import type { NextPage } from 'next';
 import { Articles as ArticlesC } from '../../Components/Articles/Articles';
 
-const Articles: NextPage = () => {
+export default function Articles() {
   return <ArticlesC />;
-};
-
-export default Articles;
+}

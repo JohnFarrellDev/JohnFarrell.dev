@@ -4,7 +4,7 @@ import { SEO } from '../../../Components/SEO';
 import { Title } from '../../../Components/Title';
 import Link from 'next/link';
 import { PreBlock } from '../../../Components/PreBlock';
-import { Github } from 'lucide-react';
+import { GitHub } from '../../../Components/icons/GitHub';
 
 const parseInputCode = `function parseInput(input: string) {
   return input.split('\\n')
@@ -98,112 +98,113 @@ const solution2Code = `export function solution2(input: string[]) {
   return total
 }`;
 
-const Day1 = () => (
-  <Layout>
-    <SEO
-      title="Advent of Code 2023 | Day 1"
-      description="A detailed look at my solution for Advent of Code 2023 | Day 1"
-      image="https://i.imgur.com/G1kmea0.jpg"
-    />
-    <section className="blog-page">
-      <Title title="Advent of Code 2023 - Day 1" />
-      <div className="page-center">
-        <a className="flex" href="https://github.com/JohnFarrellDev/advent-of-code-2023/blob/master/day1.ts">
-          <Github /> Code on GitHub
-        </a>
+export default function Day1() {
+  return (
+    <Layout>
+      <SEO
+        title="Advent of Code 2023 | Day 1"
+        description="A detailed look at my solution for Advent of Code 2023 | Day 1"
+        image="https://i.imgur.com/G1kmea0.jpg"
+      />
+      <section className="blog-page">
+        <Title title="Advent of Code 2023 - Day 1" />
+        <div className="page-center">
+          <a className="flex" href="https://github.com/JohnFarrellDev/advent-of-code-2023/blob/master/day1.ts">
+            <GitHub width={24} height={24} /> Code on GitHub
+          </a>
 
-        <Link href="/articles/advent-of-code-2023">Back to Advent of Code 2023</Link>
+          <Link href="/articles/advent-of-code-2023">Back to Advent of Code 2023</Link>
 
-        <h2>The Problem</h2>
+          <h2>The Problem</h2>
 
-        <p>
-          Day 1 was pretty easy as you would expect though I would say relatively more difficult than most year's day 1
-          challenge which seems to have set the standard for this year's Advent of Code. The example input looked like
-          below
-        </p>
+          <p>
+            Day 1 was pretty easy as you would expect though I would say relatively more difficult than most year's day
+            1 challenge which seems to have set the standard for this year's Advent of Code. The example input looked
+            like below
+          </p>
 
-        <PreBlock
-          lines={[
-            `1abc2
+          <PreBlock
+            lines={[
+              `1abc2
 pqr3stu8vwx
 a1b2c3d4e5f
 treb7uchet`,
-          ]}
-        />
+            ]}
+          />
 
-        <h3>Part 1</h3>
+          <h3>Part 1</h3>
 
-        <p>
-          The problem for part 1 was too simply find the first and last numerical digit on each line, merge them
-          together (1 and 2 becomes 12), do this for each line and sum the total.
-        </p>
+          <p>
+            The problem for part 1 was too simply find the first and last numerical digit on each line, merge them
+            together (1 and 2 becomes 12), do this for each line and sum the total.
+          </p>
 
-        <p>
-          The solution for this was fairly obvious, loop through each line, within each line loop from the start of the
-          string incrementing through each character until you find a number and also do the reverse decrementing from
-          the end of the string until you find a number.
-        </p>
+          <p>
+            The solution for this was fairly obvious, loop through each line, within each line loop from the start of
+            the string incrementing through each character until you find a number and also do the reverse decrementing
+            from the end of the string until you find a number.
+          </p>
 
-        <PreBlock
-          lines={[
-            `1abc2 => 12
+          <PreBlock
+            lines={[
+              `1abc2 => 12
 pqr3stu8vwx => 38
 a1b2c3d4e5f => 15
 treb7uchet => 77
 
 total => 142`,
-          ]}
-        />
+            ]}
+          />
 
-        <p>
-          First step for the code was to create a really basic utility function to turn the input string from Advent of
-          Code into an array of strings.
-        </p>
+          <p>
+            First step for the code was to create a really basic utility function to turn the input string from Advent
+            of Code into an array of strings.
+          </p>
 
-        <CodeBlock canHide={false}>{parseInputCode}</CodeBlock>
+          <CodeBlock canHide={false}>{parseInputCode}</CodeBlock>
 
-        <p>That converts something like</p>
+          <p>That converts something like</p>
 
-        <PreBlock
-          lines={[
-            `1abc2
+          <PreBlock
+            lines={[
+              `1abc2
 pqr3stu8vwx
 a1b2c3d4e5f
 treb7uchet`,
-          ]}
-        />
+            ]}
+          />
 
-        <p>into</p>
+          <p>into</p>
 
-        <PreBlock
-          lines={[
-            `[
+          <PreBlock
+            lines={[
+              `[
   '1abc2',
   'pqr3stu8vwx',
   'a1b2c3d4e5f',
   'treb7uchet'
 ]`,
-          ]}
-        />
+            ]}
+          />
 
-        <p>Then we solve that with the below function</p>
+          <p>Then we solve that with the below function</p>
 
-        <CodeBlock canHide={false}>{solution1Code}</CodeBlock>
+          <CodeBlock canHide={false}>{solution1Code}</CodeBlock>
 
-        <p>
-          Couple of things to note in the code, rowTotal is a string so when the numerical digit is added (which is
-          actually represented a string) we concatenate the value instead of adding. The other important thing to note
-          is that Number(row[j]) will be false(y) for any string that does not represent a numerical value as
-          Number('not a number') returns NaN which is falsy.
-        </p>
+          <p>
+            Couple of things to note in the code, rowTotal is a string so when the numerical digit is added (which is
+            actually represented a string) we concatenate the value instead of adding. The other important thing to note
+            is that Number(row[j]) will be false(y) for any string that does not represent a numerical value as
+            Number('not a number') returns NaN which is falsy.
+          </p>
 
-        <h3>Part 2</h3>
+          <h3>Part 2</h3>
 
-        <p>For part 2 we are now told that digits spelled out are also now valid numbers so for example</p>
+          <p>For part 2 we are now told that digits spelled out are also now valid numbers so for example</p>
 
-        <PreBlock
-          lines={[
-            `two1nine => 29
+          <PreBlock
+            lines={[
+              `two1nine => 29
 eightwothree => 83
 abcone2threexyz => 13
 xtwone3four => 24
@@ -212,37 +213,36 @@ zoneight234 => 14
 7pqrstsixteen => 76
 
 total => 281`,
-          ]}
-        />
+            ]}
+          />
 
-        <p>I took a simple solution and tackled this problem in the exact same way with a minor variation applied</p>
+          <p>I took a simple solution and tackled this problem in the exact same way with a minor variation applied</p>
 
-        <CodeBlock canHide={false}>{solution2Code}</CodeBlock>
+          <CodeBlock canHide={false}>{solution2Code}</CodeBlock>
 
-        <p>
-          The changes added in part 2 are keeping an object with a key:value mapping of the digits one to nine and their
-          values 1-9.
-        </p>
-        <p>
-          Then as well as checking for a number as we iterate through each line (from start to end) and (end to start)
-          we also check if our current substring contains any of the keys in our object mapping.
-        </p>
-        <p>
-          If the current substring does exist within the substring we use the corresponding value in our rowTotal and
-          break out of the for loop.
-        </p>
-        <p>
-          There is an opportunity to make this code cleaner and probably more performant with the use of a{' '}
-          <a href="https://en.wikipedia.org/wiki/Trie" style={{ textDecoration: 'underline' }}>
-            Trie data structure
-          </a>{' '}
-          but I have never used this before, if I have time I will come back to this problem and learn enough to
-          implement the solution using a Trie. Also considering my solution runs in about 10ms on my machine with the
-          real input there is not a need for a more performant solution in this case.
-        </p>
-      </div>
-    </section>
-  </Layout>
-);
-
-export default Day1;
+          <p>
+            The changes added in part 2 are keeping an object with a key:value mapping of the digits one to nine and
+            their values 1-9.
+          </p>
+          <p>
+            Then as well as checking for a number as we iterate through each line (from start to end) and (end to start)
+            we also check if our current substring contains any of the keys in our object mapping.
+          </p>
+          <p>
+            If the current substring does exist within the substring we use the corresponding value in our rowTotal and
+            break out of the for loop.
+          </p>
+          <p>
+            There is an opportunity to make this code cleaner and probably more performant with the use of a{' '}
+            <a href="https://en.wikipedia.org/wiki/Trie" style={{ textDecoration: 'underline' }}>
+              Trie data structure
+            </a>{' '}
+            but I have never used this before, if I have time I will come back to this problem and learn enough to
+            implement the solution using a Trie. Also considering my solution runs in about 10ms on my machine with the
+            real input there is not a need for a more performant solution in this case.
+          </p>
+        </div>
+      </section>
+    </Layout>
+  );
+}

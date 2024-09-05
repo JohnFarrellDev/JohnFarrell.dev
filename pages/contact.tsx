@@ -2,7 +2,7 @@ import { ContactForm } from '../Components/ContactForm';
 import { Layout } from '../Components/Layout/Layout';
 import { SEO } from '../Components/SEO';
 
-const Contact = () => {
+export default function Contact() {
   return (
     <Layout>
       <SEO title="Contact Me | John Farrell" description="Form for contacting John Farrell" />
@@ -14,6 +14,4 @@ const Contact = () => {
       </section>
     </Layout>
   );
-};
-
-export default Contact;
+}

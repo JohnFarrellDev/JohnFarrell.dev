@@ -4,7 +4,7 @@ import { Layout } from '../../../Components/Layout/Layout';
 import { SEO } from '../../../Components/SEO';
 import { Title } from '../../../Components/Title';
 
-const AdventOfCode2023 = () => {
+export default function AdventOfCode2023() {
   return (
     <Layout>
       <SEO
@@ -80,6 +80,4 @@ const AdventOfCode2023 = () => {
       </section>
     </Layout>
   );
-};
-
-export default AdventOfCode2023;
+}

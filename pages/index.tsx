@@ -4,7 +4,7 @@ import { Hero } from '../Components/Hero';
 import { Skills } from '../Components/Skills/Skills';
 import { Experience } from '../Components/Experience/Experience';
 
-const Home = () => {
+export default function Home() {
   return (
     <Layout className="bg-primary-1000">
       <SEO />
@@ -13,6 +13,4 @@ const Home = () => {
       <Experience />
     </Layout>
   );
-};
-
-export default Home;
+}

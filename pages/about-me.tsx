@@ -42,7 +42,7 @@ const techStack = [
   },
 ];
 
-const AboutMe = () => {
+export default function AboutMe() {
   return (
     <Layout>
       <SEO title="About Me | John Farrell" description="Information about John Farrell" />
@@ -101,6 +101,4 @@ const AboutMe = () => {
       </section>
     </Layout>
   );
-};
-
-export default AboutMe;
+}

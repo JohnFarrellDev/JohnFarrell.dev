@@ -44,7 +44,7 @@ const allProjects = [
   },
 ];
 
-function Projects() {
+export default function Projects() {
   return (
     <Layout>
       <SEO title="Projects | John Farrell" description="Software engineering projects created by John Farrell" />
@@ -66,5 +66,3 @@ function Projects() {
     </Layout>
   );
 }
-
-export default Projects;

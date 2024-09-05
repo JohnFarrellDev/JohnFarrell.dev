@@ -6,7 +6,7 @@ import { SEO } from '../../Components/SEO';
 import { Title } from '../../Components/Title';
 import Image from 'next/image';
 
-function OptimizingYoutube() {
+export default function OptimizingYoutube() {
   return (
     <Layout>
       <SEO
@@ -271,5 +271,3 @@ function OptimizingYoutube() {
     </Layout>
   );
 }
-
-export default OptimizingYoutube;

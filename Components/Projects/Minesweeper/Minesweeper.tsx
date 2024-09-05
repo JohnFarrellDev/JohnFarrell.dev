@@ -5,7 +5,7 @@ import { SEO } from '../../SEO';
 import { Title } from '../../Title';
 import { Game } from './Components/Game/Game';
 
-export const Minesweeper = () => {
+export default function Minesweeper() {
   const seo = useMemo(
     () => (
       <SEO
@@ -63,6 +63,4 @@ export const Minesweeper = () => {
       </main>
     </Layout>
   );
-};
-
-export default Minesweeper;
+}

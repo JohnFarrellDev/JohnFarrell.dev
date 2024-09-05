@@ -1,8 +1,5 @@
-import type { NextPage } from 'next';
-import { Minesweeper } from '../../../Components/Projects/Minesweeper/Minesweeper';
+import Minesweeper from '../../../Components/Projects/Minesweeper/Minesweeper';
 
-const MinesweeperProject: NextPage = () => {
+export default function MinesweeperProject() {
   return <Minesweeper />;
-};
-
-export default MinesweeperProject;
+}

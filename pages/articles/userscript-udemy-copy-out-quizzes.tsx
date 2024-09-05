@@ -10,7 +10,7 @@ import { YoutubeVideo } from '../../Components/YoutubeVideo';
 import { CodeBlock } from '../../Components/CodeBlock';
 import Image from 'next/image';
 
-const Articles = () => {
+export default function Articles() {
   return (
     <Layout>
       <SEO
@@ -223,9 +223,7 @@ const Articles = () => {
       </section>
     </Layout>
   );
-};
-
-export default Articles;
+}
 
 const codeCopyFromPracticeTest = `// ==UserScript==
 // @name         Udemy - Copy from Practice Test
