@@ -7,7 +7,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
 }
 
-export const Button = ({ children, className, ...htmlProps }: ButtonProps) => {
+export function Button({ children, className, ...htmlProps }: ButtonProps) {
   return (
     <button
       className={cn(
@@ -19,4 +19,4 @@ export const Button = ({ children, className, ...htmlProps }: ButtonProps) => {
       {children}
     </button>
   );
-};
+}

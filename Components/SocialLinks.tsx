@@ -49,10 +49,10 @@ interface SocialLinksProps {
   styleLinks?: string;
 }
 
-export const SocialLinks = ({ className, styleLinks }: SocialLinksProps) => {
+export function SocialLinks({ className, styleLinks }: SocialLinksProps) {
   return (
     <ul className={cn('mt-8 flex w-32 justify-between', className)}>
       <Links styleLinks={styleLinks} />
     </ul>
   );
-};
+}
