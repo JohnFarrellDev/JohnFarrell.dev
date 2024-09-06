@@ -15,7 +15,7 @@ export const Minesweeper = () => {
         image="https://i.imgur.com/NznpTNf.png"
       />
       <section className="blog-page">
-        <div className="section-center">
+        <div className="page-center">
           <Title title="Solving Minesweeper" />
 
           <ArticleTimeStamps createdAt={new Date('2022-10-09T22:19:37.934Z')} />
