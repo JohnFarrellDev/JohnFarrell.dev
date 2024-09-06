@@ -1,15 +1,17 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import { UseLocalStorage } from '../../../Utilities/UseLocalStorage';
 import { DescendingNumberGame } from './DescendingNumberGame';
 
-export const GameWithLevels = () => {
+export function GameWithLevels() {
+  const [hydration, setHydration] = useState(false);
+
   const {
     value: level,
     setValueLocalStorageNoRerender: setLevel,
     refetch,
   } = UseLocalStorage('descending-insanity-level', 1);
-
-  const [hydration, setHydration] = useState(false);
 
   useEffect(() => {
     setHydration(true);
@@ -28,4 +30,4 @@ export const GameWithLevels = () => {
       gameType="level"
     />
   );
-};
+}

@@ -1,5 +1,7 @@
 import { Footer } from '../Components/Layout/Footer';
 import { Navbar } from '../Components/Layout/Navbar';
+import ToastProvider from '../Components/ToastProvider';
+
 import '../styles/globals.css';
 
 export const metadata = {
@@ -9,12 +11,17 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className="grid min-h-svh grid-rows-[auto_1fr_auto]">
-        <Navbar />
-        <main className="grow">{children}</main>
-        <Footer />
-      </body>
-    </html>
+    <>
+      <html lang="en">
+        <body className="grid min-h-svh grid-rows-[auto_1fr_auto]">
+          <ToastProvider>
+            <Navbar />
+            <main className="grow">{children}</main>
+            <Footer />
+          </ToastProvider>
+        </body>
+      </html>
+      {/* <ToastContainer /> */}
+    </>
   );
 }

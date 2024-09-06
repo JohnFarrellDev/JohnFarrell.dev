@@ -1,3 +1,5 @@
+'use client';
+
 import { Copy } from 'lucide-react';
 import { RefObject, useEffect, useRef, useState } from 'react';
 import { deferredGameState, applyConfetti } from './DescendingNumberGame.utils';
