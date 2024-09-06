@@ -1,29 +1,12 @@
-import { useMemo } from 'react';
 import { ArticleTimeStamps } from '../../ArticleTimeStamps';
-import { Layout } from '../../Layout/Layout';
-import { SEO } from '../../SEO';
 import { Title } from '../../Title';
 import { Game } from './Components/Game/Game';
 import { Banner } from '../../Banner';
 
 export default function Minesweeper() {
-  const seo = useMemo(
-    () => (
-      <SEO
-        title="Minesweeper"
-        description="Implementing minesweeper and it's automated solving algorithms visualised."
-        image="https://i.imgur.com/NznpTNf.png"
-      />
-    ),
-    []
-  );
-
-  const title = useMemo(() => <Title title="Minesweeper" />, []);
-
   return (
-    <Layout>
-      {seo}
-      {title}
+    <>
+      <Title title="Minesweeper" />
       <main className="page-center">
         <ArticleTimeStamps createdAt={new Date('2022-10-09T22:19:37.934Z')} />
         <Banner
@@ -57,6 +40,6 @@ export default function Minesweeper() {
           />
         </div>
       </main>
-    </Layout>
+    </>
   );
 }
