@@ -1,3 +1,5 @@
+'use client';
+
 import { useCallback, useEffect, useReducer, MouseEvent, ChangeEvent } from 'react';
 import { Queue } from '../../../../../Utilities/Queue/queue';
 import { ChangeStep, minesweeperReducer } from '../../reducer';
