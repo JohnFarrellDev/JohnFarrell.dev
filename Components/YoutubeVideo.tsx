@@ -1,3 +1,5 @@
+'use client';
+
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 interface YouTubeVideoProps {
