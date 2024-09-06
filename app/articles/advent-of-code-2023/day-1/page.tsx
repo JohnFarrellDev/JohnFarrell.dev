@@ -105,7 +105,7 @@ export const metadata = produceMetaData({
 
 export default function Day1() {
   return (
-    <section className="blog-page pt-20">
+    <section className="pt-20">
       <Title title="Advent of Code 2023 - Day 1" />
       <div className="page-center">
         <a className="flex" href="https://github.com/JohnFarrellDev/advent-of-code-2023/blob/master/day1.ts">
