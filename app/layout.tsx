@@ -12,7 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="grid min-h-svh grid-rows-[auto_1fr_auto]">
         <Navbar />
-        <div className="grow">{children}</div>
+        <main className="grow">{children}</main>
         <Footer />
       </body>
     </html>
