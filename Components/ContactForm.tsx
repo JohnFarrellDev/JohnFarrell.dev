@@ -8,7 +8,7 @@ enum Status {
   Error,
 }
 
-export const ContactForm = () => {
+export function ContactForm() {
   const [status, setStatus] = useState<Status | null>(null);
 
   const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
@@ -84,4 +84,4 @@ export const ContactForm = () => {
       {status === Status.Error && <p>Ooops! There was an error.</p>}
     </form>
   );
-};
+}
