@@ -1,8 +1,7 @@
 import { Fragment } from 'react';
 import { ArticleCard } from '../../Components/Articles/ArticleCard';
-import { Layout } from '../../Components/Layout/Layout';
-import { SEO } from '../../Components/SEO';
 import { Title } from '../../Components/Title';
+import { produceMetaData } from '../../Utilities/produceMetaData';
 
 const allProjects = [
   {
@@ -44,25 +43,27 @@ const allProjects = [
   },
 ];
 
+export const metadata = produceMetaData({
+  title: 'Projects | John Farrell',
+  description: 'Software engineering projects created by John Farrell',
+});
+
 export default function Projects() {
   return (
-    <Layout>
-      <SEO title="Projects | John Farrell" description="Software engineering projects created by John Farrell" />
-      <section className="page-center">
-        <Title title="Projects" />
-        <div>
-          {allProjects.map(({ year, projects }) => (
-            <Fragment key={year}>
-              <h2 className="my-3 text-center text-xl">{year}</h2>
-              <ul className="mx-auto my-0 flex flex-col gap-5">
-                {projects.map((project) => (
-                  <ArticleCard key={project.URL} {...project} />
-                ))}
-              </ul>
-            </Fragment>
-          ))}
-        </div>
-      </section>
-    </Layout>
+    <section className="pt-20 page-center">
+      <Title title="Projects" />
+      <div>
+        {allProjects.map(({ year, projects }) => (
+          <Fragment key={year}>
+            <h2 className="my-3 text-center text-xl">{year}</h2>
+            <ul className="mx-auto my-0 flex flex-col gap-5">
+              {projects.map((project) => (
+                <ArticleCard key={project.URL} {...project} />
+              ))}
+            </ul>
+          </Fragment>
+        ))}
+      </div>
+    </section>
   );
 }
