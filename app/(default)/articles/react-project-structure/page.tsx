@@ -1,5 +1,5 @@
-import { ReactProjectStructure as ReactProjectStructureArticle } from '../../../Components/Articles/ReactProjectStructure/ReactProjectStructure';
-import { produceMetaData } from '../../../Utilities/produceMetaData';
+import { ReactProjectStructure as ReactProjectStructureArticle } from '../../../../Components/Articles/ReactProjectStructure/ReactProjectStructure';
+import { produceMetaData } from '../../../../Utilities/produceMetaData';
 
 export const metadata = produceMetaData({
   title: 'React Project Structure | John Farrell',

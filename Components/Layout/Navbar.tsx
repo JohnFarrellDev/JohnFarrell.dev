@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Links } from './Links';
 import { cn } from '../../lib/utils';
 
-export function Navbar() {
+export function Navbar({ className }: { className?: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleMenu() {
@@ -13,7 +13,7 @@ export function Navbar() {
 
   return (
     <nav
-      className={cn('absolute left-0 right-0 top-0 z-10 flex h-20 items-center bg-transparent', {
+      className={cn('absolute left-0 right-0 top-0 z-10 flex h-20 items-center bg-transparent', className, {
         'bg-white': isOpen,
       })}
     >

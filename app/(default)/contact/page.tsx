@@ -1,5 +1,5 @@
-import { ContactForm } from '../../Components/ContactForm';
-import { produceMetaData } from '../../Utilities/produceMetaData';
+import { ContactForm } from '../../../Components/ContactForm';
+import { produceMetaData } from '../../../Utilities/produceMetaData';
 
 export const metadata = produceMetaData({
   title: 'Contact Me | John Farrell',

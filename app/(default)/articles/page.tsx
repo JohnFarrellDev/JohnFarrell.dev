@@ -1,5 +1,5 @@
-import { Articles as ArticlesC } from '../../Components/Articles/Articles';
-import { produceMetaData } from '../../Utilities/produceMetaData';
+import { Articles as ArticlesC } from '../../../Components/Articles/Articles';
+import { produceMetaData } from '../../../Utilities/produceMetaData';
 
 export const metadata = produceMetaData({
   title: 'Articles | John Farrell',

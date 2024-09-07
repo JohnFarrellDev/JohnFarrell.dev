@@ -1,9 +1,9 @@
 import { Link } from 'lucide-react';
-import { CodeBlock } from '../../../../Components/CodeBlock';
-import { GitHub } from '../../../../Components/icons/GitHub';
-import { PreBlock } from '../../../../Components/PreBlock';
-import { Title } from '../../../../Components/Title';
-import { produceMetaData } from '../../../../Utilities/produceMetaData';
+import { CodeBlock } from '../../../../../Components/CodeBlock';
+import { GitHub } from '../../../../../Components/icons/GitHub';
+import { PreBlock } from '../../../../../Components/PreBlock';
+import { Title } from '../../../../../Components/Title';
+import { produceMetaData } from '../../../../../Utilities/produceMetaData';
 import Image from 'next/image';
 
 const solution1Code = `export function solution1(input: string) {

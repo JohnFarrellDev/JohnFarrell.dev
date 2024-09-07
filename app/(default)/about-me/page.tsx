@@ -1,5 +1,5 @@
-import { Title } from '../../Components/Title';
-import { produceMetaData } from '../../Utilities/produceMetaData';
+import { Title } from '../../../Components/Title';
+import { produceMetaData } from '../../../Utilities/produceMetaData';
 import Image from 'next/image';
 
 export const metadata = produceMetaData({

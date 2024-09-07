@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { produceMetaData } from '../../../Utilities/produceMetaData';
-import { ArticleTimeStamps } from '../../../Components/ArticleTimeStamps';
-import { CodeBlock } from '../../../Components/CodeBlock';
-import { SectionTitle } from '../../../Components/SectionTitle';
-import { SubSectionTitle } from '../../../Components/SubSectionTitle';
-import { Title } from '../../../Components/Title';
-import { YoutubeVideo } from '../../../Components/YoutubeVideo';
-import { TableOfContents } from '../../../Components/TableOfContents';
+import { produceMetaData } from '../../../../Utilities/produceMetaData';
+import { ArticleTimeStamps } from '../../../../Components/ArticleTimeStamps';
+import { CodeBlock } from '../../../../Components/CodeBlock';
+import { SectionTitle } from '../../../../Components/SectionTitle';
+import { SubSectionTitle } from '../../../../Components/SubSectionTitle';
+import { Title } from '../../../../Components/Title';
+import { YoutubeVideo } from '../../../../Components/YoutubeVideo';
+import { TableOfContents } from '../../../../Components/TableOfContents';
 
 export const metadata = produceMetaData({
   title: 'How to Effortlessly Extract Udemy Quizzes with a Custom Userscript',

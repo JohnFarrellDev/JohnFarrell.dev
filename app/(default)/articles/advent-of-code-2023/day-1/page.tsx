@@ -1,9 +1,9 @@
 import { Link } from 'lucide-react';
-import { CodeBlock } from '../../../../Components/CodeBlock';
-import { GitHub } from '../../../../Components/icons/GitHub';
-import { PreBlock } from '../../../../Components/PreBlock';
-import { Title } from '../../../../Components/Title';
-import { produceMetaData } from '../../../../Utilities/produceMetaData';
+import { CodeBlock } from '../../../../../Components/CodeBlock';
+import { GitHub } from '../../../../../Components/icons/GitHub';
+import { PreBlock } from '../../../../../Components/PreBlock';
+import { Title } from '../../../../../Components/Title';
+import { produceMetaData } from '../../../../../Utilities/produceMetaData';
 
 const parseInputCode = `function parseInput(input: string) {
   return input.split('\\n')

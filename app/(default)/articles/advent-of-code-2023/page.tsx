@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { Banner } from '../../../Components/Banner';
-import { Title } from '../../../Components/Title';
-import { produceMetaData } from '../../../Utilities/produceMetaData';
+import { Banner } from '../../../../Components/Banner';
+import { Title } from '../../../../Components/Title';
+import { produceMetaData } from '../../../../Utilities/produceMetaData';
 
 export const metadata = produceMetaData({
   title: 'Advent of Code 2023',
