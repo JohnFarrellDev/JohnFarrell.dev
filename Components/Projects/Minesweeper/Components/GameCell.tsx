@@ -62,7 +62,7 @@ export const GameCell = ({
         className={cn(
           'font-bold',
           neighborBombs === 1 && 'text-blue-700',
-          neighborBombs === 2 && 'text-green-500',
+          neighborBombs === 2 && 'text-green-700',
           neighborBombs === 3 && 'text-red-700',
           neighborBombs === 4 && 'text-purple-700',
           neighborBombs === 5 && 'text-orange-700',

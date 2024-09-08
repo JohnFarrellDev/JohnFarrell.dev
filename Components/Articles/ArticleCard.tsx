@@ -34,7 +34,7 @@ export function ArticleCard({ title, description, URL, tags, imageURL, imageAlt 
             {tags.length > 0 && (
               <div className="flex flex-wrap gap-2">
                 {tags.map((tag) => (
-                  <span key={tag} className="rounded-lg bg-gray-800 px-2 py-1 text-sm font-bold">
+                  <span key={tag} className="rounded-lg bg-gray-200 px-2 py-1 text-sm font-bold">
                     {tag}
                   </span>
                 ))}

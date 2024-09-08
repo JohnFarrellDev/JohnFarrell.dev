@@ -22,9 +22,6 @@ module.exports = {
         },
         gray: {
           '100': 'var(--clr-gray-1)',
-          '200': 'var(--clr-gray-2)',
-          '700': 'var(--clr-gray-7)',
-          '800': 'var(--clr-gray-8)',
           '900': 'var(--clr-gray-9)',
           '1000': 'var(--clr-gray-10)',
         },
