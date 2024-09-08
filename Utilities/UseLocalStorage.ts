@@ -25,6 +25,7 @@ export function UseLocalStorage<T extends Keys, R>(
         window.localStorage.setItem(key, JSON.stringify(initialValue));
       }
     } catch (error) {
+      console.log(error);
       setIsLocalStorageAvailable(false);
     }
   }, [key, setValue, initialValue]);
@@ -33,13 +34,17 @@ export function UseLocalStorage<T extends Keys, R>(
     try {
       setValue(value);
       window.localStorage.setItem(key, JSON.stringify(value));
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const setValueLocalStorageNoRerender = (value: typeof initialValue) => {
     try {
       window.localStorage.setItem(key, JSON.stringify(value));
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const refetch = () => {
@@ -48,7 +53,9 @@ export function UseLocalStorage<T extends Keys, R>(
       if (item) {
         setValue(JSON.parse(item));
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return { value, setValueLocalStorage, setValueLocalStorageNoRerender, isLocalStorageAvailable, refetch };
