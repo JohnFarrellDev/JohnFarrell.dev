@@ -40,7 +40,7 @@ export function Experience() {
             {responsibilities.map((item) => (
               <div key={item.id} className="flex items-center gap-8">
                 <ChevronsRight className="shrink-0 text-primary-500" />
-                <p className="mb-0 text-grey-300">{item.description}</p>
+                <p className="mb-0 text-gray-300">{item.description}</p>
               </div>
             ))}
           </div>

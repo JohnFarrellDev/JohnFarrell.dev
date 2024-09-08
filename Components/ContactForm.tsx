@@ -42,7 +42,7 @@ export function ContactForm() {
           id="form-name"
           placeholder="name"
           className={
-            'mb-5 w-full rounded-md bg-grey-1000 px-4 py-3 tracking-wide placeholder:uppercase placeholder:text-grey-500'
+            'bg-gray-1000 mb-5 w-full rounded-md px-4 py-3 tracking-wide placeholder:uppercase placeholder:text-gray-500'
           }
         />
         <label htmlFor="form-email" className="sr-only">
@@ -54,7 +54,7 @@ export function ContactForm() {
           placeholder="email"
           id="form-email"
           className={
-            'mb-5 w-full rounded-md bg-grey-1000 px-4 py-3 tracking-wide placeholder:uppercase placeholder:text-grey-500'
+            'bg-gray-1000 mb-5 w-full rounded-md px-4 py-3 tracking-wide placeholder:uppercase placeholder:text-gray-500'
           }
         />
         <label htmlFor="form-message" className="sr-only">
@@ -66,7 +66,7 @@ export function ContactForm() {
           placeholder="message"
           id="form-message"
           className={
-            'mb-5 w-full rounded-md bg-grey-1000 px-4 py-3 tracking-wide placeholder:uppercase placeholder:text-grey-500'
+            'bg-gray-1000 mb-5 w-full rounded-md px-4 py-3 tracking-wide placeholder:uppercase placeholder:text-gray-500'
           }
         />
       </div>

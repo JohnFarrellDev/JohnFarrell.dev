@@ -9,7 +9,7 @@ export function Hero() {
         <article className="bg-primary-1000">
           <div className="text-center md:text-left">
             <h1 className="text-7xl font-bold">Hello, I'm John</h1>
-            <h2 className="text-lg text-grey-300">I'm a software developer with a focus on the web</h2>
+            <h2 className="text-lg text-gray-300">I'm a software developer with a focus on the web</h2>
 
             <Link
               href="/contact"

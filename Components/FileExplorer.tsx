@@ -16,7 +16,7 @@ interface FileExplorerProps {
 
 export const FileExplorer = ({ content }: FileExplorerProps) => {
   return (
-    <div className="w-fit overflow-x-auto rounded-lg bg-grey-300 p-4 text-white">
+    <div className="w-fit overflow-x-auto rounded-lg bg-gray-300 p-4 text-white">
       <FileExplorerContent content={content} depth={0} />
     </div>
   );
