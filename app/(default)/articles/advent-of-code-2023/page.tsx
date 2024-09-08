@@ -11,7 +11,7 @@ export const metadata = produceMetaData({
 
 export default function AdventOfCode2023() {
   return (
-    <section className="pt-20">
+    <section>
       <Title title="Advent of Code 2023" />
       <div className="page-center">
         <Banner

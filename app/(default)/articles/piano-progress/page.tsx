@@ -11,7 +11,7 @@ export const metadata = produceMetaData({
 
 export default function PianoProgress() {
   return (
-    <section className="pt-20">
+    <section>
       <div className="page-center">
         <Title title="Piano Progress" />
         <CurrentyLearning />

@@ -14,7 +14,7 @@ export const metadata = produceMetaData({
 
 export default function OptimizingYoutube() {
   return (
-    <section className="pt-20">
+    <section>
       <div className="page-center">
         <Title title="Optimizing YouTube" />
         <ArticleTimeStamps createdAt={new Date('2024-06-19T19:35:38.114Z')} />

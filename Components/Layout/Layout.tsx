@@ -13,7 +13,7 @@ export const Layout = ({ children, className = 'bg-grey-1000' }: LayoutProps) =>
   return (
     <div className="grid min-h-svh grid-rows-[auto_1fr_auto]">
       <Navbar />
-      <div className={cn('grow pt-20', className)}>{children}</div>
+      <div className={cn('grow', className)}>{children}</div>
       <Footer />
     </div>
   );

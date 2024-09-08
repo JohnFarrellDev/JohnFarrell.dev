@@ -10,7 +10,7 @@ import { ArticleTimeStamps } from '../../ArticleTimeStamps';
 
 export const ReactProjectStructure = () => {
   return (
-    <section className="pt-20">
+    <section>
       <div className="page-center">
         <Title title="How I Like to Organise my React Projects" />
 

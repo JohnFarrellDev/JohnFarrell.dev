@@ -17,7 +17,7 @@ export const metadata = produceMetaData({
 
 export default function Articles() {
   return (
-    <section className="pt-20">
+    <section>
       <Title title="How to Effortlessly Extract Udemy Quizzes with a Custom Userscript" />
       <div className="page-center">
         <ArticleTimeStamps

@@ -48,7 +48,7 @@ const techStack = [
 
 export default function AboutMe() {
   return (
-    <section className="min-h-[calc(100vh-5rem-9rem)] bg-grey-1000 py-4 pt-20">
+    <section className="min-h-[calc(100vh-5rem-9rem)] bg-grey-1000 py-4">
       <div className="page-center">
         <article>
           <Title title="About Me" />

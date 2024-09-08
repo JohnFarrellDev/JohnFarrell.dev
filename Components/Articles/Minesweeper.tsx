@@ -6,7 +6,7 @@ import { Game } from '../Projects/Minesweeper/Components/Game/Game';
 
 export const Minesweeper = () => {
   return (
-    <section className="pt-20">
+    <section>
       <div className="page-center">
         <Title title="Solving Minesweeper" />
 

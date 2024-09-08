@@ -10,7 +10,7 @@ export const metadata = produceMetaData({
 
 export default function TwentyNumberChallenge() {
   return (
-    <div className="pt-20">
+    <div>
       <Title title="Descending Insanity" />
       <GameWithLevels />
     </div>

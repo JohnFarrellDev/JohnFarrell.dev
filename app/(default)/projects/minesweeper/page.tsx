@@ -9,7 +9,7 @@ export const metadata = produceMetaData({
 
 export default function MinesweeperProject() {
   return (
-    <div className="pt-20">
+    <div>
       <Minesweeper />
     </div>
   );
