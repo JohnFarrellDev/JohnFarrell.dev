@@ -50,7 +50,7 @@ export const GameCell = ({
       onMouseDown={leftDown}
       onMouseUp={leftUp}
       className={cn(
-        'flex h-[30px] w-[30px] cursor-pointer select-none items-center justify-center border-2 border-gray-200 bg-gray-300',
+        'flex h-[30px] w-[30px] cursor-pointer select-none items-center justify-center border-2 border-gray-200 bg-gray-600',
         isCovered && 'bg-gray-400',
         isBomb && !isCovered && 'bg-red-500'
       )}

@@ -23,10 +23,6 @@ module.exports = {
         gray: {
           '100': 'var(--clr-gray-1)',
           '200': 'var(--clr-gray-2)',
-          '300': 'var(--clr-gray-3)',
-          '400': 'var(--clr-gray-4)',
-          '500': 'var(--clr-gray-5)',
-          '600': 'var(--clr-gray-6)',
           '700': 'var(--clr-gray-7)',
           '800': 'var(--clr-gray-8)',
           '900': 'var(--clr-gray-9)',

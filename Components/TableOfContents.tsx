@@ -88,7 +88,7 @@ const Display = ({ data, hierarchy, index }: DisplayProps) => {
       data-test-hierarchy={hierarchy}
       data-test-indentation={indentationCount}
     >
-      <a href={data.url} className="text-link hover:text-link-hover">
+      <a href={data.url} className="text-link no-underline hover:text-link-hover">
         <span>{incrementLastDigit(hierarchy.toString(), index)}</span>
         <span className="pl-4">{data.display}</span>
       </a>

@@ -48,7 +48,7 @@ const techStack = [
 
 export default function AboutMe() {
   return (
-    <section className="bg-gray-1000 min-h-[calc(100vh-5rem-9rem)] py-4">
+    <section className="min-h-[calc(100vh-5rem-9rem)] bg-gray-1000 py-4">
       <div className="page-center">
         <article>
           <Title title="About Me" />
@@ -87,7 +87,7 @@ export default function AboutMe() {
                 {techStack.map((item) => (
                   <span
                     key={item.id}
-                    className="inline-block rounded-md bg-gray-900 p-2 text-sm uppercase tracking-wide text-gray-300"
+                    className="inline-block rounded-md bg-gray-900 p-2 text-sm uppercase tracking-wide text-gray-600"
                   >
                     {item.title}
                   </span>
