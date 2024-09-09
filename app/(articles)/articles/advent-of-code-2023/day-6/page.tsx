@@ -215,7 +215,7 @@ export default function Day6() {
       />
 
       <Image
-        src="https://i.imgur.com/qCcMYLb.png"
+        src="https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/advent-of-code-2023/day-6/wolfram-alpha.png"
         alt="wolfram alpha graph showing a quadratic equation"
         width={500}
         height={400}

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Title } from '../Title';
 import { ArticleTimeStamps } from '../ArticleTimeStamps';
 import { Game } from '../Projects/Minesweeper/Components/Game/Game';
+import { Banner } from '../Banner';
 
 export const Minesweeper = () => {
   return (
@@ -11,24 +12,18 @@ export const Minesweeper = () => {
 
       <ArticleTimeStamps createdAt={new Date('2022-10-09T22:19:37.934Z')} />
 
-      <p
-        style={{
-          textAlign: 'center',
-          textDecoration: 'underline',
-          color: 'red',
-        }}
-      >
-        This is a work in progress! (highly recommend for now using a PC and not mobile to view)
-      </p>
+      <Banner
+        type="warning"
+        message="This is a work in progress! (highly recommend for now using a PC and not mobile to view)"
+      />
 
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <Image
-          src="https://i.imgur.com/cVwtZnc.png"
-          alt="Image showing vs code search not very effectively finding the right file from component name"
-          width={512}
-          height={512}
-        />
-      </div>
+      <Image
+        src="https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/minesweeper/minesweeper-robot.png"
+        alt=""
+        width={512}
+        height={512}
+        className="mx-auto"
+      />
 
       <p>Why do this? Uhm not sure, it's sort of interesting.</p>
 

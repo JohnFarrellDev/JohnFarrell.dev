@@ -241,7 +241,7 @@ export default function ReactProjectStructure() {
       </p>
 
       <Image
-        src="https://i.imgur.com/hS5mm0v.png"
+        src="https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/react-project-structure/vs-code-cant-find-file.png"
         alt="Image showing vs code search not very effectively finding the right file from component name"
         width={598}
         height={145}
@@ -255,7 +255,7 @@ export default function ReactProjectStructure() {
       </p>
 
       <Image
-        src="https://i.imgur.com/QjQCDlg.png"
+        src="https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/react-project-structure/vs-code-can-find-file.png"
         alt="Image showing vs code search effectively finding the right file from component name"
         width={601}
         height={189}

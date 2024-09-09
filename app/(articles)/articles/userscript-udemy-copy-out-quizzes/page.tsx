@@ -194,7 +194,7 @@ export default function Articles() {
         something like this again I could now do it very quickly.
       </p>
       <Image
-        src="https://imgs.xkcd.com/comics/is_it_worth_the_time.png"
+        src="https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/udemy-copy-out-quizzes/is_it_worth_the_time.png"
         alt="Is It Worth the Time?"
         width={738}
         height={600}
