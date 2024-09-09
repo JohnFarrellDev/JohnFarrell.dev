@@ -17,7 +17,7 @@ export const TableOfContents = ({ content }: TableOfContentsProps) => {
   const [showContents, setShowContents] = useState(true);
 
   return (
-    <div className="w-fit border border-gray-500 bg-gray-900 p-4">
+    <div className="w-fit border border-gray-500 bg-gray-100 p-4">
       <TableOfContentsContainer showContents={showContents} setShowContents={setShowContents} />
       {showContents && (
         <ul>

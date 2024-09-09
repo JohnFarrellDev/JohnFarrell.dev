@@ -16,7 +16,7 @@ export function ArticleCard({ title, description, URL, tags, imageURL, imageAlt 
     <li className="mx-auto max-h-[350px] w-full max-w-[800px] overflow-hidden rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-105 md:max-h-[200px]">
       <Link
         href={URL}
-        className="relative flex h-full flex-col text-gray-100 no-underline hover:text-gray-100 md:flex-row"
+        className="relative flex h-full flex-col text-gray-900 no-underline hover:text-gray-900 md:flex-row"
       >
         <Image
           src={imageURL}

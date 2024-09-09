@@ -57,7 +57,7 @@ export function Links({ isOpen }: LinkProps) {
         <li key={link.id}>
           <Link
             href={link.url}
-            className="flex items-center gap-2 font-bold capitalize tracking-wide text-gray-100 no-underline transition duration-300 hover:text-primary-500"
+            className="flex items-center gap-2 font-bold capitalize tracking-wide text-gray-900 no-underline transition duration-300 hover:text-primary-500"
           >
             <span className="md:hidden">{link.icon}</span>
             <span>{link.text}</span>

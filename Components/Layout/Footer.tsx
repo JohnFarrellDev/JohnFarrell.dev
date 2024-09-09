@@ -2,7 +2,7 @@ import { SocialLinks } from '../SocialLinks';
 
 export function Footer() {
   return (
-    <footer className="grid h-36 place-items-center bg-gray-100 text-center">
+    <footer className="grid h-36 place-items-center bg-gray-900 text-center">
       <div>
         <SocialLinks className="mx-auto mb-4 mt-0" styleLinks="text-white w-8" />
         <p className="mt-2 font-normal uppercase text-white">
