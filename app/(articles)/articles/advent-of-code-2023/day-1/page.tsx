@@ -100,7 +100,8 @@ const solution2Code = `export function solution2(input: string[]) {
 export const metadata = produceMetaData({
   title: 'Advent of Code 2023 | Day 1',
   description: 'A detailed look at my solution for Advent of Code 2023 | Day 1',
-  image: 'https://i.imgur.com/G1kmea0.jpg',
+  image:
+    'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/og-images/og-image-advent-of-code-2023.jpeg',
 });
 
 export default function Day1() {

@@ -6,7 +6,8 @@ import { produceMetaData } from '../../../../Utilities/produceMetaData';
 export const metadata = produceMetaData({
   title: 'Advent of Code 2023',
   description: 'A detailed look at my solutions for Advent of Code 2023',
-  image: 'https://i.imgur.com/G1kmea0.jpg',
+  image:
+    'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/og-images/og-image-advent-of-code-2023.jpeg',
 });
 
 export default function AdventOfCode2023() {

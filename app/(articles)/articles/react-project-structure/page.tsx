@@ -11,7 +11,8 @@ import Image from 'next/image';
 export const metadata = produceMetaData({
   title: 'React Project Structure | John Farrell',
   description: 'How I like to set up a React project for the best developer experience.',
-  image: 'https://i.imgur.com/3fy0xbC.png',
+  image:
+    'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/og-images/og-image-react.png',
 });
 
 export default function ReactProjectStructure() {

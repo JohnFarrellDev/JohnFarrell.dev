@@ -12,7 +12,8 @@ import { TableOfContents } from '../../../../Components/TableOfContents';
 export const metadata = produceMetaData({
   title: 'How to Effortlessly Extract Udemy Quizzes with a Custom Userscript',
   description: 'How I utilised UserScripts to enhance my Udemy experience',
-  image: 'https://i.imgur.com/aGGVHyQ.jpg',
+  image:
+    'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/og-images/og-image-udemy.jpeg',
 });
 
 export default function Articles() {

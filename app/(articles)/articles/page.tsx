@@ -38,7 +38,8 @@ const allArticles = [
         description: 'A look at my progress learning piano',
         createdAt: new Date('2023-01-30T22:19:37.934Z'),
         tags: ['piano', 'non technical'],
-        imageURL: 'https://i.imgur.com/1AVIQeM.jpg',
+        imageURL:
+          'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/article-thumbnails/article-card-piano-progress.jpeg',
         imageAlt: 'upright piano in a sunlit room',
       },
     ],
@@ -67,7 +68,8 @@ const allArticles = [
         description: 'A detailed look at my solutions for Advent of Code 2023',
         createdAt: new Date('2023-11-07T16:56:37.934Z'),
         tags: ['typescript', 'problem solving', 'algorithms', 'advent of code'],
-        imageURL: 'https://i.imgur.com/ebiwJDK.jpg',
+        imageURL:
+          'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/article-thumbnails/article-card-advent-of-code-2023.jpeg',
         imageAlt: 'Santa writing code at his desktop computer',
       },
     ],
@@ -82,7 +84,8 @@ const allArticles = [
           'Explore algorithms that strategically solve Minesweeper with every algorithm visualised in this article.',
         createdAt: new Date('2022-10-09T22:19:37.934Z'),
         tags: ['react', 'typescript', 'problem solving', 'algorithms'],
-        imageURL: 'https://i.imgur.com/OjqgY02.jpg',
+        imageURL:
+          'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/article-thumbnails/article-card-minesweeper.jpeg',
         imageAlt: 'man hunched over a board trying to solve a puzzle game',
       },
       {
@@ -91,7 +94,8 @@ const allArticles = [
         description: 'A look at how I like to structure my React projects',
         createdAt: new Date('2022-08-01T14:15:28.433Z'),
         tags: ['react', 'typescript'],
-        imageURL: 'https://i.imgur.com/BRkhyeG.png',
+        imageURL:
+          'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/article-thumbnails/article-card-react.png',
         imageAlt: 'react logo',
       },
       {
@@ -100,7 +104,8 @@ const allArticles = [
         description: 'A look at how I created a UserScript to copy Quiz Questions and Answers from Udemy',
         createdAt: new Date('2022-05-27T11:16:06.761Z'),
         tags: ['javascript'],
-        imageURL: 'https://i.imgur.com/xPyjZf5.jpg',
+        imageURL:
+          'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/article-thumbnails/article-card-udemy.jpeg',
         imageAlt: 'Breaking free from technological prison',
       },
     ],

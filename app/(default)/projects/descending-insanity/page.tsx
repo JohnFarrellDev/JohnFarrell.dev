@@ -5,7 +5,8 @@ import { produceMetaData } from '../../../../Utilities/produceMetaData';
 export const metadata = produceMetaData({
   title: 'Descending Insanity',
   description: 'How far can you go?',
-  image: 'https://i.imgur.com/ApXjd6C.png',
+  image:
+    'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/og-images/og-image-descending-insanity.png',
 });
 
 export default function TwentyNumberChallenge() {

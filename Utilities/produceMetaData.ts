@@ -4,7 +4,8 @@ const siteMetadata = {
   title: 'John Farrell | Professional Software Engineer',
   description: 'My website for sharing projects and articles.',
   twitterUsername: 'JohnFarrellDev',
-  image: 'https://i.imgur.com/CoW8DSQ.png',
+  image:
+    'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/og-images/og-image-default-robot.png',
 };
 
 interface MetaDataInput {
