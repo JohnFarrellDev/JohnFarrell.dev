@@ -49,7 +49,7 @@ export function Links({ isOpen }: LinkProps) {
     <ul
       className={cn(
         'justify-end gap-2 min-[300px]:gap-8 md:flex md:items-center',
-        isOpen ? 'absolute left-0 right-0 top-20 z-10 flex flex-col bg-white p-4' : 'hidden'
+        isOpen ? 'absolute left-0 right-0 top-14 z-10 flex flex-col bg-white p-4 md:top-20' : 'hidden'
       )}
       id="mobile-menu"
     >

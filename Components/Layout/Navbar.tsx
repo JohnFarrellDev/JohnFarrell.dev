@@ -13,7 +13,7 @@ export function Navbar({ className }: { className?: string }) {
 
   return (
     <nav
-      className={cn('absolute left-0 right-0 top-0 z-10 flex h-20 items-center bg-transparent', className, {
+      className={cn('absolute left-0 right-0 top-0 z-10 flex h-14 items-center bg-transparent md:h-20', className, {
         'bg-white': isOpen,
       })}
     >
