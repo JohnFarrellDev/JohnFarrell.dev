@@ -41,6 +41,7 @@
     --clr-primary-9: hsl(185, 94%, 87%);
     --clr-primary-10: hsl(186, 100%, 94%);
 
+    --clr-gray-50: hsl(210, 36%, 96%);
     --clr-gray-1: hsl(209, 61%, 16%);
     --clr-gray-2: hsl(209, 48%, 23%);
     --clr-gray-3: hsl(209, 34%, 30%);
@@ -50,7 +51,6 @@
     --clr-gray-7: hsl(210, 29%, 70%);
     --clr-gray-8: hsl(210, 31%, 80%);
     --clr-gray-9: hsl(212, 33%, 89%);
-    --clr-gray-10: hsl(210, 36%, 96%);
 
     --clr-link: hsl(240, 100%, 47%);
     --clr-link-hover: hsl(240, 100%, 27%);

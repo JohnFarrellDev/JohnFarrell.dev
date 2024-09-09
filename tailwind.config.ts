@@ -21,9 +21,9 @@ module.exports = {
           foreground: 'hsl(var(--primary-foreground))',
         },
         gray: {
+          '50': 'var(--clr-gray-50)',
           '100': 'var(--clr-gray-1)',
           '900': 'var(--clr-gray-9)',
-          '1000': 'var(--clr-gray-10)',
         },
         link: 'var(--clr-link)',
         'link-hover': 'var(--clr-link-hover)',

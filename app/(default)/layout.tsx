@@ -4,7 +4,7 @@ import '../../styles/globals.css';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <body className="bg-gray-1000 flex min-h-svh flex-col">
+    <body className="flex min-h-svh flex-col bg-gray-50">
       <Navbar />
       <main className="grow pb-8 pt-20">{children}</main>
       <Footer />

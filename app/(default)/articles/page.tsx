@@ -8,7 +8,7 @@ export const metadata = produceMetaData({
 
 export default function Articles() {
   return (
-    <div className="bg-gray-1000">
+    <div className="bg-gray-50">
       <ArticlesC />
     </div>
   );
