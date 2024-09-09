@@ -3,6 +3,7 @@ import { minesweeperStateFactory } from '../../../../../factories/minesweeperSta
 import { FaceType } from '../../Components/GameTracking/GameTracking';
 import { generateBoard } from '../../functions/generateBoard';
 import { switchFaceType } from './switchFaceType';
+import { describe, it, expect, beforeEach } from 'vitest';
 
 describe('switch face type', () => {
   let state: State;

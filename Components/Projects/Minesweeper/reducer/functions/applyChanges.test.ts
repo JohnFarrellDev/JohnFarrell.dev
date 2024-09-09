@@ -2,6 +2,7 @@ import { AnimationColor, ChangeNumberOfBombsAction } from '..';
 import { minesweeperStateFactory } from '../../../../../factories/minesweeperState';
 import { generateBoard } from '../../functions/generateBoard';
 import { applyChanges } from './applyChanges';
+import { describe, it, expect, beforeEach } from 'vitest';
 
 const startingState = minesweeperStateFactory.build({});
 generateBoard(startingState);

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { FaceType, GameTracking } from './GameTracking';
-import { vi } from 'vitest';
+import { vi, describe, it, expect } from 'vitest';
 
 describe('game tracking', () => {
   it.each`

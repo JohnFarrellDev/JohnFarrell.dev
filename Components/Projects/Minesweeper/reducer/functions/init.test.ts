@@ -2,8 +2,7 @@ import { State } from '..';
 import { minesweeperStateFactory } from '../../../../../factories/minesweeperState';
 import { generateBoard } from '../../functions/generateBoard';
 import { init } from './init';
-
-import { vi } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 
 vi.mock('../../functions/generateBoard');
 

@@ -13,7 +13,7 @@ import { flagCell } from './functions/flagCell';
 import { switchFaceType } from './functions/switchFaceType';
 import { minesweeperStateFactory } from '../../../../factories/minesweeperState';
 
-import { vi } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 
 vi.mock('./functions/applyChanges');
 vi.mock('./functions/changeNumberOfBombs');

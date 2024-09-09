@@ -1,4 +1,5 @@
 import { extractRowAndColumnFromId } from './extractRowAndColumnFromId';
+import { describe, it, expect } from 'vitest';
 
 describe('extract row and column from id', () => {
   it('should correctly figure out the row index and column index from a 1d position', () => {

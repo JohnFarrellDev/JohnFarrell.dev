@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { GameCell } from './GameCell';
-import { vi } from 'vitest';
+import { vi, describe, it, expect } from 'vitest';
 
 describe('Game Cell', () => {
   it('should render a flag if the cellIsFlagged', () => {

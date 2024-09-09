@@ -3,6 +3,7 @@ import { minesweeperStateFactory } from '../../../../../../../factories/mineswee
 import { generateBoard } from '../../../../functions/generateBoard';
 import { calculateNeighborInformation } from '../calculateNeighborInformation';
 import { autoFlagCells } from './autoFlagCells';
+import { describe, it, expect, beforeEach } from 'vitest';
 
 const startingState = minesweeperStateFactory.build({
   allowedOperations: {

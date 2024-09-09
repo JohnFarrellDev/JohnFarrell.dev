@@ -4,6 +4,7 @@ import { generateBoard } from '../../../../functions/generateBoard';
 import { Cell } from '../../../../types';
 import { calculateNeighborInformation } from '../calculateNeighborInformation';
 import { recursiveRevealCell } from './recursiveRevealCell';
+import { describe, it, expect, beforeEach } from 'vitest';
 
 const countUncoveredCells = (board: Cell[][]): number => {
   let count = 0;

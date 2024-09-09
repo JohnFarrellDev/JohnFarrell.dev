@@ -6,8 +6,7 @@ import { calculateNeighborInformation } from './calculateNeighborInformation';
 import { placeBombs } from './placeBombs';
 import { revealCell } from './revealCell/revealCell';
 import { minesweeperStateFactory } from '../../../../../../factories/minesweeperState';
-
-import { vi } from 'vitest';
+import { vi, describe, it, expect, beforeEach } from 'vitest';
 
 vi.mock('../../../functions/generateBoard');
 vi.mock('./calculateNeighborInformation');

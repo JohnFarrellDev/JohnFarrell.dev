@@ -4,7 +4,7 @@ import { revealCell } from './revealCell';
 import { recursiveRevealCell } from './recursiveRevealCell';
 import { minesweeperStateFactory } from '../../../../../../../factories/minesweeperState';
 import { applyChanges } from '../../applyChanges';
-import { vi } from 'vitest';
+import { vi, describe, it, expect, beforeEach } from 'vitest';
 
 vi.mock('./recursiveRevealCell');
 vi.mock('./determineHasWon');

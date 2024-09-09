@@ -2,6 +2,7 @@ import { State } from '../../..';
 import { minesweeperStateFactory } from '../../../../../../../factories/minesweeperState';
 import { generateBoard } from '../../../../functions/generateBoard';
 import { determineHasWon } from './determineHasWon';
+import { describe, it, expect, beforeEach } from 'vitest';
 
 describe('determine has won', () => {
   let state: State;

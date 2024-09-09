@@ -2,8 +2,7 @@ import { RightClickCellAction, State } from '..';
 import { minesweeperStateFactory } from '../../../../../factories/minesweeperState';
 import { generateBoard } from '../../functions/generateBoard';
 import { flagCell } from './flagCell';
-
-import { vi } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 
 const startingAction: RightClickCellAction = {
   type: 'RightClickCell',

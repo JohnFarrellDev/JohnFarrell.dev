@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { GameSettings } from './GameSettings';
-import { vi } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('game settings', () => {
   it('should display how many rows there currently are', () => {
