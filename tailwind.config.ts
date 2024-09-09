@@ -88,8 +88,7 @@ module.exports = {
         },
 
         '.full-width': {
-          // no idea why 8px is required but it stops the width being greater than the viewport width
-          width: 'calc(100vw - 8px)',
+          width: '100vw',
           position: 'relative',
           left: '50%',
           right: '50%',

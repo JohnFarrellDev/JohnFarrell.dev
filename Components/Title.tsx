@@ -1,14 +1,16 @@
+import { cn } from '../lib/utils';
 import { Underline } from './Underline';
 
 interface TitleProps {
   title: string;
+  underlineClassName?: string;
 }
 
-export function Title({ title }: TitleProps) {
+export function Title({ title, underlineClassName }: TitleProps) {
   return (
-    <div className="mb-4 text-center">
+    <div className={'mb-4 text-center'}>
       <h2>{title}</h2>
-      <Underline className="mx-auto" />
+      <Underline className={cn('mx-auto', underlineClassName)} />
     </div>
   );
 }

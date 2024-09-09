@@ -11,12 +11,10 @@ export const metadata = produceMetaData({
 
 export default function PianoProgress() {
   return (
-    <section>
-      <div className="page-center">
-        <Title title="Piano Progress" />
-        <CurrentyLearning />
-        <SongTrackers />
-      </div>
+    <section className="page-center">
+      <Title title="Piano Progress" underlineClassName="bg-orange-400" />
+      <CurrentyLearning />
+      <SongTrackers />
     </section>
   );
 }

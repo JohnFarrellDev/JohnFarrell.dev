@@ -87,7 +87,7 @@ export default function AboutMe() {
                 {techStack.map((item) => (
                   <span
                     key={item.id}
-                    className="inline-block rounded-md bg-gray-100 p-2 text-sm uppercase tracking-wide text-gray-600"
+                    className="inline-block rounded-md bg-zinc-200 p-2 text-sm uppercase tracking-wide text-gray-800"
                   >
                     {item.title}
                   </span>

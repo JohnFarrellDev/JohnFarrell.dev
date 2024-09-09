@@ -10,9 +10,9 @@ export const metadata = produceMetaData({
 
 export default function Articles() {
   return (
-    <section>
-      <Title title="Articles" />
-      <div className="page-center">
+    <section className="page-center">
+      <Title title="Articles" underlineClassName="bg-orange-400" />
+      <div>
         {allArticles.map(({ year, articles }) => (
           <Fragment key={year}>
             <h2 className="my-2 text-center text-xl font-bold">{year}</h2>

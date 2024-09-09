@@ -1,8 +1,8 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/Components/ui/table';
 import { Badge } from '@/Components/ui/badge';
 import { Button } from '@/Components/ui/button';
-import { Music, Youtube } from 'lucide-react';
-
+import { Music } from 'lucide-react';
+import { Youtube } from '@/Components/icons/Youtube';
 interface SongInformation {
   name: string;
   composerOrArtist: string;
@@ -140,8 +140,8 @@ const songs: SongInformation[] = [
 
 export function SongTrackers() {
   return (
-    <div className="container mx-auto py-10">
-      <Table>
+    <div className="my-6 bg-slate-50 py-6 full-width">
+      <Table className="page-center">
         <TableHeader>
           <TableRow>
             <TableHead>Song Name</TableHead>
@@ -159,8 +159,13 @@ export function SongTrackers() {
               <TableCell>{song.composerOrArtist}</TableCell>
               <TableCell>
                 <Button variant="outline" size="sm" asChild>
-                  <a href={song.sheetMusic.link ?? ''} target="_blank" rel="noopener noreferrer">
-                    <Music className="mr-2 h-4 w-4" />
+                  <a
+                    className="no-underline"
+                    href={song.sheetMusic.link ?? ''}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Music className="mr-2 h-4 w-4 text-black" />
                     View Sheet
                   </a>
                 </Button>
@@ -173,8 +178,13 @@ export function SongTrackers() {
                   <div className="flex flex-col gap-2">
                     {song.performances.map((performance, index) => (
                       <Button variant="outline" size="sm" asChild key={index}>
-                        <a href={performance.link ?? ''} target="_blank" rel="noopener noreferrer">
-                          <Youtube className="mr-2 h-4 w-4" />
+                        <a
+                          className="no-underline"
+                          href={performance.link ?? ''}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Youtube className="mr-2 h-4 w-4 text-red-600" />
                           Watch
                         </a>
                       </Button>
