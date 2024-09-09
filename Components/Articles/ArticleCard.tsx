@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { cn } from '../../lib/utils';
 
 interface ArticleCardProps {
   title: string;
@@ -10,10 +11,16 @@ interface ArticleCardProps {
   tags: string[];
   imageURL: string;
   imageAlt: string;
+  className?: string;
 }
-export function ArticleCard({ title, description, URL, tags, imageURL, imageAlt }: ArticleCardProps) {
+export function ArticleCard({ title, description, URL, tags, imageURL, imageAlt, className }: ArticleCardProps) {
   return (
-    <li className="mx-auto max-h-[350px] w-full max-w-[800px] overflow-hidden rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-105 md:max-h-[200px]">
+    <li
+      className={cn(
+        'mx-auto max-h-[350px] w-full max-w-[800px] overflow-hidden rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-105 md:max-h-[200px]',
+        className
+      )}
+    >
       <Link
         href={URL}
         className="relative flex h-full flex-col text-gray-900 no-underline hover:text-gray-900 md:flex-row"

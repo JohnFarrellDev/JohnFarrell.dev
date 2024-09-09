@@ -53,12 +53,12 @@ export function applyConfetti(isWinner: boolean) {
 
 function generateGameOverMessageSetSize(currentScore: number, highScore: number) {
   if (currentScore === 20) {
-    return <p>Wow, you got a perfect score!</p>;
+    return <p className="text-center">Wow, you got a perfect score!</p>;
   }
 
   if (highScore === 0) {
     return (
-      <p>
+      <p className="text-center">
         Well done on your first game, your score is <span className="text-xl underline">{currentScore}</span>, which is
         a new high score!
       </p>
@@ -67,7 +67,7 @@ function generateGameOverMessageSetSize(currentScore: number, highScore: number)
 
   if (currentScore > highScore) {
     return (
-      <p>
+      <p className="text-center">
         Game Over, your score is <span className="text-xl underline">{currentScore}</span>, which is a new high score!
       </p>
     );
@@ -75,7 +75,7 @@ function generateGameOverMessageSetSize(currentScore: number, highScore: number)
 
   if (currentScore < 4) {
     return (
-      <p>
+      <p className="text-center">
         Game Over, your score is <span className="text-xl underline">{currentScore}</span>, wow that was bad! Your high
         score is {highScore}!
       </p>
@@ -84,7 +84,7 @@ function generateGameOverMessageSetSize(currentScore: number, highScore: number)
 
   if (currentScore < 8) {
     return (
-      <p>
+      <p className="text-center">
         Game Over, your score is <span className="text-xl underline">{currentScore}</span>, you can do better than that!
         Your high score is {highScore}
       </p>
@@ -93,7 +93,7 @@ function generateGameOverMessageSetSize(currentScore: number, highScore: number)
 
   if (currentScore < 12) {
     return (
-      <p>
+      <p className="text-center">
         Game Over, your score is <span className="text-xl underline">{currentScore}</span>, not bad! Your high score is{' '}
         {highScore}
       </p>
@@ -102,7 +102,7 @@ function generateGameOverMessageSetSize(currentScore: number, highScore: number)
 
   if (currentScore < 16) {
     return (
-      <p>
+      <p className="text-center">
         Game Over, your score is <span className="text-xl underline">{currentScore}</span>, nice! Your high score is{' '}
         {highScore}
       </p>
@@ -111,7 +111,7 @@ function generateGameOverMessageSetSize(currentScore: number, highScore: number)
 
   if (currentScore < 20) {
     return (
-      <p>
+      <p className="text-center">
         Game Over, your score is <span className="text-xl underline">{currentScore}</span>, great job, so close!
       </p>
     );
@@ -129,7 +129,7 @@ function generateGameOverMessageLevel(currentScore: number, gameTypeProps: SetGa
 
   if (currentScorePercentage < 25) {
     return (
-      <p>
+      <p className="text-center">
         Game Over, you got {currentScore} out of {gameTypeProps.level + 4} correct, which is pretty bad
       </p>
     );
@@ -137,7 +137,7 @@ function generateGameOverMessageLevel(currentScore: number, gameTypeProps: SetGa
 
   if (currentScorePercentage < 50) {
     return (
-      <p>
+      <p className="text-center">
         Game Over, you got {currentScore} out of {gameTypeProps.level + 4} correct, which is not bad
       </p>
     );
@@ -145,7 +145,7 @@ function generateGameOverMessageLevel(currentScore: number, gameTypeProps: SetGa
 
   if (currentScorePercentage < 75) {
     return (
-      <p>
+      <p className="text-center">
         Game Over, you got {currentScore} out of {gameTypeProps.level + 4} correct, which is pretty good
       </p>
     );
@@ -153,14 +153,14 @@ function generateGameOverMessageLevel(currentScore: number, gameTypeProps: SetGa
 
   if (currentScorePercentage < 100) {
     return (
-      <p>
+      <p className="text-center">
         Game Over, you got {currentScore} out of {gameTypeProps.level + 4} correct, so close!
       </p>
     );
   }
 
   if (currentScorePercentage >= 100) {
-    return <p>Wow, you got a perfect score! Level complete</p>;
+    return <p className="text-center">Wow, you got a perfect score! Level complete</p>;
   }
 
   return <></>;

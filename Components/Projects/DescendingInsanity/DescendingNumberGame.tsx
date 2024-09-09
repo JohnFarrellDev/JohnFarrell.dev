@@ -286,7 +286,7 @@ function Slot({ index, slotValue, disabled, slotFail, handleClick, handleKeyDown
         type="button"
         onClick={() => handleClick(index)}
         onKeyDown={handleKeyDown}
-        className={cn('block w-[150px] rounded-sm border border-gray-600 bg-gray-600 disabled:bg-gray-800', {
+        className={cn('block w-[150px] rounded-sm border border-zinc-200 bg-zinc-200 disabled:bg-zinc-400', {
           'bg-red-500': slotFail,
           'disabled:bg-red-500': slotFail,
         })}

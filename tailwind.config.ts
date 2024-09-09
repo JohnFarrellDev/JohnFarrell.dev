@@ -23,6 +23,7 @@ module.exports = {
         gray: {
           '50': 'var(--clr-gray-50)',
         },
+        'article-yellow': 'var(--article-yellow)',
         link: 'var(--clr-link)',
         'link-hover': 'var(--clr-link-hover)',
         background: 'hsl(var(--background))',
