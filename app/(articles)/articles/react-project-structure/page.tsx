@@ -1,7 +1,6 @@
 import { CodeBlock } from '../../../../Components/CodeBlock';
 import { FileExplorer } from '../../../../Components/FileExplorer';
 import { SectionTitle } from '../../../../Components/SectionTitle';
-import { SubSectionTitle } from '../../../../Components/SubSectionTitle';
 import { produceMetaData } from '../../../../Utilities/produceMetaData';
 import { TableOfContents } from '../../../../Components/TableOfContents';
 import Image from 'next/image';
@@ -137,7 +136,7 @@ export default function ReactProjectStructure() {
           ]}
         />
 
-        <SubSectionTitle id="folder-structure">Folder Structure</SubSectionTitle>
+        <SectionTitle id="folder-structure">Folder Structure</SectionTitle>
 
         <p>The layout of the folders uses a hybrid of page based and feature based organisation for my components.</p>
 
@@ -153,11 +152,11 @@ export default function ReactProjectStructure() {
           in turn, find the relevant component quickly.
         </p>
 
-        <SubSectionTitle id="feature-based-organisation">Feature Based Organisation</SubSectionTitle>
+        <SectionTitle id="feature-based-organisation">Feature Based Organisation</SectionTitle>
 
         <p>[When I have a good example if this on my website I'll update here to write about it]</p>
 
-        <SubSectionTitle id="utility-components">Utility Components</SubSectionTitle>
+        <SectionTitle id="utility-components">Utility Components</SectionTitle>
 
         <p>
           Even though all the code for this page exists in the ReactProjectStructure component there are a couple of
@@ -174,7 +173,7 @@ export default function ReactProjectStructure() {
           Components/Utilities.
         </p>
 
-        <SubSectionTitle id="file-co-location">File Co-location</SubSectionTitle>
+        <SectionTitle id="file-co-location">File Co-location</SectionTitle>
 
         <p>
           Co-location of files is important to me. When I am looking at a component I want to be able see its associated
@@ -193,7 +192,9 @@ export default function ReactProjectStructure() {
 
         <SectionTitle id="index-ts">What is that index.ts file about?</SectionTitle>
 
-        <SubSectionTitle id="index-ts-cleaner-imports">Cleaner Imports</SubSectionTitle>
+        <SectionTitle as="h3" id="index-ts-cleaner-imports">
+          Cleaner Imports
+        </SectionTitle>
 
         <p>
           The index.ts file is incredibly simple, all it does is import the relevant component and then export it again.
@@ -220,7 +221,9 @@ export default function ReactProjectStructure() {
 
         <CodeBlock canHide={false}>{`import { TableOfContents } from '../Utilities/TableOfContents'`}</CodeBlock>
 
-        <SubSectionTitle id="index-ts-meaningful-file-names">Meaningful File Names</SubSectionTitle>
+        <SectionTitle as="h3" id="index-ts-meaningful-file-names">
+          Meaningful File Names
+        </SectionTitle>
 
         <p>
           Some of you might be saying that's fine but if you just changed the name of TableOfContents.tsx to index.tsx

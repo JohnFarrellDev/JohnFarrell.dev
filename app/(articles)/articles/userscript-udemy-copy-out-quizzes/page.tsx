@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { produceMetaData } from '../../../../Utilities/produceMetaData';
 import { CodeBlock } from '../../../../Components/CodeBlock';
 import { SectionTitle } from '../../../../Components/SectionTitle';
-import { SubSectionTitle } from '../../../../Components/SubSectionTitle';
 import { YoutubeVideo } from '../../../../Components/YoutubeVideo';
 import { TableOfContents } from '../../../../Components/TableOfContents';
 import { ArticleBanner } from '../../../../Components/ArticleBanner';
@@ -124,20 +123,28 @@ export default function Articles() {
 
           <SectionTitle id="video-demo">Video Demo</SectionTitle>
 
-          <SubSectionTitle id="video-demo-copy-from-practice-test">Copy from Practice Test</SubSectionTitle>
+          <SectionTitle as="h3" id="video-demo-copy-from-practice-test">
+            Copy from Practice Test
+          </SectionTitle>
 
           <YoutubeVideo videoId="iNQTm9M3rbE" title="Copy from Practice Test" />
 
-          <SubSectionTitle id="video-demo-copy-from-end-of-section-quiz">Copy from End of Section Quiz</SubSectionTitle>
+          <SectionTitle as="h3" id="video-demo-copy-from-end-of-section-quiz">
+            Copy from End of Section Quiz
+          </SectionTitle>
 
           <YoutubeVideo videoId="dTyebX77JPU" title="Copy from End of Section Quiz" />
 
-          <SubSectionTitle id="end-result-in-zorbi">End result in Zorbi</SubSectionTitle>
+          <SectionTitle as="h3" id="end-result-in-zorbi">
+            End result in Zorbi
+          </SectionTitle>
           <YoutubeVideo videoId="7WWEwf86RvE" title="Zorbi demo" />
 
           <SectionTitle id="code">Code</SectionTitle>
 
-          <SubSectionTitle id="copy-from-practice-test">Code for Copying from Practice Test</SubSectionTitle>
+          <SectionTitle as="h3" id="copy-from-practice-test">
+            Code for Copying from Practice Test
+          </SectionTitle>
           <CodeBlock
             canHide={true}
             githubLink="https://github.com/JohnFarrellDev/UserScripts/blob/main/UdemyCopyFromTest.js"
@@ -145,9 +152,9 @@ export default function Articles() {
             {codeCopyFromPracticeTest}
           </CodeBlock>
 
-          <SubSectionTitle id="copy-from-end-of-section-quiz">
+          <SectionTitle as="h3" id="copy-from-end-of-section-quiz">
             Code for Copying from End of Section Quiz
-          </SubSectionTitle>
+          </SectionTitle>
           <CodeBlock
             canHide={true}
             githubLink="https://github.com/JohnFarrellDev/UserScripts/blob/main/UdemyCopyFromSectionQuiz.js"
@@ -155,7 +162,7 @@ export default function Articles() {
             {codeCopyFromEndOfSectionQuiz}
           </CodeBlock>
 
-          <SubSectionTitle id="greasy-fork-publish">Published on Greasy Fork</SubSectionTitle>
+          <SectionTitle id="greasy-fork-publish">Published on Greasy Fork</SectionTitle>
 
           <p>
             I have published both of these scripts to <a href="https://greasyfork.org">Greasy Fork</a>. The benefit of

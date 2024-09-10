@@ -130,8 +130,14 @@ module.exports = {
       // todo remove padding and margin stuff after updating global.css
       const newComponents = {
         '.article': {
-          '& h1': {
+          h1: {
             '@apply text-3xl md:text-4xl mb-2-p p-0': {},
+          },
+          h2: {
+            '@apply text-2xl md:text-3xl mb-2-p p-0': {},
+          },
+          h3: {
+            '@apply text-xl md:text-2xl mb-2-p p-0': {},
           },
           '& *:has(+ p)': {
             '@apply mb-5-p': {},
