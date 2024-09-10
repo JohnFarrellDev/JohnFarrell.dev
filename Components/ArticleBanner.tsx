@@ -3,7 +3,7 @@ import { Title } from './Title';
 
 interface ArticleBannerProps {
   title: string;
-  createdAt: Date;
+  createdAt?: Date;
   lastUpdated?: Date;
 }
 
@@ -28,7 +28,7 @@ export function ArticleBanner({ title, createdAt, lastUpdated }: ArticleBannerPr
           <div className="mx-auto w-fit">
             <Title title={title} className="max-w-[70ch] text-center" underlineClassName="bg-orange-400" />
           </div>
-          <ArticleTimeStamps createdAt={createdAt} lastUpdated={lastUpdated} />
+          {createdAt && <ArticleTimeStamps createdAt={createdAt} lastUpdated={lastUpdated} />}
         </div>
       </div>
     </header>

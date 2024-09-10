@@ -148,6 +148,9 @@ module.exports = {
           '& p, & li, & figcaption': {
             '@apply max-w-[65ch]': {},
           },
+          '& p': {
+            '@apply text-gray-900 text-pretty': {},
+          },
         },
       };
 

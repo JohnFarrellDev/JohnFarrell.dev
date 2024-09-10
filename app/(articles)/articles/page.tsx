@@ -11,7 +11,7 @@ export const metadata = produceMetaData({
 export default function Articles() {
   return (
     <section className="page-center">
-      <Title title="Articles" underlineClassName="bg-orange-400" />
+      <Title title="Articles" className="text-3xl" underlineClassName="bg-orange-400" />
       <div>
         {allArticles.map(({ year, articles }) => (
           <Fragment key={year}>

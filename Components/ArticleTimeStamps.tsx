@@ -8,9 +8,9 @@ interface ArticleTimeStampsProps {
 
 export function ArticleTimeStamps({ createdAt, lastUpdated, className }: ArticleTimeStampsProps) {
   return (
-    <div className={cn('mb-10-p gap-2-p flex flex-col', className)}>
-      <span className="underline">Created at: {toDisplayDate(createdAt)}</span>{' '}
-      {lastUpdated && <span className="underline">Last Updated: {toDisplayDate(lastUpdated)}</span>}
+    <div className={cn('gap-1-p flex flex-col', className)}>
+      <span className="text-base font-bold">Published: {toDisplayDate(createdAt)}</span>
+      {lastUpdated && <span className="text-base font-bold">Last Updated: {toDisplayDate(lastUpdated)}</span>}
     </div>
   );
 }

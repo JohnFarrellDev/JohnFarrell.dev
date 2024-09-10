@@ -1,6 +1,6 @@
 import { CurrentyLearning } from '../../../../Components/Articles/PianoProgress/CurrentyLearning';
 import { SongTrackers } from '../../../../Components/Articles/PianoProgress/SongTrackers';
-import { Title } from '../../../../Components/Title';
+import { ArticleBanner } from '../../../../Components/ArticleBanner';
 import { produceMetaData } from '../../../../Utilities/produceMetaData';
 
 export const metadata = produceMetaData({
@@ -13,9 +13,11 @@ export const metadata = produceMetaData({
 export default function PianoProgress() {
   return (
     <section className="page-center">
-      <Title title="Piano Progress" underlineClassName="bg-orange-400" />
-      <CurrentyLearning />
-      <SongTrackers />
+      <article className="article">
+        <ArticleBanner title="Piano Progress" />
+        <CurrentyLearning />
+        <SongTrackers />
+      </article>
     </section>
   );
 }
