@@ -100,7 +100,10 @@ export default function Articles() {
               ]}
             />
 
-            <SectionTitle id="goal" className="underline decoration-orange-400 decoration-wavy decoration-2">
+            <SectionTitle
+              id="goal"
+              className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+            >
               Goal
             </SectionTitle>
             <p>
@@ -124,7 +127,10 @@ export default function Articles() {
               unique UserScript.
             </p>
 
-            <SectionTitle id="video-demo" className="underline decoration-orange-400 decoration-wavy decoration-2">
+            <SectionTitle
+              id="video-demo"
+              className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+            >
               Video Demo
             </SectionTitle>
 
@@ -145,7 +151,10 @@ export default function Articles() {
             </SectionTitle>
             <YoutubeVideo videoId="7WWEwf86RvE" title="Zorbi demo" />
 
-            <SectionTitle id="code" className="underline decoration-orange-400 decoration-wavy decoration-2">
+            <SectionTitle
+              id="code"
+              className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+            >
               Code
             </SectionTitle>
 
@@ -171,7 +180,7 @@ export default function Articles() {
 
             <SectionTitle
               id="greasy-fork-publish"
-              className="underline decoration-orange-400 decoration-wavy decoration-2"
+              className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
             >
               Published on Greasy Fork
             </SectionTitle>
@@ -192,7 +201,10 @@ export default function Articles() {
               </a>
             </p>
 
-            <SectionTitle id="lessons-learned" className="underline decoration-orange-400 decoration-wavy decoration-2">
+            <SectionTitle
+              id="lessons-learned"
+              className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+            >
               Lessons learned
             </SectionTitle>
             <p>
@@ -226,7 +238,7 @@ export default function Articles() {
 
             <SectionTitle
               id="potential-problems"
-              className="underline decoration-orange-400 decoration-wavy decoration-2"
+              className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
             >
               Potential problems
             </SectionTitle>
