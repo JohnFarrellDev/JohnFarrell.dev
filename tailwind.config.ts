@@ -103,6 +103,7 @@ module.exports = {
   plugins: [
     import('tailwindcss-animate'),
     plugin(function ({ addUtilities, addComponents }) {
+      // TODO remove the padding and fix places it breaks by adding the margin
       const newUtilities = {
         '.page-center': {
           // 32px is to maintain the desired width with the padding added
@@ -115,6 +116,11 @@ module.exports = {
           '@screen lg': {
             width: '90vw', // Reverts to 90vw for md and larger screens
           },
+        },
+
+        '.page-content': {
+          marginLeft: '16px',
+          marginRight: '16px',
         },
 
         '.full-width': {

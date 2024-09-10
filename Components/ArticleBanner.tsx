@@ -24,7 +24,7 @@ export function ArticleBanner({ title, createdAt, lastUpdated }: ArticleBannerPr
         }}
       />
       <div className="page-center">
-        <div className="relative">
+        <div className="page-content relative">
           <div className="mx-auto w-fit">
             <Title
               as="h1"
