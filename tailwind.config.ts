@@ -139,17 +139,14 @@ module.exports = {
           '& *:has(+ h1, + h2, + h3, + h4, + h5, + h6)': {
             '@apply mb-8-p': {},
           },
-          p: {
-            '@apply text-lg': {},
+          'p:not([class])': {
+            '@apply text-lg text-gray-900 text-pretty': {},
           },
           '& h1, & h2, & h3, & h4, & h5, & h6': {
             '@apply text-balance': {},
           },
           '& p, & li, & figcaption': {
             '@apply max-w-[65ch]': {},
-          },
-          '& p': {
-            '@apply text-gray-900 text-pretty': {},
           },
         },
       };

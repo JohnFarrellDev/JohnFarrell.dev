@@ -26,7 +26,7 @@ export function ArticleBanner({ title, createdAt, lastUpdated }: ArticleBannerPr
       <div className="page-center">
         <div className="relative">
           <div className="mx-auto w-fit">
-            <Title title={title} className="max-w-[70ch] text-center" underlineClassName="bg-orange-400" />
+            <Title as="h1" title={title} className="max-w-[70ch] text-center" underlineClassName="bg-orange-400" />
           </div>
           {createdAt && <ArticleTimeStamps createdAt={createdAt} lastUpdated={lastUpdated} />}
         </div>
