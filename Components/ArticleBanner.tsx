@@ -29,7 +29,7 @@ export function ArticleBanner({ title, createdAt, lastUpdated }: ArticleBannerPr
             <Title
               as="h1"
               title={title}
-              className="max-w-[70ch] text-balance text-center text-3xl md:text-4xl"
+              className="max-w-[50ch] text-balance text-center text-3xl md:text-4xl"
               underlineClassName="bg-orange-400"
             />
           </div>
