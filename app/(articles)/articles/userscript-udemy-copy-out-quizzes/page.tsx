@@ -100,7 +100,9 @@ export default function Articles() {
               ]}
             />
 
-            <SectionTitle id="goal">Goal</SectionTitle>
+            <SectionTitle id="goal" className="underline decoration-orange-400 decoration-wavy decoration-2">
+              Goal
+            </SectionTitle>
             <p>
               Personally, I find myself getting easily distracted when studying for AWS exams on Udemy, by removing one
               of the more tedious steps I can focus better and not end up on Reddit/HackerNews.
@@ -122,7 +124,9 @@ export default function Articles() {
               unique UserScript.
             </p>
 
-            <SectionTitle id="video-demo">Video Demo</SectionTitle>
+            <SectionTitle id="video-demo" className="underline decoration-orange-400 decoration-wavy decoration-2">
+              Video Demo
+            </SectionTitle>
 
             <SectionTitle as="h3" id="video-demo-copy-from-practice-test">
               Copy from Practice Test
@@ -141,7 +145,9 @@ export default function Articles() {
             </SectionTitle>
             <YoutubeVideo videoId="7WWEwf86RvE" title="Zorbi demo" />
 
-            <SectionTitle id="code">Code</SectionTitle>
+            <SectionTitle id="code" className="underline decoration-orange-400 decoration-wavy decoration-2">
+              Code
+            </SectionTitle>
 
             <SectionTitle as="h3" id="copy-from-practice-test">
               Code for Copying from Practice Test
@@ -163,7 +169,12 @@ export default function Articles() {
               {codeCopyFromEndOfSectionQuiz}
             </CodeBlock>
 
-            <SectionTitle id="greasy-fork-publish">Published on Greasy Fork</SectionTitle>
+            <SectionTitle
+              id="greasy-fork-publish"
+              className="underline decoration-orange-400 decoration-wavy decoration-2"
+            >
+              Published on Greasy Fork
+            </SectionTitle>
 
             <p>
               I have published both of these scripts to <a href="https://greasyfork.org">Greasy Fork</a>. The benefit of
@@ -181,7 +192,9 @@ export default function Articles() {
               </a>
             </p>
 
-            <SectionTitle id="lessons-learned">Lessons learned</SectionTitle>
+            <SectionTitle id="lessons-learned" className="underline decoration-orange-400 decoration-wavy decoration-2">
+              Lessons learned
+            </SectionTitle>
             <p>
               By the time I got into web development the rise of the frameworks (Angular, Vue, React) had occurred, and
               I missed out on working with jQuery and vanilla JS. The frameworks are great but it is good to understand
@@ -211,7 +224,12 @@ export default function Articles() {
               height={600}
             />
 
-            <SectionTitle id="potential-problems">Potential problems</SectionTitle>
+            <SectionTitle
+              id="potential-problems"
+              className="underline decoration-orange-400 decoration-wavy decoration-2"
+            >
+              Potential problems
+            </SectionTitle>
             <p>
               Udemy may have a variety of quizzes that exist outside of the two I have written UserScripts for, I may
               need to amend or create new scripts to handle future possible variations.
