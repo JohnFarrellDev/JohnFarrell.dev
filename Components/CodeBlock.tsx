@@ -1,9 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import React, { useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { a11yDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { coldarkDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { ExternalLink } from 'lucide-react';
 
 interface CodeBlockProps {
@@ -18,21 +17,25 @@ export const CodeBlock = ({ canHide, githubLink, children, fileName }: CodeBlock
 
   return (
     <>
-      <div className="flex gap-4">
+      <div className="pt-2-p pl-10-p flex gap-4 rounded-t-lg bg-[#111b27]">
         {githubLink && (
-          <Link href={githubLink} className="flex gap-2 text-link hover:text-link-hover">
+          <a href={githubLink} className="flex gap-2 text-white">
             <ExternalLink /> Code on GitHub
-          </Link>
+          </a>
         )}
 
-        {canHide && <button onClick={() => setShowCode(!showCode)}>{showCode ? 'Hide code' : 'Show code'}</button>}
+        {canHide && (
+          <button onClick={() => setShowCode(!showCode)} className="text-white">
+            {showCode ? 'Hide code' : 'Show code'}
+          </button>
+        )}
 
         {showCode && fileName && <p className="w-full text-right">{fileName}</p>}
       </div>
       {showCode && (
         <SyntaxHighlighter
-          language="javascript"
-          style={a11yDark}
+          language="typescript"
+          style={coldarkDark}
           showLineNumbers={true}
           customStyle={{
             margin: '0rem 0rem 1rem 0rem',
