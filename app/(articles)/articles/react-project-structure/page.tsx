@@ -26,7 +26,7 @@ export default function ReactProjectStructure() {
         React is an un-opinionated library which leaves a lot of choice to the developer. I believe this has benefited
         the React ecosystem but it also means there are many ways to achieve the same goal. One choice up to developers
         is how to structure your codebase. I have my personal opinion written down here but I am also open to different
-        ways of organising a React codebase. (if you disagree with me I can still work for you 🤣)
+        ways of organizing a React codebase. (if you disagree with me I can still work for you 🤣)
       </p>
 
       <p>
@@ -185,7 +185,7 @@ export default function ReactProjectStructure() {
         I also find that co-locating the tests with the component makes it very obvious when a component is untested.
         This can help ensure good testing habits are implemented within a team. Some people still like to think in a
         clear "separation of concerns" model and have a separate mirrored folder structure for tests and CSS etc. This
-        is also commonly seen in Java and C# projects by default. I dislike this way of organising the code. When
+        is also commonly seen in Java and C# projects by default. I dislike this way of organizing the code. When
         working on a component I want everything relevant to that component right next to it, for me, this is a much
         better developer experience.
       </p>

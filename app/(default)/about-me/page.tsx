@@ -28,7 +28,7 @@ export default function AboutMe() {
               little bit of coding following the completion of my BSc in Biomedical Science. It became my ambition to
               become a software engineer, so I enrolled in a master's degree in Computer Science at the University of
               Kent. After graduating, I worked at <a href="https://www.tcs.com/">Tata Consultancy Services</a>, where I
-              had the opportunity to be involved in a large scale cloud industrialisation project. I then became
+              had the opportunity to be involved in a large scale cloud industrialization project. I then became
               interested in web development and joined a consultancy called{' '}
               <a href="https://www.linkedin.com/showcase/caci-information-intelligence-group/">CACI IIG</a> where I
               worked on several web app projects. I then joined the <a href="https://www.madetech.com/">Made Tech</a>{' '}

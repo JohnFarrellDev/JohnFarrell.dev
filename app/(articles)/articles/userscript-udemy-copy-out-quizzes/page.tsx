@@ -109,13 +109,13 @@ export default function Articles() {
       </p>
       <p>
         The tedious step is that I would like to export quiz sections and practice tests for the AWS exam into a{' '}
-        <Link href="https://en.wikipedia.org/wiki/Spaced_repetition">Spaced Repetition Learning</Link> (SRL) app. SRL
-        isn't a service offered on the Udemy platform. (<Link href="https://www.udemy.com/">Udemy</Link> is an online
-        education platform)
+        <a href="https://en.wikipedia.org/wiki/Spaced_repetition">Spaced Repetition Learning</a> (SRL) app. SRL isn't a
+        service offered on the Udemy platform. (<a href="https://www.udemy.com/">Udemy</a> is an online education
+        platform)
       </p>
       <p>
-        I personally use an app called <Link href="https://zorbi.app/">Zorbi</Link>,{' '}
-        <Link href="https://apps.ankiweb.net/">Anki</Link> is another popular choice.
+        I personally use an app called <a href="https://zorbi.app/">Zorbi</a>,{' '}
+        <a href="https://apps.ankiweb.net/">Anki</a> is another popular choice.
       </p>
       <p>
         Unfortunately, it is not easy to highlight the text within Udemy quiz pages so I created a couple of UserScripts
@@ -240,7 +240,7 @@ const codeCopyFromPracticeTest = `// ==UserScript==
     const config = { attributes: true, childList: true, subtree: true };
 
     const callback = function(mutationsList, observer) {
-        // if muation is caused by our added button elements return to avoid infinte recursion
+        // if mutation is caused by our added button elements return to avoid infinite recursion
         if(mutationsList.find(el => el.addedNodes[0]?.id === "userscript-added-button")) return;
 
         const questionElementSelector = "div.detailed-result-panel--panel-row--2aE8z > form"
