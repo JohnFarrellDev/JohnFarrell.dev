@@ -14,7 +14,7 @@ export const metadata = produceMetaData({
 export default function OptimizingYoutube() {
   return (
     <section className="page-center">
-      <article className="article">
+      <article>
         <ArticleBanner title="Optimizing YouTube" createdAt={new Date('2024-06-19T19:35:38.114Z')} />
         <Banner
           type="information"

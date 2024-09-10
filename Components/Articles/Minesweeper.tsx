@@ -7,7 +7,7 @@ import { ArticleBanner } from '../ArticleBanner';
 export const Minesweeper = () => {
   return (
     <section className="page-center">
-      <article className="article">
+      <article>
         <ArticleBanner title="Solving Minesweeper" createdAt={new Date('2022-10-09T22:19:37.934Z')} />
 
         <Banner

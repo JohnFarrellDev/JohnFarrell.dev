@@ -16,7 +16,7 @@ export const metadata = produceMetaData({
 export default function ReactProjectStructure() {
   return (
     <section className="page-center">
-      <article className="article">
+      <article>
         <ArticleBanner
           title="How I Like to Organise my React Projects"
           createdAt={new Date('2022-08-01T14:15:28.433Z')}

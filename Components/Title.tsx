@@ -11,9 +11,9 @@ interface TitleProps {
 export function Title({ title, underlineClassName, className, as = 'h1' }: TitleProps) {
   const Heading = as;
   return (
-    <div className={cn('mb-4 text-center', className)}>
-      <Heading>{title}</Heading>
+    <>
+      <Heading className={cn('mb-4 text-center', className)}>{title}</Heading>
       <Underline className={cn('mx-auto', underlineClassName)} />
-    </div>
+    </>
   );
 }

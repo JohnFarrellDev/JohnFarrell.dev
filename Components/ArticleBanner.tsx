@@ -16,9 +16,9 @@ export function ArticleBanner({ title, createdAt, lastUpdated }: ArticleBannerPr
           backgroundImage: `repeating-linear-gradient(
                 45deg,
                 white,
-                white 10px,
-                transparent 10px,
-                transparent 20px
+                white 20px,
+                transparent 20px,
+                transparent 40px
               )`,
           opacity: 0.3,
         }}
@@ -26,7 +26,12 @@ export function ArticleBanner({ title, createdAt, lastUpdated }: ArticleBannerPr
       <div className="page-center">
         <div className="relative">
           <div className="mx-auto w-fit">
-            <Title as="h1" title={title} className="max-w-[70ch] text-center" underlineClassName="bg-orange-400" />
+            <Title
+              as="h1"
+              title={title}
+              className="max-w-[70ch] text-balance text-center text-3xl md:text-4xl"
+              underlineClassName="bg-orange-400"
+            />
           </div>
           {createdAt && <ArticleTimeStamps createdAt={createdAt} lastUpdated={lastUpdated} />}
         </div>

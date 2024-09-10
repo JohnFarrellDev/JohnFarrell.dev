@@ -116,7 +116,7 @@ export const metadata = produceMetaData({
 export default function Day6() {
   return (
     <section className="page-center">
-      <article className="article">
+      <article>
         <Title title="Advent of Code 2023 - Day 6" underlineClassName="bg-orange-400" />
         <a className="flex" href="https://github.com/JohnFarrellDev/advent-of-code-2023/blob/master/day6.ts">
           <GitHub width={24} height={24} /> Code on GitHub
