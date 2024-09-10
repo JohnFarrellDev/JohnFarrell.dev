@@ -1,11 +1,14 @@
+import { cn } from '../lib/utils';
+
 interface ArticleTimeStampsProps {
   createdAt: Date;
   lastUpdated?: Date;
+  className?: string;
 }
 
-export function ArticleTimeStamps({ createdAt, lastUpdated }: ArticleTimeStampsProps) {
+export function ArticleTimeStamps({ createdAt, lastUpdated, className }: ArticleTimeStampsProps) {
   return (
-    <div className="flex justify-end gap-4">
+    <div className={cn('mb-10-p gap-2-p flex flex-col', className)}>
       <span className="underline">Created at: {toDisplayDate(createdAt)}</span>{' '}
       {lastUpdated && <span className="underline">Last Updated: {toDisplayDate(lastUpdated)}</span>}
     </div>

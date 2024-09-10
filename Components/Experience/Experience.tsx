@@ -14,7 +14,7 @@ export function Experience() {
 
   return (
     <section className="bg-white py-8">
-      <Title title="experience" />
+      <Title title="experience" className="text-center" />
       <div className="mx-auto mt-6 w-[80vw] max-w-[1170px] lg:grid lg:w-[90vw] lg:grid-cols-[200px_1fr] lg:gap-16">
         <div className="mb-8 flex flex-row gap-8 overflow-auto lg:flex-col lg:gap-4">
           {jobs.map((job, index) => (

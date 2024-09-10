@@ -5,6 +5,36 @@ module.exports = {
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './Components/**/*.{js,ts,jsx,tsx}', './app/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      spacing: {
+        '0-p': '0px',
+        '0-5-p': '2px',
+        '1-p': '4px',
+        '1-5-p': '6px',
+        '2-p': '8px',
+        '2-5-p': '10px',
+        '3-p': '12px',
+        '3-5-p': '14px',
+        '4-p': '16px',
+        '4-5-p': '18px',
+        '5-p': '20px',
+        '5-5-p': '22px',
+        '6-p': '24px',
+        '7-p': '28px',
+        '8-p': '32px',
+        '9-p': '36px',
+        '10-p': '40px',
+        '11-p': '44px',
+        '12-p': '48px',
+        '13-p': '52px',
+        '14-p': '56px',
+        '15-p': '60px',
+        '16-p': '64px',
+        '17-p': '68px',
+        '18-p': '72px',
+        '19-p': '76px',
+        '20-p': '80px',
+        '30-p': '120px',
+      },
       colors: {
         primary: {
           '100': 'var(--clr-primary-1)',
@@ -72,7 +102,7 @@ module.exports = {
   },
   plugins: [
     import('tailwindcss-animate'),
-    plugin(function ({ addUtilities }) {
+    plugin(function ({ addUtilities, addComponents }) {
       const newUtilities = {
         '.page-center': {
           // 32px is to maintain the desired width with the padding added
@@ -96,7 +126,33 @@ module.exports = {
           marginRight: '-50vw',
         },
       };
+
+      // todo remove padding and margin stuff after updating global.css
+      const newComponents = {
+        '.article': {
+          '& h1': {
+            '@apply text-3xl md:text-4xl mb-2-p p-0': {},
+          },
+          '& *:has(+ p)': {
+            '@apply mb-5-p': {},
+          },
+          '& *:has(+ h1, + h2, + h3, + h4, + h5, + h6)': {
+            '@apply mb-8-p': {},
+          },
+          p: {
+            '@apply text-lg': {},
+          },
+          '& h1, & h2, & h3, & h4, & h5, & h6': {
+            '@apply text-balance': {},
+          },
+          '& p, & li, & figcaption': {
+            '@apply max-w-[65ch]': {},
+          },
+        },
+      };
+
       addUtilities(newUtilities);
+      addComponents(newComponents);
     }),
   ],
 };
