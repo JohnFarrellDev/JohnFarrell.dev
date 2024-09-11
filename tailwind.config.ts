@@ -126,12 +126,12 @@ module.exports = {
         },
 
         '.full-width': {
-          width: 'calc(100vw - 8px)',
+          width: '100svw',
           position: 'relative',
           left: '50%',
           right: '50%',
-          marginLeft: '-50vw',
-          marginRight: '-50vw',
+          marginLeft: '-50svw',
+          marginRight: '-50svw',
         },
       };
 
