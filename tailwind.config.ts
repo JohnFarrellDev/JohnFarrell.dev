@@ -144,14 +144,11 @@ module.exports = {
           h3: {
             '@apply text-xl md:text-2xl mb-2-p p-0': {},
           },
-          p: {
-            '@apply text-lg text-gray-900 text-pretty': {},
+          '& > p': {
+            '@apply text-lg text-gray-900 text-pretty mt-5-p': {},
           },
           'p, li, figcaption': {
             '@apply max-w-[70ch]': {},
-          },
-          '& > p': {
-            '@apply mt-5-p': {},
           },
           '& > h2, & > h3, & > h4, & > h5, & > h6': {
             '@apply mt-8-p': {},

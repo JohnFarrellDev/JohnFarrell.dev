@@ -17,20 +17,21 @@ export const CodeBlock = ({ canHide, githubLink, children, fileName }: CodeBlock
 
   return (
     <>
-      <div className="pt-2-p pl-10-p flex gap-4 rounded-t-lg bg-[#111b27]">
-        {githubLink && (
-          <a href={githubLink} className="flex gap-2 text-white">
-            <ExternalLink /> Code on GitHub
-          </a>
-        )}
+      <div className="flex flex-col gap-2-p rounded-t-lg bg-[#111b27] pl-10-p pt-2-p">
+        <div className="flex gap-4">
+          {githubLink && (
+            <a href={githubLink} className="flex gap-2 text-white">
+              <ExternalLink /> Code on GitHub
+            </a>
+          )}
 
-        {canHide && (
-          <button onClick={() => setShowCode(!showCode)} className="text-white">
-            {showCode ? 'Hide code' : 'Show code'}
-          </button>
-        )}
-
-        {showCode && fileName && <p className="w-full text-right">{fileName}</p>}
+          {canHide && (
+            <button onClick={() => setShowCode(!showCode)} className="text-white">
+              {showCode ? 'Hide code' : 'Show code'}
+            </button>
+          )}
+        </div>
+        {fileName && <p className="m-0 text-white">{fileName}</p>}
       </div>
       {showCode && (
         <SyntaxHighlighter
