@@ -34,6 +34,8 @@ module.exports = {
         '19-p': '76px',
         '20-p': '80px',
         '30-p': '120px',
+        '36-p': '144px',
+        '40-p': '160px',
       },
       colors: {
         primary: {

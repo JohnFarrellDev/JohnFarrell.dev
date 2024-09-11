@@ -6,17 +6,18 @@ import { Twitter } from './icons/Twitter';
 const data = [
   {
     id: 1,
-    icon: <GitHub aria-label="link to github profile" />,
+    icon: <GitHub aria-label="link to github profile" width={32} height={32} />,
     url: 'https://www.github.com/JohnFarrellDev/',
   },
   {
     id: 2,
-    icon: <LinkedIn aria-label="link to github profile" />,
+    icon: <LinkedIn aria-label="link to github profile" width={32} height={32} />,
+
     url: 'https://linkedin.com/in/johnfarrelldev',
   },
   {
     id: 3,
-    icon: <Twitter aria-label="link to twitter profile" />,
+    icon: <Twitter aria-label="link to twitter profile" width={32} height={32} />,
     url: 'https://twitter.com/JohnFar55526330',
   },
 ];
@@ -53,7 +54,7 @@ interface SocialLinksProps {
 
 export function SocialLinks({ className, styleLinks }: SocialLinksProps) {
   return (
-    <ul className={cn('mt-8 flex w-32 justify-between', className)}>
+    <ul className={cn('mt-8 flex justify-between', className)}>
       <Links styleLinks={styleLinks} />
     </ul>
   );
