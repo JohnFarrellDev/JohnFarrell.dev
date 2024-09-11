@@ -16,7 +16,7 @@ export const metadata = produceMetaData({
 export default function ReactProjectStructure() {
   return (
     <section className="page-center">
-      <article>
+      <article className="article-content page-content">
         <ArticleBanner
           title="How I Like to Organise my React Projects"
           createdAt={new Date('2022-08-01T14:15:28.433Z')}
@@ -75,7 +75,12 @@ export default function ReactProjectStructure() {
           ]}
         />
 
-        <SectionTitle id="how-i-like-to-do-it">How I Like to do it</SectionTitle>
+        <SectionTitle
+          id="how-i-like-to-do-it"
+          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+        >
+          How I Like to do it
+        </SectionTitle>
 
         <FileExplorer
           content={[
@@ -136,7 +141,12 @@ export default function ReactProjectStructure() {
           ]}
         />
 
-        <SectionTitle id="folder-structure">Folder Structure</SectionTitle>
+        <SectionTitle
+          id="folder-structure"
+          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+        >
+          Folder Structure
+        </SectionTitle>
 
         <p>The layout of the folders uses a hybrid of page based and feature based organisation for my components.</p>
 
@@ -152,11 +162,12 @@ export default function ReactProjectStructure() {
           in turn, find the relevant component quickly.
         </p>
 
-        <SectionTitle id="feature-based-organisation">Feature Based Organisation</SectionTitle>
-
-        <p>[When I have a good example if this on my website I'll update here to write about it]</p>
-
-        <SectionTitle id="utility-components">Utility Components</SectionTitle>
+        <SectionTitle
+          id="utility-components"
+          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+        >
+          Utility Components
+        </SectionTitle>
 
         <p>
           Even though all the code for this page exists in the ReactProjectStructure component there are a couple of
@@ -173,7 +184,12 @@ export default function ReactProjectStructure() {
           Components/Utilities.
         </p>
 
-        <SectionTitle id="file-co-location">File Co-location</SectionTitle>
+        <SectionTitle
+          id="file-co-location"
+          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+        >
+          File Co-location
+        </SectionTitle>
 
         <p>
           Co-location of files is important to me. When I am looking at a component I want to be able see its associated
@@ -190,7 +206,12 @@ export default function ReactProjectStructure() {
           better developer experience.
         </p>
 
-        <SectionTitle id="index-ts">What is that index.ts file about?</SectionTitle>
+        <SectionTitle
+          id="index-ts"
+          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+        >
+          What is that index.ts file about? (barrel files)
+        </SectionTitle>
 
         <SectionTitle as="h3" id="index-ts-cleaner-imports">
           Cleaner Imports

@@ -107,8 +107,12 @@ export const metadata = produceMetaData({
 export default function Day1() {
   return (
     <section className="page-center">
-      <article>
-        <Title title="Advent of Code 2023 - Day 1" underlineClassName="bg-orange-400" />
+      <article className="article-content page-content">
+        <Title
+          title="Advent of Code 2023 - Day 1"
+          className="text-3xl md:text-4xl"
+          underlineClassName="bg-orange-400"
+        />
         <a className="flex" href="https://github.com/JohnFarrellDev/advent-of-code-2023/blob/master/day1.ts">
           <GitHub width={24} height={24} /> Code on GitHub
         </a>

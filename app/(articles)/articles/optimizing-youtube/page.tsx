@@ -3,6 +3,7 @@ import { Banner } from '../../../../Components/Banner';
 import { produceMetaData } from '../../../../Utilities/produceMetaData';
 import { TableOfContents } from '../../../../Components/TableOfContents';
 import { ArticleBanner } from '../../../../Components/ArticleBanner';
+import { SectionTitle } from '../../../../Components/SectionTitle';
 
 export const metadata = produceMetaData({
   title: 'Optimizing Youtube | John Farrell',
@@ -14,7 +15,7 @@ export const metadata = produceMetaData({
 export default function OptimizingYoutube() {
   return (
     <section className="page-center">
-      <article>
+      <article className="article-content page-content">
         <ArticleBanner title="Optimizing YouTube" createdAt={new Date('2024-06-19T19:35:38.114Z')} />
         <Banner
           type="information"
@@ -64,8 +65,13 @@ export default function OptimizingYoutube() {
           ]}
         />
 
-        <h2 id="ublock-origin">uBlock Origin</h2>
-        <div style={{ display: 'flex', flexDirection: 'column', marginBottom: 10 }}>
+        <SectionTitle
+          id="ublock-origin"
+          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+        >
+          uBlock Origin
+        </SectionTitle>
+        <div className="flex flex-col">
           <a href="https://chromewebstore.google.com/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en-GB">
             Chrome Extension
           </a>
@@ -76,13 +82,18 @@ export default function OptimizingYoutube() {
           For me, this is the most essential extension to have installed. It blocks all adverts across websites you
           visit, making your browsing experience smoother and less intrusive. Recently, YouTube has become more
           aggressive in attempting to counter ad blockers, but for now, uBlock appears to be prevailing. Personally, I
-          don’t feel guilty for using an ad blocker because, without it, YouTube often shows me ads for financial scams
-          or misleading phone games. These ads are neither relevant nor accurately represented, making uBlock Origin a
-          crucial tool in avoiding such content.
+          don&apos;t feel guilty for using an ad blocker because, without it, YouTube often shows me ads for financial
+          scams or misleading phone games. These ads are neither relevant nor accurately represented, making uBlock
+          Origin a crucial tool in avoiding such content.
         </p>
 
-        <h2 id="sponsor-block">Sponsor Block</h2>
-        <div style={{ display: 'flex', flexDirection: 'column', marginBottom: 10 }}>
+        <SectionTitle
+          id="sponsor-block"
+          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+        >
+          Sponsor Block
+        </SectionTitle>
+        <div className="flex flex-col">
           <a href="https://chromewebstore.google.com/detail/sponsorblock-for-youtube/mnjggcdmjocbbbhaepdhchncahnbgone">
             Chrome Extension
           </a>
@@ -107,8 +118,13 @@ export default function OptimizingYoutube() {
           height={591}
         />
 
-        <h2 id="blocktube">BlockTube</h2>
-        <div style={{ display: 'flex', flexDirection: 'column', marginBottom: 10 }}>
+        <SectionTitle
+          id="blocktube"
+          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+        >
+          BlockTube
+        </SectionTitle>
+        <div className="flex flex-col">
           <a href="https://chromewebstore.google.com/detail/blocktube/bbeaicapbccfllodepmimpkgecanonai">
             Chrome Extension
           </a>
@@ -154,8 +170,13 @@ export default function OptimizingYoutube() {
           which automatically blocks videos I don't care about.
         </p>
 
-        <h2 id="return-youtube-dislikes">Return YouTube Dislikes</h2>
-        <div style={{ display: 'flex', flexDirection: 'column', marginBottom: 10 }}>
+        <SectionTitle
+          id="return-youtube-dislikes"
+          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+        >
+          Return YouTube Dislikes
+        </SectionTitle>
+        <div className="flex flex-col">
           <a href="https://chromewebstore.google.com/detail/return-youtube-dislike/gebbhagfogifgggkldgodflihgfeippi?hl=en">
             Chrome Extension
           </a>
@@ -191,8 +212,13 @@ export default function OptimizingYoutube() {
           style={{ maxWidth: '100%', height: 'auto' }}
         />
 
-        <h2 id="clickbait-remover-for-youtube">Clickbait Remover for YouTube</h2>
-        <div style={{ display: 'flex', flexDirection: 'column', marginBottom: 10 }}>
+        <SectionTitle
+          id="clickbait-remover-for-youtube"
+          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+        >
+          Clickbait Remover for YouTube
+        </SectionTitle>
+        <div className="flex flex-col">
           <a href="https://chromewebstore.google.com/detail/clickbait-remover-for-you/omoinegiohhgbikclijaniebjpkeopip?hl=en">
             Chrome Extension
           </a>
@@ -203,7 +229,7 @@ export default function OptimizingYoutube() {
           This simple extension helps reduce the annoying clickbait often seen on YouTube. It allows me to choose a
           specific section of the video (start, middle, or end) to use as the thumbnail, rather than relying on the
           often misleading default thumbnail. Additionally, I can adjust the casing of video titles, converting{' '}
-          <span style={{ textTransform: 'uppercase' }}>all caps</span> titles into more readable Title Case Text.
+          <span className="uppercase">all caps</span> titles into more readable Title Case Text.
         </p>
         <p>The below</p>
         <Image
@@ -222,8 +248,13 @@ export default function OptimizingYoutube() {
           style={{ maxWidth: '100%', height: 'auto' }}
         />
 
-        <h2 id="dearrow">DeArrow</h2>
-        <div style={{ display: 'flex', flexDirection: 'column', marginBottom: 10 }}>
+        <SectionTitle
+          id="dearrow"
+          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+        >
+          DeArrow
+        </SectionTitle>
+        <div className="flex flex-col">
           <a href="https://chromewebstore.google.com/detail/dearrow-better-titles-and/enamippconapkdmgfgjchkhakpfinmaj">
             Chrome Extension
           </a>
@@ -237,8 +268,13 @@ export default function OptimizingYoutube() {
           approach, DeArrow shows promise and is worth keeping an eye on as its community grows.
         </p>
 
-        <h2 id="google-gemini">Google Gemini</h2>
-        <div style={{ display: 'flex', flexDirection: 'column', marginBottom: 10 }}>
+        <SectionTitle
+          id="google-gemini"
+          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+        >
+          Google Gemini
+        </SectionTitle>
+        <div className="flex flex-col">
           <a href="https://gemini.google.com/">Google Gemini</a>
         </div>
         <p>
