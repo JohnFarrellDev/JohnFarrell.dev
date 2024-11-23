@@ -9,7 +9,7 @@ interface ArticleBannerProps {
 
 export function ArticleBanner({ title, createdAt, lastUpdated }: ArticleBannerProps) {
   return (
-    <header className="mb-6-p relative bg-gradient-to-r from-orange-100 to-orange-200 py-8 full-width">
+    <header className="mb-6-p relative bg-gradient-to-r from-blue-100 to-blue-200 py-8 full-width">
       <div
         className="absolute inset-0"
         style={{
@@ -30,7 +30,6 @@ export function ArticleBanner({ title, createdAt, lastUpdated }: ArticleBannerPr
               as="h1"
               title={title}
               className="max-w-[50ch] text-balance text-center text-3xl md:text-4xl"
-              underlineClassName="bg-orange-400"
             />
           </div>
           {createdAt && <ArticleTimeStamps createdAt={createdAt} lastUpdated={lastUpdated} />}

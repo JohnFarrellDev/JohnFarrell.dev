@@ -11,7 +11,7 @@ export default function AboutMe() {
   return (
     <section className="page-center">
       <article>
-        <Title title="About Me" />
+        <Title title="About Me" className='mb-2-p' underlineClassName='mb-8-p' />
 
         <div className="block gap-[50px] lg:flex">
           <Image
