@@ -14,13 +14,14 @@ export const metadata = produceMetaData({
 
 export default function OptimizingYoutube() {
   return (
-    <section className="page-center">
-      <article className="article-content page-content">
+    <section className="container">
+      <article className="article-content">
         <ArticleBanner title="Optimizing YouTube" createdAt={new Date('2024-06-19T19:35:38.114Z')} />
         <Banner
           type="information"
           message="Google are actively weakening the effectiveness of extensions on Chrome, try FireFox."
         />
+
         <p>
           For about 15 years, I have been an avid YouTube user, integrating the platform into my daily routine. YouTube
           provides me with free entertainment and access to excellent educational resources. Whether I’m watching
@@ -67,7 +68,7 @@ export default function OptimizingYoutube() {
 
         <SectionTitle
           id="ublock-origin"
-          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+          className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2"
         >
           uBlock Origin
         </SectionTitle>
@@ -89,7 +90,7 @@ export default function OptimizingYoutube() {
 
         <SectionTitle
           id="sponsor-block"
-          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+          className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2"
         >
           Sponsor Block
         </SectionTitle>
@@ -120,7 +121,7 @@ export default function OptimizingYoutube() {
 
         <SectionTitle
           id="blocktube"
-          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+          className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2"
         >
           BlockTube
         </SectionTitle>
@@ -172,7 +173,7 @@ export default function OptimizingYoutube() {
 
         <SectionTitle
           id="return-youtube-dislikes"
-          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+          className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2"
         >
           Return YouTube Dislikes
         </SectionTitle>
@@ -214,7 +215,7 @@ export default function OptimizingYoutube() {
 
         <SectionTitle
           id="clickbait-remover-for-youtube"
-          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+          className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2"
         >
           Clickbait Remover for YouTube
         </SectionTitle>
@@ -248,10 +249,7 @@ export default function OptimizingYoutube() {
           style={{ maxWidth: '100%', height: 'auto' }}
         />
 
-        <SectionTitle
-          id="dearrow"
-          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
-        >
+        <SectionTitle id="dearrow" className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2">
           DeArrow
         </SectionTitle>
         <div className="flex flex-col">
@@ -270,7 +268,7 @@ export default function OptimizingYoutube() {
 
         <SectionTitle
           id="google-gemini"
-          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+          className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2"
         >
           Google Gemini
         </SectionTitle>

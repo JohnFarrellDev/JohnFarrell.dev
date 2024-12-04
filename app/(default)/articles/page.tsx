@@ -10,7 +10,7 @@ export const metadata = produceMetaData({
 
 export default function Articles() {
   return (
-    <section className="page-center">
+    <section className="container">
       <Title title="Articles" className="text-3xl" />
       <div>
         {allArticles.map(({ year, articles }) => (

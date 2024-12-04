@@ -22,7 +22,7 @@ export default async function UdemyArticle() {
   );
 
   return (
-    <section className="page-center">
+    <section className="container">
       <article className="article-content page-content">
         <ArticleBanner
           title="How to Effortlessly Extract Udemy Quizzes with a Custom Userscript"
@@ -105,7 +105,7 @@ export default async function UdemyArticle() {
           ]}
         />
 
-        <SectionTitle id="goal" className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2">
+        <SectionTitle id="goal" className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2">
           Goal
         </SectionTitle>
         <p>
@@ -131,7 +131,7 @@ export default async function UdemyArticle() {
 
         <SectionTitle
           id="video-demo"
-          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+          className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2"
         >
           Video Demo
         </SectionTitle>
@@ -153,7 +153,7 @@ export default async function UdemyArticle() {
         </SectionTitle>
         <YoutubeVideo videoId="7WWEwf86RvE" title="Zorbi demo" />
 
-        <SectionTitle id="code" className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2">
+        <SectionTitle id="code" className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2">
           Code
         </SectionTitle>
 
@@ -181,7 +181,7 @@ export default async function UdemyArticle() {
 
         <SectionTitle
           id="greasy-fork-publish"
-          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+          className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2"
         >
           Published on Greasy Fork
         </SectionTitle>
@@ -204,7 +204,7 @@ export default async function UdemyArticle() {
 
         <SectionTitle
           id="lessons-learned"
-          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+          className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2"
         >
           Lessons learned
         </SectionTitle>
@@ -238,7 +238,7 @@ export default async function UdemyArticle() {
 
         <SectionTitle
           id="potential-problems"
-          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+          className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2"
         >
           Potential problems
         </SectionTitle>

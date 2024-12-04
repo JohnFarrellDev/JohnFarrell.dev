@@ -17,7 +17,7 @@ export function Navbar({ className }: { className?: string }) {
         'bg-white': isOpen,
       })}
     >
-      <div className="mx-auto flex items-center justify-end page-center">
+      <div className="container mx-auto flex items-center justify-end">
         <button
           onClick={toggleMenu}
           className="flex flex-col items-center justify-center md:hidden"

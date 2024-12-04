@@ -9,7 +9,7 @@ interface ArticleBannerProps {
 
 export function ArticleBanner({ title, createdAt, lastUpdated }: ArticleBannerProps) {
   return (
-    <header className="mb-6-p relative bg-gradient-to-r from-blue-100 to-blue-200 py-8 full-width">
+    <header className="relative mb-6-p bg-gradient-to-r from-blue-100 to-blue-200 py-8 full-bleed">
       <div
         className="absolute inset-0"
         style={{
@@ -23,17 +23,15 @@ export function ArticleBanner({ title, createdAt, lastUpdated }: ArticleBannerPr
           opacity: 0.3,
         }}
       />
-      <div className="page-center">
-        <div className="page-content relative">
-          <div className="mx-auto w-fit">
-            <Title
-              as="h1"
-              title={title}
-              className="max-w-[50ch] text-balance text-center text-3xl md:text-4xl"
-            />
-          </div>
-          {createdAt && <ArticleTimeStamps createdAt={createdAt} lastUpdated={lastUpdated} />}
+      <div className="relative">
+        <div className="mx-auto w-fit">
+          <Title as="h1" title={title} className="max-w-[50ch] text-balance text-center text-3xl md:text-4xl" />
         </div>
+        {createdAt && (
+          <div className="mt-4 text-center">
+            <ArticleTimeStamps createdAt={createdAt} lastUpdated={lastUpdated} />
+          </div>
+        )}
       </div>
     </header>
   );

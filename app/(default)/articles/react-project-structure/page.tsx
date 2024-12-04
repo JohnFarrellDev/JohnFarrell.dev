@@ -15,7 +15,7 @@ export const metadata = produceMetaData({
 
 export default function ReactProjectStructure() {
   return (
-    <section className="page-center">
+    <section className="container">
       <article className="article-content page-content">
         <ArticleBanner
           title="How I Like to Organise my React Projects"
@@ -77,7 +77,7 @@ export default function ReactProjectStructure() {
 
         <SectionTitle
           id="how-i-like-to-do-it"
-          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+          className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2"
         >
           How I Like to do it
         </SectionTitle>
@@ -143,7 +143,7 @@ export default function ReactProjectStructure() {
 
         <SectionTitle
           id="folder-structure"
-          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+          className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2"
         >
           Folder Structure
         </SectionTitle>
@@ -164,7 +164,7 @@ export default function ReactProjectStructure() {
 
         <SectionTitle
           id="utility-components"
-          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+          className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2"
         >
           Utility Components
         </SectionTitle>
@@ -186,7 +186,7 @@ export default function ReactProjectStructure() {
 
         <SectionTitle
           id="file-co-location"
-          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+          className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2"
         >
           File Co-location
         </SectionTitle>
@@ -208,7 +208,7 @@ export default function ReactProjectStructure() {
 
         <SectionTitle
           id="index-ts"
-          className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2"
+          className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2"
         >
           What is that index.ts file about? (barrel files)
         </SectionTitle>

@@ -100,32 +100,25 @@ module.exports = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      container: {
+        center: true,
+        padding: '16px',
+        screens: {
+          DEFAULT: '100%',
+          sm: '95vw',
+          md: '95vw',
+          lg: '90vw',
+          xl: '1170px',
+          '2xl': '1170px',
+        },
+      },
     },
   },
   plugins: [
     import('tailwindcss-animate'),
     plugin(function ({ addUtilities, addComponents }) {
-      // TODO remove the padding and fix places it breaks by adding the margin
       const newUtilities = {
-        '.page-center': {
-          // 32px is to maintain the desired width with the padding added
-          maxWidth: 'calc(var(--max-width) + 32px)',
-          width: '95vw',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          paddingLeft: '16px',
-          paddingRight: '16px',
-          '@screen lg': {
-            width: '90vw', // Reverts to 90vw for md and larger screens
-          },
-        },
-
-        '.page-content': {
-          marginLeft: '16px',
-          marginRight: '16px',
-        },
-
-        '.full-width': {
+        '.full-bleed': {
           width: '100svw',
           position: 'relative',
           left: '50%',

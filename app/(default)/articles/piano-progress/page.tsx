@@ -12,7 +12,7 @@ export const metadata = produceMetaData({
 
 export default function PianoProgress() {
   return (
-    <section className="page-center">
+    <section>
       <article>
         <ArticleBanner title="Piano Progress" />
         <CurrentyLearning />

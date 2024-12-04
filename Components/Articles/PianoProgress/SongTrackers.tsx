@@ -140,8 +140,8 @@ const songs: SongInformation[] = [
 
 export function SongTrackers() {
   return (
-    <div className="my-6 bg-slate-50 py-6 full-width">
-      <Table className="page-center">
+    <div className="my-6 bg-slate-50 py-6">
+      <Table className="container">
         <TableHeader>
           <TableRow>
             <TableHead>Song Name</TableHead>

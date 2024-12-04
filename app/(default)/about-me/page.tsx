@@ -9,9 +9,9 @@ export const metadata = produceMetaData({
 
 export default function AboutMe() {
   return (
-    <section className="page-center">
+    <section className="container">
       <article>
-        <Title title="About Me" className='mb-2-p' underlineClassName='mb-8-p' />
+        <Title title="About Me" className="mb-2-p" underlineClassName="mb-8-p" />
 
         <div className="block gap-[50px] lg:flex">
           <Image

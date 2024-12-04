@@ -14,7 +14,7 @@ export const metadata = produceMetaData({
 
 export default function Minesweeper() {
   return (
-    <section className="page-center">
+    <section className="container">
       <article className="article-content page-content">
         <ArticleBanner title="Solving Minesweeper" createdAt={new Date('2022-10-09T22:19:37.934Z')} />
 
@@ -43,7 +43,7 @@ export default function Minesweeper() {
           left hand side grid.
         </p>
 
-        <SectionTitle className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2">
+        <SectionTitle className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2">
           Implement the Game
         </SectionTitle>
 
@@ -442,7 +442,7 @@ export default function Minesweeper() {
           borderlessMode={false}
         />
 
-        <SectionTitle className="font-semibold underline decoration-orange-400 decoration-wavy decoration-2">
+        <SectionTitle className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2">
           To Dos...
         </SectionTitle>
 

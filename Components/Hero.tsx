@@ -5,7 +5,7 @@ import { Robot } from './Robot';
 export function Hero() {
   return (
     <header className="relative h-svh bg-primary-1000">
-      <div className="grid h-full items-center page-center md:grid-cols-2">
+      <div className="container grid h-full items-center md:grid-cols-2">
         <article className="bg-primary-1000">
           <div className="text-center md:text-left">
             <h1 className="text-7xl font-bold">Hello, I'm John</h1>

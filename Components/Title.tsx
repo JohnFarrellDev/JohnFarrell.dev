@@ -12,7 +12,7 @@ export function Title({ title, underlineClassName, className, as = 'h1' }: Title
   const Heading = as;
   return (
     <>
-      <Heading className={cn('mb-4 text-center', className)}>{title}</Heading>
+      <Heading className={cn('mb-4 w-full text-center', className)}>{title}</Heading>
       <Underline className={cn('mx-auto', underlineClassName)} />
     </>
   );

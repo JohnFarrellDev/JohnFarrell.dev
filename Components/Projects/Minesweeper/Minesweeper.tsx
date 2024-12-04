@@ -7,7 +7,7 @@ export default function Minesweeper() {
   return (
     <>
       <Title title="Minesweeper" />
-      <main className="page-center">
+      <main className="container">
         <ArticleTimeStamps createdAt={new Date('2022-10-09T22:19:37.934Z')} />
         <Banner
           type="warning"

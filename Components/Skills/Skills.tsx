@@ -7,7 +7,7 @@ export function Skills() {
   return (
     <section className="bg-gray-50 py-8">
       <Title title="Tech Skills" className="text-center" />
-      <div className="grid grid-cols-1 gap-8 page-center md:grid-cols-2 lg:grid-cols-3">
+      <div className="container grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {skills.map(({ id, title, description, icon, link }) => {
           return (
             <article key={id} className="group rounded-xl bg-white p-4 duration-300 hover:bg-primary-500">

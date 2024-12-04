@@ -53,7 +53,7 @@ export const metadata = produceMetaData({
 
 export default function Projects() {
   return (
-    <section className="page-center">
+    <section className="container">
       <Title title="Projects" />
       <div>
         {allProjects.map(({ year, projects }) => (
