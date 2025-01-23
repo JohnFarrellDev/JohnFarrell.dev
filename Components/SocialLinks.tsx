@@ -1,7 +1,7 @@
 import { cn } from './../Utilities/cn';
 import { GitHub } from './icons/GitHub';
 import { LinkedIn } from './icons/LinkedIn';
-import { Twitter } from './icons/Twitter';
+import { BlueSky } from './icons/BlueSky';
 
 const data = [
   {
@@ -17,8 +17,8 @@ const data = [
   },
   {
     id: 3,
-    icon: <Twitter aria-label="link to twitter profile" width={32} height={32} />,
-    url: 'https://twitter.com/JohnFar55526330',
+    icon: <BlueSky aria-label="link to bluesky profile" width={32} height={32} />,
+    url: 'https://bsky.app/profile/johnfarrelldev.bsky.social',
   },
 ];
 

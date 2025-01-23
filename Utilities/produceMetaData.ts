@@ -3,9 +3,9 @@ import { Metadata } from 'next';
 const siteMetadata = {
   title: 'John Farrell | Professional Software Engineer',
   description: 'My website for sharing projects and articles.',
-  twitterUsername: 'JohnFarrellDev',
   image:
     'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/og-images/og-image-default-robot.png',
+  blueskyUsername: 'johnfarrelldev.bsky.social',
 };
 
 interface MetaDataInput {
@@ -30,7 +30,7 @@ export function produceMetaData(input?: MetaDataInput): Metadata {
       description: input?.description ?? siteMetadata.description,
       images: input?.image ?? siteMetadata.image,
       card: 'summary_large_image',
-      creator: siteMetadata.twitterUsername,
+      creator: siteMetadata.blueskyUsername,
     },
   };
 }
