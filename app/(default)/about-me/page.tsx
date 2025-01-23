@@ -15,7 +15,7 @@ export default function AboutMe() {
 
         <div className="block gap-[50px] lg:flex">
           <Image
-            src="https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/about-me-trixie.jpeg"
+            src="https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/about-me.jpg"
             alt="Photo of my black cat Trixie"
             width={460}
             height={345}
