@@ -2,7 +2,7 @@ import plugin from 'tailwindcss/plugin';
 
 module.exports = {
   darkMode: ['class'],
-  content: ['./pages/**/*.{js,ts,jsx,tsx}', './Components/**/*.{js,ts,jsx,tsx}', './app/**/*.{js,ts,jsx,tsx}'],
+  content: ['./pages/**/*.{js,ts,jsx,tsx}', './src/Components/**/*.{js,ts,jsx,tsx}', './src/app/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       spacing: {
