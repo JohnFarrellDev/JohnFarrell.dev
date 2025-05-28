@@ -1,10 +1,10 @@
-import { CodeBlock } from '../../../../Components/CodeBlock';
-import { FileExplorer } from '../../../../Components/FileExplorer';
-import { SectionTitle } from '../../../../Components/SectionTitle';
-import { produceMetaData } from '../../../../Utilities/produceMetaData';
-import { TableOfContents } from '../../../../Components/TableOfContents';
+import { CodeBlock } from '@/Components/CodeBlock';
+import { FileExplorer } from '@/Components/FileExplorer';
+import { SectionTitle } from '@/Components/SectionTitle';
+import { produceMetaData } from '@/Utilities/produceMetaData';
+import { TableOfContents } from '@/Components/TableOfContents';
 import Image from 'next/image';
-import { ArticleBanner } from '../../../../Components/ArticleBanner';
+import { ArticleBanner } from '@/Components/ArticleBanner';
 
 export const metadata = produceMetaData({
   title: 'React Project Structure | John Farrell',
@@ -16,7 +16,7 @@ export const metadata = produceMetaData({
 export default function ReactProjectStructure() {
   return (
     <section className="container">
-      <article className="article-content page-content">
+      <article className="page-content article-content">
         <ArticleBanner
           title="How I Like to Organise my React Projects"
           createdAt={new Date('2022-08-01T14:15:28.433Z')}

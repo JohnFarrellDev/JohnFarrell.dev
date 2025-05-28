@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import { produceMetaData } from '../../../../Utilities/produceMetaData';
-import { CodeBlock } from '../../../../Components/CodeBlock';
-import { SectionTitle } from '../../../../Components/SectionTitle';
-import { YoutubeVideo } from '../../../../Components/YoutubeVideo';
-import { TableOfContents } from '../../../../Components/TableOfContents';
-import { ArticleBanner } from '../../../../Components/ArticleBanner';
+import { produceMetaData } from '@/Utilities/produceMetaData';
+import { CodeBlock } from '@/Components/CodeBlock';
+import { SectionTitle } from '@/Components/SectionTitle';
+import { YoutubeVideo } from '@/Components/YoutubeVideo';
+import { TableOfContents } from '@/Components/TableOfContents';
+import { ArticleBanner } from '@/Components/ArticleBanner';
 
 export const metadata = produceMetaData({
   title: 'How to Effortlessly Extract Udemy Quizzes with a Custom Userscript',
@@ -23,7 +23,7 @@ export default async function UdemyArticle() {
 
   return (
     <section className="container">
-      <article className="article-content page-content">
+      <article className="page-content article-content">
         <ArticleBanner
           title="How to Effortlessly Extract Udemy Quizzes with a Custom Userscript"
           createdAt={new Date('2022-05-27T11:16:06.761Z')}

@@ -1,30 +1,30 @@
-import { State, Action } from '.';
-import { minesweeperReducer } from '.';
+import { State, Action } from '@/Components/Projects/Minesweeper/reducer';
+import { minesweeperReducer } from '@/Components/Projects/Minesweeper/reducer';
 
-import { applyChanges } from './functions/applyChanges';
-import { changeNumberOfBombs } from './functions/changeNumberOfBombs';
-import { changeNumberOfColumns } from './functions/changeNumberOfColumns';
-import { changeNumberOfRows } from './functions/changeNumberOfRows';
-import { clickCell } from './functions/clickCell/clickCell';
-import { mouseDownCell } from './functions/clickCell/mouseDownCell';
-import { mouseUpCell } from './functions/clickCell/mouseUpCell';
-import { init } from './functions/init';
-import { flagCell } from './functions/flagCell';
-import { switchFaceType } from './functions/switchFaceType';
-import { minesweeperStateFactory } from '../../../../factories/minesweeperState';
+import { applyChanges } from '@/Components/Projects/Minesweeper/reducer/functions/applyChanges';
+import { changeNumberOfBombs } from '@/Components/Projects/Minesweeper/reducer/functions/changeNumberOfBombs';
+import { changeNumberOfColumns } from '@/Components/Projects/Minesweeper/reducer/functions/changeNumberOfColumns';
+import { changeNumberOfRows } from '@/Components/Projects/Minesweeper/reducer/functions/changeNumberOfRows';
+import { clickCell } from '@/Components/Projects/Minesweeper/reducer/functions/clickCell/clickCell';
+import { mouseDownCell } from '@/Components/Projects/Minesweeper/reducer/functions/clickCell/mouseDownCell';
+import { mouseUpCell } from '@/Components/Projects/Minesweeper/reducer/functions/clickCell/mouseUpCell';
+import { init } from '@/Components/Projects/Minesweeper/reducer/functions/init';
+import { flagCell } from '@/Components/Projects/Minesweeper/reducer/functions/flagCell';
+import { switchFaceType } from '@/Components/Projects/Minesweeper/reducer/functions/switchFaceType';
+import { minesweeperStateFactory } from '@/factories/minesweeperState';
 
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 
-vi.mock('./functions/applyChanges');
-vi.mock('./functions/changeNumberOfBombs');
-vi.mock('./functions/changeNumberOfColumns');
-vi.mock('./functions/changeNumberOfRows');
-vi.mock('./functions/clickCell/clickCell');
-vi.mock('./functions/clickCell/mouseDownCell');
-vi.mock('./functions/clickCell/mouseUpCell');
-vi.mock('./functions/init');
-vi.mock('./functions/flagCell');
-vi.mock('./functions/switchFaceType');
+vi.mock('@/Components/Projects/Minesweeper/reducer/functions/applyChanges');
+vi.mock('@/Components/Projects/Minesweeper/reducer/functions/changeNumberOfBombs');
+vi.mock('@/Components/Projects/Minesweeper/reducer/functions/changeNumberOfColumns');
+vi.mock('@/Components/Projects/Minesweeper/reducer/functions/changeNumberOfRows');
+vi.mock('@/Components/Projects/Minesweeper/reducer/functions/clickCell/clickCell');
+vi.mock('@/Components/Projects/Minesweeper/reducer/functions/clickCell/mouseDownCell');
+vi.mock('@/Components/Projects/Minesweeper/reducer/functions/clickCell/mouseUpCell');
+vi.mock('@/Components/Projects/Minesweeper/reducer/functions/init');
+vi.mock('@/Components/Projects/Minesweeper/reducer/functions/flagCell');
+vi.mock('@/Components/Projects/Minesweeper/reducer/functions/switchFaceType');
 
 describe('minesweeper reducer', () => {
   let state: State;

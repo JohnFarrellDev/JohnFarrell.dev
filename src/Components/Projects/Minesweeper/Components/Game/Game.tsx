@@ -1,12 +1,12 @@
 'use client';
 
 import { useCallback, useEffect, useReducer, MouseEvent, ChangeEvent } from 'react';
-import { Queue } from '../../../../../Utilities/Queue/queue';
-import { ChangeStep, minesweeperReducer } from '../../reducer';
-import { GameCell } from '../GameCell';
-import { GameSettings } from '../GameSettings/GameSettings';
-import { GameTracking } from '../GameTracking/GameTracking';
-import { FaceType } from '../GameTracking/GameTracking';
+import { Queue } from '@/Utilities/Queue/queue';
+import { ChangeStep, minesweeperReducer } from '@/Components/Projects/Minesweeper/reducer';
+import { GameCell } from '@/Components/Projects/Minesweeper/Components/GameCell';
+import { GameSettings } from '@/Components/Projects/Minesweeper/Components/GameSettings/GameSettings';
+import { GameTracking } from '@/Components/Projects/Minesweeper/Components/GameTracking/GameTracking';
+import { FaceType } from '@/Components/Projects/Minesweeper/Components/GameTracking/GameTracking';
 
 export type CustomAnimations = 'PlaceBombs' | 'CalculateNeighbors' | 'RecursiveReveal' | 'FlagCell' | 'BasicAutoClick';
 export type Operations =

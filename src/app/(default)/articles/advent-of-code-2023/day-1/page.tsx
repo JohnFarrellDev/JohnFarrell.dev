@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { CodeBlock } from '../../../../../Components/CodeBlock';
-import { GitHub } from '../../../../../Components/icons/GitHub';
-import { PreBlock } from '../../../../../Components/PreBlock';
-import { Title } from '../../../../../Components/Title';
-import { produceMetaData } from '../../../../../Utilities/produceMetaData';
+import { CodeBlock } from '@/Components/CodeBlock';
+import { GitHub } from '@/Components/icons/GitHub';
+import { PreBlock } from '@/Components/PreBlock';
+import { Title } from '@/Components/Title';
+import { produceMetaData } from '@/Utilities/produceMetaData';
 
 const parseInputCode = `function parseInput(input: string) {
   return input.split('\\n')
@@ -107,7 +107,7 @@ export const metadata = produceMetaData({
 export default function Day1() {
   return (
     <section className="container">
-      <article className="article-content page-content">
+      <article className="page-content article-content">
         <Title
           title="Advent of Code 2023 - Day 1"
           className="text-3xl md:text-4xl"

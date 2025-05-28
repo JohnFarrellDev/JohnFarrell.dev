@@ -1,7 +1,7 @@
-import { CurrentyLearning } from '../../../../Components/Articles/PianoProgress/CurrentyLearning';
-import { SongTrackers } from '../../../../Components/Articles/PianoProgress/SongTrackers';
-import { ArticleBanner } from '../../../../Components/ArticleBanner';
-import { produceMetaData } from '../../../../Utilities/produceMetaData';
+import { CurrentyLearning } from '@/Components/Articles/PianoProgress/CurrentyLearning';
+import { SongTrackers } from '@/Components/Articles/PianoProgress/SongTrackers';
+import { ArticleBanner } from '@/Components/ArticleBanner';
+import { produceMetaData } from '@/Utilities/produceMetaData';
 
 export const metadata = produceMetaData({
   title: 'Piano Progress Tracker | John Farrell',

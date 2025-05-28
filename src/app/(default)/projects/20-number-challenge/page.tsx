@@ -1,6 +1,6 @@
-import { Game20 } from '../../../../Components/Projects/DescendingInsanity/Game20';
-import { Title } from '../../../../Components/Title';
-import { produceMetaData } from '../../../../Utilities/produceMetaData';
+import { Game20 } from '@/Components/Projects/DescendingInsanity/Game20';
+import { Title } from '@/Components/Title';
+import { produceMetaData } from '@/Utilities/produceMetaData';
 
 export const metadata = produceMetaData({
   title: 'Twenty Number Challenge',

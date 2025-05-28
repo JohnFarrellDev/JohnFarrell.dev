@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { Banner } from '../../../../Components/Banner';
-import { produceMetaData } from '../../../../Utilities/produceMetaData';
-import { ArticleBanner } from '../../../../Components/ArticleBanner';
+import { Banner } from '@/Components/Banner';
+import { produceMetaData } from '@/Utilities/produceMetaData';
+import { ArticleBanner } from '@/Components/ArticleBanner';
 
 export const metadata = produceMetaData({
   title: 'Advent of Code 2023',
@@ -13,7 +13,7 @@ export const metadata = produceMetaData({
 export default function AdventOfCode2023() {
   return (
     <section className="container">
-      <article className="article-content page-content">
+      <article className="page-content article-content">
         <ArticleBanner title="Advent of Code 2023" />
 
         <Banner

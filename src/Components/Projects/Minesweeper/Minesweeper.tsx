@@ -1,7 +1,7 @@
-import { ArticleTimeStamps } from '../../ArticleTimeStamps';
-import { Title } from '../../Title';
-import { Game } from './Components/Game/Game';
-import { Banner } from '../../Banner';
+import { ArticleTimeStamps } from '@/Components/ArticleTimeStamps';
+import { Title } from '@/Components/Title';
+import { Game } from '@/Components/Projects/Minesweeper/Components/Game/Game';
+import { Banner } from '@/Components/Banner';
 
 export default function Minesweeper() {
   return (

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { UseLocalStorage } from '../../../Utilities/UseLocalStorage';
+import { UseLocalStorage } from '@/Utilities/UseLocalStorage';
 import { DescendingNumberGame } from './DescendingNumberGame';
 
 const NUMBER_OF_SLOTS = 20;

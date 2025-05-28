@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
-import { ArticleCard } from '../../../Components/Articles/ArticleCard';
-import { Title } from '../../../Components/Title';
-import { produceMetaData } from '../../../Utilities/produceMetaData';
+import { ArticleCard } from '@/Components/Articles/ArticleCard';
+import { Title } from '@/Components/Title';
+import { produceMetaData } from '@/Utilities/produceMetaData';
 
 export const metadata = produceMetaData({
   title: 'Articles | John Farrell',

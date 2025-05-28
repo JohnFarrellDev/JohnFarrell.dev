@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Links } from './Links';
-import { cn } from '../../lib/utils';
+import { cn } from '@/lib/utils';
 
 export function Navbar({ className }: { className?: string }) {
   const [isOpen, setIsOpen] = useState(false);

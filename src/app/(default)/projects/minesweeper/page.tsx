@@ -1,5 +1,5 @@
-import Minesweeper from '../../../../Components/Projects/Minesweeper/Minesweeper';
-import { produceMetaData } from '../../../../Utilities/produceMetaData';
+import Minesweeper from '@/Components/Projects/Minesweeper/Minesweeper';
+import { produceMetaData } from '@/Utilities/produceMetaData';
 
 export const metadata = produceMetaData({
   title: 'Minesweeper',

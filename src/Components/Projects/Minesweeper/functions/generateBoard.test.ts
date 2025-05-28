@@ -1,6 +1,6 @@
-import { minesweeperStateFactory } from '../../../../factories/minesweeperState';
-import { State } from '../reducer';
-import { generateBoard } from './generateBoard';
+import { minesweeperStateFactory } from '@/factories/minesweeperState';
+import { State } from '@/Components/Projects/Minesweeper/reducer';
+import { generateBoard } from '@/Components/Projects/Minesweeper/functions/generateBoard';
 import { describe, it, expect, beforeEach } from 'vitest';
 
 describe('generate board', () => {

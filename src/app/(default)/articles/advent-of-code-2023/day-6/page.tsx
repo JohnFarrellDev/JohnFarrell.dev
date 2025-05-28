@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { CodeBlock } from '../../../../../Components/CodeBlock';
-import { GitHub } from '../../../../../Components/icons/GitHub';
-import { PreBlock } from '../../../../../Components/PreBlock';
-import { Title } from '../../../../../Components/Title';
-import { produceMetaData } from '../../../../../Utilities/produceMetaData';
+import { CodeBlock } from '@/Components/CodeBlock';
+import { GitHub } from '@/Components/icons/GitHub';
+import { PreBlock } from '@/Components/PreBlock';
+import { Title } from '@/Components/Title';
+import { produceMetaData } from '@/Utilities/produceMetaData';
 import Image from 'next/image';
 
 const solution1Code = `export function solution1(input: string) {
@@ -116,7 +116,7 @@ export const metadata = produceMetaData({
 export default function Day6() {
   return (
     <section className="container">
-      <article className="article-content page-content">
+      <article className="page-content article-content">
         <Title
           title="Advent of Code 2023 - Day 6"
           className="text-3xl md:text-4xl"

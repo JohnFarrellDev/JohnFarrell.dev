@@ -1,9 +1,9 @@
-import { ArticleBanner } from '../../../../Components/ArticleBanner';
-import { Banner } from '../../../../Components/Banner';
-import { Game } from '../../../../Components/Projects/Minesweeper/Components/Game/Game';
-import { produceMetaData } from '../../../../Utilities/produceMetaData';
+import { ArticleBanner } from '@/Components/ArticleBanner';
+import { Banner } from '@/Components/Banner';
+import { Game } from '@/Components/Projects/Minesweeper/Components/Game/Game';
+import { produceMetaData } from '@/Utilities/produceMetaData';
 import Image from 'next/image';
-import { SectionTitle } from '../../../../Components/SectionTitle';
+import { SectionTitle } from '@/Components/SectionTitle';
 
 export const metadata = produceMetaData({
   title: 'Solving Minesweeper | John Farrell',
@@ -15,7 +15,7 @@ export const metadata = produceMetaData({
 export default function Minesweeper() {
   return (
     <section className="container">
-      <article className="article-content page-content">
+      <article className="page-content article-content">
         <ArticleBanner title="Solving Minesweeper" createdAt={new Date('2022-10-09T22:19:37.934Z')} />
 
         <Banner

@@ -2,10 +2,10 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Title } from '../Title';
-import { Button } from '../Button';
+import { Title } from '@/Components/Title';
+import { Button } from '@/Components/Button';
 import { jobs } from './Constants/jobs';
-import { cn } from '../../lib/utils';
+import { cn } from '@/lib/utils';
 import { ChevronsRight } from 'lucide-react';
 
 export function Experience() {

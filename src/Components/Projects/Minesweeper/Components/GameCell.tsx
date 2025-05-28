@@ -1,7 +1,7 @@
 import { MouseEvent, useCallback } from 'react';
 import { Bomb } from './SVGs/Bomb';
 import { RedFlag } from './SVGs/RedFlag';
-import { cn } from '../../../../lib/utils';
+import { cn } from '@/lib/utils';
 
 interface GameCellI {
   rowIndex: number;

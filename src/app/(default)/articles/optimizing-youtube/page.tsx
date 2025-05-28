@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import { Banner } from '../../../../Components/Banner';
-import { produceMetaData } from '../../../../Utilities/produceMetaData';
-import { TableOfContents } from '../../../../Components/TableOfContents';
-import { ArticleBanner } from '../../../../Components/ArticleBanner';
-import { SectionTitle } from '../../../../Components/SectionTitle';
+import { Banner } from '@/Components/Banner';
+import { produceMetaData } from '@/Utilities/produceMetaData';
+import { TableOfContents } from '@/Components/TableOfContents';
+import { ArticleBanner } from '@/Components/ArticleBanner';
+import { SectionTitle } from '@/Components/SectionTitle';
 
 export const metadata = produceMetaData({
   title: 'Optimizing Youtube | John Farrell',

@@ -11,7 +11,7 @@ import { mouseUpCell } from './functions/clickCell/mouseUpCell';
 import { init } from './functions/init';
 import { flagCell } from './functions/flagCell';
 import { switchFaceType } from './functions/switchFaceType';
-import { Queue } from '../../../../Utilities/Queue/queue';
+import { Queue } from '@/Utilities/Queue/queue';
 import { validateChange } from './functions/validateChange';
 
 export const AnimationColor: Record<string, string | undefined> = {
