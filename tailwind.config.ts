@@ -4,6 +4,10 @@ module.exports = {
   darkMode: ['class'],
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './src/Components/**/*.{js,ts,jsx,tsx}', './src/app/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    fontFamily: {
+      excalidraw: ['Excalifont'], // fallback optional
+    },
+
     extend: {
       spacing: {
         '0-p': '0px',
