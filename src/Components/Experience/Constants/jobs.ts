@@ -1,7 +1,7 @@
 export const jobs = [
   {
     id: 6,
-    companyName: 'BJSS',
+    companyName: 'BJSS/CGI',
     startDate: 'May 2023',
     endDate: 'Present',
     position: 'Senior Software Engineer',
@@ -9,8 +9,30 @@ export const jobs = [
       {
         id: 1,
         description:
-          'Worked with British Airways to launch a site wide transformation with a particular focus from myself on a new homepage',
+          'Worked with British Airways to launch a site wide transformation with a particular focus from myself on a new homepage alongside personally leading the development for integrating with their new CMS',
         technology: ['TypeScript', 'React', 'Next.js'],
+      },
+      {
+        id: 2,
+        description: 'Developed solutions for IAG to integrate AI solutions into their staff scheduling system',
+        technology: ['TypeScript', 'React', 'Next.js', 'Python', 'AWS'],
+      },
+      {
+        id: 3,
+        description:
+          'Helped develop a new platform for the Veterinary Medical Association to manage the licensing and import of veterinary medication.',
+      },
+      {
+        id: 4,
+        description:
+          'Developed the frontend on an internal project that utilised AI to help our bid team create proposals more efficiently',
+        technology: ['TypeScript', 'React', 'Next.js', 'AWS', 'C#'],
+      },
+      {
+        id: 5,
+        description:
+          'Worked with the Scottish Qualifications Authority building their new website following a rebrand and redesign plus integrating with their new CMS',
+        technology: ['TypeScript', 'React', 'Next.js', 'Azure', 'contentful'],
       },
     ],
   },
@@ -23,7 +45,7 @@ export const jobs = [
     responsibilities: [
       {
         id: 1,
-        description: 'Working as part of the support team to fix bugs impacting our customers',
+        description: 'Contributed as part of the support team to fix bugs impacting customers',
         technology: ['TypeScript', 'React', 'Next.js', 'Go', 'AWS'],
       },
     ],
@@ -51,7 +73,7 @@ export const jobs = [
     responsibilities: [
       {
         id: 3,
-        description: 'Built a prototype of the Met Office weather app as part of a bid',
+        description: 'Built a prototype of the Met Office weather app as part of a bid that won the contract',
         technology: ['JavaScript', 'TypeScript', 'React', 'next.js', 'vercel'],
       },
       {
