@@ -45,6 +45,21 @@ const allArticles = [
     ],
   },
   {
+    year: '2025',
+    articles: [
+      {
+        URL: '/articles/excalidraw-svg-to-react',
+        title: 'Converting Excalidraw SVGs to React Components',
+        description: 'Saving myself time by spending way too long on this',
+        createdAt: new Date('2025-06-11T14:00:00.000Z'),
+        imageURL:
+          'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/project-thumbnails/excalidraw-to-react-svg.png',
+        imageAlt: '',
+        tags: ['React', 'SVG'],
+      },
+    ],
+  },
+  {
     year: '2024',
     articles: [
       {

@@ -1,15 +1,17 @@
 import { ArticleTimeStamps } from './ArticleTimeStamps';
 import { Title } from './Title';
+import { cn } from '@/Utilities/cn';
 
 interface ArticleBannerProps {
   title: string;
   createdAt?: Date;
   lastUpdated?: Date;
+  className?: string;
 }
 
-export function ArticleBanner({ title, createdAt, lastUpdated }: ArticleBannerProps) {
+export function ArticleBanner({ title, createdAt, lastUpdated, className }: ArticleBannerProps) {
   return (
-    <header className="relative mb-6-p bg-gradient-to-r from-blue-100 to-blue-200 py-8 full-bleed">
+    <header className={cn('relative mb-6-p bg-gradient-to-r from-blue-100 to-blue-200 py-8 full-bleed', className)}>
       <div
         className="absolute inset-0"
         style={{

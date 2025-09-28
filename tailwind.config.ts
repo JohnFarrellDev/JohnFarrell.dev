@@ -5,7 +5,7 @@ module.exports = {
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './src/Components/**/*.{js,ts,jsx,tsx}', './src/app/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
-      excalidraw: ['Excalifont'], // fallback optional
+      excalidraw: ['Excalifont'],
     },
 
     extend: {
@@ -13,29 +13,19 @@ module.exports = {
         '0-p': '0px',
         '0-5-p': '2px',
         '1-p': '4px',
-        '1-5-p': '6px',
         '2-p': '8px',
-        '2-5-p': '10px',
         '3-p': '12px',
-        '3-5-p': '14px',
         '4-p': '16px',
-        '4-5-p': '18px',
         '5-p': '20px',
-        '5-5-p': '22px',
         '6-p': '24px',
         '7-p': '28px',
         '8-p': '32px',
         '9-p': '36px',
         '10-p': '40px',
-        '11-p': '44px',
         '12-p': '48px',
-        '13-p': '52px',
         '14-p': '56px',
-        '15-p': '60px',
         '16-p': '64px',
-        '17-p': '68px',
         '18-p': '72px',
-        '19-p': '76px',
         '20-p': '80px',
         '30-p': '120px',
         '36-p': '144px',
@@ -55,6 +45,20 @@ module.exports = {
           '1000': 'var(--clr-primary-10)',
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
+        },
+        secondary2: {
+          '100': '#f3f4f6', // Very light purple
+          '200': '#e5e7eb', // Light purple
+          '300': '#d1d5db', // Lighter purple
+          '400': '#9ca3af', // Light-medium purple
+          '500': '#6b7280', // Medium purple
+          '600': '#4f46e5', // Base purple (main secondary)
+          '700': '#4338ca', // Darker purple
+          '800': '#3730a3', // Dark purple
+          '900': '#312e81', // Very dark purple
+          '1000': '#1e1b4b', // Darkest purple
+          DEFAULT: '#4f46e5',
+          foreground: '#ffffff',
         },
         gray: {
           '50': 'var(--clr-gray-50)',
@@ -106,7 +110,6 @@ module.exports = {
       },
       container: {
         center: true,
-        padding: '16px',
         screens: {
           DEFAULT: '100%',
           sm: '95vw',
