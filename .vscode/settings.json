@@ -1,5 +1,0 @@
-{
-  "jest.jestCommandLine": "npm run test --",
-  "todo-tree.tree.showBadges": true,
-  "cSpell.words": ["CACI", "DLUHC"]
-}
