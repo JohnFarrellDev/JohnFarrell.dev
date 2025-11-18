@@ -94,32 +94,22 @@ const options: Option[] = [
       cheerio('svg *').removeAttr('font-family');
     },
   },
-  // {
-  //   type: 'checkbox',
-  //   description: 'Remove @fontface information',
-  //   value: true,
-  //   key: 'remove-fontface-information',
-  //   changes: [
-  //     {
-  //       matchingRegex: /@font-face[\s\S]*?;\s*}/g,
-  //       replacementValue: '',
-  //     },
-  //   ],
-  //   tooltip: 'String find and replace @font-face[sS]*?;s*} with an empty string.',
-  // },
-  // {
-  //   type: 'checkbox',
-  //   description: 'Remove svg-source:excalidraw',
-  //   value: true,
-  //   key: 'remove-svg-source-excalidraw',
-  //   changes: [
-  //     {
-  //       matchingRegex: /<!-- svg-source:excalidraw -->/g,
-  //       replacementValue: '',
-  //     },
-  //   ],
-  //   tooltip: 'String find and replace <!-- svg-source:excalidraw --> with an empty string.',
-  // },
+  {
+    type: 'checkbox',
+    description: 'Remove comments',
+    value: true,
+    key: 'remove-svg-source-excalidraw',
+    tooltip: 'Select all comments and remove the node.',
+    cheerioFunction: (cheerio: CheerioAPI) => {
+      cheerio('svg')
+        .contents()
+        .each((_, node) => {
+          if (node.type === 'comment') {
+            cheerio(node).remove();
+          }
+        });
+    },
+  },
   // {
   //   type: 'checkbox',
   //   description: 'Convert kebab-case HTML attributes to camelCase',
@@ -155,18 +145,15 @@ const options: Option[] = [
   //     'String find and replace kebab-case attributes with camelCase equivalents, i.e. stroke-linecap with strokeLinecap.',
   // },
 
-  // {
-  //   type: 'checkbox',
-  //   description: 'Make the background transparent',
-  //   value: true,
-  //   key: 'make-the-background-transparent',
-  //   changes: [
-  //     {
-  //       matchingRegex: /(<rect\b[^>]*fill="[^"]*")/g,
-  //       replacementValue: '$1 fillOpacity={0}',
-  //     },
-  //   ],
-  // },
+  {
+    type: 'checkbox',
+    description: 'Make the background transparent',
+    value: true,
+    key: 'make-the-background-transparent',
+    cheerioFunction: (cheerio: CheerioAPI) => {
+      cheerio('svg rect[fill]').attr('fillOpacity', '0');
+    },
+  },
 
   // {
   //   type: 'text',
