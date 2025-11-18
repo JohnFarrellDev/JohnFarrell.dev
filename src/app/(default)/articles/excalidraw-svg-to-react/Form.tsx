@@ -84,23 +84,16 @@ const options: Option[] = [
       cheerio('svg').attr('width', '100%');
     },
   },
-  // {
-  //   type: 'checkbox',
-  //   description: 'Remove inline font family',
-  //   value: true,
-  //   key: 'remove-inline-font-family',
-  //   changes: [
-  //     {
-  //       matchingRegex: /\s*font-family="[^"]*"/g,
-  //       replacementValue: '',
-  //     },
-  //     {
-  //       matchingRegex: /\s*fontFamily="[^"]*"/g,
-  //       replacementValue: '',
-  //     },
-  //   ],
-  //   tooltip: 'String find and replace font-family="[^"]*" with an empty string.',
-  // },
+  {
+    type: 'checkbox',
+    description: 'Remove inline font family',
+    value: true,
+    key: 'remove-inline-font-family',
+    tooltip: 'Select all elements and remove the font-family attribute.',
+    cheerioFunction: (cheerio: CheerioAPI) => {
+      cheerio('svg *').removeAttr('font-family');
+    },
+  },
   // {
   //   type: 'checkbox',
   //   description: 'Remove @fontface information',
