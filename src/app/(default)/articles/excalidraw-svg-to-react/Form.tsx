@@ -48,7 +48,7 @@ const options: Option[] = [
     description: 'Remove defs',
     value: true,
     key: 'remove-defs',
-    tooltip: 'Remove the def HTML element and all of its inner content.',
+    tooltip: 'Remove the def SVG element and all of its inner content.',
     cheerioFunction: (cheerio: CheerioAPI) => {
       cheerio('defs').remove();
     },
@@ -58,41 +58,32 @@ const options: Option[] = [
     description: 'Remove metadata',
     value: true,
     key: 'remove-metadata',
-    tooltip: 'String find and replace <metadata>.*?</metadata> with an empty string.',
+    tooltip: 'Remove the metadata SVG element and all of its inner content.',
     cheerioFunction: (cheerio: CheerioAPI) => {
       cheerio('metadata').remove();
     },
   },
-  // {
-  //   type: 'checkbox',
-  //   description: 'Remove inline styles',
-  //   value: true,
-  //   key: 'remove-inline-styles',
-  //   changes: [
-  //     {
-  //       matchingRegex: /\s*style="[^"]*"/g,
-  //       replacementValue: '',
-  //     },
-  //   ],
-  //   tooltip: 'String find and replace style="[^"]*" with an empty string.',
-  // },
-  // {
-  //   type: 'checkbox',
-  //   description: 'Make the SVG full width',
-  //   value: true,
-  //   key: 'make-the-svg-full-width',
-  //   changes: [
-  //     {
-  //       matchingRegex: /width="[^"]*"/g,
-  //       replacementValue: 'width="100%"',
-  //     },
-  //     {
-  //       matchingRegex: /height="[^"]*"/g,
-  //       replacementValue: 'height="auto"',
-  //     },
-  //   ],
-  //   tooltip: 'String find and replace width="[^"]*" with width="100%" and height="[^"]*" with height="auto".',
-  // },
+  {
+    type: 'checkbox',
+    description: 'Remove inline styles',
+    value: true,
+    key: 'remove-inline-styles',
+    tooltip: 'Remove the styles attribute from all elements within the SVG.',
+    cheerioFunction: (cheerio: CheerioAPI) => {
+      cheerio('svg *').removeAttr('style');
+    },
+  },
+  {
+    type: 'checkbox',
+    description: 'Make the SVG full width',
+    value: true,
+    key: 'make-the-svg-full-width',
+    tooltip: 'Select the SVG element and set the width to 100% and height to auto.',
+    cheerioFunction: (cheerio: CheerioAPI) => {
+      cheerio('svg').attr('height', 'auto');
+      cheerio('svg').attr('width', '100%');
+    },
+  },
   // {
   //   type: 'checkbox',
   //   description: 'Remove inline font family',
@@ -271,18 +262,9 @@ export function Form() {
   function onClickConvert() {
     let value = svgInput;
 
-    // for (const inputOption of inputOptions) {
-    //   if (!inputOption.value || inputOption.type !== 'checkbox' || !inputOption.changes) continue;
-
-    //   for (const change of inputOption.changes) {
-    //     value = value.replace(change.matchingRegex, change.replacementValue);
-    //   }
-    // }
-
     const $ = load(value, { xml: true });
 
     for (const inputOption of inputOptions) {
-      console.log('🚀 ~ onClickConvert ~ inputOption:', inputOption);
       if (inputOption.type === 'checkbox') {
         inputOption.cheerioFunction($);
       }
@@ -299,17 +281,17 @@ export function Form() {
     setConvertedSvg(finalOutput);
   }
 
-  // function onCheckboxClick(_: ChangeEvent<HTMLInputElement>, index: number) {
-  //   const checkboxInputsCopy = [...inputOptions];
-  //   const checkboxCopy = { ...checkboxInputsCopy[index] };
+  function onCheckboxClick(_: ChangeEvent<HTMLInputElement>, index: number) {
+    const checkboxInputsCopy = [...inputOptions];
+    const checkboxCopy = { ...checkboxInputsCopy[index] };
 
-  //   if (checkboxCopy.type !== 'checkbox') return;
+    if (checkboxCopy.type !== 'checkbox') return;
 
-  //   checkboxCopy.value = !checkboxCopy.value;
-  //   checkboxInputsCopy[index] = checkboxCopy;
+    checkboxCopy.value = !checkboxCopy.value;
+    checkboxInputsCopy[index] = checkboxCopy;
 
-  //   setInputOptions(checkboxInputsCopy);
-  // }
+    setInputOptions(checkboxInputsCopy);
+  }
 
   function onTextChange(event: ChangeEvent<HTMLInputElement>, index: number) {
     const checkboxInputsCopy = [...inputOptions];
