@@ -23,7 +23,7 @@ export default function ExcalidrawSvgToReact() {
       </p>
       <p>
         I want to be able to paste that exported SVG into the textarea at the bottom of this page, click the Convert
-        button and have my SVG that I can paste inside a React component.
+        button and export a React compliant SVG that I can paste inside a React component.
       </p>
       <p>
         The benefit of automating a lot of the conversion from Excalidraw to React is that if I have to edit this
