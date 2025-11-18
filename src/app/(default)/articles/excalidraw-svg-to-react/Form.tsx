@@ -53,19 +53,16 @@ const options: Option[] = [
       cheerio('defs').remove();
     },
   },
-  // {
-  //   type: 'checkbox',
-  //   description: 'Remove metadata',
-  //   value: true,
-  //   key: 'remove-metadata',
-  //   changes: [
-  //     {
-  //       matchingRegex: /<metadata>.*?<\/metadata>/,
-  //       replacementValue: '',
-  //     },
-  //   ],
-  //   tooltip: 'String find and replace <metadata>.*?</metadata> with an empty string.',
-  // },
+  {
+    type: 'checkbox',
+    description: 'Remove metadata',
+    value: true,
+    key: 'remove-metadata',
+    tooltip: 'String find and replace <metadata>.*?</metadata> with an empty string.',
+    cheerioFunction: (cheerio: CheerioAPI) => {
+      cheerio('metadata').remove();
+    },
+  },
   // {
   //   type: 'checkbox',
   //   description: 'Remove inline styles',
