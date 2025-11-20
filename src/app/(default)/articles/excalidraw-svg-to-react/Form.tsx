@@ -42,6 +42,24 @@ interface CustomOptions extends BaseOptions {
 
 type Option = TextOptions | CheckboxOptions | CustomOptions;
 
+const kebabCaseAttributesToMatch = new Set([
+  'stroke-linecap',
+  'dominant-baseline',
+  'stroke-width',
+  'text-anchor',
+  'font-family',
+  'font-size',
+]);
+
+const mapOldKebabCaseToCamelCase: Record<string, string> = {
+  'stroke-linecap': 'strokeLinecap',
+  'dominant-baseline': 'dominantBaseline',
+  'stroke-width': 'strokeWidth',
+  'text-anchor': 'textAnchor',
+  'font-family': 'fontFamily',
+  'font-size': 'fontSize',
+};
+
 const options: Option[] = [
   {
     type: 'checkbox',
@@ -110,41 +128,28 @@ const options: Option[] = [
         });
     },
   },
-  // {
-  //   type: 'checkbox',
-  //   description: 'Convert kebab-case HTML attributes to camelCase',
-  //   value: true,
-  //   key: 'convert-kebab-case-to-camel-case',
-  //   changes: [
-  //     {
-  //       matchingRegex: /stroke-linecap/g,
-  //       replacementValue: 'strokeLinecap',
-  //     },
-  //     {
-  //       matchingRegex: /dominant-baseline/g,
-  //       replacementValue: 'dominantBaseline',
-  //     },
-  //     {
-  //       matchingRegex: /stroke-width/g,
-  //       replacementValue: 'strokeWidth',
-  //     },
-  //     {
-  //       matchingRegex: /text-anchor/g,
-  //       replacementValue: 'textAnchor',
-  //     },
-  //     {
-  //       matchingRegex: /font-family/g,
-  //       replacementValue: 'fontFamily',
-  //     },
-  //     {
-  //       matchingRegex: /font-size/g,
-  //       replacementValue: 'fontSize',
-  //     },
-  //   ],
-  //   tooltip:
-  //     'String find and replace kebab-case attributes with camelCase equivalents, i.e. stroke-linecap with strokeLinecap.',
-  // },
+  {
+    type: 'checkbox',
+    description: 'Convert kebab-case HTML attributes to camelCase',
+    value: true,
+    key: 'convert-kebab-case-to-camel-case',
+    cheerioFunction: (cheerio: CheerioAPI) => {
+      cheerio('svg *').each((_, node) => {
+        const element = cheerio(node);
 
+        for (const attribute of Object.keys(node.attribs)) {
+          if (kebabCaseAttributesToMatch.has(attribute)) {
+            const value = element.attr(attribute);
+            const newAttributeName = mapOldKebabCaseToCamelCase[attribute];
+
+            element.removeAttr(attribute);
+            element.attr(newAttributeName, value);
+          }
+        }
+      });
+    },
+    tooltip: 'Replace kebab-case attributes with camelCase equivalents, i.e. stroke-linecap with strokeLinecap.',
+  },
   {
     type: 'checkbox',
     description: 'Make the background transparent',
@@ -305,7 +310,7 @@ export function Form() {
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {inputOptions.map((inputOption, index) => (
-          <InputOption option={inputOption} index={index} />
+          <InputOption option={inputOption} index={index} key={index} />
         ))}
       </div>
       <textarea value={svgInput} onChange={onSvgInputChange} rows={10} />
@@ -333,6 +338,7 @@ function InputOption({ option, index }: InputOptionProps) {
             className="absolute h-6 w-6 accent-primary-300"
             checked={Boolean(option.value)}
             name={option.key}
+            readOnly={true}
           />
           <p className="w-full text-center text-2xl">{option.description}</p>
         </div>
