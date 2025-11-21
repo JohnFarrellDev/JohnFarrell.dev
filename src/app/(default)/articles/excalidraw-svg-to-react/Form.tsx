@@ -6,14 +6,7 @@ import { load, type CheerioAPI } from 'cheerio';
 import { SectionTitle } from '@/Components/SectionTitle';
 import { CodeBlock } from '@/Components/CodeBlock';
 import { ChevronsRight } from 'lucide-react';
-// option to wrap in a className
-// font-excalidraw
-// text-[#1e1e1e]
-
-// optional change box stroke-width
-// optional - change arrow stroke width
-// optional - change box stroke color
-// optional - change arrow stroke color
+import getBounds from 'svg-path-bounding-box';
 
 interface BaseOptions {
   description: string;
@@ -22,25 +15,25 @@ interface BaseOptions {
   tooltip?: string;
 }
 
-type CheckboxOptions = BaseOptions & {
+type CheckboxOption = BaseOptions & {
   type: 'checkbox';
   value: boolean;
   cheerioFunction: (x: CheerioAPI) => void;
 };
 
-interface TextOptions extends BaseOptions {
+interface TextOption extends BaseOptions {
   type: 'text' | 'number';
   value: string;
   cheerioFunction: (x: CheerioAPI, value: string) => void;
 }
 
-interface CustomOptions extends BaseOptions {
+interface CustomOption extends BaseOptions {
   type: 'custom';
   value: boolean;
   cheerioFunction: (x: CheerioAPI) => void;
 }
 
-type Option = TextOptions | CheckboxOptions | CustomOptions;
+type Option = TextOption | CheckboxOption | CustomOption;
 
 const kebabCaseAttributesToMatch = new Set([
   'stroke-linecap',
@@ -159,78 +152,77 @@ const options: Option[] = [
       cheerio('svg rect[fill]').attr('fillOpacity', '0');
     },
   },
+  {
+    type: 'text',
+    description: 'Class Value To Apply to the SVG container',
+    value: '',
+    key: 'apply-classname',
+    cheerioFunction: (cheerio: CheerioAPI, value: string) => {
+      cheerio('svg').attr('className', value);
+    },
+  },
+  {
+    type: 'text',
+    description: 'Stroke color to apply to arrows and boxes',
+    value: 'var(--clr-primary-3)',
+    key: 'apply-stroke',
+    cheerioFunction: (cheerio: CheerioAPI, value: string) => {
+      cheerio('g > path').attr('stroke', value);
+    },
+  },
+  {
+    type: 'number',
+    description: 'Stroke width to apply to arrows and boxes',
+    value: '4',
+    key: 'apply-stroke-width',
+    cheerioFunction: (cheerio: CheerioAPI, value: string) => {
+      cheerio('g > path').attr('strokeWidth', value);
+    },
+  },
+  {
+    type: 'checkbox',
+    description: 'Add hover rectangles to boxes and make text clickable',
+    value: true,
+    key: 'add-hover-rectangles',
+    cheerioFunction: (cheerio: CheerioAPI) => {
+      cheerio('svg > g > path').each((index, element) => {
+        const $path = cheerio(element);
+        const $pathData = element.attribs['d'];
+        const $boxGroup = $path.parent('g');
+        const $textGroup = $boxGroup.next('g');
 
-  // {
-  //   type: 'text',
-  //   description: 'classNameToApply to the SVG container',
-  //   value: 'font-excalidraw',
-  //   key: 'apply-classname',
-  //   cheerioFunction: (cheerio: CheerioAPI, value: string) => {
-  //     cheerio('svg').attr('className', value);
-  //   },
-  // },
-  // {
-  //   type: 'text',
-  //   description: 'Stroke color to apply to arrows and boxes',
-  //   value: 'var(--clr-primary-3)',
-  //   key: 'apply-stroke',
-  //   cheerioFunction: (cheerio: CheerioAPI, value: string) => {
-  //     cheerio('g > path').attr('stroke', value);
-  //   },
-  // },
-  // {
-  //   type: 'number',
-  //   description: 'Stroke width to apply to arrows and boxes',
-  //   value: '4',
-  //   key: 'apply-stroke-width',
-  //   cheerioFunction: (cheerio: CheerioAPI, value: string) => {
-  //     cheerio('g > path').attr('strokeWidth', value);
-  //   },
-  // },
-  // {
-  //   type: 'custom',
-  //   description: 'Add hover rectangles to boxes and make text clickable',
-  //   value: true,
-  //   key: 'add-hover-rectangles',
-  //   cheerioFunction: (cheerio: CheerioAPI) => {
-  //     cheerio('svg > g > path').each((index, element) => {
-  //       const $path = cheerio(element);
-  //       const $pathData = element.attribs['d'];
-  //       const $boxGroup = $path.parent('g');
-  //       const $textGroup = $boxGroup.next('g');
+        if ($boxGroup.length === 0 || $textGroup.length === 0) return;
 
-  //       if ($boxGroup.length === 0 || $textGroup.length === 0) return;
+        // Clone the groups before moving them
+        const $boxClone = $boxGroup.clone();
+        const $textClone = $textGroup.clone();
 
-  //       // Clone the groups before moving them
-  //       const $boxClone = $boxGroup.clone();
-  //       const $textClone = $textGroup.clone();
+        const $wrapperG = cheerio('<g></g>');
+        $wrapperG.attr({
+          className: 'hover:cursor-pointer group',
+          onClick: `{() => setDialogIndex(${index})}`,
+        });
 
-  //       const $wrapperG = cheerio('<g></g>');
-  //       $wrapperG.attr({
-  //         className: 'hover:cursor-pointer group',
-  //         onClick: `{() => setDialogIndex(${index})}`,
-  //       });
+        $wrapperG.append($boxClone);
+        $wrapperG.append($textClone);
 
-  //       $wrapperG.append($boxClone);
-  //       $wrapperG.append($textClone);
+        $boxGroup.replaceWith($wrapperG);
+        $textGroup.remove();
 
-  //       $boxGroup.replaceWith($wrapperG);
-  //       $textGroup.remove();
-
-  //       const bb = getBounds($pathData);
-  //       const $rect = cheerio('<rect></rect>');
-  //       $rect.attr({
-  //         x: bb.x1.toString(),
-  //         y: bb.y1.toString(),
-  //         width: (bb.x2 - bb.x1).toString(),
-  //         height: (bb.y2 - bb.y1).toString(),
-  //         fill: 'transparent',
-  //         'data-hover-helper': 'true',
-  //       });
-  //       $boxClone.prepend($rect);
-  //     });
-  //   },
-  // },
+        const bb = getBounds($pathData);
+        const $rect = cheerio('<rect></rect>');
+        $rect.attr({
+          x: bb.x1.toString(),
+          y: bb.y1.toString(),
+          width: (bb.x2 - bb.x1).toString(),
+          height: (bb.y2 - bb.y1).toString(),
+          fill: 'transparent',
+          'data-hover-helper': 'true',
+        });
+        $boxClone.prepend($rect);
+      });
+    },
+  },
 ];
 
 export function Form() {
@@ -250,8 +242,14 @@ export function Form() {
     const $ = load(value, { xml: true });
 
     for (const inputOption of inputOptions) {
-      if (inputOption.type === 'checkbox') {
+      if (inputOption.type === 'checkbox' && inputOption.value) {
         inputOption.cheerioFunction($);
+      }
+      if (inputOption.type === 'text') {
+        inputOption.cheerioFunction($, inputOption.value);
+      }
+      if (inputOption.type === 'number') {
+        inputOption.cheerioFunction($, inputOption.value);
       }
     }
 
@@ -266,7 +264,7 @@ export function Form() {
     setConvertedSvg(finalOutput);
   }
 
-  function onCheckboxClick(_: ChangeEvent<HTMLInputElement>, index: number) {
+  function onCheckboxClick(index: number) {
     const checkboxInputsCopy = [...inputOptions];
     const checkboxCopy = { ...checkboxInputsCopy[index] };
 
@@ -309,9 +307,19 @@ export function Form() {
         <SectionTitle as="h3">Input Controls</SectionTitle> <ChevronsRight />
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        {inputOptions.map((inputOption, index) => (
-          <InputOption option={inputOption} index={index} key={index} />
-        ))}
+        {inputOptions.map((inputOption, index) => {
+          if (inputOption.type === 'checkbox') {
+            return <CheckboxInput option={inputOption} index={index} onClick={onCheckboxClick} key={inputOption.key} />;
+          }
+          if (inputOption.type === 'text') {
+            return <TextboxInput option={inputOption} index={index} onChange={onTextChange} key={inputOption.key} />;
+          }
+          if (inputOption.type === 'number') {
+            return (
+              <NumberBoxInput option={inputOption} index={index} onChange={onNumberChange} key={inputOption.key} />
+            );
+          }
+        })}
       </div>
       <textarea value={svgInput} onChange={onSvgInputChange} rows={10} />
       <Button className="w-fit" onClick={onClickConvert}>
@@ -326,57 +334,76 @@ export function Form() {
   );
 }
 
-type InputOptionProps = { option: Option; index: number };
+type CheckboxInputOptionProps = {
+  option: CheckboxOption;
+  index: number;
+  onClick: (index: number) => void;
+};
 
-function InputOption({ option, index }: InputOptionProps) {
-  if (option.type === 'checkbox') {
-    return (
-      <InputOptionContainer>
-        <div className="flex w-full">
-          <input
-            type={option.type}
-            className="absolute h-6 w-6 accent-primary-300"
-            checked={Boolean(option.value)}
-            name={option.key}
-            readOnly={true}
-          />
-          <p className="w-full text-center text-2xl">{option.description}</p>
-        </div>
-        <p>{option.tooltip}</p>
-      </InputOptionContainer>
-    );
-  }
+function CheckboxInput({ option, index, onClick }: CheckboxInputOptionProps) {
+  return (
+    <InputOptionContainer>
+      <div className="flex w-full">
+        <input
+          type="checkbox"
+          className="absolute h-6 w-6 accent-primary-300"
+          checked={Boolean(option.value)}
+          name={option.key}
+          onChange={() => onClick(index)}
+        />
+        <p className="mx-8 w-full text-center text-2xl">{option.description}</p>
+      </div>
+      <p>{option.tooltip}</p>
+    </InputOptionContainer>
+  );
+}
 
-  // return (
+type TextboxInputOptionProps = {
+  option: TextOption;
+  index: number;
+  onChange: (event: ChangeEvent<HTMLInputElement>, index: number) => void;
+};
 
-  //     <div className="flex content-center gap-4">
-  //       {inputOption.type === 'checkbox' && (
+function TextboxInput({ option, index, onChange }: TextboxInputOptionProps) {
+  return (
+    <InputOptionContainer>
+      <div className="flex flex-col">
+        <p className="w-full text-left text-2xl">{option.description}</p>
+        <input
+          type="text"
+          className="h-6 w-fit min-w-48 accent-primary-300"
+          value={option.value}
+          onChange={(e) => onChange(e, index)}
+          name={option.key}
+        />
+      </div>
+      <p>{option.tooltip}</p>
+    </InputOptionContainer>
+  );
+}
 
-  //       )}
+type NumberInputOptionProps = {
+  option: TextOption;
+  index: number;
+  onChange: (event: ChangeEvent<HTMLInputElement>, index: number) => void;
+};
 
-  //
-  //     </div>
-  //     {inputOption.type === 'text' && (
-  //       <input
-  //         type={inputOption.type}
-  //         className="h-6 w-fit min-w-48 accent-primary-300"
-  //         value={inputOption.value}
-  //         onChange={(e) => onTextChange(e, index)}
-  //         name={inputOption.key}
-  //       />
-  //     )}
-  //     {inputOption.type === 'number' && (
-  //       <input
-  //         type={inputOption.type}
-  //         className="h-6 w-fit min-w-48 accent-primary-300"
-  //         value={inputOption.value}
-  //         onChange={(e) => onNumberChange(e, index)}
-  //         name={inputOption.key}
-  //       />
-  //     )}
-  //
-  //   </div>
-  // );
+function NumberBoxInput({ option, index, onChange }: NumberInputOptionProps) {
+  return (
+    <InputOptionContainer>
+      <div className="flex flex-col">
+        <p className="w-full text-left text-2xl">{option.description}</p>
+        <input
+          type="number"
+          className="h-6 w-fit min-w-48 accent-primary-300"
+          value={option.value}
+          onChange={(e) => onChange(e, index)}
+          name={option.key}
+        />
+      </div>
+      <p>{option.tooltip}</p>
+    </InputOptionContainer>
+  );
 }
 
 function InputOptionContainer({ children }: { children: React.ReactNode }) {
