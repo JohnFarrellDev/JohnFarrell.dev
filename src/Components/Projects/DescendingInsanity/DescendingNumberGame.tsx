@@ -3,7 +3,7 @@
 import { Copy } from 'lucide-react';
 import { RefObject, useEffect, useRef, useState } from 'react';
 import { deferredGameState, applyConfetti } from './DescendingNumberGame.utils';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import { cn } from '@/lib/utils';
 
 type SetGameProps = {
@@ -257,10 +257,13 @@ const ShareButton = ({
   };
 
   return (
-    <button onClick={handleShare} className="flex gap-2 bg-blue-300 p-2 text-center hover:bg-blue-400">
-      <Copy />
-      Share Results
-    </button>
+    <>
+      <button onClick={handleShare} className="flex gap-2 bg-blue-300 p-2 text-center hover:bg-blue-400">
+        <Copy />
+        Share Results
+      </button>
+      <ToastContainer />
+    </>
   );
 };
 
