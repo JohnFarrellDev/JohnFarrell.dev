@@ -250,7 +250,6 @@ export function Form() {
   const [inputOptions, setInputOptions] = useState(options);
   const [svgInput, setSvgInput] = useState('');
   const [convertedSvg, setConvertedSvg] = useState('');
-  const [inputControlsOpen, setInputControlsOpen] = useState(false);
 
   function onSvgInputChange(e: ChangeEvent<HTMLTextAreaElement>) {
     const value = e.target.value;
@@ -258,7 +257,7 @@ export function Form() {
   }
 
   function onClickConvert() {
-    let value = svgInput;
+    const value = svgInput;
 
     const $ = load(value, { xml: true });
 
