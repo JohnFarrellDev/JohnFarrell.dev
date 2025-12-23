@@ -35,7 +35,7 @@
     "react-lite-youtube-embed": "^2.4.0",
     "react-syntax-highlighter": "15.5.0",
     "react-toastify": "10.0.5",
-    "sharp": "0.33.5",
+    "sharp": "0.34.5",
     "svg-path-bounding-box": "^1.0.4",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "1.0.7"
