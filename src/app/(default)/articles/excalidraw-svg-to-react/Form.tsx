@@ -145,6 +145,27 @@ const options: Option[] = [
   },
   {
     type: 'checkbox',
+    description: 'Convert invalid text (>) to a valid format (&gt;)',
+    value: true,
+    key: 'convert-invalid-token-to-valid-html-encoding',
+    cheerioFunction: (cheerio: CheerioAPI) => {
+      cheerio('svg')
+        .find('*')
+        .each((_, el) => {
+          if (el && Array.isArray(el.children)) {
+            for (const child of el.children) {
+              if (child.type === 'text' && typeof child.data === 'string') {
+                if (child.data.includes('>')) {
+                  child.data = child.data.replace(/>/g, '&gt;');
+                }
+              }
+            }
+          }
+        });
+    },
+  },
+  {
+    type: 'checkbox',
     description: 'Make the background transparent',
     value: true,
     key: 'make-the-background-transparent',
