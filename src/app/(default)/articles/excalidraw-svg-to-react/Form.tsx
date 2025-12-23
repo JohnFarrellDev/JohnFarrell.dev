@@ -145,7 +145,8 @@ const options: Option[] = [
   },
   {
     type: 'checkbox',
-    description: 'Convert invalid text (>) to a valid format (&gt;)',
+    description: 'Ensure text is encoded to be HTML compliant',
+    tooltip: 'convert text such as > to &gt;',
     value: true,
     key: 'convert-invalid-token-to-valid-html-encoding',
     cheerioFunction: (cheerio: CheerioAPI) => {
