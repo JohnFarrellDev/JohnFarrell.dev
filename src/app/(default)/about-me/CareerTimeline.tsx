@@ -24,7 +24,19 @@ export function CareerTimelineSVG() {
           className=""
         >
           <rect x="0" y="0" width="1611.0140570568765" height="1210.9616113962911" fill="#ffffff" fillOpacity="0" />
-          <g className="group hover:cursor-pointer" onClick={() => setDialogIndex(0)}>
+          <g
+            className="group hover:cursor-pointer"
+            tabIndex={0}
+            role="button"
+            focusable="true"
+            onClick={() => setDialogIndex(0)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                setDialogIndex(0);
+              }
+            }}
+          >
             <g
               transform="translate(108.15931568322412 10) rotate(0 156.57017036687694 165.7096422789491)"
               strokeLinecap="round"
@@ -142,7 +154,19 @@ export function CareerTimelineSVG() {
               </text>
             </g>
           </g>
-          <g className="group hover:cursor-pointer" onClick={() => setDialogIndex(1)}>
+          <g
+            className="group hover:cursor-pointer"
+            tabIndex={0}
+            role="button"
+            focusable="true"
+            onClick={() => setDialogIndex(1)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                setDialogIndex(1);
+              }
+            }}
+          >
             <g
               transform="translate(541.638595899133 41.04306821440696) rotate(0 198.33782156306552 124.72964473569846)"
               strokeLinecap="round"
@@ -218,7 +242,19 @@ export function CareerTimelineSVG() {
               </text>
             </g>
           </g>
-          <g className="group hover:cursor-pointer" onClick={() => setDialogIndex(2)}>
+          <g
+            className="group hover:cursor-pointer"
+            tabIndex={0}
+            role="button"
+            focusable="true"
+            onClick={() => setDialogIndex(2)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                setDialogIndex(2);
+              }
+            }}
+          >
             <g
               transform="translate(1096.1031031036518 57.794103796470154) rotate(0 252.45547697661232 92.97266592220876)"
               strokeLinecap="round"
@@ -283,7 +319,19 @@ export function CareerTimelineSVG() {
               </text>
             </g>
           </g>
-          <g className="group hover:cursor-pointer" onClick={() => setDialogIndex(3)}>
+          <g
+            className="group hover:cursor-pointer"
+            tabIndex={0}
+            role="button"
+            focusable="true"
+            onClick={() => setDialogIndex(3)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                setDialogIndex(3);
+              }
+            }}
+          >
             <g
               transform="translate(1121.1168699992088 398.37778121932206) rotate(0 212.366668701172 134.0574179326577)"
               strokeLinecap="round"
@@ -382,7 +430,19 @@ export function CareerTimelineSVG() {
               </text>
             </g>
           </g>
-          <g className="group hover:cursor-pointer" onClick={() => setDialogIndex(4)}>
+          <g
+            className="group hover:cursor-pointer"
+            tabIndex={0}
+            role="button"
+            focusable="true"
+            onClick={() => setDialogIndex(4)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                setDialogIndex(4);
+              }
+            }}
+          >
             <g
               transform="translate(622.1890893952168 354.39196500427715) rotate(0 177.39260948916296 180)"
               strokeLinecap="round"
@@ -511,7 +571,19 @@ export function CareerTimelineSVG() {
               </text>
             </g>
           </g>
-          <g className="group hover:cursor-pointer" onClick={() => setDialogIndex(5)}>
+          <g
+            className="group hover:cursor-pointer"
+            tabIndex={0}
+            role="button"
+            focusable="true"
+            onClick={() => setDialogIndex(5)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                setDialogIndex(5);
+              }
+            }}
+          >
             <g
               transform="translate(21.965520813387002 397.378532845094) rotate(0 203.3038977867575 191.78371578855877)"
               strokeLinecap="round"
@@ -748,7 +820,19 @@ export function CareerTimelineSVG() {
             </g>
           </g>
           <mask />
-          <g className="group hover:cursor-pointer" onClick={() => setDialogIndex(6)}>
+          <g
+            className="group hover:cursor-pointer"
+            tabIndex={0}
+            role="button"
+            focusable="true"
+            onClick={() => setDialogIndex(6)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                setDialogIndex(6);
+              }
+            }}
+          >
             <g
               transform="translate(10 948.9016101588677) rotate(0 212.36666870117188 98.42267188331061)"
               strokeLinecap="round"
@@ -824,7 +908,19 @@ export function CareerTimelineSVG() {
               </text>
             </g>
           </g>
-          <g className="group hover:cursor-pointer" onClick={() => setDialogIndex(7)}>
+          <g
+            className="group hover:cursor-pointer"
+            tabIndex={0}
+            role="button"
+            focusable="true"
+            onClick={() => setDialogIndex(7)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                setDialogIndex(7);
+              }
+            }}
+          >
             <g
               transform="translate(657.8415267106491 842.0834285041856) rotate(0 343.592237466083 179.43909144605277)"
               strokeLinecap="round"
@@ -854,7 +950,7 @@ export function CareerTimelineSVG() {
                 textAnchor="middle"
                 dominantBaseline="alphabetic"
               >
-                (2023 -&gt; Present)
+                (2023 - Present)
               </text>
               <text
                 x="331.6916809082031"
@@ -1034,7 +1130,19 @@ export function CareerTimelineSVG() {
           className=""
         >
           <rect x="0" y="0" width="768.1076121754654" height="2993.151012983817" fill="#ffffff" fillOpacity="0" />
-          <g className="group hover:cursor-pointer" onClick={() => setDialogIndex(0)}>
+          <g
+            className="group hover:cursor-pointer"
+            tabIndex={0}
+            role="button"
+            focusable="true"
+            onClick={() => setDialogIndex(0)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                setDialogIndex(0);
+              }
+            }}
+          >
             <g
               transform="translate(254.74082629665247 10) rotate(0 156.57017036687688 165.7096422789491)"
               strokeLinecap="round"
@@ -1152,7 +1260,19 @@ export function CareerTimelineSVG() {
               </text>
             </g>
           </g>
-          <g className="group hover:cursor-pointer" onClick={() => setDialogIndex(1)}>
+          <g
+            className="group hover:cursor-pointer"
+            tabIndex={0}
+            role="button"
+            focusable="true"
+            onClick={() => setDialogIndex(1)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                setDialogIndex(1);
+              }
+            }}
+          >
             <g
               transform="translate(122.75443387452424 447.53346845503256) rotate(0 289.76639299163696 124.72964473569846)"
               strokeLinecap="round"
@@ -1217,7 +1337,19 @@ export function CareerTimelineSVG() {
               </text>
             </g>
           </g>
-          <g className="group hover:cursor-pointer" onClick={() => setDialogIndex(2)}>
+          <g
+            className="group hover:cursor-pointer"
+            tabIndex={0}
+            role="button"
+            focusable="true"
+            onClick={() => setDialogIndex(2)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                setDialogIndex(2);
+              }
+            }}
+          >
             <g
               transform="translate(207.8240470603505 801.5512462113766) rotate(0 206.0430447840438 97.50070808733653)"
               strokeLinecap="round"
@@ -1293,7 +1425,19 @@ export function CareerTimelineSVG() {
               </text>
             </g>
           </g>
-          <g className="group hover:cursor-pointer" onClick={() => setDialogIndex(3)}>
+          <g
+            className="group hover:cursor-pointer"
+            tabIndex={0}
+            role="button"
+            focusable="true"
+            onClick={() => setDialogIndex(3)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                setDialogIndex(3);
+              }
+            }}
+          >
             <g
               transform="translate(129.1411367066636 1099.6225752800783) rotate(0 277.86147451651533 134.0574179326577)"
               strokeLinecap="round"
@@ -1392,7 +1536,19 @@ export function CareerTimelineSVG() {
               </text>
             </g>
           </g>
-          <g className="group hover:cursor-pointer" onClick={() => setDialogIndex(4)}>
+          <g
+            className="group hover:cursor-pointer"
+            tabIndex={0}
+            role="button"
+            focusable="true"
+            onClick={() => setDialogIndex(4)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                setDialogIndex(4);
+              }
+            }}
+          >
             <g
               transform="translate(218.24763861444046 1477.707223581674) rotate(0 177.3926094891629 180)"
               strokeLinecap="round"
@@ -1521,7 +1677,19 @@ export function CareerTimelineSVG() {
               </text>
             </g>
           </g>
-          <g className="group hover:cursor-pointer" onClick={() => setDialogIndex(5)}>
+          <g
+            className="group hover:cursor-pointer"
+            tabIndex={0}
+            role="button"
+            focusable="true"
+            onClick={() => setDialogIndex(5)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                setDialogIndex(5);
+              }
+            }}
+          >
             <g
               transform="translate(10 1935.4513027302783) rotate(0 374.0538060877327 141.42071477355057)"
               strokeLinecap="round"
@@ -1725,7 +1893,19 @@ export function CareerTimelineSVG() {
             </g>
           </g>
           <mask />
-          <g className="group hover:cursor-pointer" onClick={() => setDialogIndex(6)}>
+          <g
+            className="group hover:cursor-pointer"
+            tabIndex={0}
+            role="button"
+            focusable="true"
+            onClick={() => setDialogIndex(6)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                setDialogIndex(6);
+              }
+            }}
+          >
             <g
               transform="translate(156.58872311603113 2319.3181858744792) rotate(0 212.36666870117188 98.42267188331061)"
               strokeLinecap="round"
@@ -1801,7 +1981,19 @@ export function CareerTimelineSVG() {
               </text>
             </g>
           </g>
-          <g className="group hover:cursor-pointer" onClick={() => setDialogIndex(7)}>
+          <g
+            className="group hover:cursor-pointer"
+            tabIndex={0}
+            role="button"
+            focusable="true"
+            onClick={() => setDialogIndex(7)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                setDialogIndex(7);
+              }
+            }}
+          >
             <g
               transform="translate(37.23662744056526 2624.2728300917115) rotate(0 343.5922374660831 179.43909144605277)"
               strokeLinecap="round"
@@ -1831,7 +2023,7 @@ export function CareerTimelineSVG() {
                 textAnchor="middle"
                 dominantBaseline="alphabetic"
               >
-                (2023 -&gt; Present)
+                (2023 - Present)
               </text>
               <text
                 x="331.6916809082031"
