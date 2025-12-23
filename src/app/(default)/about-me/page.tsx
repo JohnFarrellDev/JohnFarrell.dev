@@ -16,9 +16,8 @@ export default function AboutMe() {
           You can follow my journey so far below (click on any box for more information), this is only the beginning
           with many more chapters to be added.
         </p>
-        <div className="hidden md:block">
-          <CareerTimelineSVG />
-        </div>
+
+        <CareerTimelineSVG />
       </article>
     </section>
   );
