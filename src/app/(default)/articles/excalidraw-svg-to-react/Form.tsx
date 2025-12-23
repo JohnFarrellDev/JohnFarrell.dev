@@ -222,7 +222,11 @@ const options: Option[] = [
         const $wrapperG = cheerio('<g></g>');
         $wrapperG.attr({
           className: 'hover:cursor-pointer group',
+          tabIndex: '0',
+          role: 'button',
+          focusable: 'true',
           onClick: `{() => setDialogIndex(${index})}`,
+          onKeyDown: `{(e) => { if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); setDialogIndex(${index}); } }}`,
         });
 
         $wrapperG.append($boxClone);
@@ -276,11 +280,18 @@ export function Form() {
 
     let finalOutput = $.html();
 
-    // Fix HTML entity encoding in onClick handlers
-    finalOutput = finalOutput.replace(/onClick="\{(.*?)\}"/g, 'onClick={$1}');
-    finalOutput = finalOutput.replace(/&gt;/g, '>');
     finalOutput = finalOutput.replace(/&amp;/g, '&');
+    finalOutput = finalOutput.replace(/&gt;/g, '>');
+    finalOutput = finalOutput.replace(/&lt;/g, '<');
     finalOutput = finalOutput.replace(/&quot;/g, '"');
+    finalOutput = finalOutput.replace(/&apos;/g, "'");
+
+    finalOutput = finalOutput.replace(
+      /(\b(?:onClick|onKeyDown|onKeyUp|onMouseDown|onMouseUp|onMouseEnter|onMouseLeave))="\{([\s\S]*?)\}"/g,
+      '$1={$2}'
+    );
+    finalOutput = finalOutput.replace(/\btabIndex="(\d+)"/g, 'tabIndex={$1}');
+    finalOutput = finalOutput.replace(/(\b[a-zA-Z_:.-]+)=["']\{([\s\S]*?)\}["']/g, '$1={$2}');
 
     setConvertedSvg(finalOutput);
   }
