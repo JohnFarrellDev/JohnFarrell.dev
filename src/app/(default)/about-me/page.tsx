@@ -12,6 +12,10 @@ export default function AboutMe() {
     <section className="container">
       <article>
         <Title title="About Me" className="mb-2-p" underlineClassName="mb-8-p" />
+        <p>
+          You can follow my journey so far below (click on any box for more information), this is only the beginning
+          with many more chapters to be added.
+        </p>
         <div className="hidden md:block">
           <CareerTimelineSVG />
         </div>

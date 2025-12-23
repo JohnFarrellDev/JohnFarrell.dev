@@ -73,7 +73,7 @@ interface ModalTitleProps {
 
 ModalBase.Title = function ModalTitle({ title, className }: ModalTitleProps) {
   return (
-    <h2 id="dialog-title" className={cn('mb-2 text-xl font-bold', className)}>
+    <h2 id="dialog-title" className={cn('mb-4 text-xl font-bold', className)}>
       {title}
     </h2>
   );
@@ -85,7 +85,7 @@ interface ModalContentProps {
 }
 
 ModalBase.Content = function ModalContent({ children, className }: ModalContentProps) {
-  return <div className={className}>{children}</div>;
+  return <div className={cn('mb-4', className)}>{children}</div>;
 };
 
 interface ModalFooterProps {
