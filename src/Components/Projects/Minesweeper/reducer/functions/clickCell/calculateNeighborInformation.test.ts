@@ -397,7 +397,7 @@ describe('calculate neighbor information', () => {
     'should have $expectedBombs neighbor bombs in the the $testedArea when borderless mode is $borderlessMode',
     ({
       testedCell,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
       testedArea,
       expectedBombs,
       borderlessMode,

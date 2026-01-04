@@ -3,7 +3,7 @@ import { generateBoard } from '../../functions/generateBoard';
 
 export const validateChange = (
   state: State,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
   _: ValidateChangeAction
 ): void => {
   if (state.columns > 50) {

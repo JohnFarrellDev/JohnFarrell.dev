@@ -151,7 +151,6 @@ const mapActionToFunction: Record<
   | 'MouseUpCell'
   | 'SwitchFaceType'
   | 'ValidateChangeAction',
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (state: State, action: any) => void
 > = {
   Init: init,
