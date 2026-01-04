@@ -85,17 +85,6 @@ module.exports = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
-      container: {
-        center: true,
-        screens: {
-          DEFAULT: '100%',
-          sm: '95vw',
-          md: '95vw',
-          lg: '90vw',
-          xl: '1170px',
-          '2xl': '1170px',
-        },
-      },
     },
   },
   plugins: [
@@ -109,6 +98,10 @@ module.exports = {
           right: '50%',
           marginLeft: '-50svw',
           marginRight: '-50svw',
+        },
+        '.container': {
+          marginInline: 'auto',
+          width: 'min(90vw, 1170px)',
         },
       };
 
