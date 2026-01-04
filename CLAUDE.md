@@ -17,7 +17,7 @@ npm run format       # Run Prettier on all files
 
 ## Architecture
 
-**Stack**: Next.js 14 (App Router), React 18, TypeScript, Tailwind CSS
+**Stack**: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS
 
 **Path alias**: `@/` maps to `./src/`
 
