@@ -30,7 +30,7 @@ export default function ExcalidrawSvgToReact() {
         diagram in the future the process will be relatively quick and painless. I also have multiple variations of the
         diagram based on screen sizes.
       </p>
-      <div className="mb-8-p grid grid-cols-1 gap-4 lg:grid-cols-2">
+      <div className="mb-8 grid grid-cols-1 gap-4 lg:grid-cols-2">
         <img
           src="https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/excalidraw-svg-to-react/excalidraw-about-me.png"
           alt=""
@@ -38,7 +38,7 @@ export default function ExcalidrawSvgToReact() {
         />
         <div>
           <p>The SVG exported by Excalidraw is not compatible with my goals within React for a few reasons:</p>
-          <ul className="mb-4-p list-disc pl-4-p">
+          <ul className="mb-4 list-disc pl-4">
             <li>
               The SVG contains font face information for fetching the Excali web font, this is not required as I install
               the font directly and apply it via tailwind
@@ -70,7 +70,7 @@ export default function ExcalidrawSvgToReact() {
       </div>
       <SectionTitle>Some Assumptions</SectionTitle>
       <div>
-        <ul className="mb-4-p list-disc pl-4-p">
+        <ul className="mb-4 list-disc pl-4">
           <li>
             All rectangles and arrows in the SVG are always found with the selector{' '}
             <code className="whitespace-pre rounded bg-gray-300 p-1">

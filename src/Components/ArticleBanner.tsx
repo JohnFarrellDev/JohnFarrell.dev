@@ -11,7 +11,7 @@ interface ArticleBannerProps {
 
 export function ArticleBanner({ title, createdAt, lastUpdated, className }: ArticleBannerProps) {
   return (
-    <header className={cn('relative mb-6-p bg-gradient-to-r from-blue-100 to-blue-200 py-8 full-bleed', className)}>
+    <header className={cn('relative mb-6 bg-gradient-to-r from-blue-100 to-blue-200 py-8 full-bleed', className)}>
       <div
         className="absolute inset-0"
         style={{
