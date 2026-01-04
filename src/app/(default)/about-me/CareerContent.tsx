@@ -164,7 +164,7 @@ export function CareerContent({ dialogIndex, setDialogIndex, closeDialog }: Care
 
       <Modal.Footer className="flex justify-between">
         <button
-          className="text-primary-300 disabled:text-gray-500"
+          className="text-primary-800 disabled:text-gray-500"
           disabled={atFirstSection}
           aria-disabled={atFirstSection}
           type="button"
@@ -176,7 +176,7 @@ export function CareerContent({ dialogIndex, setDialogIndex, closeDialog }: Care
         </button>
         <Button type="submit">Close</Button>
         <button
-          className="text-primary-300 disabled:cursor-not-allowed disabled:text-gray-500"
+          className="text-primary-800 disabled:cursor-not-allowed disabled:text-gray-500"
           disabled={atLastSection}
           aria-disabled={atLastSection}
           type="button"

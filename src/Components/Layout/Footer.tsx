@@ -6,7 +6,7 @@ export function Footer() {
       <div>
         <SocialLinks className="mx-auto mb-4 mt-0 flex justify-center gap-4" styleLinks="text-white w-8" />
         <p className="mt-2 font-normal uppercase text-white">
-          copyright&copy;2020-{new Date().getFullYear()} <span className="text-primary-500">John Farrell</span> all
+          copyright&copy;2020-{new Date().getFullYear()} <span className="text-primary-600">John Farrell</span> all
           rights reserved
         </p>
       </div>

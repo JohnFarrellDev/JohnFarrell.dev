@@ -76,7 +76,7 @@ export function ContactForm() {
       ) : (
         <Button
           type="submit"
-          className="block w-full rounded-lg rounded-t-none bg-primary-300 py-4 font-bold uppercase text-primary-1000"
+          className="block w-full rounded-lg rounded-t-none bg-primary-800 py-4 font-bold uppercase text-primary-100"
         >
           <span>submit here</span>
         </Button>

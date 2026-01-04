@@ -22,9 +22,9 @@ export function Experience() {
               key={job.id}
               onClick={() => setValue(index)}
               className={cn(
-                'cursor-pointer border-none bg-transparent px-0 py-1 text-xl capitalize leading-none tracking-[var(--spacing)] transition-all hover:text-primary-200 hover:shadow-[0_2px_var(--clr-primary-2)] lg:hover:shadow-[-2px_0_var(--clr-primary-5)]',
+                'cursor-pointer border-none bg-transparent px-0 py-1 text-xl capitalize leading-none tracking-[var(--spacing)] transition-all hover:text-primary-900 hover:shadow-[0_2px_var(--clr-primary-900)] lg:hover:shadow-[-2px_0_var(--clr-primary-600)]',
                 {
-                  'text-primary-200 shadow-[0_2px_var(--clr-primary-2)] lg:shadow-[-2px_0_var(--clr-primary-5)]':
+                  'text-primary-900 shadow-[0_2px_var(--clr-primary-900)] lg:shadow-[-2px_0_var(--clr-primary-600)]':
                     index === value,
                 }
               )}
@@ -39,7 +39,7 @@ export function Experience() {
           <div className="grid grid-cols-1 gap-4">
             {responsibilities.map((item) => (
               <div key={item.id} className="flex items-center gap-8">
-                <ChevronsRight className="shrink-0 text-primary-500" />
+                <ChevronsRight className="shrink-0 text-primary-600" />
                 <p className="mb-0 text-gray-600">{item.description}</p>
               </div>
             ))}
