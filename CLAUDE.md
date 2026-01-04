@@ -48,4 +48,4 @@ npm run format       # Run Prettier on all files
 
 ## Node Version
 
-Requires Node.js 20.16.0 (pinned in package.json engines)
+Requires Node.js 24.x (specified in package.json engines)
