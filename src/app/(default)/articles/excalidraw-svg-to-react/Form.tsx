@@ -186,7 +186,7 @@ const options: Option[] = [
   {
     type: 'text',
     description: 'Stroke color to apply to arrows and boxes',
-    value: 'var(--clr-primary-3)',
+    value: 'var(--clr-primary-800)',
     key: 'apply-stroke',
     cheerioFunction: (cheerio: CheerioAPI, value: string) => {
       cheerio('g > path').attr('stroke', value);
@@ -378,7 +378,7 @@ function CheckboxInput({ option, index, onClick }: CheckboxInputOptionProps) {
       <div className="flex w-full">
         <input
           type="checkbox"
-          className="absolute h-6 w-6 accent-primary-300"
+          className="absolute h-6 w-6 accent-primary-800"
           checked={Boolean(option.value)}
           name={option.key}
           onChange={() => onClick(index)}
@@ -403,7 +403,7 @@ function TextboxInput({ option, index, onChange }: TextboxInputOptionProps) {
         <p className="w-full text-left text-2xl">{option.description}</p>
         <input
           type="text"
-          className="h-6 w-fit min-w-48 accent-primary-300"
+          className="h-6 w-fit min-w-48 accent-primary-800"
           value={option.value}
           onChange={(e) => onChange(e, index)}
           name={option.key}
@@ -427,7 +427,7 @@ function NumberBoxInput({ option, index, onChange }: NumberInputOptionProps) {
         <p className="w-full text-left text-2xl">{option.description}</p>
         <input
           type="number"
-          className="h-6 w-fit min-w-48 accent-primary-300"
+          className="h-6 w-fit min-w-48 accent-primary-800"
           value={option.value}
           onChange={(e) => onChange(e, index)}
           name={option.key}
@@ -440,6 +440,6 @@ function NumberBoxInput({ option, index, onChange }: NumberInputOptionProps) {
 
 function InputOptionContainer({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative flex flex-col gap-2 border border-dashed border-primary-500 px-4 py-2">{children}</div>
+    <div className="relative flex flex-col gap-2 border border-dashed border-primary-600 px-4 py-2">{children}</div>
   );
 }

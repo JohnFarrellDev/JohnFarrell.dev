@@ -56,7 +56,7 @@ function ModalBase({ isOpen, onClose, children, className }: ModalBaseProps) {
     <dialog
       ref={dialogRef}
       className={cn(
-        'fixed left-1/2 top-1/2 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-xl border-4 border-primary-700 p-6 backdrop:bg-black/75',
+        'fixed left-1/2 top-1/2 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-xl border-4 border-primary-400 p-6 backdrop:bg-black/75',
         className
       )}
       aria-labelledby="dialog-title"

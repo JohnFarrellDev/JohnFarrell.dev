@@ -5,7 +5,7 @@ import '@/styles/globals.css';
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <body className="flex min-h-svh flex-col bg-gray-50">
-      <Navbar className="bg-primary-1000" />
+      <Navbar className="bg-primary-100" />
       <main className="grow">{children}</main>
       <Footer />
     </body>

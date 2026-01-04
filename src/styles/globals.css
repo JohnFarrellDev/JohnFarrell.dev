@@ -37,27 +37,27 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
 
-    --clr-primary-1: hsl(184, 91%, 17%);
-    --clr-primary-2: hsl(185, 84%, 25%);
-    --clr-primary-3: hsl(185, 81%, 29%);
-    --clr-primary-4: hsl(184, 77%, 34%);
-    --clr-primary-5: #2caeba;
-    --clr-primary-6: hsl(185, 57%, 50%);
-    --clr-primary-7: hsl(184, 65%, 59%);
-    --clr-primary-8: hsl(184, 80%, 74%);
-    --clr-primary-9: hsl(185, 94%, 87%);
-    --clr-primary-10: hsl(186, 100%, 94%);
+    --clr-primary-100: hsl(186, 100%, 94%);
+    --clr-primary-200: hsl(185, 94%, 87%);
+    --clr-primary-300: hsl(184, 80%, 74%);
+    --clr-primary-400: hsl(184, 65%, 59%);
+    --clr-primary-500: hsl(185, 57%, 50%);
+    --clr-primary-600: #2caeba;
+    --clr-primary-700: hsl(184, 77%, 34%);
+    --clr-primary-800: hsl(185, 81%, 29%);
+    --clr-primary-900: hsl(185, 84%, 25%);
+    --clr-primary-1000: hsl(184, 91%, 17%);
 
     --clr-gray-50: hsl(210, 36%, 96%);
-    --clr-gray-1: hsl(209, 61%, 16%);
-    --clr-gray-2: hsl(209, 48%, 23%);
-    --clr-gray-3: hsl(209, 34%, 30%);
-    --clr-gray-4: hsl(209, 28%, 39%);
-    --clr-gray-5: hsl(210, 22%, 49%);
-    --clr-gray-6: hsl(210, 26%, 60%);
-    --clr-gray-7: hsl(210, 29%, 70%);
-    --clr-gray-8: hsl(210, 31%, 80%);
-    --clr-gray-9: hsl(212, 33%, 89%);
+    --clr-gray-100: hsl(212, 33%, 89%);
+    --clr-gray-200: hsl(210, 31%, 80%);
+    --clr-gray-300: hsl(210, 29%, 70%);
+    --clr-gray-400: hsl(210, 26%, 60%);
+    --clr-gray-500: hsl(210, 22%, 49%);
+    --clr-gray-600: hsl(209, 28%, 39%);
+    --clr-gray-700: hsl(209, 34%, 30%);
+    --clr-gray-800: hsl(209, 48%, 23%);
+    --clr-gray-900: hsl(209, 61%, 16%);
 
     --article-yellow: hsl(28, 100%, 92%);
 
@@ -113,7 +113,7 @@
 body {
   font-family: var(--ff-secondary);
   background: var(--clr-white);
-  color: var(--clr-gray-1);
+  color: var(--clr-gray-900);
   line-height: 1.5;
   font-size: 0.875rem;
   overflow-x: hidden;
@@ -151,7 +151,7 @@ h4 {
 }
 p {
   margin-bottom: 1rem;
-  color: var(--clr-gray-3);
+  color: var(--clr-gray-700);
 }
 @media screen and (min-width: 800px) {
   h1 {
