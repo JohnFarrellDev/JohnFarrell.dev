@@ -151,7 +151,7 @@ const GameOver = ({
     clipboardMessage: string;
   };
   handleRestartGame: () => void;
-  resetGameRef: RefObject<HTMLButtonElement>;
+  resetGameRef: RefObject<HTMLButtonElement | null>;
 }) => {
   if (!isGameOver) return null;
 
@@ -180,7 +180,7 @@ const Slots = ({
   handleKeyDown,
 }: {
   slots: (number | null)[];
-  slotsContainerRef: React.RefObject<HTMLDivElement>;
+  slotsContainerRef: React.RefObject<HTMLDivElement | null>;
   isGameOver: boolean;
   isWinner: boolean;
   disabled: boolean[];
