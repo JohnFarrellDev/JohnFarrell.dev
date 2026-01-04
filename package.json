@@ -54,7 +54,7 @@
     "@types/svg-path-bounding-box": "1.0.2",
     "@typescript-eslint/eslint-plugin": "8.50.1",
     "@vitejs/plugin-react": "4.5.0",
-    "@vitest/coverage-v8": "3.1.4",
+    "@vitest/coverage-v8": "4.0.16",
     "autoprefixer": "10.4.20",
     "eslint": "^9.39.2",
     "eslint-config-next": "16.1.1",
@@ -68,7 +68,7 @@
     "storybook": "10.1.11",
     "tailwindcss": "3.4.10",
     "typescript": "5.9.3",
-    "vitest": "^3.1.4",
+    "vitest": "4.0.16",
     "webpack": "5.104.1"
   }
 }
