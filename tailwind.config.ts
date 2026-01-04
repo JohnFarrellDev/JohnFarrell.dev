@@ -7,30 +7,7 @@ module.exports = {
     fontFamily: {
       excalidraw: ['Excalifont'],
     },
-
     extend: {
-      spacing: {
-        '0-p': '0px',
-        '0-5-p': '2px',
-        '1-p': '4px',
-        '2-p': '8px',
-        '3-p': '12px',
-        '4-p': '16px',
-        '5-p': '20px',
-        '6-p': '24px',
-        '7-p': '28px',
-        '8-p': '32px',
-        '9-p': '36px',
-        '10-p': '40px',
-        '12-p': '48px',
-        '14-p': '56px',
-        '16-p': '64px',
-        '18-p': '72px',
-        '20-p': '80px',
-        '30-p': '120px',
-        '36-p': '144px',
-        '40-p': '160px',
-      },
       colors: {
         primary: {
           '100': 'var(--clr-primary-1)',
@@ -135,23 +112,22 @@ module.exports = {
         },
       };
 
-      // todo remove padding and margin stuff after updating global.css
       const newComponents = {
         '.article-content': {
           h2: {
-            '@apply text-2xl md:text-3xl mb-2-p p-0': {},
+            '@apply text-2xl md:text-3xl mb-2 p-0': {},
           },
           h3: {
-            '@apply text-xl md:text-2xl mb-2-p p-0': {},
+            '@apply text-xl md:text-2xl mb-2 p-0': {},
           },
           '& > p': {
-            '@apply text-lg text-gray-900 text-pretty mt-5-p': {},
+            '@apply text-lg text-gray-900 text-pretty mt-5': {},
           },
           'p, li, figcaption': {
             '@apply max-w-[70ch]': {},
           },
           '& > h2, & > h3, & > h4, & > h5, & > h6': {
-            '@apply mt-8-p': {},
+            '@apply mt-8': {},
           },
         },
       };

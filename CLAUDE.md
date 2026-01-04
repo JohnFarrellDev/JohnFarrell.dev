@@ -45,7 +45,6 @@ npm run format       # Run Prettier on all files
 
 - Tailwind CSS with custom CSS variables (`--clr-primary-*`, `--clr-link`)
 - Dark mode via `class` strategy
-- Custom spacing scale: `0-p` through `40-p` (pixel values)
 
 ## Node Version
 

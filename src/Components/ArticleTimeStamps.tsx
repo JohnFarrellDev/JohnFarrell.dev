@@ -8,7 +8,7 @@ interface ArticleTimeStampsProps {
 
 export function ArticleTimeStamps({ createdAt, lastUpdated, className }: ArticleTimeStampsProps) {
   return (
-    <div className={cn('mx-auto w-fit space-y-1-p', className)}>
+    <div className={cn('mx-auto w-fit space-y-1', className)}>
       <p className="text-base font-bold text-gray-800">Published: {toDisplayDate(createdAt)}</p>
       {lastUpdated && <p className="text-base font-bold text-gray-800">Last Updated: {toDisplayDate(lastUpdated)}</p>}
     </div>

@@ -17,10 +17,10 @@ export const CodeBlock = ({ canHide, githubLink, children, fileName }: CodeBlock
 
   return (
     <>
-      <div className="flex flex-col items-start justify-start overflow-auto rounded-t-lg bg-gray-600 py-4-p pl-8-p pr-2-p sm:flex-row sm:items-center sm:justify-between md:pl-10-p md:pr-5-p">
-        <div className="flex gap-2-p md:gap-4-p">
+      <div className="flex flex-col items-start justify-start overflow-auto rounded-t-lg bg-gray-600 py-4 pl-8 pr-2 sm:flex-row sm:items-center sm:justify-between md:pl-10 md:pr-5">
+        <div className="flex gap-2 md:gap-4">
           {githubLink && (
-            <a href={githubLink} className="flex gap-1 text-white md:gap-2-p">
+            <a href={githubLink} className="flex gap-1 text-white md:gap-2">
               <ExternalLink /> GitHub
             </a>
           )}
@@ -42,7 +42,7 @@ export const CodeBlock = ({ canHide, githubLink, children, fileName }: CodeBlock
             Copy Code
           </button>
           {fileName && (
-            <p className="m-0 text-white sm:before:mx-2-p sm:before:inline-block sm:before:h-6-p sm:before:w-px sm:before:bg-gray-400 sm:before:align-middle sm:before:content-['']">
+            <p className="m-0 text-white sm:before:mx-2 sm:before:inline-block sm:before:h-6 sm:before:w-px sm:before:bg-gray-400 sm:before:align-middle sm:before:content-['']">
               {fileName}
             </p>
           )}
