@@ -13,7 +13,7 @@ interface TableOfContentsProps {
   content: DisplayContent[];
 }
 
-export const TableOfContents = ({ content }: TableOfContentsProps) => {
+export function TableOfContents({ content }: TableOfContentsProps) {
   const [showContents, setShowContents] = useState(true);
 
   return (
@@ -26,14 +26,14 @@ export const TableOfContents = ({ content }: TableOfContentsProps) => {
       )}
     </div>
   );
-};
+}
 
 interface TableOfContentsContainerProps {
   showContents: boolean;
   setShowContents: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const TableOfContentsContainer = ({ showContents, setShowContents }: TableOfContentsContainerProps) => {
+function TableOfContentsContainer({ showContents, setShowContents }: TableOfContentsContainerProps) {
   return (
     <div className="flex items-center gap-4">
       <h2 className="m-0 text-lg">Contents</h2>
@@ -45,14 +45,14 @@ const TableOfContentsContainer = ({ showContents, setShowContents }: TableOfCont
       </button>
     </div>
   );
-};
+}
 
 interface ContentsProps {
   content: DisplayContent[];
   hierarchy?: string;
 }
 
-const Contents = ({ content, hierarchy = '1' }: ContentsProps) => {
+function Contents({ content, hierarchy = '1' }: ContentsProps) {
   return (
     <>
       {content.map((data, index) => {
@@ -69,7 +69,7 @@ const Contents = ({ content, hierarchy = '1' }: ContentsProps) => {
       })}
     </>
   );
-};
+}
 
 interface DisplayProps {
   data: DisplayContent;
@@ -77,7 +77,7 @@ interface DisplayProps {
   index: number;
 }
 
-const Display = ({ data, hierarchy, index }: DisplayProps) => {
+function Display({ data, hierarchy, index }: DisplayProps) {
   const indentationCount = ((hierarchy.split('.').length - 1) * 1.5).toString();
 
   return (
@@ -94,7 +94,7 @@ const Display = ({ data, hierarchy, index }: DisplayProps) => {
       </a>
     </li>
   );
-};
+}
 
 function incrementLastDigit(inputDigits: string, increment: number): string {
   const allDigits = inputDigits.split('.');

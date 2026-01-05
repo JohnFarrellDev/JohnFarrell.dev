@@ -1,4 +1,4 @@
-export const fisherYatesShuffle = <T>(arr: T[]) => {
+export function fisherYatesShuffle<T>(arr: T[]) {
   // fisher-yates random shuffling algorithm
   let m = arr.length;
   while (m) {
@@ -11,4 +11,4 @@ export const fisherYatesShuffle = <T>(arr: T[]) => {
     arr[i] = t;
   }
   return arr;
-};
+}

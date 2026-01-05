@@ -6,7 +6,7 @@ import { DescendingNumberGame } from './DescendingNumberGame';
 
 const NUMBER_OF_SLOTS = 20;
 
-export const Game20 = () => {
+export function Game20() {
   const [hydration, setHydration] = useState(false);
 
   const {
@@ -30,4 +30,4 @@ export const Game20 = () => {
       gameType="set-size"
     />
   );
-};
+}
