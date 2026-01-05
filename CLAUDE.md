@@ -44,7 +44,6 @@ npm run format       # Run Prettier on all files
 ### Styling
 
 - Tailwind CSS with custom CSS variables (`--clr-primary-*`, `--clr-link`)
-- Dark mode via `class` strategy
 
 ## Node Version
 
