@@ -1,7 +1,7 @@
 import { State } from '../reducer';
 import { Cell } from '../types';
 
-const createBoardObject = (state: State) => {
+function createBoardObject(state: State) {
   const board: Cell[][] = [];
   for (let i = 0; i < state.rows; i++) {
     const row: Cell[] = [];
@@ -19,9 +19,9 @@ const createBoardObject = (state: State) => {
     board.push(row);
   }
   return board;
-};
+}
 
-export const generateBoard = (state: State) => {
+export function generateBoard(state: State) {
   state.board = createBoardObject(state);
   state.revealedBoard = createBoardObject(state);
-};
+}

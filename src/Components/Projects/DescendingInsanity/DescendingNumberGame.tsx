@@ -25,7 +25,7 @@ type GameProps = {
   refetch: () => void;
 } & SetGameOrLevelGameProps;
 
-export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps }: GameProps) => {
+export function DescendingNumberGame({ numberOfSlots, refetch, ...gameTypeProps }: GameProps) {
   const [slots, setSlots] = useState<(number | null)[]>(Array(numberOfSlots).fill(null));
 
   const resetGameRef = useRef<HTMLButtonElement>(null);
@@ -69,7 +69,7 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
     }
   }, [isGameOver, validHighestIndex, validLowestIndex]);
 
-  const handleRestartGame = () => {
+  function handleRestartGame() {
     if (clearConfetti) clearConfetti();
     if (isWinner) refetch();
     if (gameTypeProps.gameType === 'level' && isWinner) {
@@ -77,16 +77,16 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
     } else {
       setSlots(Array(numberOfSlots).fill(null));
     }
-  };
+  }
 
-  const handleSlotClick = (index: number) => {
+  function handleSlotClick(index: number) {
     if (slots[index] !== null) return;
     if (isGameOver) return;
 
     const newSlots = [...slots];
     newSlots[index] = randomValue;
     setSlots(newSlots);
-  };
+  }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     const index = Number((e.target as HTMLInputElement).getAttribute('data-index'));
@@ -132,9 +132,9 @@ export const DescendingNumberGame = ({ numberOfSlots, refetch, ...gameTypeProps 
       />
     </div>
   );
-};
+}
 
-const GameOver = ({
+function GameOver({
   isGameOver,
   gameOverMessage,
   gameOverButtonMessage,
@@ -152,7 +152,7 @@ const GameOver = ({
   };
   handleRestartGame: () => void;
   resetGameRef: RefObject<HTMLButtonElement | null>;
-}) => {
+}) {
   if (!isGameOver) return null;
 
   return (
@@ -166,9 +166,9 @@ const GameOver = ({
       </div>
     </>
   );
-};
+}
 
-const Slots = ({
+function Slots({
   slots,
   slotsContainerRef,
   isGameOver,
@@ -188,7 +188,7 @@ const Slots = ({
   validHighestIndex: number;
   handleClick: (index: number) => void;
   handleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-}) => {
+}) {
   return (
     <div className="mb-4 flex flex-col gap-1" ref={slotsContainerRef}>
       {slots.map((slot, index) => (
@@ -204,9 +204,9 @@ const Slots = ({
       ))}
     </div>
   );
-};
+}
 
-const CurrentNumber = ({ currentNumber, targetNumber }: { currentNumber: number; targetNumber: number }) => {
+function CurrentNumber({ currentNumber, targetNumber }: { currentNumber: number; targetNumber: number }) {
   return (
     <>
       <p className="text-center">
@@ -218,14 +218,14 @@ const CurrentNumber = ({ currentNumber, targetNumber }: { currentNumber: number;
       </p>
     </>
   );
-};
+}
 
-const ShareButton = ({
+function ShareButton({
   shareMessage: { text, url, clipboardMessage },
 }: {
   shareMessage: { text: string; url: string; clipboardMessage: string };
-}) => {
-  const copyToClipboard = async () => {
+}) {
+  async function copyToClipboard() {
     await navigator.clipboard.writeText(clipboardMessage);
     toast('Copied sharable result to clipboard so you can paste it to others', {
       type: 'success',
@@ -235,9 +235,9 @@ const ShareButton = ({
       draggable: true,
       position: 'bottom-center',
     });
-  };
+  }
 
-  const handleShare = async () => {
+  async function handleShare() {
     const userAgent = navigator.userAgent;
     const isFirefox = /Firefox/i.test(userAgent);
     const isMobile = /Mobile/i.test(userAgent);
@@ -254,7 +254,7 @@ const ShareButton = ({
     } else {
       copyToClipboard();
     }
-  };
+  }
 
   return (
     <>
@@ -265,7 +265,7 @@ const ShareButton = ({
       <ToastContainer />
     </>
   );
-};
+}
 
 interface SlotProps {
   index: number;

@@ -12,7 +12,7 @@ interface CodeBlockProps {
   fileName?: string;
 }
 
-export const CodeBlock = ({ canHide, githubLink, children, fileName }: CodeBlockProps) => {
+export function CodeBlock({ canHide, githubLink, children, fileName }: CodeBlockProps) {
   const [showCode, setShowCode] = useState(true);
 
   return (
@@ -62,4 +62,4 @@ export const CodeBlock = ({ canHide, githubLink, children, fileName }: CodeBlock
       )}
     </>
   );
-};
+}
