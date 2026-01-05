@@ -7,11 +7,11 @@ interface SectionTitleProps extends HTMLAttributes<HTMLElement> {
   className?: string;
 }
 
-export const SectionTitle = ({ children, as = 'h2', className, ...htmlProps }: SectionTitleProps) => {
+export function SectionTitle({ children, as = 'h2', className, ...htmlProps }: SectionTitleProps) {
   const Tag = as;
   return (
     <Tag {...htmlProps} className={cn('tracking-normal', className)}>
       {children}
     </Tag>
   );
-};
+}

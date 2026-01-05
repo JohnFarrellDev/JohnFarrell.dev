@@ -14,13 +14,13 @@ interface FileExplorerProps {
   content: Content[];
 }
 
-export const FileExplorer = ({ content }: FileExplorerProps) => {
+export function FileExplorer({ content }: FileExplorerProps) {
   return (
     <div className="w-fit overflow-x-auto rounded-lg bg-gray-600 p-4 text-white">
       <FileExplorerContent content={content} depth={0} />
     </div>
   );
-};
+}
 
 interface FileExplorerContentProps {
   content: Content[];
@@ -32,7 +32,7 @@ function FileExplorerContent({ content, depth, isHiddenProp }: FileExplorerConte
   const [isHidden, setIsHidden] = useState<Set<number>>(new Set());
   const [isShown, setIsShown] = useState<Set<number>>(new Set());
 
-  const setOpen = (index: number) => {
+  function setOpen(index: number) {
     const newIsHidden = new Set(isHidden);
     const newIsShown = new Set(isShown);
 
@@ -41,9 +41,9 @@ function FileExplorerContent({ content, depth, isHiddenProp }: FileExplorerConte
 
     setIsShown(newIsShown);
     setIsHidden(newIsHidden);
-  };
+  }
 
-  const setHide = (index: number) => {
+  function setHide(index: number) {
     const newIsHidden = new Set(isHidden);
     const newIsShown = new Set(isShown);
 
@@ -52,7 +52,7 @@ function FileExplorerContent({ content, depth, isHiddenProp }: FileExplorerConte
 
     setIsHidden(newIsHidden);
     setIsShown(newIsShown);
-  };
+  }
 
   return (
     <div
@@ -103,7 +103,7 @@ function FileExplorerContent({ content, depth, isHiddenProp }: FileExplorerConte
   );
 }
 
-const ChevronRight = ({ className }: { className: string }) => {
+function ChevronRight({ className }: { className: string }) {
   return (
     <svg
       stroke="currentColor"
@@ -121,9 +121,9 @@ const ChevronRight = ({ className }: { className: string }) => {
       ></path>
     </svg>
   );
-};
+}
 
-const ChevronDown = ({ className }: { className: string }) => {
+function ChevronDown({ className }: { className: string }) {
   return (
     <svg
       stroke="currentColor"
@@ -141,4 +141,4 @@ const ChevronDown = ({ className }: { className: string }) => {
       ></path>
     </svg>
   );
-};
+}

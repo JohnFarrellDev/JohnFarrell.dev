@@ -1,6 +1,6 @@
 import { SVGProps } from 'react';
 
-export const HumanPartyFace = (props: SVGProps<SVGSVGElement>) => {
+export function HumanPartyFace(props: SVGProps<SVGSVGElement>) {
   return (
     <svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" data-testid="human-party-face" {...props}>
       <g id="color">
@@ -177,4 +177,4 @@ export const HumanPartyFace = (props: SVGProps<SVGSVGElement>) => {
       </g>
     </svg>
   );
-};
+}
