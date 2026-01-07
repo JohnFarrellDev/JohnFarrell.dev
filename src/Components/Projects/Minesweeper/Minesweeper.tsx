@@ -2,12 +2,14 @@ import { ArticleTimeStamps } from '@/Components/ArticleTimeStamps';
 import { Title } from '@/Components/Title';
 import { Game } from '@/Components/Projects/Minesweeper/Components/Game/Game';
 import { Banner } from '@/Components/Banner';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import { PageContentContainer } from '@/Components/Layout/PageContent';
 
 export default function Minesweeper() {
   return (
-    <>
-      <Title title="Minesweeper" />
-      <main className="container">
+    <PageWidthContainer>
+      <PageContentContainer>
+        <Title title="Minesweeper" />
         <ArticleTimeStamps createdAt={new Date('2022-10-09T22:19:37.934Z')} />
         <Banner
           type="warning"
@@ -39,7 +41,7 @@ export default function Minesweeper() {
             borderlessMode={false}
           />
         </div>
-      </main>
-    </>
+      </PageContentContainer>
+    </PageWidthContainer>
   );
 }

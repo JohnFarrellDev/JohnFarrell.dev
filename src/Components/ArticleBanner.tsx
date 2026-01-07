@@ -1,6 +1,8 @@
 import { ArticleTimeStamps } from './ArticleTimeStamps';
+import { FullBleedContainer } from '@/Components/Layout/FullBleed';
 import { Title } from './Title';
-import { cn } from '@/Utilities/cn';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import { PageContentContainer } from '@/Components/Layout/PageContent';
 
 interface ArticleBannerProps {
   title: string;
@@ -11,7 +13,7 @@ interface ArticleBannerProps {
 
 export function ArticleBanner({ title, createdAt, lastUpdated, className }: ArticleBannerProps) {
   return (
-    <header className={cn('relative mb-6 bg-gradient-to-r from-blue-100 to-blue-200 py-8 full-bleed', className)}>
+    <FullBleedContainer as="header" className="relative mb-6 bg-gradient-to-r from-blue-100 to-blue-200 py-8">
       <div
         className="absolute inset-0"
         style={{
@@ -25,16 +27,16 @@ export function ArticleBanner({ title, createdAt, lastUpdated, className }: Arti
           opacity: 0.3,
         }}
       />
-      <div className="relative">
-        <div className="mx-auto w-fit">
+      <PageWidthContainer>
+        <PageContentContainer className="relative mx-auto">
           <Title as="h1" title={title} className="max-w-[50ch] text-balance text-center text-3xl md:text-4xl" />
-        </div>
-        {createdAt && (
-          <div className="mt-4 text-center">
-            <ArticleTimeStamps createdAt={createdAt} lastUpdated={lastUpdated} />
-          </div>
-        )}
-      </div>
-    </header>
+          {createdAt && (
+            <div className="mt-4 text-center">
+              <ArticleTimeStamps createdAt={createdAt} lastUpdated={lastUpdated} />
+            </div>
+          )}
+        </PageContentContainer>
+      </PageWidthContainer>
+    </FullBleedContainer>
   );
 }

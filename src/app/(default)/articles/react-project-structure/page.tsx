@@ -5,6 +5,8 @@ import { produceMetaData } from '@/Utilities/produceMetaData';
 import { TableOfContents } from '@/Components/TableOfContents';
 import Image from 'next/image';
 import { ArticleBanner } from '@/Components/ArticleBanner';
+import { PageContentContainer } from '@/Components/Layout/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
 
 export const metadata = produceMetaData({
   title: 'React Project Structure | John Farrell',
@@ -15,13 +17,12 @@ export const metadata = produceMetaData({
 
 export default function ReactProjectStructure() {
   return (
-    <section className="container">
-      <article className="page-content article-content">
-        <ArticleBanner
-          title="How I Like to Organise my React Projects"
-          createdAt={new Date('2022-08-01T14:15:28.433Z')}
-        />
-
+    <PageWidthContainer as="article">
+      <ArticleBanner
+        title="How I Like to Organise my React Projects"
+        createdAt={new Date('2022-08-01T14:15:28.433Z')}
+      />
+      <PageContentContainer className="article-content">
         <p>
           React is an un-opinionated library which leaves a lot of choice to the developer. I believe this has benefited
           the React ecosystem but it also means there are many ways to achieve the same goal. One choice up to
@@ -285,7 +286,7 @@ export default function ReactProjectStructure() {
           width={601}
           height={189}
         />
-      </article>
-    </section>
+      </PageContentContainer>
+    </PageWidthContainer>
   );
 }

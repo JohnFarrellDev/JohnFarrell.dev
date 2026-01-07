@@ -2,7 +2,9 @@
 
 import { useState } from 'react';
 import { Links } from './Links';
-import { cn } from '@/lib/utils';
+import { cn } from '@/Utilities/cn';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import { PageContentContainer } from '@/Components/Layout//PageContent';
 
 export function Navbar({ className }: { className?: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,12 +14,13 @@ export function Navbar({ className }: { className?: string }) {
   }
 
   return (
-    <nav
+    <PageWidthContainer
       className={cn('flex h-14 items-center bg-transparent md:h-20', className, {
         'bg-white': isOpen,
       })}
+      as="nav"
     >
-      <div className="container mx-auto flex items-center justify-end">
+      <PageContentContainer className="container mx-auto flex items-center justify-end">
         <button
           onClick={toggleMenu}
           className="flex flex-col items-center justify-center md:hidden"
@@ -28,8 +31,8 @@ export function Navbar({ className }: { className?: string }) {
           <Hamburger isOpen={isOpen} />
         </button>
         <Links isOpen={isOpen} />
-      </div>
-    </nav>
+      </PageContentContainer>
+    </PageWidthContainer>
   );
 }
 

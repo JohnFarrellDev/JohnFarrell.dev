@@ -3,6 +3,8 @@ import { Badge } from '@/Components/ui/badge';
 import { Button } from '@/Components/ui/button';
 import { Music } from 'lucide-react';
 import { Youtube } from '@/Components/icons/Youtube';
+import { PageContentContainer } from '@/Components/Layout/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
 interface SongInformation {
   name: string;
   composerOrArtist: string;
@@ -140,69 +142,71 @@ const songs: SongInformation[] = [
 
 export function SongTrackers() {
   return (
-    <div className="my-6 bg-slate-50 py-6">
-      <Table className="container">
-        <TableHeader>
-          <TableRow>
-            <TableHead>Song Name</TableHead>
-            <TableHead>Composer</TableHead>
-            <TableHead>Sheet Music</TableHead>
-            <TableHead>Progress</TableHead>
-            <TableHead>Performance</TableHead>
-            <TableHead>Comments</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {songs.map((song, index) => (
-            <TableRow key={index}>
-              <TableCell className="font-medium">{song.name}</TableCell>
-              <TableCell>{song.composerOrArtist}</TableCell>
-              <TableCell>
-                <Button variant="outline" size="sm" asChild>
-                  <a
-                    className="no-underline"
-                    href={song.sheetMusic.link ?? ''}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Music className="mr-2 h-4 w-4 text-black" />
-                    View Sheet
-                  </a>
-                </Button>
-              </TableCell>
-              <TableCell>
-                <Badge variant={song.progress === 100 ? 'default' : 'secondary'}>{song.progress}%</Badge>
-              </TableCell>
-              <TableCell>
-                {song.performances.length > 0 ? (
-                  <div className="flex flex-col gap-2">
-                    {song.performances.map((performance, index) => (
-                      <Button variant="outline" size="sm" asChild key={index}>
-                        <a
-                          className="no-underline"
-                          href={performance.link ?? ''}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Youtube className="mr-2 h-4 w-4 text-red-600" />
-                          Watch
-                        </a>
-                      </Button>
-                    ))}
-                  </div>
-                ) : (
-                  <span className="text-muted-foreground">Not recorded</span>
-                )}
-              </TableCell>
-              <TableCell className="whitespace-pre-wrap">
-                {song.comments.map((comment, index) => (
-                  <p key={index}>{comment}</p>
-                ))}
-              </TableCell>
+    <PageWidthContainer className="my-6 bg-slate-50 py-6">
+      <PageContentContainer>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Song Name</TableHead>
+              <TableHead>Composer</TableHead>
+              <TableHead>Sheet Music</TableHead>
+              <TableHead>Progress</TableHead>
+              <TableHead>Performance</TableHead>
+              <TableHead>Comments</TableHead>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </div>
+          </TableHeader>
+          <TableBody>
+            {songs.map((song, index) => (
+              <TableRow key={index}>
+                <TableCell className="font-medium">{song.name}</TableCell>
+                <TableCell>{song.composerOrArtist}</TableCell>
+                <TableCell>
+                  <Button variant="outline" size="sm" asChild>
+                    <a
+                      className="no-underline"
+                      href={song.sheetMusic.link ?? ''}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Music className="mr-2 h-4 w-4 text-black" />
+                      View Sheet
+                    </a>
+                  </Button>
+                </TableCell>
+                <TableCell>
+                  <Badge variant={song.progress === 100 ? 'default' : 'secondary'}>{song.progress}%</Badge>
+                </TableCell>
+                <TableCell>
+                  {song.performances.length > 0 ? (
+                    <div className="flex flex-col gap-2">
+                      {song.performances.map((performance, index) => (
+                        <Button variant="outline" size="sm" asChild key={index}>
+                          <a
+                            className="no-underline"
+                            href={performance.link ?? ''}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Youtube className="mr-2 h-4 w-4 text-red-600" />
+                            Watch
+                          </a>
+                        </Button>
+                      ))}
+                    </div>
+                  ) : (
+                    <span className="text-muted-foreground">Not recorded</span>
+                  )}
+                </TableCell>
+                <TableCell className="whitespace-pre-wrap">
+                  {song.comments.map((comment, index) => (
+                    <p key={index}>{comment}</p>
+                  ))}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </PageContentContainer>
+    </PageWidthContainer>
   );
 }

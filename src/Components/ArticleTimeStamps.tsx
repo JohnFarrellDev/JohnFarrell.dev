@@ -1,4 +1,4 @@
-import { cn } from '../lib/utils';
+import { cn } from '@/Utilities/cn';
 
 interface ArticleTimeStampsProps {
   createdAt: Date;

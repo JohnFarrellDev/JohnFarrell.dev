@@ -2,7 +2,7 @@ import { Footer } from '@/Components/Layout/Footer';
 import { Navbar } from '@/Components/Layout/Navbar';
 import '@/styles/globals.css';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function HomeLayout({ children }: { children: React.ReactNode }) {
   return (
     <body className="flex min-h-svh flex-col bg-gray-50">
       <Navbar className="bg-primary-100" />

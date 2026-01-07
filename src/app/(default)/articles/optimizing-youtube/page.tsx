@@ -4,6 +4,8 @@ import { produceMetaData } from '@/Utilities/produceMetaData';
 import { TableOfContents } from '@/Components/TableOfContents';
 import { ArticleBanner } from '@/Components/ArticleBanner';
 import { SectionTitle } from '@/Components/SectionTitle';
+import { PageContentContainer } from '@/Components/Layout/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
 
 export const metadata = produceMetaData({
   title: 'Optimizing Youtube | John Farrell',
@@ -14,9 +16,9 @@ export const metadata = produceMetaData({
 
 export default function OptimizingYoutube() {
   return (
-    <section className="container">
-      <article className="article-content">
-        <ArticleBanner title="Optimizing YouTube" createdAt={new Date('2024-06-19T19:35:38.114Z')} />
+    <PageWidthContainer as="article">
+      <ArticleBanner title="Optimizing YouTube" createdAt={new Date('2024-06-19T19:35:38.114Z')} />
+      <PageContentContainer className="article-content">
         <Banner
           type="information"
           message="Google are actively weakening the effectiveness of extensions on Chrome, try FireFox."
@@ -296,7 +298,7 @@ export default function OptimizingYoutube() {
           height={1077}
           style={{ maxWidth: '100%', height: 'auto', display: 'block' }}
         />
-      </article>
-    </section>
+      </PageContentContainer>
+    </PageWidthContainer>
   );
 }

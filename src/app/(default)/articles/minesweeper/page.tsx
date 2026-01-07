@@ -4,6 +4,8 @@ import { Game } from '@/Components/Projects/Minesweeper/Components/Game/Game';
 import { produceMetaData } from '@/Utilities/produceMetaData';
 import Image from 'next/image';
 import { SectionTitle } from '@/Components/SectionTitle';
+import { PageContentContainer } from '@/Components/Layout/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
 
 export const metadata = produceMetaData({
   title: 'Solving Minesweeper | John Farrell',
@@ -14,8 +16,8 @@ export const metadata = produceMetaData({
 
 export default function Minesweeper() {
   return (
-    <section className="container">
-      <article className="page-content article-content">
+    <PageWidthContainer>
+      <PageContentContainer as="article" className="article-content">
         <ArticleBanner title="Solving Minesweeper" createdAt={new Date('2022-10-09T22:19:37.934Z')} />
 
         <Banner
@@ -449,7 +451,7 @@ export default function Minesweeper() {
         <p>Implement probabilistic auto solve (with visualisation)</p>
         <p>Implement optional sound effects</p>
         <p>Implement scoreboard</p>
-      </article>
-    </section>
+      </PageContentContainer>
+    </PageWidthContainer>
   );
 }

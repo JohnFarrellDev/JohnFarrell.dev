@@ -13,9 +13,7 @@ export default function TwentyNumberChallenge() {
   return (
     <>
       <Title title="Twenty Number Challenge" />
-      <main>
-        <Game20 />
-      </main>
+      <Game20 />
     </>
   );
 }

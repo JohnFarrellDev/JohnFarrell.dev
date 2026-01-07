@@ -1,4 +1,6 @@
 import { ContactForm } from '@/Components/ContactForm';
+import { PageContentContainer } from '@/Components/Layout/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
 import { produceMetaData } from '@/Utilities/produceMetaData';
 
 export const metadata = produceMetaData({
@@ -8,13 +10,13 @@ export const metadata = produceMetaData({
 
 export default function Contact() {
   return (
-    <div className="bg-gray-50">
-      <section className="container grid h-full max-h-full min-h-full max-w-full place-items-center">
-        <article className="max-w-full rounded-lg bg-white text-center">
-          <h3 className="pt-4 text-gray-500">get in touch</h3>
+    <PageWidthContainer className="bg-gray-50">
+      <PageContentContainer as="section" className="mx-auto">
+        <div className="w-fit rounded-lg bg-white text-center">
+          <h1 className="pt-4 text-3xl text-gray-500">Get In Touch</h1>
           <ContactForm />
-        </article>
-      </section>
-    </div>
+        </div>
+      </PageContentContainer>
+    </PageWidthContainer>
   );
 }

@@ -4,6 +4,8 @@ import { GitHub } from '@/Components/icons/GitHub';
 import { PreBlock } from '@/Components/PreBlock';
 import { Title } from '@/Components/Title';
 import { produceMetaData } from '@/Utilities/produceMetaData';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import { PageContentContainer } from '@/Components/Layout/PageContent';
 
 const parseInputCode = `function parseInput(input: string) {
   return input.split('\\n')
@@ -106,13 +108,9 @@ export const metadata = produceMetaData({
 
 export default function Day1() {
   return (
-    <section className="container">
-      <article className="page-content article-content">
-        <Title
-          title="Advent of Code 2023 - Day 1"
-          className="text-3xl md:text-4xl"
-          underlineClassName="bg-orange-400"
-        />
+    <PageWidthContainer>
+      <PageContentContainer as="article" className="article-content">
+        <Title title="Advent of Code 2023 - Day 1" className="text-3xl decoration-orange-400 md:text-4xl" />
         <a className="flex" href="https://github.com/JohnFarrellDev/advent-of-code-2023/blob/master/day1.ts">
           <GitHub width={24} height={24} /> Code on GitHub
         </a>
@@ -245,7 +243,7 @@ total => 281`,
           implement the solution using a Trie. Also considering my solution runs in about 10ms on my machine with the
           real input there is not a need for a more performant solution in this case.
         </p>
-      </article>
-    </section>
+      </PageContentContainer>
+    </PageWidthContainer>
   );
 }

@@ -4,7 +4,7 @@ import { Copy } from 'lucide-react';
 import { RefObject, useEffect, useRef, useState } from 'react';
 import { deferredGameState, applyConfetti } from './DescendingNumberGame.utils';
 import { toast, ToastContainer } from 'react-toastify';
-import { cn } from '@/lib/utils';
+import { cn } from '@/Utilities/cn';
 
 type SetGameProps = {
   gameType: 'set-size';

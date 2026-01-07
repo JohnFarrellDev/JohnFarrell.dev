@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Title } from '@/Components/Title';
 import { Button } from '@/Components/Button';
 import { jobs } from './Constants/jobs';
-import { cn } from '@/lib/utils';
+import { cn } from '@/Utilities/cn';
 import { ChevronsRight } from 'lucide-react';
 
 export function Experience() {

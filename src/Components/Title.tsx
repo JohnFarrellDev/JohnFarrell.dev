@@ -1,19 +1,21 @@
-import { cn } from '../lib/utils';
-import { Underline } from './Underline';
+import { cn } from '@/Utilities/cn';
 
 interface TitleProps {
   title: string;
   className?: string;
-  underlineClassName?: string;
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
-export function Title({ title, underlineClassName, className, as = 'h1' }: TitleProps) {
+export function Title({ title, className, as = 'h1' }: TitleProps) {
   const Heading = as;
   return (
-    <>
-      <Heading className={cn('mb-4 w-full text-center', className)}>{title}</Heading>
-      <Underline className={cn('mx-auto', underlineClassName)} />
-    </>
+    <Heading
+      className={cn(
+        'mb-4 w-full text-center underline decoration-primary-600 decoration-4 underline-offset-[12px]',
+        className
+      )}
+    >
+      {title}
+    </Heading>
   );
 }

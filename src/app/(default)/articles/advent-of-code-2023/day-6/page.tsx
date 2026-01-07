@@ -5,6 +5,8 @@ import { PreBlock } from '@/Components/PreBlock';
 import { Title } from '@/Components/Title';
 import { produceMetaData } from '@/Utilities/produceMetaData';
 import Image from 'next/image';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import { PageContentContainer } from '@/Components/Layout/PageContent';
 
 const solution1Code = `export function solution1(input: string) {
     const parsedInput = parseInput1(input)
@@ -115,13 +117,9 @@ export const metadata = produceMetaData({
 
 export default function Day6() {
   return (
-    <section className="container">
-      <article className="page-content article-content">
-        <Title
-          title="Advent of Code 2023 - Day 6"
-          className="text-3xl md:text-4xl"
-          underlineClassName="bg-orange-400"
-        />
+    <PageWidthContainer>
+      <PageContentContainer as="article" className="article-content">
+        <Title title="Advent of Code 2023 - Day 6" className="text-3xl decoration-orange-400 md:text-4xl" />
         <a className="flex" href="https://github.com/JohnFarrellDev/advent-of-code-2023/blob/master/day6.ts">
           <GitHub width={24} height={24} /> Code on GitHub
         </a>
@@ -231,6 +229,6 @@ export default function Day6() {
         <CodeBlock canHide={false}>{solution2Quadratic}</CodeBlock>
         <p>A nice 1000x performance improvement on our basic for loop solution.</p>
       </article>
-    </section>
+    </PageWidthContainer>
   );
 }

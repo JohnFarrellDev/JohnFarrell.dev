@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { Banner } from '@/Components/Banner';
 import { produceMetaData } from '@/Utilities/produceMetaData';
 import { ArticleBanner } from '@/Components/ArticleBanner';
+import { PageContentContainer } from '@/Components/Layout/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
 
 export const metadata = produceMetaData({
   title: 'Advent of Code 2023',
@@ -12,10 +14,10 @@ export const metadata = produceMetaData({
 
 export default function AdventOfCode2023() {
   return (
-    <section className="container">
-      <article className="page-content article-content">
-        <ArticleBanner title="Advent of Code 2023" />
+    <PageWidthContainer as="article">
+      <ArticleBanner title="Advent of Code 2023" />
 
+      <PageContentContainer className="article-content">
         <Banner
           type="information"
           message={
@@ -77,7 +79,7 @@ export default function AdventOfCode2023() {
             <Link href="/articles/advent-of-code-2023/day-1">Day 01 Explanation</Link> - ⭐⭐
           </li>
         </ul>
-      </article>
-    </section>
+      </PageContentContainer>
+    </PageWidthContainer>
   );
 }

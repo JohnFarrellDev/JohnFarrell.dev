@@ -4,9 +4,6 @@ module.exports = {
   darkMode: ['class'],
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './src/Components/**/*.{js,ts,jsx,tsx}', './src/app/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    fontFamily: {
-      excalidraw: ['Excalifont'],
-    },
     extend: {
       colors: {
         primary: {
@@ -89,22 +86,7 @@ module.exports = {
   },
   plugins: [
     import('tailwindcss-animate'),
-    plugin(function ({ addUtilities, addComponents }) {
-      const newUtilities = {
-        '.full-bleed': {
-          width: '100svw',
-          position: 'relative',
-          left: '50%',
-          right: '50%',
-          marginLeft: '-50svw',
-          marginRight: '-50svw',
-        },
-        '.container': {
-          marginInline: 'auto',
-          width: 'min(90vw, 1170px)',
-        },
-      };
-
+    plugin(function ({ addComponents }) {
       const newComponents = {
         '.article-content': {
           h2: {
@@ -125,7 +107,6 @@ module.exports = {
         },
       };
 
-      addUtilities(newUtilities);
       addComponents(newComponents);
     }),
   ],
