@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { ArticleCard } from '@/Components/Articles/ArticleCard';
 import { Title } from '@/Components/Title';
 import { produceMetaData } from '@/Utilities/produceMetaData';
@@ -57,18 +56,15 @@ export default function Projects() {
   return (
     <PageWidthContainer>
       <PageContentContainer as="section">
-        <Title title="Projects" />
-        <div>
-          {allProjects.map(({ year, projects }) => (
-            <Fragment key={year}>
-              <h2 className="my-3 text-center text-xl">{year}</h2>
-              <ul className="mx-auto my-0 flex flex-col gap-5">
-                {projects.map((project) => (
-                  <ArticleCard key={project.URL} {...project} />
-                ))}
-              </ul>
-            </Fragment>
-          ))}
+        <Title title="Projects" className="mb-8" />
+        <div className="mx-auto flex w-fit flex-col gap-6">
+          <ul className="mx-auto flex w-fit flex-col gap-6">
+            {allProjects
+              .flatMap((projectByYear) => projectByYear.projects)
+              .map((project) => (
+                <ArticleCard key={project.URL} {...project} />
+              ))}
+          </ul>
         </div>
       </PageContentContainer>
     </PageWidthContainer>

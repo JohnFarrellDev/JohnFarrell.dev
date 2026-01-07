@@ -17,7 +17,7 @@ export function ArticleCard({ title, description, URL, tags, imageURL, imageAlt,
   return (
     <li
       className={cn(
-        'mx-auto max-h-[350px] w-full max-w-[800px] overflow-hidden rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-105 md:max-h-[200px]',
+        'w-full max-w-[800px] overflow-hidden rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-105 md:max-h-[200px]',
         className
       )}
     >
@@ -33,11 +33,11 @@ export function ArticleCard({ title, description, URL, tags, imageURL, imageAlt,
           height={500}
         />
         <div className="flex flex-grow flex-col overflow-y-auto">
-          <h3 className="p-2 text-center text-lg font-semibold md:absolute md:left-0 md:right-0 md:top-0 md:z-10">
+          <h2 className="p-2 text-center text-xl font-semibold md:absolute md:left-0 md:right-0 md:top-0 md:z-10">
             {title}
-          </h3>
+          </h2>
           <div className="flex flex-grow flex-col gap-2 p-2 md:pt-12">
-            {description && <p className="whitespace-pre-wrap">{description}</p>}
+            {description && <p className="whitespace-pre-wrap text-lg">{description}</p>}
             {tags.length > 0 && (
               <div className="flex flex-wrap gap-2">
                 {tags.map((tag) => (

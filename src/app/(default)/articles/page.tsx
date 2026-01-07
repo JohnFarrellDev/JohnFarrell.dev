@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { ArticleCard } from '@/Components/Articles/ArticleCard';
 import { Title } from '@/Components/Title';
 import { produceMetaData } from '@/Utilities/produceMetaData';
@@ -14,19 +13,14 @@ export default function Articles() {
   return (
     <PageWidthContainer>
       <PageContentContainer as="section">
-        <Title title="Articles" className="text-3xl" />
-        <div>
-          {allArticles.map(({ year, articles }) => (
-            <Fragment key={year}>
-              <h2 className="my-2 text-center text-xl font-bold">{year}</h2>
-              <ul className="mx-auto flex flex-col gap-4">
-                {articles.map((article) => (
-                  <ArticleCard key={article.URL} {...article} className="bg-stone-100" />
-                ))}
-              </ul>
-            </Fragment>
-          ))}
-        </div>
+        <Title title="Articles" className="mb-8" />
+        <ul className="mx-auto flex w-fit flex-col gap-6">
+          {allArticles
+            .flatMap((articleYear) => articleYear.articles)
+            .map((article) => (
+              <ArticleCard key={article.URL} {...article} className="bg-stone-100" />
+            ))}
+        </ul>
       </PageContentContainer>
     </PageWidthContainer>
   );
