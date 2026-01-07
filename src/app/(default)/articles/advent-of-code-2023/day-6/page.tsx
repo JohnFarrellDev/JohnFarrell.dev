@@ -228,7 +228,7 @@ export default function Day6() {
 
         <CodeBlock canHide={false}>{solution2Quadratic}</CodeBlock>
         <p>A nice 1000x performance improvement on our basic for loop solution.</p>
-      </article>
+      </PageContentContainer>
     </PageWidthContainer>
   );
 }
