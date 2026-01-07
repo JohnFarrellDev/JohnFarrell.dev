@@ -4,6 +4,7 @@ import { Title } from './Title';
 import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
 import { PageContentContainer } from '@/Components/Layout/PageContent';
 import { cn } from '@/Utilities/cn';
+import { Underline } from './Underline';
 
 interface ArticleBannerProps {
   title: string;
@@ -33,7 +34,12 @@ export function ArticleBanner({ title, createdAt, lastUpdated, className }: Arti
       />
       <PageWidthContainer>
         <PageContentContainer className="relative mx-auto">
-          <Title as="h1" title={title} className="max-w-[50ch] text-balance text-center text-3xl md:text-4xl" />
+          <Title
+            as="h1"
+            title={title}
+            className="max-w-[55ch] text-balance text-center text-3xl no-underline md:text-4xl"
+          />
+          <Underline className="mx-auto" />
           {createdAt && (
             <div className="mt-4 text-center">
               <ArticleTimeStamps createdAt={createdAt} lastUpdated={lastUpdated} />
