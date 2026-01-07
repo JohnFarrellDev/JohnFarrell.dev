@@ -6,7 +6,7 @@ import { PageContentContainer } from '@/Components/Layout/PageContent';
 
 export function Hero() {
   return (
-    <PageWidthContainer as="header" className="h-svh bg-primary-100">
+    <PageWidthContainer as="header" className="min-h-[calc(100svh-3.5rem)] bg-primary-100 md:min-h-[calc(100svh-5rem)]">
       <PageContentContainer as="article" className="grid h-full items-center text-center md:grid-cols-2 md:text-left">
         <div>
           <h1 className="text-7xl font-bold">Hello, I'm John</h1>
