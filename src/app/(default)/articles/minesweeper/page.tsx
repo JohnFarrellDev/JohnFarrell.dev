@@ -16,10 +16,9 @@ export const metadata = produceMetaData({
 
 export default function Minesweeper() {
   return (
-    <PageWidthContainer>
-      <PageContentContainer as="article" className="article-content">
-        <ArticleBanner title="Solving Minesweeper" createdAt={new Date('2022-10-09T22:19:37.934Z')} />
-
+    <PageWidthContainer as="article">
+      <ArticleBanner title="Solving Minesweeper" createdAt={new Date('2022-10-09T22:19:37.934Z')} />
+      <PageContentContainer className="article-content">
         <Banner
           type="warning"
           message="This is a work in progress! (highly recommend for now using a PC and not mobile to view)"

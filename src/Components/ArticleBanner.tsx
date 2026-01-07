@@ -3,6 +3,7 @@ import { FullBleedContainer } from '@/Components/Layout/FullBleed';
 import { Title } from './Title';
 import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
 import { PageContentContainer } from '@/Components/Layout/PageContent';
+import { cn } from '@/Utilities/cn';
 
 interface ArticleBannerProps {
   title: string;
@@ -13,7 +14,10 @@ interface ArticleBannerProps {
 
 export function ArticleBanner({ title, createdAt, lastUpdated, className }: ArticleBannerProps) {
   return (
-    <FullBleedContainer as="header" className="relative mb-6 bg-gradient-to-r from-blue-100 to-blue-200 py-8">
+    <FullBleedContainer
+      as="header"
+      className={cn('relative mb-6 bg-gradient-to-r from-blue-100 to-blue-200 py-8', className)}
+    >
       <div
         className="absolute inset-0"
         style={{
