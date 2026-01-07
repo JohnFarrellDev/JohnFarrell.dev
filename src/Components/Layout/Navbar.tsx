@@ -15,22 +15,24 @@ export function Navbar({ className }: { className?: string }) {
 
   return (
     <PageWidthContainer
-      className={cn('flex h-14 items-center bg-transparent md:h-20', className, {
+      className={cn('h-14 items-center bg-transparent md:h-20', className, {
         'bg-white': isOpen,
       })}
       as="nav"
     >
-      <PageContentContainer className="container mx-auto flex items-center justify-end">
-        <button
-          onClick={toggleMenu}
-          className="flex flex-col items-center justify-center md:hidden"
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
-          aria-controls="mobile-menu"
-        >
-          <Hamburger isOpen={isOpen} />
-        </button>
-        <Links isOpen={isOpen} />
+      <PageContentContainer>
+        <div className="flex items-center justify-end">
+          <button
+            onClick={toggleMenu}
+            className="flex flex-col items-center justify-center md:hidden"
+            aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+          >
+            <Hamburger isOpen={isOpen} />
+          </button>
+          <Links isOpen={isOpen} />
+        </div>
       </PageContentContainer>
     </PageWidthContainer>
   );
