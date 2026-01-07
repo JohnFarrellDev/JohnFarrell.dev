@@ -12,6 +12,8 @@ export function PageContentContainer({
   className,
 }: React.PropsWithChildren<PageContentContainerProps>) {
   return (
-    <ContainerElement className={cn('col-start-2 px-[var(--page-padding)]', className)}>{children}</ContainerElement>
+    <ContainerElement className={cn('col-start-2 w-full px-[var(--page-padding)]', className)}>
+      {children}
+    </ContainerElement>
   );
 }
