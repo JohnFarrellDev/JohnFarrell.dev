@@ -12,7 +12,7 @@ export default function Contact() {
   return (
     <PageWidthContainer className="bg-gray-50">
       <PageContentContainer as="section" className="mx-auto">
-        <div className="w-fit rounded-lg bg-white text-center">
+        <div className="mx-auto w-fit rounded-lg bg-white text-center">
           <h1 className="pt-4 text-3xl text-gray-500">Get In Touch</h1>
           <ContactForm />
         </div>
