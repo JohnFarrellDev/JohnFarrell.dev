@@ -1,3 +1,5 @@
+import { PageContentContainer } from '@/Components/Layout/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
 import Minesweeper from '@/Components/Projects/Minesweeper/Minesweeper';
 import { produceMetaData } from '@/Utilities/produceMetaData';
 
@@ -10,8 +12,10 @@ export const metadata = produceMetaData({
 
 export default function MinesweeperProject() {
   return (
-    <div>
-      <Minesweeper />
-    </div>
+    <PageWidthContainer>
+      <PageContentContainer>
+        <Minesweeper />
+      </PageContentContainer>
+    </PageWidthContainer>
   );
 }

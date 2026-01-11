@@ -1,6 +1,8 @@
 import { Title } from '@/Components/Title';
 import { GameWithLevels } from '@/Components/Projects/DescendingInsanity/GameWithLevels';
 import { produceMetaData } from '@/Utilities/produceMetaData';
+import { PageContentContainer } from '@/Components/Layout/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
 
 export const metadata = produceMetaData({
   title: 'Descending Insanity',
@@ -11,9 +13,11 @@ export const metadata = produceMetaData({
 
 export default function TwentyNumberChallenge() {
   return (
-    <div>
-      <Title title="Descending Insanity" />
-      <GameWithLevels />
-    </div>
+    <PageWidthContainer>
+      <PageContentContainer>
+        <Title title="Descending Insanity" />
+        <GameWithLevels />
+      </PageContentContainer>
+    </PageWidthContainer>
   );
 }
