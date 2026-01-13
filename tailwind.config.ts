@@ -1,5 +1,3 @@
-import plugin from 'tailwindcss/plugin';
-
 module.exports = {
   darkMode: ['class'],
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './src/Components/**/*.{js,ts,jsx,tsx}', './src/app/**/*.{js,ts,jsx,tsx}'],
@@ -84,30 +82,4 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    import('tailwindcss-animate'),
-    plugin(function ({ addComponents }) {
-      const newComponents = {
-        '.article-content': {
-          h2: {
-            '@apply text-2xl md:text-3xl mb-2 p-0': {},
-          },
-          h3: {
-            '@apply text-xl md:text-2xl mb-2 p-0': {},
-          },
-          '& > p': {
-            '@apply text-lg text-gray-900 text-pretty mt-5': {},
-          },
-          'p, li, figcaption': {
-            '@apply max-w-[70ch]': {},
-          },
-          '& > h2, & > h3, & > h4, & > h5, & > h6': {
-            '@apply mt-8': {},
-          },
-        },
-      };
-
-      addComponents(newComponents);
-    }),
-  ],
 };
