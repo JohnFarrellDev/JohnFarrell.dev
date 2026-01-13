@@ -1,6 +1,6 @@
 import { Footer } from '@/Components/Layout/Footer';
 import { Navbar } from '@/Components/Layout/Navbar';
-import '@/styles/globals.css';
+import '@/globals.css';
 
 export default function HomeLayout({ children }: { children: React.ReactNode }) {
   return (
