@@ -7,6 +7,7 @@ import { TableOfContents } from '@/Components/TableOfContents';
 import { ArticleBanner } from '@/Components/ArticleBanner';
 import { PageContentContainer } from '@/Components/Layout/PageContent';
 import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import { ArticleStyles } from '@/Components/Article/Article';
 
 export const metadata = produceMetaData({
   title: 'How to Effortlessly Extract Udemy Quizzes with a Custom Userscript',
@@ -31,7 +32,7 @@ export default async function UdemyArticle() {
         lastUpdated={new Date('2022-06-04T22:25:57.626Z')}
       />
       <PageContentContainer>
-        <article className="article-content">
+        <ArticleStyles>
           <p>
             First I need to mention how much I love UserScripts. As the end-user when visiting a website you are in
             control of your personal view and how you interact with the website. Userscripts are a way to inject your
@@ -260,7 +261,7 @@ export default async function UdemyArticle() {
             updated and requires my code to be changed. I doubt I'll do any of this though, I've already procrastinated
             enough making the scripts and writing this instead of studying AWS.
           </p>
-        </article>
+        </ArticleStyles>
       </PageContentContainer>
     </PageWidthContainer>
   );
