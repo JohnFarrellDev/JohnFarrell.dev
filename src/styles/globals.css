@@ -1,12 +1,100 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-@font-face {
-  font-family: 'Excalifont';
-  src: url('/Excalifont-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-primary-100: var(--clr-primary-100);
+  --color-primary-200: var(--clr-primary-200);
+  --color-primary-300: var(--clr-primary-300);
+  --color-primary-400: var(--clr-primary-400);
+  --color-primary-500: var(--clr-primary-500);
+  --color-primary-600: var(--clr-primary-600);
+  --color-primary-700: var(--clr-primary-700);
+  --color-primary-800: var(--clr-primary-800);
+  --color-primary-900: var(--clr-primary-900);
+  --color-primary-1000: var(--clr-primary-1000);
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary2-100: #f3f4f6;
+  --color-secondary2-200: #e5e7eb;
+  --color-secondary2-300: #d1d5db;
+  --color-secondary2-400: #9ca3af;
+  --color-secondary2-500: #6b7280;
+  --color-secondary2-600: #4f46e5;
+  --color-secondary2-700: #4338ca;
+  --color-secondary2-800: #3730a3;
+  --color-secondary2-900: #312e81;
+  --color-secondary2-1000: #1e1b4b;
+  --color-secondary2: #4f46e5;
+  --color-secondary2-foreground: #ffffff;
+
+  --color-gray-50: var(--clr-gray-50);
+
+  --color-article-yellow: var(--article-yellow);
+  --color-link: var(--clr-link);
+  --color-link-hover: var(--clr-link-hover);
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@layer utilities {
+  @font-face {
+    font-family: 'Excalifont';
+    src: url('/Excalifont-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
 }
 
 @layer base {
