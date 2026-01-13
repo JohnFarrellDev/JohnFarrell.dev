@@ -62,7 +62,7 @@ export function GameTracking({
   return (
     <div className="mx-auto flex max-w-[500px] justify-around">
       <div>
-        <Bomb /> <p className="select-none text-2xl text-red-500">{`${totalBombs - flagsPlaced}/${totalBombs}`}</p>
+        <Bomb /> <p className="text-2xl text-red-500 select-none">{`${totalBombs - flagsPlaced}/${totalBombs}`}</p>
       </div>
       <div>
         <p onClick={switchFaceType}>

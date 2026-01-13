@@ -65,11 +65,11 @@ function FileExplorerContent({ content, depth, isHiddenProp }: FileExplorerConte
         <div key={`${depth}.${index}`}>
           {typeof c === 'string' ? (
             // display the file name
-            <p className="mb-0 select-none text-white">{c}</p>
+            <p className="mb-0 text-white select-none">{c}</p>
           ) : (
             <>
               {/* handle a folder being rendered */}
-              <p className="mb-0 cursor-pointer select-none text-yellow-300">
+              <p className="mb-0 cursor-pointer text-yellow-300 select-none">
                 {(c.collapsed || isHidden.has(index)) && !isShown.has(index) ? (
                   <span
                     onClick={() => setOpen(index)}

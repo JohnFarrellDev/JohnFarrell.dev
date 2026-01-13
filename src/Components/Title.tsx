@@ -11,7 +11,7 @@ export function Title({ title, className, as = 'h1' }: TitleProps) {
   return (
     <Heading
       className={cn(
-        'mb-4 w-full text-center underline decoration-primary-600 decoration-4 underline-offset-12',
+        'decoration-primary-600 mb-4 w-full text-center underline decoration-4 underline-offset-12',
         className
       )}
     >

@@ -78,14 +78,14 @@ export default function ExcalidrawSvgToReact() {
             <ul className="mb-4 list-disc pl-4">
               <li>
                 All rectangles and arrows in the SVG are always found with the selector{' '}
-                <code className="whitespace-pre rounded bg-gray-300 p-1">
+                <code className="rounded bg-gray-300 p-1 whitespace-pre">
                   svg {'>'} g {'>'} path
                 </code>
               </li>
               <li>
                 As long as the text is created directly after the rectangle the text will be found in the sibling group
                 of the rectangle. The selector is{' '}
-                <code className="whitespace-pre rounded bg-gray-300 p-1">
+                <code className="rounded bg-gray-300 p-1 whitespace-pre">
                   (svg {'>'} g {'>'} path).parentElement + g
                 </code>
                 . The first group element is for the rectangle and the second group element is for the text.

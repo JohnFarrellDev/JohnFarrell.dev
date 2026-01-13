@@ -17,7 +17,7 @@ export function CodeBlock({ canHide, githubLink, children, fileName }: CodeBlock
 
   return (
     <>
-      <div className="flex flex-col items-start justify-start overflow-auto rounded-t-lg bg-gray-600 py-4 pl-8 pr-2 sm:flex-row sm:items-center sm:justify-between md:pl-10 md:pr-5">
+      <div className="flex flex-col items-start justify-start overflow-auto rounded-t-lg bg-gray-600 py-4 pr-2 pl-8 sm:flex-row sm:items-center sm:justify-between md:pr-5 md:pl-10">
         <div className="flex gap-2 md:gap-4">
           {githubLink && (
             <a href={githubLink} className="flex gap-1 text-white md:gap-2">

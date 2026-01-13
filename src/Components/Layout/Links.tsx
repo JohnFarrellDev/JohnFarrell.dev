@@ -48,7 +48,7 @@ export function Links({ isOpen }: LinkProps) {
     <ul
       className={cn(
         'justify-end gap-2 min-[300px]:gap-8 md:flex md:items-center',
-        isOpen ? 'absolute left-0 right-0 top-14 z-10 flex flex-col bg-white p-4 md:top-20' : 'hidden'
+        isOpen ? 'absolute top-14 right-0 left-0 z-10 flex flex-col bg-white p-4 md:top-20' : 'hidden'
       )}
       id="mobile-menu"
     >
@@ -56,7 +56,7 @@ export function Links({ isOpen }: LinkProps) {
         <li key={link.id}>
           <Link
             href={link.url}
-            className="flex items-center gap-2 font-bold capitalize tracking-wide text-gray-900 no-underline transition duration-300 hover:text-primary-600"
+            className="hover:text-primary-600 flex items-center gap-2 font-bold tracking-wide text-gray-900 capitalize no-underline transition duration-300"
           >
             <span className="md:hidden">{link.icon}</span>
             <span>{link.text}</span>

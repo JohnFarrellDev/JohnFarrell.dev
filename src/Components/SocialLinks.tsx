@@ -34,7 +34,7 @@ function Links({ styleLinks }: LinksProps) {
           <li key={link.id}>
             <a
               href={link.url}
-              className={cn('inline-block text-gray-900 transition duration-500 hover:text-primary-600', styleLinks)}
+              className={cn('hover:text-primary-600 inline-block text-gray-900 transition duration-500', styleLinks)}
               target="_blank"
               rel="noreferrer"
             >

@@ -42,7 +42,7 @@ export function ContactForm() {
           id="form-name"
           placeholder="name"
           className={
-            'mb-5 w-full rounded-md bg-gray-50 px-4 py-3 tracking-wide placeholder:uppercase placeholder:text-gray-500'
+            'mb-5 w-full rounded-md bg-gray-50 px-4 py-3 tracking-wide placeholder:text-gray-500 placeholder:uppercase'
           }
         />
         <label htmlFor="form-email" className="sr-only">
@@ -54,7 +54,7 @@ export function ContactForm() {
           placeholder="email"
           id="form-email"
           className={
-            'mb-5 w-full rounded-md bg-gray-50 px-4 py-3 tracking-wide placeholder:uppercase placeholder:text-gray-500'
+            'mb-5 w-full rounded-md bg-gray-50 px-4 py-3 tracking-wide placeholder:text-gray-500 placeholder:uppercase'
           }
         />
         <label htmlFor="form-message" className="sr-only">
@@ -66,7 +66,7 @@ export function ContactForm() {
           placeholder="message"
           id="form-message"
           className={
-            'mb-5 w-full rounded-md bg-gray-50 px-4 py-3 tracking-wide placeholder:uppercase placeholder:text-gray-500'
+            'mb-5 w-full rounded-md bg-gray-50 px-4 py-3 tracking-wide placeholder:text-gray-500 placeholder:uppercase'
           }
         />
       </div>
@@ -76,7 +76,7 @@ export function ContactForm() {
       ) : (
         <Button
           type="submit"
-          className="block w-full rounded-lg rounded-t-none bg-primary-800 py-4 font-bold uppercase text-primary-100"
+          className="bg-primary-800 text-primary-100 block w-full rounded-lg rounded-t-none py-4 font-bold uppercase"
         >
           <span>submit here</span>
         </Button>

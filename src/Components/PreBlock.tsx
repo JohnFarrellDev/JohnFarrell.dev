@@ -3,5 +3,5 @@ interface PreBlockProps {
 }
 
 export function PreBlock({ lines }: PreBlockProps) {
-  return <pre className="w-fit whitespace-pre-wrap bg-gray-100 p-2">{lines.join('\n')}</pre>;
+  return <pre className="w-fit bg-gray-100 p-2 whitespace-pre-wrap">{lines.join('\n')}</pre>;
 }

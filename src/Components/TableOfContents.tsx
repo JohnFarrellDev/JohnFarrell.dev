@@ -38,7 +38,7 @@ function TableOfContentsContainer({ showContents, setShowContents }: TableOfCont
     <div className="flex items-center gap-4">
       <h2 className="m-0 text-lg">Contents</h2>
       <button
-        className="text-base text-link before:content-['['] after:content-[']']"
+        className="text-link text-base before:content-['['] after:content-[']']"
         onClick={() => setShowContents(!showContents)}
       >
         {showContents ? 'hide' : 'show'}
@@ -88,7 +88,7 @@ function Display({ data, hierarchy, index }: DisplayProps) {
       data-test-hierarchy={hierarchy}
       data-test-indentation={indentationCount}
     >
-      <a href={data.url} className="text-link no-underline hover:text-link-hover">
+      <a href={data.url} className="text-link hover:text-link-hover no-underline">
         <span>{incrementLastDigit(hierarchy.toString(), index)}</span>
         <span className="pl-4">{data.display}</span>
       </a>
