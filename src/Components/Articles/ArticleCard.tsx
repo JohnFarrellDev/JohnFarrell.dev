@@ -32,11 +32,11 @@ export function ArticleCard({ title, description, URL, tags, imageURL, imageAlt,
           width={500}
           height={500}
         />
-        <div className="flex flex-grow flex-col overflow-y-auto">
+        <div className="flex grow flex-col overflow-y-auto">
           <h2 className="p-2 text-center text-xl font-semibold md:absolute md:left-0 md:right-0 md:top-0 md:z-10">
             {title}
           </h2>
-          <div className="flex flex-grow flex-col gap-2 p-2 md:pt-12">
+          <div className="flex grow flex-col gap-2 p-2 md:pt-12">
             {description && <p className="whitespace-pre-wrap text-lg">{description}</p>}
             {tags.length > 0 && (
               <div className="flex flex-wrap gap-2">

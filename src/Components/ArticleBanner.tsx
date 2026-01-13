@@ -17,7 +17,7 @@ export function ArticleBanner({ title, createdAt, lastUpdated, className }: Arti
   return (
     <FullBleedContainer
       as="header"
-      className={cn('relative mb-6 bg-gradient-to-r from-blue-100 to-blue-200 py-8', className)}
+      className={cn('relative mb-6 bg-linear-to-r from-blue-100 to-blue-200 py-8', className)}
     >
       <div
         className="absolute inset-0"
@@ -37,7 +37,7 @@ export function ArticleBanner({ title, createdAt, lastUpdated, className }: Arti
           <Title
             as="h1"
             title={title}
-            className="max-w-[55ch] text-balance text-center text-3xl no-underline md:text-4xl"
+            className="max-w-[55ch] text-center text-3xl text-balance no-underline md:text-4xl"
           />
           <Underline className="mx-auto" />
           {createdAt && (
