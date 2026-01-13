@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import { TableOfContents } from './TableOfContents';
 import userEvent from '@testing-library/user-event';
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
+
+import { TableOfContents } from './TableOfContents';
 
 describe('TableOfContents', () => {
   const user = userEvent.setup();

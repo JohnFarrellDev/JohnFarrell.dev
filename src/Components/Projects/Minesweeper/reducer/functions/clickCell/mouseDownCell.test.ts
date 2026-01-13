@@ -1,8 +1,9 @@
+import { beforeEach, describe, expect, it } from 'vitest';
+
 import { State } from '../..';
 import { minesweeperStateFactory } from '../../../../../../factories/minesweeperState';
 import { generateBoard } from '../../../functions/generateBoard';
 import { mouseDownCell } from './mouseDownCell';
-import { describe, it, expect, beforeEach } from 'vitest';
 
 describe('mouse down cell', () => {
   let state: State;

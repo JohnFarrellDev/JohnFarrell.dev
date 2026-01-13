@@ -1,5 +1,6 @@
-import { Title } from './Title';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { Title } from './Title';
 
 export default {
   title: 'Utilities/Title',

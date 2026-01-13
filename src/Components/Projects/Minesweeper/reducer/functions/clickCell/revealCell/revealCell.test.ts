@@ -1,10 +1,11 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+
 import { ClickCellAction, State } from '../../..';
-import { generateBoard } from '../../../../functions/generateBoard';
-import { revealCell } from './revealCell';
-import { recursiveRevealCell } from './recursiveRevealCell';
 import { minesweeperStateFactory } from '../../../../../../../factories/minesweeperState';
+import { generateBoard } from '../../../../functions/generateBoard';
 import { applyChanges } from '../../applyChanges';
-import { vi, describe, it, expect, beforeEach } from 'vitest';
+import { recursiveRevealCell } from './recursiveRevealCell';
+import { revealCell } from './revealCell';
 
 vi.mock('./recursiveRevealCell');
 vi.mock('./determineHasWon');

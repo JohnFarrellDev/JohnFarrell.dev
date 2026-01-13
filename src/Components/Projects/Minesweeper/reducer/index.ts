@@ -1,3 +1,5 @@
+import { Queue } from '@/Utilities/Queue/queue';
+
 import { CustomAnimations, Operations } from '../Components/Game/Game';
 import { FaceType } from '../Components/GameTracking/GameTracking';
 import { Cell } from '../types';
@@ -8,10 +10,9 @@ import { changeNumberOfRows } from './functions/changeNumberOfRows';
 import { clickCell } from './functions/clickCell/clickCell';
 import { mouseDownCell } from './functions/clickCell/mouseDownCell';
 import { mouseUpCell } from './functions/clickCell/mouseUpCell';
-import { init } from './functions/init';
 import { flagCell } from './functions/flagCell';
+import { init } from './functions/init';
 import { switchFaceType } from './functions/switchFaceType';
-import { Queue } from '@/Utilities/Queue/queue';
 import { validateChange } from './functions/validateChange';
 
 export const AnimationColor: Record<string, string | undefined> = {

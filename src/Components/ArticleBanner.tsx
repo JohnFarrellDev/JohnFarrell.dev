@@ -1,9 +1,10 @@
-import { ArticleTimeStamps } from './ArticleTimeStamps';
 import { FullBleedContainer } from '@/Components/Layout/FullBleed';
-import { Title } from './Title';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
 import { PageContentContainer } from '@/Components/Layout/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
 import { cn } from '@/Utilities/cn';
+
+import { ArticleTimeStamps } from './ArticleTimeStamps';
+import { Title } from './Title';
 import { Underline } from './Underline';
 
 interface ArticleBannerProps {

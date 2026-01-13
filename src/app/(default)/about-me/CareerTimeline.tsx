@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+
 import { CareerContent } from './CareerContent';
 
 export function CareerTimelineSVG() {

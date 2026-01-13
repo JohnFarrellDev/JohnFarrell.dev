@@ -1,6 +1,7 @@
-import { generateGameOverMessage, getHighestIndex, getLowestIndex, getRandomValue } from './DescendingNumberGame.utils';
 import { render } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
+
+import { generateGameOverMessage, getHighestIndex, getLowestIndex, getRandomValue } from './DescendingNumberGame.utils';
 
 describe('descendingNumberGame.utils', () => {
   describe('getLowestIndex', () => {

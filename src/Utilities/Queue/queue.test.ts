@@ -1,5 +1,6 @@
+import { describe, expect, it } from 'vitest';
+
 import { Queue } from './queue';
-import { expect, it, describe } from 'vitest';
 
 describe('queue', () => {
   it('should allow adding and removing from the queue', () => {

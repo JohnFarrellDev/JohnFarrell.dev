@@ -1,7 +1,7 @@
 import { cn } from './../Utilities/cn';
+import { BlueSky } from './icons/BlueSky';
 import { GitHub } from './icons/GitHub';
 import { LinkedIn } from './icons/LinkedIn';
-import { BlueSky } from './icons/BlueSky';
 
 const data = [
   {

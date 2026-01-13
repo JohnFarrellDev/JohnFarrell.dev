@@ -1,7 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+
 import { UseLocalStorage } from '@/Utilities/UseLocalStorage';
+
 import { DescendingNumberGame } from './DescendingNumberGame';
 
 export function GameWithLevels() {

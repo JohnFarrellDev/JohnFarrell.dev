@@ -1,12 +1,12 @@
-import { ClickCellAction, State } from '../..';
-import { startGame } from './startGame';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
+import { ClickCellAction, State } from '../..';
+import { minesweeperStateFactory } from '../../../../../../factories/minesweeperState';
 import { generateBoard } from '../../../functions/generateBoard';
 import { calculateNeighborInformation } from './calculateNeighborInformation';
 import { placeBombs } from './placeBombs';
 import { revealCell } from './revealCell/revealCell';
-import { minesweeperStateFactory } from '../../../../../../factories/minesweeperState';
-import { vi, describe, it, expect, beforeEach } from 'vitest';
+import { startGame } from './startGame';
 
 vi.mock('../../../functions/generateBoard');
 vi.mock('./calculateNeighborInformation');

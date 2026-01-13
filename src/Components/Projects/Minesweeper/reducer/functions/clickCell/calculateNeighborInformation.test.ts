@@ -1,8 +1,9 @@
+import { beforeEach, describe, expect, it } from 'vitest';
+
 import { State } from '../..';
 import { minesweeperStateFactory } from '../../../../../../factories/minesweeperState';
 import { generateBoard } from '../../../functions/generateBoard';
 import { calculateNeighborInformation } from './calculateNeighborInformation';
-import { describe, it, expect, beforeEach } from 'vitest';
 
 describe('calculate neighbor information', () => {
   let state: State;

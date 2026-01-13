@@ -1,10 +1,12 @@
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/Components/ui/table';
-import { Badge } from '@/Components/ui/badge';
-import { Button } from '@/Components/ui/button';
 import { Music } from 'lucide-react';
-import { Youtube } from '@/Components/icons/Youtube';
+
 import { PageContentContainer } from '@/Components/Layout/PageContent';
 import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import { Youtube } from '@/Components/icons/Youtube';
+import { Badge } from '@/Components/ui/badge';
+import { Button } from '@/Components/ui/button';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/Components/ui/table';
+
 interface SongInformation {
   name: string;
   composerOrArtist: string;

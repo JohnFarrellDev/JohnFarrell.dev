@@ -1,8 +1,9 @@
-import { Title } from '@/Components/Title';
-import { skills } from './Constants/skills';
 import { Button } from '@/Components/Button';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
 import { PageContentContainer } from '@/Components/Layout/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import { Title } from '@/Components/Title';
+
+import { skills } from './Constants/skills';
 
 export function Skills() {
   return (

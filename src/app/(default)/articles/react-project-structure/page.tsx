@@ -1,13 +1,14 @@
+import Image from 'next/image';
+
+import { ArticleStyles } from '@/Components/Article/Article';
+import { ArticleBanner } from '@/Components/ArticleBanner';
 import { CodeBlock } from '@/Components/CodeBlock';
 import { FileExplorer } from '@/Components/FileExplorer';
-import { SectionTitle } from '@/Components/SectionTitle';
-import { produceMetaData } from '@/Utilities/produceMetaData';
-import { TableOfContents } from '@/Components/TableOfContents';
-import Image from 'next/image';
-import { ArticleBanner } from '@/Components/ArticleBanner';
 import { PageContentContainer } from '@/Components/Layout/PageContent';
 import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
-import { ArticleStyles } from '@/Components/Article/Article';
+import { SectionTitle } from '@/Components/SectionTitle';
+import { TableOfContents } from '@/Components/TableOfContents';
+import { produceMetaData } from '@/Utilities/produceMetaData';
 
 export const metadata = produceMetaData({
   title: 'React Project Structure | John Farrell',

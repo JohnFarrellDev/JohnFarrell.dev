@@ -1,9 +1,10 @@
 import Link from 'next/link';
+
 import { House } from '@/Components/icons/House';
+import { Mail } from '@/Components/icons/Mail';
+import { NewsPaper } from '@/Components/icons/NewsPaper';
 import { Person } from '@/Components/icons/Person';
 import { Wrench } from '@/Components/icons/Wrench';
-import { NewsPaper } from '@/Components/icons/NewsPaper';
-import { Mail } from '@/Components/icons/Mail';
 import { cn } from '@/Utilities/cn';
 
 const data = [

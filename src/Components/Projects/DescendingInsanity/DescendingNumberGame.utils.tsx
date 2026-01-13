@@ -1,4 +1,5 @@
 import confetti from 'canvas-confetti';
+
 import { SetGameOrLevelGameProps } from './DescendingNumberGame';
 
 function randomDrift() {

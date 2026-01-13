@@ -1,10 +1,11 @@
-import { State, ClickCellAction } from '../../..';
+import { beforeEach, describe, expect, it } from 'vitest';
+
+import { ClickCellAction, State } from '../../..';
 import { minesweeperStateFactory } from '../../../../../../../factories/minesweeperState';
 import { generateBoard } from '../../../../functions/generateBoard';
 import { Cell } from '../../../../types';
 import { calculateNeighborInformation } from '../calculateNeighborInformation';
 import { recursiveRevealCell } from './recursiveRevealCell';
-import { describe, it, expect, beforeEach } from 'vitest';
 
 const countUncoveredCells = (board: Cell[][]): number => {
   let count = 0;

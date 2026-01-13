@@ -1,10 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { Links } from './Links';
-import { cn } from '@/Utilities/cn';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+
 import { PageContentContainer } from '@/Components/Layout//PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import { cn } from '@/Utilities/cn';
+
+import { Links } from './Links';
 
 export function Navbar({ className }: { className?: string }) {
   const [isOpen, setIsOpen] = useState(false);

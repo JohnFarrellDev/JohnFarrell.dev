@@ -1,8 +1,9 @@
+import { beforeEach, describe, expect, it } from 'vitest';
+
 import { ChangeNumberOfColumnsAction, State } from '..';
-import { changeNumberOfColumns } from './changeNumberOfColumns';
-import { generateBoard } from '../../functions/generateBoard';
 import { minesweeperStateFactory } from '../../../../../factories/minesweeperState';
-import { describe, it, expect, beforeEach } from 'vitest';
+import { generateBoard } from '../../functions/generateBoard';
+import { changeNumberOfColumns } from './changeNumberOfColumns';
 
 const startingState = minesweeperStateFactory.build({});
 generateBoard(startingState);

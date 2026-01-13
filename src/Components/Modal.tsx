@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+
 import { cn } from '@/Utilities/cn';
 
 interface ModalComponent extends React.FC<ModalBaseProps> {

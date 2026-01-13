@@ -1,9 +1,10 @@
+import { beforeEach, describe, expect, it } from 'vitest';
+
 import { State } from '../../..';
 import { minesweeperStateFactory } from '../../../../../../../factories/minesweeperState';
 import { generateBoard } from '../../../../functions/generateBoard';
 import { calculateNeighborInformation } from '../calculateNeighborInformation';
 import { autoRevealCells } from './autoRevealCells';
-import { describe, it, expect, beforeEach } from 'vitest';
 
 const startingState = minesweeperStateFactory.build({
   allowedOperations: {

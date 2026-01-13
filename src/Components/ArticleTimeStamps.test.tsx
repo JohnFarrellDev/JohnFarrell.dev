@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
+
 import { ArticleTimeStamps } from './ArticleTimeStamps';
-import { describe, it, expect } from 'vitest';
 
 describe('TableOfContents', () => {
   it('should only display created at when last updated not provided', () => {

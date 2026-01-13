@@ -1,9 +1,10 @@
+import { beforeEach, describe, expect, it } from 'vitest';
+
 import { State } from '..';
 import { minesweeperStateFactory } from '../../../../../factories/minesweeperState';
 import { FaceType } from '../../Components/GameTracking/GameTracking';
 import { generateBoard } from '../../functions/generateBoard';
 import { switchFaceType } from './switchFaceType';
-import { describe, it, expect, beforeEach } from 'vitest';
 
 describe('switch face type', () => {
   let state: State;

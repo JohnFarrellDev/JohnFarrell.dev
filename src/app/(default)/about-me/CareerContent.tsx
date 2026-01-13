@@ -1,7 +1,8 @@
-import { Modal } from '@/Components/Modal';
-import { Button } from '@/Components/Button';
-import { Chevron } from '@/Components/icons/Chevron';
 import { ReactNode } from 'react';
+
+import { Button } from '@/Components/Button';
+import { Modal } from '@/Components/Modal';
+import { Chevron } from '@/Components/icons/Chevron';
 
 interface CareerContentProps {
   dialogIndex: number | null;

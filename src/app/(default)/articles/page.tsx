@@ -1,7 +1,8 @@
 import { ArticleCard } from '@/Components/Articles/ArticleCard';
+import { PageContentContainer } from '@/Components/Layout/PageContent';
 import { Title } from '@/Components/Title';
 import { produceMetaData } from '@/Utilities/produceMetaData';
-import { PageContentContainer } from '@/Components/Layout/PageContent';
+
 import { PageWidthContainer } from '../../../Components/Layout/PageWidthContainer';
 
 export const metadata = produceMetaData({

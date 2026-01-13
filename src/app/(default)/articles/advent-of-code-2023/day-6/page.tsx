@@ -1,13 +1,14 @@
+import Image from 'next/image';
 import Link from 'next/link';
+
+import { ArticleStyles } from '@/Components/Article/Article';
 import { CodeBlock } from '@/Components/CodeBlock';
-import { GitHub } from '@/Components/icons/GitHub';
+import { PageContentContainer } from '@/Components/Layout/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
 import { PreBlock } from '@/Components/PreBlock';
 import { Title } from '@/Components/Title';
+import { GitHub } from '@/Components/icons/GitHub';
 import { produceMetaData } from '@/Utilities/produceMetaData';
-import Image from 'next/image';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
-import { PageContentContainer } from '@/Components/Layout/PageContent';
-import { ArticleStyles } from '@/Components/Article/Article';
 
 const solution1Code = `export function solution1(input: string) {
     const parsedInput = parseInput1(input)

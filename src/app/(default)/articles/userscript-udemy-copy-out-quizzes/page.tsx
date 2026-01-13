@@ -1,13 +1,14 @@
 import Image from 'next/image';
-import { produceMetaData } from '@/Utilities/produceMetaData';
-import { CodeBlock } from '@/Components/CodeBlock';
-import { SectionTitle } from '@/Components/SectionTitle';
-import { YoutubeVideo } from '@/Components/YoutubeVideo';
-import { TableOfContents } from '@/Components/TableOfContents';
+
+import { ArticleStyles } from '@/Components/Article/Article';
 import { ArticleBanner } from '@/Components/ArticleBanner';
+import { CodeBlock } from '@/Components/CodeBlock';
 import { PageContentContainer } from '@/Components/Layout/PageContent';
 import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
-import { ArticleStyles } from '@/Components/Article/Article';
+import { SectionTitle } from '@/Components/SectionTitle';
+import { TableOfContents } from '@/Components/TableOfContents';
+import { YoutubeVideo } from '@/Components/YoutubeVideo';
+import { produceMetaData } from '@/Utilities/produceMetaData';
 
 export const metadata = produceMetaData({
   title: 'How to Effortlessly Extract Udemy Quizzes with a Custom Userscript',

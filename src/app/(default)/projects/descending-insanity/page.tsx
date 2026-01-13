@@ -1,8 +1,8 @@
-import { Title } from '@/Components/Title';
-import { GameWithLevels } from '@/Components/Projects/DescendingInsanity/GameWithLevels';
-import { produceMetaData } from '@/Utilities/produceMetaData';
 import { PageContentContainer } from '@/Components/Layout/PageContent';
 import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import { GameWithLevels } from '@/Components/Projects/DescendingInsanity/GameWithLevels';
+import { Title } from '@/Components/Title';
+import { produceMetaData } from '@/Utilities/produceMetaData';
 
 export const metadata = produceMetaData({
   title: 'Descending Insanity',

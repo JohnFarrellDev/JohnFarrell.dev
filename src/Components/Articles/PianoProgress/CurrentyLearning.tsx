@@ -1,5 +1,6 @@
 import { Music } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardContent } from '@/Components/ui/card';
+
+import { Card, CardContent, CardHeader, CardTitle } from '@/Components/ui/card';
 
 const currentSongs: string[] = [
   'Interstellar Main Theme - Hans Zimmer',

@@ -1,6 +1,7 @@
-import { SocialLinks } from '../SocialLinks';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
 import { PageContentContainer } from '@/Components/Layout/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+
+import { SocialLinks } from '../SocialLinks';
 
 export function Footer() {
   return (

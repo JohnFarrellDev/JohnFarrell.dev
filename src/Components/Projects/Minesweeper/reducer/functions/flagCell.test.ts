@@ -1,8 +1,9 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+
 import { RightClickCellAction, State } from '..';
 import { minesweeperStateFactory } from '../../../../../factories/minesweeperState';
 import { generateBoard } from '../../functions/generateBoard';
 import { flagCell } from './flagCell';
-import { describe, it, expect, beforeEach, vi } from 'vitest';
 
 const startingAction: RightClickCellAction = {
   type: 'RightClickCell',

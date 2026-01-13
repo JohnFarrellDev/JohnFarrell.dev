@@ -1,10 +1,13 @@
 'use client';
 
 import { Copy } from 'lucide-react';
+import { ToastContainer, toast } from 'react-toastify';
+
 import { RefObject, useEffect, useRef, useState } from 'react';
-import { deferredGameState, applyConfetti } from './DescendingNumberGame.utils';
-import { toast, ToastContainer } from 'react-toastify';
+
 import { cn } from '@/Utilities/cn';
+
+import { applyConfetti, deferredGameState } from './DescendingNumberGame.utils';
 
 type SetGameProps = {
   gameType: 'set-size';

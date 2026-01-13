@@ -1,12 +1,13 @@
+import Image from 'next/image';
+
+import { ArticleStyles } from '@/Components/Article/Article';
 import { ArticleBanner } from '@/Components/ArticleBanner';
 import { Banner } from '@/Components/Banner';
-import { Game } from '@/Components/Projects/Minesweeper/Components/Game/Game';
-import { produceMetaData } from '@/Utilities/produceMetaData';
-import Image from 'next/image';
-import { SectionTitle } from '@/Components/SectionTitle';
 import { PageContentContainer } from '@/Components/Layout/PageContent';
 import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
-import { ArticleStyles } from '@/Components/Article/Article';
+import { Game } from '@/Components/Projects/Minesweeper/Components/Game/Game';
+import { SectionTitle } from '@/Components/SectionTitle';
+import { produceMetaData } from '@/Utilities/produceMetaData';
 
 export const metadata = produceMetaData({
   title: 'Solving Minesweeper | John Farrell',

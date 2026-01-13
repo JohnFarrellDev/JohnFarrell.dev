@@ -1,8 +1,9 @@
-import { State, ChangeNumberOfRowsAction } from '..';
-import { changeNumberOfRows } from './changeNumberOfRows';
-import { generateBoard } from '../../functions/generateBoard';
+import { beforeEach, describe, expect, it } from 'vitest';
+
+import { ChangeNumberOfRowsAction, State } from '..';
 import { minesweeperStateFactory } from '../../../../../factories/minesweeperState';
-import { describe, it, expect, beforeEach } from 'vitest';
+import { generateBoard } from '../../functions/generateBoard';
+import { changeNumberOfRows } from './changeNumberOfRows';
 
 const startingState = minesweeperStateFactory.build({});
 generateBoard(startingState);

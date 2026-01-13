@@ -1,14 +1,17 @@
 'use client';
 
-import Link from 'next/link';
-import { useState } from 'react';
-import { Title } from '@/Components/Title';
-import { Button } from '@/Components/Button';
-import { jobs } from './Constants/jobs';
-import { cn } from '@/Utilities/cn';
 import { ChevronsRight } from 'lucide-react';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import Link from 'next/link';
+
+import { useState } from 'react';
+
+import { Button } from '@/Components/Button';
 import { PageContentContainer } from '@/Components/Layout/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import { Title } from '@/Components/Title';
+import { cn } from '@/Utilities/cn';
+
+import { jobs } from './Constants/jobs';
 
 export function Experience() {
   const [value, setValue] = useState(0);

@@ -1,12 +1,13 @@
 import Image from 'next/image';
-import { Banner } from '@/Components/Banner';
-import { produceMetaData } from '@/Utilities/produceMetaData';
-import { TableOfContents } from '@/Components/TableOfContents';
+
+import { ArticleStyles } from '@/Components/Article/Article';
 import { ArticleBanner } from '@/Components/ArticleBanner';
-import { SectionTitle } from '@/Components/SectionTitle';
+import { Banner } from '@/Components/Banner';
 import { PageContentContainer } from '@/Components/Layout/PageContent';
 import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
-import { ArticleStyles } from '@/Components/Article/Article';
+import { SectionTitle } from '@/Components/SectionTitle';
+import { TableOfContents } from '@/Components/TableOfContents';
+import { produceMetaData } from '@/Utilities/produceMetaData';
 
 export const metadata = produceMetaData({
   title: 'Optimizing Youtube | John Farrell',

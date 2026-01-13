@@ -1,8 +1,9 @@
+import { PageContentContainer } from '@/Components/Layout/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
 import { Title } from '@/Components/Title';
 import { produceMetaData } from '@/Utilities/produceMetaData';
+
 import { CareerTimelineSVG } from './CareerTimeline';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
-import { PageContentContainer } from '@/Components/Layout/PageContent';
 
 export const metadata = produceMetaData({
   title: 'About Me | John Farrell',

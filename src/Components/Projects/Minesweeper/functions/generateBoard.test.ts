@@ -1,7 +1,8 @@
-import { minesweeperStateFactory } from '@/factories/minesweeperState';
-import { State } from '@/Components/Projects/Minesweeper/reducer';
+import { beforeEach, describe, expect, it } from 'vitest';
+
 import { generateBoard } from '@/Components/Projects/Minesweeper/functions/generateBoard';
-import { describe, it, expect, beforeEach } from 'vitest';
+import { State } from '@/Components/Projects/Minesweeper/reducer';
+import { minesweeperStateFactory } from '@/factories/minesweeperState';
 
 describe('generate board', () => {
   let state: State;

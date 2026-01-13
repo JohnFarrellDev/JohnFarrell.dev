@@ -1,12 +1,14 @@
 'use client';
 
-import { ChangeEvent, useState } from 'react';
-import { Button } from '@/Components/Button';
-import { load, type CheerioAPI } from 'cheerio';
-import { SectionTitle } from '@/Components/SectionTitle';
-import { CodeBlock } from '@/Components/CodeBlock';
+import { type CheerioAPI, load } from 'cheerio';
 import { ChevronsRight } from 'lucide-react';
 import getBounds from 'svg-path-bounding-box';
+
+import { ChangeEvent, useState } from 'react';
+
+import { Button } from '@/Components/Button';
+import { CodeBlock } from '@/Components/CodeBlock';
+import { SectionTitle } from '@/Components/SectionTitle';
 
 interface BaseOptions {
   description: string;

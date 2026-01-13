@@ -1,8 +1,9 @@
+import { beforeEach, describe, expect, it } from 'vitest';
+
 import { ClickCellAction, State } from '../..';
 import { minesweeperStateFactory } from '../../../../../../factories/minesweeperState';
 import { generateBoard } from '../../../functions/generateBoard';
 import { placeBombs } from './placeBombs';
-import { describe, it, expect, beforeEach } from 'vitest';
 
 const startingState = minesweeperStateFactory.build({
   allowedOperations: {
