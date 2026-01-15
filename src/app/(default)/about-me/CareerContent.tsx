@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 
 import { Button } from '@/Components/Button';
 import { Modal } from '@/Components/Modal';
@@ -157,6 +157,21 @@ export function CareerContent({ dialogIndex, setDialogIndex, closeDialog }: Care
 
   const atFirstSection = dialogIndex === 0;
   const atLastSection = careerSections.length - 1 === dialogIndex;
+
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (dialogIndex === null) return;
+
+      if (e.key === 'ArrowLeft' && !atFirstSection) {
+        setDialogIndex(dialogIndex - 1);
+      } else if (e.key === 'ArrowRight' && !atLastSection) {
+        setDialogIndex(dialogIndex + 1);
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [dialogIndex, atFirstSection, atLastSection, setDialogIndex]);
 
   return (
     <Modal isOpen={typeof dialogIndex === 'number'} onClose={closeDialog}>
