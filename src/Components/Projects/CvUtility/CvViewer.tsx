@@ -1,15 +1,12 @@
-import { Divide } from 'lucide-react';
-
-import React from 'react';
-
-import { PersonalInformation } from './CvVariants';
+import { EmploymentInformation, PersonalInformation } from './CvVariants';
 
 type CvViewerProps = {
   personalInformation: PersonalInformation;
   skills: string[];
+  employmentHistory: EmploymentInformation[];
 };
 
-export function CvViewer({ personalInformation, skills }: CvViewerProps) {
+export function CvViewer({ personalInformation, skills, employmentHistory }: CvViewerProps) {
   return (
     <div className="bg-white border rounded p-6">
       <CvContainer>
@@ -19,17 +16,9 @@ export function CvViewer({ personalInformation, skills }: CvViewerProps) {
 
         <Skills skills={skills} />
 
-        <Experience />
-        {/* Placeholder sections */}
-        <section className="mb-4">
-          <h2 className="font-semibold mb-1">Experience</h2>
-          <p className="text-sm text-gray-400 italic">Experience will appear here…</p>
-        </section>
+        <Experience employmentHistory={employmentHistory} />
 
-        <section>
-          <h2 className="font-semibold mb-1">Education</h2>
-          <p className="text-sm text-gray-400 italic">Education will appear here…</p>
-        </section>
+        <Education />
       </CvContainer>
     </div>
   );
@@ -105,13 +94,15 @@ function Skills({ skills }: { skills: string[] }) {
   const columnsStyle = mapNumberOfColumnsToGridColumns[numberOfColumns];
 
   return (
-    <section>
-      <h2 className="text-[24px] m-0 p-0 mb-[8px]">Skills</h2>
+    <section className="mb-[16px]">
+      <h2 className="text-[24px] m-0 p-0 mb-[16px]">Skills</h2>
       <div className={`grid ${columnsStyle} gap-x-[24px] text-[16px]`}>
         {columns.map((column, index) => (
           <div key={index} className="flex flex-col gap-[4px]">
             {column.map((skill) => (
-              <p className="m-0 p-0">{skill}</p>
+              <p className="m-0 p-0" key={skill}>
+                {skill}
+              </p>
             ))}
           </div>
         ))}
@@ -120,10 +111,31 @@ function Skills({ skills }: { skills: string[] }) {
   );
 }
 
-function Experience() {
+function Experience({ employmentHistory }: { employmentHistory: EmploymentInformation[] }) {
   return (
-    <div>
-      <p>Experience</p>
-    </div>
+    <section className="mb-[16px]">
+      <h2 className="text-[24px] m-0 p-0 mb-[16px]">Experience</h2>
+      <div>
+        {employmentHistory.map((job) => (
+          <div key={job.companyName}>
+            <div className="flex justify-between leading-1">
+              <h3 className="text-[18px] m-0 p-0">{job.companyName}</h3>
+              <p className="m-0 p-0">
+                {job.startDate} - {job.endDate}
+              </p>
+            </div>
+            <p>Projects</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Education() {
+  return (
+    <section>
+      <h2 className="text-[24px] m-0 p-0 mb-[8px]">Education</h2>
+    </section>
   );
 }
