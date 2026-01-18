@@ -16,8 +16,12 @@ export function CvBase() {
       <div>
         <CvDefaultSelector activeVariantId={activeVariantId} onChange={setActiveVariantId} />
       </div>
-      <div>
-        <CvViewer personalInformation={activeVariant.cv.personalInformation} skills={activeVariant.cv.skills} />
+      <div className="max-w-full">
+        <CvViewer
+          personalInformation={activeVariant.cv.personalInformation}
+          skills={activeVariant.cv.skills}
+          employmentHistory={activeVariant.cv.employmentHistory}
+        />
       </div>
     </div>
   );
