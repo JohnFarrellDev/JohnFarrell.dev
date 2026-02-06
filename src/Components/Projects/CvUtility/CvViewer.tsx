@@ -1,15 +1,18 @@
+import { RefObject } from 'react';
+
 import { EmploymentInformation, PersonalInformation } from './CvVariants';
 
 type CvViewerProps = {
+  ref: RefObject<HTMLDivElement | null>;
   personalInformation: PersonalInformation;
   skills: string[];
   employmentHistory: EmploymentInformation[];
 };
 
-export function CvViewer({ personalInformation, skills, employmentHistory }: CvViewerProps) {
+export function CvViewer({ ref, personalInformation, skills, employmentHistory }: CvViewerProps) {
   return (
     <div className="bg-white border rounded p-6">
-      <CvContainer>
+      <CvContainer ref={ref}>
         <CvHeader {...personalInformation} />
 
         <hr className="my-[12px]" />
@@ -24,8 +27,8 @@ export function CvViewer({ personalInformation, skills, employmentHistory }: CvV
   );
 }
 
-function CvContainer({ children }: { children: React.ReactNode }) {
-  return <div>{children}</div>;
+function CvContainer({ ref, children }: { ref: RefObject<HTMLDivElement | null>; children: React.ReactNode }) {
+  return <div ref={ref}>{children}</div>;
 }
 
 type CvHeaderProps = {
