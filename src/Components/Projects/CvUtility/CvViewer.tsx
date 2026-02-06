@@ -118,9 +118,9 @@ function Experience({ employmentHistory }: { employmentHistory: EmploymentInform
       <div>
         {employmentHistory.map((job) => (
           <div key={job.companyName}>
-            <div className="flex justify-between leading-1">
-              <h3 className="text-[18px] m-0 p-0">{job.companyName}</h3>
-              <p className="m-0 p-0">
+            <div className="flex justify-between items-center">
+              <h3 className="text-[18px] m-0 p-0 leading-none">{job.companyName}</h3>
+              <p className="m-0 p-0 text-[14px] leading-none">
                 {job.startDate} - {job.endDate}
               </p>
             </div>
