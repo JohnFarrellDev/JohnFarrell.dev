@@ -98,9 +98,9 @@ function Skills({ skills }: { skills: string[] }) {
       <h2 className="text-[24px] m-0 p-0 mb-[16px]">Skills</h2>
       <div className={`grid ${columnsStyle} gap-x-[24px] text-[16px]`}>
         {columns.map((column, index) => (
-          <div key={index} className="flex flex-col gap-[4px]">
+          <div key={index} className="flex flex-col gap-y-[8px]">
             {column.map((skill) => (
-              <p className="m-0 p-0" key={skill}>
+              <p className="m-0 p-0 leading-none" key={skill}>
                 {skill}
               </p>
             ))}
@@ -118,13 +118,25 @@ function Experience({ employmentHistory }: { employmentHistory: EmploymentInform
       <div>
         {employmentHistory.map((job) => (
           <div key={job.companyName}>
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center mb-[8px]">
               <h3 className="text-[18px] m-0 p-0 leading-none">{job.companyName}</h3>
-              <p className="m-0 p-0 text-[14px] leading-none">
+              <p className="m-0 p-0 text-[16px] leading-none">
                 {job.startDate} - {job.endDate}
               </p>
             </div>
-            <p>Projects</p>
+            <ul>
+              {job.projects.map((project) => (
+                <li key={project.projectName} className="flex gap-[8px]">
+                  <span>•</span>
+                  <div>
+                    <p className="text-[16px] leading-none m-0 p-0 mb-[4px]">{project.projectName}</p>
+                    <div className="m-0 p-0">
+                      <p>{project.description}</p>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>

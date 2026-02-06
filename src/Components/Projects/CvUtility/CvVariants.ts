@@ -34,6 +34,7 @@ const skills: string[] = [
   'Git',
   'TDD',
   'Jest/Vitest',
+  'Playwright',
 ];
 
 export type EmploymentInformation = {
@@ -41,6 +42,7 @@ export type EmploymentInformation = {
   startDate: string;
   endDate: string;
   title: string;
+  projects: { companyName: string; projectName: string; description: string; technologyUsed: string[] }[];
 };
 
 const cgi: EmploymentInformation = {
@@ -48,6 +50,15 @@ const cgi: EmploymentInformation = {
   startDate: 'May 2023',
   endDate: 'Present',
   title: 'Senior SOftware Engineer',
+  projects: [
+    {
+      projectName: 'National Exam Body',
+      companyName: 'Qualifications Scotland',
+      description:
+        "Worked with a widely recognized national exam body to modernise their web platform and content editing experience. Lead the software engineering decisions across the projects and helped upskill 3 of the client's engineers",
+      technologyUsed: ['React', 'Next.js', 'Vitest', 'Playwright', 'Azure', 'Contentful'],
+    },
+  ],
 };
 
 const aviva: EmploymentInformation = {
@@ -55,6 +66,7 @@ const aviva: EmploymentInformation = {
   startDate: 'November 2022',
   endDate: 'May 2023',
   title: 'Senior Software Engineer',
+  projects: [],
 };
 
 const madeTech: EmploymentInformation = {
@@ -62,6 +74,7 @@ const madeTech: EmploymentInformation = {
   startDate: 'February 2021',
   endDate: 'July 2022',
   title: 'Senior Software Engineer',
+  projects: [],
 };
 
 const caci: EmploymentInformation = {
@@ -69,9 +82,18 @@ const caci: EmploymentInformation = {
   startDate: 'April 2019',
   endDate: 'February 2021',
   title: 'Senior Software Engineer',
+  projects: [],
 };
 
-const employmentHistory: EmploymentInformation[] = [cgi, aviva, madeTech, caci];
+const tcs: EmploymentInformation = {
+  companyName: 'Tata Consultancy Services',
+  startDate: 'November 2017',
+  endDate: 'October 2018',
+  title: 'Software Engineer',
+  projects: [],
+};
+
+const employmentHistory: EmploymentInformation[] = [cgi, aviva, madeTech, caci, tcs];
 
 const DEFAULT_CV = {
   personalInformation,
