@@ -33,7 +33,8 @@
     "react-toastify": "11.0.5",
     "sharp": "0.34.5",
     "svg-path-bounding-box": "^1.0.4",
-    "tailwind-merge": "3.5.0"
+    "tailwind-merge": "3.5.0",
+    "html2pdf.js": "^0.14.0"
   },
   "devDependencies": {
     "@babel/core": "7.29.0",
