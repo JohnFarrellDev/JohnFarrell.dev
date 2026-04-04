@@ -8,6 +8,7 @@ import { CvViewer } from './CvViewer';
 
 export function CvBase() {
   const [activeVariantId, setActiveVariantId] = useState<CvVariantId>('default');
+  const [isExporting, setIsExporting] = useState(false);
   const cvRef = useRef<HTMLDivElement | null>(null);
 
   const activeVariant = CV_VARIANTS.find((v) => v.id === activeVariantId)!;
@@ -15,25 +16,29 @@ export function CvBase() {
   async function handleDownloadPdf() {
     if (!cvRef.current) return;
 
-    const html2pdf = (await import('html2pdf.js')).default;
+    setIsExporting(true);
+    try {
+      const html2pdf = (await import('html2pdf.js')).default;
 
-    const options = {
-      margin: 6,
-      filename: 'cv-john-farrell.pdf',
-      image: { type: 'jpeg', quality: 1 },
-      html2canvas: {
-        scale: 2,
-        useCORS: true,
-      },
-      jsPDF: {
-        unit: 'mm',
-        format: 'a4',
-        orientation: 'portrait',
-      },
-    };
+      const options = {
+        margin: 6,
+        filename: `${activeVariant.cv.personalInformation.name.replace(/\s+/g, '-')}-cv.pdf`,
+        image: { type: 'jpeg', quality: 1 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+      };
 
-    // @ts-ignore – html2pdf types are imperfect
-    html2pdf().set(options).from(cvRef.current).save();
+      // @ts-ignore – html2pdf types are imperfect
+      html2pdf(cvRef.current, options);
+
+      // @ts-ignore – html2pdf types are imperfect
+      // await html2pdf().set(options).from(cvRef.current).save();
+    } catch (e) {
+      // optional: surface error to user in UI
+      // console.error(e);
+    } finally {
+      setIsExporting(false);
+    }
   }
 
   return (
@@ -47,7 +52,7 @@ export function CvBase() {
             onClick={handleDownloadPdf}
             className="px-3 py-2 text-sm rounded bg-emerald-600 text-white cursor-pointer"
           >
-            Download PDF
+            {isExporting ? 'Preparing…' : 'Download PDF'}
           </button>
         </div>
 
