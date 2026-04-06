@@ -243,6 +243,17 @@
   --radius-sm: calc(var(--radius) - 4px);
 }
 
+@media print {
+  @page {
+    margin: 5mm;
+  }
+
+  * {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
+
 .yt-lite {
   background-color: #000;
   position: relative;
