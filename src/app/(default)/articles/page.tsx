@@ -1,9 +1,8 @@
 import { ArticleCard } from '@/Components/Articles/ArticleCard/ArticleCard';
 import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
 import { Title } from '@/Components/Title/Title';
 import { produceMetaData } from '@/Utilities/produceMetaData';
-
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
 
 export const metadata = produceMetaData({
   title: 'Articles | John Farrell',
@@ -28,21 +27,6 @@ export default function Articles() {
 }
 
 const allArticles = [
-  {
-    year: 'Continually Updated',
-    articles: [
-      {
-        URL: '/articles/piano-progress',
-        title: 'Piano Progress',
-        description: 'A look at my progress learning piano',
-        createdAt: new Date('2023-01-30T22:19:37.934Z'),
-        tags: ['piano', 'non technical'],
-        imageURL:
-          'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/article-thumbnails/article-card-piano-progress.jpeg',
-        imageAlt: 'upright piano in a sunlit room',
-      },
-    ],
-  },
   {
     year: '2025',
     articles: [
