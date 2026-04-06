@@ -1,11 +1,11 @@
-import { FullBleedContainer } from '@/Components/Layout/FullBleed';
-import { PageContentContainer } from '@/Components/Layout/PageContent';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import { FullBleedContainer } from '@/Components/Layout/FullBleed/FullBleed';
+import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
 import { cn } from '@/Utilities/cn';
 
-import { ArticleTimeStamps } from './ArticleTimeStamps';
-import { Title } from './Title';
-import { Underline } from './Underline';
+import { ArticleTimeStamps } from '@/Components/ArticleTimeStamps/ArticleTimeStamps';
+import { Title } from '@/Components/Title/Title';
+import { Underline } from '@/Components/Underline/Underline';
 
 interface ArticleBannerProps {
   title: string;

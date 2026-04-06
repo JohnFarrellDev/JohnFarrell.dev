@@ -1,6 +1,6 @@
-import { PageContentContainer } from '@/Components/Layout/PageContent';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
-import { Title } from '@/Components/Title';
+import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
+import { Title } from '@/Components/Title/Title';
 import { produceMetaData } from '@/Utilities/produceMetaData';
 
 import { CareerTimelineSVG } from './CareerTimeline';

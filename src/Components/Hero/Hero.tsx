@@ -1,10 +1,10 @@
 import Link from 'next/link';
 
-import { PageContentContainer } from '@/Components/Layout/PageContent';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
 
-import { Robot } from './Robot';
-import { SocialLinks } from './SocialLinks';
+import { Robot } from '@/Components/Robot/Robot';
+import { SocialLinks } from '@/Components/SocialLinks/SocialLinks';
 
 export function Hero() {
   return (

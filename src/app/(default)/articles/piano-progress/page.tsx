@@ -1,4 +1,4 @@
-import { ArticleBanner } from '@/Components/ArticleBanner';
+import { ArticleBanner } from '@/Components/ArticleBanner/ArticleBanner';
 import { CurrentyLearning } from '@/Components/Articles/PianoProgress/CurrentyLearning';
 import { SongTrackers } from '@/Components/Articles/PianoProgress/SongTrackers';
 import { produceMetaData } from '@/Utilities/produceMetaData';

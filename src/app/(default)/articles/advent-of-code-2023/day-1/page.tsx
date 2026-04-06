@@ -1,11 +1,11 @@
 import Link from 'next/link';
 
 import { ArticleStyles } from '@/Components/Article/Article';
-import { CodeBlock } from '@/Components/CodeBlock';
-import { PageContentContainer } from '@/Components/Layout/PageContent';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
-import { PreBlock } from '@/Components/PreBlock';
-import { Title } from '@/Components/Title';
+import { CodeBlock } from '@/Components/CodeBlock/CodeBlock';
+import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
+import { PreBlock } from '@/Components/PreBlock/PreBlock';
+import { Title } from '@/Components/Title/Title';
 import { GitHub } from '@/Components/icons/GitHub';
 import { produceMetaData } from '@/Utilities/produceMetaData';
 

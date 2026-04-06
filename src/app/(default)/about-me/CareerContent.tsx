@@ -1,7 +1,7 @@
 import { ReactNode, useEffect } from 'react';
 
-import { Button } from '@/Components/Button';
-import { Modal } from '@/Components/Modal';
+import { Button } from '@/Components/Button/Button';
+import { Modal } from '@/Components/Modal/Modal';
 import { Chevron } from '@/Components/icons/Chevron';
 
 interface CareerContentProps {

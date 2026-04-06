@@ -1,9 +1,9 @@
-import { ArticleCard } from '@/Components/Articles/ArticleCard';
-import { PageContentContainer } from '@/Components/Layout/PageContent';
-import { Title } from '@/Components/Title';
+import { ArticleCard } from '@/Components/Articles/ArticleCard/ArticleCard';
+import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
+import { Title } from '@/Components/Title/Title';
 import { produceMetaData } from '@/Utilities/produceMetaData';
 
-import { PageWidthContainer } from '../../../Components/Layout/PageWidthContainer';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
 
 export const metadata = produceMetaData({
   title: 'Articles | John Farrell',

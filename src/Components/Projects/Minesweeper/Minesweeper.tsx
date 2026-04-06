@@ -1,9 +1,9 @@
-import { ArticleTimeStamps } from '@/Components/ArticleTimeStamps';
-import { Banner } from '@/Components/Banner';
-import { PageContentContainer } from '@/Components/Layout/PageContent';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import { ArticleTimeStamps } from '@/Components/ArticleTimeStamps/ArticleTimeStamps';
+import { Banner } from '@/Components/Banner/Banner';
+import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
 import { Game } from '@/Components/Projects/Minesweeper/Components/Game/Game';
-import { Title } from '@/Components/Title';
+import { Title } from '@/Components/Title/Title';
 
 export default function Minesweeper() {
   return (
