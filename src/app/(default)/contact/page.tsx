@@ -1,6 +1,6 @@
-import { ContactForm } from '@/Components/ContactForm';
-import { PageContentContainer } from '@/Components/Layout/PageContent';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import { ContactForm } from '@/Components/ContactForm/ContactForm';
+import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
 import { produceMetaData } from '@/Utilities/produceMetaData';
 
 export const metadata = produceMetaData({

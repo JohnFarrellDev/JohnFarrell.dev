@@ -1,7 +1,7 @@
-import { ArticleCard } from '@/Components/Articles/ArticleCard';
-import { PageContentContainer } from '@/Components/Layout/PageContent';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
-import { Title } from '@/Components/Title';
+import { ArticleCard } from '@/Components/Articles/ArticleCard/ArticleCard';
+import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
+import { Title } from '@/Components/Title/Title';
 import { produceMetaData } from '@/Utilities/produceMetaData';
 
 const allProjects = [

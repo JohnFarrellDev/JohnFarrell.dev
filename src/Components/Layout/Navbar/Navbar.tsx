@@ -2,11 +2,10 @@
 
 import { useState } from 'react';
 
-import { PageContentContainer } from '@/Components/Layout//PageContent';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import { Links } from '@/Components/Layout/Links/Links';
+import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
 import { cn } from '@/Utilities/cn';
-
-import { Links } from './Links';
 
 export function Navbar({ className }: { className?: string }) {
   const [isOpen, setIsOpen] = useState(false);

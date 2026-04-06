@@ -1,5 +1,5 @@
 import { Experience } from '@/Components/Experience/Experience';
-import { Hero } from '@/Components/Hero';
+import { Hero } from '@/Components/Hero/Hero';
 import { Skills } from '@/Components/Skills/Skills';
 import { produceMetaData } from '@/Utilities/produceMetaData';
 

@@ -1,8 +1,8 @@
 import { ArticleStyles } from '@/Components/Article/Article';
-import { ArticleBanner } from '@/Components/ArticleBanner';
-import { PageContentContainer } from '@/Components/Layout/PageContent';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
-import { SectionTitle } from '@/Components/SectionTitle';
+import { ArticleBanner } from '@/Components/ArticleBanner/ArticleBanner';
+import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
+import { SectionTitle } from '@/Components/SectionTitle/SectionTitle';
 import { produceMetaData } from '@/Utilities/produceMetaData';
 
 import { Form } from './Form';

@@ -1,13 +1,13 @@
 import Image from 'next/image';
 
 import { ArticleStyles } from '@/Components/Article/Article';
-import { ArticleBanner } from '@/Components/ArticleBanner';
-import { CodeBlock } from '@/Components/CodeBlock';
-import { FileExplorer } from '@/Components/FileExplorer';
-import { PageContentContainer } from '@/Components/Layout/PageContent';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
-import { SectionTitle } from '@/Components/SectionTitle';
-import { TableOfContents } from '@/Components/TableOfContents';
+import { ArticleBanner } from '@/Components/ArticleBanner/ArticleBanner';
+import { CodeBlock } from '@/Components/CodeBlock/CodeBlock';
+import { FileExplorer } from '@/Components/FileExplorer/FileExplorer';
+import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
+import { SectionTitle } from '@/Components/SectionTitle/SectionTitle';
+import { TableOfContents } from '@/Components/TableOfContents/TableOfContents';
 import { produceMetaData } from '@/Utilities/produceMetaData';
 
 export const metadata = produceMetaData({

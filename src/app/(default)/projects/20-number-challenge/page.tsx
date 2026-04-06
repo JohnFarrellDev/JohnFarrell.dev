@@ -1,7 +1,7 @@
-import { PageContentContainer } from '@/Components/Layout/PageContent';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
 import { Game20 } from '@/Components/Projects/DescendingInsanity/Game20';
-import { Title } from '@/Components/Title';
+import { Title } from '@/Components/Title/Title';
 import { produceMetaData } from '@/Utilities/produceMetaData';
 
 export const metadata = produceMetaData({

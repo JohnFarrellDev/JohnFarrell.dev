@@ -1,12 +1,12 @@
 import Image from 'next/image';
 
 import { ArticleStyles } from '@/Components/Article/Article';
-import { ArticleBanner } from '@/Components/ArticleBanner';
-import { Banner } from '@/Components/Banner';
-import { PageContentContainer } from '@/Components/Layout/PageContent';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import { ArticleBanner } from '@/Components/ArticleBanner/ArticleBanner';
+import { Banner } from '@/Components/Banner/Banner';
+import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
 import { Game } from '@/Components/Projects/Minesweeper/Components/Game/Game';
-import { SectionTitle } from '@/Components/SectionTitle';
+import { SectionTitle } from '@/Components/SectionTitle/SectionTitle';
 import { produceMetaData } from '@/Utilities/produceMetaData';
 
 export const metadata = produceMetaData({

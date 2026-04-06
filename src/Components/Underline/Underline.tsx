@@ -1,4 +1,4 @@
-import { cn } from '../Utilities/cn';
+import { cn } from '@/Utilities/cn';
 
 interface UnderlineProps {
   className?: string;

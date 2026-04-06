@@ -1,10 +1,10 @@
 import Link from 'next/link';
 
 import { ArticleStyles } from '@/Components/Article/Article';
-import { ArticleBanner } from '@/Components/ArticleBanner';
-import { Banner } from '@/Components/Banner';
-import { PageContentContainer } from '@/Components/Layout/PageContent';
-import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer';
+import { ArticleBanner } from '@/Components/ArticleBanner/ArticleBanner';
+import { Banner } from '@/Components/Banner/Banner';
+import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
 import { produceMetaData } from '@/Utilities/produceMetaData';
 
 export const metadata = produceMetaData({

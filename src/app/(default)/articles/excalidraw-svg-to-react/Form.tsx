@@ -6,9 +6,9 @@ import getBounds from 'svg-path-bounding-box';
 
 import { ChangeEvent, useState } from 'react';
 
-import { Button } from '@/Components/Button';
-import { CodeBlock } from '@/Components/CodeBlock';
-import { SectionTitle } from '@/Components/SectionTitle';
+import { Button } from '@/Components/Button/Button';
+import { CodeBlock } from '@/Components/CodeBlock/CodeBlock';
+import { SectionTitle } from '@/Components/SectionTitle/SectionTitle';
 
 interface BaseOptions {
   description: string;
