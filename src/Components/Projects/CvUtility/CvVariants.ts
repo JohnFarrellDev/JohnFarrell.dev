@@ -49,14 +49,14 @@ const cgi: EmploymentInformation = {
   companyName: 'CGI (Acquired from BJSS)',
   startDate: 'May 2023',
   endDate: 'Present',
-  title: 'Senior SOftware Engineer',
+  title: 'Senior Software Engineer',
   projects: [
     {
-      projectName: 'National Exam Body',
-      companyName: 'Qualifications Scotland',
+      projectName: 'Qualifications Scotland',
+      companyName: 'Scottish Qualifications Authority',
       description:
         "Worked with a widely recognized national exam body to modernise their web platform and content editing experience. Lead the software engineering decisions across the projects and helped upskill 3 of the client's engineers",
-      technologyUsed: ['React', 'Next.js', 'Vitest', 'Playwright', 'Azure', 'Contentful'],
+      technologyUsed: ['React', 'Next.js', 'TypeScript', 'Tailwind'],
     },
   ],
 };
@@ -69,12 +69,49 @@ const aviva: EmploymentInformation = {
   projects: [],
 };
 
+const dazn: EmploymentInformation = {
+  companyName: 'DAZN',
+  startDate: 'August 2022',
+  endDate: 'October 2022',
+  title: 'Engineer',
+  projects: [
+    {
+      companyName: 'DAZN',
+      projectName: 'Content Discovery Team',
+      description: 'Developed APIs to deliver a personalised content feed to users.',
+      technologyUsed: ['TypeScript', 'Node', 'AWS'],
+    },
+  ],
+};
+
 const madeTech: EmploymentInformation = {
   companyName: 'Made Tech',
   startDate: 'February 2021',
   endDate: 'July 2022',
   title: 'Senior Software Engineer',
-  projects: [],
+  projects: [
+    {
+      companyName: 'Met Office',
+      projectName: 'Met Office Prototype App',
+      description:
+        'Led the technical decision making on the tech stack, CI/CD and infrastructure. Built a PWA prototype of the Met Office app landing page. Won a £7 million contract over 2 years.',
+      technologyUsed: ['TypeScript', 'React', 'Next.js', 'CSS'],
+    },
+    {
+      companyName: 'Home Office',
+      projectName: 'Homes for Ukraine',
+      description:
+        'Worked as part of a team to build forms that allowed individuals and organisations to express their interest in housing Ukrainian refugees. Over 120,000 successful submissions within the first 2 weeks of the service being online.',
+      technologyUsed: ['Ruby on Rails'],
+    },
+    {
+      companyName: 'Hackney Council',
+      projectName: 'Hackney Social Care Services',
+      description:
+        'Led a five person engineering team. Worked with the product owner to understand requirements and communicate progress. Built out end to end features, infrastructure, frontend and backend API. Paired with junior engineers to help upskill individuals.',
+      technologyUsed: ['TypeScript', 'React', 'Next.js', 'CSS', 'C#', 'AWS'],
+    },
+  ],
 };
 
 const caci: EmploymentInformation = {
@@ -82,7 +119,22 @@ const caci: EmploymentInformation = {
   startDate: 'April 2019',
   endDate: 'February 2021',
   title: 'Senior Software Engineer',
-  projects: [],
+  projects: [
+    {
+      companyName: 'Airbus',
+      projectName: 'Airbus Secure Communication',
+      description:
+        'Worked as a full-stack web developer implementing features to allow the configuration of secure communication devices.',
+      technologyUsed: ['TypeScript', 'React', 'CSS', 'Java', 'Spring'],
+    },
+    {
+      companyName: 'Highways England',
+      projectName: 'Highways England',
+      description:
+        'Worked as a full-stack web developer implementing features that allowed the administration of roadway work proposals.',
+      technologyUsed: ['TypeScript', 'Angular', 'CSS', 'Java', 'Spring'],
+    },
+  ],
 };
 
 const tcs: EmploymentInformation = {
@@ -90,10 +142,17 @@ const tcs: EmploymentInformation = {
   startDate: 'November 2017',
   endDate: 'October 2018',
   title: 'Software Engineer',
-  projects: [],
+  projects: [
+    {
+      companyName: 'EDF Energy',
+      projectName: 'EDF Energy',
+      description: 'Produced design specifications and support documentation for a cloud industrialisation project.',
+      technologyUsed: [],
+    },
+  ],
 };
 
-const employmentHistory: EmploymentInformation[] = [cgi, aviva, madeTech, caci, tcs];
+const employmentHistory: EmploymentInformation[] = [cgi, aviva, dazn, madeTech, caci, tcs];
 
 const DEFAULT_CV = {
   personalInformation,

@@ -251,6 +251,7 @@
   * {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
+    font-family: Arial, Helvetica, sans-serif !important;
   }
 }
 
