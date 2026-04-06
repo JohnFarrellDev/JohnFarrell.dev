@@ -1,34 +1,25 @@
-import { RefObject } from 'react';
-
 import { EmploymentInformation, PersonalInformation } from './CvVariants';
 
 type CvViewerProps = {
-  ref: RefObject<HTMLDivElement | null>;
   personalInformation: PersonalInformation;
   skills: string[];
   employmentHistory: EmploymentInformation[];
 };
 
-export function CvViewer({ ref, personalInformation, skills, employmentHistory }: CvViewerProps) {
+export function CvViewer({ personalInformation, skills, employmentHistory }: CvViewerProps) {
   return (
-    <div className="bg-white border rounded p-6">
-      <CvContainer ref={ref}>
-        <CvHeader {...personalInformation} />
+    <div className="bg-white border rounded p-6 print:border-0 print:p-0 print:rounded-none print:bg-transparent">
+      <CvHeader {...personalInformation} />
 
-        <hr className="my-[12px]" />
+      <hr className="my-[12px]" />
 
-        <Skills skills={skills} />
+      <Skills skills={skills} />
 
-        <Experience employmentHistory={employmentHistory} />
+      <Experience employmentHistory={employmentHistory} />
 
-        <Education />
-      </CvContainer>
+      <Education />
     </div>
   );
-}
-
-function CvContainer({ ref, children }: { ref: RefObject<HTMLDivElement | null>; children: React.ReactNode }) {
-  return <div ref={ref}>{children}</div>;
 }
 
 type CvHeaderProps = {
@@ -97,13 +88,13 @@ function Skills({ skills }: { skills: string[] }) {
   const columnsStyle = mapNumberOfColumnsToGridColumns[numberOfColumns];
 
   return (
-    <section className="mb-[16px]">
-      <h2 className="text-[24px] m-0 p-0 mb-[16px]">Skills</h2>
-      <div className={`grid ${columnsStyle} gap-x-[24px] text-[16px]`}>
+    <section className="mb-[24px] leading-none">
+      <h2 className="text-[24px] m-0 p-0 mb-[12px] text-black">Skills</h2>
+      <div className={`grid ${columnsStyle} gap-x-[20px] text-[16px]`}>
         {columns.map((column, index) => (
-          <div key={index} className="flex flex-col gap-y-[8px]">
+          <div key={index} className="flex flex-col grow gap-y-[8px]">
             {column.map((skill) => (
-              <p className="m-0 p-0 leading-none" key={skill}>
+              <p className="m-0 p-0 leading-none text-black" key={skill}>
                 {skill}
               </p>
             ))}
@@ -116,25 +107,26 @@ function Skills({ skills }: { skills: string[] }) {
 
 function Experience({ employmentHistory }: { employmentHistory: EmploymentInformation[] }) {
   return (
-    <section className="mb-[16px]">
-      <h2 className="text-[24px] m-0 p-0 mb-[16px]">Experience</h2>
+    <section className="mb-[24px]">
+      <h2 className="text-[24px] m-0 p-0 mb-[16px] leading-none text-black">Experience</h2>
       <div>
         {employmentHistory.map((job) => (
           <div key={job.companyName}>
             <div className="flex justify-between items-center mb-[8px]">
-              <h3 className="text-[18px] m-0 p-0 leading-none">{job.companyName}</h3>
-              <p className="m-0 p-0 text-[16px] leading-none">
+              <h3 className="text-[18px] m-0 p-0 leading-none text-black">{job.companyName}</h3>
+              <p className="m-0 p-0 text-[16px] leading-none text-black">
                 {job.startDate} - {job.endDate}
               </p>
             </div>
-            <ul>
+            <ul className="ml-[16px]">
               {job.projects.map((project) => (
                 <li key={project.projectName} className="flex gap-[8px]">
-                  <span>•</span>
                   <div>
-                    <p className="text-[16px] leading-none m-0 p-0 mb-[4px]">{project.projectName}</p>
+                    <p className="text-[16px] leading-none m-0 p-0 mb-[4px] text-black">
+                      {project.projectName} - {project.description}
+                    </p>
                     <div className="m-0 p-0">
-                      <p>{project.description}</p>
+                      <p className="leading-none text-black"></p>
                     </div>
                   </div>
                 </li>
@@ -150,7 +142,7 @@ function Experience({ employmentHistory }: { employmentHistory: EmploymentInform
 function Education() {
   return (
     <section>
-      <h2 className="text-[24px] m-0 p-0 mb-[8px]">Education</h2>
+      <h2 className="text-[24px] m-0 p-0 mb-[8px] leading-none text-black">Education</h2>
     </section>
   );
 }

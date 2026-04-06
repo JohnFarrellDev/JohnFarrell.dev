@@ -5,9 +5,13 @@ import '@/globals.css';
 export default function DefaultPageLayout({ children }: { children: React.ReactNode }) {
   return (
     <body className="flex min-h-svh flex-col bg-gray-50">
-      <Navbar />
+      <div className="print:hidden">
+        <Navbar />
+      </div>
       <main className="grow pb-8">{children}</main>
-      <Footer />
+      <div className="print:hidden">
+        <Footer />
+      </div>
     </body>
   );
 }

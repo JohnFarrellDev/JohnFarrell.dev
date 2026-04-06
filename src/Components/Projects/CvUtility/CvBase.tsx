@@ -8,56 +8,37 @@ import { CvViewer } from './CvViewer';
 
 export function CvBase() {
   const [activeVariantId, setActiveVariantId] = useState<CvVariantId>('default');
-  const [isExporting, setIsExporting] = useState(false);
-  const cvRef = useRef<HTMLDivElement | null>(null);
 
   const activeVariant = CV_VARIANTS.find((v) => v.id === activeVariantId)!;
 
-  async function handleDownloadPdf() {
-    if (!cvRef.current) return;
-
-    setIsExporting(true);
-    try {
-      const html2pdf = (await import('html2pdf.js')).default;
-
-      const options = {
-        margin: 6,
-        filename: `${activeVariant.cv.personalInformation.name.replace(/\s+/g, '-')}-cv.pdf`,
-        image: { type: 'jpeg', quality: 1 },
-        html2canvas: { scale: 2, useCORS: true },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-      };
-
-      // @ts-ignore – html2pdf types are imperfect
-      html2pdf(cvRef.current, options);
-
-      // @ts-ignore – html2pdf types are imperfect
-      // await html2pdf().set(options).from(cvRef.current).save();
-    } catch (e) {
-      // optional: surface error to user in UI
-      // console.error(e);
-    } finally {
-      setIsExporting(false);
-    }
+  function handleDownloadPdf() {
+    const previousTitle = document.title;
+    document.title = `${activeVariant.cv.personalInformation.name.replace(/\s+/g, '-')}-cv`;
+    window.print();
+    document.title = previousTitle;
   }
 
   return (
     <div className="grid md:grid-cols-[1fr_3fr] gap-4">
-      <div>
+      <div className="print:hidden">
         <CvDefaultSelector activeVariantId={activeVariantId} onChange={setActiveVariantId} />
       </div>
-      <div className="max-w-full">
-        <div className="flex gap-2 mb-4">
-          <button
-            onClick={handleDownloadPdf}
-            className="px-3 py-2 text-sm rounded bg-emerald-600 text-white cursor-pointer"
-          >
-            {isExporting ? 'Preparing…' : 'Download PDF'}
-          </button>
+      <div className="max-w-full print:max-w-none print:w-full">
+        <div className="flex flex-col gap-2 mb-4 print:hidden">
+          <div className="flex gap-2">
+            <button
+              onClick={handleDownloadPdf}
+              className="px-3 py-2 text-sm rounded bg-emerald-600 text-white cursor-pointer"
+            >
+              Download PDF
+            </button>
+          </div>
+          <p className="text-xs text-gray-500 m-0">
+            In the print dialog: uncheck <strong>Headers and footers</strong> to remove the URL and timestamp.
+          </p>
         </div>
 
         <CvViewer
-          ref={cvRef}
           personalInformation={activeVariant.cv.personalInformation}
           skills={activeVariant.cv.skills}
           employmentHistory={activeVariant.cv.employmentHistory}
