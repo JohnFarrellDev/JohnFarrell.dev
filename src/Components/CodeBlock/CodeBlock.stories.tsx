@@ -11,8 +11,7 @@ const sampleCode = `function greet(name: string): string {
   return \`Hello, \${name}!\`;
 }
 
-const message = greet('World');
-console.log(message);`;
+const message = greet('World');`;
 
 export const Basic: StoryObj<typeof CodeBlock> = {
   args: {
