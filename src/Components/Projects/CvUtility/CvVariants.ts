@@ -55,7 +55,7 @@ const cgi: EmploymentInformation = {
       projectName: 'Qualifications Scotland',
       companyName: 'Scottish Qualifications Authority',
       description:
-        "Worked with a widely recognized national exam body to modernise their web platform and content editing experience. Lead the software engineering decisions across the projects and helped upskill 3 of the client's engineers",
+        "Worked with a widely recognized national exam body to modernise their web platform and content editing experience. Led the software engineering decisions across the projects and helped upskill 3 of the client's engineers",
       technologyUsed: ['React', 'Next.js', 'TypeScript', 'Tailwind'],
     },
   ],

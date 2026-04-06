@@ -8,16 +8,13 @@ type CvViewerProps = {
 
 const TEAL = '#2caeba';
 
-const sectionHeader = `text-[18px] font-bold m-0 p-0 mb-[4px] uppercase tracking-wide`;
+const sectionHeader = `text-[18px] font-bold m-0 p-0 mb-[4px] uppercase tracking-wide print:break-after-avoid`;
 
 export function CvViewer({ personalInformation, skills, employmentHistory }: CvViewerProps) {
   return (
-    <div className="bg-white border rounded p-6 print:border-0 print:p-0 print:rounded-none print:bg-transparent">
-      <CvHeader {...personalInformation} />
-
-      <hr className="my-[12px]" />
-
+    <div className="bg-white border rounded p-6 print:border-0 print:p-0 print:rounded-none print:bg-white">
       <div className="flex flex-col gap-y-[20px]">
+        <CvHeader {...personalInformation} />
         <Skills skills={skills} />
         <Experience employmentHistory={employmentHistory} />
         <Education />
@@ -93,7 +90,7 @@ function Skills({ skills }: { skills: string[] }) {
       <h2 className={sectionHeader} style={{ color: TEAL }}>
         Skills
       </h2>
-      <hr className="mb-[10px]" style={{ borderColor: TEAL }} />
+      <hr className="mb-[10px] print:break-after-avoid" style={{ borderColor: TEAL }} />
       <div className={`grid ${columnsStyle} gap-x-[20px] text-[16px]`}>
         {columns.map((column, index) => (
           <div key={index} className="flex flex-col gap-y-[8px]">
@@ -115,7 +112,7 @@ function Experience({ employmentHistory }: { employmentHistory: EmploymentInform
       <h2 className={sectionHeader} style={{ color: TEAL }}>
         Professional Experience
       </h2>
-      <hr className="mb-[12px]" style={{ borderColor: TEAL }} />
+      <hr className="mb-[12px] print:break-after-avoid" style={{ borderColor: TEAL }} />
       <div className="flex flex-col gap-[14px]">
         {employmentHistory.map((job) => (
           <div key={job.companyName}>
@@ -161,11 +158,11 @@ function Experience({ employmentHistory }: { employmentHistory: EmploymentInform
 
 function Education() {
   return (
-    <section>
+    <section className="break-inside-avoid">
       <h2 className={sectionHeader} style={{ color: TEAL }}>
         Education
       </h2>
-      <hr className="mb-[10px]" style={{ borderColor: TEAL }} />
+      <hr className="mb-[10px] print:break-after-avoid" style={{ borderColor: TEAL }} />
       <div className="flex justify-between items-center">
         <p className="m-0 p-0 text-[16px] leading-none text-black">MSc Computer Science — University of Kent (Merit)</p>
         <p className="m-0 p-0 text-[15px] leading-none text-black">2016 – 2017</p>

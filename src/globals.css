@@ -245,7 +245,7 @@
 
 @media print {
   @page {
-    margin: 8mm 12mm;
+    margin: 8mm 6mm;
   }
 
   * {
