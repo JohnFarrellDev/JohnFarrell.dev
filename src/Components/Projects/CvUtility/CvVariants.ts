@@ -55,21 +55,21 @@ const cgi: EmploymentInformation = {
       projectName: 'Qualifications Scotland Web Platform',
       companyName: 'Qualifications Scotland',
       description:
-        'Led an engineering team building a content management system for a national exam body. Created a system enabling content editors to build both headless content-driven pages and headful UI-editable pages. Built a component library ensuring WCAG compliance aligned with the Scottish Government design system. Upskilled 3 engineers client engineers. Worked with key stakeholders to bridge the gap between technical delivery and business requirements.',
+        'Led an engineering team building a content management system for a national exam body. Created a system enabling content editors to build both headless content-driven pages and headful UI-editable pages. Built a component library ensuring WCAG compliance aligned with the Scottish Government design system. Upskilled 3 client engineers. Worked with key stakeholders to bridge the gap between technical delivery and business requirements.',
       technologyUsed: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'Contentful'],
     },
     {
       projectName: 'Veterinary Medicines Directorate',
-      companyName: 'Scottish Qualifications Authority',
+      companyName: 'Veterinary Medicines Directorate',
       description:
         'Delivered complex role-based React workflows and dynamic forms as part of a technology modernisation programme. Built and maintained CRUD API endpoints using Nest.js and MikroORM with PostgreSQL. Shared frontend expertise with team members, supporting adoption of modern React and TypeScript best practices.',
       technologyUsed: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'Nest.js', 'PostgreSQL'],
     },
     {
-      projectName: 'IAGAI',
-      companyName: 'IAGAI',
+      projectName: 'IAG AI On-Call Optimisation',
+      companyName: 'IAG',
       description:
-        'Built interactive React and Next.js applications for internal staff across departments. Created custom backend services to transform complex AI data from spreadsheets into technology-friendly formats. Integrated AI-driven functionalities to display data in intuitive formats like dynamic charts and graphs.',
+        'Ingested AI-generated on-call scheduling data from spreadsheets into a structured database. Built a React and Next.js web application to visualise the data and timesheets, enabling better decision making around on-call staffing and reducing unnecessary costs.',
       technologyUsed: ['React', 'Next.js', 'TypeScript'],
     },
     {
