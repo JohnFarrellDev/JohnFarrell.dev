@@ -18,13 +18,13 @@ export function ArticleCard({ title, description, URL, tags, imageURL, imageAlt,
   return (
     <li
       className={cn(
-        'w-full max-w-[800px] overflow-hidden rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-105 md:max-h-[200px]',
+        'w-full max-w-[800px] overflow-hidden rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.5)] transition-all duration-300 hover:scale-105 has-[:focus-visible]:scale-105 has-[:focus-visible]:shadow-[0_0_20px_rgba(59,130,246,0.6)] md:max-h-[200px]',
         className
       )}
     >
       <Link
         href={URL}
-        className="relative flex h-full flex-col text-gray-900 no-underline hover:text-gray-900 md:flex-row"
+        className="relative flex h-full flex-col text-gray-900 no-underline hover:text-gray-900 focus-visible:outline-none md:flex-row"
       >
         <Image
           src={imageURL}
