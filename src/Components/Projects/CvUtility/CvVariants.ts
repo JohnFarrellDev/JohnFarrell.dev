@@ -52,6 +52,13 @@ const cgi: EmploymentInformation = {
   title: 'Senior Software Engineer',
   projects: [
     {
+      projectName: 'Qualifications Scotland Web Platform',
+      companyName: 'Qualifications Scotland',
+      description:
+        'Led an engineering team building a content management system for a national exam body. Created a system enabling content editors to build both headless content-driven pages and headful UI-editable pages. Built a component library ensuring WCAG compliance aligned with the Scottish Government design system. Upskilled 3 engineers client engineers. Worked with key stakeholders to bridge the gap between technical delivery and business requirements.',
+      technologyUsed: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'Contentful'],
+    },
+    {
       projectName: 'Veterinary Medicines Directorate',
       companyName: 'Scottish Qualifications Authority',
       description:
