@@ -6,9 +6,7 @@ type CvViewerProps = {
   employmentHistory: EmploymentInformation[];
 };
 
-const TEAL = '#2caeba';
-
-const sectionHeader = `text-[18px] font-bold m-0 p-0 mb-[4px] uppercase tracking-wide print:break-after-avoid`;
+const sectionHeader = `text-lg print:text-[18px] font-bold m-0 p-0 mb-[4px] uppercase tracking-wide text-teal-600`;
 
 export function CvViewer({ personalInformation, skills, employmentHistory }: CvViewerProps) {
   return (
@@ -43,7 +41,7 @@ function CvHeader({ name, email, phone, github, website }: CvHeaderProps) {
         </a>
       </div>
       <div>
-        <h1 className="text-[30px] font-bold text-center m-0 p-0 text-black">{name}</h1>
+        <h1 className="text-3xl font-bold text-center m-0 p-0 text-black print:text-[30px]">{name}</h1>
       </div>
       <div className="flex flex-col items-center sm:items-end print:items-end">
         <a className="m-0 p-0" href={email.url}>
@@ -58,13 +56,11 @@ function CvHeader({ name, email, phone, github, website }: CvHeaderProps) {
 function Skills({ skills }: { skills: string[] }) {
   return (
     <section>
-      <h2 className={sectionHeader} style={{ color: TEAL }}>
-        Skills
-      </h2>
-      <hr className="mb-[10px] print:break-after-avoid" style={{ borderColor: TEAL }} />
+      <h2 className={sectionHeader}>Skills</h2>
+      <hr className="mb-[12px] border-teal-600" />
       <div className="columns-1 min-[400px]:columns-2 md:columns-4 print:columns-4 gap-x-[20px] text-[16px]">
         {skills.map((skill) => (
-          <p className="m-0 p-0 leading-none text-black mb-[8px] break-inside-avoid" key={skill}>
+          <p className="m-0 p-0 leading-none text-black mb-[8px]" key={skill}>
             {skill}
           </p>
         ))}
@@ -76,10 +72,8 @@ function Skills({ skills }: { skills: string[] }) {
 function Experience({ employmentHistory }: { employmentHistory: EmploymentInformation[] }) {
   return (
     <section>
-      <h2 className={sectionHeader} style={{ color: TEAL }}>
-        Professional Experience
-      </h2>
-      <hr className="mb-[12px] print:break-after-avoid" style={{ borderColor: TEAL }} />
+      <h2 className={sectionHeader}>Professional Experience</h2>
+      <hr className="mb-[12px] border-teal-600" />
       <div className="flex flex-col gap-[14px]">
         {employmentHistory.map((job) => (
           <div key={job.companyName} className="break-inside-avoid">
@@ -94,7 +88,7 @@ function Experience({ employmentHistory }: { employmentHistory: EmploymentInform
             </div>
             <div className="flex flex-col gap-[8px] ml-[8px]">
               {job.projects.map((project) => (
-                <div key={project.projectName} className="break-inside-avoid">
+                <div key={project.projectName}>
                   <p className="text-[15px] font-bold leading-none m-0 p-0 mb-[4px] text-black">
                     {project.projectName}
                     {project.technologyUsed.length > 0 && (
@@ -127,10 +121,8 @@ function Experience({ employmentHistory }: { employmentHistory: EmploymentInform
 function Education() {
   return (
     <section className="break-inside-avoid">
-      <h2 className={sectionHeader} style={{ color: TEAL }}>
-        Education
-      </h2>
-      <hr className="mb-[10px] print:break-after-avoid" style={{ borderColor: TEAL }} />
+      <h2 className={sectionHeader}>Education</h2>
+      <hr className="mb-[12px] border-teal-600" />
       <div className="flex justify-between items-center">
         <p className="m-0 p-0 text-[16px] leading-none text-black">MSc Computer Science — University of Kent (Merit)</p>
         <p className="m-0 p-0 text-[15px] leading-none text-black">2016 – 2017</p>
