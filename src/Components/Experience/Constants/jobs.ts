@@ -1,6 +1,6 @@
 export const jobs = [
   {
-    id: 6,
+    id: 5,
     companyName: 'BJSS/CGI',
     startDate: 'May 2023',
     endDate: 'Present',
@@ -37,7 +37,7 @@ export const jobs = [
     ],
   },
   {
-    id: 5,
+    id: 4,
     companyName: 'Aviva',
     startDate: 'November 2022',
     endDate: 'May 2023',
@@ -47,20 +47,6 @@ export const jobs = [
         id: 1,
         description: 'Contributed as part of the support team to fix bugs impacting customers',
         technology: ['TypeScript', 'React', 'Next.js', 'Go', 'AWS'],
-      },
-    ],
-  },
-  {
-    id: 4,
-    companyName: 'DAZN',
-    startDate: 'August 2022',
-    endDate: 'October 2022',
-    position: 'Software engineer',
-    responsibilities: [
-      {
-        id: 1,
-        description: 'Content Discovery Team - Developed APIs to deliver a personalised content feed to users',
-        technology: ['TypeScript', 'Node', 'AWS'],
       },
     ],
   },
