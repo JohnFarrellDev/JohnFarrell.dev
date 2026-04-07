@@ -168,16 +168,8 @@ const tcs: EmploymentInformation = {
 
 const employmentHistory: EmploymentInformation[] = [cgi, aviva, madeTech, caci, tcs];
 
-const DEFAULT_CV = {
+export const DEFAULT_CV = {
   personalInformation,
   skills,
   employmentHistory,
 };
-
-export const CV_VARIANTS = [
-  { id: 'default', label: 'Default CV', cv: DEFAULT_CV },
-  { id: 'backend', label: 'Backend Engineer CV', cv: DEFAULT_CV },
-  { id: 'frontend', label: 'Frontend Engineer CV', cv: DEFAULT_CV },
-] as const;
-
-export type CvVariantId = (typeof CV_VARIANTS)[number]['id'];
