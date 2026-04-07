@@ -58,21 +58,6 @@ const allArticles = [
     ],
   },
   {
-    year: '2023',
-    articles: [
-      {
-        URL: '/articles/advent-of-code-2023',
-        title: 'Advent of Code 2023',
-        description: 'A detailed look at my solutions for Advent of Code 2023',
-        createdAt: new Date('2023-11-07T16:56:37.934Z'),
-        tags: ['typescript', 'problem solving', 'algorithms', 'advent of code'],
-        imageURL:
-          'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/article-thumbnails/article-card-advent-of-code-2023.jpeg',
-        imageAlt: 'Santa writing code at his desktop computer',
-      },
-    ],
-  },
-  {
     year: '2022',
     articles: [
       {
