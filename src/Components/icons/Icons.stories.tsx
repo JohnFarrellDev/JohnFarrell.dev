@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { BlueSky } from './BlueSky';
 import { Chevron } from './Chevron';
+import { Document } from './Document';
 import { CSharp } from './CSharp';
 import { GitHub } from './GitHub';
 import { House } from './House';
@@ -33,6 +34,7 @@ function AllIconsGrid() {
     { name: 'CSharp', Icon: CSharp },
     { name: 'Node', Icon: Node },
     { name: 'Chevron', Icon: Chevron },
+    { name: 'Document', Icon: Document },
     { name: 'Youtube', Icon: Youtube },
   ];
 
