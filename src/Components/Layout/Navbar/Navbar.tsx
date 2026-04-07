@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 import { Links } from '@/Components/Layout/Links/Links';
 import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
@@ -9,6 +10,11 @@ import { cn } from '@/Utilities/cn';
 
 export function Navbar({ className }: { className?: string }) {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   function toggleMenu() {
     setIsOpen(!isOpen);
