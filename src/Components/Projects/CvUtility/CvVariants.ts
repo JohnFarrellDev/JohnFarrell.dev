@@ -55,8 +55,22 @@ const cgi: EmploymentInformation = {
       projectName: 'Qualifications Scotland',
       companyName: 'Scottish Qualifications Authority',
       description:
-        "Worked with a widely recognized national exam body to modernise their web platform and content editing experience. Led the software engineering decisions across the projects and helped upskill 3 of the client's engineers",
-      technologyUsed: ['React', 'Next.js', 'TypeScript', 'Tailwind'],
+        "Delivered complex role-based React workflows and dynamic forms as part of a technology modernisation programme for a government body. Built and maintained CRUD API endpoints using Nest.js and MikroORM with PostgreSQL. Shared frontend expertise with team members, supporting adoption of modern React and TypeScript best practices.",
+      technologyUsed: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'Nest.js', 'PostgreSQL', 'Playwright'],
+    },
+    {
+      projectName: 'IAGAI',
+      companyName: 'IAGAI',
+      description:
+        'Built interactive React and Next.js applications for internal staff across departments. Created custom backend services to transform complex AI data from spreadsheets into technology-friendly formats. Integrated AI-driven functionalities to display data in intuitive formats like dynamic charts and graphs.',
+      technologyUsed: ['React', 'Next.js', 'TypeScript'],
+    },
+    {
+      projectName: 'British Airways',
+      companyName: 'British Airways',
+      description:
+        "Rebuilt an airline's homepage using Next.js, improving Lighthouse score from 25 to approximately 90. Implemented reusable code patterns for data fetching from Adobe Experience Manager (AEM) that benefited engineers across the project. Integrated the homepage with APIs for live dynamic pricing data. Served as a code owner responsible for approving code merges and deployments.",
+      technologyUsed: ['React', 'Next.js', 'TypeScript'],
     },
   ],
 };
@@ -66,7 +80,15 @@ const aviva: EmploymentInformation = {
   startDate: 'November 2022',
   endDate: 'May 2023',
   title: 'Senior Software Engineer',
-  projects: [],
+  projects: [
+    {
+      projectName: 'Car Insurance Platform',
+      companyName: 'Aviva',
+      description:
+        'Developed a greenfield car insurance platform with carbon offsetting capabilities. Implemented UI features using TypeScript and React. Built a claim management API using Go. Deployed on AWS using Lambdas and DynamoDB.',
+      technologyUsed: ['TypeScript', 'React', 'Go', 'AWS', 'DynamoDB'],
+    },
+  ],
 };
 
 const dazn: EmploymentInformation = {

@@ -4,8 +4,8 @@ import { CvBase } from '@/Components/Projects/CvUtility/CvBase';
 import { produceMetaData } from '@/Utilities/produceMetaData';
 
 export const metadata = produceMetaData({
-  title: 'CV Utility',
-  description: 'Make Keeping My CV Up to Date Easy',
+  title: 'John Farrell | CV',
+  description: 'All variants of my CV',
   image: '',
 });
 
