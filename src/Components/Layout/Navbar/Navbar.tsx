@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
+
+import { useEffect, useState } from 'react';
 
 import { Links } from '@/Components/Layout/Links/Links';
 import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
@@ -59,7 +60,7 @@ export function Navbar({ className }: { className?: string }) {
           >
             <Hamburger isOpen={isOpen} />
           </button>
-          <Links isOpen={isOpen} onLinkClick={() => setIsOpen(false)} />
+          <Links isOpen={isOpen} />
         </div>
       </PageContentContainer>
     </PageWidthContainer>
