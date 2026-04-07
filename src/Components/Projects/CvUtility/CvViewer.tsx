@@ -115,7 +115,7 @@ function Experience({ employmentHistory }: { employmentHistory: EmploymentInform
       <hr className="mb-[12px] print:break-after-avoid" style={{ borderColor: TEAL }} />
       <div className="flex flex-col gap-[14px]">
         {employmentHistory.map((job) => (
-          <div key={job.companyName}>
+          <div key={job.companyName} className="break-inside-avoid">
             <div className="flex justify-between items-baseline mb-[6px]">
               <h3 className="text-[17px] font-bold m-0 p-0 leading-none text-black">
                 {job.companyName} — {job.title}
@@ -126,7 +126,7 @@ function Experience({ employmentHistory }: { employmentHistory: EmploymentInform
             </div>
             <div className="flex flex-col gap-[8px] ml-[8px]">
               {job.projects.map((project) => (
-                <div key={project.projectName}>
+                <div key={project.projectName} className="break-inside-avoid">
                   <p className="text-[15px] font-bold leading-none m-0 p-0 mb-[4px] text-black">
                     {project.projectName}
                     {project.technologyUsed.length > 0 && (
