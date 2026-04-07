@@ -8,7 +8,7 @@ type CvDefaultSelectorProps = {
 export function CvDefaultSelector({ activeVariantId, onChange }: CvDefaultSelectorProps) {
   return (
     <div>
-      <h2 className="mb-4 font-semibold ">CV Variant</h2>
+      <h2 className="mb-4 font-semibold">CV Selected</h2>
 
       <select
         value={activeVariantId}
