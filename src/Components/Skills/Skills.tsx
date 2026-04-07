@@ -9,8 +9,8 @@ export function Skills() {
   return (
     <PageWidthContainer as="section">
       <PageContentContainer className="py-8">
-        <Title title="Tech Skills" className="text-center" as="h2" />
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <Title title="Tech Skills" as="h2" />
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mt-6">
           {skills.map(({ id, title, description, icon, link }) => {
             return (
               <article key={id} className="group hover:bg-primary-600 rounded-xl bg-white p-4 duration-300">

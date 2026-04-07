@@ -8,7 +8,7 @@ import { SocialLinks } from '@/Components/SocialLinks/SocialLinks';
 
 export function Hero() {
   return (
-    <PageWidthContainer as="header" className="bg-primary-100 min-h-[calc(100svh-3.5rem)] md:min-h-[calc(100svh-5rem)]">
+    <PageWidthContainer as="header" className="min-h-svh bg-primary-100">
       <PageContentContainer as="article" className="grid h-full items-center text-center md:grid-cols-2 md:text-left">
         <div>
           <h1 className="text-7xl font-bold">Hello, I'm John</h1>
