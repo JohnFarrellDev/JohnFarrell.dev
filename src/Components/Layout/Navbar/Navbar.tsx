@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Links } from '@/Components/Layout/Links/Links';
 import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
@@ -14,25 +14,46 @@ export function Navbar({ className }: { className?: string }) {
     setIsOpen(!isOpen);
   }
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      document.querySelectorAll('main, footer').forEach((el) => {
+        el.setAttribute('inert', '');
+      });
+    } else {
+      document.body.style.overflow = '';
+      document.querySelectorAll('main, footer').forEach((el) => {
+        el.removeAttribute('inert');
+      });
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.querySelectorAll('main, footer').forEach((el) => {
+        el.removeAttribute('inert');
+      });
+    };
+  }, [isOpen]);
+
   return (
     <PageWidthContainer
       className={cn('h-14 items-center bg-transparent md:h-20', className, {
         'bg-white': isOpen,
       })}
       as="nav"
+      aria-label="Main navigation"
     >
       <PageContentContainer>
         <div className="flex items-center justify-end">
           <button
             onClick={toggleMenu}
             className="flex flex-col items-center cursor-pointer justify-center md:hidden"
-            aria-label="Toggle menu"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
           >
             <Hamburger isOpen={isOpen} />
           </button>
-          <Links isOpen={isOpen} />
+          <Links isOpen={isOpen} onLinkClick={() => setIsOpen(false)} />
         </div>
       </PageContentContainer>
     </PageWidthContainer>

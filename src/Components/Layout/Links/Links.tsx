@@ -49,22 +49,31 @@ const data = [
 
 interface LinkProps {
   isOpen: boolean;
+  onLinkClick?: () => void;
 }
 
-export function Links({ isOpen }: LinkProps) {
+export function Links({ isOpen, onLinkClick }: LinkProps) {
   return (
     <ul
       className={cn(
         'justify-end gap-2 min-[300px]:gap-8 md:flex md:items-center',
-        isOpen ? 'absolute top-14 right-0 left-0 z-10 flex flex-col bg-white p-4 md:top-20' : 'hidden'
+        isOpen
+          ? 'fixed inset-0 top-14 z-10 flex flex-col items-center justify-center gap-6 bg-white md:relative md:inset-auto md:top-auto md:gap-8'
+          : 'hidden'
       )}
       id="mobile-menu"
+      role="menu"
+      onKeyDown={(e) => {
+        if (e.key === 'Escape') onLinkClick?.();
+      }}
     >
       {data.map((link) => (
-        <li key={link.id}>
+        <li key={link.id} role="none">
           <Link
             href={link.url}
-            className="hover:text-primary-600 flex items-center gap-2 font-bold tracking-wide text-gray-900 capitalize no-underline transition duration-300"
+            onClick={onLinkClick}
+            role="menuitem"
+            className="hover:text-primary-600 flex items-center gap-2 text-xl font-bold tracking-wide text-gray-900 capitalize no-underline transition duration-300 md:text-base"
           >
             <span className="md:hidden">{link.icon}</span>
             <span>{link.text}</span>
