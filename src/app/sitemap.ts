@@ -6,6 +6,7 @@ const routes = [
   '/',
   '/about-me',
   '/contact',
+  '/cv',
   '/articles',
   '/articles/advent-of-code-2023',
   '/articles/advent-of-code-2023/day-1',
