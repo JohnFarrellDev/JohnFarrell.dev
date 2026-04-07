@@ -38,7 +38,7 @@ function TableOfContentsContainer({ showContents, setShowContents }: TableOfCont
     <div className="flex items-center gap-4">
       <h2 className="m-0 text-lg">Contents</h2>
       <button
-        className="text-link text-base before:content-['['] after:content-[']']"
+        className="text-link text-base before:content-['['] after:content-[']'] cursor-pointer"
         onClick={() => setShowContents(!showContents)}
       >
         {showContents ? 'hide' : 'show'}

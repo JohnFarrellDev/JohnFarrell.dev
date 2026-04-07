@@ -9,26 +9,17 @@ interface BannerProps {
 
 export function Banner({ type, message }: BannerProps) {
   return (
-    <div className="my-4 flex w-full justify-center">
+    <div className="my-4 flex justify-center">
       <div
         className={cn(
-          'w-full max-w-2xl rounded-md px-4 py-3',
-          'border shadow-xs',
-          'text-sm',
+          'max-w-2xl rounded-md px-4 py-3 border shadow-xs',
           type === 'information'
             ? 'border-blue-200 bg-blue-50 text-blue-800'
             : 'border-yellow-200 bg-yellow-50 text-yellow-800'
         )}
         role={type === 'information' ? 'status' : 'alert'}
       >
-        <div className="flex items-center gap-3">
-          {type === 'information' ? (
-            <Info className="h-5 w-5 shrink-0 text-blue-600" />
-          ) : (
-            <OctagonAlert className="h-5 w-5 shrink-0 text-yellow-600" />
-          )}
-          <p className="mb-0">{message}</p>
-        </div>
+        <p className="my-[8px] p-0 text-balance text-center">{message}</p>
       </div>
     </div>
   );
