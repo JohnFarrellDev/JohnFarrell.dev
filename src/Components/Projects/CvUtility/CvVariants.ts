@@ -52,11 +52,11 @@ const cgi: EmploymentInformation = {
   title: 'Senior Software Engineer',
   projects: [
     {
-      projectName: 'Qualifications Scotland',
+      projectName: 'Veterinary Medicines Directorate',
       companyName: 'Scottish Qualifications Authority',
       description:
-        "Delivered complex role-based React workflows and dynamic forms as part of a technology modernisation programme for a government body. Built and maintained CRUD API endpoints using Nest.js and MikroORM with PostgreSQL. Shared frontend expertise with team members, supporting adoption of modern React and TypeScript best practices.",
-      technologyUsed: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'Nest.js', 'PostgreSQL', 'Playwright'],
+        'Delivered complex role-based React workflows and dynamic forms as part of a technology modernisation programme. Built and maintained CRUD API endpoints using Nest.js and MikroORM with PostgreSQL. Shared frontend expertise with team members, supporting adoption of modern React and TypeScript best practices.',
+      technologyUsed: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'Nest.js', 'PostgreSQL'],
     },
     {
       projectName: 'IAGAI',
@@ -86,22 +86,7 @@ const aviva: EmploymentInformation = {
       companyName: 'Aviva',
       description:
         'Developed a greenfield car insurance platform with carbon offsetting capabilities. Implemented UI features using TypeScript and React. Built a claim management API using Go. Deployed on AWS using Lambdas and DynamoDB.',
-      technologyUsed: ['TypeScript', 'React', 'Go', 'AWS', 'DynamoDB'],
-    },
-  ],
-};
-
-const dazn: EmploymentInformation = {
-  companyName: 'DAZN',
-  startDate: 'August 2022',
-  endDate: 'October 2022',
-  title: 'Engineer',
-  projects: [
-    {
-      companyName: 'DAZN',
-      projectName: 'Content Discovery Team',
-      description: 'Developed APIs to deliver a personalised content feed to users.',
-      technologyUsed: ['TypeScript', 'Node', 'AWS'],
+      technologyUsed: ['React', 'TypeScript', 'Go', 'AWS', 'DynamoDB'],
     },
   ],
 };
@@ -117,7 +102,7 @@ const madeTech: EmploymentInformation = {
       projectName: 'Met Office Prototype App',
       description:
         'Led the technical decision making on the tech stack, CI/CD and infrastructure. Built a PWA prototype of the Met Office app landing page. Won a £7 million contract over 2 years.',
-      technologyUsed: ['TypeScript', 'React', 'Next.js', 'CSS'],
+      technologyUsed: ['React', 'Next.js', 'TypeScript', 'CSS'],
     },
     {
       companyName: 'Home Office',
@@ -174,7 +159,7 @@ const tcs: EmploymentInformation = {
   ],
 };
 
-const employmentHistory: EmploymentInformation[] = [cgi, aviva, dazn, madeTech, caci, tcs];
+const employmentHistory: EmploymentInformation[] = [cgi, aviva, madeTech, caci, tcs];
 
 const DEFAULT_CV = {
   personalInformation,
