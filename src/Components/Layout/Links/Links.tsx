@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { Document } from '@/Components/icons/Document';
 import { House } from '@/Components/icons/House';
 import { Mail } from '@/Components/icons/Mail';
 import { NewsPaper } from '@/Components/icons/NewsPaper';
@@ -34,6 +35,12 @@ const data = [
   },
   {
     id: 5,
+    text: 'CV',
+    icon: <Document />,
+    url: '/cv/',
+  },
+  {
+    id: 6,
     text: 'contact',
     icon: <Mail />,
     url: '/contact/',
