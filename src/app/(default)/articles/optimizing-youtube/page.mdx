@@ -1,8 +1,10 @@
 import { ArticleLayout } from '@/Components/ArticleLayout/ArticleLayout';
 import { Banner } from '@/Components/Banner/Banner';
-import { SectionTitle } from '@/Components/SectionTitle/SectionTitle';
 import { TableOfContents } from '@/Components/TableOfContents/TableOfContents';
+import { extractHeadings } from '@/Utilities/extractHeadings';
 import { produceMetaData } from '@/Utilities/produceMetaData';
+
+export const toc = extractHeadings('src/app/(default)/articles/optimizing-youtube/page.mdx');
 
 export const metadata = produceMetaData({
   title: 'Optimizing Youtube | John Farrell',
@@ -27,21 +29,9 @@ These tools allow me to tailor my YouTube journey to my unique needs and prefere
 on YouTube into a more productive, enjoyable, and personalized experience. As a result, YouTube has become
 an even more invaluable resource in my daily life.
 
-<TableOfContents
-  content={[
-    { display: 'uBlock Origin', url: '#ublock-origin' },
-    { display: 'Sponsor Block', url: '#sponsor-block' },
-    { display: 'BlockTube', url: '#blocktube' },
-    { display: 'Return YouTube Dislikes', url: '#return-youtube-dislikes' },
-    { display: 'Clickbait Remover for YouTube', url: '#clickbait-remover-for-youtube' },
-    { display: 'DeArrow', url: '#dearrow' },
-    { display: 'Google Gemini', url: '#google-gemini' },
-  ]}
-/>
+<TableOfContents content={toc} />
 
-<SectionTitle id="ublock-origin" className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2">
-  uBlock Origin
-</SectionTitle>
+## uBlock Origin
 
 - [Chrome Extension](https://chromewebstore.google.com/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en-GB)
 - [Firefox Add-On](https://addons.mozilla.org/en-GB/firefox/addon/ublock-origin/)
@@ -54,9 +44,7 @@ don't feel guilty for using an ad blocker because, without it, YouTube often sho
 scams or misleading phone games. These ads are neither relevant nor accurately represented, making uBlock
 Origin a crucial tool in avoiding such content.
 
-<SectionTitle id="sponsor-block" className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2">
-  Sponsor Block
-</SectionTitle>
+## Sponsor Block
 
 - [Chrome Extension](https://chromewebstore.google.com/detail/sponsorblock-for-youtube/mnjggcdmjocbbbhaepdhchncahnbgone)
 - [Firefox Add-On](https://addons.mozilla.org/en-GB/firefox/addon/sponsorblock/)
@@ -74,9 +62,28 @@ hours.
 
 ![time saved by Sponsor Block, 1 day 16 hours](https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/optimizing-youtube/sponsor-block-time-saved.png)
 
-<SectionTitle id="blocktube" className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2">
-  BlockTube
-</SectionTitle>
+## Return YouTube Dislikes
+
+- [Chrome Extension](https://chromewebstore.google.com/detail/return-youtube-dislike/gebbhagfogifgggkldgodflihgfeippi?hl=en)
+- [Firefox Add-On](https://addons.mozilla.org/en-GB/firefox/addon/return-youtube-dislikes/)
+- [Return YouTube Dislikes website](https://returnyoutubedislike.com/)
+
+YouTube, in an effort to appease large corporations, removed the visible dislike count on videos.
+Unfortunately, seeing dislikes is a valuable tool for viewers to quickly gauge the quality of a video. For
+example, if I'm watching a tech tutorial or a handyman's guide with a high dislike count, I can quickly
+determine that the video may not be worth my time. This extension simply restores an estimated dislike count
+to videos, allowing viewers to make more informed decisions.
+
+Based on the below image YouTube rewind 2018 was a great success and received 3.1 million likes...
+
+![youtube rewind 2018 with a like count of 3.1 million](https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/optimizing-youtube/return-youtube-dislike-turned-off.png)
+
+However with the extension Return YouTube Dislikes turned on we can see the dislike count is at 20M for
+YouTube a dislike % of ~85%.
+
+![youtube dislike count still on a youtube video](https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/optimizing-youtube/return-youtube-dislike.png)
+
+## BlockTube
 
 - [Chrome Extension](https://chromewebstore.google.com/detail/blocktube/bbeaicapbccfllodepmimpkgecanonai)
 - [Firefox Add-On](https://addons.mozilla.org/en-GB/firefox/addon/blocktube/)
@@ -106,35 +113,7 @@ if the UFC channel posts a video with string 'ufc unfiltered' (a podcast I don't
 every week) in the title I will never see that video. Over time I have built quite an advanced custom filter
 which automatically blocks videos I don't care about.
 
-<SectionTitle
-  id="return-youtube-dislikes"
-  className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2"
->
-  Return YouTube Dislikes
-</SectionTitle>
-
-- [Chrome Extension](https://chromewebstore.google.com/detail/return-youtube-dislike/gebbhagfogifgggkldgodflihgfeippi?hl=en)
-- [Firefox Add-On](https://addons.mozilla.org/en-GB/firefox/addon/return-youtube-dislikes/)
-- [Return YouTube Dislikes website](https://returnyoutubedislike.com/)
-
-YouTube, in an effort to appease large corporations, removed the visible dislike count on videos.
-Unfortunately, seeing dislikes is a valuable tool for viewers to quickly gauge the quality of a video. For
-example, if I'm watching a tech tutorial or a handyman's guide with a high dislike count, I can quickly
-determine that the video may not be worth my time. This extension simply restores an estimated dislike count
-to videos, allowing viewers to make more informed decisions.
-
-Based on the below image YouTube rewind 2018 was a great success and received 3.1 million likes...
-
-![youtube rewind 2018 with a like count of 3.1 million](https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/optimizing-youtube/return-youtube-dislike-turned-off.png)
-
-However with the extension Return YouTube Dislikes turned on we can see the dislike count is at 20M for
-YouTube a dislike % of ~85%.
-
-![youtube dislike count still on a youtube video](https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/optimizing-youtube/return-youtube-dislike.png)
-
-<SectionTitle id="google-gemini" className="font-semibold underline decoration-blue-400 decoration-wavy decoration-2">
-  Google Gemini
-</SectionTitle>
+## Google Gemini
 
 [Google Gemini](https://gemini.google.com/)
 
