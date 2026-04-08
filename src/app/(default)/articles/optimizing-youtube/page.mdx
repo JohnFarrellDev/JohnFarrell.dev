@@ -1,6 +1,5 @@
 import { ArticleLayout } from '@/Components/ArticleLayout/ArticleLayout';
 import { Banner } from '@/Components/Banner/Banner';
-import { TableOfContents } from '@/Components/TableOfContents/TableOfContents';
 import { extractHeadings } from '@/Utilities/extractHeadings';
 import { produceMetaData } from '@/Utilities/produceMetaData';
 
@@ -13,7 +12,7 @@ export const metadata = produceMetaData({
     'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/article-thumbnails/optimizing-youtube.png',
 });
 
-<ArticleLayout title="Optimizing YouTube" createdAt={new Date('2024-06-19T19:35:38.114Z')}>
+<ArticleLayout title="Optimizing YouTube" createdAt={new Date('2024-06-19T19:35:38.114Z')} toc={toc}>
 
 <Banner
   type="information"
@@ -27,8 +26,6 @@ football highlights, YouTube offers a rich variety of content that matches my in
 experience further, I use various browser extensions that improve the platform's functionality. These
 tools allow me to tailor YouTube to my unique needs and preferences, transforming my time on
 YouTube into a more productive, enjoyable, and personalized experience.
-
-<TableOfContents content={toc} />
 
 ## uBlock Origin
 
