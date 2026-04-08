@@ -20,14 +20,13 @@ export const metadata = produceMetaData({
   message="Google are actively weakening the effectiveness of extensions on Chrome, try FireFox."
 />
 
-For about 15 years, I have been an avid YouTube user, integrating the platform into my daily routine.
-YouTube provides me with free entertainment and access to excellent educational resources. Whether I'm
-watching highlights of my favorite gaming streamers, football matches, or exploring tutorials on software
-engineering and business, YouTube offers a rich variety of content that matches my personal interests. To
-enhance my experience further, I use various browser extensions that improve the platform's functionality.
-These tools allow me to tailor my YouTube journey to my unique needs and preferences, transforming my time
-on YouTube into a more productive, enjoyable, and personalized experience. As a result, YouTube has become
-an even more invaluable resource in my daily life.
+For over 15 years, I have been an avid YouTube user, integrating the platform into my daily routine.
+YouTube provides me with both entertainment and access to excellent educational resources. Whether I'm
+exploring tutorials on software engineering, following chess strategy breakdowns, or catching up on
+football highlights, YouTube offers a rich variety of content that matches my interests. To enhance my
+experience further, I use various browser extensions that improve the platform's functionality. These
+tools allow me to tailor YouTube to my unique needs and preferences, transforming my time on
+YouTube into a more productive, enjoyable, and personalized experience.
 
 <TableOfContents content={toc} />
 
@@ -40,9 +39,9 @@ an even more invaluable resource in my daily life.
 For me, this is the most essential extension to have installed. It blocks all adverts across websites you
 visit, making your browsing experience smoother and less intrusive. Recently, YouTube has become more
 aggressive in attempting to counter ad blockers, but for now, uBlock appears to be prevailing. Personally, I
-don't feel guilty for using an ad blocker because, without it, YouTube often shows me ads for financial
-scams or misleading phone games. These ads are neither relevant nor accurately represented, making uBlock
-Origin a crucial tool in avoiding such content.
+don't feel guilty for using an ad blocker because, without it, YouTube frequently serves ads for dubious
+financial products or misrepresented mobile applications. These ads are neither relevant nor accurately
+portrayed, making uBlock Origin a crucial tool in avoiding such content.
 
 ## Sponsor Block
 
@@ -68,11 +67,11 @@ hours.
 - [Firefox Add-On](https://addons.mozilla.org/en-GB/firefox/addon/return-youtube-dislikes/)
 - [Return YouTube Dislikes website](https://returnyoutubedislike.com/)
 
-YouTube, in an effort to appease large corporations, removed the visible dislike count on videos.
-Unfortunately, seeing dislikes is a valuable tool for viewers to quickly gauge the quality of a video. For
-example, if I'm watching a tech tutorial or a handyman's guide with a high dislike count, I can quickly
-determine that the video may not be worth my time. This extension simply restores an estimated dislike count
-to videos, allowing viewers to make more informed decisions.
+In 2021, YouTube removed the visible dislike count on videos. Unfortunately, the dislike count is a
+valuable tool for viewers to quickly gauge the quality of a video. For example, if I'm watching a software
+engineering tutorial or a DIY guide with a high dislike count, I can quickly determine that the video may
+not be worth my time. This extension restores an estimated dislike count to videos, allowing viewers to
+make more informed decisions.
 
 Based on the below image YouTube rewind 2018 was a great success and received 3.1 million likes...
 
@@ -89,29 +88,79 @@ YouTube a dislike % of ~85%.
 - [Firefox Add-On](https://addons.mozilla.org/en-GB/firefox/addon/blocktube/)
 - [GitHub Repo](https://github.com/amitbl/blocktube)
 
-BlockTube is my favorite YouTube extension. I discovered it after realizing that YouTube's "Not interested
-in this video" button was largely ineffective; disliked videos and videos selected as not intersting to me
-would still clutter my feed. Subscribed to hundreds of channels, many posting daily, I found it increasingly
-difficult to locate the 5% of videos I actually care about. BlockTube solves this problem by allowing me to
-block specific videos or entire channels from appearing anywhere on YouTube with just a couple of clicks.
+BlockTube is my favourite YouTube extension. I discovered it after realising that YouTube's "Not interested
+in this video" button was largely ineffective; videos I had explicitly dismissed would still appear in my
+feed. Subscribed to hundreds of channels, many posting daily, I found it increasingly difficult to surface
+the small percentage of videos I actually want to watch. BlockTube solves this by allowing me to block
+specific videos or entire channels from appearing anywhere on YouTube with just a couple of clicks.
 
-My subscription feed without blocktube with 4 rows of content goes back only 6 hours.
+My subscription feed without BlockTube — four rows of content spanning only 6 hours:
 
 ![subscription feed without blocktube](https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/optimizing-youtube/blocktube-before.jpg)
 
-With BlockTube enabled I can see content from 8 days ago and a small scroll would show content from 3 months
-ago!
+With BlockTube enabled, the same feed shows content from 8 days ago, and a small scroll reveals videos from
+3 months ago:
+
 ![subscription feed with blocktube](https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/articles/optimizing-youtube/blocktube-after.jpg)
 
-BlockTube also features an advanced mode that allows you to programmatically block content by writing custom
-code. This mode provides access to video and channel objects, enabling precise filtering based on your
-specific criteria.
+### Advanced Mode
 
-Using this I am able to block all livestream videos and videos that are set to premier in the future. I also
-have written code that allows me to block certain keywords in general or for a specific channel, for example
-if the UFC channel posts a video with string 'ufc unfiltered' (a podcast I don't care about that they post
-every week) in the title I will never see that video. Over time I have built quite an advanced custom filter
-which automatically blocks videos I don't care about.
+Where BlockTube really shines is its advanced mode, which allows you to programmatically filter content
+by writing custom JavaScript. The extension provides access to video and channel objects, enabling precise
+filtering based on your own criteria.
+
+Over time I have built a fairly comprehensive filter that automatically removes content I'm not interested
+in. The approach is data-driven: I define per-channel block lists and allow lists, then a single filter
+function evaluates every video against these rules. Here is a condensed excerpt:
+
+```js
+// @meta canHide fileName="blocktube-advanced-filter.js"
+const channelLists = [
+  {
+    channel: /\bsky sports premier league\b/,
+    blockList: ['soccer saturday', 'quiz', 'darts', 'transfer', 'sticker book', 'beat the clock', ...pundits],
+    allowList: ['gary neville podcast'],
+  },
+  {
+    channel: /\bufc\b/,
+    blockList: ['press conference', 'ufc unfiltered', 'weigh-ins', 'embedded', 'contender series', 'power slap'],
+    allowList: [],
+  },
+  {
+    channel: /\bchess.com\b/,
+    blockList: ['titled tuesday', 'pogchamps', 'speed chess championship', 'tier list', 'quiz', /challenge/, /q&a/],
+    allowList: [],
+  },
+];
+
+// The filter function evaluates every video against these rules
+(video, object) => {
+  const videoTitleLower = video.title?.toLowerCase();
+  const channelTitleLower = video.channelName?.toLowerCase();
+
+  for (const rule of channelLists) {
+    const channelMatch =
+      typeof rule.channel === 'string' ? rule.channel === channelTitleLower : rule.channel.test(channelTitleLower);
+
+    if (!channelMatch) continue;
+
+    for (const allowed of rule.allowList) {
+      if (videoTitleLower?.includes(allowed)) return false;
+    }
+
+    for (const blocked of rule.blockList) {
+      const match = typeof blocked === 'string' ? videoTitleLower?.includes(blocked) : blocked.test(videoTitleLower);
+      if (match) return true;
+    }
+  }
+
+  return false;
+};
+```
+
+The full filter covers over 30 channels with hundreds of blocked terms, automatically removing livestreams,
+premieres, and content that doesn't match my interests, all without ever needing to click "Not interested"
+again.
 
 ## Google Gemini
 

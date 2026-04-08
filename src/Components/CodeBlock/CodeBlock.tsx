@@ -27,14 +27,14 @@ export function CodeBlock({ canHide, githubLink, children, fileName }: CodeBlock
           )}
 
           {canHide && (
-            <button onClick={() => setShowCode(!showCode)} className="text-white">
+            <button onClick={() => setShowCode(!showCode)} className="text-white cursor-pointer">
               {showCode ? 'Hide code' : 'Show code'}
             </button>
           )}
         </div>
-        <div className="flex flex-col sm:flex-row sm:items-center">
+        <div className="flex flex-col sm:flex-row sm:items-center ">
           <button
-            className="flex text-white"
+            className="flex text-white cursor-pointer"
             onClick={() => {
               navigator.clipboard.writeText(children);
             }}
