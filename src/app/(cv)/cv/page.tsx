@@ -5,7 +5,7 @@ import { produceMetaData } from '@/Utilities/produceMetaData';
 
 export const metadata = produceMetaData({
   title: 'John Farrell | CV',
-  description: 'All variants of my CV',
+  description: 'My CV.',
   image: '',
 });
 
