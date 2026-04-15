@@ -1,7 +1,6 @@
-import { cn } from '@/Utilities/cn';
-import { BlueSky } from '@/Components/icons/BlueSky';
 import { GitHub } from '@/Components/icons/GitHub';
 import { LinkedIn } from '@/Components/icons/LinkedIn';
+import { cn } from '@/Utilities/cn';
 
 const data = [
   {
@@ -14,11 +13,6 @@ const data = [
     icon: <LinkedIn aria-label="link to github profile" width={32} height={32} />,
 
     url: 'https://linkedin.com/in/johnfarrelldev',
-  },
-  {
-    id: 3,
-    icon: <BlueSky aria-label="link to bluesky profile" width={32} height={32} />,
-    url: 'https://bsky.app/profile/johnfarrelldev.bsky.social',
   },
 ];
 
