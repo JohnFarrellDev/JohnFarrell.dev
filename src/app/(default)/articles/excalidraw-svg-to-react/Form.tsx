@@ -355,7 +355,7 @@ export function Form() {
           }
         })}
       </div>
-      <textarea value={svgInput} onChange={onSvgInputChange} rows={10} />
+      <textarea value={svgInput} onChange={onSvgInputChange} rows={10} className="border-2 border-primary-700" />
       <Button className="w-fit" onClick={onClickConvert}>
         Click to Convert
       </Button>
@@ -405,7 +405,7 @@ function TextboxInput({ option, index, onChange }: TextboxInputOptionProps) {
         <p className="w-full text-left text-2xl">{option.description}</p>
         <input
           type="text"
-          className="accent-primary-800 h-6 w-fit min-w-48"
+          className="accent-primary-800 h-6 w-fit min-w-48 border-1 border-primary-800"
           value={option.value}
           onChange={(e) => onChange(e, index)}
           name={option.key}
@@ -429,7 +429,7 @@ function NumberBoxInput({ option, index, onChange }: NumberInputOptionProps) {
         <p className="w-full text-left text-2xl">{option.description}</p>
         <input
           type="number"
-          className="accent-primary-800 h-6 w-fit min-w-48"
+          className="accent-primary-800 h-6 w-fit min-w-48 border-1 border-primary-800"
           value={option.value}
           onChange={(e) => onChange(e, index)}
           name={option.key}
