@@ -53,7 +53,7 @@ export function Navbar({ className }: { className?: string }) {
         <div className="flex items-center justify-end">
           <button
             onClick={toggleMenu}
-            className="flex flex-col items-center cursor-pointer justify-center md:hidden"
+            className="flex flex-col items-center cursor-pointer justify-center md:hidden p-[8px] mr-[-8px]"
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
