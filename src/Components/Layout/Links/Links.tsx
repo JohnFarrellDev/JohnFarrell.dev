@@ -2,7 +2,6 @@ import Link from 'next/link';
 
 import { Document } from '@/Components/icons/Document';
 import { House } from '@/Components/icons/House';
-import { Mail } from '@/Components/icons/Mail';
 import { NewsPaper } from '@/Components/icons/NewsPaper';
 import { Person } from '@/Components/icons/Person';
 import { Wrench } from '@/Components/icons/Wrench';
@@ -38,12 +37,6 @@ const data = [
     text: 'CV',
     icon: <Document />,
     url: '/cv/',
-  },
-  {
-    id: 6,
-    text: 'contact',
-    icon: <Mail />,
-    url: '/contact/',
   },
 ];
 

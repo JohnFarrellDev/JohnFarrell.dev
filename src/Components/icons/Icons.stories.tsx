@@ -7,7 +7,6 @@ import { GitHub } from './GitHub';
 import { House } from './House';
 import { JavaScript } from './JavaScript';
 import { LinkedIn } from './LinkedIn';
-import { Mail } from './Mail';
 import { NewsPaper } from './NewsPaper';
 import { Node } from './Node';
 import { Person } from './Person';
@@ -23,7 +22,6 @@ function AllIconsGrid() {
     { name: 'LinkedIn', Icon: LinkedIn },
     { name: 'House', Icon: House },
     { name: 'Person', Icon: Person },
-    { name: 'Mail', Icon: Mail },
     { name: 'Wrench', Icon: Wrench },
     { name: 'NewsPaper', Icon: NewsPaper },
     { name: 'React', Icon: ReactIcon },
