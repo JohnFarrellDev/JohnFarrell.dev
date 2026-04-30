@@ -1,13 +1,12 @@
 import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
 import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
-
 import { SocialLinks } from '@/Components/SocialLinks/SocialLinks';
 
 export function Footer() {
   return (
     <PageWidthContainer as="footer" className="grid h-36 place-items-center bg-gray-900 text-center">
       <PageContentContainer>
-        <SocialLinks className="mx-auto mt-0 mb-4 flex justify-center gap-4" styleLinks="text-white w-8" />
+        <SocialLinks className="mx-auto mt-0 mb-4 flex justify-center gap-4" styleLinks="text-white" />
         <p className="mt-2 font-normal text-white uppercase">
           copyright&copy;2020-{new Date().getFullYear()} <span className="text-primary-600">John Farrell</span> all
           rights reserved

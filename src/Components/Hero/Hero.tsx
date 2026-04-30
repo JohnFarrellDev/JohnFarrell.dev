@@ -22,7 +22,7 @@ export function Hero() {
               Book a Chat
             </a>
           </div>
-          <SocialLinks className="flex w-full justify-center gap-4 md:justify-start" styleLinks="w-8" />
+          <SocialLinks className="flex w-full justify-center gap-4 md:justify-start" />
         </div>
         <div className="hidden md:block">
           <Robot />
