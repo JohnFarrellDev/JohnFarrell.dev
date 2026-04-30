@@ -13,12 +13,6 @@ export function Hero() {
           <h1 className="text-7xl font-bold">Hello, I'm John</h1>
           <h2 className="text-lg text-gray-600">I'm a software developer with a focus on the web</h2>
           <div className="mx-auto mt-5 flex w-fit gap-4 md:mx-0">
-            <Link
-              href="/contact"
-              className="bg-primary-800 text-primary-100 hover:bg-primary-300 hover:text-primary-1000 block rounded-md px-3.5 py-3.5 font-bold tracking-[0.2rem] uppercase no-underline shadow-lg transition-all duration-500"
-            >
-              Contact Me
-            </Link>
             <a
               href="https://cal.com/johnfarrelldev"
               target="_blank"
