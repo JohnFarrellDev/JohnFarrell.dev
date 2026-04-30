@@ -5,7 +5,6 @@ const baseUrl = 'https://www.johnfarrell.dev';
 const routes = [
   '/',
   '/about-me',
-  '/contact',
   '/cv',
   '/articles',
   '/articles/advent-of-code-2023',
