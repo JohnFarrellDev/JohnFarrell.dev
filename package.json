@@ -62,7 +62,7 @@
     "eslint-config-next": "16.2.2",
     "eslint-config-prettier": "10.1.8",
     "jsdom": "29.0.1",
-    "postcss": "8.5.8",
+    "postcss": "8.5.15",
     "prettier": "3.8.1",
     "prettier-plugin-organize-imports": "4.3.0",
     "prettier-plugin-tailwindcss": "0.7.2",
