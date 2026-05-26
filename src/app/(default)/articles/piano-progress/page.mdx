@@ -1,4 +1,4 @@
-import { ArticleBanner } from '@/Components/ArticleBanner/ArticleBanner';
+import { ArticleLayout } from '@/Components/ArticleLayout/ArticleLayout';
 import { CurrentyLearning } from '@/Components/Articles/PianoProgress/CurrentyLearning';
 import { SongTrackers } from '@/Components/Articles/PianoProgress/SongTrackers';
 import { produceMetaData } from '@/Utilities/produceMetaData';
@@ -10,12 +10,10 @@ export const metadata = produceMetaData({
     'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/og-images/og-image-piano-progress.png',
 });
 
-export default function PianoProgress() {
-  return (
-    <article>
-      <ArticleBanner title="Piano Progress" />
-      <CurrentyLearning />
-      <SongTrackers />
-    </article>
-  );
-}
+<ArticleLayout title="Piano Progress">
+
+<CurrentyLearning />
+
+<SongTrackers />
+
+</ArticleLayout>

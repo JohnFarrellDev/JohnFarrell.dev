@@ -12,7 +12,7 @@ interface TocEntry {
 
 interface ArticleLayoutProps {
   title: string;
-  createdAt: Date;
+  createdAt?: Date;
   lastUpdated?: Date;
   toc?: TocEntry[];
   children: React.ReactNode;
@@ -23,10 +23,14 @@ export function ArticleLayout({ title, createdAt, lastUpdated, toc, children }: 
     <PageWidthContainer as="article">
       <ArticleBanner title={title} createdAt={createdAt} lastUpdated={lastUpdated} />
       <PageContentContainer>
-        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_200px] lg:gap-8">
+        {toc ? (
+          <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_200px] lg:gap-8">
+            <ArticleStyles>{children}</ArticleStyles>
+            <ArticleSidebarToc content={toc} />
+          </div>
+        ) : (
           <ArticleStyles>{children}</ArticleStyles>
-          {toc && <ArticleSidebarToc content={toc} />}
-        </div>
+        )}
       </PageContentContainer>
     </PageWidthContainer>
   );

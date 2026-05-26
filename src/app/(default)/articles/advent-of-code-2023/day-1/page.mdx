@@ -1,0 +1,234 @@
+import Link from 'next/link';
+
+import { ArticleStyles } from '@/Components/Article/Article';
+import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
+import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
+import { PreBlock } from '@/Components/PreBlock/PreBlock';
+import { Title } from '@/Components/Title/Title';
+import { GitHub } from '@/Components/icons/GitHub';
+import { produceMetaData } from '@/Utilities/produceMetaData';
+
+export const metadata = produceMetaData({
+  title: 'Advent of Code 2023 | Day 1',
+  description: 'A detailed look at my solution for Advent of Code 2023 | Day 1',
+  image:
+    'https://personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com/og-images/og-image-advent-of-code-2023.jpeg',
+});
+
+<PageWidthContainer>
+<PageContentContainer as="article">
+<ArticleStyles>
+
+<Title title="Advent of Code 2023 - Day 1" className="text-3xl decoration-orange-400 md:text-4xl" />
+
+<a className="flex" href="https://github.com/JohnFarrellDev/advent-of-code-2023/blob/master/day1.ts">
+  <GitHub width={24} height={24} /> Code on GitHub
+</a>
+
+<Link href="/articles/advent-of-code-2023">Back to Advent of Code 2023</Link>
+
+## The Problem
+
+Day 1 was pretty easy as you would expect though I would say relatively more difficult than most year's day 1
+challenge which seems to have set the standard for this year's Advent of Code. The example input looked like
+below
+
+<PreBlock
+  lines={[
+    `1abc2
+pqr3stu8vwx
+a1b2c3d4e5f
+treb7uchet`,
+  ]}
+/>
+
+### Part 1
+
+The problem for part 1 was too simply find the first and last numerical digit on each line, merge them
+together (1 and 2 becomes 12), do this for each line and sum the total.
+
+The solution for this was fairly obvious, loop through each line, within each line loop from the start of the
+string incrementing through each character until you find a number and also do the reverse decrementing from
+the end of the string until you find a number.
+
+<PreBlock
+  lines={[
+    `1abc2 => 12
+pqr3stu8vwx => 38
+a1b2c3d4e5f => 15
+treb7uchet => 77
+
+total => 142`,
+  ]}
+/>
+
+First step for the code was to create a really basic utility function to turn the input string from Advent of
+Code into an array of strings.
+
+```ts
+function parseInput(input: string) {
+  return input.split('\n')
+}
+```
+
+That converts something like
+
+<PreBlock
+  lines={[
+    `1abc2
+pqr3stu8vwx
+a1b2c3d4e5f
+treb7uchet`,
+  ]}
+/>
+
+into
+
+<PreBlock
+  lines={[
+    `[
+  '1abc2',
+  'pqr3stu8vwx',
+  'a1b2c3d4e5f',
+  'treb7uchet'
+]`,
+  ]}
+/>
+
+Then we solve that with the below function
+
+```ts
+export function solution1(input: string[]) {
+  let total = 0
+
+  for (let i = 0; i < input.length; i++) {
+    const row = input[i]
+    let rowTotal = ''
+    for (let j = 0; j < row.length; j++) {
+      if (Number(row[j])) {
+        rowTotal += row[j]
+        break
+      }
+    }
+    for (let j = row.length - 1; j >= 0; j--) {
+      if (Number(row[j])) {
+        rowTotal += row[j]
+        break
+      }
+    }
+    total += Number(rowTotal)
+  }
+
+  return total
+}
+```
+
+Couple of things to note in the code, rowTotal is a string so when the numerical digit is added (which is
+actually represented a string) we concatenate the value instead of adding. The other important thing to note
+is that Number(row[j]) will be false(y) for any string that does not represent a numerical value as
+Number('not a number') returns NaN which is falsy.
+
+### Part 2
+
+For part 2 we are now told that digits spelled out are also now valid numbers so for example
+
+<PreBlock
+  lines={[
+    `two1nine => 29
+eightwothree => 83
+abcone2threexyz => 13
+xtwone3four => 24
+4nineeightseven2 => 42
+zoneight234 => 14
+7pqrstsixteen => 76
+
+total => 281`,
+  ]}
+/>
+
+I took a simple solution and tackled this problem in the exact same way with a minor variation applied
+
+```ts
+export function solution2(input: string[]) {
+  let total = 0
+
+  const digits = {
+    one: '1',
+    two: '2',
+    three: '3',
+    four: '4',
+    five: '5',
+    six: '6',
+    seven: '7',
+    eight: '8',
+    nine: '9',
+  }
+
+  const digitKeys = Object.keys(digits)
+
+  for (let i = 0; i < input.length; i++) {
+    const row = input[i]
+    let rowTotal = ''
+
+    for (let j = 0; j < row.length; j++) {
+      if (Number(row[j])) {
+        rowTotal += row[j]
+        break
+      }
+      let x = false
+      const substring = row.substring(0, j + 1)
+      for (const digit of digitKeys) {
+        if (substring.includes(digit)) {
+          rowTotal += digits[digit as keyof typeof digits]
+          x = true
+          break
+        }
+      }
+      if (x) {
+        break
+      }
+    }
+
+    for (let j = row.length - 1; j >= 0; j--) {
+      if (Number(row[j])) {
+        rowTotal += row[j]
+        break
+      }
+      let x = false
+      const substring = row.substring(j)
+      for (const digit of digitKeys) {
+        if (substring.includes(digit)) {
+          rowTotal += digits[digit as keyof typeof digits]
+          x = true
+          break
+        }
+      }
+      if (x) {
+        break
+      }
+    }
+    total += Number(rowTotal)
+  }
+
+  return total
+}
+```
+
+The changes added in part 2 are keeping an object with a key:value mapping of the digits one to nine and their
+values 1-9.
+
+Then as well as checking for a number as we iterate through each line (from start to end) and (end to start)
+we also check if our current substring contains any of the keys in our object mapping.
+
+If the current substring does exist within the substring we use the corresponding value in our rowTotal and
+break out of the for loop.
+
+There is an opportunity to make this code cleaner and probably more performant with the use of a
+[Trie data structure](https://en.wikipedia.org/wiki/Trie) but I have never used this before, if I have time I
+will come back to this problem and learn enough to implement the solution using a Trie. Also considering my
+solution runs in about 10ms on my machine with the real input there is not a need for a more performant
+solution in this case.
+
+</ArticleStyles>
+</PageContentContainer>
+</PageWidthContainer>

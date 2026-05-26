@@ -76,5 +76,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {props.children}
       </a>
     ),
+    ul: (props) => <ul className="mt-5 max-w-[70ch] list-disc pl-6 text-lg text-gray-900">{props.children}</ul>,
+    ol: (props) => <ol className="mt-5 max-w-[70ch] list-decimal pl-6 text-lg text-gray-900">{props.children}</ol>,
+    li: (props) => <li className="mt-2 text-pretty">{props.children}</li>,
+    code: (props) => <code className="rounded bg-gray-200 px-1.5 py-0.5 text-[0.95em]">{props.children}</code>,
   };
 }
