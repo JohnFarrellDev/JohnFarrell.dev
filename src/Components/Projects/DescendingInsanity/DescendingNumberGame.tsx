@@ -1,10 +1,10 @@
 'use client';
 
-import { Copy } from 'lucide-react';
 import { ToastContainer, toast } from 'react-toastify';
 
 import { RefObject, useEffect, useRef, useState } from 'react';
 
+import { Copy } from '@/Components/icons/Copy';
 import { cn } from '@/Utilities/cn';
 
 import { applyConfetti, deferredGameState } from './DescendingNumberGame.utils';

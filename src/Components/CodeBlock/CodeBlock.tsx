@@ -1,10 +1,12 @@
 'use client';
 
-import { Copy, ExternalLink } from 'lucide-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import coldarkDark from 'react-syntax-highlighter/dist/cjs/styles/prism/coldark-dark';
 
 import { useState } from 'react';
+
+import { Copy } from '@/Components/icons/Copy';
+import { ExternalLink } from '@/Components/icons/ExternalLink';
 
 interface CodeBlockProps {
   canHide: boolean;

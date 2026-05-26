@@ -1,10 +1,9 @@
-import { GitMerge } from 'lucide-react';
-
-import { CSharp } from '../../icons/CSharp';
-import { JavaScript } from '../../icons/JavaScript';
-import { Node } from '../../icons/Node';
-import { React } from '../../icons/React';
-import { TypeScript } from '../../icons/TypeScript';
+import { CSharp } from '@/Components/icons/CSharp';
+import { GitMerge } from '@/Components/icons/GitMerge';
+import { JavaScript } from '@/Components/icons/JavaScript';
+import { Node } from '@/Components/icons/Node';
+import { React } from '@/Components/icons/React';
+import { TypeScript } from '@/Components/icons/TypeScript';
 
 export const skills = [
   {

@@ -1,7 +1,6 @@
 'use client';
 
 import { type CheerioAPI, load } from 'cheerio';
-import { ChevronsRight } from 'lucide-react';
 import getBounds from 'svg-path-bounding-box';
 
 import { ChangeEvent, useState } from 'react';
@@ -9,6 +8,7 @@ import { ChangeEvent, useState } from 'react';
 import { Button } from '@/Components/Button/Button';
 import { CodeBlock } from '@/Components/CodeBlock/CodeBlock';
 import { SectionTitle } from '@/Components/SectionTitle/SectionTitle';
+import { ChevronRight } from '@/Components/icons/ChevronRight';
 
 interface BaseOptions {
   description: string;
@@ -338,7 +338,7 @@ export function Form() {
     <div className="mb-4 flex flex-col gap-4">
       <SectionTitle>Input</SectionTitle>
       <div className="flex gap-2">
-        <SectionTitle as="h3">Input Controls</SectionTitle> <ChevronsRight />
+        <SectionTitle as="h3">Input Controls</SectionTitle> <ChevronRight />
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {inputOptions.map((inputOption, index) => {

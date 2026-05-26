@@ -1,5 +1,3 @@
-import { Info, OctagonAlert } from 'lucide-react';
-
 import { cn } from '@/Utilities/cn';
 
 interface BannerProps {

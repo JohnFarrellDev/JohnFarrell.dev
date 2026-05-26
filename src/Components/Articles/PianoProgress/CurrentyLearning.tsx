@@ -1,5 +1,4 @@
-import { Music } from 'lucide-react';
-
+import { Music } from '@/Components/icons/Music';
 import { Card, CardContent, CardHeader, CardTitle } from '@/Components/ui/card';
 
 const currentSongs: string[] = [

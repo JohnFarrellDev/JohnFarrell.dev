@@ -1,7 +1,6 @@
-import { Music } from 'lucide-react';
-
 import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
 import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
+import { Music } from '@/Components/icons/Music';
 import { Youtube } from '@/Components/icons/Youtube';
 import { Badge } from '@/Components/ui/badge';
 import { Button } from '@/Components/ui/button';

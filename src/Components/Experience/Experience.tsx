@@ -1,6 +1,5 @@
 'use client';
 
-import { ChevronsRight } from 'lucide-react';
 import Link from 'next/link';
 
 import { useState } from 'react';
@@ -9,6 +8,7 @@ import { Button } from '@/Components/Button/Button';
 import { PageContentContainer } from '@/Components/Layout/PageContent/PageContent';
 import { PageWidthContainer } from '@/Components/Layout/PageWidthContainer/PageWidthContainer';
 import { Title } from '@/Components/Title/Title';
+import { ChevronRight } from '@/Components/icons/ChevronRight';
 import { cn } from '@/Utilities/cn';
 
 import { jobs } from './Constants/jobs';
@@ -45,7 +45,7 @@ export function Experience() {
             <div className="grid grid-cols-1 gap-4">
               {responsibilities.map((item) => (
                 <div key={item.id} className="flex items-center gap-8">
-                  <ChevronsRight className="text-primary-600 shrink-0" />
+                  <ChevronRight className="text-primary-600 shrink-0" />
                   <p className="mb-0 text-gray-600">{item.description}</p>
                 </div>
               ))}
