@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next';
 
+export const dynamic = 'force-static';
+
 const baseUrl = 'https://www.johnfarrell.dev';
 
 const routes = [

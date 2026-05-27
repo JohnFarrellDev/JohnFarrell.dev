@@ -2,14 +2,12 @@ import createMDX from '@next/mdx';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   reactStrictMode: false,
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   images: {
-    remotePatterns: [
-      {
-        hostname: 'personal-website-sfdajkfsadvvujfdsfyeusjhvbsdfhfdshbfdserf.s3.eu-west-2.amazonaws.com',
-      },
-    ],
+    // Static export has no Image Optimization server; serve images as-is.
+    unoptimized: true,
   },
   productionBrowserSourceMaps: true,
 };
