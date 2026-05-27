@@ -14,14 +14,17 @@ function slugify(text: string): string {
 
 function parseCodeMeta(content: string) {
   const metaPrefix = '// @meta ';
-  const firstLine = content.split('\n')[0];
+  // MDX appends a trailing newline to every fenced code block; drop it so we
+  // don't render an empty final line.
+  const lines = content.replace(/\n$/, '').split('\n');
+  const firstLine = lines[0];
 
   if (!firstLine.startsWith(metaPrefix)) {
-    return { content, canHide: false, fileName: undefined, githubLink: undefined };
+    return { content: lines.join('\n'), canHide: false, fileName: undefined, githubLink: undefined };
   }
 
   const metaString = firstLine.slice(metaPrefix.length);
-  const strippedContent = content.split('\n').slice(1).join('\n');
+  const strippedContent = lines.slice(1).join('\n');
 
   const canHide = metaString.includes('canHide');
   const fileNameMatch = metaString.match(/fileName="([^"]+)"/);

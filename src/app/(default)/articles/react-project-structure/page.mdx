@@ -33,11 +33,10 @@ The React official docs has it's own un-opinionated advice [here](https://reactj
           content: [
             {
               folderName: 'Footer/',
-              content: ['Footer.module.css', 'Footer.tsx', 'index.ts'],
+              content: ['Footer.module.css', 'Footer.tsx'],
               collapsed: true,
             },
             'Layout.tsx',
-            'index.ts',
           ],
         },
         {
@@ -45,7 +44,7 @@ The React official docs has it's own un-opinionated advice [here](https://reactj
           content: [
             {
               folderName: 'Button/',
-              content: ['Button.module.css', 'Button.stories.tsx', 'Button.tsx', 'index.ts'],
+              content: ['Button.module.css', 'Button.stories.tsx', 'Button.tsx'],
             },
           ],
         },
@@ -62,14 +61,13 @@ The React official docs has it's own un-opinionated advice [here](https://reactj
                     'TableOfContents.stories.tsx',
                     'TableOfContents.test.tsx',
                     'TableOfContents.tsx',
-                    'index.ts',
                   ],
                 },
               ],
             },
             {
               folderName: 'ReactProjectStructure/',
-              content: ['index.ts', 'ReactProjectStructure.module.css', 'ReactProjectStructure.tsx'],
+              content: ['ReactProjectStructure.module.css', 'ReactProjectStructure.tsx'],
             },
           ],
         },
@@ -120,38 +118,53 @@ CSS etc. This is also commonly seen in Java and C# projects by default. I dislik
 code. When working on a component I want everything relevant to that component right next to it, for me,
 this is a much better developer experience.
 
-## What is that index.ts file about? (barrel files)
+## What about index.ts files? (barrel files)
 
-### Cleaner Imports
+You might have noticed there isn't a single index.ts file in the structure above. I used to lean on them
+heavily, but I've since changed my mind. Here's the story.
 
-The index.ts file is incredibly simple, all it does is import the relevant component and then export it
-again.
+### The Appeal: Cleaner Imports
+
+A barrel file is incredibly simple, all it does is import the relevant component and then export it again.
 
 ```ts
-// @meta fileName="/Components/Articles/TableOfContents/index.ts"
-export {TableOfContents} from './TableOfContents'
+// @meta fileName="/Components/TableOfContents/index.ts"
+export { TableOfContents } from './TableOfContents';
+export { TableOfContentsHeader } from './TableOfContentsHeader';
 ```
 
-So if it is not doing anything why do I have it? The index.ts file allows my imports to look "clean".
-Without the index.ts file importing the TableOfContents component would have to look like this.
+The whole point is to make my imports look "clean". Without it, importing the TableOfContents component
+would have to look like this.
 
 ```ts
-import { TableOfContents } from '../Utilities/TableOfContents/TableOfContents'
+import { TableOfContents } from '@/Components/TableOfContents/TableOfContents';
+import { TableOfContentsHeader } from '@/Components/TableOfContents/TableOfContentsHeader';
 ```
 
 While it is fairly minute to care about I dislike the double TableOfContents in the import.
-("/TableOfContents/TableOfContents"). Exporting from the index.ts removes this and allows my import to look
+("/TableOfContents/TableOfContents"). Exporting from a barrel file removes this and lets my import look
 like.
 
 ```ts
-import { TableOfContents } from '../Utilities/TableOfContents'
+import { TableOfContents, TableOfContentsHeader } from '@/Components/TableOfContents';
 ```
+
+### Why I Stopped Using Them: Performance
+
+So if they make my imports prettier, why have I ripped them all out? It turns out barrel files come with a
+real performance cost. When you import a single thing from a barrel your bundler, dev server and test runner
+often have to resolve and load the entire barrel along with everything it re-exports. Multiply that across a
+codebase full of barrels and you pay for it in slower cold starts, sluggish hot reloads, slower tests and
+tree-shaking that doesn't always do its job.
+
+A slightly uglier import is a small price to pay to avoid all of that, so these days I just import straight
+from the component file, double TableOfContents and all.
 
 ### Meaningful File Names
 
 Some of you might be saying that's fine but if you just changed the name of TableOfContents.tsx to index.tsx
-the imports would still be "clean" and you could remove the index.ts file. Removing the index.ts file could
-be nice as you might see it as unnecessary boilerplate.
+the imports would still be "clean" and you'd dodge the double name without any barrel file at all. You might
+even see that as removing some unnecessary boilerplate.
 
 My issue with this approach is that you end up with hundreds of components that are not accurately
 represented by their filename, worse they all share the same filename index.tsx. This can make searching by
